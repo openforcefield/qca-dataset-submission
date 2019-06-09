@@ -1,0 +1,4 @@
+qcportal == 0.7.2
+fragmenter == x.x.x
+rdkit == x.x.x
+cmiles == x.x.x
