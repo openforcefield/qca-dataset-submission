@@ -1,0 +1,4 @@
+fragmenter == 0.0.2+121.g87b85a4
+cmiles == 0.1.5
+openeye == 2019.Apr.2
+rdkit == 2019.03.2
