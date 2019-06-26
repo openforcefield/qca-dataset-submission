@@ -10,15 +10,17 @@ optimization_input = []
 skipped = []
 omega_failures = []
 cmiles_failures = []
+
 for mol in oemols:
     # Filter out single atom molecules
     if mol.GetMaxAtomIdx() == 1:
-        skipped.append(cmiles.utils.mol_to_smiles(mol))
+        skipped.append(cmiles.utils.mol_to_smiles(mol, mapped=False))
         continue
 
     # Expand protonation states and stereoisomers
     states = fragment.expand_states(mol, stereoisomers=True, protonation=True, tautomers=False)
     for s in states:
+        # Some states have valences that rdkit does not accept.
         try:
             cmiles_ids = cmiles.get_molecule_ids(s)
         except:
@@ -27,6 +29,7 @@ for mol in oemols:
         mapped_smiles = cmiles_ids['canonical_isomeric_explicit_hydrogen_mapped_smiles']
         m = cmiles.utils.load_molecule(s)
         try:
+            # Omega fails for some molecules.
             conformers = chemi.generate_conformers(m)
         except RuntimeError:
             warnings.warn('Omega failed to generate conformers for {}'.format(cmiles_ids['canonical_isomeric_smiles']))
@@ -38,14 +41,15 @@ for mol in oemols:
                                    'cmiles_identifiers': cmiles_ids})
 
 
+def save_smiles(smiles, filename):
+    """Write smiles str to smi file"""
+    with open(filename, 'w') as f:
+        for smi in smiles:
+            f.write(smi + '\n')
+
 with open('optimization_inputs.json', 'w') as f:
     json.dump(optimization_input, f, indent=2, sort_keys=True)
 
-with open('omega_failures.json', 'w') as f:
-    json.dump(omega_failures, f, indent=2, sort_keys=True)
-
-with open('cmiles_failures.json', 'w') as f:
-    json.dump(cmiles_failures, f, indent=2, sort_keys=True)
-
-with open('skipped_ions.json', 'w') as f:
-    json.dump(skipped, f, indent=2, sort_keys=True)
+save_smiles(omega_failures, 'omega_failures.smi')
+save_smiles(cmiles_failures, 'cmiles_failures.smi')
+save_smiles(skipped, 'skipped_ions.smi')
