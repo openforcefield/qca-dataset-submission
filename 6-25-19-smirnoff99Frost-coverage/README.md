@@ -2,17 +2,17 @@
 
 ### General Information
  - Date: 6/25/2019
- - Class: smirnoff99Frost parameter coverage
+ - Class: Forcefield Parametrization 
  - Purpose: Set of small molecules that use all smirnoff99Frost parameters
  - Collection: OptimizationDataset
- - Name: 
+ - Name: smirnoff99Frost parameter coverage
  - Number of Entries: 156 (expandable)
  - Submitter: Chaya Stern
 
 ### Generation pipeline
- - Used `fragmenter.fragment.expand_states`` to expand protonation states and stereoisomers
- - Used `fragmenter.chemi.generate_conformers`` to generate input conformers
- - Used `cmiles`` to generate cmiles identifiers
+ - Used `fragmenter.fragment.expand_states` to expand protonation states and stereoisomers
+ - Used `fragmenter.chemi.generate_conformers` to generate input conformers
+ - Used `cmiles` to generate cmiles identifiers
  - Original SMILES were taken from [openforcefiles/open-forcefield-data/Utilize-All_Parameters](https://github.com/openforcefield/open-forcefield-data/tree/master/Utilize-All-Parameters/selected)
 
 ### Quantum Chemistry Information
