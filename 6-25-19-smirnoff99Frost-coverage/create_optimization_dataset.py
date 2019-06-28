@@ -26,7 +26,6 @@ def read_molecules(input_json):
         initial_molecules = mdata['initial_molecules']
         cmiles_ids = mdata['cmiles_identifiers']
         index = cmiles_ids['canonical_isomeric_smiles']
-        ("Multiple molecules have the same index")
         for i_conformer, initial_molecule in enumerate(initial_molecules):
             qcel_molecule = Molecule.from_data(initial_molecule)
             this_index = f'{index}-{i_conformer}' if i_conformer > 0 else index
@@ -55,6 +54,12 @@ def create_optimization_dataset(molecules_dict, client_config_file, dataset_name
         The name of the QM spec, default is "default"
     start_compute: bool
         If true, start compute this dataset after creation
+
+    Returns
+    -------
+    ds: qcportal.collections.OptimizationDataset
+        The dataset created
+
     """
     client = ptl.FractalClient.from_file(client_config_file)
     # create a new dataset with specified name
@@ -69,6 +74,7 @@ def create_optimization_dataset(molecules_dict, client_config_file, dataset_name
     # start compute
     if start_compute:
         ds.compute(spec_name)
+    return ds
 
 
 def main():
