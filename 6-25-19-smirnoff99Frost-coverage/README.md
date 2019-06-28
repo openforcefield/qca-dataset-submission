@@ -27,7 +27,7 @@
  - RDkit failed to generate standard smiles for some molecules. All failures were due to wrong Explicit valence. 
   
 ### Manifest
- - `chosen.smi` - input SMILES file. 
+ - `chosen_supplemented.smi` - input SMILES file. 
  - `generate.py` - script to generate OptimizationDataset inputs
  - `optimization_inputs.json` - input molecules
  - `cmiles_failures.json` - Molecules that rdkit failed to generate standardized tautomer
