@@ -35,7 +35,7 @@ def read_molecules(input_json):
     return res
 
 
-def create_optimization_dataset(molecules_dict, client_config_file, dataset_name, qm_method, qm_basis, spec_name='default', start_compute=False)
+def create_optimization_dataset(molecules_dict, client_config_file, dataset_name, qm_method, qm_basis, spec_name='default', start_compute=False):
     """
     Submit a list of molecules for optimization
 

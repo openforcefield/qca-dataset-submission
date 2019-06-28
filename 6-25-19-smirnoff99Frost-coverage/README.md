@@ -34,4 +34,16 @@
  - `omega_failures.json` - Molecules that Omega failed to generate conformers
  - `skipped_ions.json` - Molecules that were skipped (ions)
  - `requirements.txt` - versions of toolkits used
- - `qcfractal_submit.py` - Generate submit arguments for client.add_procedure()
+ - `create_optimization_dataset.py` - Create the dataset
+
+### Usage
+1. Generate the conformers and save in JSON format
+   ```
+   python generate.py
+   ```
+   A new file called "optimization_inputs.json" will be generated.
+
+2. Create dataset on QCFractal server
+    ```
+    python create_optimization_dataset.py optimization_inputs.json smirnoff_coverage client_config.yaml
+    ```
