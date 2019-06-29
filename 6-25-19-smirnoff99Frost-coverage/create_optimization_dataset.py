@@ -2,7 +2,7 @@
 
 import copy
 import json
-
+from collections import Counter
 import qcportal as ptl
 from qcelemental.models import Molecule
 
@@ -22,13 +22,17 @@ def read_molecules(input_json):
     res = {}
     with open(input_json) as infile:
         molecule_data_list = json.load(infile)
+    index_counter = Counter()
     for mdata in molecule_data_list:
         initial_molecules = mdata['initial_molecules']
         cmiles_ids = mdata['cmiles_identifiers']
         index = cmiles_ids['canonical_isomeric_smiles']
         for i_conformer, initial_molecule in enumerate(initial_molecules):
             qcel_molecule = Molecule.from_data(initial_molecule)
-            this_index = f'{index}-{i_conformer}' if i_conformer > 0 else index
+            # use count to generate unique index
+            index_count = index_counter[index]
+            this_index = f'{index}-{index_count}'
+            index_counter[index] += 1
             assert this_index not in res, f"Multiple molecules have the same index, please check {mdata}"
             res[this_index] = qcel_molecule
     return res
@@ -63,12 +67,14 @@ def create_optimization_dataset(molecules_dict, client_config_file, dataset_name
     """
     client = ptl.FractalClient.from_file(client_config_file)
     # create a new dataset with specified name
+    print(f"Creating OptimizationDataset < {dataset_name} >")
     ds = ptl.collections.OptimizationDataset(dataset_name, client=client)
     # create specification for this dataset
     opt_spec = {"program": "geometric"}
     qc_spec = {"driver": "gradient", "method": qm_method, "basis": qm_basis, "program": "psi4"}
     ds.add_specification(spec_name, opt_spec, qc_spec)
     # add molecules
+    print(f"Adding {len(molecules_dict)} molecules")
     for molecule_index, molecule in molecules_dict.items():
         ds.add_entry(molecule_index, molecule)
     # start compute
