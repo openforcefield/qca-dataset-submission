@@ -30,14 +30,15 @@ Prepared by enumerating protonation and tautomeric states and submitted for opti
 
 ### Manifest
  - `01_generate.py` - script to generate OptimizationDataset inputs
- - `02_create_optimization_dataset.py` - Create the dataset
+ - `02_create_optimization_dataset.py` - create the dataset
+ - `03_visualize.py` - create a PDF of all species in the dataset
  - `VEHICLe.csv` - downloaded VEHICLe database containing SMILES
  - `VEHICLe.smi` - input VEHICLe database containing only SMILES
  - `optimization_inputs.json.gz` - input molecules for QCFractal
  - `cmiles_failures.smi` - Molecules that RDKit failed to generate standardized tautomer
  - `omega_failures.smi` - Molecules that Omega failed to generate conformers
  - `skipped_ions.smi` - Molecules that were skipped (ions)
- - `requirements.txt` - versions of toolkits used
+ - `environment.yml` - versions of toolkits used (conda environment file)
 
 ### Usage
 1. Generate the conformers and save in JSON format
