@@ -39,11 +39,11 @@
 ### Usage
 1. Generate the conformers and save in JSON format
    ```
-   python generate.py
+   python 01_generate.py
    ```
    A new file called "optimization_inputs.json" will be generated.
 
 2. Create dataset on QCFractal server
     ```
-    python create_optimization_dataset.py optimization_inputs.json smirnoff_coverage client_config.yaml
+    python 02_create_optimization_dataset.py
     ```
