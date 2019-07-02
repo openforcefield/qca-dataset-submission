@@ -46,11 +46,14 @@ python                    3.7.3                h0d93f26_0    conda-forge
 python-dateutil           2.8.0                      py_0    conda-forge
 pytz                      2019.1                     py_0    conda-forge
 pyyaml                    5.1.1            py37h01d97ff_0    conda-forge
+qcelemental               0.4.2                      py_0    conda-forge
+qcportal                  0.7.1                      py_0    conda-forge
 rdkit                     2019.03.2        py37haff9cca_0    conda-forge
 readline                  7.0               hcfe32e1_1001    conda-forge
 setuptools                41.0.1                   py37_0    conda-forge
 six                       1.12.0                py37_1000    conda-forge
 sqlite                    3.28.0               h9721f7c_0    conda-forge
+tqdm                      4.31.1                   pypi_0    pypi
 tk                        8.6.9             h2573ce8_1002    conda-forge
 wheel                     0.33.4                   py37_0    conda-forge
 xz                        5.2.4             h1de35cc_1001    conda-forge
