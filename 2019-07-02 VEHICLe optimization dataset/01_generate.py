@@ -21,7 +21,6 @@ logging.getLogger().setLevel(logging.INFO)
 
 # Read SMILES
 oemols = chemi.file_to_oemols('VEHICLe.smi')
-oemols = chemi.file_to_oemols('test.smi')
 
 optimization_input = []
 skipped = []
