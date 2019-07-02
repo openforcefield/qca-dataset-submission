@@ -8,18 +8,35 @@ from qcelemental.models import Molecule
 
 def read_molecules(input_json):
     """ Extract the molecules and the index of them from the input json file
-    Return a dictionary like
-    {
-        index1: Molecule1,
-        index2: Molecule2,
-    }
+
+    Parameters
+    ----------
+    input_json: str,
+        JSON file name to the output json of generate.py
+        The data in the json file should be a list of {'initial_molecules': [..], 'cmiles_identifiers':{}}.
+
+    Returns
+    -------
+    molecules_dict: dict
+        The dictionary maps the index of a molecule to a Molecule object. e.g.
+        {
+            index1: Molecule1,
+            index2: Molecule2,
+        }
+
+    molecule_attributes: dict
+        The dicitonary maps the index of a molecule to the attributes of the molecule, e.g.
+        {
+            index1: {'canonical_explicit_hydrogen_smiles': .., 'canonical_isomeric_smiles': .., ..}
+        }
 
     Note
     ----
     1. The mdata['cmiles_identifiers']['canonical_isomeric_smiles'] is selected as the index.
     2. For molecules have the same "canonical_isomeric_smiles", we use index-1, index-2 to distinguish them.
     """
-    res = {}
+    molecules_dict = {}
+    molecule_attributes = {}
     with open(input_json) as infile:
         molecule_data_list = json.load(infile)
     index_counter = Counter()
@@ -33,19 +50,22 @@ def read_molecules(input_json):
             index_count = index_counter[index]
             this_index = f'{index}-{index_count}'
             index_counter[index] += 1
-            assert this_index not in res, f"Multiple molecules have the same index, please check {mdata}"
-            res[this_index] = qcel_molecule
-    return res
+            assert this_index not in molecules_dict, f"Multiple molecules have the same index, please check {mdata}"
+            molecules_dict[this_index] = qcel_molecule
+            molecule_attributes[this_index] = cmiles_ids
+    return molecules_dict, molecule_attributes
 
 
-def create_optimization_dataset(molecules_dict, client_config_file, dataset_name, qm_method, qm_basis, spec_name='default', start_compute=False):
+def create_optimization_dataset(molecules_dict, client_config_file, dataset_name, qm_method, qm_basis, \
+        spec_name='default', molecule_attributes={}, start_compute=False):
     """
     Submit a list of molecules for optimization
 
     Parameters
     ----------
     molecules_dict: dict {str: qcelemental.models.Molecule}
-        The dictionary contains molecules to be submitted. The key is the index (name) of the molecule, value is a Molecule object.
+        The dictionary contains molecules to be submitted. The key is the index (name) of the molecule,
+        value is a Molecule object.
     client_config_file: str
         File name for the QCPortal client configuration.
     dataset_name: str
@@ -58,6 +78,9 @@ def create_optimization_dataset(molecules_dict, client_config_file, dataset_name
         The name of the QM spec, default is "default"
     start_compute: bool
         If true, start compute this dataset after creation
+    molecule_attributes: dict {str: dict}
+        The dictionary contains attributes for each molecule. The key is the index (name) of the molecule,
+        value is a dictionary containing all the attributes for this molecule
 
     Returns
     -------
@@ -76,7 +99,8 @@ def create_optimization_dataset(molecules_dict, client_config_file, dataset_name
     # add molecules
     print(f"Adding {len(molecules_dict)} molecules")
     for molecule_index, molecule in molecules_dict.items():
-        ds.add_entry(molecule_index, molecule)
+        attributes = molecule_attributes.get(molecule_index, {})
+        ds.add_entry(molecule_index, molecule, attributes=attributes)
     # start compute
     if start_compute:
         ds.compute(spec_name)
@@ -94,9 +118,10 @@ def main():
     parser.add_argument("--start", action="store_true", help="Start compute for the created dataset")
     args = parser.parse_args()
 
-    molecules_dict = read_molecules(args.input_json)
+    molecules_dict, molecule_attributes = read_molecules(args.input_json)
 
-    create_optimization_dataset(molecules_dict, args.client_config, args.dataset_name, args.qm_method, args.qm_basis, spec_name='default', start_compute=args.start)
+    create_optimization_dataset(molecules_dict, args.client_config, args.dataset_name, args.qm_method, args.qm_basis, \
+        spec_name='default', molecule_attributes=molecule_attributes, start_compute=args.start)
 
 if __name__ == "__main__":
     main()
