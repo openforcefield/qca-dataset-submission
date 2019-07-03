@@ -21,9 +21,12 @@ logging.getLogger().setLevel(logging.INFO)
 
 # Read SMILES
 oemols = chemi.file_to_oemols('VEHICLe.smi')
+oemols = oemols[:1000]
 
 optimization_input = []
+processed_canonical_smiles = []
 skipped = []
+duplicates = [] # duplicate states
 omega_failures = []
 cmiles_failures = []
 
@@ -34,7 +37,7 @@ for mol in oemols:
         continue
 
     # Expand protonation states and stereoisomers
-    states = fragment.expand_states(mol, stereoisomers=True, protonation=True, tautomers=False)
+    states = fragment.expand_states(mol, stereoisomers=True, protonation=False, tautomers=False)
     for s in states:
         # Some states have valences that rdkit does not accept.
         try:
@@ -42,6 +45,17 @@ for mol in oemols:
         except:
             cmiles_failures.append(s)
             continue
+
+        # Drop duplicates
+        canonical_smiles = cmiles_ids['canonical_smiles']
+        if canonical_smiles in processed_canonical_smiles:
+            logging.info('Found duplicate canonical SMILES {}'.format(canonical_smiles))
+            duplicates.append(canonical_smiles)
+            continue
+        else:
+            processed_canonical_smiles.append(canonical_smiles)
+
+        # Generate molecule using mapped SMILES
         mapped_smiles = cmiles_ids['canonical_isomeric_explicit_hydrogen_mapped_smiles']
         m = cmiles.utils.load_molecule(s)
         try:
@@ -60,6 +74,8 @@ import gzip
 with gzip.open('optimization_inputs.json.gz', 'w') as f:
     f.write(json.dumps(optimization_input, indent=2, sort_keys=True).encode('utf-8'))
 
+save_smiles(processed_canonical_smiles, 'optimization_inputs.smi')
+save_smiles(duplicates, 'duplicates.smi')
 save_smiles(omega_failures, 'omega_failures.smi')
 save_smiles(cmiles_failures, 'cmiles_failures.smi')
 save_smiles(skipped, 'skipped_ions.smi')
