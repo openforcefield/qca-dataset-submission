@@ -21,7 +21,6 @@ logging.getLogger().setLevel(logging.INFO)
 
 # Read SMILES
 oemols = chemi.file_to_oemols('VEHICLe.smi')
-oemols = oemols[:1000]
 
 optimization_input = []
 processed_canonical_smiles = []
