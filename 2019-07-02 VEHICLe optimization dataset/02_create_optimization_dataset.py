@@ -84,7 +84,7 @@ print("Initializing dataset...")
 client = ptl.FractalClient("localhost:7777", verify=False)
 
 # create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("Open Force Field VEHICLe 1.0 optimization dataset", client=client)
+ds = ptl.collections.OptimizationDataset("Open Force Field VEHICLe optimization dataset 1.0.0", client=client)
 
 # create specification for this dataset
 opt_spec = {"program": "geometric"}

@@ -2,17 +2,17 @@
 
 Prepared by John Chodera `<john.chodera@choderalab.org>`
 
-VEHICLe (virtual exploratory heterocyclic library) dataset of 24,847 aromatic heterocyclic rings from [1].
+VEHICLe (virtual exploratory heterocyclic library) dataset of 24,867 aromatic heterocyclic rings from [1].
 
-Prepared by enumerating protonation and tautomeric states and submitted for optimization and Hessian computations.
+Prepared by enumerating stereochemistry (but not protonation or tautomeric states) and submitted for optimization and Hessian computations.
 
 ### General Information
  - Date: 2019-07-02
  - Class: Forcefield Parametrization
  - Purpose: VEHICLe (virtual exploratory heterocyclic library)
  - Collection: OptimizationDataset
- - Name: Open Force Field VEHICLe 1.0 optimization dataset
- - Number of Entries: 84761
+ - Name: Open Force Field VEHICLe optimization dataset 1.0.0
+ - Number of Entries: 24867
  - Submitter: John Chodera
 
 ### Generation pipeline
