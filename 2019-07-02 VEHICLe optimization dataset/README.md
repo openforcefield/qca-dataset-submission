@@ -34,7 +34,10 @@ Prepared by enumerating stereochemistry (but not protonation or tautomeric state
  - `03_visualize.py` - create a PDF of all species in the dataset
  - `VEHICLe.csv` - downloaded VEHICLe database containing SMILES
  - `VEHICLe.smi` - input VEHICLe database containing only SMILES
- - `optimization_inputs.json.gz` - input molecules for QCFractal
+ - `optimization_inputs.json.gz` - QC Schema JSON input molecules for QCFractal
+ - `optimization_inputs.smi` - SMILES input molecules for QCFractal (for inspection)
+ - `optimization_inputs.pdf` - PDF 2D structures of input molecules for QCFractal (for inspection)
+ - `duplicates.smi` - rejected duplicate canonical SMILES strings
  - `cmiles_failures.smi` - Molecules that RDKit failed to generate standardized tautomer
  - `omega_failures.smi` - Molecules that Omega failed to generate conformers
  - `skipped_ions.smi` - Molecules that were skipped (ions)
