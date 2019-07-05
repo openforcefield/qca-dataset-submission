@@ -1,10 +1,12 @@
 # eMolecules force field discrepancy optimization dataset 1
 
-Prepared by John Chodera `<john.chodera@choderalab.org>` and David Mobley `<dmobley@uci.edu>`
+Prepared by John Chodera `<john.chodera@choderalab.org>` and David Mobley `<dmobley@uci.edu>` based on work done by Jordan Ehrman `<ehrmanj@uci.edu>` supervised by Mobley, Caitlin Bannan and Victoria Lim (UCI).
 
-**Provenance data to be filled in by David Mobley**
+### Provenance Information
 
-Prepared by expanding undefined stereochemistry (but not protonation or tautomeric states) and submitted for optimization and Hessian computations.
+The Mobley lab has been conducting a project to energy minimize all of eMolecules under the GAFF, GAFF2, smirnoff99Frosst and MMFF94 and 94s force fields and compare geometries, looking for significant differences. Results are compared by RMSD and torsion fingerprint difference (code being made available at https://github.com/MobleyLab/off-ffcompare and a paper is in preparation). Here, we have selected a subset of the resulting minimized molecules based on picking those with geometries that are substantially different in `smirnoff99Frosst` relative to the other force fields. We further filtered the results based on picking molecules with three or fewer rotatable bonds, since at present we are not planning on fragmenting the molecules before running geometry optimizations. The molecule set was selected from the minimized geometries and RMSD/TFD results using Ehrman's [dataproliferator](https://github.com/MobleyLab/off-ffcompare/blob/721b4c8a67276c381314a2287b4c1cfe76356f01/dataproliferator.py) script. Subsequent filtering by rotatable bonds and visualization was done in the attached Jupyter notebook, `filter_by_bonds.ipynb`, resulting in the final set `SMIRNOFF_sub3rot.tar.gz` provided here.
+
+Following this, the set was further prepared by expanding undefined stereochemistry (but not protonation or tautomeric states) and submitted for optimization and Hessian computations.
 
 ### General Information
 
