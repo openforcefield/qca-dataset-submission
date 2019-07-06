@@ -83,7 +83,7 @@ print("Initializing dataset...")
 client = ptl.FractalClient("localhost:7777", verify=False) # TODO: Should this be changed to remote address?
 
 # create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("OpenFF Discrepancy Benchmark 1", client=client)
+ds = ptl.collections.OptimizationDataset("OpenFF NCI250K Boron 1", client=client)
 
 # create specification for this dataset
 opt_spec = {"program": "geometric"}
