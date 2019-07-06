@@ -6,6 +6,7 @@ import tqdm
 import tarfile
 from collections import Counter
 import qcportal as ptl
+#import qcfractal.interface as ptl
 from qcelemental.models import Molecule
 
 
@@ -78,27 +79,45 @@ def read_molecules(input_json):
 
 print("Extracting molecules...")
 molecules_dict, molecule_attributes = read_molecules("optimization_inputs.json.gz")
+# molecules_dict = dict(list(molecules_dict.items())[24000:26000])
 
 print("Initializing dataset...")
-# client = ptl.FractalClient.from_file()
+#client = ptl.FractalClient.from_file()
 client = ptl.FractalClient("localhost:7777", verify=False)
 
-# create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("Open Force Field VEHICLe optimization dataset 1.0.0", client=client)
+# create or pull a previous dataset with specified name
+ds = client.get_collection("OptimizationDataset", "OpenFF VEHICLe Set 1")
+#ds = ptl.collections.OptimizationDataset("OpenFF VEHICLe Set 1", client=client)
 
 # create specification for this dataset
-opt_spec = {"program": "geometric"}
-qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4"}
-ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
+# opt_spec = {"program": "geometric"}
+# qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4"}
+# ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
 
 # add molecules
 print(f"Adding {len(molecules_dict)} molecules")
 for molecule_index, molecule in tqdm.tqdm(molecules_dict.items()):
     attributes = molecule_attributes[molecule_index]
+
+    if molecule_index.lower() in ds.data.records:
+        continue
+
     ds.add_entry(molecule_index, molecule, attributes=attributes)
 
+ds.save()
+
+# Huge dataset, chunk up the submissions
+def chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+names = list(chunks(list(molecules_dict.keys()), 100))
+
 print("Submitting tasks...")
-comp = ds.compute("default", tag="openff", priority="normal")
-print(comp)
+
+for block in tqdm.tqdm(names):
+    comp = ds.compute("default", tag="openff", priority="low", subset=block)
+
+ds.save()
+#print(comp)
 
 print("Complete!")
