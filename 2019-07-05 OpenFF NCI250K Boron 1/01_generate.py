@@ -29,6 +29,9 @@ duplicates = [] # duplicate states
 omega_failures = []
 cmiles_failures = []
 
+# Write out SDF file of all conformations
+ofs = oechem.oemolostream('optimization_inputs.sdf')
+
 for mol in oemols:
     # Filter out single atom molecules
     if mol.GetMaxAtomIdx() == 1:
@@ -69,9 +72,14 @@ for mol in oemols:
         optimization_input.append({'initial_molecules': qcschema_molecules,
                                    'cmiles_identifiers': cmiles_ids})
 
+        # Write to SDF
+        oechem.OEWriteMolecule(ofs, conformers)
+
 import gzip
 with gzip.open('optimization_inputs.json.gz', 'w') as f:
     f.write(json.dumps(optimization_input, indent=2, sort_keys=True).encode('utf-8'))
+
+ofs.close()
 
 save_smiles(processed_canonical_smiles, 'optimization_inputs.smi')
 save_smiles(duplicates, 'duplicates.smi')

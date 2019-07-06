@@ -13,7 +13,7 @@ B1(c2c(c(sc2C(=NN1)C)Br)Br)O
 B1(c2c(ccs2)C(=NN1)C)O
 B1(c2c(ccs2)C(=NN1)C)C
 B1(c2c(sc(c2Br)Br)C=N[N@@]1C)O
-B1([N@@](CC[N@@]1C)C)N=S(=O)(C)C
+B1([N@@](CC[N@]1C)C)N=S(=O)(C)C
 B1(N(N=NN1C(C)(C)C)c2ccccc2)C
 B1(N(N=NN1C(C)(C)C)c2ccccc2)C(C)(C)C
 [B-]1(=Cc2ccccc2C=C1)[n+]3ccccc3
