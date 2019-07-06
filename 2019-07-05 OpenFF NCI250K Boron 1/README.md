@@ -19,10 +19,10 @@ gzip -dc NCISMA99.sdz | awk '{print $2 " NCI" $1}' | sed "s/\[\([BCNOPSF]\)\]/\1
 
  - Date: 2019-07-05
  - Class: Forcefield Parametrization
- - Purpose: Gather quantum chemical valence data on small molecules that show discrepancies between force fields
+ - Purpose: Get coverage of boron in organic boron-containing molecules using a subset of the NCI250K set
  - Collection: OptimizationDataset
- - Name: OpenFF Discrepancy Benchmark 1
- - Number of Entries: 2802 unique molecules, 19712 total conformers
+ - Name: OpenFF NCI250K Boron 1
+ - Number of Entries: 103 unique molecules, 192 conformers
  - Submitter: John Chodera
 
 ### Generation pipeline
