@@ -22,7 +22,7 @@ gzip -dc NCISMA99.sdz | awk '{print $2 " NCI" $1}' | sed "s/\[\([BCNOPSF]\)\]/\1
  - Purpose: Get coverage of boron in organic boron-containing molecules using a subset of the NCI250K set
  - Collection: OptimizationDataset
  - Name: OpenFF NCI250K Boron 1
- - Number of Entries: 103 unique molecules, 192 conformers
+ - Number of Entries: 103 unique molecules, 189 conformers
  - Submitter: John Chodera
 
 ### Generation pipeline
@@ -51,6 +51,7 @@ gzip -dc NCISMA99.sdz | awk '{print $2 " NCI" $1}' | sed "s/\[\([BCNOPSF]\)\]/\1
  - `optimization_inputs.json.gz` - QC Schema JSON input molecules for QCFractal
  - `optimization_inputs.smi` - SMILES input molecules for QCFractal (for inspection)
  - `optimization_inputs.pdf` - PDF 2D structures of input molecules for QCFractal (for inspection)
+ - `optimization_inputs.sdf` - SDF file of generated conformers
  - `duplicates.smi` - rejected duplicate canonical SMILES strings
  - `cmiles_failures.smi` - Molecules that RDKit failed to generate standardized tautomer
  - `omega_failures.smi` - Molecules that Omega failed to generate conformers
