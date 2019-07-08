@@ -1,0 +1,7 @@
+[H]c1c(c(c2c(c1[H])C(=C(C(=O2)c3c(c(c(c(c3[H])OC([H])([H])[H])OC([H])([H])[H])[H])[H])[H])[H])[H])[H]
+[H]C1=C(C2=C(C(=C1[H])[H])O=C(C(=C2[H])[H])C3=C(C(=C(C(=C3[H])[H])OC([H])([H])[H])OC([H])([H])[H])[H])[H]
+[H]c1c(c(nc(c1[N+](=O)([H])([H])O[H])N([H])[H])Cl)[H]
+[H]C1=C(C(=NC(=C1[H])Cl)[N-][H])[N+](=O)([H])([H])O[H]
+[H]C1=C(C(=NC(=C1[H])Cl)N([H])[H])[N+](=O)([H])([H])O[H]
+[H]c1c(c(nc(c1[N+](=O)([H])([H])O[H])[N-][H])Cl)[H]
+[H]c1c(c(nc(c1N(=O)([H])O[H])N([H])[H])Cl)[H]

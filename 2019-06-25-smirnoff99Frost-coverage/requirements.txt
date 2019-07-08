@@ -1,0 +1,62 @@
+# packages in environment at /Users/sternc1/anaconda3/envs/smirnoff:
+#
+# Name                    Version                   Build  Channel
+boost                     1.68.0          py37h9888f84_1001    conda-forge
+boost-cpp                 1.68.0            h6f8c590_1000    conda-forge
+bzip2                     1.0.6             h1de35cc_1002    conda-forge
+ca-certificates           2019.6.16            hecc5488_0    conda-forge
+cairo                     1.16.0            h0ab9d94_1001    conda-forge
+certifi                   2019.6.16                py37_0    conda-forge
+cmiles                    0.1.5                     <pip>
+decorator                 4.4.0                      py_0    conda-forge
+fontconfig                2.13.1            h1027ab8_1000    conda-forge
+fragmenter                0.0.2+121.g87b85a4           <pip>
+freetype                  2.10.0               h24853df_0    conda-forge
+gettext                   0.19.8.1          h46ab8bc_1002    conda-forge
+glib                      2.58.3            h9d45998_1001    conda-forge
+icu                       58.2              h0a44026_1000    conda-forge
+jpeg                      9c                h1de35cc_1001    conda-forge
+libblas                   3.8.0                7_openblas    conda-forge
+libcblas                  3.8.0                7_openblas    conda-forge
+libcxx                    8.0.0                         2    conda-forge
+libcxxabi                 8.0.0                         2    conda-forge
+libffi                    3.2.1             h6de7cb9_1006    conda-forge
+libgfortran               3.0.1                         0    conda-forge
+libiconv                  1.15              h01d97ff_1005    conda-forge
+liblapack                 3.8.0                7_openblas    conda-forge
+libpng                    1.6.37               h2573ce8_0    conda-forge
+libtiff                   4.0.10            hd08fb8f_1003    conda-forge
+libxml2                   2.9.9                hd80cff7_0    conda-forge
+lz4-c                     1.8.3             h6de7cb9_1001    conda-forge
+ncurses                   6.1               h0a44026_1002    conda-forge
+networkx                  2.3                        py_0    conda-forge
+numpy                     1.16.4           py37h6b0580a_0    conda-forge
+olefile                   0.46                       py_0    conda-forge
+openblas                  0.3.5             h436c29b_1001    conda-forge
+OpenEye-toolkits          2019.4.2                  <pip>
+OpenEye-toolkits-python3-osx-x64 2019.4.2                  <pip>
+openssl                   1.1.1b               h01d97ff_2    conda-forge
+pandas                    0.24.2           py37h86efe34_0    conda-forge
+pcre                      8.41              h0a44026_1003    conda-forge
+pillow                    6.0.0            py37h7095ceb_0    conda-forge
+pip                       19.1.1                   py37_0    conda-forge
+pixman                    0.38.0            h01d97ff_1003    conda-forge
+pycairo                   1.18.1           py37h650f75e_0    conda-forge
+python                    3.7.3                h0d93f26_0    conda-forge
+python-dateutil           2.8.0                      py_0    conda-forge
+pytz                      2019.1                     py_0    conda-forge
+pyyaml                    5.1.1            py37h01d97ff_0    conda-forge
+qcelemental               0.4.2                      py_0    conda-forge
+qcportal                  0.7.1                      py_0    conda-forge
+rdkit                     2019.03.2        py37haff9cca_0    conda-forge
+readline                  7.0               hcfe32e1_1001    conda-forge
+setuptools                41.0.1                   py37_0    conda-forge
+six                       1.12.0                py37_1000    conda-forge
+sqlite                    3.28.0               h9721f7c_0    conda-forge
+tqdm                      4.31.1                   pypi_0    pypi
+tk                        8.6.9             h2573ce8_1002    conda-forge
+wheel                     0.33.4                   py37_0    conda-forge
+xz                        5.2.4             h1de35cc_1001    conda-forge
+yaml                      0.1.7             h1de35cc_1001    conda-forge
+zlib                      1.2.11            h1de35cc_1004    conda-forge
+zstd                      1.4.0                ha9f0a20_0    conda-forge
