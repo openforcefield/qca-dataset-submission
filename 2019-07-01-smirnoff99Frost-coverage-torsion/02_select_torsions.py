@@ -124,7 +124,11 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
         print(f'{i_mol:<7d}: {mol_index}')
         i_mol += 1
         mapped_smiles = mol_attr['canonical_isomeric_explicit_hydrogen_mapped_smiles']
-        off_mol = Off_Molecule.from_smiles(mapped_smiles)
+        # round trip from QCFractal molecule to OpenEye molecule then to Off Molecule
+        # this is needed for now to ensure atom indices are consistent
+        qcjson_mol = molecules_list_dict[mol_index][0]
+        oemol = cmiles.utils.load_molecule(qcjson_mol)
+        off_mol = Off_Molecule.from_openeye(oemol)
         torsions_coverage = smirnoff_analyze_torsions(forcefield, off_mol)
         for smirks, torsion_idx_list in torsions_coverage.items():
             for atom_indices in torsion_idx_list:

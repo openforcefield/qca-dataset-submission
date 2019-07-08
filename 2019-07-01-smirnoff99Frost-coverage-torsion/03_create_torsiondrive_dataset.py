@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+import os
 import json
 import tarfile
 
@@ -26,8 +29,9 @@ def read_selected_torsions(input_json):
 
 print("Reading selected_torsions...")
 
-with tarfile.open('selected_torsions.json.tar.gz') as f:
-    f.extractfile('selected_torsions.json')
+if not os.path.exists('selected_torsions.json'):
+    with tarfile.open('selected_torsions.json.tar.gz') as f:
+        f.extractfile('selected_torsions.json')
 selected_torsions = read_selected_torsions('selected_torsions.json')
 
 print(f"Found {len(selected_torsions)} torsions")
