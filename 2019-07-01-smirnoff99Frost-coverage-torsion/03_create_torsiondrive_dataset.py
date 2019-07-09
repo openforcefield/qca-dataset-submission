@@ -59,13 +59,15 @@ ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF 
 
 # add molecules
 print(f"Adding {len(selected_torsions)} torsions")
+i = 0
 for canonical_torsion_index, torsion_data in selected_torsions.items():
     attributes = torsion_data['attributes']
     torsion_atom_indices = torsion_data['atom_indices']
     grid_spacings = [15] * len(torsion_atom_indices)
     initial_molecules = torsion_data['initial_molecules']
+    print(i, canonical_torsion_index, len(initial_molecules))
     ds.add_entry(canonical_torsion_index, initial_molecules, torsion_atom_indices, grid_spacings, energy_upper_limit=0.05, attributes=attributes)
-
+    i += 1
 print("Submitting tasks...")
 comp = ds.compute("default", tag="openff", priority="normal")
 print(comp)
