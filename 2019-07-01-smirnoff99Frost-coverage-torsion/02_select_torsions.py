@@ -9,6 +9,9 @@ from openforcefield.typing.engines.smirnoff import ForceField
 from openforcefield.topology import Molecule as Off_Molecule
 from openforcefield.topology import Topology as Off_Topology
 
+from qcelemental.models import Molecule
+
+
 
 def read_aggregate_molecules(input_json):
     """ Extract the molecules and the index of them from the input json file
@@ -51,12 +54,18 @@ def read_aggregate_molecules(input_json):
         with open(input_json) as infile:
             molecule_data_list = json.load(infile)
     # put molecules and attributes into molecules_list_dict
+    molecule_hash = defaultdict(set) # use a dictionary to remove duplicates
     for mdata in molecule_data_list:
         initial_molecules = mdata['initial_molecules']
         cmiles_ids = mdata['cmiles_identifiers']
         index = cmiles_ids['canonical_isomeric_smiles']
         molecule_attributes[index] = cmiles_ids
-        molecules_list_dict[index].extend(initial_molecules)
+        for m_json in initial_molecules:
+            m_hash = Molecule.from_data(m_json).get_hash()
+            # find duplicated molecules using their hash and skip them
+            if m_hash not in molecule_hash[index]:
+                molecule_hash[index].add(m_hash)
+                molecules_list_dict[index].append(m_json)
     return molecules_list_dict, molecule_attributes
 
 
