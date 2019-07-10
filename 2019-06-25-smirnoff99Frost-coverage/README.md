@@ -47,3 +47,5 @@
     ```
     python 02_create_optimization_dataset.py
     ```
+
+3. Optionally create PDF of molecule set (as initially input) using `python 03_visualize.py`.
