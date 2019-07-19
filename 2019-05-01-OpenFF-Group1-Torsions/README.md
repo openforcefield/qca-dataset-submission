@@ -28,3 +28,5 @@ The files are copied from https://github.com/lpwgroup/forcebalance-qcarchive/rel
 2. Since there are too many dihedrals from all molecules, we apply a few filters to keep only the most important dihedrals.
 
 3. The filters applied in order are 'heavy_atoms', 'no_ring', 'unique_center_bond'.
+
+4. Since this is a record for a previous submission, please do not use this one as a template for submitting new datasets.
