@@ -80,7 +80,13 @@ client = ptl.FractalClient("localhost:7777", verify=False)
 ds = ptl.collections.OptimizationDataset("SMIRNOFF Coverage Set 1", client=client)
 
 # create specification for this dataset
-opt_spec = {"program": "geometric"}
+opt_spec = {
+    "program": "geometric",
+    "keywords": {
+        "coordsys": "dlc", # prevent translation & rotation moves
+        "qccnv": True,
+    }
+}
 qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4"}
 ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
 
