@@ -10,7 +10,7 @@
  - Submitter: Chaya Stern
 
 ### Generation pipeline
- - The original molecules were provided by Chris Bayely
+ - The original molecules were provided by Chris Bayly
  - To generate input, run `python generate.py`
  
 ### Quantum Chemistry Information
