@@ -8,6 +8,6 @@ Do not modify this directly in master -- Always open a PR and get at least one a
 
 Roche hessians
 Coverage hessians
-Phenyl set (150 torsions)
-Boron (Fragmenter stability benchmark?)
+Chaya's Biphenyl set
+Boron
 Everything else
