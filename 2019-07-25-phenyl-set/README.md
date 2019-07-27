@@ -24,5 +24,6 @@
 * `biphenyls.pdf` - visualization of input
 * `requirements.txt` - conda list
 * `biphenyl_set_inputs.tar.gz` - torsiondrive jobs inputs
-* `phenyl_set_inputs.tar.gz` - torsiondrive jobs inputs for the phenyl set
+* `phenyl_set_inputs.tar.gz` - torsiondrive jobs inputs for the biphenyl set
+* `phenyl_set_inputs.tar.gz` - torsiondrive job inputs for phenyl set
 * `overlapping_indices.smi` - torsiondrive indices that are already in QCArchive 
