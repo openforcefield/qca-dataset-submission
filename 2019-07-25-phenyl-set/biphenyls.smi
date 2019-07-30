@@ -1,0 +1,10 @@
+c1cc(ccc1c2ccncc2) 4phepyr
+c1cc(ccc1c2ccncc2)O 4phepyrOH_neutral
+c1cc(ccc1c2ccncc2)[O-] 4phepyrOH_anion
+c1cc(ccc1c2cc[nH+]cc2)O 4phepyrOH_cation
+c1cc(ccc1c2cc[nH+]cc2)[O-] 4phepyrOH_zwitterion
+c1ccc(c(c1)c2ccncc2)F 4phepyrF
+c1cc(c(cc1O)F)c2ccncc2 4phepyrFOH_neutral
+c1cc(c(cc1[O-])F)c2ccncc2 4phepyrFOH_anion
+c1cc(c(cc1O)F)c2cc[nH+]cc2 4phepyrFOH_cation
+c1cc(c(cc1[O-])F)c2cc[nH+]cc2 4phepyrFOH_zwitterion
