@@ -8,11 +8,12 @@ New datasets that are added should be included in this list if they are to be su
 
 Do not modify this directly in master -- Always open a PR and get at least one approving review before merging.
 
-Roche hessians
-Coverage hessians
-Chaya's Biphenyl set
-Boron
-Everything else
+* Roche hessians
+* Coverage hessians
+* Chaya's Biphenyl set
+* Boron
+* 06-28-19-Nitrogen-grid-optimization 
+* Everything else
 
 # qca-dataset-submission
 Data generation and submission scripts for the QCArchive ecosystem.
