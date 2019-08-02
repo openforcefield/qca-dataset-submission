@@ -1,3 +1,19 @@
+# Dataset Priority
+
+This section contains a relative ranking of dataset priority. 
+
+While queueing is still handled manually, *this* is the single place where priority is determined. 
+
+New datasets that are added should be included in this list if they are to be submitted. 
+
+Do not modify this directly in master -- Always open a PR and get at least one approving review before merging.
+
+Roche hessians
+Coverage hessians
+Chaya's Biphenyl set
+Boron
+Everything else
+
 # qca-dataset-submission
 Data generation and submission scripts for the QCArchive ecosystem.
 
