@@ -15,7 +15,7 @@ Details regarding the generation of this set of molecule is outline in the DANCE
 
 ### Scripts in File
  - `Molecules_to_run` - A folder that contains the .sdf files of the trivalent nitrogen molecules for the grid optimization calculations
- - `sendmols_to_server.ipynb` - Contains script to set up the json input for the 1-d grid optimization.
+ - `sendmols_to_server.py` - Contains script to set up the json input for the 1-d grid optimization for a given coordinate file, such as an `*.sdf`
  - `requirements.txt` - Contains the installments and versions used
 
 ### Notes
