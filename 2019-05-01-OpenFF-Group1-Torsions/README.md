@@ -22,6 +22,9 @@ The files are copied from https://github.com/lpwgroup/forcebalance-qcarchive/rel
 3. `03_create_torsiondrive_dataset.py`
     This script reads `submit_torsion_options.json` and create the dataset.
 
+4. `04_visualize.py`
+    Optionally, this script creates a PDF file with compact 2D structures of the molecules.
+
 ### Notes
 1. The provided file `OpenFF_references.sdf` contains 468 molecules.
 
