@@ -22,7 +22,6 @@ https://github.com/PfizerRD/torsional-strain
 
 ### Generation pipeline
 
- - Used `fragmenter.states.enumerate_states` to expand stereoisomers
  - Used `fragmenter.chemi.generate_conformers` to generate input conformers
  - Used `cmiles` to generate cmiles identifiers
 
