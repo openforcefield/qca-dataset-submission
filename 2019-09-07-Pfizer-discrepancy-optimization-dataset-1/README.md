@@ -17,7 +17,7 @@ https://github.com/PfizerRD/torsional-strain
  - Purpose: Explore discrepancies between QM and OPLS3e
  - Collection: OptimizationDataset
  - Name: Pfizer discrepancy optimization dataset 1
- - Number of Entries: 100 unique molecules, XXX conformers
+ - Number of Entries: 100 unique molecules, 352 conformers
  - Submitter: John Chodera
 
 ### Generation pipeline
