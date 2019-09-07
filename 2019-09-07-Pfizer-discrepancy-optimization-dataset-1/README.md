@@ -12,7 +12,7 @@ https://github.com/PfizerRD/torsional-strain
 
 ### General Information
 
- - Date: 2019-07-21
+ - Date: 2019-09-07
  - Class: Forcefield Parametrization
  - Purpose: Explore discrepancies between QM and OPLS3e
  - Collection: OptimizationDataset
