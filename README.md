@@ -23,6 +23,7 @@ Data generation and submission scripts for the QCArchive ecosystem.
 ## `TorsionDriveDataset`
 * `2019-06-03-Torsion-Stability-Benchmark`: source files for `Fragment Stability Benchmark` (`TorsionDriveDataset`) covering molecular fragments of varying size around a central torsion (@ChayaSt)
 * `2019-07-25-phenyl-set`: source files for `phenyl set`
+* `2019-09-07-Pfizer-discrepancy-torsion-dataset-1`: source files for `Pfizer discrepancy torsion dataset 1` (@jchodera)
 
 ## `OptimizationDataset`
 * `2019-06-25-smirnoff99Frost-coverage`: source files for `smirnoff99Frost parameter coverage` (`OptimizationDataset`) providing minimal coverage of SMIRNOFF valence parameters (@ChayaSt)
