@@ -112,6 +112,7 @@ def generate_selected_torsions(input_json):
 
     # generate torsion_dict
     torsions_dict = {}
+    ntorsions = 0
     for mol_index, json_mol in enumerate(molecule_data_list):
         mapped_smiles = json_mol['cmiles_identifiers']['canonical_isomeric_explicit_hydrogen_mapped_smiles']
         print(f'{mol_index} : {mapped_smiles}')
@@ -122,18 +123,19 @@ def generate_selected_torsions(input_json):
         off_mol = Molecule.from_openeye(oemol, allow_undefined_stereo=True)
         torsion_idx_list = enumerate_torsions(oemol)
         for atom_indices in torsion_idx_list:
-            torsions_dict[mol_index] = {
+            torsions_dict[ntorsions] = {
                 'initial_molecules': [ qcjson_mol ],
                 'atom_indices': [ atom_indices ],
                 'attributes': json_mol['cmiles_identifiers'],
             }
             print(f"  - torsion {atom_indices} added")
+            ntorsions += 1
 
+    print(f'{ntorsions} torsions added')
     return torsions_dict
 
 
 print("## Extracting molecules ##")
-x = read_molecules("optimization_inputs.json.gz")
 torsions_dict = generate_selected_torsions("optimization_inputs.json.gz")
 print("## Writing selected_torsions.json ##")
 import gzip

@@ -18,7 +18,7 @@ https://github.com/PfizerRD/torsional-strain
  - Purpose: Explore discrepancies between QM and OPLS3e
  - Collection: TorsionDriveDataset
  - Name: Pfizer discrepancy torsion dataset 1
- - Number of Entries: 100 unique molecules, XXX torsion drives
+ - Number of Entries: 100 unique molecules, 227 torsion drives
  - Submitter: John Chodera
 
 ### Generation pipeline
