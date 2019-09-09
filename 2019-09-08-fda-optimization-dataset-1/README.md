@@ -51,21 +51,17 @@ Up to 20 conformers/molecule were enumerated.
  - `03_visualize.py` - create a PDF of all species in the dataset
  - `fda.mol2.gz` - FDA molecules retrieved from ZINC15 in mol2 format
  - `optimization_inputs.json.gz` - QC Schema JSON input molecules for QCFractal
- - `optimization_inputs.smi` - SMILES input molecules for QCFractal (for inspection)
+ - `optimization_inputs.smi.gz` - SMILES input molecules for QCFractal (for inspection)
  - `optimization_inputs.pdf` - PDF 2D structures of input molecules for QCFractal (for inspection)
- - `optimization_inputs.sdf` - SDF file of generated conformers
- - `duplicates.smi` - rejected duplicate canonical SMILES strings
- - `cmiles_failures.smi` - Molecules that RDKit failed to generate standardized tautomer
- - `omega_failures.smi` - Molecules that Omega failed to generate conformers
- - `skipped_ions.smi` - Molecules that were skipped (ions)
+ - `optimization_inputs.sdf.gz` - SDF file of generated conformers
+ - `duplicates.smi.gz` - rejected duplicate canonical SMILES strings
+ - `cmiles_failures.smi.gz` - Molecules that RDKit failed to generate standardized tautomer
+ - `omega_failures.smi.gz` - Molecules that Omega failed to generate conformers
+ - `skipped.smi.gz` - Molecules that were skipped or filtered out
  - `environment.yml` - versions of toolkits used (conda environment file)
 
 ### Usage
 
-0. Generate SMILES files
-```bash
-python 00_extract_smiles.py
-```
 1. Generate the conformers and save in JSON format
 ```bash
 python 01_generate.py
@@ -73,7 +69,7 @@ python 01_generate.py
 A new file called `optimization_inputs.json` will be generated.
 2. Create dataset on QCFractal server
 ```bash
-python 02_create_optimization_dataset.py optimization_inputs.json smirnoff_coverage client_config.yaml
+python 02_create_optimization_dataset.py
 ```
 3. Create PDF visualization
 ```bash
