@@ -26,7 +26,7 @@ Up to 20 conformers/molecule were enumerated.
  - Purpose: Assess quality of conformations and energetics for FDA-approved inhibitors
  - Collection: OptimizationDataset
  - Name: FDA optimization dataset 1
- - Number of Entries: ??? unique molecules, ??? conformers
+ - Number of Entries: 939 unique molecules, 6559 conformers
  - Submitter: John Chodera
 
 ### Generation pipeline
