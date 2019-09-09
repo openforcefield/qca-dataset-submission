@@ -10,7 +10,7 @@ The following [oechem filterfile](https://docs.eyesopen.com/toolkits/python/molp
 ```
 MIN_NUM_HVY 3 "Minimum number of heavy atoms"
 MAX_NUM_HVY 55 "Maximum number of heavy atoms"
-MIN_ROT_BONDS 1 "Minimum number of rotatable bonds"
+MIN_ROT_BONDS 0 "Minimum number of rotatable bonds"
 MAX_ROT_BONDS 5 "Maximum number of rotatable bonds"
 ADJUST_ROT_FOR_RING true "BOOLEAN for whether to estimate degrees of freedom in rings"
 ELIMINATE_METALS Sc,Ti,V,Cr,Mn,Fe,Co,Ni,Cu,Zn,Y,Zr,Nb,Mo,Tc,Ru,Rh,Pd,Ag,Cd
@@ -26,7 +26,7 @@ Up to 20 conformers/molecule were enumerated.
  - Purpose: Assess quality of conformations and energetics for FDA-approved inhibitors
  - Collection: OptimizationDataset
  - Name: FDA optimization dataset 1
- - Number of Entries: 939 unique molecules, 6559 conformers
+ - Number of Entries: 1038 unique molecules, 6675 conformers
  - Submitter: John Chodera
 
 ### Generation pipeline
