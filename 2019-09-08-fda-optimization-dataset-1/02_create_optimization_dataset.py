@@ -8,6 +8,7 @@ from collections import Counter
 import qcportal as ptl
 from qcelemental.models import Molecule
 
+UPDATE = True
 
 def read_molecules(input_json):
     """ Extract the molecules and the index of them from the input json file
@@ -77,33 +78,58 @@ def read_molecules(input_json):
 
 print("Extracting molecules...")
 molecules_dict, molecule_attributes = read_molecules("optimization_inputs.json.gz")
+def chunks(l, n):
+    for i in range(0, len(l), n):
+        yield l[i:i + n]
+
+molecules_dict_chunks = [dict(x) for x in chunks(list(molecules_dict.items()), 100)]
 
 print("Initializing dataset...")
-client = ptl.FractalClient("localhost:7777", verify=False) # TODO: Should this be changed to remote address?
+#client = ptl.FractalClient("localhost:7777", verify=False) # TODO: Should this be changed to remote address?
 client = ptl.FractalClient.from_file()
 
 # create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("FDA Optimization Dataset 1", client=client)
-kw = ptl.models.KeywordSet(values={'maxiter': 200,
- 'scf_properties': ['dipole',
-  'quadrupole',
-  'wiberg_lowdin_indices',
-  'mayer_indices']})
-kw_id = client.add_keywords([kw])[0]
-
-# create specification for this dataset
-opt_spec = {"program": "geometric"}
-qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4", "keywords": kw_id}
-ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
+if UPDATE:
+    ds = client.get_collection("OptimizationDataset", "FDA Optimization Dataset 1")
+else:
+    ds = ptl.collections.OptimizationDataset("FDA Optimization Dataset 1", client=client)
+    kw = ptl.models.KeywordSet(values={'maxiter': 200,
+     'scf_properties': ['dipole',
+      'quadrupole',
+      'wiberg_lowdin_indices',
+      'mayer_indices']})
+    kw_id = client.add_keywords([kw])[0]
+    
+    # create specification for this dataset
+    opt_spec = {"program": "geometric"}
+    qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4", "keywords": kw_id}
+    ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
 
 # add molecules
 print(f"Adding {len(molecules_dict)} molecules")
-for molecule_index, molecule in tqdm.tqdm(molecules_dict.items()):
-    attributes = molecule_attributes[molecule_index]
-    ds.add_entry(molecule_index, molecule, attributes=attributes)
+for molecules_chunk in tqdm.tqdm(molecules_dict_chunks):
+
+    found = False
+    for molecule_index, molecule in molecules_chunk.items():
+        try:
+            attributes = molecule_attributes[molecule_index]
+            ds.add_entry(molecule_index, molecule, attributes=attributes, save=False)
+            found = True
+        except KeyError:
+            continue
+
+    if found:
+        ds.save()
 
 print("Submitting tasks...")
-comp = ds.compute("default", tag="openff", priority="normal")
-print(comp)
+responses = []
+for molecules_chunk in tqdm.tqdm(molecules_dict_chunks):
+    block = list(molecules_chunk.keys())
+    comp = ds.compute("default", tag="openff", priority="normal", subset=block)
+    responses.append(comp)
+
+# Merge responses
+
+print(f"Submitted: {sum(responses)}")
 
 print("Complete!")
