@@ -80,13 +80,20 @@ molecules_dict, molecule_attributes = read_molecules("optimization_inputs.json.g
 
 print("Initializing dataset...")
 client = ptl.FractalClient("localhost:7777", verify=False) # TODO: Should this be changed to remote address?
+client = ptl.FractalClient.from_file()
 
 # create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("FDA optimization dataset 1", client=client)
+ds = ptl.collections.OptimizationDataset("FDA Optimization Dataset 1", client=client)
+kw = ptl.models.KeywordSet(values={'maxiter': 200,
+ 'scf_properties': ['dipole',
+  'quadrupole',
+  'wiberg_lowdin_indices',
+  'mayer_indices']})
+kw_id = client.add_keywords([kw])[0]
 
 # create specification for this dataset
 opt_spec = {"program": "geometric"}
-qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4"}
+qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4", "keywords": kw_id}
 ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF optimization quantum chemistry specification.")
 
 # add molecules
