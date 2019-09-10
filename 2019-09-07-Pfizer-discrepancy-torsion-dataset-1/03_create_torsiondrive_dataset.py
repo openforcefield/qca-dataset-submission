@@ -39,11 +39,11 @@ selected_torsions = read_selected_torsions(input_json)
 print(f"Found {len(selected_torsions)} torsions")
 
 print("Initializing dataset...")
-# client = ptl.FractalClient.from_file()
-client = ptl.FractalClient("localhost:7777", verify=False)
+client = ptl.FractalClient.from_file()
+#client = ptl.FractalClient("localhost:7777", verify=False)
 
 # create a new dataset with specified name
-ds = ptl.collections.TorsionDriveDataset("Pfizer discrepancy torsion dataset 1", client=client)
+ds = ptl.collections.TorsionDriveDataset("Pfizer Discrepancy Torsion Dataset 1", client=client)
 
 # create specification for this dataset
 opt_spec = {
@@ -56,7 +56,15 @@ opt_spec = {
         "epsilon": 0.0,
     }
 }
-qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4"}
+
+kw = ptl.models.KeywordSet(values={'maxiter': 200,
+ 'scf_properties': ['dipole',
+  'quadrupole',
+  'wiberg_lowdin_indices',
+  'mayer_indices']})
+kw_id = client.add_keywords([kw])[0]
+
+qc_spec = {"driver": "gradient", "method": "B3LYP-d3bj", "basis": "dzvp", "program": "psi4", "keywords": kw_id}
 ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF torsiondrive specification.")
 
 # add molecules
