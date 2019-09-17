@@ -7,7 +7,7 @@ import numpy as np
 from openeye import oechem
 from openeye import oeomega
 import qcportal as ptl
-
+import cmiles
 
 # Custom exception for the case when there is no nitrogen
 class NoNitrogenException(Exception): pass
@@ -47,40 +47,56 @@ def make_ptl_mol(oemol):
             in mol.GetBonds()])
     return ptl.Molecule.from_data(coord_str, connectivity=conn)
 
-def send_qm_job(ptl_mol, nitrogen, nitrogen_i):
+def send_qm_job(ptl_mol, nitrogen, nitrogen_i,  mol):
     """Sends a job to the QM Client - returns a submitted object"""
     indices = [nitrogen_i] + [nbor.GetIdx() for nbor in list(nitrogen.GetAtoms())]
     print(f"indices: {indices}")
     keywords = ptl.models.KeywordSet(values={"scf_properties":["wiberg_lowdin_indices"]})
-    keywords_id = client.add_keywords([keywords])[0]
-    service = ptl.models.GridOptimizationInput(**{
-            "keywords": {
-                "preoptimization": True,
-                "scans": [{
-                    "type": "dihedral",
-                    "indices": indices,
-                    "steps": [-40, -36, -32, -28, -24, -20, -16, -12, -8, -4, 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
-                    "step_type": "absolute"
-                }]
-            },
-            "optimization_spec": {
-                "program": "geometric",
+    try:
+        #keywords_id = (client.add_keywords([keywords])[0])
+
+        keywords_id = str(client.add_keywords([keywords])[0])
+
+
+
+        smiles=cmiles.utils.mol_to_smiles(mol, mapped=False, explicit_hydrogen=False)
+        mol_id = cmiles.get_molecule_ids(smiles, toolkit='openeye', strict=False)
+
+        geometry=np.array([[ptl_mol.geometry]]).ravel().tolist()
+        symbols=np.array([[ptl_mol.symbols]]).ravel().tolist()
+        jsonDict={
+                "cmiles_ids":mol_id,
                 "keywords": {
-                    "coordsys": "tric",
-                }
-            },
-            "qc_spec": {
-                "driver": "gradient",
-                "method": "mp2",
-                "basis": "def2-SV(P)",
-                "keywords": keywords_id,
-                "program": "psi4",
-            },
-            "initial_molecule": ptl_mol,
-        })
-    submitted = client.add_service([service])
-    print("Job submitted")
-    return submitted
+                    "preoptimization": True,
+                    "scans": [{
+                        "type": "dihedral",
+                        "indices": list(indices),
+                        "steps": [-40, -36, -32, -28, -24, -20, -16, -12, -8, -4, 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40],
+                        "step_type": "absolute"
+                    }]
+                },
+                "optimization_spec": {
+                    "program": "geometric",
+                    "keywords": {
+                        "coordsys": "tric",
+                    }
+                },
+                "qc_spec": {
+                    "driver": "gradient",
+                    "method": "mp2",
+                    "basis": "def2-SV(P)",
+                    "keywords": keywords_id,
+                    "program": "psi4",
+                },
+                "initial_molecule":{
+                    "geometry":geometry,
+                    "symbols":symbols
+                    }}
+        return jsonDict, smiles
+
+    except:
+        pass
+    return
 
 
 
@@ -88,36 +104,28 @@ def send_qm_job(ptl_mol, nitrogen, nitrogen_i):
 #The molecule we ran this example with stored as a smile string in the tiny.smi file.
 #This should be adapted for the directory "Molecules_to_run" for the .sdf files
 
-tmp_mol = oechem.OEMol()
-ifs = oechem.oemolistream("tiny.smi")
 first = True
 
 results = [] # {"molecule": <OEMol>, "nitrogen": <OEAtom>, "nitrogen_i": <int>,
              #  "ptl_molecule": <PtlMol>, submitted": <submitted object>,
              #  "res": <result object> from QCPortal}
 
-while oechem.OEReadMolecule(ifs, tmp_mol):
-    # Separate outputs by a line
-    if first: first = False
-    else: print()
-
+import glob
+file_list = glob.glob('./Molecules_to_run/*.*')
+jobsDict={}
+for f in file_list:
+    tmp_mol = oechem.OEMol()
+    ifs = oechem.oemolistream(f)
+    oechem.OEReadMolecule(ifs, tmp_mol)
     mol = oechem.OEMol(tmp_mol)
     status = omega(mol)
     nitrogen, nitrogen_i = find_nitrogen(mol)
-    print(f"Nitrogen found at index {nitrogen_i}")
-    print(f"Generating conformer: {'done' if status else 'failed'}")
-
-    print(f"Nitrogen is at: {mol.GetCoords()[nitrogen_i]}")
-
     ptl_mol = make_ptl_mol(mol)
-    sub = send_qm_job(ptl_mol, nitrogen, nitrogen_i)
-
-    results.append({
-        "molecule": mol,
-        "nitrogen": nitrogen,
-        "nitrogen_i": nitrogen_i,
-        "ptl_molecule": ptl_mol,
-        "submitted": sub,
-    })
-    break
-
+    subDict = send_qm_job(ptl_mol, nitrogen, nitrogen_i, mol)
+    try:
+        jobsDict[subDict[1]]=subDict[0]
+    except:
+        pass
+import json
+with open('nitrogen_Jobs1.json', 'w') as fp:
+        json.dump(jobsDict, fp, indent=2, sort_keys=True)
