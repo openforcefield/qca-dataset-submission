@@ -3,9 +3,10 @@
 import os
 import json
 import tarfile
+import tqdm
 
-#import qcportal as ptl
-import qcfractal.interface as ptl
+import qcportal as ptl
+#import qcfractal.interface as ptl
 import qcelemental as qcel
 
 dataset_name = "OpenFF Trivalent Nitrogen Set 1" 
@@ -50,9 +51,9 @@ ds.add_specification("default", opt_spec, qc_spec, description="Standard OpenFF 
 #ds.add_specification("mp2", opt_spec, qc_spec, description="MP2/def2-SV(P) .")
 
 # add molecules
-print(f"Adding {len(inputs)} torsions")
+print(f"Adding {len(inputs)} gridoptimizations")
 i = 0
-for index, data in inputs.items():
+for index, data in tqdm.tqdm(inputs.items()):
     attributes = data['cmiles_ids']
     scans = data['keywords']['scans']
     initial_molecule = data['initial_molecule']
