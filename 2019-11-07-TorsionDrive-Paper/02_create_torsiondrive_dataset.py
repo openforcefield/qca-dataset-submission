@@ -8,7 +8,7 @@ import qcportal as ptl
 
 torsion_data_gz = "torsiondrive_inputs.tar.jz"
 torsion_data = "torsiondrive_inputs.json"
-dataset_name = "TorsionDrive paper"
+dataset_name = "TorsionDrive Paper"
 local_run = False
 
 
@@ -50,7 +50,8 @@ else:
 
 # create a new dataset with specified name
 
-ds = ptl.collections.TorsionDriveDataset(dataset_name, client=client)
+#ds = ptl.collections.TorsionDriveDataset(dataset_name, client=client)
+ds = client.get_collection("torsiondrivedataset", dataset_name)
 
 # create specification for this dataset
 opt_spec = {
@@ -83,15 +84,17 @@ print(f"Adding {len(selected_torsions)} torsions")
 i = 0
 for canonical_torsion_index, torsion_data in selected_torsions.items():
     print(i, canonical_torsion_index, len(torsion_data['input_molecules']))
+    if isinstance(torsion_data['input_molecules'], dict):
+        torsion_data['input_molecules'] = [torsion_data['input_molecules']]
     ds.add_entry(canonical_torsion_index,
                  torsion_data['input_molecules'],
-                 [torsion_data['dihedral']],
+                 torsion_data['dihedral'],
                  torsion_data['grid'],
                  energy_upper_limit=0.1,
                  attributes=torsion_data['cmiles_identifiers'])
     i += 1
 print("Submitting tasks...")
-comp = ds.compute("default", tag="openff", priority="normal")
+comp = ds.compute("default", tag="openff")
 print(comp)
 
 print("Complete!")
