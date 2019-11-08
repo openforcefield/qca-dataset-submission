@@ -1,126 +1,5 @@
 {
-  "[CH2:3]([CH2:2][OH:4])[OH:1]": {
-    "cmiles_identifiers": {
-      "canonical_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
-      "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:5][C:1]([H:6])([C:2]([H:7])([H:8])[O:4][H:10])[O:3][H:9]",
-      "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
-      "canonical_isomeric_smiles": "C(CO)O",
-      "canonical_smiles": "C(CO)O",
-      "inchi_key": "LYCAIKOWRPUZTN-UHFFFAOYSA-N",
-      "molecular_formula": "C2H6O2",
-      "provenance": "cmiles_v0.1.4+10.ga08a255_openeye_2019.Apr.2",
-      "standard_inchi": "InChI=1S/C2H6O2/c3-1-2-4/h3-4H,1-2H2",
-      "unique_protomer_representation": "C(CO)O",
-      "unique_tautomer_representation": "OCCO"
-    },
-    "dihedral": [
-      [
-        2,
-        0,
-        1,
-        3
-      ]
-    ],
-    "grid": [
-      15
-    ],
-    "input_molecules": {
-      "connectivity": [
-        [
-          0,
-          1,
-          1
-        ],
-        [
-          0,
-          2,
-          1
-        ],
-        [
-          1,
-          3,
-          1
-        ],
-        [
-          0,
-          4,
-          1
-        ],
-        [
-          0,
-          5,
-          1
-        ],
-        [
-          1,
-          6,
-          1
-        ],
-        [
-          1,
-          7,
-          1
-        ],
-        [
-          2,
-          8,
-          1
-        ],
-        [
-          3,
-          9,
-          1
-        ]
-      ],
-      "geometry": [
-        -1.6887193912042044,
-        0.8515190939276903,
-        0.8344587822904272,
-        -4.05544806361675,
-        -0.3658269566455062,
-        -0.22848169646448416,
-        -1.6111611950422127,
-        0.4463128276938808,
-        3.490617694146934,
-        -3.97756355964586,
-        -3.0080934853087373,
-        0.25948499322223956,
-        -1.6821252026076652,
-        2.891135395246369,
-        0.4936556190978574,
-        0.0,
-        0.0,
-        0.0,
-        -4.180315034973438,
-        -0.09210893239246959,
-        -2.2748227320305525,
-        -5.740516456782416,
-        0.4115539217904015,
-        0.6823267491485907,
-        -0.07872657410528058,
-        1.2476492272884379,
-        4.101615944163073,
-        -5.514569080545831,
-        -3.7195945404657222,
-        -0.4441653010509862
-      ],
-      "molecular_charge": 0,
-      "molecular_multiplicity": 1,
-      "symbols": [
-        "C",
-        "C",
-        "O",
-        "O",
-        "H",
-        "H",
-        "H",
-        "H",
-        "H",
-        "H"
-      ]
-    }
-  },
-  "[CH2:3]([CH2:2][OH:4])[OH:1],[H:4][O:3][CH2:2][CH2:1]O": {
+  "[CH2:3]([CH2:2][OH:4])[OH:1],[H:4][O:3][CH2:2][CH2:1]O_1": {
     "cmiles_identifiers": {
       "canonical_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
       "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:5][C:1]([H:6])([C:2]([H:7])([H:8])[O:4][H:10])[O:3][H:9]",
@@ -1422,6 +1301,127 @@
         ]
       }
     ]
+  },
+  "[CH2:3]([CH2:2][OH:4])[OH:1]_1": {
+    "cmiles_identifiers": {
+      "canonical_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
+      "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:5][C:1]([H:6])([C:2]([H:7])([H:8])[O:4][H:10])[O:3][H:9]",
+      "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
+      "canonical_isomeric_smiles": "C(CO)O",
+      "canonical_smiles": "C(CO)O",
+      "inchi_key": "LYCAIKOWRPUZTN-UHFFFAOYSA-N",
+      "molecular_formula": "C2H6O2",
+      "provenance": "cmiles_v0.1.4+10.ga08a255_openeye_2019.Apr.2",
+      "standard_inchi": "InChI=1S/C2H6O2/c3-1-2-4/h3-4H,1-2H2",
+      "unique_protomer_representation": "C(CO)O",
+      "unique_tautomer_representation": "OCCO"
+    },
+    "dihedral": [
+      [
+        2,
+        0,
+        1,
+        3
+      ]
+    ],
+    "grid": [
+      15
+    ],
+    "input_molecules": {
+      "connectivity": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          1
+        ],
+        [
+          1,
+          6,
+          1
+        ],
+        [
+          1,
+          7,
+          1
+        ],
+        [
+          2,
+          8,
+          1
+        ],
+        [
+          3,
+          9,
+          1
+        ]
+      ],
+      "geometry": [
+        -1.6887193912042044,
+        0.8515190939276903,
+        0.8344587822904272,
+        -4.05544806361675,
+        -0.3658269566455062,
+        -0.22848169646448416,
+        -1.6111611950422127,
+        0.4463128276938808,
+        3.490617694146934,
+        -3.97756355964586,
+        -3.0080934853087373,
+        0.25948499322223956,
+        -1.6821252026076652,
+        2.891135395246369,
+        0.4936556190978574,
+        0.0,
+        0.0,
+        0.0,
+        -4.180315034973438,
+        -0.09210893239246959,
+        -2.2748227320305525,
+        -5.740516456782416,
+        0.4115539217904015,
+        0.6823267491485907,
+        -0.07872657410528058,
+        1.2476492272884379,
+        4.101615944163073,
+        -5.514569080545831,
+        -3.7195945404657222,
+        -0.4441653010509862
+      ],
+      "molecular_charge": 0,
+      "molecular_multiplicity": 1,
+      "symbols": [
+        "C",
+        "C",
+        "O",
+        "O",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H",
+        "H"
+      ]
+    }
   },
   "[CH2:3]([CH2:2][OH:4])[OH:1]_12": {
     "cmiles_identifiers": {

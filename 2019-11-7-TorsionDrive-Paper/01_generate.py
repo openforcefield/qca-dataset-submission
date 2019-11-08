@@ -20,6 +20,8 @@ job_index_2d = job_index_1d + ',' + cmiles.utils.to_canonical_label(mapped_smile
 job_index_1d_mult = job_index_1d + '_' + str(len(qm_mol_mult_conf))
 job_index_2d_mult = job_index_2d + '_' + str(len(qm_mol_mult_conf))
 
+job_index_1d = job_index_1d + '_1'
+job_index_2d = job_index_2d + '_1'
 
 torsion_drive_inputs = {
     job_index_1d: {
