@@ -121,6 +121,19 @@
     }
   },
   "[CH2:3]([CH2:2][OH:4])[OH:1],[H:4][O:3][CH2:2][CH2:1]O": {
+    "cmiles_identifiers": {
+      "canonical_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
+      "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:5][C:1]([H:6])([C:2]([H:7])([H:8])[O:4][H:10])[O:3][H:9]",
+      "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
+      "canonical_isomeric_smiles": "C(CO)O",
+      "canonical_smiles": "C(CO)O",
+      "inchi_key": "LYCAIKOWRPUZTN-UHFFFAOYSA-N",
+      "molecular_formula": "C2H6O2",
+      "provenance": "cmiles_v0.1.4+10.ga08a255_openeye_2019.Apr.2",
+      "standard_inchi": "InChI=1S/C2H6O2/c3-1-2-4/h3-4H,1-2H2",
+      "unique_protomer_representation": "C(CO)O",
+      "unique_tautomer_representation": "OCCO"
+    },
     "dihedral": [
       [
         2,
@@ -233,19 +246,6 @@
         "H",
         "H"
       ]
-    },
-    "smiles_identifiers": {
-      "canonical_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
-      "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:5][C:1]([H:6])([C:2]([H:7])([H:8])[O:4][H:10])[O:3][H:9]",
-      "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])(C([H])([H])O[H])O[H]",
-      "canonical_isomeric_smiles": "C(CO)O",
-      "canonical_smiles": "C(CO)O",
-      "inchi_key": "LYCAIKOWRPUZTN-UHFFFAOYSA-N",
-      "molecular_formula": "C2H6O2",
-      "provenance": "cmiles_v0.1.4+10.ga08a255_openeye_2019.Apr.2",
-      "standard_inchi": "InChI=1S/C2H6O2/c3-1-2-4/h3-4H,1-2H2",
-      "unique_protomer_representation": "C(CO)O",
-      "unique_tautomer_representation": "OCCO"
     }
   },
   "[CH2:3]([CH2:2][OH:4])[OH:1],[H:4][O:3][CH2:2][CH2:1]O_12": {

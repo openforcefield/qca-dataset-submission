@@ -32,7 +32,7 @@ torsion_drive_inputs = {
         'dihedral': dihedrals_list,
         'grid': [15, 15],
         'input_molecules': qm_mol_single_conf,
-        'smiles_identifiers': mol_id
+        'cmiles_identifiers': mol_id
 
     },
     job_index_1d_mult: {
