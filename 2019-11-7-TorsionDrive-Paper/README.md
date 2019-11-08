@@ -8,7 +8,7 @@ Torsion Drives to explore wavefront propagation for the TorsionDrive paper
  - Collection: TorsionDriveDataset
  - Name: TorsionDrive paper
  - Number of Entries: 2 1D torsion drives, 2 2D torsiondrives (expandable)
- - Submitter: Yudong Qiu
+ - Submitter: Chaya Stern
 
 ### Generation pipeline
 1. `01_generate.py
