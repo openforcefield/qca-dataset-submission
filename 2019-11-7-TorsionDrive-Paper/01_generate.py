@@ -23,28 +23,28 @@ job_index_2d_mult = job_index_2d + '_' + str(len(qm_mol_mult_conf))
 
 torsion_drive_inputs = {
     job_index_1d: {
-        'dihedrals': [dihedrals_list[0]],
-        'grid_spacing': [15],
-        'initial_molecule': qm_mol_single_conf,
+        'dihedral': [dihedrals_list[0]],
+        'grid': [15],
+        'input_molecules': qm_mol_single_conf,
         'cmiles_identifiers': mol_id
     },
     job_index_2d: {
-        'dihedrals': dihedrals_list,
-        'grid_spacing': [15, 15],
-        'initial_molecule': qm_mol_single_conf,
+        'dihedral': dihedrals_list,
+        'grid': [15, 15],
+        'input_molecules': qm_mol_single_conf,
         'smiles_identifiers': mol_id
 
     },
     job_index_1d_mult: {
-        'dihedrals': [dihedrals_list[0]],
-        'grid_spacing': [15],
-        'initial_molecule': qm_mol_mult_conf,
+        'dihedral': [dihedrals_list[0]],
+        'grid': [15],
+        'input_molecules': qm_mol_mult_conf,
         'cmiles_identifiers': mol_id
     },
     job_index_2d_mult: {
-        'dihedrals': dihedrals_list,
-        'grid_spacing': [15, 15],
-        'initial_molecule': qm_mol_mult_conf,
+        'dihedral': dihedrals_list,
+        'grid': [15, 15],
+        'input_molecules': qm_mol_mult_conf,
         'cmiles_identifiers': mol_id
     }
 }

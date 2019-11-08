@@ -13,7 +13,7 @@
       "unique_protomer_representation": "C(CO)O",
       "unique_tautomer_representation": "OCCO"
     },
-    "dihedrals": [
+    "dihedral": [
       [
         2,
         0,
@@ -21,10 +21,10 @@
         3
       ]
     ],
-    "grid_spacing": [
+    "grid": [
       15
     ],
-    "initial_molecule": {
+    "input_molecules": {
       "connectivity": [
         [
           0,
@@ -121,7 +121,7 @@
     }
   },
   "[CH2:3]([CH2:2][OH:4])[OH:1],[H:4][O:3][CH2:2][CH2:1]O": {
-    "dihedrals": [
+    "dihedral": [
       [
         2,
         0,
@@ -135,11 +135,11 @@
         9
       ]
     ],
-    "grid_spacing": [
+    "grid": [
       15,
       15
     ],
-    "initial_molecule": {
+    "input_molecules": {
       "connectivity": [
         [
           0,
@@ -262,7 +262,7 @@
       "unique_protomer_representation": "C(CO)O",
       "unique_tautomer_representation": "OCCO"
     },
-    "dihedrals": [
+    "dihedral": [
       [
         2,
         0,
@@ -276,11 +276,11 @@
         9
       ]
     ],
-    "grid_spacing": [
+    "grid": [
       15,
       15
     ],
-    "initial_molecule": [
+    "input_molecules": [
       {
         "connectivity": [
           [
@@ -1437,7 +1437,7 @@
       "unique_protomer_representation": "C(CO)O",
       "unique_tautomer_representation": "OCCO"
     },
-    "dihedrals": [
+    "dihedral": [
       [
         2,
         0,
@@ -1445,10 +1445,10 @@
         3
       ]
     ],
-    "grid_spacing": [
+    "grid": [
       15
     ],
-    "initial_molecule": [
+    "input_molecules": [
       {
         "connectivity": [
           [
