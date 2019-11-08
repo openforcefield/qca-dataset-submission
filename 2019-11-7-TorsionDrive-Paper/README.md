@@ -11,7 +11,7 @@ Torsion Drives to explore wavefront propagation for the TorsionDrive paper
  - Submitter: Chaya Stern
 
 ### Generation pipeline
-1. `01_generate.py
+1. `01_generate.py`
     This generates the torsiondrive JSON inputs (`torsiondrive_inputs.json`)
 
 2. `02_create_torsiondrive_dataset.py`
