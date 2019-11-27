@@ -24,3 +24,4 @@ Geometry optimization of kinase inhibitor conformers to explore WBO conformation
 * `01_generate.py` - generate conformers for optimization dataset
 * `02_create_optimization_dataset.py` - create optimization dataset
 * `kinase_inhibitors.pdf` - visualization of kinase inhibitors in dataset
+* `optimization_inputs.json.gz` - optimization inputs JSON
