@@ -40,6 +40,12 @@ def make_ptl_mol(oemol):
     coords = oemol.GetCoords()
     symbols_list = [oechem.OEGetAtomicSymbol(atom.GetAtomicNum()) for atom in mol.GetAtoms()]
 
+    #convert to bohr
+    print(coords)
+    for key, item in coords.items():
+        coords[key] = (item[0]*1.88973, item[1]*1.88973, item[2]*1.88973)
+
+
     coord_list = [c for atom in mol.GetAtoms() for c in coords[atom.GetIdx()] ]
     conn_list = np.array([[bond.GetBgnIdx(),
                            bond.GetEndIdx(),
@@ -134,5 +140,5 @@ for f in file_list:
     except:
         pass
 import json
-with open('nitrogen_Jobs1.json', 'w') as fp:
+with open('nitrogen_Jobs_updateBohr.json', 'w') as fp:
         json.dump(jobsDict, fp, indent=2, sort_keys=True)
