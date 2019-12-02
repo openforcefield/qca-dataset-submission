@@ -22,7 +22,13 @@ client = ptl.FractalClient.from_file()
 #client = ptl.FractalClient("localhost:7777", verify=False)
 
 # create a new dataset with specified name
-ds = ptl.collections.GridOptimizationDataset(dataset_name, client=client)
+try:
+    ds = ptl.collections.GridOptimizationDataset(dataset_name, client=client)
+    print("Creating new dataset...")
+except:
+    print("Pulling dataset from server...")
+    ds = client.get_collection("GridOptimizationDataset", dataset_name)
+
 
 # create specification for this dataset
 opt_spec = {
@@ -58,6 +64,10 @@ for index, data in tqdm.tqdm(inputs.items()):
     scans = data['keywords']['scans']
     initial_molecule = data['initial_molecule']
     preopt = data['keywords']['preoptimization']
+
+    # Check to make sure their is a decent amount of connectivity to watch bohr/angstrom issues
+    conn = qcel.molutil.guess_connectivity(initial_molecule["symbols"], initial_molecule["geometry"])
+    assert (len(conn) + 3) > len(initial_molecule["symbols"]), conn
     ds.add_entry(index, initial_molecule, scans, preoptimization=preopt, attributes=attributes)
     i += 1
 
