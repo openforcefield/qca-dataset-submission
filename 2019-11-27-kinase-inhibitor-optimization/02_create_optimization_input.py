@@ -6,8 +6,11 @@ import tqdm
 import tarfile
 from collections import Counter
 import qcportal as ptl
+import qcelemental as qcel
 from qcelemental.models import Molecule
 
+dataset_name = "Kinase Inhibitors: WBO Distributions"
+update = True
 
 def read_molecules(input_json):
     """ Extract the molecules and the index of them from the input json file
@@ -80,25 +83,36 @@ print("Initializing dataset...")
 client = ptl.FractalClient().from_file()
 
 # create a new dataset with specified name
-ds = ptl.collections.OptimizationDataset("Kinase inhibitors WBO distributions", client=client)
-
-kw = ptl.models.KeywordSet(values={'maxiter': 200,
- 'scf_properties': ['dipole',
-  'quadrupole',
-  'wiberg_lowdin_indices',
-  'mayer_indices']})
-kw_id = client.add_keywords([kw])[0]
-
-# create specification for this dataset
-opt_spec = {"program": "geometric"}
-qc_spec = {"driver": "gradient", "method": "hf3c", "basis": "", "program": "psi4", "keywords": kw_id}
-ds.add_specification("hf3c", opt_spec, qc_spec, description="HF3C geometry optimization")
+if update:
+    ds = client.get_collection("OptimizationDataset", dataset_name)
+else:
+    ds = ptl.collections.OptimizationDataset(dataset_name, client=client)
+    
+    kw = ptl.models.KeywordSet(values={'maxiter': 200,
+     'scf_properties': ['dipole',
+      'quadrupole',
+      'wiberg_lowdin_indices',
+      'mayer_indices']})
+    kw_id = client.add_keywords([kw])[0]
+    
+    # create specification for this dataset
+    opt_spec = {"program": "geometric"}
+    qc_spec = {"driver": "gradient", "method": "hf3c", "program": "psi4", "keywords": kw_id}
+    ds.add_specification("HF3c", opt_spec, qc_spec, description="HF3C geometry optimization")
 
 # add molecules
 print(f"Adding {len(molecules_dict)} molecules")
 for molecule_index, molecule in tqdm.tqdm(molecules_dict.items()):
     attributes = molecule_attributes[molecule_index]
-    ds.add_entry(molecule_index, molecule, attributes=attributes)
+
+    # Check to make sure their is a decent amount of connectivity to watch bohr/angstrom issues
+    conn = qcel.molutil.guess_connectivity(molecule.symbols, molecule.geometry)
+    assert (len(conn) + 3) > len(molecule.symbols), conn
+
+    if molecule_index not in ds.df.index:
+        ds.add_entry(molecule_index, molecule, attributes=attributes, save=False)
+
+ds.save()
 
 print("Submitting tasks...")
 comp = ds.compute("hf3c", tag="openff", priority="normal")
