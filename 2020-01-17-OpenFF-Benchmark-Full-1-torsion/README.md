@@ -1,4 +1,4 @@
-# OpenFF Benchmark Primary 1 torsion
+# OpenFF Benchmark Full 1 torsion
 
 ### General Information
  - Date: 1/17/2020
@@ -21,7 +21,7 @@
  - The SMIRKs target count of 5 is chosen to generate a reasonable number of torsions for scanning.
 
 ### Manifest
- - `primary_set.smi` - input SMILES file containing all molecules in benchmark primary set 1.
+ - `full_set_filtered.smi` - input SMILES file containing all molecules with heavy atoms less than 31 in benchmark full set 1.
  - `01_generate.py` - script to generate OptimizationDataset inputs
  - `optimization_inputs.json` - input molecules
  - `cmiles_failures.json` - Molecules that rdkit failed to generate standardized tautomer
