@@ -74,7 +74,7 @@ else:
 # qc_spec = {"driver": "gradient", "method": "MP2", "basis": "def2-SV(P)", "program": "psi4", "keywords": kw_id}
 # ds.add_specification("mp2", opt_spec, qc_spec, description="MP2/def2-SV(P) .")
 
-inputs = list(inputs.items())[:50]
+inputs = list(inputs.items())
 
 # add molecules
 print(f"Adding {len(inputs)} gridoptimizations")
