@@ -6,14 +6,14 @@
  - Purpose: Generation of additional data for fitting of newly added torsion terms
  - Collection: TorsiondriveDataset
  - Name: OpenFF Group1 Torsions 2
- - Number of Entries: 4 1-D torsions 
+ - Number of Entries: 7 1-D torsions 
  - Submitter: Hyesu Jang
 
 ### Generation pipeline
 1. The first step of generating conformers is copyed from "2019-07-01-smirnoff99Frost-coverage-torsion"
 2. Group all conformers by their index stored in mdata['cmiles_identifiers']['canonical_isomeric_smiles']
-3. For each molecule, analyze the SMIRKs of each torsion, find torsions whose SMIRKs matches to t51a(`[*:1]-[#6X4:2]-[#7X3:3]-[*:4](!-[*])`) or t51b (`[*:1]-[#6X4:2]-[#7X3$(*@1-[*]=,:[*][*]=,:[*]@1):3]-[*:4]
-`), check if the SMIRKs already reached a target count (5).
+3. For each molecule, analyze the SMIRKs of each torsion, find torsions whose SMIRKs matches to 
+    `[*:1]-[#6X4:2]-[#7X3$(*@1-[*]=,:[*][*]=,:[*]@1):3]-[*:4]` or `[#1:1]-[#6X4:2]-[#7X3$(*@1-[*]=,:[*][*]=,:[*]@1):3]-[*:4]`, check if the SMIRKs already reached a target count (5).
 4. If not enough SMIRKs are in the selected_torsions yet, add this torsion to selected_torsions, save as JSON file.
 5. Create dataset using the JSON file.
 
@@ -22,7 +22,7 @@
  - The SMIRKs target count of 5 is chosen to generate a reasonable number of torsions for scanning.
 
 ### Manifest
- - `OpenFF_references.sdf` - input sdf file containing all molecules in Roche set (copied from "2019-05-01-OpenFF-Group1-Torsions")
+ - `chosen_supplemented.smi` - input smi file containing 8 tetrazole derivatives
  - `01_generate.py` - script to generate OptimizationDataset inputs
  - `optimization_inputs.json` - input molecules
  - `cmiles_failures.json` - Molecules that rdkit failed to generate standardized tautomer
@@ -33,7 +33,7 @@
  - `select.log` - Stdout of the 02_select_torsions.py script for record
  - `03_create_torsiondrive_dataset.py` - Script for creating the TorsiondriveDataset
  - `04_visualize.py` - create a PDF of all species in the dataset, highlighting central torsion and atoms involved in the torsion (copied from "2019-09-07-Pfizer-discrepancy-torsion-dataset-1")
- - `param_valence.offxml` - force field file which only contains t51a and t51b for ProperTorsions type
+ - `param_valence.offxml` - force field file 
 
 
 ### Usage
