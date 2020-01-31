@@ -60,7 +60,7 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
         for torsion_param, torsion_idx_list in torsions_coverage.items():
             smirks = torsion_param.smirks
             for atom_indices in torsion_idx_list:
-                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in [ 't51d', 't51e']:
+                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in [ 't51a', 't51b']:
                     smirks_torsions_counter[smirks] += 1
                     canonical_torsion_index = cmiles.utils.to_canonical_label(mapped_smiles, atom_indices)
                     torsions_dict[canonical_torsion_index] = {
@@ -70,7 +70,7 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
                         'tid' : torsion_param.id
                     }
                     print(f"  - torsion {atom_indices} added for smirks {smirks}")
-                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t51d', 't51e']:
+                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t51a', 't51b']:
                     print(f"  - torsion {atom_indices} skipped because {smirks} have {smirks_torsions_counter[smirks]} already")
     print("\n## Selected Torsion Coverage ##\n" + '-'*90)
     ff_torsion_param_list = forcefield.get_parameter_handler('ProperTorsions').parameters
@@ -92,7 +92,7 @@ print("## Selecting torsions ##")
 
 forcefield = ForceField('param_valence.offxml', allow_cosmetic_attributes=True)
 
-torsions_dict = select_torsions(molecules_list_dict, molecule_attributes, forcefield, target_coverage=5)
+torsions_dict = select_torsions(molecules_list_dict, molecule_attributes, forcefield, target_coverage=10)
 
 print("## Writing selected_torsions.json ##")
 with open('selected_torsions.json', 'w') as jsonfile:
