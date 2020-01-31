@@ -34,12 +34,13 @@ def read_aggregate_molecules(input_json):
                 molecules_list_dict[index].append(m_json)
     return molecules_list_dict, molecule_attributes
 
+
 def smirnoff_analyze_torsions(forcefield,off_mol):
     # Compute the coverage of all torsions in this molecule
     torsions_coverage = defaultdict(list)
     off_top = Off_Topology.from_molecules(off_mol)
     for torsion_indices, torsion_param in forcefield.label_molecules(off_top)[0]['ProperTorsions'].items():
-        torsions_coverage[torsion_param.smirks].append(torsion_indices)
+        torsions_coverage[torsion_param].append(torsion_indices)
     return torsions_coverage
 
 def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target_coverage=3):
@@ -56,31 +57,32 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
         oemol = cmiles.utils.load_molecule(qcjson_mol)
         off_mol = Off_Molecule.from_openeye(oemol, allow_undefined_stereo=True)
         torsions_coverage = smirnoff_analyze_torsions(forcefield, off_mol)
-        for smirks, torsion_idx_list in torsions_coverage.items():
+        for torsion_param, torsion_idx_list in torsions_coverage.items():
+            smirks = torsion_param.smirks
             for atom_indices in torsion_idx_list:
-                if smirks_torsions_counter[smirks] < target_coverage:
+                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in [ 't51d', 't51e']:
                     smirks_torsions_counter[smirks] += 1
                     canonical_torsion_index = cmiles.utils.to_canonical_label(mapped_smiles, atom_indices)
                     torsions_dict[canonical_torsion_index] = {
                         'initial_molecules': molecules_list_dict[mol_index],
                         'atom_indices': [ atom_indices ],
                         'attributes': mol_attr,
+                        'tid' : torsion_param.id
                     }
                     print(f"  - torsion {atom_indices} added for smirks {smirks}")
-                else:
+                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t51d', 't51e']:
                     print(f"  - torsion {atom_indices} skipped because {smirks} have {smirks_torsions_counter[smirks]} already")
     print("\n## Selected Torsion Coverage ##\n" + '-'*90)
     ff_torsion_param_list = forcefield.get_parameter_handler('ProperTorsions').parameters
     n_covered = 0
     for param in ff_torsion_param_list:
         count = smirks_torsions_counter[param.smirks]
-        print(f"{param.smirks:80s} : {count:7d}")
+        print(f"{param.id:5s}{param.smirks:80s} : {count:7d}")
         if count > 0:
             n_covered += 1
     print('-'*90)
     print(f'{n_covered} / {len(ff_torsion_param_list)} torsion SMIRKs covered')
     return torsions_dict
-
  
 print("## Extracting molecules ##")
 molecules_list_dict, molecule_attributes = read_aggregate_molecules("optimization_inputs.json")
