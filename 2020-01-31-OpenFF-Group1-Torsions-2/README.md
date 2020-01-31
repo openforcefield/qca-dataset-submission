@@ -6,7 +6,7 @@
  - Purpose: Generation of additional data for fitting of newly added torsion terms
  - Collection: TorsiondriveDataset
  - Name: OpenFF Group1 Torsions 2
- - Number of Entries: 7 1-D torsions 
+ - Number of Entries: 14 1-D torsions 
  - Submitter: Hyesu Jang
 
 ### Generation pipeline
