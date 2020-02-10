@@ -70,7 +70,7 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
         for torsion_param, torsion_idx_list in torsions_coverage.items():
             smirks = torsion_param.smirks
             for atom_indices in torsion_idx_list:
-                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in ['t128']:
+                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in ['t81','t128']:
                     i, j, k, l = atom_indices
                     if d_rings[j] & d_rings[k]:
                         pass
@@ -84,7 +84,7 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
                             'tid' : torsion_param.id
                         }
                         print(f"  - torsion {atom_indices} added for smirks {smirks}")
-                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t128']:
+                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t81','t128']:
                     print(f"  - torsion {atom_indices} skipped because {smirks} have {smirks_torsions_counter[smirks]} already")
     print("\n## Selected Torsion Coverage ##\n" + '-'*90)
     ff_torsion_param_list = forcefield.get_parameter_handler('ProperTorsions').parameters
