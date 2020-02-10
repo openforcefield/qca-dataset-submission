@@ -3,10 +3,10 @@
 ### General Information
  - Date: 2/10/2020
  - Class: Force Field Parameterization
- - Purpose: Generation of additional data for fitting of `t128`
+ - Purpose: Generation of additional data for fitting of `t128` and `t81`
  - Collection: TorsiondriveDataset
  - Name: OpenFF Group1 Torsions 3
- - Number of Entries: 5 1-D torsions 
+ - Number of Entries: 10 1-D torsions 
  - Submitter: Hyesu Jang
 
 ### Generation pipeline

@@ -5,4 +5,5 @@ CC(C)(C)N1CCC(N)=N1
 CC(C)(C)n1nnc(N)n1
 CC#CCn1nnc(n1)C1CC1
 CCN(C)N=C1CCC1
-
+COC(=O)C(\C)=C\N=[N+]=[N-]
+CC1(C)CC(O)=C(\N=N\c2ccc(F)cc2)C(C1)=NO
