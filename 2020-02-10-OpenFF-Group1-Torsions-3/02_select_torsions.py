@@ -8,6 +8,7 @@ from openforcefield.topology import Topology as Off_Topology
 from qcelemental.models import Molecule
 from bond_graph import BondGraph
 
+list_of_tids = ['t128', 't129']
 
 def read_aggregate_molecules(input_json):
     molecules_list_dict = defaultdict(list)
@@ -49,6 +50,7 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
     smirks_torsions_counter = Counter()
     i_mol = 0
     for mol_index, mol_attr in molecule_attributes.items():
+        central = []
         print(f'{i_mol:<7d}: {mol_index}')
         i_mol += 1
         mapped_smiles = mol_attr['canonical_isomeric_explicit_hydrogen_mapped_smiles']
@@ -70,11 +72,12 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
         for torsion_param, torsion_idx_list in torsions_coverage.items():
             smirks = torsion_param.smirks
             for atom_indices in torsion_idx_list:
-                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in ['t81','t128']:
+                if smirks_torsions_counter[smirks] < target_coverage and torsion_param.id in list_of_tids:
                     i, j, k, l = atom_indices
+                    
                     if d_rings[j] & d_rings[k]:
                         pass
-                    else:
+                    elif set([j,k]) not in central:
                         smirks_torsions_counter[smirks] += 1
                         canonical_torsion_index = cmiles.utils.to_canonical_label(mapped_smiles, atom_indices)
                         torsions_dict[canonical_torsion_index] = {
@@ -83,19 +86,21 @@ def select_torsions(molecules_list_dict, molecule_attributes, forcefield, target
                             'attributes': mol_attr,
                             'tid' : torsion_param.id
                         }
+                        central.append(set([j,k]))
                         print(f"  - torsion {atom_indices} added for smirks {smirks}")
-                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in ['t81','t128']:
+                elif smirks_torsions_counter[smirks] >= target_coverage and torsion_param.id in list_of_tids:
                     print(f"  - torsion {atom_indices} skipped because {smirks} have {smirks_torsions_counter[smirks]} already")
     print("\n## Selected Torsion Coverage ##\n" + '-'*90)
     ff_torsion_param_list = forcefield.get_parameter_handler('ProperTorsions').parameters
     n_covered = 0
     for param in ff_torsion_param_list:
-        count = smirks_torsions_counter[param.smirks]
-        print(f"{param.id:5s}{param.smirks:80s} : {count:7d}")
-        if count > 0:
-            n_covered += 1
+        if param.id in list_of_tids:
+            count = smirks_torsions_counter[param.smirks]
+            print(f"{param.id:5s}{param.smirks:80s} : {count:7d}")
+            if count > 0:
+                n_covered += 1
     print('-'*90)
-    print(f'{n_covered} / {len(ff_torsion_param_list)} torsion SMIRKs covered')
+    print(f'{n_covered} / {len(list_of_tids)} torsion SMIRKs covered')
     return torsions_dict
  
 print("## Extracting molecules ##")
