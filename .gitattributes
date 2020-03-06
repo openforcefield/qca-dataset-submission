@@ -3,6 +3,7 @@
 /2019-07-05[[:space:]]eMolecules[[:space:]]force[[:space:]]field[[:space:]]discrepancies[[:space:]]1/optimization_inputs.json.gz filter=lfs diff=lfs merge=lfs -text
 /2019-07-05[[:space:]]eMolecules[[:space:]]force[[:space:]]field[[:space:]]discrepancies[[:space:]]1/filter_by_bonds.ipynb filter=lfs diff=lfs merge=lfs -text
 /2020-01-17-OpenFF-Benchmark-Full-1-torsion/optimization_inputs.json.tar.gz filter=lfs diff=lfs merge=lfs -text
+/2020-03-05-OpenFF-Training-Data-Selection/select_TrainingDS.ipynb filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
