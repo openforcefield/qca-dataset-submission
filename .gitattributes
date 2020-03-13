@@ -10,6 +10,10 @@
 /2020-03-12-OpenFF-Gen-2-Torsion-Sets/2020-03-12-OpenFF-Gen-2-Torsion-Set-4-eMolecules-Discrepancy/emolecules_dataset_generated_new.pickle filter=lfs diff=lfs merge=lfs -text
 /2020-03-12-OpenFF-Gen-2-Torsion-Sets/2020-03-12-OpenFF-Gen-2-Torsion-Set-4-eMolecules-Discrepancy/emolecules_optimization_inputs.json.tar.gz filter=lfs diff=lfs merge=lfs -text
 /2020-03-12-OpenFF-Gen-2-Torsion-Sets/2020-03-12-OpenFF-Gen-2-Torsion-Set-3-Pfizer-Discrepancy/pfizer_torsiondrive_data.pickle filter=lfs diff=lfs merge=lfs -text
+/2020-03-12-OpenFF-Gen-2-Torsion-Set-1-Roche/roche_torsiondrive_data.pickle filter=lfs diff=lfs merge=lfs -text
+/2020-03-12-OpenFF-Gen-2-Torsion-Set-2-Coverage/coverage_torsiondrive_data.pickle filter=lfs diff=lfs merge=lfs -text
+/2020-03-12-OpenFF-Gen-2-Torsion-Set-3-Pfizer-Discrepancy/pfizer_torsiondrive_data.pickle filter=lfs diff=lfs merge=lfs -text
+/2020-03-12-OpenFF-Gen-2-Torsion-Set-4-eMolecules-Discrepancy/emolecules_optimization_inputs.json.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
