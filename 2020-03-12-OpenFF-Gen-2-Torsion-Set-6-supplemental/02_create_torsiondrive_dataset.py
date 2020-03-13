@@ -7,7 +7,7 @@ import qcportal as ptl
 import qcelemental as qcel
 from qcelemental.models import Molecule
 
-collection_name = "OpenFF Gen 2 Torsion Set 6 supplemental"
+collection_name = "OpenFF Gen 2 Torsion Set 6 Supplemental"
 UPDATE = False
 
 
