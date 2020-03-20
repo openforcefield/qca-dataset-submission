@@ -33,7 +33,6 @@ Final .json:
  - `optimization_inputs.json.gz`: .json file that contains optimization inputs
 
 Logs for filtering/clustering process:
- - `filter_log.txt`:
  - `anglebond.p`: Dictionary of the parameters as keys and smiles that utilize the parameter key.
  - `optimization_inputs.sdf`: sdf file of the molecules that are optimization inputs
  - `duplicates.smi`: Duplicate smiles from makeJson function
@@ -56,5 +55,5 @@ Requirements:
 
 
 ### Contributors:
- - Hyesu Jang, David Mobley, Lee-Ping Wang, Jeffrey Wagner, Josh Horton, Chaya Stern
+ - Jessica Maat, Hyesu Jang, David Mobley, Lee-Ping Wang, Jeffrey Wagner, Josh Horton, Chaya Stern
 
