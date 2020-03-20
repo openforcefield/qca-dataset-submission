@@ -18,13 +18,6 @@
 
 ### Manifest
 
- - `coverage_optimization_inputs.json`: input molecules with expanded states using fragmenter and cmiles
- - `coverage_torsiondrive_data.pickle`: pickled file containing `SMIRNOFF Coverage Torsion Set 1` data downloaded from qcarchive
- - `param_valence.offxml`: parameter file
- - `01_torsion_data_generator.ipynb`: jupyter notebook used in the dataset generation
- - `select.log`: stdout of `01_torsion_data_generator.ipynb` for record
- - `02_create_torsiondrive_dataset.py`: script for creating the TorsiondriveDataset and submitting
-
 Cluster/filtering:
  - `generateOptDS.py`: Generates a .json of filtered optimization inputs from QCA data set
  - `openff_unconstrained-1.0.0-RC1.offxml`: .offxml file that contain parameters molecules are assigned to

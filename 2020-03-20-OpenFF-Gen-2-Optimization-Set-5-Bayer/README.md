@@ -5,8 +5,8 @@
  - Class: Forcefield Parameterization
  - Purpose: 2nd generation optimization dataset for bond and valence parameter fitting
  - Collection: OptimizationDataset
- - Name: OpenFF Gen 2 Opt Set 2 Coverage
- - Number of Entries: 363 optimizations
+ - Name: OpenFF Gen 2 Opt Set 2 Bayer
+ - Number of Entries: - optimizations
  - Submitter: Jessica Maat
 
 ### Generation procedure
@@ -42,7 +42,7 @@ Requirements:
 ### Usage
 1. Run generateOptDS.py with a string containing the OptimizationDataset name, in this case `SMIRNOFF Coverage Set 1`.
     ```
-    python generateOptDS.py 'SMIRNOFF Coverage Set 1'
+    python generateOptDS.py '20191216_BayerPatentSpace_forOpenFF_SmilesOnly.sdf'
     ```
 2. Submit the .json file that is created in step 1 to QCFractal server. [WIP]
 
