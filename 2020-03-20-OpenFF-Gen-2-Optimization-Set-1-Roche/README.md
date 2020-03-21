@@ -50,7 +50,7 @@ Requirements:
     ```
 2. Submit the .json file that is created in step 1 to QCFractal server.
    ```
-   python 02_create_optimization_dataset.py 'OpenFF Gen 2 Opt Set 1 eMolecules Roche'
+   python 02_create_optimization_dataset.py 'OpenFF Gen 2 Opt Set 1 Roche'
    ```
 
 
