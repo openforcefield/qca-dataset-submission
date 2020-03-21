@@ -1,11 +1,11 @@
-# OpenFF Gen 2 Opt Set 2 eMolecules Discrepancy
+# OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy
 
 ### General Information
  - Date: 3/20/2020
  - Class: Force Field Parameterization
  - Purpose: 2nd generation optimization dataset for bond and valence parameter fitting
  - Collection: OptimizationDataset
- - Name: OpenFF Gen 2 Opt Set 2 eMolecules Discrepancy
+ - Name: OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy
  - Number of Entries: 2201 optimizations
  - Number of Molecules: 561
  - Submitter: Jessica Maat (jmaat@uci.edu)
@@ -44,13 +44,13 @@ Requirements:
  - `requirements.txt`: Packages and versions used
 
 ### Usage
-1. Run generateOptDS.py with a string containing the OptimizationDataset name, in this case `SMIRNOFF Coverage Set 1`.
+1. Run generateOptDS.py with a string containing the OptimizationDataset name.
     ```
     python 01_generateOptDS.py 'OpenFF Discrepancy Benchmark 1'
     ```
 2. Submit the .json file that is created in step 1 to QCFractal server.
    ```
-   python 02_create_optimization_dataset.py 'OpenFF Gen 2 Opt Set 2 eMolecules Discrepancy'
+   python 02_create_optimization_dataset.py 'OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy'
    ```
 
 

@@ -1,5 +1,10 @@
 """
-generateOptDS.py filters optimization data sets from QCA through fingerprint clustering.
+01_generateOptDS.py filters optimization data sets from QCA through fingerprint clustering.
+
+The script can be ran by performing the following command:
+    python 01_generateOptDS.py `QCA data set name`
+
+
 
 
 The main functions in the script are:
@@ -205,7 +210,8 @@ def selectDiverseMols(paramDict, parameter, eps=0.5, min_samples=5):
 
     # Select fingerprint type
     # Chris Bayly/Krisztina Boda recommend tree fingerprints with default path length of 4 bonds
-    fptype = OEFPType_Tree
+    fptype = OEFPType_MACCS166
+    #fptype= OEFPType_Tree
 
     # Make fingerprints
     release_set_fp = []
@@ -433,6 +439,15 @@ def makeJson(smiles):
     print("Final optimization count is:" + str(optimizationCount))
 
 
+
+
+
+    file1 = open("finalCounts.txt","w")#write mode
+    file1.write("Number of molecules optimized:" + str(len(oemols)) +'\n')
+    file1.write("Final optimization count with expanded states is:" + str(optimizationCount) +'\n')
+    file1.close()
+
+
     optSmiles=[]
     for mol in oemols:
         optSmiles.append(OEMolToSmiles(mol))
@@ -488,25 +503,54 @@ def make_param_histogram(param_id_counts, param_ids, letter, title):
     plt.show()
 
 
+def getParamKeys(paramDict):
+    """
+    Gives a list of the parameter keys used in a dictionary of keys and molecules.
+    The function also saves the used parameters in the data set to paramCoverage.txt
+
+    input -
+    paramDict: Dictionary with .offxml based parameters as keys and molecules as the items.
+
+    return -
+    params: List of parameters used
+    """
+    params=[]
+    for key, item in paramDict.items():
+        params.append(key)
+
+
+    file1 = open("bondCoverage.txt","w")#write mode
+    file2=open("angleCoverage.txt", "w")
+    for par in params:
+        if "b" in par:
+           file1.write(str(par) + "\n")
+        if "a" in par:
+            file2.write(str(par) + "\n")
+    file1.close()
+    file2.close()
+
+    return params
+
+
 def main(DSName):
-    smiles=load_DS_QCA(DSName)
-    dictofParams=paramUsage(smiles, 'openff_unconstrained-1.0.0-RC1.offxml')
+    #smiles=load_DS_QCA(DSName)
+    #dictofParams=paramUsage(smiles, 'openff_unconstrained-1.0.0-RC1.offxml')
     filtered_smiles=[]
-    #filtered_set=set()
-    #filename='anglebond.p'
-    #infile = open(filename,'rb')
-    #dictofParams = pickle.load(infile)
-    #infile.close()
+    filtered_set=set()
+    filename='anglebond.p'
+    infile = open(filename,'rb')
+    dictofParams = pickle.load(infile)
+    infile.close()
     filtLength=[]
 
     for key, mols in dictofParams.items():
         print(key)
         print(len(mols))
-        finalmols=selectDiverseMols(dictofParams, key, eps=0.5, min_samples=3)
+        finalmols=selectDiverseMols(dictofParams, key, eps=0.3, min_samples=3)
         print(len(finalmols))
         #filtered_set.add(set(finalmols))
         filtered_smiles.extend(finalmols)
-        filtLength.append([len(mols), len(finalmols)])
+        filtLength.append([len(key), len(mols), len(finalmols)])
 
     print(len(filtered_smiles))
     #print(len(filtered_set))
@@ -516,7 +560,8 @@ def main(DSName):
     print(type(filtered_smiles))
     smilesList=makeJson(filtered_smiles)
 
-
+    getParamKeys(dictofParams)
+    print(filtLength)
 
 
 if __name__ == '__main__':
