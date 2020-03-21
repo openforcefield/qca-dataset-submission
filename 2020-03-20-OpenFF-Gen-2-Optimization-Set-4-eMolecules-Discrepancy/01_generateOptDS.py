@@ -1,5 +1,10 @@
 """
-generateOptDS.py filters optimization data sets from QCA through fingerprint clustering.
+01_generateOptDS.py filters optimization data sets from QCA through fingerprint clustering.
+
+The script can be ran by performing the following command:
+    python 01_generateOptDS.py `QCA data set name`
+
+
 
 
 The main functions in the script are:
