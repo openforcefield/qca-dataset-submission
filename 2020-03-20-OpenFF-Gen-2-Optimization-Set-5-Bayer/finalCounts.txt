@@ -1,2 +1,0 @@
-Number of molecules optimized:524
-Final optimization count with expanded states is:16424
