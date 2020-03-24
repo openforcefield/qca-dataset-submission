@@ -99,7 +99,7 @@ for canonical_torsion_index, torsion_data in tqdm.tqdm(selected_torsions.items()
     torsion_atom_indices = torsion_data["atom_indices"]
     grid_spacings = [15] * len(torsion_atom_indices)
     initial_molecules = torsion_data["initial_molecules"]
-#    print(i, canonical_torsion_index, len(initial_molecules))
+    #    print(i, canonical_torsion_index, len(initial_molecules))
 
     # Check connectivity
     molecule = qcel.models.Molecule(**initial_molecules[0])
