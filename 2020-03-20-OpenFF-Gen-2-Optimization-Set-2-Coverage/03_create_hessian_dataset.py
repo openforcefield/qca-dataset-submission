@@ -4,14 +4,15 @@ import copy
 import json
 import tqdm
 import tarfile
+import pandas as pd
 from collections import Counter
 #import qcportal as ptl
 import qcfractal.interface as ptl
 from qcelemental.models import Molecule
 
 # Updates the dataset rather than recomputing
-UPDATE = False
-
+UPDATE = True
+name = "OpenFF Gen 2 Opt Set 2 Coverage"
 
 print("Initializing dataset...")
 client = ptl.FractalClient.from_file()
@@ -19,16 +20,14 @@ client = ptl.FractalClient.from_file()
 
 # create or pull a previous dataset with specified name
 
-# Pull optimization dataset
-opt_ds = client.get_collection("OptimizationDataset", "OpenFF Gen 2 Opt Set 2 Coverage")
+# Pull hte optimization dataset
+opt_ds = client.get_collection("OptimizationDataset", name)
 opt_ds.query("default", force=True)
 
 if UPDATE:
-    hess_ds = client.get_collection("Dataset", "OpenFF Gen 2 Opt Set 2 Coverage")
+    hess_ds = client.get_collection("Dataset", name)
 else:
-    hess_ds = ptl.collections.Dataset("OpenFF Gen 2 Opt Set 2 Coverage", client=client)
-    hess_ds.data.default_program = "psi4"
-    hess_ds.data.default_driver = "hessian"
+    hess_ds = ptl.collections.Dataset(name, client=client, default_program="psi4", default_driver="hessian")
 
     kw = ptl.models.KeywordSet(values={'maxiter': 200,
      'scf_properties': ['dipole',
@@ -44,7 +43,11 @@ known_jobs = set(hess_ds.df.index)
 
 comp = []
 for idx, opt in opt_ds.df["default"].iteritems():
-    if opt.status == "INCOMPLETE":
+
+    if pd.isnull(opt):
+        continue
+
+    if opt.status != "COMPLETE":
         continue
 
     if idx in hess_ds.df.index:
@@ -53,9 +56,11 @@ for idx, opt in opt_ds.df["default"].iteritems():
     record = {"name": idx, "molecule_id": opt.final_molecule}
     comp.append(record)
 
-
 print(f"Adding {len(comp)} computations")
-hess_ds.data.records.extend([ptl.collections.dataset.MoleculeRecord(**x) for x in comp])
+if hess_ds.data.records is None:
+    hess_ds.data.__dict__["records"] = []
+
+hess_ds.data.records.extend([ptl.collections.dataset.MoleculeEntry(**x) for x in comp])
 
 print("Submitting tasks...")
 r = hess_ds.compute("B3LYP-d3bj", "DZVP", keywords="default", program="psi4", tag="openff", priority="normal")
