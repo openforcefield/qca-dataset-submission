@@ -1,0 +1,1524 @@
+
+## Torsion parameter: matched molecules ##
+------------------------------------------------------------------------------------------
+idx     ID      SMIRKS Pattern                                                         Number of molecules matched
+0       t1      [*:1]-[#6X4:2]-[#6X4:3]-[*:4]                                          21
+1       t2      [#6X4:1]-[#6X4:2]-[#6X4:3]-[#6X4:4]                                    4
+2       t3      [#1:1]-[#6X4:2]-[#6X4:3]-[#1:4]                                        126
+3       t4      [#1:1]-[#6X4:2]-[#6X4:3]-[#6X4:4]                                      124
+4       t5      [#8X2:1]-[#6X4:2]-[#6X4:3]-[#8X2:4]                                    0
+5       t6      [#9:1]-[#6X4:2]-[#6X4:3]-[#9:4]                                        4
+6       t7      [#17:1]-[#6X4:2]-[#6X4:3]-[#17:4]                                      2
+7       t8      [#35:1]-[#6X4:2]-[#6X4:3]-[#35:4]                                      2
+8       t9      [#1:1]-[#6X4:2]-[#6X4:3]-[#8X2:4]                                      15
+9       t10     [#1:1]-[#6X4:2]-[#6X4:3]-[#9:4]                                        4
+10      t11     [#1:1]-[#6X4:2]-[#6X4:3]-[#17:4]                                       14
+11      t12     [#1:1]-[#6X4:2]-[#6X4:3]-[#35:4]                                       2
+12      t13     [*:1]-[#6X4:2]-[#6X4;r3:3]-[*:4]                                       3
+13      t14     [*:1]-[#6X4:2]-[#6X4;r3:3]-[#6X4;r3:4]                                 12
+14      t15     [*:1]-[#6X4;r3:2]-@[#6X4;r3:3]-[*:4]                                   45
+15      t16     [#6X4;r3:1]-[#6X4;r3:2]-[#6X4;r3:3]-[*:4]                              0
+16      t17     [*:1]~[#6X3:2]-[#6X4:3]-[*:4]                                          16
+17      t20     [*:1]-[#6X4:2]-[#6X3:3]=[*:4]                                          24
+18      t18     [#1:1]-[#6X4:2]-[#6X3:3]=[#8X1:4]                                      36
+19      t19     [#1:1]-[#6X4:2]-[#6X3:3]=[#6X3:4]                                      12
+20      t21     [#6X3:1]-[#6X4:2]-[#6X3:3]=[#6X3:4]                                    2
+21      t22     [#7X3:1]-[#6X4:2]-[#6X3:3]-[#7X3:4]                                    6
+22      t23     [#6X4:1]-[#6X4:2]-[#6X3:3]-[#7X3:4]                                    5
+23      t24     [#16X2,#16X1-1,#16X3+1:1]-[#6X3:2]-[#6X4:3]-[#1:4]                     5
+24      t25     [#16X2,#16X1-1,#16X3+1:1]-[#6X3:2]-[#6X4:3]-[#7X4,#7X3:4]              1
+25      t26     [#16X2,#16X1-1,#16X3+1:1]-[#6X3:2]-[#6X4:3]-[#7X3$(*-[#6X3,#6X2]):4]   2
+26      t27     [*:1]-[#6X4;r3:2]-[#6X3:3]~[*:4]                                       13
+27      t28     [#6X4:1]-[#6X4;r3:2]-[#6X3:3]~[#6X3:4]                                 1
+28      t29     [#1:1]-[#6X4;r3:2]-[#6X3:3]~[#6X3:4]                                   2
+29      t30     [#6X3:1]-[#6X4;r3:2]-[#6X3:3]-[#7X3:4]                                 2
+30      t31     [#6X3:1]-[#6X4;r3:2]-[#6X3:3]=[#8X1:4]                                 5
+31      t32     [#6X3:1]-[#6X4;r3:2]-[#6X3:3]~[#6X3:4]                                 1
+32      t33     [#7X3:1]-[#6X4;r3:2]-[#6X3:3]~[#6X3:4]                                 4
+33      t34     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3:3]~[#6X3:4]                            2
+34      t35     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3;r6:3]:[#6X3;r6:4]                      8
+35      t36     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3;r5:3]-;@[#6X3;r5:4]                    4
+36      t37     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3;r5:3]=;@[#6X3;r5:4]                    2
+37      t38     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3:3]-[#6X4:4]                            2
+38      t39     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3;r6:3]:[#7X2;r6:4]                      8
+39      t40     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3:3]=[#7X2:4]                            2
+40      t41     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3:3]-[#8X2:4]                            6
+41      t42     [#6X4;r3:1]-;@[#6X4;r3:2]-[#6X3:3]=[#8X1:4]                            10
+42      t43     [*:1]~[#6X3:2]-[#6X3:3]~[*:4]                                          8
+43      t44     [*:1]~[#6X3:2]:[#6X3:3]~[*:4]                                          256
+44      t45     [*:1]-,:[#6X3:2]=[#6X3:3]-,:[*:4]                                      0
+45      t46     [#6X4:1]-[#6X3:2]=[#6X3:3]-[#6X4:4]                                    0
+46      t47     [*:1]~[#6X3:2]-[#6X3$(*=[#8,#16,#7]):3]~[*:4]                          24
+47      t48     [#6X3:1]=[#6X3:2]-[#6X3:3]=[#8X1:4]                                    0
+48      t49     [*:1]~[#7a:2]:[#6a:3]~[*:4]                                            2
+49      t50     [*:1]-[#6X4:2]-[#7X4:3]-[*:4]                                          0
+50      t51     [*:1]-[#6X4:2]-[#7X3:3]-[*:4]                                          9
+51      t51a    [*:1]-[#6X4:2]-[#7X3:3]-[#7X2:4]=[#6]                                  0
+52      t51ah   [#1:1]-[#6X4:2]-[#7X3:3]-[#7X2:4]=[#6]                                 0
+53      t51b    [*:1]-[#6X4:2]-[#7X3:3]-[#7X2:4]=[#7X2,#8X1]                           0
+54      t51bh   [#1:1]-[#6X4:2]-[#7X3:3]-[#7X2:4]=[#7X2,#8X1]                          0
+55      t51c    [*:1]-[#6X4:2]-[#7X3$(*@1-[*]=,:[*][*]=,:[*]@1):3]-[*:4]               0
+56      t51ch   [#1:1]-[#6X4:2]-[#7X3$(*@1-[*]=,:[*][*]=,:[*]@1):3]-[*:4]              0
+57      t52     [#6X4:1]-[#6X4:2]-[#7X4,#7X3:3]-[#6X4:4]                               1
+58      t54     [#1:1]-[#7X4,#7X3:2]-[#6X4;r3:3]-[*:4]                                 8
+59      t55     [#1:1]-[#7X4,#7X3:2]-[#6X4;r3:3]-[#6X4;r3:4]                           20
+60      t56     [!#1:1]-[#7X4,#7X3:2]-[#6X4;r3:3]-[*:4]                                0
+61      t57     [!#1:1]-[#7X4,#7X3:2]-[#6X4;r3:3]-[#6X4;r3:4]                          4
+62      t58     [*:1]-[#7X4:2]-[#6X3:3]~[*:4]                                          0
+63      t59     [*:1]-[#6X4:2]-[#7X3$(*~[#6X3,#6X2]):3]~[*:4]                          4
+64      t60     [*:1]-[#6X4:2]-[#7X3$(*~[#8X1]):3]~[#8X1:4]                            4
+65      t61     [#6X3:1]-[#7X3:2]-[#6X4:3]-[#6X3:4]                                    0
+66      t62     [#6X4:1]-[#6X4:2]-[#7X3:3]-[#6X3:4]=[#8,#16,#7]                        0
+67      t63     [#8X2H0:1]-[#6X4:2]-[#7X3:3]-[#6X3:4]                                  1
+68      t64     [#6X3:1]-[#7X3:2]-[#6X4;r3:3]-[#6X4;r3:4]                              8
+69      t65     [*:1]~[#7X2:2]-[#6X4:3]-[*:4]                                          1
+70      t66     [#6X3:1]=[#7X2,#7X3+1:2]-[#6X4:3]-[#1:4]                               0
+71      t67     [#6X3:1]=[#7X2,#7X3+1:2]-[#6X4:3]-[#6X3,#6X4:4]                        0
+72      t68     [*:1]~[#7X3,#7X2-1:2]-;@[#6X3:3]~[*:4]                                 5
+73      t69     [*:1]~[#7X3,#7X2-1:2]-!@[#6X3:3]~[*:4]                                 27
+74      t70     [#1:1]-[#7X3:2]-[#6X3:3]=[#8,#16,#7:4]                                 27
+75      t71     [*:1]-[#7X3;r5:2]-@[#6X3;r5:3]~[*:4]                                   50
+76      t72     [#8X1:1]~[#7X3:2]~[#6X3:3]~[*:4]                                       2
+77      t73     [*:1]=[#7X2,#7X3+1:2]-[#6X3:3]-[*:4]                                   1
+78      t74     [*:1]=[#7X2,#7X3+1:2]-[#6X3:3]=,:[*:4]                                 5
+79      t75     [*:1]~[#7X2,#7X3$(*~[#8X1]):2]:[#6X3:3]~[*:4]                          18
+80      t76     [#6X3:1]:[#7X2:2]:[#6X3:3]:[#6X3:4]                                    4
+81      t77     [*:1]-,:[#6X3:2]=[#7X2:3]-[*:4]                                        0
+82      t78     [*:1]-[#7X3+1:2]=,:[#6X3:3]-,:[*:4]                                    2
+83      t79     [#16X4,#16X3+0:1]-[#7X2:2]=[#6X3:3]-[#7X3:4]                           2
+84      t80     [#16X4,#16X3+0:1]-[#7X2:2]=[#6X3:3]-[#16X2,#16X3+1:4]                  2
+85      t81     [#7X2:1]~[#7X2:2]-[#6X3:3]~[#6X3:4]                                    0
+86      t82     [#7X2:1]~[#7X2:2]-[#6X4:3]-[#6X3:4]                                    1
+87      t83     [#7X2:1]~[#7X2:2]-[#6X4:3]~[#1:4]                                      4
+88      t84     [*:1]-[#6X4:2]-[#8X2:3]-[#1:4]                                         2
+89      t85     [#6X4:1]-[#6X4:2]-[#8X2H1:3]-[#1:4]                                    9
+90      t86     [*:1]-[#6X4:2]-[#8X2H0:3]-[*:4]                                        3
+91      t87     [#6X4:1]-[#6X4:2]-[#8X2H0:3]-[#6X4:4]                                  0
+92      t88     [#6X4:1]-[#6X4:2]-[#8X2:3]-[#6X3:4]                                    0
+93      t89     [#6X4:1]-[#8X2:2]-[#6X4:3]-[#8X2:4]                                    4
+94      t90     [#6X4:1]-[#8X2:2]-[#6X4:3]-[#7X3:4]                                    1
+95      t91     [#6X3:1]-[#8X2:2]-[#6X4;r3:3]-@[#6X4;r3:4]                             2
+96      t92     [#6X3:1]-[#8X2:2]-[#6X4;r3:3]-[#1:4]                                   1
+97      t93     [#1:1]-[#8X2:2]-[#6X4;r3:3]-[#1:4]                                     4
+98      t94     [#1:1]-[#8X2:2]-[#6X4;r3:3]-[#6X4:4]                                   3
+99      t95     [#1:1]-[#8X2:2]-[#6X4;r3:3]-[#6X4;r3:4]                                14
+100     t96     [*:1]~[#6X3:2]-[#8X2:3]-[*:4]                                          27
+101     t97     [*:1]~[#6X3:2]-[#8X2:3]-[#1:4]                                         4
+102     t98     [*:1]~[#6X3:2](=[#8,#16,#7])-[#8X2H0:3]-[*:4]                          6
+103     t99     [*:1]~[#6X3:2](=[#8,#16,#7])-[#8:3]-[#1:4]                             3
+104     t100    [#1:1]-[#8X2:2]-[#6X3:3]=[#8X1:4]                                      3
+105     t101    [#8,#16,#7:1]=[#6X3:2]-[#8X2H0:3]-[#6X4:4]                             3
+106     t102    [*:1]-[#8X2:2]@[#6X3:3]~[*:4]                                          7
+107     t103    [*:1]-[#8X2+1:2]=[#6X3:3]-[*:4]                                        0
+108     t104    [*:1]=[#8X2+1:2]-[#6:3]~[*:4]                                          0
+109     t105    [*:1]~[#16:2]=,:[#6:3]~[*:4]                                           0
+110     t106    [*:1]-[#16X2,#16X3+1:2]-[#6:3]~[*:4]                                   2
+111     t107    [*:1]-[#16X2,#16X3+1:2]-[#6:3]-[#1:4]                                  9
+112     t108    [#6X3:1]-@[#16X2,#16X1-1,#16X3+1:2]-@[#6X3,#7X2;r5:3]=@[#6,#7;r5:4]    8
+113     t109    [*:1]~[#16X4,#16X3!+1:2]-[#6X4:3]-[*:4]                                9
+114     t110    [#6X4:1]-[#16X4,#16X3+0:2]-[#6X4:3]-[#1:4]                             0
+115     t111    [#6X4:1]-[#16X4,#16X3+0:2]-[#6X4:3]~[#6X4:4]                           0
+116     t112    [*:1]~[#16X4,#16X3+0:2]-[#6X3:3]~[*:4]                                 48
+117     t113    [#6:1]-[#16X4,#16X3+0:2]-[#6X3:3]~[*:4]                                2
+118     t114    [*:1]~[#15:2]-[#6:3]-[*:4]                                             4
+119     t115    [*:1]~[#15:2]-[#6X3:3]~[*:4]                                           24
+120     t116    [*:1]-[#8:2]-[#8:3]-[*:4]                                              0
+121     t117    [*:1]-[#8:2]-[#8H1:3]-[#1:4]                                           1
+122     t118    [*:1]~[#8X2:2]-[#7:3]~[*:4]                                            2
+123     t119    [*:1]-[#8X2r5:2]-;@[#7X3r5:3]~[*:4]                                    8
+124     t120    [*:1]-[#8X2r5:2]-;@[#7X2r5:3]~[*:4]                                    1
+125     t121    [*:1]-[#7X4,#7X3:2]-[#7X4,#7X3:3]-[*:4]                                4
+126     t122    [#1:1]-[#7X4,#7X3:2]-[#7X4,#7X3:3]-[#1:4]                              2
+127     t123    [#6X4:1]-[#7X4,#7X3:2]-[#7X4,#7X3:3]-[#1:4]                            6
+128     t124    [#6X4:1]-[#7X4,#7X3:2]-[#7X4,#7X3:3]-[#6X4:4]                          4
+129     t125    [*:1]-[#7X4,#7X3:2]-[#7X3$(*~[#6X3,#6X2]):3]~[*:4]                     0
+130     t126    [*:1]-[#7X3$(*-[#6X3,#6X2]):2]-[#7X3$(*-[#6X3,#6X2]):3]-[*:4]          1
+131     t127    [*:1]-[#7X3$(*-[#6X3,#6X2])r5:2]-@[#7X3$(*-[#6X3,#6X2])r5:3]~[*:4]     2
+132     t128a   [*:1]@[#7X2:2]@[#7X2:3]@[#7X2,#6X3:4]                                  1
+133     t128    [*:1]~[#7X2:2]-[#7X3:3]~[*:4]                                          0
+134     t129    [*:1]=[#7X2:2]-[#7X2:3]=[*:4]                                          0
+135     t130    [*:1]~[#7X2:2]=,:[#7X2:3]~[*:4]                                        7
+136     t131    [*:1]~[#7X3+1:2]=,:[#7X2:3]~[*:4]                                      4
+137     t133    [*:1]-[#16X2,#16X3+1:2]-[!#6:3]~[*:4]                                  10
+138     t134    [*:1]~[#16X4,#16X3+0:2]-[#7:3]~[*:4]                                   21
+139     t135    [#6X4:1]-[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#1:4]                        2
+140     t136    [#6X3:1]-[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#1:4]                        4
+141     t137    [#6X4:1]-[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#6X4:4]                      2
+142     t138    [#6X3:1]-[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#6X4:4]                      0
+143     t139    [#8X1:1]~[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#1:4]                        10
+144     t140    [#8X1:1]~[#16X4,#16X3+0:2]-[#7X4,#7X3:3]-[#6X4:4]                      2
+145     t141    [#6X3:1]-[#16X4,#16X3+0:2]-[#7X3:3]-[#6X3:4]                           0
+146     t142    [#6X4:1]-[#16X4,#16X3+0:2]-[#7X3:3]-[#6X3:4]                           1
+147     t143    [#8X1:1]~[#16X4,#16X3+0:2]-[#7X3:3]-[#6X3:4]                           2
+148     t144    [#8X1:1]~[#16X4,#16X3+0:2]-[#7X3:3]-[#7X2:4]                           2
+149     t145    [*:1]~[#16X4,#16X3+0:2]=,:[#7X2:3]-,:[*:4]                             0
+150     t146    [#6X4:1]-[#16X4,#16X3+0:2]-[#7X2:3]~[#6X3:4]                           2
+151     t147    [#8X1:1]~[#16X4,#16X3+0:2]-[#7X2:3]~[#6X3:4]                           4
+152     t148    [*:1]~[#16X4,#16X3+0:2]-[#8X2:3]-[*:4]                                 0
+153     t149    [*:1]-[#16X2,#16X3+1:2]-[#16X2,#16X3+1:3]-[*:4]                        0
+154     t150    [*:1]-[#8X2:2]-[#15:3]~[*:4]                                           14
+155     t151    [#8X2:1]-[#15:2]-[#8X2:3]-[#6X4:4]                                     4
+156     t152    [*:1]~[#7X3:2]-[#15:3]~[*:4]                                           18
+157     t154    [*:1]-[#7:2]-[#15:3]=[*:4]                                             6
+158     t155    [#6X3:1]-[#7:2]-[#15:3]=[*:4]                                          3
+159     t155b   [*:1]~[#7:2]=[#15:3]~[*:4]                                             3
+160     t156    [*:1]-[*:2]#[*:3]-[*:4]                                                1
+161     t157    [*:1]~[*:2]-[*:3]#[*:4]                                                12
+162     t158    [*:1]~[*:2]=[#6,#7,#16,#15;X2:3]=[*:4]                                 4
+------------------------------------------------------------------------------------------
+Loading TorsionDrive Scans from [ OpenFF Gen 2 Torsion Set 2 Coverage ] spec [default]
+Found 93 data entries
+Found 93 torsiondrive records
+    1 : C[O:4][CH:3](O)[O:2][CH3:1]                        status COMPLETE
+    2 : [H:4][O:3][CH:2]([O:1]C)OC                         status COMPLETE
+    3 : [H:4][O:3][CH2:2][CH3:1]                           status COMPLETE
+    4 : [H:3][CH2:1][CH:2]([H:4])O                         status COMPLETE
+    5 : C#[C:1][c:2]1ccc[cH:4][cH:3]1                      status COMPLETE
+    6 : [H:4][NH:2][CH:3]=[NH2+:1]                         status COMPLETE
+    7 : [H:4][N:3]([CH:2]1[CH2:1]C1)[S@](=N)(=O)C          status COMPLETE
+    8 : [H:4][N:3](C1CC1)[S@:2](=N)(=O)[CH3:1]             status COMPLETE
+    9 : C[C@@]1(CC(=O)N1)[c:3]2n[cH:1][cH:2][s:4]2         status COMPLETE
+   10 : C[C@@:1]1(C[C:3](=[O:4])[NH:2]1)c2nccs2            status COMPLETE
+   11 : C[C@@:2]1([CH2:1]C(=O)N1)[c:3]2ncc[s:4]2           status COMPLETE
+   12 : [H:4][CH2:3][C@@:2]1([CH2:1]C(=O)N1)c2nccs2        status COMPLETE
+   13 : [CH3:1][O:3][C:2](=[O:4])C[N+]#[C-]                status COMPLETE
+   14 : [CH3:1][NH:4][CH2:2][CH:3](Cl)Cl                   status COMPLETE
+   15 : [H:4][CH:3]([CH:2](Cl)[Cl:1])NC                    status COMPLETE
+   16 : [H:4][C:3]1(CC1)[c:2]2[cH:1]c(sc2C)Br              status COMPLETE
+   17 : [H:4][O:3][O:2][C:1](=O)C                          status COMPLETE
+   18 : [CH3:2][C:1](=O)[O:3][OH:4]                        status COMPLETE
+   19 : [CH3:4][O:3][c:2]1[cH:1]c(c(cc1I)O)F               status COMPLETE
+   20 : CO/N=[N+:3](/[CH:2](Br)[Br:4])\[O-:1]              status COMPLETE
+   21 : [H:4][O:3][C:2]1([C@H]2[C@H]1CCC2)[CH3:1]          status COMPLETE
+   22 : [cH:1]1cc(cc[c:2]1[N+:3](=O)[O-:4])S(=O)(=O)NCl    status COMPLETE
+   23 : [H:4][N:3]([S:2](=O)(=O)[c:1]1ccc(cc1)[N+](=O)[O-])Cl status COMPLETE
+   24 : C[C@@H]1C[N@:3]([S:4](=O)(=O)C1)[NH:2][CH3:1]      status COMPLETE
+   25 : [CH2:2]=[C:1]=[CH:3][N:4]1CCCC1=O                  status ERROR
+   26 : CC(C)[C:2](=O)[NH:3][NH:4][CH:1]=O                 status COMPLETE
+   27 : CC(=O)[O:3][C:1]#[C:2][O:4]C(=O)C                  status ERROR
+   28 : [H:1][C@:2]1([C@@H]2[C@@H]1CNC2)[O:3][H:4]         status COMPLETE
+   29 : Cc1ccccc1[c:1]2[n-:2][n:3][n:4]n2                  status COMPLETE
+   30 : [CH2:2]([CH2:3][Br:4])[c:1]1[nH]nnn1               status COMPLETE
+   31 : C1[C@H:1](O1)[CH2:2][CH2:3][CH2:4]F                status COMPLETE
+   32 : [C@:3]([C:2]([F:1])(F)Br)([F:4])(Cl)Br             status COMPLETE
+   33 : CC[C@H:3]([CH2:2][Cl:1])[Cl:4]                     status COMPLETE
+   34 : [H:4][CH:3](C[C@H]1CO1)[CH2:2][F:1]                status COMPLETE
+   35 : C1[C@@H:3]([O:4]1)[CH2:2][CH2:1]CF                 status COMPLETE
+   36 : [CH3:4][C:3]1([C@H]2[C@H:2]1[CH2:1]CC2)O           status ERROR
+   37 : [H:4][CH:3](c1cs/c(=N/S(=O)(=O)C)/[nH]1)[C:2](=[O:1])OC status COMPLETE
+   38 : [H:4][CH:3]([c:2]1[cH:1]nns1)NN                    status COMPLETE
+   39 : CO[C:4](=O)[CH2:3][c:2]1[cH:1]s/c(=N/S(=O)(=O)C)/[nH]1 status COMPLETE
+   40 : C1CC1[NH:4][C:1](=O)[CH2:2][N@:3]2C[C@H](CO2)O     status COMPLETE
+   41 : [CH2:2]([CH2:1]Br)[c:3]1[nH:4]nnn1                 status COMPLETE
+   42 : c1con[c:1]1[C:2]2(CC2)[C:3](=O)[OH:4]              status COMPLETE
+   43 : C[C:2](=[CH2:1])[C:3]1(CC1)[CH2:4]ON               status COMPLETE
+   44 : CC1(C[C@:2]1([C:3](=O)[NH2:4])[C:1](=O)O)C         status COMPLETE
+   45 : [cH:1]1con[c:2]1[C:3]2(CC2)[C:4](=O)O              status COMPLETE
+   46 : CC[C@@H]1C[C@@:3]1([c:2]2[cH:1]cc(nn2)OC)[NH2:4]   status COMPLETE
+   47 : CC[C@H]1[CH2:4][C@:3]1([c:2]2[cH:1]cc(nn2)OC)N     status COMPLETE
+   48 : COc1c[cH:1][c:2](cc1OC)[c:3]2[cH:4]cc3ccccc3[o+]2  status COMPLETE
+   49 : C1=N[C@@H:1]([C:2](=N1)[C:3](=O)[NH2:4])[N+]#N     status COMPLETE
+   50 : C[n+:3]1[cH:2][cH:1]c(c[cH:4]1)C(=O)N              status COMPLETE
+   51 : C1CC1N[C:1](=O)[CH2:2][N@@:3]2C[C@H](C[O:4]2)O     status COMPLETE
+   52 : [H:4][NH:3][C@:2]1(C[C@H]1CC)[c:1]2ccc(nn2)OC      status COMPLETE
+   53 : C[C@@H:3]([c:4]1[nH][nH]c(=O)n1)[NH:2][C:1]#N      status COMPLETE
+   54 : CN[C:1](=O)[NH:2][CH2:3][O:4]C                     status COMPLETE
+   55 : C1[CH2:3][CH:4]1[NH:2][C:1](=O)C[N@]2C[C@H](CO2)O  status COMPLETE
+   56 : [CH2:2]([C:1]#N)[N:3]=[N+:4]=[N-]                  status COMPLETE
+   57 : [CH3:3][NH:2][C:1](=[O:4])S                        status RUNNING
+   58 : [CH2:2](CBr)[c:1]1[nH:3][n:4]nn1                   status COMPLETE
+   59 : Cn1ccc[c:1]1[C:2](=S)[N:3]=[P:4](N(C)C)(N(C)C)N(C)C status RUNNING
+   60 : CCc1c[cH:1][c:2](cc1)[N:3]=[S:4]=O                 status COMPLETE
+   61 : c1[cH:1][n:2][c:3](cc1Cl)[S@@:4](=O)O              status COMPLETE
+   62 : COC(=O)Cc1cs/[c:2](=[N:3]\[S:4](=O)(=O)C)/[nH:1]1  status COMPLETE
+   63 : c1cc[c:1](cc1)[CH2:2][N:3]=[N+:4]=[N-]             status COMPLETE
+   64 : [CH3:1][CH2:2][O:3][P:4](=O)(N)OCC                 status RUNNING
+   65 : CNC(=O)[NH:4][CH2:3][O:2][CH3:1]                   status RUNNING
+   66 : c1cc(cc[c:1]1[O:2][CH:3]2C[CH2:4]2)I               status COMPLETE
+   67 : [H:4][O:3][c:2]1[cH:1]nn(c1)S(=O)(=O)CC            status COMPLETE
+   68 : [H:4][O:3][C:2](=O)[C:1]1(CC1)c2ccon2              status COMPLETE
+   69 : [cH:1]1[cH:2][o:3][n:4]c1C2(CC2)C(=O)O             status COMPLETE
+   70 : [CH3:3][S:2][C:1](=[S:4])NN                        status COMPLETE
+   71 : [H:4][CH2:3][S:2][P@:1](=O)(NC(=O)C)OC             status COMPLETE
+   72 : C[CH:2]([CH3:1])[S:3](=O)(=O)[Br:4]                status COMPLETE
+   73 : c1cn[c:2]([cH:1]c1Cl)[S@@:3](=[O:4])O              status COMPLETE
+   74 : CC(=O)c1c[cH:1][c:2](cc1)[S:3](=C)(=C)[CH3:4]      status COMPLETE
+   75 : [CH2:2]([NH2:1])[P@H:4](=[O:3])O                   status COMPLETE
+   76 : c1c[cH:1][c:2](cc1)[P:3](=O)([Cl:4])Cl             status COMPLETE
+   77 : [CH3:1][O:2]/[N:3]=[N+:4](/C(Br)Br)\[O-]           status COMPLETE
+   78 : C1CC1NC(=O)C[N@:2]2[CH2:1][C@@H]([CH2:4][O:3]2)O   status COMPLETE
+   79 : c1[cH:1][o:2][n:4][c:3]1C2(CC2)C(=O)O              status COMPLETE
+   80 : [H:1][NH:2][N:3]([H:4])Cc1cnns1                    status COMPLETE
+   81 : C[C@H]([c:1]1[nH:2][nH:3][c:4](=O)n1)NC#N          status COMPLETE
+   82 : [cH:1]1c([s:4][n:3][n:2]1)CNN                      status COMPLETE
+   83 : C[O:4]/[N:3]=[N+:2](\C(Br)Br)/[O-:1]               status COMPLETE
+   84 : CC(=O)N[P@@:3](=[O:4])(OC)[S:2][CH3:1]             status RUNNING
+   85 : c1ccc(cc1)[S:4](=O)(=O)[N:3](F)[S:2](=[O:1])(=O)c2ccccc2 status COMPLETE
+   86 : C[CH2:4][S:3](=O)(=O)[n:2]1[cH:1]c(cn1)O           status COMPLETE
+   87 : COC(=O)Cc1cs/[c:1](=[N:2]\[S:3](=O)(=O)[CH3:4])/[nH]1 status COMPLETE
+   88 : CC(=O)N[P@:3](=[O:4])([O:2][CH3:1])SC              status COMPLETE
+   89 : C[CH2:1][O:2][P:3](=O)(N)[O:4]CC                   status COMPLETE
+   90 : C[O:4][P:3](=O)([NH:2][C:1](=O)C(Cl)(Cl)Cl)OC      status COMPLETE
+   91 : Cn1cccc1C(=S)[N:4]=[P:3]([N:2](C)[CH3:1])(N(C)C)N(C)C status COMPLETE
+   92 : Cn1cccc1[C:1](=S)[N:2]=[P:3](N(C)C)(N(C)C)[N:4](C)C status RUNNING
+   93 : C1=N[C@@H:2]([C:1](=N1)C(=O)N)[N+:3]#[N:4]         status ERROR
+Downloaded torsion drive data for 83 completed entries
+
+## Available torsion scans from QCArchive ##
+------------------------------------------------------------------------------------------
+idx     tid      Number of torsion scans
+0       t1       1
+1       t2       1
+2       t3       1
+3       t4       1
+5       t6       1
+6       t7       1
+9       t10      1
+10      t11      1
+12      t13      1
+16      t17      1
+19      t19      1
+22      t23      1
+26      t27      1
+27      t28      1
+28      t29      1
+31      t32      1
+32      t33      1
+34      t35      1
+42      t43      1
+43      t44      1
+46      t47      1
+48      t49      1
+57      t52      1
+58      t54      1
+59      t55      1
+63      t59      1
+68      t64      1
+69      t65      1
+72      t68      1
+74      t70      1
+75      t71      1
+76      t72      1
+78      t74      1
+79      t75      1
+86      t82      1
+88      t84      1
+89      t85      1
+93      t89      1
+95      t91      1
+97      t93      1
+98      t94      1
+100     t96      1
+101     t97      1
+102     t98      1
+103     t99      1
+105     t101     1
+106     t102     1
+110     t106     1
+111     t107     1
+112     t108     1
+113     t109     1
+116     t112     1
+117     t113     1
+119     t115     1
+121     t117     1
+123     t119     1
+124     t120     1
+125     t121     1
+126     t122     1
+130     t126     1
+131     t127     1
+132     t128a    1
+135     t130     1
+138     t134     1
+139     t135     1
+140     t136     1
+146     t142     1
+154     t150     1
+155     t151     1
+156     t152     1
+157     t154     1
+------------------------------------------------------------------------------------------
+
+## Available torsion scans from QCArchive ##
+------------------------------------------------------------------------------------------
+idx     tid      Number of torsion scans
+0       t1       3
+1       t2       5
+2       t3       2
+3       t4       2
+4       t5       3
+5       t6       2
+6       t7       2
+7       t8       2
+8       t9       1
+9       t10      2
+10      t11      3
+11      t12      3
+12      t13      4
+13      t14      3
+16      t17      4
+17      t20      5
+18      t18      1
+19      t19      3
+20      t21      2
+21      t22      1
+22      t23      1
+23      t24      3
+24      t25      3
+25      t26      4
+26      t27      5
+27      t28      2
+28      t29      2
+30      t31      2
+31      t32      2
+32      t33      4
+33      t34      4
+34      t35      4
+35      t36      5
+36      t37      2
+37      t38      4
+38      t39      5
+39      t40      4
+40      t41      2
+41      t42      4
+42      t43      5
+43      t44      4
+44      t45      5
+45      t46      1
+46      t47      5
+47      t48      2
+48      t49      1
+49      t50      3
+50      t51      2
+57      t52      2
+58      t54      2
+59      t55      1
+60      t56      2
+61      t57      1
+63      t59      5
+65      t61      2
+66      t62      3
+68      t64      3
+69      t65      5
+70      t66      3
+71      t67      5
+72      t68      4
+73      t69      3
+74      t70      3
+75      t71      5
+76      t72      4
+77      t73      5
+78      t74      5
+79      t75      4
+80      t76      5
+81      t77      4
+82      t78      3
+85      t81      1
+86      t82      1
+87      t83      2
+88      t84      5
+89      t85      1
+90      t86      3
+91      t87      2
+92      t88      5
+93      t89      4
+95      t91      2
+96      t92      1
+97      t93      5
+98      t94      3
+99      t95      5
+100     t96      2
+101     t97      5
+102     t98      4
+103     t99      1
+104     t100     2
+105     t101     3
+106     t102     5
+108     t104     2
+109     t105     2
+110     t106     5
+111     t107     4
+112     t108     5
+114     t110     2
+115     t111     4
+116     t112     5
+117     t113     2
+119     t115     5
+120     t116     1
+121     t117     1
+122     t118     4
+123     t119     3
+124     t120     2
+125     t121     1
+126     t122     2
+127     t123     3
+128     t124     2
+129     t125     2
+130     t126     4
+131     t127     5
+132     t128a    5
+133     t128     5
+134     t129     3
+135     t130     4
+137     t133     3
+138     t134     3
+139     t135     3
+140     t136     1
+141     t137     3
+142     t138     1
+143     t139     3
+144     t140     3
+145     t141     1
+146     t142     3
+147     t143     4
+148     t144     4
+149     t145     5
+150     t146     1
+151     t147     2
+152     t148     1
+153     t149     1
+155     t151     3
+156     t152     3
+157     t154     2
+158     t155     3
+------------------------------------------------------------------------------------------
+# t1
+tot: 8, eps: 0.4, Ncluster: 3, [-1  0  0 -1  1  1  2  2]
+# t2
+tot: 4, eps: 0.4, Ncluster: 2, [0 0 1 1]
+# t3
+tot: 22, eps: 0.4, Ncluster: 5, [-1 -1  0  0 -1 -1  1  1  1  1  2  2  2  2 -1  3  3 -1  4  4 -1 -1]
+# t4
+tot: 18, eps: 0.4, Ncluster: 5, [ 0  0  1  1  2  2  2  2  3  3  3  3 -1  4  4 -1 -1 -1]
+# t5
+# t6
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t7
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t8
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t9
+    tot: 3, eps: 0.5, Ncluster: 3, [0 1 2]
+# t10
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t11
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t12
+tot: 1, Ncluster: 1
+# t13
+    tot: 3, eps: 0.5, Ncluster: 2, [0 0 1]
+# t14
+tot: 7, eps: 0.4, Ncluster: 2, [ 0  0 -1  1  1  1  1]
+# t15
+tot: 15, eps: 0.4, Ncluster: 5, [0 0 1 1 1 1 2 2 2 3 3 3 3 4 4]
+# t16
+# t17
+tot: 8, eps: 0.4, Ncluster: 2, [ 0  0 -1  1  1 -1 -1 -1]
+# t20
+tot: 15, eps: 0.4, Ncluster: 4, [ 0  0 -1 -1 -1  1  1  2  2  2  2  3  3 -1 -1]
+# t18
+tot: 14, eps: 0.4, Ncluster: 4, [-1  0  1  1  2  2  2  2  0 -1 -1  0  3  3]
+# t19
+    tot: 5, eps: 0.5, Ncluster: 4, [0 1 2 3 3]
+# t21
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t22
+tot: 6, eps: 0.4, Ncluster: 2, [0 0 0 0 1 1]
+# t23
+    tot: 4, eps: 0.5, Ncluster: 3, [0 1 1 2]
+# t24
+tot: 2, Ncluster: 2
+# t25
+tot: 1, Ncluster: 1
+# t26
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t27
+tot: 8, eps: 0.4, Ncluster: 2, [-1 -1  0  0  0  0  1  1]
+# t28
+tot: 1, Ncluster: 1
+# t29
+tot: 1, Ncluster: 1
+# t30
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t31
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t32
+tot: 1, Ncluster: 1
+# t33
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t34
+tot: 1, Ncluster: 1
+# t35
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t36
+tot: 2, Ncluster: 2
+# t37
+tot: 1, Ncluster: 1
+# t38
+tot: 1, Ncluster: 1
+# t39
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t40
+tot: 1, Ncluster: 1
+# t41
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t42
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t43
+tot: 2, Ncluster: 2
+# t44
+tot: 22, eps: 0.4, Ncluster: 3, [-1  0  0 -1  1  1  1  1  2 -1 -1 -1 -1 -1 -1  2 -1  2 -1 -1 -1  2]
+# t45
+# t46
+# t47
+    tot: 6, eps: 0.5, Ncluster: 5, [0 1 2 3 4 4]
+# t48
+# t49
+tot: 1, Ncluster: 1
+# t50
+# t51
+    tot: 5, eps: 0.5, Ncluster: 2, [0 1 1 1 1]
+# t51a
+# t51ah
+# t51b
+# t51bh
+# t51c
+# t51ch
+# t52
+tot: 1, Ncluster: 1
+# t54
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t55
+tot: 6, eps: 0.4, Ncluster: 2, [0 0 1 1 1 1]
+# t56
+# t57
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t58
+# t59
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t60
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t61
+# t62
+# t63
+tot: 1, Ncluster: 1
+# t64
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t65
+tot: 1, Ncluster: 1
+# t66
+# t67
+# t68
+    tot: 3, eps: 0.5, Ncluster: 2, [0 0 1]
+# t69
+tot: 12, eps: 0.4, Ncluster: 2, [-1  0  0  0  0 -1 -1 -1 -1  1  1  1]
+# t70
+tot: 18, eps: 0.4, Ncluster: 4, [-1 -1 -1  0  0  0  0 -1 -1 -1 -1  1  1  2  3  3  2  2]
+# t71
+tot: 11, eps: 0.4, Ncluster: 3, [-1 -1  0  0  1  1 -1  2 -1 -1  2]
+# t72
+tot: 1, Ncluster: 1
+# t73
+tot: 1, Ncluster: 1
+# t74
+    tot: 3, eps: 0.5, Ncluster: 3, [0 1 2]
+# t75
+tot: 6, eps: 0.4, Ncluster: 2, [0 0 1 1 1 1]
+# t76
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t77
+# t78
+tot: 1, Ncluster: 1
+# t79
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t80
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t81
+# t82
+tot: 1, Ncluster: 1
+# t83
+tot: 2, Ncluster: 2
+# t84
+tot: 1, Ncluster: 1
+# t85
+    tot: 5, eps: 0.5, Ncluster: 2, [0 1 1 1 1]
+# t86
+tot: 2, Ncluster: 2
+# t87
+# t88
+# t89
+tot: 1, Ncluster: 1
+# t90
+tot: 1, Ncluster: 1
+# t91
+tot: 1, Ncluster: 1
+# t92
+tot: 1, Ncluster: 1
+# t93
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t94
+All the molecules are the same? 
+tot: 3, Ncluster: 1
+# t95
+tot: 7, eps: 0.4, Ncluster: 2, [0 0 0 1 1 1 1]
+# t96
+tot: 10, eps: 0.4, Ncluster: 2, [ 0 -1  1  1  1  1 -1 -1  0 -1]
+# t97
+tot: 2, Ncluster: 2
+# t98
+tot: 5, eps: 0.4, Ncluster: 2, [-1  0  1  1  0]
+# t99
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t100
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t101
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t102
+    tot: 4, eps: 0.5, Ncluster: 4, [0 1 2 3]
+# t103
+# t104
+# t105
+# t106
+tot: 1, Ncluster: 1
+# t107
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t108
+tot: 5, eps: 0.4, Ncluster: 2, [ 0  0 -1  1  1]
+# t109
+tot: 2, Ncluster: 2
+# t110
+# t111
+# t112
+tot: 7, eps: 0.4, Ncluster: 2, [ 0  0  1 -1  1  1  1]
+# t113
+tot: 1, Ncluster: 1
+# t114
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t115
+tot: 2, Ncluster: 2
+# t116
+# t117
+tot: 1, Ncluster: 1
+# t118
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t119
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t120
+tot: 1, Ncluster: 1
+# t121
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t122
+tot: 1, Ncluster: 1
+# t123
+    tot: 5, eps: 0.5, Ncluster: 2, [0 1 1 1 1]
+# t124
+All the molecules are the same? 
+tot: 4, Ncluster: 1
+# t125
+# t126
+tot: 1, Ncluster: 1
+# t127
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t128a
+tot: 1, Ncluster: 1
+# t128
+# t129
+# t130
+    tot: 7, eps: 0.5, Ncluster: 2, [0 0 1 1 1 1 0]
+# t131
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t133
+    tot: 3, eps: 0.5, Ncluster: 2, [0 1 1]
+# t134
+tot: 6, eps: 0.4, Ncluster: 2, [ 0  0  1 -1  1  1]
+# t135
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t136
+tot: 2, Ncluster: 2
+# t137
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t138
+# t139
+tot: 4, eps: 0.4, Ncluster: 2, [0 0 1 1]
+# t140
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t141
+# t142
+tot: 1, Ncluster: 1
+# t143
+tot: 1, Ncluster: 1
+# t144
+tot: 1, Ncluster: 1
+# t145
+# t146
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t147
+All the molecules are the same? 
+tot: 2, Ncluster: 1
+# t148
+# t149
+# t150
+    tot: 4, eps: 0.5, Ncluster: 2, [0 1 1 1]
+# t151
+tot: 2, Ncluster: 2
+# t152
+    tot: 4, eps: 0.5, Ncluster: 2, [0 1 0 0]
+# t154
+tot: 1, Ncluster: 1
+# t155
+    tot: 3, eps: 0.25, Ncluster: 2, [0 1 1]
+# t155b
+tot: 1, Ncluster: 1
+# t156
+tot: 1, Ncluster: 1
+# t157
+tot: 8, eps: 0.4, Ncluster: 2, [-1 -1 -1  0  0 -1  1  1]
+# t158
+    tot: 4, eps: 0.5, Ncluster: 3, [0 1 2 0]
+
+## Selecting Torsions... ##
+------------------------------------------------------------------------------------------
+
+*t1(0): C1[C@@H](O1)CCCF                        , indices: (2, 3, 4, 6)
+
+*t1(1): [C@@](C(F)(F)Br)(F)(Cl)Br               , indices: (5, 1, 0, 6)
+
+*t1(2): CC[C@H](CCl)Cl                          , indices: (1, 3, 2, 4)
+
+*t2(0): Precalculated torsion scans detacted from 1st round.
+    : C1[C@H](O1)CCCF                         , indices: (1, 2, 3, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t2(1): CC[C@H](CCl)Cl                          , indices: (0, 1, 3, 2)
+
+*t3(0): Non selected since the randomly selected rotation is already included.
+
+*t3(1): CC[C@@H]1C[C@@]1(c2ccc(nn2)OC)N         , indices: (20, 7, 9, 26)
+
+*t3(2): C[C@@H]1C[N@@](S(=O)(=O)C1)NC           , indices: (14, 2, 3, 15)
+
+*t3(3): C[C@H](c1[nH][nH]c(=O)n1)NC#N           , indices: (11, 3, 4, 14)
+
+*t3(4): CC[C@@H](CCl)Cl                         , indices: (7, 0, 1, 9)
+
+*t4(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@]1(CC(=O)N1)c2nccs2                , indices: (4, 5, 6, 17)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t4(1): Non selected since the randomly selected rotation is already included.
+
+*t4(2): Non selected since the randomly selected rotation is already included.
+
+*t4(3): Non selected since the randomly selected rotation is already included.
+
+*t4(4): Non selected since the randomly selected rotation is already included.
+
+*t6(0): Precalculated torsion scans detacted from 1st round.
+    : [C@](C(F)(F)Br)(F)(Cl)Br                , indices: (2, 0, 1, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t7(0): Precalculated torsion scans detacted from 1st round.
+    : CC[C@H](CCl)Cl                          , indices: (4, 2, 3, 5)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t8(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t9(0): Precalculated torsion scans detacted. Choose one out of them.
+    : CCO                                     , indices: (2, 1, 0, 5)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t9(1): CCOP(=O)(N)OCC                          , indices: (6, 2, 0, 9)
+
+*t9(2): CC1(C(=O)OOC1(C)C)C                     , indices: (9, 2, 6, 20)
+
+*t10(0): Precalculated torsion scans detacted from 1st round.
+    : C1[C@@H](O1)CCCF                        , indices: (6, 4, 3, 13)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t11(0): Precalculated torsion scans detacted from 1st round.
+    : CNCC(Cl)Cl                              , indices: (5, 2, 1, 10)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t11(1): Non selected since the randomly selected rotation is already included.
+
+*t12(0): Precalculated torsion scans detacted. Choose one out of them.
+    : C(CBr)c1[nH]nnn1                        , indices: (7, 2, 1, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t13(0): Precalculated torsion scans detacted from 1st round.
+    : C1[C@@H](O1)CCCF                        , indices: (3, 2, 1, 5)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t13(1): CC(=C)C1(CC1)CON                        , indices: (1, 4, 6, 8)
+
+*t14(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t14(1): CC[C@H]1C[C@]1(c2ccc(nn2)OC)N           , indices: (4, 5, 9, 7)
+
+*t15(0): C1[C@H](O1)CCCF                         , indices: (2, 1, 0, 5)
+
+*t15(1): CC[C@@H]1C[C@]1(c2ccc(nn2)OC)N          , indices: (2, 6, 5, 9)
+
+*t15(2): CC1([C@H]2[C@H]1CCC2)O                  , indices: (2, 4, 5, 6)
+
+*t15(3): C1NC[C@@H]2[C@@H]1[C@H]2O               , indices: (0, 2, 3, 1)
+
+*t15(4): CC1(C[C@]1(C(=O)N)C(=O)O)C              , indices: (0, 3, 4, 6)
+
+*t17(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@]1(CC(=O)N1)c2nccs2                , indices: (4, 5, 2, 10)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t17(1): COC(=O)Cc1cs/c(=N\S(=O)(=O)C)/[nH]1     , indices: (3, 6, 1, 8)
+
+*t20(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t20(1): COC(=O)Cc1cs/c(=N/S(=O)(=O)C)/[nH]1     , indices: (1, 6, 3, 9)
+
+*t20(2): C1CC1NC(=O)C[N@]2C[C@@H](CO2)O          , indices: (8, 7, 0, 10)
+
+*t20(3): C[C@H](c1[nH][nH]c(=O)n1)NC#N           , indices: (6, 1, 4, 9)
+
+*t18(0): CC(=O)[O-]                              , indices: (3, 0, 1, 5)
+
+*t18(1): Non selected since the randomly selected rotation is already included.
+
+*t18(2): Non selected since the randomly selected rotation is already included.
+
+*t18(3): CC(=O)N[P@](=O)(OC)SC                   , indices: (5, 0, 1, 12)
+
+*t19(0): Precalculated torsion scans detacted from 1st round.
+    : c1c(snn1)CNN                            , indices: (0, 1, 2, 10)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t19(1): Cc1c(cc(s1)Br)C2CC2                     , indices: (1, 2, 7, 17)
+
+*t19(2): CC(=C)C1(CC1)CON                        , indices: (0, 1, 5, 16)
+
+*t19(3): Non selected since the randomly selected rotation is already included.
+
+*t21(0): Non selected since the randomly selected rotation is already included.
+
+*t22(0): Non selected since the randomly selected rotation is already included.
+
+*t22(1): Non selected since the randomly selected rotation is already included.
+
+*t23(0): Precalculated torsion scans detacted from 1st round.
+    : C(CBr)c1[nH]nnn1                        , indices: (2, 1, 0, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t23(1): Non selected since the randomly selected rotation is already included.
+
+*t23(2): CC(C)C(=O)NNC=O                         , indices: (2, 4, 1, 6)
+
+*t24(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t24(1): Non selected since the randomly selected rotation is already included.
+
+*t25(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t26(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t27(0): CC[C@@H]1C[C@]1(c2ccc(nn2)OC)N          , indices: (10, 2, 6, 12)
+
+*t27(1): CC1(C[C@]1(C(=O)N)C(=O)O)C              , indices: (0, 3, 1, 10)
+
+*t28(0): Precalculated torsion scans detacted from 1st round.
+    : CC(=C)C1(CC1)CON                        , indices: (0, 1, 4, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t29(0): Precalculated torsion scans detacted from 1st round.
+    : Cc1c(cc(s1)Br)C2CC2                     , indices: (0, 1, 6, 15)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t30(0): CC1(C[C@]1(C(=O)N)C(=O)O)C              , indices: (1, 3, 0, 7)
+
+*t31(0): Precalculated torsion scans detacted. Choose one out of them.
+    : c1conc1C2(CC2)C(=O)O                    , indices: (2, 6, 3, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t31(1): Non selected since the randomly selected rotation is already included.
+
+*t32(0): Precalculated torsion scans detacted from 1st round.
+    : c1conc1C2(CC2)C(=O)O                    , indices: (0, 2, 6, 3)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t33(0): Precalculated torsion scans detacted from 1st round.
+    : CC[C@@H]1C[C@@]1(c2ccc(nn2)OC)N         , indices: (0, 2, 6, 12)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t34(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t35(0): Precalculated torsion scans detacted from 1st round.
+    : CC[C@H]1C[C@]1(c2ccc(nn2)OC)N           , indices: (0, 2, 6, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t36(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t36(1): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t37(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t38(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t39(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t40(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t41(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t41(1): Non selected since the randomly selected rotation is already included.
+
+*t42(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t42(1): Non selected since the randomly selected rotation is already included.
+
+*t43(0): Precalculated torsion scans detacted from 1st round.
+    : COc1ccc(cc1OC)c2ccc3ccccc3[o+]2         , indices: (4, 10, 14, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t43(1): c1cc(ccc1c2ccc(cc2)OSOc3ccc(cc3)Cl)OSOc4ccc(cc4)Cl, indices: (0, 16, 17, 3)
+
+*t44(0): c1cnc(cc1Cl)[S@](=O)O                   , indices: (1, 3, 0, 2)
+
+*t44(1): CC[C@@H]1C[C@@]1(c2ccc(nn2)OC)N         , indices: (1, 0, 2, 6)
+
+*t44(2): c1cc(ccc1[N+](=O)[O-])S(=O)(=O)NCl      , indices: (0, 4, 1, 3)
+
+*t47(0): CC(=O)c1ccc(cc1)S(=C)(=C)C              , indices: (1, 4, 8, 9)
+
+*t47(1): C[n+]1ccc(cc1)C(=O)N                    , indices: (0, 4, 5, 8)
+
+*t47(2): Cn1cccc1C(=S)N=P(N(C)C)(N(C)C)N(C)C     , indices: (1, 3, 4, 12)
+
+*t47(3): Cc1ccccc1c2[n-]nnn2                     , indices: (5, 4, 6, 9)
+
+*t47(4): Precalculated torsion scans detacted from 1st round.
+    : C1=N[C@@H](C(=N1)C(=O)N)[N+]#N          , indices: (3, 1, 2, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t49(0): Precalculated torsion scans detacted from 1st round.
+    : C[n+]1ccc(cc1)C(=O)N                    , indices: (0, 2, 7, 3)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t51(0): c1c(snn1)CNN                            , indices: (1, 2, 6, 5)
+
+*t51(1): C1CC1NC(=O)C[N@@]2C[C@@H](CO2)O         , indices: (0, 7, 8, 11)
+
+*t52(0): Precalculated torsion scans detacted from 1st round.
+    : CNCC(Cl)Cl                              , indices: (0, 3, 1, 2)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t54(0): Precalculated torsion scans detacted from 1st round.
+    : CC[C@@H]1C[C@]1(c2ccc(nn2)OC)N          , indices: (2, 6, 12, 27)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t55(0): Precalculated torsion scans detacted from 1st round.
+    : C[S@@](=N)(=O)NC1CC1                    , indices: (0, 2, 5, 17)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t55(1): Non selected since the randomly selected rotation is already included.
+
+*t57(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t59(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@H](c1[nH][nH]c(=O)n1)NC#N          , indices: (0, 9, 4, 1)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t60(0): CO/N=[N+](\C(Br)Br)/[O-]                , indices: (4, 3, 1, 6)
+
+*t63(0): CNC(=O)NCOC                             , indices: (0, 5, 3, 7)
+
+*t64(0): Precalculated torsion scans detacted from 1st round.
+    : C1CC1NC(=O)C[N@]2C[C@H](CO2)O           , indices: (0, 9, 5, 2)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t65(0): Precalculated torsion scans detacted from 1st round.
+    : C(C#N)N=[N+]=[N-]                       , indices: (0, 1, 4, 5)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t68(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@]1(CC(=O)N1)c2nccs2                , indices: (5, 8, 3, 9)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t68(1): Cc1ccccc1c2[n-]nnn2                     , indices: (9, 6, 8, 10)
+
+*t69(0): C1CC1NC(=O)C[N@]2C[C@@H](CO2)O          , indices: (5, 9, 0, 7)
+
+*t69(1): COP(=O)(NC(=O)C(Cl)(Cl)Cl)OC            , indices: (3, 0, 4, 9)
+
+*t70(0): Non selected since the randomly selected rotation is already included.
+
+*t70(1): CC1(C[C@]1(C(=O)N)C(=O)O)C              , indices: (8, 0, 7, 20)
+
+*t70(2): Non selected since the randomly selected rotation is already included.
+
+*t70(3): C1=N[C@@H](C(=N1)C(=O)N)[N+]#N          , indices: (9, 2, 8, 12)
+
+*t71(0): COC(=O)Cc1cs/c(=N\S(=O)(=O)C)/[nH]1     , indices: (1, 8, 2, 7)
+
+*t71(1): C[C@@H](c1[nH][nH]c(=O)n1)NC#N          , indices: (6, 1, 7, 8)
+
+*t71(2): C1CC(=O)N(C1=O)Br                       , indices: (0, 4, 1, 6)
+
+*t72(0): Precalculated torsion scans detacted from 1st round.
+    : c1cc(ccc1[N+](=O)[O-])S(=O)(=O)NCl      , indices: (0, 4, 7, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t73(0): Cn1cccc1C(=S)N=P(N(C)C)(N(C)C)N(C)C     , indices: (3, 4, 12, 17)
+
+*t74(0): Non selected since the randomly selected rotation is already included.
+
+*t74(1): Precalculated torsion scans detacted from 1st round.
+    : CCc1ccc(cc1)N=S=O                       , indices: (2, 5, 8, 10)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t74(2): Non selected since the randomly selected rotation is already included.
+
+*t75(0): Precalculated torsion scans detacted from 1st round.
+    : c1cnc(cc1Cl)[S@@](=O)O                  , indices: (2, 5, 4, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t75(1): CC[C@H]1C[C@]1(c2ccc(nn2)OC)N           , indices: (0, 2, 10, 11)
+
+*t76(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t78(0): Non selected since the randomly selected rotation is already included.
+
+*t79(0): COC(=O)Cc1cs/c(=N\S(=O)(=O)C)/[nH]1     , indices: (8, 2, 7, 14)
+
+*t80(0): Non selected since the randomly selected rotation is already included.
+
+*t82(0): Precalculated torsion scans detacted from 1st round.
+    : c1ccc(cc1)CN=[N+]=[N-]                  , indices: (5, 6, 8, 9)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t83(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t83(1): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t84(0): Precalculated torsion scans detacted from 1st round.
+    : COC(O)OC                                , indices: (4, 2, 3, 13)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t85(0): Precalculated torsion scans detacted from 1st round.
+    : CCO                                     , indices: (0, 1, 2, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t85(1): C1CC1NC(=O)C[N@@]2C[C@@H](CO2)O         , indices: (4, 6, 12, 26)
+
+*t86(0): CCOP(=O)(N)OCC                          , indices: (0, 2, 6, 8)
+
+*t86(1): CC(=C)C1(CC1)CON                        , indices: (4, 6, 8, 7)
+
+*t89(0): Precalculated torsion scans detacted from 1st round.
+    : COC(O)OC                                , indices: (1, 5, 2, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t90(0): CNC(=O)NCOC                             , indices: (2, 7, 3, 5)
+
+*t91(0): Precalculated torsion scans detacted from 1st round.
+    : c1cc(ccc1OC2CC2)I                       , indices: (4, 9, 8, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t92(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t93(0): Precalculated torsion scans detacted from 1st round.
+    : C1NC[C@H]2[C@H]1[C@H]2O                 , indices: (13, 4, 6, 15)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t94(0): Precalculated torsion scans detacted from 1st round.
+    : CC1([C@H]2[C@H]1CCC2)O                  , indices: (6, 5, 7, 19)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t95(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t95(1): Non selected since the randomly selected rotation is already included.
+
+*t96(0): Precalculated torsion scans detacted. Choose one out of them.
+    : CC(=O)OO                                , indices: (2, 0, 4, 3)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t96(1): CC[C@H]1C[C@]1(c2ccc(nn2)OC)N           , indices: (1, 3, 13, 8)
+
+*t97(0): Precalculated torsion scans detacted. Choose one out of them.
+    : COc1cc(c(cc1I)O)F                       , indices: (4, 3, 7, 16)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t97(1): Precalculated torsion scans detacted from 1st round.
+    : CCS(=O)(=O)n1cc(cn1)O                   , indices: (0, 2, 9, 18)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t98(0): Precalculated torsion scans detacted from 1st round.
+    : CC(=O)OO                                , indices: (1, 0, 4, 3)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t98(1): COC(=O)Cc1cs/c(=N/S(=O)(=O)C)/[nH]1     , indices: (4, 12, 3, 6)
+
+*t99(0): Precalculated torsion scans detacted from 1st round.
+    : c1conc1C2(CC2)C(=O)O                    , indices: (6, 3, 10, 17)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t99(1): CC1(C[C@@]1(C(=O)N)C(=O)O)C             , indices: (3, 1, 10, 21)
+
+*t100(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t100(1): Non selected since the randomly selected rotation is already included.
+
+*t101(0): Precalculated torsion scans detacted from 1st round.
+    : COC(=O)C[N+]#[C-]                       , indices: (2, 6, 1, 5)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t101(1): Non selected since the randomly selected rotation is already included.
+
+*t102(0): Precalculated torsion scans detacted from 1st round.
+    : c1conc1C2(CC2)C(=O)O                    , indices: (0, 1, 9, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t102(1): C1CS(=O)(=O)CCC12CN=C(O2)N              , indices: (6, 11, 0, 8)
+
+*t102(2): COc1ccc(cc1OC)c2ccc3ccccc3[o+]2         , indices: (5, 11, 17, 14)
+
+*t102(3): CC1(C(=O)OOC1(C)C)C                     , indices: (7, 0, 8, 9)
+
+*t106(0): Precalculated torsion scans detacted from 1st round.
+    : CSC(=S)NN                               , indices: (1, 5, 0, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t107(0): CSC(=S)NN                               , indices: (0, 5, 1, 8)
+
+*t107(1): Precalculated torsion scans detacted from 1st round.
+    : CC(=O)N[P@](=O)(OC)SC                   , indices: (8, 9, 3, 18)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t108(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@]1(CC(=O)N1)c2nccs2                , indices: (0, 1, 10, 2)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t108(1): COC(=O)Cc1cs/c(=N/S(=O)(=O)C)/[nH]1     , indices: (1, 0, 13, 2)
+
+*t109(0): CCS(=O)(=O)n1cc(cn1)O                   , indices: (3, 4, 10, 8)
+
+*t109(1): Precalculated torsion scans detacted from 1st round.
+    : CC(C)S(=O)(=O)Br                        , indices: (1, 2, 5, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t112(0): Precalculated torsion scans detacted from 1st round.
+    : c1cnc(cc1Cl)[S@@](=O)O                  , indices: (1, 4, 8, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t112(1): c1ccc(cc1)S(=O)(=O)N(F)S(=O)(=O)c2ccccc2, indices: (6, 10, 18, 12)
+
+*t113(0): Precalculated torsion scans detacted from 1st round.
+    : CC(=O)c1ccc(cc1)S(=C)(=C)C              , indices: (2, 5, 12, 10)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t114(0): C(N)[P@@H](=O)O                         , indices: (1, 0, 4, 3)
+
+*t115(0): Precalculated torsion scans detacted from 1st round.
+    : c1ccc(cc1)P(=O)(Cl)Cl                   , indices: (3, 5, 7, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t115(1): c1ccc(cc1)P(=N)(c2ccccc2)c3ccccc3       , indices: (12, 16, 19, 15)
+
+*t117(0): Precalculated torsion scans detacted from 1st round.
+    : CC(=O)OO                                , indices: (0, 4, 3, 8)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t118(0): CO/N=[N+](/C(Br)Br)\[O-]                , indices: (0, 5, 2, 3)
+
+*t119(0): Precalculated torsion scans detacted from 1st round.
+    : C1CC1NC(=O)C[N@]2C[C@@H](CO2)O          , indices: (3, 8, 11, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t120(0): Precalculated torsion scans detacted from 1st round.
+    : c1conc1C2(CC2)C(=O)O                    , indices: (1, 9, 7, 2)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t121(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@@H]1C[N@](S(=O)(=O)C1)NC            , indices: (4, 6, 5, 9)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t122(0): Precalculated torsion scans detacted from 1st round.
+    : c1c(snn1)CNN                            , indices: (12, 5, 6, 13)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t123(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t123(1): Non selected since the randomly selected rotation is already included.
+
+*t124(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t126(0): Precalculated torsion scans detacted from 1st round.
+    : CC(C)C(=O)NNC=O                         , indices: (0, 5, 6, 1)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t127(0): Precalculated torsion scans detacted from 1st round.
+    : C[C@H](c1[nH][nH]c(=O)n1)NC#N           , indices: (1, 7, 8, 2)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t128a(0): Precalculated torsion scans detacted from 1st round.
+    : Cc1ccccc1c2[n-]nnn2                     , indices: (6, 8, 10, 11)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t130(0): Precalculated torsion scans detacted from 1st round.
+    : c1c(snn1)CNN                            , indices: (0, 3, 4, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t130(1): CC[C@H]1C[C@]1(c2ccc(nn2)OC)N           , indices: (2, 10, 11, 3)
+
+*t131(0): CO/N=[N+](\C(Br)Br)/[O-]                , indices: (4, 3, 2, 5)
+
+*t133(0): c1cc(ccc1c2ccc(cc2)OSOc3ccc(cc3)Cl)OSOc4ccc(cc4)Cl, indices: (21, 27, 29, 25)
+
+*t133(1): CC(=O)N[P@](=O)(OC)SC                   , indices: (3, 9, 8, 7)
+
+*t134(0): C[S@](=N)(=O)NC1CC1                     , indices: (2, 5, 7, 4)
+
+*t134(1): Precalculated torsion scans detacted from 1st round.
+    : c1ccc(cc1)S(=O)(=O)N(F)S(=O)(=O)c2ccccc2, indices: (15, 19, 12, 18)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t135(0): Precalculated torsion scans detacted from 1st round.
+    : C[S@@](=N)(=O)NC1CC1                    , indices: (3, 7, 5, 17)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t136(0): Precalculated torsion scans detacted from 1st round.
+    : c1cc(ccc1[N+](=O)[O-])S(=O)(=O)NCl      , indices: (5, 12, 6, 18)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t136(1): c1ccc(c(c1)S(=O)(=O)N)S(=O)(=O)NF       , indices: (5, 14, 7, 21)
+
+*t137(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t139(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t139(1): c1ccc(c(c1)S(=O)(=O)N)S(=O)(=O)NF       , indices: (9, 13, 6, 19)
+
+*t140(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t142(0): Precalculated torsion scans detacted from 1st round.
+    : CCS(=O)(=O)n1cc(cn1)O                   , indices: (1, 6, 10, 4)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t143(0): Non selected since the randomly selected rotation is already included.
+
+*t144(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t146(0): COC(=O)Cc1cs/c(=N\S(=O)(=O)C)/[nH]1     , indices: (2, 7, 14, 5)
+
+*t147(0): Non selected since the randomly selected rotation is already included.
+
+*t150(0): CCOP(=O)(N)OCC                          , indices: (2, 6, 8, 5)
+
+*t150(1): Precalculated torsion scans detacted from 1st round.
+    : CC(=O)N[P@](=O)(OC)SC                   , indices: (2, 7, 8, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t151(0): Precalculated torsion scans detacted from 1st round.
+    : CCOP(=O)(N)OCC                          , indices: (2, 6, 8, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t151(1): COP(=O)(NC(=O)C(Cl)(Cl)Cl)OC            , indices: (2, 8, 9, 7)
+
+*t152(0): Precalculated torsion scans detacted from 1st round.
+    : COP(=O)(NC(=O)C(Cl)(Cl)Cl)OC            , indices: (0, 4, 9, 7)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t152(1): Cn1cccc1C(=S)N=P(N(C)C)(N(C)C)N(C)C     , indices: (7, 14, 17, 16)
+
+*t154(0): Precalculated torsion scans detacted from 1st round.
+    : Cn1cccc1C(=S)N=P(N(C)C)(N(C)C)N(C)C     , indices: (7, 14, 17, 12)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t155(0): Precalculated torsion scans detacted. Choose one out of them.
+    : Non selected since the randomly selected rotation is already included.
+
+*t155(1): Precalculated torsion scans detacted. Choose one out of them.
+    : CC(=O)N[P@](=O)(OC)SC                   , indices: (0, 4, 8, 6)
+    : Update molecules_list_dict so that it has the same intial molecules.
+
+*t155b(0): Cn1cccc1C(=S)N=P(N(C)C)(N(C)C)N(C)C     , indices: (4, 12, 17, 14)
+
+*t156(0): CC(=O)OC#COC(=O)C                       , indices: (8, 0, 1, 9)
+
+*t157(0): C[C@@H](c1[nH][nH]c(=O)n1)NC#N          , indices: (4, 9, 0, 5)
+
+*t157(1): C1=N[C@H](C(=N1)C(=O)N)[N+]#N           , indices: (4, 7, 3, 5)
+
+*t158(0): C(C#N)N=[N+]=[N-]                       , indices: (1, 4, 5, 2)
+
+*t158(1): CCc1ccc(cc1)N=S=O                       , indices: (5, 8, 10, 9)
+
+*t158(2): C=C=CN1CCCC1=O                          , indices: (2, 0, 3, 7)
+
+In total, 87 new calculations are needed and 70 calculations will be reused:)
+
+------------------------------------------------------------------------------------------
+
+## Selected Torsion Coverage ##
+------------------------------------------------------------------------------------------
+Coverage: 130/ 163
+Uncovered tids: {'t5', 't149', 't104', 't116', 't125', 't128', 't138', 't51bh', 't88', 't46', 't110', 't145', 't51c', 't129', 't45', 't148', 't111', 't58', 't51a', 't77', 't51ah', 't105', 't87', 't48', 't62', 't50', 't66', 't141', 't67', 't51b', 't51ch', 't103', 't61'}
+------------------------------------------------------------------------------------------
+
+## *Final* Number of selected torsions for each torsion parameter ##
+------------------------------------------------------------------------------------------
+ID      # clusters # torsions
+t1               3         3
+t2               2         2
+t3               5         4
+t4               5         1
+t6               1         1
+t7               1         1
+t9               3         3
+t10              1         1
+t11              2         1
+t12              1         1
+t13              2         2
+t14              2         1
+t15              5         5
+t17              2         2
+t20              4         3
+t18              4         2
+t19              4         3
+t23              3         2
+t27              2         2
+t28              1         1
+t29              1         1
+t30              1         1
+t31              2         1
+t32              1         1
+t33              1         1
+t35              1         1
+t43              2         2
+t44              3         3
+t47              5         5
+t49              1         1
+t51              2         2
+t52              1         1
+t54              1         1
+t55              2         1
+t59              1         1
+t60              1         1
+t63              1         1
+t64              1         1
+t65              1         1
+t68              2         2
+t69              2         2
+t70              4         2
+t71              3         3
+t72              1         1
+t73              1         1
+t74              3         1
+t75              2         2
+t79              1         1
+t82              1         1
+t84              1         1
+t85              2         2
+t86              2         2
+t89              1         1
+t90              1         1
+t91              1         1
+t93              1         1
+t94              1         1
+t96              2         2
+t97              2         2
+t98              2         2
+t99              2         2
+t101             2         1
+t102             4         4
+t106             1         1
+t107             2         2
+t108             2         2
+t109             2         2
+t112             2         2
+t113             1         1
+t114             1         1
+t115             2         2
+t117             1         1
+t118             1         1
+t119             1         1
+t120             1         1
+t121             1         1
+t122             1         1
+t126             1         1
+t127             1         1
+t128a            1         1
+t130             2         2
+t131             1         1
+t133             2         2
+t134             2         2
+t135             1         1
+t136             2         2
+t139             2         1
+t142             1         1
+t146             1         1
+t150             2         2
+t151             2         2
+t152             2         2
+t154             1         1
+t155             2         1
+t155b            1         1
+t156             1         1
+t157             2         2
+t158             3         3
+------------------------------------------------------------------------------------------
