@@ -19,6 +19,7 @@
 
 ### Notes
 
+ - Before selecting torsions, molecules with more than 30 heavy atoms were filtered out;
  - The details of the torsion selection can be found in `select.log`;
  - 17 torsion scans out of 219 torsions are supposed to be reused. 
 
