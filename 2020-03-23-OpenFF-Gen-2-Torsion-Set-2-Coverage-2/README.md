@@ -29,7 +29,7 @@
  - `coverage_torsiondrive_data.pickle`: pickled file containing `SMIRNOFF Coverage Torsion Set 1` data downloaded from qcarchive 
  - `param_valence.offxml`: parameter file 
  - `01_torsion_data_generator.ipynb`: jupyter notebook used in the dataset generation
- - `select.log`: stdout of `01_torsion_data_generator.ipynb` for record
+ - `select_log.txt`: stdout of `01_torsion_data_generator.ipynb` for record
  - `02_create_torsiondrive_dataset.py`: script for creating the TorsiondriveDataset and submitting
  - `requirements.txt`: version of toolkits used in the dataset generation
 
