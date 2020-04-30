@@ -19,5 +19,7 @@
 ### Manifest
 * `01_generate.py` - script to generate torsiondrive inputs
 * `02_create_torsiondrive_dataset.py` - script to generate torsiondive datase
+* `03_visualize.py` - script to visualize input molecules
 * `requirements.txt` - conda list
 * `selected-torsions.tar.gz` - torsiondrive jobs inputs
+* `torsiondrive-inputs.pdf` - visualize input molecules
