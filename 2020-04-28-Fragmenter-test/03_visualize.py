@@ -29,7 +29,7 @@ for sm in smiles:
 
 
 # Generate a PDF of all molecules in the set
-pdf_filename = 'torsiondrive_inputs.pdf'
+pdf_filename = 'torsiondrive-inputs.pdf'
 
 from openeye import oedepict
 itf = oechem.OEInterface()
