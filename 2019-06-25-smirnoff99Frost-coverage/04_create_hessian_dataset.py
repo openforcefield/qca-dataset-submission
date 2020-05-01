@@ -4,14 +4,15 @@ import copy
 import json
 import tqdm
 import tarfile
+import pandas as pd
 from collections import Counter
 #import qcportal as ptl
 import qcfractal.interface as ptl
 from qcelemental.models import Molecule
 
 # Updates the dataset rather than recomputing
-UPDATE = False
-#UPDATE = True
+UPDATE = True
+name = "SMIRNOFF Coverage Set 1"
 
 
 print("Initializing dataset...")
@@ -21,16 +22,14 @@ client = ptl.FractalClient.from_file()
 # create or pull a previous dataset with specified name
 
 # Pull the optimization dataset
-opt_ds = client.get_collection("OptimizationDataset", "SMIRNOFF Coverage Set 1")
+opt_ds = client.get_collection("OptimizationDataset", name)
 opt_ds.query("default", force=True)
 
 if UPDATE:
-    hess_ds = client.get_collection("Dataset", "SMIRNOFF Coverage Set 1")
+    hess_ds = client.get_collection("Dataset", name)
 else:
-    hess_ds = ptl.collections.Dataset("SMIRNOFF Coverage Set 1", client=client)
-    hess_ds.data.default_program = "psi4"
-    hess_ds.data.default_driver = "hessian"
-    
+    hess_ds = ptl.collections.Dataset(name, client=client, default_program="psi4", default_driver="hessian")
+
     kw = ptl.models.KeywordSet(values={'maxiter': 200,
      'scf_properties': ['dipole',
       'quadrupole',
@@ -39,30 +38,38 @@ else:
     hess_ds.add_keywords("default", "psi4", kw, default=True)
     hess_ds.save()
 
-# add molecprint(f"Adding {len(molecules_dict)} molecules")
 print(f"Generating computation records")
-known_jobs = set(hess_ds.df.index)
 
-comp = []
+molecule_ids = []
+molecule_idx = []
 for idx, opt in opt_ds.df["default"].iteritems():
-    if opt.status in ["INCOMPLETE", "ERROR"]:
+
+    if pd.isnull(opt):
+        continue
+
+    if opt.status != "COMPLETE":
         continue
 
     if idx in hess_ds.df.index:
         continue
-        
-    record = {"name": idx, "molecule_id": opt.final_molecule}
-    comp.append(record)
 
+    molecule_ids.append(opt.final_molecule)
+    molecule_idx.append(idx)
 
-print(f"Adding {len(comp)} computations")
-hess_ds.data.records.extend([ptl.collections.dataset.MoleculeRecord(**x) for x in comp])
+print(f'Querying info for {len(molecule_ids)} molecules')
+molecule_objs = client.query_molecules(id=molecule_ids)
+assert len(molecule_objs) == len(molecule_ids)
+assert len(molecule_objs) == len(molecule_idx)
+
+for idx,mobj in zip(molecule_idx, molecule_objs):
+    hess_ds.add_entry(idx, mobj)
+
+hess_ds.save()
 
 print("Submitting tasks...")
-r = hess_ds.compute("B3LYP-d3bj", "DZVP", keywords="default", program="psi4", tag="openff", priority="high")
+r = hess_ds.compute("B3LYP-d3bj", "DZVP", keywords="default", program="psi4", tag="openff", priority="normal")
 print(r)
 
 hess_ds.save()
-#print(comp)
 
 print("Complete!")
