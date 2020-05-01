@@ -20,7 +20,7 @@ client = ptl.FractalClient.from_file()
 
 # create or pull a previous dataset with specified name
 
-# Pull hte optimization dataset
+# Pull the optimization dataset
 opt_ds = client.get_collection("OptimizationDataset", name)
 opt_ds.query("default", force=True)
 
@@ -37,11 +37,10 @@ else:
     hess_ds.add_keywords("default", "psi4", kw, default=True)
     hess_ds.save()
 
-# add molecprint(f"Adding {len(molecules_dict)} molecules")
 print(f"Generating computation records")
-known_jobs = set(hess_ds.df.index)
 
-comp = []
+molecule_ids = []
+molecule_idx = []
 for idx, opt in opt_ds.df["default"].iteritems():
 
     if pd.isnull(opt):
@@ -53,20 +52,23 @@ for idx, opt in opt_ds.df["default"].iteritems():
     if idx in hess_ds.df.index:
         continue
 
-    record = {"name": idx, "molecule_id": opt.final_molecule}
-    comp.append(record)
+    molecule_ids.append(opt.final_molecule)
+    molecule_idx.append(idx)
 
-print(f"Adding {len(comp)} computations")
-if hess_ds.data.records is None:
-    hess_ds.data.__dict__["records"] = []
+print(f'Querying info for {len(molecule_ids)} molecules')
+molecule_objs = client.query_molecules(id=molecule_ids)
+assert len(molecule_objs) == len(molecule_ids)
+assert len(molecule_objs) == len(molecule_idx)
 
-hess_ds.data.records.extend([ptl.collections.dataset.MoleculeEntry(**x) for x in comp])
+for idx,mobj in zip(molecule_idx, molecule_objs):
+    hess_ds.add_entry(idx, mobj)
+
+hess_ds.save()
 
 print("Submitting tasks...")
 r = hess_ds.compute("B3LYP-d3bj", "DZVP", keywords="default", program="psi4", tag="openff", priority="normal")
 print(r)
 
 hess_ds.save()
-#print(comp)
 
 print("Complete!")

@@ -8,7 +8,7 @@ import qcelemental as qcel
 from qcelemental.models import Molecule
 
 collection_name = "OpenFF Gen 2 Torsion Set 5 Bayer 2"
-UPDATE = False
+UPDATE = True
 
 
 def read_selected_torsions(input_json):
@@ -62,6 +62,8 @@ else:
             "epsilon": 0.0,
         },
     }
+
+    # Keywords only really deal with atomic results (energy, grad, hess)
     kw = ptl.models.KeywordSet(
         values={
             "maxiter": 200,
@@ -74,6 +76,7 @@ else:
         }
     )
     kw_id = client.add_keywords([kw])[0]
+    print("kw_id: ", kw_id)
 
     qc_spec = {
         "driver": "gradient",
@@ -82,11 +85,12 @@ else:
         "program": "psi4",
         "keywords": kw_id,
     }
+
     ds.add_specification(
         "default",
         opt_spec,
         qc_spec,
-        description="Standard OpenFF torsiondrive specification.",
+        description="Standard OpenFF torsiondrive specification."
     )
 
 # add molecules
@@ -112,15 +116,16 @@ for canonical_torsion_index, torsion_data in tqdm.tqdm(selected_torsions.items()
             initial_molecules,
             torsion_atom_indices,
             grid_spacings,
-            energy_upper_limit=0.05,
+            energy_upper_limit=0.05, # in hartree
             attributes=attributes,
-            save=False,
+            save=False, # If true, will ship metadata back and forth
         )
         i += 1
     except KeyError:
         continue
 
-    # Save every 30 for speed
+    # Save metadata (see save=False) every 30 for speed
+    # metadata = attributes, pointers to ids in procedures
     if (i % 30) == 0:
         ds.save()
 
