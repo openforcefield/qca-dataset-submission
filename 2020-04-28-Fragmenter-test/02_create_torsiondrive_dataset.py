@@ -10,7 +10,7 @@ import qcelemental as qcel
 from qcelemental.models import Molecule
 
 collection_name = "Fragmenter paper"
-UPDATE = False
+UPDATE = True
 
 torsion_data_gz = "selected-torsions.tar.jz"
 torsion_data = "selected-torsions.json"
@@ -54,6 +54,7 @@ else:
 
 if UPDATE:
     ds = client.get_collection("TorsionDriveDataset", collection_name)
+    print(ds)
 else:
     # create a new dataset with specified name
     ds = ptl.collections.TorsionDriveDataset(collection_name, client=client)
@@ -122,7 +123,6 @@ for canonical_torsion_index, torsion_data in tqdm.tqdm(selected_torsions.items()
         ds.save()
 
 ds.save()
-quit()
 print("Submitting tasks...")
 comp = ds.compute("default", tag="openff")
 print(comp)
