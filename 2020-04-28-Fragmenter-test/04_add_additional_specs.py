@@ -41,7 +41,7 @@ if UPDATE:
             "B3LYP-d3bj",
             "BLYP-d3bj",
             "LRC-WPBEH",
-            "MN15-d3dJ",
+            "MN15-d3bJ",
             "TPSSH-d3bJ"
     ]
     bases   = [
