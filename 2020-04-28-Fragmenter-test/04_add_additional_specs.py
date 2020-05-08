@@ -54,7 +54,7 @@ if UPDATE:
         for basis in bases:
             qc_spec['method'] = method
             qc_spec['basis']  = basis
-            model = "/".join(method,basis)
+            model = "/".join((method,basis))
             # already the "default" spec, so skip
             if model == "B3LYP-d3bj" and basis == "dzvp":
                 continue
@@ -65,6 +65,7 @@ if UPDATE:
                 qc_spec,
                 description="OpenFF model {:s} TorsionDrive exploration of charged molecules".format(model)
             )
+            ds.save()
             ds.compute(model, tag="openff", priority="LOW")
 
     print("Complete!")
