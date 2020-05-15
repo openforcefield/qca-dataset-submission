@@ -10,7 +10,7 @@ import qcelemental as qcel
 from qcelemental.models import Molecule
 
 collection_name = "OpenFF Fragmenter Validation 1.0"
-UPDATE = True
+UPDATE = False
 
 torsion_data_gz = "selected-torsions.tar.jz"
 torsion_data = "selected-torsions.json"
