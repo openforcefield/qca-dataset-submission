@@ -23,3 +23,7 @@
 * `requirements.txt` - conda list
 * `selected-torsions.tar.gz` - torsiondrive jobs inputs
 * `torsiondrive-inputs.pdf` - visualize input molecules
+
+#### Note:
+2020-05-13
+There was a bug in the original `001_generate.py` script and several dihedral indices were wrong.

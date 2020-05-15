@@ -1,6 +1,7 @@
 import json
 import cmiles
 import fragmenter
+from openeye import oechem
 
 with open('example-molecules.json') as f:
     frags_mols = json.load(f)
@@ -27,14 +28,28 @@ for mol in frags_mols:
             mapped_smiles = cmiles_ids['canonical_isomeric_explicit_hydrogen_mapped_smiles']
             qcarchive_mols = [cmiles.utils.mol_to_map_ordered_qcschema(conf, mapped_smiles) for conf in conformers.GetConfs()]
             job_idx = cmiles.utils.to_canonical_label(smiles, torsion)
+
+            # Map torsion indices to canonical ordered mapped SMILES
+            mol_copy = oechem.OEMol(oemol)
+            oechem.OEAddExplicitHydrogens(mol_copy)
+            cmiles._cmiles_oe.canonical_order_atoms(mol_copy)
+            dih = []
+            for m_idx in torsion:
+                atom = mol_copy.GetAtom(oechem.OEHasMapIdx(m_idx + 1))
+                dih.append(atom.GetIdx())
+
             torsion_dict[job_idx] = {
                 'initial_molecules': qcarchive_mols,
-                'dihedral': [torsion],
+                'dihedral': [dih],
                 'grid': [15],
                 'cmiles_identifiers': cmiles_ids
             }
+            if mol not in keep_track:
+                keep_track[mol] = {}
+            if bond not in keep_track[mol]:
+                keep_track[mol][bond] = {}
 
-            keep_track[mol][frag] = job_idx
+            keep_track[mol][bond][frag] = job_idx
         frag = 'pfizer'
         print(frag)
         smiles = data_pfizer[bond]['frag']
@@ -46,14 +61,24 @@ for mol in frags_mols:
         qcarchive_mols = [cmiles.utils.mol_to_map_ordered_qcschema(conf, mapped_smiles) for conf in
                           conformers.GetConfs()]
         job_idx = cmiles.utils.to_canonical_label(smiles, torsion)
+
+        # Map torsion indices to canonical ordered mapped SMILES
+        mol_copy = oechem.OEMol(oemol)
+        oechem.OEAddExplicitHydrogens(mol_copy)
+        cmiles._cmiles_oe.canonical_order_atoms(mol_copy)
+        dih = []
+        for m_idx in torsion:
+            atom = mol_copy.GetAtom(oechem.OEHasMapIdx(m_idx + 1))
+            dih.append(atom.GetIdx())
+
         torsion_dict[job_idx] = {
             'initial_molecules': qcarchive_mols,
-            'dihedral': [torsion],
+            'dihedral': [dih],
             'grid': [15],
             'cmiles_identifiers': cmiles_ids
         }
 
-    keep_track[mol][frag] = job_idx
+        keep_track[mol][bond][frag] = job_idx
 
 with open('selected-torsions.json', 'w') as jsonfile:
     json.dump(torsion_dict, jsonfile, indent=2)
