@@ -9,7 +9,7 @@ import qcportal as ptl
 import qcelemental as qcel
 from qcelemental.models import Molecule
 
-collection_name = "Fragmenter paper"
+collection_name = "OpenFF Fragmenter Validation 1.0"
 UPDATE = True
 
 torsion_data_gz = "selected-torsions.tar.jz"
