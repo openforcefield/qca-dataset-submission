@@ -3,7 +3,8 @@
 import os
 import qcportal as ptl
 
-collection_name = "Fragmenter paper"
+#collection_name = "Fragmenter paper"
+collection_name = "OpenFF Fragmenter Validation 1.0"
 UPDATE = True
 local_run = False
 
@@ -56,7 +57,7 @@ if UPDATE:
             qc_spec['basis']  = basis
             model = "/".join((method,basis))
             # already the "default" spec, so skip
-            if model == "B3LYP-d3bj" and basis == "dzvp":
+            if (method.lower() == "b3lyp-d3bj") and (basis.lower() == "dzvp"):
                 continue
             print("Submitting model:", model)
             ds.add_specification(
