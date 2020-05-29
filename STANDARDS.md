@@ -7,3 +7,9 @@ Current list:
 
 # Best practices
 * If any calculations are to be redone from another collection re-use the old input (coordinates, atom ordering etc) used as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
+
+# Dataset naming and versioning
+
+# Molecule validation
+
+# Standard functions and modules for entry preparation
