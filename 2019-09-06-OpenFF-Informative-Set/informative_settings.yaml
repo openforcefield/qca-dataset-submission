@@ -1,0 +1,37 @@
+basis: DZVP
+compute_tag: openff
+dataset_tags:
+- openff
+driver: gradient
+maxiter: 200
+method: B3LYP-D3BJ
+optimization_program:
+  check: 0
+  constraints: {}
+  convergence_set: GAU
+  coordsys: tric
+  enforce: 0.0
+  epsilon: 1.0e-05
+  maxiter: 300
+  molcnv: false
+  program: geometric
+  qccnv: false
+  reset: false
+  tmax: 0.3
+  trust: 0.1
+priority: low
+program: psi4
+scf_properties:
+- dipole
+- qudrupole
+- wiberg_lowdin_indices
+spec_description: Standard OpenFF optimization quantum chemistry specification.
+spec_name: default
+workflow:
+  StandardConformerGenerator:
+    clear_existing: true
+    component_description: Generate conformations for the given molecules
+    component_fail_message: Conformers could not be generated
+    component_name: StandardConformerGenerator
+    max_conformers: 40
+    toolkit: openeye
