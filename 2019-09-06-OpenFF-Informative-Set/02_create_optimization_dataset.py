@@ -9,7 +9,7 @@ import qcportal as ptl
 import qcelemental as qcel
 from qcelemental.models import Molecule
 
-UPDATE = False
+UPDATE = True
 name = "OpenFF Ehrman Informative Optimization v0.2"
 
 def read_qcsubmit_spec(input_json):
@@ -162,7 +162,10 @@ for block in tqdm.tqdm(names):
 
         attributes = molecule_attributes[molecule_index]
 
-        ds.add_entry(ds_index, molecule, attributes=attributes, save=False)
+        try:
+            ds.add_entry(ds_index, molecule, attributes=attributes, save=False)
+        except KeyError:
+            continue
 
     ds.save()
 
