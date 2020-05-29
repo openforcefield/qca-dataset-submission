@@ -5,10 +5,12 @@ import json
 import tarfile
 
 import qcportal as ptl
+import qcelemental as qcel
 
-torsion_data_gz = "phenyl_set_input.tar.jz"
-torsion_data = "phenyl_set_torsiondrive_inputs.json"
-dataset_name = "SMIRNOFF Coverage Torsion Set"
+torsion_data_gzs = ["phenyl_set_input.tar.jz", "biphenyls_set_input.tar.gz"]
+torsion_datas = ["phenyl_set_torsiondrive_inputs.json", "biphenyls_set_input.json"]
+dataset_name = "OpenFF Substituted Phenyl Set 1"
+UPDATE = True
 local_run = False
 
 
@@ -35,64 +37,96 @@ def read_selected_torsions(input_json):
 
 print("Reading selected_torsions...")
 
-if not os.path.exists(torsion_data):
-    with tarfile.open(torsion_data_gz) as f:
-        f.extractfile(torsion_data)
-selected_torsions = read_selected_torsions(torsion_data)
+for torsion_data, torsion_data_gz in zip(torsion_datas, torsion_data_gzs):
 
-print(f"Found {len(selected_torsions)} torsions")
+    if not os.path.exists(torsion_data):
+        with tarfile.open(torsion_data_gz) as f:
+            f.extractfile(torsion_data)
+    selected_torsions = read_selected_torsions(torsion_data)
+    
+    print(f"Found {len(selected_torsions)} torsions")
+    
+    print("Initializing dataset...")
+    if local_run:
+        client = ptl.FractalClient("localhost:7777", verify=False)
+    else:
+        client = ptl.FractalClient.from_file()
+    
+    if UPDATE:
+        ds = client.get_collection("TorsionDriveDataset", dataset_name)
+        print(ds)
+    else:
+        # create a new dataset with specified name
+        
+        #ds = client.get_collection("TorsionDriveDataset", dataset_name)
+        ds = ptl.collections.TorsionDriveDataset(dataset_name, client=client)
+        
+        # create specification for this dataset
+        opt_spec = {
+            "program": "geometric",
+            "keywords": {
+                "coordsys": "tric",
+                "enforce": 0.1,
+                "reset": True,
+                "qccnv": True,
+                "epsilon": 0.0,
+            }
+        }
+        
+        qc_spec = {
+            'driver': "gradient",
+            'method': 'b3lyp-d3(bj)',
+            'program': 'psi4',
+            'basis': 'dzvp',
+            'keywords': 2
+        }  # Keywords 2 id map compute wiberg bond orders, dipoles, and quadrupoles.
+        
+        ds.add_specification("default",
+                             opt_spec,
+                             qc_spec,
+                             description="Standard OpenFF torsiondrive specification.",
+                             overwrite=True)
+        
+    # add molecules
+    print(f"Adding {len(selected_torsions)} torsions")
+    i = 0
+    for canonical_torsion_index, torsion_data in selected_torsions.items():
+        print(i, canonical_torsion_index, len(torsion_data['input_molecules']))
+    
+        input_molecules = torsion_data["input_molecules"]
+        if isinstance(input_molecules, dict):
+            input_molecules = [input_molecules]
 
-print("Initializing dataset...")
-if local_run:
-    client = ptl.FractalClient("localhost:7777", verify=False)
-else:
-    client = ptl.FractalClient.from_file()
+        dihedral = torsion_data['dihedral']
+        if not isinstance(dihedral[0], list):
+            dihedral = [dihedral]
 
-# create a new dataset with specified name
+        # Check connectivity
+        molecule = qcel.models.Molecule(**input_molecules[0])
 
-#ds = client.get_collection("TorsionDriveDataset", dataset_name)
-ds = ptl.collections.TorsionDriveDataset(dataset_name, client=client)
+        conn = qcel.molutil.guess_connectivity(molecule.symbols, molecule.geometry)
+        assert (len(conn) + 3) > len(molecule.symbols), conn
 
-# create specification for this dataset
-opt_spec = {
-    "program": "geometric",
-    "keywords": {
-        "coordsys": "tric",
-        "enforce": 0.1,
-        "reset": True,
-        "qccnv": True,
-        "epsilon": 0.0,
-    }
-}
-
-qc_spec = {
-    'driver': "gradient",
-    'method': 'b3lyp-d3(bj)',
-    'program': 'psi4',
-    'basis': 'dzvp',
-    'keywords': 2
-}  # Keywords 2 id map compute wiberg bond orders, dipoles, and quadrupoles.
-
-ds.add_specification("default",
-                     opt_spec,
-                     qc_spec,
-                     description="Standard OpenFF torsiondrive specification.",
-                     overwrite=True)
-
-# add molecules
-print(f"Adding {len(selected_torsions)} torsions")
-i = 0
-for canonical_torsion_index, torsion_data in selected_torsions.items():
-    print(i, canonical_torsion_index, len(torsion_data['input_molecules']))
-    ds.add_entry(canonical_torsion_index,
-                 torsion_data['input_molecules'],
-                 [torsion_data['dihedral']],
-                 torsion_data['grid'],
-                 energy_upper_limit=0.1,
-                 attributes=torsion_data['cmiles_identifiers'])
-    i += 1
-print("Submitting tasks...")
-comp = ds.compute("default", tag="openff", priority="normal")
-print(comp)
-
-print("Complete!")
+        try:
+            ds.add_entry(canonical_torsion_index,
+                         input_molecules,
+                         dihedral,
+                         torsion_data['grid'],
+                         energy_upper_limit=0.1,
+                         attributes=torsion_data['cmiles_identifiers'],
+                         save=False)
+            i += 1
+        except KeyError:
+            continue
+    
+        # Save metadata (see save=False) every 30 for speed
+        # metadata = attributes, pointers to ids in procedures
+        if (i % 30) == 0:
+            ds.save()
+    
+    ds.save()
+    print("Submitting tasks...")
+    comp = ds.compute("default", tag="openff", priority="normal")
+    print(comp)
+    
+    print("Complete!")
