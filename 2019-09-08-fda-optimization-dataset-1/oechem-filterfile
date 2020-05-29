@@ -1,0 +1,8 @@
+MIN_NUM_HVY 3 "Minimum number of heavy atoms"
+MAX_NUM_HVY 55 "Maximum number of heavy atoms"
+MIN_ROT_BONDS 0 "Minimum number of rotatable bonds"
+MAX_ROT_BONDS 5 "Maximum number of rotatable bonds"
+ADJUST_ROT_FOR_RING true "BOOLEAN for whether to estimate degrees of freedom in rings"
+ELIMINATE_METALS Sc,Ti,V,Cr,Mn,Fe,Co,Ni,Cu,Zn,Y,Zr,Nb,Mo,Tc,Ru,Rh,Pd,Ag,Cd
+ALLOWED_ELEMENTS H,C,N,O,F,P,S,Cl,Br,I,B
+MAX_RING_SIZE 20 "Maximum atoms in any ring system"

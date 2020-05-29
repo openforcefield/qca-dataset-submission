@@ -25,4 +25,7 @@
 * `requirements.txt` - conda list
 * `biphenyls_set_inputs.tar.gz` - torsiondrive jobs inputs for the biphenyl set
 * `phenyl_set_inputs.tar.gz` - torsiondrive job inputs for phenyl set
-* `overlapping_indices.smi` - torsiondrive indices that are already in QCArchive 
+* `overlapping_indices.smi` - torsiondrive indices that are already in QCArchive
+
+## Note 2020-05--07
+5 new biphenyl molecules were added to this set.
