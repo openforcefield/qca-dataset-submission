@@ -31,3 +31,6 @@ Data generation and submission scripts for the QCArchive ecosystem.
 * `2019-07-05 OpenFF NCI250K Boron 1`: source files for `OpenMM NCI250K Boron 1` (`OptimizationDataset`) where small boron-containing compounds are extracted from the [NCI250K](https://cactus.nci.nih.gov/download/nci/) (@jchodera)
 * `2019-09-07-Pfizer-discrepancy-optimization-dataset-1`: source files for `Pfizer discrepancy optimization dataset 1` (@jchodera)
 
+## Guidelines and standards for submitting new datasets
+* See STANDARDS.md
+
