@@ -1,4 +1,5 @@
 This file outlines the standards and requirements needed for submitting a dataset to QCArchive. This ensures that we have a consistent data model for downstream processes.
+
 # Required fields 
 
 Current list:
@@ -10,6 +11,18 @@ Current list:
 
 # Dataset naming and versioning
 
+Each dataset shall be versioned.
+
 # Molecule validation
 
+* See "Molecule submission checklist" https://github.com/openforcefield/qcsubmit/issues/9
+
 # Standard functions and modules for entry preparation
+
+* QCSubmit (https://github.com/openforcefield/qcsubmit)
+
+# Related/ongoing discussions
+
+## Required fields
+
+* See "Fields that should be required for OpenFF submissions" https://github.com/openforcefield/qcsubmit/issues/3
