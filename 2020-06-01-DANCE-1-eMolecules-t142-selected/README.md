@@ -2,7 +2,7 @@
 
 ### General Information
 
-- Date: 6/1/2020
+- Date: 6/4/2020
 - Class: Forcefield Parameterization
 - Purpose: Use molecules selected from the eMolecules database by
   [DANCE](https://github.com/btjnaka/dance) to improve t142 parameterization in
@@ -14,9 +14,11 @@
 
 ### Generation procedure
 
-1. Output from DANCE is stored in `t142_selected.oeb` and `t142_selected.smi`.
-   Run `python 01_generate.py` to turn these molecules into the input JSON file
-   `t142_selected.json`.
+1. Output from DANCE is stored in `t142_selected.smi`. Run
+   `python 01_generate.py` to turn these molecules into the input JSON file
+   `t142_selected.json.gz`. The indices of the `t142` parameter are
+   re-calculated while doing this and stored in the `atom_indices` field in the
+   JSON file.
 
 ### Notes
 
@@ -27,11 +29,10 @@
 ### Manifest
 
 - `01_generator.py`: Python script used in the dataset generation
+- `t142_selected.smi`: Output from DANCE (same order as the OEB)
+- `optimization_inputs.json.gz`: Molecules generated from `01_generator.py`
 - `02_create_torsiondrive_dataset.py`: script for creating the
   TorsiondriveDataset and submitting
-- `t142_selected.oeb`: Output from DANCE
-- `t142_selected.smi`: Output from DANCE (same order as the OEB)
-- `t142_selected_torsions.json`: Molecules generated from `01_generator.py`
 - `requirements.txt`: version of toolkits used in the dataset generation
   (generated with `conda list | tail -n +3 > requirements.txt`)
 
