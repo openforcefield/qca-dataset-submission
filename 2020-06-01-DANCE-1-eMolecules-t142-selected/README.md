@@ -8,7 +8,7 @@
   [DANCE](https://github.com/btjnaka/dance) to improve t142 parameterization in
   smirnoff99Frosst.
 - Collection: TorsiondriveDataset
-- Name: DANCE 1 eMolecules t142 selected
+- Name: OpenFF DANCE 1 eMolecules t142 v1.0
 - Number of Entries: 20 1-D torsions
 - Submitter: Bryon Tjanaka (Mobley Lab)
 
@@ -16,7 +16,7 @@
 
 1. Output from DANCE is stored in `t142_selected.smi`. Run
    `python 01_generate.py` to turn these molecules into the input JSON file
-   `t142_selected.json.gz`. The indices of the `t142` parameter are
+   `optimization_inputs.json.gz`. The indices of the `t142` parameter are
    re-calculated while doing this and stored in the `atom_indices` field in the
    JSON file.
 
@@ -38,8 +38,8 @@
 
 ### Usage
 
-1. Executing `python 01_generate.py` generates `t142_selected.json` which stores
-   the selected torsions.
+1. Executing `python 01_generate.py` generates `optimization_inputs.json.gz`
+   which stores the selected torsions.
 2. Create dataset on QCFractal server.
    ```
    python 02_create_torsiondrive_dataset.py
