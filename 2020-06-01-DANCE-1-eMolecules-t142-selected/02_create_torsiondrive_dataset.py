@@ -8,9 +8,9 @@ import qcelemental as qcel
 import qcportal as ptl
 from qcelemental.models import Molecule
 
-COLLECTION_NAME = "DANCE 1 eMolecules t142 selected"
+COLLECTION_NAME = "OpenFF DANCE 1 eMolecules t142 v1.0"
 INPUT_FILE = "optimization_inputs.json.gz"
-UPDATE = False
+UPDATE = True
 
 
 def read_optimization_inputs(input_json_gz):
@@ -102,13 +102,16 @@ def main():
             description="Standard OpenFF torsiondrive specification.",
         )
 
+    dataset.data.tags.extend(["openff", "inflight"])
+    #dataset.data.group = "OpenFF"
+
     # Add molecules.
     print(f"Adding {len(optimization_inputs)} torsions")
     i = 0
 
     for item in tqdm.tqdm(optimization_inputs):
         attributes = item["cmiles_identifiers"]
-        canonical_torsion_index = attributes["canonical_isomeric_smiles"]
+        canonical_torsion_index = attributes["canonical_isomeric_smiles"].lower()
         torsion_atom_indices = item["atom_indices"]
         grid_spacings = [15] * len(torsion_atom_indices)
         initial_molecules = item["initial_molecules"]
