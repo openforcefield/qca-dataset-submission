@@ -32,5 +32,4 @@ Data generation and submission scripts for the QCArchive ecosystem.
 * `2019-09-07-Pfizer-discrepancy-optimization-dataset-1`: source files for `Pfizer discrepancy optimization dataset 1` (@jchodera)
 
 ## Guidelines and standards for submitting new datasets
-* See STANDARDS.md
-
+* See [STANDARDS.md](./STANDARDS.md)
