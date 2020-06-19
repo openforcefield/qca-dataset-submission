@@ -23,7 +23,17 @@ This is a TorsionDrive dataset consisting of biaryl torsions provided by Christo
  
  ### Metadata
 - elements {'N', 'S', 'C', 'H', 'O'}
-- unqiue molecules 87
+- unique molecules 87
 - torsiondrives 87
+- scf properties:
+    - dipole
+    - quadrupole
+    - wiberg_lowdin_indices
+    - mayer_indices
+- qc spec
+    - name: default
+    - method: B3LYP-D3BJ
+    - basis: DZVP
+    
 
  
