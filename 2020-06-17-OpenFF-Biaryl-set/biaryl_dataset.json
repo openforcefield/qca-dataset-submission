@@ -10,7 +10,8 @@
   "scf_properties": [
     "dipole",
     "quadrupole",
-    "wiberg_lowdin_indices"
+    "wiberg_lowdin_indices",
+    "mayer_indices"
   ],
   "spec_name": "default",
   "spec_description": "Standard OpenFF optimization quantum chemistry specification.",
@@ -22,22 +23,22 @@
   "compute_tag": "openff",
   "metadata": {
     "submitter": "joshuahorton",
-    "creation_date": "2020-06-17",
+    "creation_date": "2020-06-19",
     "collection_type": "TorsiondriveDataset",
     "dataset_name": "OpenFF Rowley Biaryl v1.0",
     "short_description": "Torsiondrives of biaryl molecules.",
     "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/2020-06-17-OpenFF-Biaryl-set",
     "long_description": "A torsiondrive dataset of biaryl molecules supplied by Christopher Rowley.",
     "elements": [
-      "N",
-      "S",
       "C",
       "H",
-      "O"
+      "O",
+      "S",
+      "N"
     ]
   },
   "provenance": {
-    "qcsubmit": "0+untagged.95.gefbb06d.dirty",
+    "qcsubmit": "0+untagged.99.gc7883ca",
     "openforcefield": "0.6.0+435.g82e38d3c"
   },
   "dataset": {
@@ -22914,7 +22915,7 @@
       },
       "component_provenance": {
         "OpenforcefieldToolkit": "0.6.0+435.g82e38d3c",
-        "QCSubmit": "0+untagged.95.gefbb06d.dirty",
+        "QCSubmit": "0+untagged.99.gc7883ca",
         "openeye": "2019.Oct.2"
       },
       "molecules": []
@@ -22925,7 +22926,7 @@
         "component_description": "Remove any molecules with a linear torsions selected to drive."
       },
       "component_provenance": {
-        "qcsubmit": "0+untagged.95.gefbb06d.dirty",
+        "qcsubmit": "0+untagged.99.gc7883ca",
         "openforcefield": "0.6.0+435.g82e38d3c"
       },
       "molecules": []
@@ -22936,7 +22937,7 @@
         "component_description": "Remove any molecules with unconnected torsion indices highlighted to drive."
       },
       "component_provenance": {
-        "qcsubmit": "0+untagged.95.gefbb06d.dirty",
+        "qcsubmit": "0+untagged.99.gc7883ca",
         "openforcefield": "0.6.0+435.g82e38d3c"
       },
       "molecules": []
