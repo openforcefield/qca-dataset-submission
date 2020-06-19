@@ -30,6 +30,7 @@ scf_properties:
 - dipole
 - quadrupole
 - wiberg_lowdin_indices
+- mayer_indices
 spec_description: Standard OpenFF optimization quantum chemistry specification.
 spec_name: default
 workflow:
