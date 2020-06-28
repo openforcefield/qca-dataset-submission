@@ -27,6 +27,7 @@ def get_optimizations(dataset, spec, client, dropna=False):
 
     return res
 
+
 def get_unfinished_optimizations(dataset, spec, client, dropna=False):
     res = get_optimizations(dataset, spec, client, dropna=dropna)
     res = [opt for opt in res if opt.status != 'COMPLETE']
