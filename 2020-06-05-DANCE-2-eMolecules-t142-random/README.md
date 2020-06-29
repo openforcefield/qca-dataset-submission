@@ -1,35 +1,32 @@
-# DANCE 1: eMolecules t142 selected
+# DANCE 2: eMolecules t142 random
 
 ### General Information
 
-- Date: 6/4/2020
+- Date: 6/5/2020
 - Class: Forcefield Parameterization
-- Purpose: Use molecules selected from the eMolecules database by
-  [DANCE](https://github.com/btjnaka/dance) to improve t142 parameterization in
-  smirnoff99Frosst.
+- Purpose: Use molecules randomly selected from the eMolecules database to
+  improve t142 parameterization in smirnoff99Frosst.
 - Collection: TorsiondriveDataset
-- Name: OpenFF DANCE 1 eMolecules t142 v1.0
+- Name: OpenFF DANCE 2 eMolecules t142 v1.0
 - Number of Entries: 20 1-D torsions
 - Submitter: Bryon Tjanaka (Mobley Lab)
 
 ### Generation procedure
 
-1. Output from DANCE is stored in `t142_selected.smi`. Run
-   `python 01_generate.py` to turn these molecules into the input JSON file
-   `optimization_inputs.json.gz`. The indices of the `t142` parameter are
-   re-calculated while doing this and stored in the `atom_indices` field in the
-   JSON file.
+1. Molecules are stored in `t142_random.smi`. Run `python 01_generate.py` to
+   turn these molecules into the input JSON file `optimization_inputs.json.gz`.
+   The indices of the `t142` parameter are re-calculated while doing this and
+   stored in the `atom_indices` field in the JSON file.
 
 ### Notes
 
-- The molecules were generated as described
-  [here](https://github.com/btjanaka/dance/blob/c339368b398564cecce7e21cd88fdb3f3d2e363e/examples/t142-emolecules/README.md)
-  (this link goes to the specific commit).
+Molecules were generated with the script in this commit:
+https://github.com/btjanaka/dance/commit/347100ffff35000ed042b18a12b56a164021042b
 
 ### Manifest
 
 - `01_generator.py`: Python script used in the dataset generation
-- `t142_selected.smi`: Output from DANCE (same order as the OEB)
+- `t142_random.smi`: Output from DANCE (same order as the OEB)
 - `optimization_inputs.json.gz`: Molecules generated from `01_generator.py`
 - `02_create_torsiondrive_dataset.py`: script for creating the
   TorsiondriveDataset and submitting
