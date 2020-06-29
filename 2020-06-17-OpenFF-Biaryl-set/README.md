@@ -19,7 +19,7 @@ This is a TorsionDrive dataset consisting of biaryl torsions provided by Christo
 - `biaryl_dataset.json`: The torsiondrive dataset ready for submission.
 - `biaryl_settings.yaml`: The QCSubmit settings used to generate the torsiondrive dataset.
 - `biaryls.smi`: The smiles file of the biaryl molecules.
- 
+- `biaryls_dataset.pdf`: A pdf file containing molecule 2D structures with targeted torsions for driving highlighted.
  
  ### Metadata
 - elements {'N', 'S', 'C', 'H', 'O'}
