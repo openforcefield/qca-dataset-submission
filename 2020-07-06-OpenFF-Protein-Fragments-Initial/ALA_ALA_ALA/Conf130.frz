@@ -1,7 +1,0 @@
-$freeze
-   5    7    9   11  # ACE(0)-C     ALA(1)-N     ALA(1)-CA    ALA(1)-CB    
-  11    9   15   17  # ALA(1)-CB    ALA(1)-CA    ALA(1)-C     ALA(2)-N     
-  15   17   19   21  # ALA(1)-C     ALA(2)-N     ALA(2)-CA    ALA(2)-CB    
-  21   19   25   27  # ALA(2)-CB    ALA(2)-CA    ALA(2)-C     ALA(3)-N     
-  25   27   29   31  # ALA(2)-C     ALA(3)-N     ALA(3)-CA    ALA(3)-CB    
-  31   29   35   37  # ALA(3)-CB    ALA(3)-CA    ALA(3)-C     NME(4)-N     
