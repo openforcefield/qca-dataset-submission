@@ -1,0 +1,7 @@
+$freeze
+   5    7    9   12  # ACE(0)-C     GLY(1)-N     GLY(1)-CA    GLY(1)-C     
+   7    9   12   14  # GLY(1)-N     GLY(1)-CA    GLY(1)-C     ALA(2)-N     
+  12   14   16   18  # GLY(1)-C     ALA(2)-N     ALA(2)-CA    ALA(2)-CB    
+  18   16   22   24  # ALA(2)-CB    ALA(2)-CA    ALA(2)-C     GLY(3)-N     
+  22   24   26   29  # ALA(2)-C     GLY(3)-N     GLY(3)-CA    GLY(3)-C     
+  24   26   29   31  # GLY(3)-N     GLY(3)-CA    GLY(3)-C     NME(4)-N     
