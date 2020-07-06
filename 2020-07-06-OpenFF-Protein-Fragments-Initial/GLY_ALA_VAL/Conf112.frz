@@ -1,8 +1,0 @@
-$freeze
-   5    7    9   12  # ACE(0)-C     GLY(1)-N     GLY(1)-CA    GLY(1)-C     
-   7    9   12   14  # GLY(1)-N     GLY(1)-CA    GLY(1)-C     ALA(2)-N     
-  12   14   16   18  # GLY(1)-C     ALA(2)-N     ALA(2)-CA    ALA(2)-CB    
-  18   16   22   24  # ALA(2)-CB    ALA(2)-CA    ALA(2)-C     VAL(3)-N     
-  22   24   26   28  # ALA(2)-C     VAL(3)-N     VAL(3)-CA    VAL(3)-CB    
-  28   26   38   40  # VAL(3)-CB    VAL(3)-CA    VAL(3)-C     NME(4)-N     
-  24   26   28   30  # VAL(3)-N     VAL(3)-CA    VAL(3)-CB    VAL(3)-CG1   

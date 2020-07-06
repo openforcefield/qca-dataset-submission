@@ -1,9 +1,0 @@
-$freeze
-   5    7    9   11  # ACE(0)-C     VAL(1)-N     VAL(1)-CA    VAL(1)-CB    
-  11    9   21   23  # VAL(1)-CB    VAL(1)-CA    VAL(1)-C     ALA(2)-N     
-   7    9   11   13  # VAL(1)-N     VAL(1)-CA    VAL(1)-CB    VAL(1)-CG1   
-  21   23   25   27  # VAL(1)-C     ALA(2)-N     ALA(2)-CA    ALA(2)-CB    
-  27   25   31   33  # ALA(2)-CB    ALA(2)-CA    ALA(2)-C     SER(3)-N     
-  31   33   35   37  # ALA(2)-C     SER(3)-N     SER(3)-CA    SER(3)-CB    
-  37   35   42   44  # SER(3)-CB    SER(3)-CA    SER(3)-C     NME(4)-N     
-  33   35   37   40  # SER(3)-N     SER(3)-CA    SER(3)-CB    SER(3)-OG    

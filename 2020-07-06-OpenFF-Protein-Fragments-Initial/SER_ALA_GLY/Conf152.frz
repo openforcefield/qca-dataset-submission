@@ -1,8 +1,0 @@
-$freeze
-   5    7    9   11  # ACE(0)-C     SER(1)-N     SER(1)-CA    SER(1)-CB    
-  11    9   16   18  # SER(1)-CB    SER(1)-CA    SER(1)-C     ALA(2)-N     
-   7    9   11   14  # SER(1)-N     SER(1)-CA    SER(1)-CB    SER(1)-OG    
-  16   18   20   22  # SER(1)-C     ALA(2)-N     ALA(2)-CA    ALA(2)-CB    
-  22   20   26   28  # ALA(2)-CB    ALA(2)-CA    ALA(2)-C     GLY(3)-N     
-  26   28   30   33  # ALA(2)-C     GLY(3)-N     GLY(3)-CA    GLY(3)-C     
-  28   30   33   35  # GLY(3)-N     GLY(3)-CA    GLY(3)-C     NME(4)-N     
