@@ -36,5 +36,5 @@ The way it's set up, we are scanning phi and psi of the central residue with a r
 - qc spec
     - name: default
     - method: B3LYP-D3BJ
-    - basis: def2-dzvpp (to be confirmed)
+    - basis: def2-tzvp 
     
