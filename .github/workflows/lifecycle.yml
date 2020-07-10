@@ -9,7 +9,7 @@ name: Dataset Lifecycle
 on:
   schedule:
     # run at around noon PST
-    - cron: "0 19 * * *"
+    - cron: "0 2 * * *"
 
 jobs:
   exec-lifecycle:
