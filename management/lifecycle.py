@@ -155,6 +155,7 @@ class DataSet:
         
         df = pd.DataFrame(results).transpose()
         df.index.name = 'specification'
+        return df
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
         # gather torsiondrive optimization results
@@ -169,9 +170,10 @@ class DataSet:
         
         df = pd.DataFrame(results).transpose()
         df.index.name = 'specification'
+        return df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt):
-        datehr = datetime.utcnow().strftime("%Y-%m-%d %Hhr UTC")
+        datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
 
         dataset_name, dataset_type = self._parse_spec()
 
@@ -181,6 +183,7 @@ class DataSet:
 
         meta = pd.DataFrame(pd.Series(meta, name=""))
 
+        # TODO: add error message samples for optimizations
         comment = f"""
         ## Error Cycling Report 
 
@@ -194,12 +197,13 @@ class DataSet:
 
         {df_tdr_opt.to_markdown()}
 
-        Error messages include:
-
-
         """
 
-        self.pr.create_comment(comment)
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
 
     def _errorcycle_optimization(self, ds):
         pass
