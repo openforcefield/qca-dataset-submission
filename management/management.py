@@ -46,6 +46,22 @@ def _query_procedures(ids, client):
     return res
 
 
+def get_torsiondrives(
+        dataset, spec, client, noncomplete=False):
+
+    ds = dataset
+
+    while True:
+        try:
+            ds.status(spec)
+        except:
+            pass
+        else:
+            break
+
+    return ds.df[spec].tolist()
+
+
 def get_torsiondrive_optimizations(
         dataset, spec, client, noncomplete=False):
 
