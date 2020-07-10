@@ -1,1 +1,1 @@
-eval "$(${CONDA}/condabin/conda shell.bash hook)";;
+eval "$(${CONDA}/condabin/conda shell.bash hook)"
