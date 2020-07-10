@@ -8,8 +8,8 @@ name: Dataset Lifecycle
 # I *think* this is guaranteed with only a single runner
 on:
   schedule:
-    # run at around noon PST
-    - cron: "0 2 * * *"
+    # run at around 9am PST
+    - cron: "0 16 * * *"
   workflow_dispatch:
 
 jobs:
