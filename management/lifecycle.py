@@ -41,13 +41,9 @@ class DataSet:
             Github repo where datasets are tracked.
 
         """
-        self.directory = os.abspath(directory)
+        self.directory = os.path.abspath(directory)
         self.pr = pr
         self.ghapi = ghapi
-
-        spec = self._parse_spec()
-        self.name = spec['dataset_name']
-        self.type = spec['dataset_type']
 
         if repo is None:
             self.repo = ghapi.get_repo(REPO_NAME)
@@ -62,7 +58,10 @@ class DataSet:
             with open(filepath, 'r') as f:
                 spec = json.load(f)
 
-        return spec
+        dataset_name = spec['dataset_name']
+        dataset_type = spec['dataset_type']
+
+        return dataset_name, dataset_type
 
     def execute_state(self, board=None):
         """Based on current state of the PR, perform appropriate actions.
@@ -96,9 +95,17 @@ class DataSet:
         elif pr_state == "Archived/Complete":
             self.execute_archived_complete()
 
+    def _get_column(self, column):
+        proj = [proj for proj in self.repo.get_projects()
+                if proj.name == 'Dataset Tracking'][0]
+
+        cols = list(proj.get_columns())
+        return [col for col in cols if col.name == column][0]
 
     def set_backlog(self):
-        pass
+        backlog = self._get_column('Backlog')
+        backlog.create_card(content_id=self.pr.id,
+                            content_type='PullRequest')
 
     def execute_backlog(self):
         pass
@@ -118,13 +125,16 @@ class DataSet:
         pass
 
     def execute_errorcycle(self, restart=False):
+
+        dataset_name, dataset_type = self._parse_spec()
+
         client = ptl.FractalClient()
-        ds = client.get_collection(self.type, self.name)
+        ds = client.get_collection(dataset_type, dataset_name)
         
-        if self.type == 'TorsionDriveDataset':
+        if dataset_type == 'TorsionDriveDataset':
             return self._errorcycle_torsiondrive(ds, client)
 
-        elif self.type == 'OptimizationDataset':
+        elif dataset_type == 'OptimizationDataset':
             return self._errorcycle_optimization(ds, client)
 
     def _errorcycle_torsiondrive(self, ds, client):
@@ -163,8 +173,10 @@ class DataSet:
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt):
         datehr = datetime.utcnow().strftime("%Y-%m-%d %Hhr UTC")
 
-        meta = {'**Dataset Name**': self.name,
-                '**Dataset Type**': self.type,
+        dataset_name, dataset_type = self._parse_spec()
+
+        meta = {'**Dataset Name**': dataset_name,
+                '**Dataset Type**': dataset_type,
                 '**UTC Date**': datehr}
 
         meta = pd.DataFrame(pd.Series(meta, name=""))
@@ -215,7 +227,7 @@ def _get_full_board(repo):
     return board
 
 def _get_tracking_prs(repo):
-    prs = [pr for pr in repo.get_issues(state='all') 
+    prs = [pr for pr in repo.get_pulls(state='all') 
        if 'tracking' in list(map(lambda x: x.name, pr.labels))]
     return prs
 
@@ -227,8 +239,8 @@ def _get_datadirs(files):
 
     dirs = []
     for filepath in files:
-        if flagpost_file in filepath:
-            dirs.append(os.path.dirname(filepath))
+        if flagpost_file in filepath.filename:
+            dirs.append(os.path.dirname(filepath.filename))
 
     return sorted(set(dirs))
 
