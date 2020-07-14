@@ -20,8 +20,7 @@ jobs:
           conda activate
           conda config --set always_yes yes
           conda config --add channels conda-forge
-          conda config --add channels omnia
-          conda install --quiet qcsubmit
+          conda install --quiet qcsubmit -c omnia/label/rc -c omnia
           conda info --all
           conda list
           pip install basis_set_exchange
