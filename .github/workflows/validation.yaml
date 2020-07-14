@@ -28,6 +28,8 @@ jobs:
         uses: trilom/file-changes-action@v1.2.3
       - name: Gather new datasets
         run: |
+          . devtools/gh-actions/initialize_conda.sh
+          conda activate
           python ./management/validation.py '${{ steps.file_changes.outputs.files}}'
 
 
