@@ -28,6 +28,6 @@ jobs:
         uses: trilom/file-changes-action@v1.2.3
       - name: Gather new datasets
         run: |
-          python ./managment/validation.py '${{ steps.file_changes.outputs.files}}'
+          python ./management/validation.py '${{ steps.file_changes.outputs.files}}'
 
 
