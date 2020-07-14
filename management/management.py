@@ -5,7 +5,7 @@ import qcportal as ptl
 
 ## failures and incompletes
 
-def get_unfinished_optimizations(dataset, spec, client, dropna=False):
+def get_optimizations(dataset, spec, client, dropna=False):
     ds = dataset
 
     while True:
@@ -25,6 +25,11 @@ def get_unfinished_optimizations(dataset, spec, client, dropna=False):
     
     res = _query_procedures(ids, client)    
 
+    return res
+
+
+def get_unfinished_optimizations(dataset, spec, client, dropna=False):
+    res = get_optimizations(dataset, spec, client, dropna=dropna)
     res = [opt for opt in res if opt.status != 'COMPLETE']
 
     return res
@@ -41,8 +46,9 @@ def _query_procedures(ids, client):
     return res
 
 
-def get_unfinished_torsiondrive_optimizations(
-        dataset, spec, client, merged=False, noncomplete=False):
+def get_torsiondrives(
+        dataset, spec, client, noncomplete=False):
+
     ds = dataset
 
     while True:
@@ -53,30 +59,44 @@ def get_unfinished_torsiondrive_optimizations(
         else:
             break
 
-    ids = set(i.id for i in ds.df[spec])
-    res = client.query_procedures(ids)
-    
+    return ds.df[spec].tolist()
+
+
+def get_torsiondrive_optimizations(
+        dataset, spec, client, noncomplete=False):
+
+    ds = dataset
+
+    while True:
+        try:
+            ds.status(spec)
+        except:
+            pass
+        else:
+            break
+
     optimizations = defaultdict(set)
-    for tdr in ds.df.default:
-        if tdr.status == 'COMPLETE':
-            continue
-            
+    for tdr in ds.df[spec]:
         for val in tdr.optimization_history.values():
             optimizations[tdr.id].update(set(val))
 
-    if merged:
-        res_opt = list()
-        for ids in optimizations.values():
-            res_opt.extend(_query_procedures(ids - res_opt, client))
-        
-        res_opt = list(res_opt)
-        if noncomplete:
-            res_opt = [opt for opt in res_opt if opt.status != 'COMPLETE']
-    else:
-        res_opt = {key: _query_procedures(value, client) for key, value in optimizations.items()}
-        if noncomplete:
-            res_opt = {key: [opt for opt in value if opt.status != 'COMPLETE']
-                       for key, value in res_opt.items()}
+    res_opt = {key: _query_procedures(value, client) for key, value in optimizations.items()}
+    if noncomplete:
+        res_opt = {key: [opt for opt in value if opt.status != 'COMPLETE']
+                   for key, value in res_opt.items()}
+
+    return res_opt
+
+
+def get_unfinished_torsiondrive_optimizations(
+        dataset, spec, client, noncomplete=False):
+
+    res_opt = get_torsiondrive_optimizations(dataset, spec, client, noncomplete=noncomplete)
+
+    ds = dataset
+    for tdr in ds.df[spec]:
+        if tdr.status == 'COMPLETE':
+            res_opt.pop(tdr.id, None)
 
     return res_opt
 
