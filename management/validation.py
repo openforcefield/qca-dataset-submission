@@ -14,7 +14,7 @@ def validate_dataset(file_name):
     """
     Create a dataset from the input json.
     """
-    print(f"validating {file_name}")
+    print(file_name)
     data = deserialize(file_name)
     dataset_type = data["dataset_type"]
     # now try and make the correct dataset
