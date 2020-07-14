@@ -29,7 +29,8 @@ def validate_dataset(file_name):
 
 
 if __name__ == "__main__":
-    file_names = json.loads(sys.argv[0])
+    print(sys.argv)
+    file_names = json.loads(sys.argv[1])
     dataset_paths = []
     for file in file_names:
         if "dataset.json" in file:
