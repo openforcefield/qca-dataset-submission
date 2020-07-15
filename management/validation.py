@@ -7,7 +7,6 @@ import json
 import os
 from argparse import ArgumentParser
 
-from management.lifecycle import REPO_NAME
 
 import pandas as pd
 from github import Github
@@ -26,6 +25,7 @@ datasets = {
 check_mark = ":heavy_check_mark:"
 cross = ":x:"
 missing = ":heavy_exclamation_mark:"
+REPO_NAME = 'openforcefield/qca-dataset-submission'
 
 def get_data(file_name):
     """
