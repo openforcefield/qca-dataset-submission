@@ -22,11 +22,11 @@ jobs:
         uses: goanpeca/setup-miniconda@v1
         with:
           python-version: 3.7
-          activate-enviroment: validation
+          activate-environment: validation
           environment-file: devtools/conda-envs/validation.yaml
           auto-activate-base: false
 
-      - name: Enviroment Information
+      - name: Environment Information
         shell: bash
         run: |
           conda info
