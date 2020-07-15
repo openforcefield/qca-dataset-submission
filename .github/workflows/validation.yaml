@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Addtional info about the build
         shell: bash
         run: |
@@ -33,7 +34,8 @@ jobs:
           conda list
 
       - id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
+      - uses: trilom/file-changes-action@v1.2.3
+
       - name: Validate Dataset
         shell: bash
         env: # Or as an environment variable
