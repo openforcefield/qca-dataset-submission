@@ -137,11 +137,21 @@ class DataSet:
         elif dataset_type == 'OptimizationDataset':
             return self._errorcycle_optimization(ds, client)
 
+        elif dataset_type == 'GridOptimizationDataset':
+            return self._errorcycle_gridopt(ds, client)
+
+        elif dataset_type == 'Dataset':
+            return self._errorcycle_dataset(ds, client)
+
+
     def _errorcycle_torsiondrive(self, ds, client):
         df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
         df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
 
         self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt)
+
+        # restart errored torsiondrives and optimizations
+
 
     def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
         # gather torsiondrive results
