@@ -33,14 +33,14 @@ jobs:
           conda info
           conda list
 
-      - id: file_changes
-      - uses: trilom/file-changes-action@v1.2.3
-
-      - name: Validate Dataset
-        shell: bash
-        env: # Or as an environment variable
-          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
-        run: |
-          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
+#      - id: file_changes
+#      - uses: trilom/file-changes-action@v1.2.3
+#
+#      - name: Validate Dataset
+#        shell: bash
+#        env: # Or as an environment variable
+#          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
+#        run: |
+#          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
 
 
