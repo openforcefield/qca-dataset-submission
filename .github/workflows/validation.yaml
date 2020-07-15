@@ -1,8 +1,6 @@
 name: Dataset Validation
 
-# TODO: add a trigger for a card moved on a project?
-# want to be able to make guarantees around a single action at a time
-# I *think* this is guaranteed with only a single runner
+
 on:
   pull_request:
     branches:
@@ -13,23 +11,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - uses: goanpeca/setup-miniconda@v1
       - name: Configure conda
+        with:
+          python-version: 3.7
+          activate-enviroment: validation
+          environment-file: devtools/conda-envs/validation.yaml
+          auto-activate-base: false
+
+      - name: Addtional info about the build
         shell: bash
         run: |
-          . devtools/gh-actions/initialize_conda.sh
-          conda activate
-          conda config --set always_yes yes
-          conda install --quiet -c conda-forge -c omnia/label/rc -c omnia -c openeye qcsubmit
-          conda info --all
+          uname -a
+          df -a
+          ulimit -a
+
+      - name: Enviroment Information
+        shell: bash
+        run: |
+          conda info
           conda list
-          pip install basis_set_exchange
 
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
       - name: Gather new datasets
+
+      - name: Validate Dataset Entries
+        shell: bash
+        env: # Or as an environment variable
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
         run: |
-          . devtools/gh-actions/initialize_conda.sh
-          conda activate
-          python ./management/validation.py '${{ steps.file_changes.outputs.files}}'
+          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
 
 
