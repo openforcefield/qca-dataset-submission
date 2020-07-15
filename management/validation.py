@@ -49,12 +49,13 @@ def validate_dataset(dataset_data):
     Catch each of the error types and report them.
     """
     errors = {}
+    data_copy = copy.deepcopy(dataset_data)
     # remove the entries so they can be checked one by one
-    entries = dataset_data.pop("dataset")
+    entries = data_copy.pop("dataset")
     # remove the scf props and meta data as this will be checked in a different step
-    del dataset_data["scf_properties"]
-    del dataset_data["metadata"]
-    dataset = create_dataset(dataset_data)
+    del data_copy["scf_properties"]
+    del data_copy["metadata"]
+    dataset = create_dataset(data_copy)
 
     # now check each entry
     for entry in entries.values:
