@@ -169,7 +169,7 @@ def main_validation(dataset_names):
     # postprocess due to raw spacing above
     comment = "\n".join([substr.strip() for substr in comment.split('\n')])
 
-    return comment, df
+    return comment
 
 
 def main():
