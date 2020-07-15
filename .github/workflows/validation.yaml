@@ -11,16 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Addtional info about the build
+      - name: Additional info about the build
         shell: bash
         run: |
           uname -a
-          df -a
+          df -h
           ulimit -a
 
-      - uses: goanpeca/setup-miniconda@v1
       - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
         with:
           python-version: 3.7
           activate-enviroment: validation
@@ -33,14 +32,14 @@ jobs:
           conda info
           conda list
 
-#      - id: file_changes
-#      - uses: trilom/file-changes-action@v1.2.3
-#
-#      - name: Validate Dataset
-#        shell: bash
-#        env: # Or as an environment variable
-#          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
-#        run: |
-#          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
+      - name: Validate Dataset
+        shell: bash
+        env: # Or as an environment variable
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
+        run: |
+          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
 
 
