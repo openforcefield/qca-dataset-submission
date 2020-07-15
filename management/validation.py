@@ -48,7 +48,12 @@ def validate_dataset(dataset_data):
     Create a dataset from the data and run normal validation on each molecule.
     Catch each of the error types and report them.
     """
-    errors = {}
+    errors = {
+        "cmiles": [],
+        "dihedrals": [],
+        "linear": [],
+        "complex": []
+    }
     data_copy = copy.deepcopy(dataset_data)
     # remove the entries so they can be checked one by one
     entries = data_copy.pop("dataset")
@@ -60,17 +65,17 @@ def validate_dataset(dataset_data):
     # now check each entry
     for entry in entries.values():
         try:
-            dataset.add_molecule(**entry)
+            dataset.add_molecule(**entry, molecule=None)
         except DatasetInputError:
             # this mean the cmiles is not valid
-            errors.setdefault("cmiles", []).append(entry.index)
+            errors["cmiles"].append(entry.index)
         except DihedralConnectionError:
             # the torsion is not connected
-            errors.setdefault("dihedrals", []).append(entry.index)
+            errors["dihedrals"].append(entry.index)
         except LinearTorsionError:
-            errors.setdefault("linear", []).append(entry.index)
+            errors["linear"].append(entry.index)
         except MolecularComplexError:
-            errors.setdefault("complex", []).append(entry.index)
+            errors["complex"].append(entry.index)
 
     return errors
 
@@ -127,7 +132,7 @@ def main_validation(dataset_names):
     """
     dataset_dataframe = {}
     # these are the attributes checked
-    columns = ["**Dataset Name**", "**Dataset Type**", "**Method**", "**Basis**", "**Valid Cmiles**",
+    index = ["**Dataset Name**", "**Dataset Type**", "**Method**", "**Basis**", "**Valid Cmiles**",
                "**Connected Dihedrals**", "**No Linear Torsions**", "**No Molecular Complexes**", "**Complete Metatdata**",
                "**Valid SCF Properties**", "**Full Basis Coverage**"]
     _error_order = ["cmiles", "dihedrals", "linear", "complex"]
@@ -153,9 +158,8 @@ def main_validation(dataset_names):
         dataset_validators.append(check_basis_coverage(data))
 
         dataset_dataframe[dataset_name] = dataset_validators
-
     # now make the dataframe
-    df = pd.DataFrame(data=dataset_dataframe, columns=columns)
+    df = pd.DataFrame(data=dataset_dataframe, index=index)
     comment = f"""
     ## QCSubmit Validation Report
     
@@ -165,34 +169,39 @@ def main_validation(dataset_names):
     # postprocess due to raw spacing above
     comment = "\n".join([substr.strip() for substr in comment.split('\n')])
 
-    return comment
-
-parser = ArgumentParser(description="Validation methods for QCSubmit datasets.")
-parser.add_argument("dataset_files", help="This is the dataset file that should be validated.")
-parser.add_argument("pull_number", type=int, help="This is the PR number that danger bot will report on.")
-
-args = parser.parse_args()
+    return comment, df
 
 
-# now work out what is to be validated
-file_names = json.loads(args.dataset_files)
-dataset_paths = []
-for file in file_names:
-    if "dataset.json" in file:
-        dataset_paths.append(file)
+def main():
 
-comment = main_validation(dataset_paths)
+    parser = ArgumentParser(description="Validation methods for QCSubmit datasets.")
+    parser.add_argument("dataset_files", help="This is the dataset file that should be validated.")
+    parser.add_argument("pull_number", type=int, help="This is the PR number that danger bot will report on.")
 
-# now we need the pr and to add the comment.
-g = Github(os.environ['GH_TOKEN'])
-repo = g.get_repo(REPO_NAME)
-pr = repo.get_pull(args.pull_number)
-pr.create_issue_comment(comment)
-
-# now we need to work out if the workflow should fail
-if missing in comment or cross in comment:
-    raise DatasetInputError("The datasets have errors please see report for details.")
+    args = parser.parse_args()
 
 
+    # now work out what is to be validated
+    file_names = json.loads(args.dataset_files)
+    dataset_paths = []
+    for file in file_names:
+        if "dataset.json" in file:
+            dataset_paths.append(file)
+
+    comment = main_validation(dataset_paths)
+
+    # now we need the pr and to add the comment.
+    g = Github(os.environ['GH_TOKEN'])
+    repo = g.get_repo(REPO_NAME)
+    pr = repo.get_pull(args.pull_number)
+    pr.create_issue_comment(comment)
+
+    # now we need to work out if the workflow should fail
+    if missing in comment or cross in comment:
+        raise DatasetInputError("The datasets have errors please see report for details.")
+
+
+if __name__ == "__main__":
+    main()
 
 
