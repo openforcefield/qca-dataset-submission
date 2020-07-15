@@ -34,7 +34,7 @@ jobs:
           conda list
 
       - id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
+      - uses: trilom/file-changes-action@v1.2.3
       - name: Gather new datasets
 
       - name: Validate Dataset Entries
