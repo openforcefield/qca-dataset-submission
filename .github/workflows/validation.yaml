@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Addtional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -a
+          ulimit -a
 
       - uses: goanpeca/setup-miniconda@v1
       - name: Configure conda
@@ -20,12 +26,6 @@ jobs:
           environment-file: devtools/conda-envs/validation.yaml
           auto-activate-base: false
 
-      - name: Addtional info about the build
-        shell: bash
-        run: |
-          uname -a
-          df -a
-          ulimit -a
 
       - name: Enviroment Information
         shell: bash
@@ -37,7 +37,7 @@ jobs:
       - uses: trilom/file-changes-action@v1.2.3
       - name: Gather new datasets
 
-      - name: Validate Dataset Entries
+      - name: Validate Dataset
         shell: bash
         env: # Or as an environment variable
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
