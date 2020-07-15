@@ -7,7 +7,7 @@ import json
 import os
 from argparse import ArgumentParser
 
-from .lifecycle import REPO_NAME
+from management.lifecycle import REPO_NAME
 
 import pandas as pd
 from github import Github
