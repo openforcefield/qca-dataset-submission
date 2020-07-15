@@ -58,7 +58,7 @@ def validate_dataset(dataset_data):
     dataset = create_dataset(data_copy)
 
     # now check each entry
-    for entry in entries.values:
+    for entry in entries.values():
         try:
             dataset.add_molecule(**entry)
         except DatasetInputError:
