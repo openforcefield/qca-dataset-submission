@@ -27,6 +27,7 @@ cross = ":x:"
 missing = ":heavy_exclamation_mark:"
 REPO_NAME = 'openforcefield/qca-dataset-submission'
 
+
 def get_data(file_name):
     """
     Return the deserialized dataset file.
@@ -47,6 +48,7 @@ def validate_dataset(dataset_data):
     """
     Create a dataset from the data and run normal validation on each molecule.
     Catch each of the error types and report them.
+    Convert them into the display output.
     """
     errors = {
         "cmiles": [],
@@ -68,16 +70,23 @@ def validate_dataset(dataset_data):
             dataset.add_molecule(**entry, molecule=None)
         except DatasetInputError:
             # this mean the cmiles is not valid
-            errors["cmiles"].append(entry.index)
-        except DihedralConnectionError:
+            errors["cmiles"].append(entry["index"])
+            # remove the index error after the qcsubmit patch
+        except (DihedralConnectionError, IndexError):
             # the torsion is not connected
-            errors["dihedrals"].append(entry.index)
+            errors["dihedrals"].append(entry["index"])
         except LinearTorsionError:
-            errors["linear"].append(entry.index)
+            errors["linear"].append(entry["index"])
         except MolecularComplexError:
-            errors["complex"].append(entry.index)
+            errors["complex"].append(entry["index"])
 
-    return errors
+    report = {
+        "**Valid Cmiles**": cross if errors["cmiles"] else check_mark,
+        "**Connected Dihedrals**": cross if errors["dihedrals"] else check_mark,
+        "**No Linear Torsions**": cross if errors["linear"] else check_mark,
+        "**No Molecular Complexes**": cross if errors["complex"] else check_mark
+    }
+    return report
 
 
 def check_metadata(dataset_data):
@@ -88,9 +97,11 @@ def check_metadata(dataset_data):
     dataset = create_dataset(data_copy)
     try:
         dataset.metadata.validate_metadata(raise_errors=True)
-        return check_mark
+        report = check_mark
     except DatasetInputError:
-        return cross
+        report = cross
+
+    return {"**Complete Metatdata**": report}
 
 
 def check_scf_props(dataset_data):
@@ -100,9 +111,11 @@ def check_scf_props(dataset_data):
     del data_copy["metadata"]
     try:
         _ = create_dataset(data_copy)
-        return check_mark
+        report = check_mark
     except DatasetInputError:
-        return cross
+        report = cross
+
+    return {"**Valid SCF Properties**": report}
 
 
 def check_basis_coverage(dataset_data):
@@ -111,19 +124,21 @@ def check_basis_coverage(dataset_data):
     try:
         dataset = create_dataset(dataset_data)
     except Exception:
-        return missing
+        return {"**Full Basis Coverage**": missing}
     try:
         dataset._get_missing_basis_coverage(raise_errors=True)
-        return check_mark
+        report = check_mark
     except MissingBasisCoverageError:
-        return cross
+        report = cross
+
+    return {"**Full Basis Coverage**": report}
 
 
 def get_meta_info(dataset_data):
-    return [dataset_data.get("dataset_name", missing),
-            dataset_data.get("dataset_type", missing),
-            dataset_data.get("method", missing),
-            dataset_data.get("basis", missing)]
+    return {"**Dataset Name**": dataset_data.get("dataset_name", missing),
+            "**Dataset Type**": dataset_data.get("dataset_type", missing),
+            "**Method**": dataset_data.get("method", missing),
+            "**Basis**": dataset_data.get("basis", missing)}
 
 
 def main_validation(dataset_names):
@@ -138,38 +153,66 @@ def main_validation(dataset_names):
     _error_order = ["cmiles", "dihedrals", "linear", "complex"]
 
     for dataset_name in dataset_names:
-        dataset_validators = []
+        dataset_validators = {}
         # get the data from the dataset
         data = get_data(dataset_name)
         # get the metadata
-        dataset_validators.extend(get_meta_info(data))
+        dataset_validators.update(get_meta_info(data))
         # check the first set of entry errors
-        errors = validate_dataset(data)
-        for error in _error_order:
-            if errors[error]:
-                dataset_validators.append(cross)
-            else:
-                dataset_validators.append(check_mark)
+        dataset_validators.update(validate_dataset(data))
         # now check the metadata
-        dataset_validators.append(check_metadata(data))
+        dataset_validators.update(check_metadata(data))
         # now check the scf
-        dataset_validators.append(check_scf_props(data))
+        dataset_validators.update(check_scf_props(data))
         # now check the basis
-        dataset_validators.append(check_basis_coverage(data))
+        dataset_validators.update(check_basis_coverage(data))
 
-        dataset_dataframe[dataset_name] = dataset_validators
+        dataset_dataframe[dataset_name] = pd.Series(dataset_validators)
     # now make the dataframe
-    df = pd.DataFrame(data=dataset_dataframe, index=index)
+    df = pd.DataFrame(data=dataset_dataframe)
+
+    # now construct the comment with the qcsubmit version info
+    version = get_version_info()
     comment = f"""
     ## QCSubmit Validation Report
     
     {df.to_markdown()}
+
+    <details>
+    <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
+    <!-- have to be followed by an empty line! -->
+
+    {version.to_markdown()}
+    </details>   
     """
 
     # postprocess due to raw spacing above
     comment = "\n".join([substr.strip() for substr in comment.split('\n')])
 
     return comment
+
+
+def get_version_info():
+    """
+    Get the version info for the packages used to validate the submission.
+    """
+    import importlib
+    report = {}
+    # list the core packages here
+    packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    for package in packages:
+        module = importlib.import_module(package)
+        report[package] = pd.Series({"version": module.__version__})
+
+    # now try openeye else use rdkit
+    try:
+        import openeye
+        report["openeye"] = pd.Series({"version": openeye.__version__})
+    except ImportError:
+        import rdkit
+        report["rdkit"] = pd.Series({"version": rdkit.__version__})
+
+    return pd.DataFrame(report).transpose()
 
 
 def main():
@@ -179,7 +222,6 @@ def main():
     parser.add_argument("pull_number", type=int, help="This is the PR number that danger bot will report on.")
 
     args = parser.parse_args()
-
 
     # now work out what is to be validated
     file_names = json.loads(args.dataset_files)

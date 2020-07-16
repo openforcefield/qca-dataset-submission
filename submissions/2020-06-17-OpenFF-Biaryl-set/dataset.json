@@ -22,7 +22,6 @@
   ],
   "compute_tag": "openff",
   "metadata": {
-    "submitter": "joshuahorton",
     "creation_date": "2020-06-19",
     "collection_type": "TorsiondriveDataset",
     "dataset_name": "OpenFF Rowley Biaryl v1.0",
@@ -461,7 +460,6 @@
         }
       ],
       "attributes": {
-        "canonical_smiles": "c1ccnc(c1)c2cccnc2",
         "canonical_isomeric_smiles": "c1ccnc(c1)c2cccnc2",
         "canonical_explicit_hydrogen_smiles": "[H]c1c(c(nc(c1[H])c2c(c(c(nc2[H])[H])[H])[H])[H])[H]",
         "canonical_isomeric_explicit_hydrogen_smiles": "[H]c1c(c(nc(c1[H])c2c(c(c(nc2[H])[H])[H])[H])[H])[H]",
@@ -472,7 +470,7 @@
       },
       "dihedrals": [
         [
-          3,
+          20,
           8,
           9,
           11
