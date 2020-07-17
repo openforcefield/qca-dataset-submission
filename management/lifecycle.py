@@ -421,7 +421,8 @@ def main():
     for pr in prs:
         
         files = pr.get_files()
-        datasets = [filepath for filepath in files if DATASET_FILENAME in filepath]
+        datasets = [file.filename for file in files
+                    if DATASET_FILENAME in file.filename]
 
         # execute lifecycle process based on current state
         # TODO: add excessive stdout logging for actions
