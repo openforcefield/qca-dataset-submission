@@ -2,17 +2,17 @@
 
 import os
 import json
+import traceback
 from collections import defaultdict
 from datetime import datetime
 
 from github import Github
-import qcportal as ptl
-import pandas as pd
 
 import management as mgt
 
 REPO_NAME = 'openforcefield/qca-dataset-submission'
 DATASET_FILENAME = 'dataset.json'
+
 
 class DataSet:
     """A dataset submitted to QCArchive.
@@ -87,7 +87,7 @@ class DataSet:
         if pr_state == "Backlog":
             self.execute_backlog()
         elif pr_state == "Queued for Submission":
-            self.execute_queued()
+            self.execute_queued_submit()
         elif pr_state == "Error Cycling":
             return self.execute_errorcycle()
         elif pr_state == "Requires Scientific Review":
@@ -112,25 +112,93 @@ class DataSet:
     def execute_backlog(self):
         pass
 
-    def execute_queued(self):
-        """
+    def _get_qca_client(self):
+        import qcportal as ptl
+
+        client = ptl.FractalClient(username=os.environ['GCA_USER'],
+                                   password=os.environ['GCA_KEY'])
+
+        return client
+
+    def execute_queued_submit(self, max_retries=3):
+        """Submit the dataset, with some retry logic.
 
         """
+        from qcsubmit.serializers import deserialize
 
-        result = self._submit_dataset()
-        pass
+        client = self._get_qca_client()
 
-    def _submit_dataset(self):
-        """Use QCSubmit components to submit dataset to QCArchive for compute.
+        # load dataset into QCSubmit class
+        ds = deserialize(self.dataset)
+        dataset_qcs = create_dataset(ds)
 
+        # submit to QCArchive
+        try: 
+            output = dataset_qcs.sumbit(client)
+            self._queued_submit_success(output)
+        except:
+            self._queued_submit_failed(traceback.format_exc())
+
+    def _queued_submit_success(self, output):
+        # now construct the comment with the qcsubmit version info
+        version = get_version_info()
+
+        comment = f"""
+        ## QCSubmit Submission Report
+        
+        Response from public QCArchive:
+
+        ```
+        {output}
+        ```
+
+        <details>
+        <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
+        {version.to_markdown()}
+        </details>   
         """
-        pass
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
+
+    def _queued_submit_failed(self, output):
+        # now construct the comment with the qcsubmit version info
+        version = get_version_info()
+
+        comment = f"""
+        ## QCSubmit Submission Report - **FAILED**
+        
+        Response from public QCArchive:
+
+        ```
+        {output}
+        ```
+
+        <details>
+        <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
+        {version.to_markdown()}
+        </details>   
+        """
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
 
     def execute_errorcycle(self, restart=False):
 
+        client = self._get_qca_client()
+
         dataset_name, dataset_type = self._parse_spec()
 
-        client = ptl.FractalClient()
         ds = client.get_collection(dataset_type, dataset_name)
         
         if dataset_type == 'TorsionDriveDataset':
@@ -147,15 +215,19 @@ class DataSet:
 
 
     def _errorcycle_torsiondrive(self, ds, client):
-        df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
-        df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
+        tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
+        opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
 
         self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt)
 
         # restart errored torsiondrives and optimizations
+        #self._errorcycle_restart_optimizations(opts, client)
+        #self._errorcycle_restart_torsiondrives(tdrs, client)
 
 
     def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
+        import pandas as pd
+
         # gather torsiondrive results
         results = defaultdict(dict)
         for spec in ds.list_specifications().index.tolist():
@@ -167,9 +239,11 @@ class DataSet:
         
         df = pd.DataFrame(results).transpose()
         df.index.name = 'specification'
-        return df
+        return tdrs, df
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
+        import pandas as pd
+
         # gather torsiondrive optimization results
         results = defaultdict(dict)
         for spec in ds.list_specifications().index.tolist():
@@ -182,9 +256,11 @@ class DataSet:
         
         df = pd.DataFrame(results).transpose()
         df.index.name = 'specification'
-        return df
+        return opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt):
+        import pandas as pd
+
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
 
         dataset_name, dataset_type = self._parse_spec()
@@ -217,6 +293,14 @@ class DataSet:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    def _errorcycle_restart_optimizations(self, opts, client):
+        # TODO: add some nuance for the types of optimzations
+        # we will *not* restart, such as SCF convergence issues
+        mgt.restart_optimizations(opts, client)
+
+    def _errorcycle_restart_torsiondrives(self, tdrs, client):
+        mgt.restart_torsiondrives(tdrs, client)
+
     def _errorcycle_optimization(self, ds):
         pass
 
@@ -236,6 +320,23 @@ class DataSet:
         pass
 
 
+def create_dataset(dataset_data):
+    from qcsubmit.datasets import (BasicDataset, OptimizationDataset,
+                                   TorsiondriveDataset)
+
+    datasets = {
+        "BasicDataset": BasicDataset,
+        "OptimizationDataset": OptimizationDataset,
+        "TorsiondriveDataset": TorsiondriveDataset}
+
+    dataset_type = dataset_data["dataset_type"]
+    dataset_class = datasets.get(dataset_type, None)
+    if dataset_class is not None:
+        return dataset_class.parse_obj(dataset_data)
+    else:
+        raise RuntimeError(f"The dataset type {dataset_type} is not supported.")
+
+
 def _get_full_board(repo):
     proj = [proj for proj in repo.get_projects() if proj.name == 'Dataset Tracking'][0]
     board = {col.name: [card.get_content() for card in col.get_cards()] 
@@ -249,6 +350,29 @@ def _get_tracking_prs(repo):
     return prs
 
 
+def get_version_info():
+    """
+    Get the version info for the packages used to validate the submission.
+    """
+    import importlib
+    report = {}
+    # list the core packages here
+    packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    for package in packages:
+        module = importlib.import_module(package)
+        report[package] = pd.Series({"version": module.__version__})
+
+    # now try openeye else use rdkit
+    try:
+        import openeye
+        report["openeye"] = pd.Series({"version": openeye.__version__})
+    except ImportError:
+        import rdkit
+        report["rdkit"] = pd.Series({"version": rdkit.__version__})
+
+    return pd.DataFrame(report).transpose()
+
+
 def main():
     """Map PRs tagged with 'tracking' into corresponding datasets.
 
@@ -256,8 +380,10 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser(description='Process PRs according to dataset lifecycle')
-    parser.add_argument('states', type=str, nargs='*',
-                        help='states to process; if not provided, all states processed')
+    parser.add_argument('--states', type=str, nargs='*',
+                        help='states to limit processing to; if not provided, use all states')
+    parser.add_argument('--prs', type=int, nargs='*',
+                        help='PR numbers to limit processing to; if not provided, all labeled PRs processed')
     
     args = parser.parse_args()
 
@@ -266,11 +392,25 @@ def main():
     else:
         states = None
 
+    if args.prs:
+        prnums = args.prs
+    else:
+        prnums = None
+
     gh = Github(os.environ['GH_TOKEN'])
     repo = gh.get_repo(REPO_NAME)
 
-    # gather up all PRs with the `tracking` tag
-    prs = _get_tracking_prs(repo)
+    # gather up all PRs with the `tracking` label
+    tracking_prs = _get_tracking_prs(repo)
+
+    # filter on PR numbers, if provided
+    if prnums is not None:
+        prs = []
+        for tpr in tracking_prs:
+            if tpr.number in prnums:
+                prs.append(tpr)
+    else:
+        prs = tracking_prs
 
     # grab the full project board state once so we don't have to hammer the API
     # over and over
