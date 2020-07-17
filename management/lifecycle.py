@@ -12,7 +12,7 @@ import pandas as pd
 import management as mgt
 
 REPO_NAME = 'openforcefield/qca-dataset-submission'
-
+DATASET_FILENAME = 'dataset.json'
 
 class DataSet:
     """A dataset submitted to QCArchive.
@@ -26,13 +26,13 @@ class DataSet:
     
     """
     
-    def __init__(self, directory, pr, ghapi, repo=None):
-        """Create new DataSet instance linking a submission directory to its PR.
+    def __init__(self, dataset, pr, ghapi, repo=None):
+        """Create new DataSet instance linking a submission dataset to its PR.
 
         Parameters
         ----------
-        directory : path-like
-            Path to dataset submission artifacts directory.
+        dataset : path-like
+            Path to dataset submission file.
         pr : github.PullRequest
             PullRequest corresponding to the dataset submission.
         ghapi : github.Github
@@ -41,7 +41,7 @@ class DataSet:
             Github repo where datasets are tracked.
 
         """
-        self.directory = os.path.abspath(directory)
+        self.dataset = os.path.abspath(dataset)
         self.pr = pr
         self.ghapi = ghapi
 
@@ -51,19 +51,15 @@ class DataSet:
             self.repo = repo
 
     def _parse_spec(self):
-        flagpost_file = 'spec.json'
-        filepath = os.path.join(self.directory, flagpost_file)
-
-        if os.path.exists(filepath):
-            with open(filepath, 'r') as f:
-                spec = json.load(f)
+        with open(self.dataset, 'r') as f:
+            spec = json.load(f)
 
         dataset_name = spec['dataset_name']
         dataset_type = spec['dataset_type']
 
         return dataset_name, dataset_type
 
-    def execute_state(self, board=None):
+    def execute_state(self, board=None, states=None):
         """Based on current state of the PR, perform appropriate actions.
 
         """
@@ -81,6 +77,12 @@ class DataSet:
         # if card not on board, then it starts in the Backlog
         if pr_state is None:
             pr_state = self.set_backlog()
+
+        # exit early if states specified, and this PR is not
+        # in one of those
+        if states is not None:
+            if pr_state not in states:
+                return
         
         if pr_state == "Backlog":
             self.execute_backlog()
@@ -240,26 +242,15 @@ def _get_full_board(repo):
              for col in proj.get_columns()}
     return board
 
+
 def _get_tracking_prs(repo):
     prs = [pr for pr in repo.get_pulls(state='all') 
        if 'tracking' in list(map(lambda x: x.name, pr.labels))]
     return prs
 
-def _get_datadirs(files):
-    """Given a file list from a PR, get the unique directories containing a
-    flagpost file."""
-
-    flagpost_file = 'spec.json'
-
-    dirs = []
-    for filepath in files:
-        if flagpost_file in filepath.filename:
-            dirs.append(os.path.dirname(filepath.filename))
-
-    return sorted(set(dirs))
 
 def main():
-    """Map PRs tagged with 'tracking' into corresponding data directories.
+    """Map PRs tagged with 'tracking' into corresponding datasets.
 
     """
     import argparse
@@ -269,6 +260,11 @@ def main():
                         help='states to process; if not provided, all states processed')
     
     args = parser.parse_args()
+
+    if args.states:
+        states = args.states
+    else:
+        states = None
 
     gh = Github(os.environ['GH_TOKEN'])
     repo = gh.get_repo(REPO_NAME)
@@ -280,23 +276,18 @@ def main():
     # over and over
     board = _get_full_board(repo)
 
-    # if states provided, use it to filter our board
-    # to only those states
-    if args.states:
-        board = {key: value for key, value in board.items() if key in args.states}
-
     # for each PR, we examine the changes to determine the directory for the submission
     # this is where the mapping is made between the PR and the submission files
     for pr in prs:
         
         files = pr.get_files()
-        datadirs = _get_datadirs(files)
+        datasets = [filepath for filepath in files if DATASET_FILENAME in filepath]
 
         # execute lifecycle process based on current state
-        # TODO: adde excessive stdout logging for actions
-        for datadir in datadirs:
-            ds = DataSet(datadir, pr, gh)
-            ds.execute_state(board)
+        # TODO: add excessive stdout logging for actions
+        for dataset in datasets:
+            ds = DataSet(dataset, pr, gh)
+            ds.execute_state(board, states=states)
 
 
 if __name__ == '__main__':

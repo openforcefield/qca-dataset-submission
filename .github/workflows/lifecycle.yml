@@ -32,6 +32,8 @@ jobs:
         shell: bash
         env: # Or as an environment variable
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
+          QCA_USER: ${{ secrets.QCA_USER}}
+          QCA_KEY: ${{ secrets.QCA_KEY}}
         run: |
             . devtools/gh-actions/initialize_conda.sh
             conda activate
