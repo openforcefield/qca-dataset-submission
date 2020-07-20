@@ -1,4 +1,7 @@
-# Dataset Priority
+# OpenFF QCArchive Dataset Submission
+
+
+## Dataset Priority
 
 This section contains a relative ranking of dataset priority.
 
