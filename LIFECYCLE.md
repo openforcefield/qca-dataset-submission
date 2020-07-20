@@ -1,44 +1,17 @@
 # The Lifecycle of a Dataset Submission
 
+All Open Force Field datasets submitted to QCArchive undergo well-defined *lifecycle*.
 
-Writing a Github Actions workflow that will run a script on a schedule.
-The script will:
-- given a list of datasets, get status of each one from public QCArchive
-- write that status out in the mapped anchor issue/PR for that dataset
-
-
-On creation of PR:
-- validation tests run
-
-On merge of PR:
-- submission to public QCA
-- creation of tracking issue
-
-
-Make it flag based.
-If a repo has some kind of metadata flag, indicating that it's being tracked, track it.
-Tracking issue should follow a convention.
-
+    ![Dataset Lifecycle](https://drive.google.com/file/d/1dQ21XEirgkm_kd-ulb0W_a-g6GSiaCLa/view?usp=sharing)
 
 ## Dataset states
 
-<strike>
-1. States are managed with the Treant category 'state'.
-    - 'submitted'
-    - 'error cycling'
-    - 'requires scientific review'
-    - 'end of life'
-    - 'archival/complete'
-
-2. States map directly to states in qca-dataset-submission "Dataset Tracking" project.
-</strike>
-
-3. States move forward.
+1. States move forward.
    They do not move backward.
     - we want this to be a soft-assumption of our model
     - can be violated, but generally shouldn't be
 
-4. Automation will:
+2. Automation will:
     1. Gather tagged 'tracking' Treants.
     2. Instantiate `DataSet` object.
     3. Check state of corresponding issue on project.
@@ -47,9 +20,6 @@ Tracking issue should follow a convention.
           can be changed on project board.
         - security implications?
             - should be fine, because board not editable by non-members
-
-5. State advancment will be a manual process for now.
-    - more of it will be automated with time.
 
 ## Proposed operational pathway
 
