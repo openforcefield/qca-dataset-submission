@@ -2,7 +2,7 @@
 
 All Open Force Field datasets submitted to QCArchive undergo well-defined *lifecycle*.
 
-    ![Dataset Lifecycle](https://drive.google.com/file/d/1dQ21XEirgkm_kd-ulb0W_a-g6GSiaCLa/view?usp=sharing)
+![Dataset Lifecycle](https://drive.google.com/file/d/1dQ21XEirgkm_kd-ulb0W_a-g6GSiaCLa/view?usp=sharing)
 
 ## Dataset states
 
