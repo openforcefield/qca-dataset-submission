@@ -1,0 +1,51 @@
+---
+# lifecycle processing for all datasets currently being tracked - backlog
+
+name: Dataset Lifecycle - Backlog
+
+# TODO: add a trigger for a card moved on a project?
+# want to be able to make guarantees around a single action at a time
+# I *think* this is guaranteed with only a single runner
+on:
+  # run every 20 minutes
+  #schedule:
+  #  - cron: "0/20 * * * *"
+  # run every time a card is moved
+  #project_card:
+  #  types: [moved]
+  workflow_dispatch:
+
+jobs:
+  exec-lifecycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.7
+          activate-environment: backlog
+          environment-file: devtools/conda-envs/backlog.yaml
+          auto-activate-base: false
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - name: Run lifecycle processing script
+        shell: bash -l {0}
+        env:
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+          QCA_USER: ${{ secrets.QCA_USER }}
+          QCA_KEY: ${{ secrets.QCA_KEY }}
+        run: |
+            python ./management/lifecycle.py --states Backlog

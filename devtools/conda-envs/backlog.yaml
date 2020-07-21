@@ -1,0 +1,10 @@
+name: backlog
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python
+  - pip
+  - pip:
+      - PyGithub
