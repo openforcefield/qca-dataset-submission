@@ -4,6 +4,8 @@ All Open Force Field datasets submitted to QCArchive undergo well-defined *lifec
 
 ![Dataset Lifecycle](assets/lifecycle-diagram.png)
 
+
+
 ## Dataset states
 
 1. States move forward.
@@ -28,7 +30,7 @@ All Open Force Field datasets submitted to QCArchive undergo well-defined *lifec
 
 1. A PR is created against `qca-dataset-submission` by a submitter.
     - the template is filled out with informational sections (TBD)
-    - [GHA] `validation` operates on `spec.json`; performs validation checks
+    - [GHA] `validation` operates on `dataset.json`; performs validation checks
         - comment made based on validation checks
         - reruns on each push
 
@@ -77,11 +79,8 @@ All Open Force Field datasets submitted to QCArchive undergo well-defined *lifec
         - scientific review and error cycling performed *on all*, at same time
         - essentially ties them together
 
-3. For legacy datasets, add flagpost file with name.
+3. For legacy datasets, add `dataset.json` file with name, type.
     - use this to indicate it is a dataset
     - make new PR for each, adding flagpost
     - move immediately to error cycling
     - test on one of the recent torsiondrive series
-
-4. For new datasets, flagpost is `spec.json`
-    - name directly extracted from there

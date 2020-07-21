@@ -59,6 +59,40 @@ class DataSet:
 
         return dataset_name, dataset_type
 
+    def _get_qca_client(self):
+        import qcportal as ptl
+
+        client = ptl.FractalClient(username=os.environ['GCA_USER'],
+                                   password=os.environ['GCA_KEY'])
+
+        return client
+
+    def _get_meta(self):
+        import pandas as pd
+
+        datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        dataset_name, dataset_type = self._parse_spec()
+
+        meta = {'**Dataset Name**': dataset_name,
+                '**Dataset Type**': dataset_type,
+                '**UTC Date**': datehr}
+
+        return pd.DataFrame(pd.Series(meta, name=""))
+
+    def _version_info_report(self):
+        version = get_version_info()
+
+        comment = f"""
+        <details>
+        <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
+        {version.to_markdown()}
+        </details>
+        """
+
+        return comment
+
     def execute_state(self, board=None, states=None):
         """Based on current state of the PR, perform appropriate actions.
 
@@ -66,13 +100,7 @@ class DataSet:
         if board is None:
             board = _get_full_board(self.repo)
 
-        # get lifecycle state, if it exists
-        pr_state = None
-        for state, cardconts in board.items():
-            for cardcont in cardconts:
-                if cardcont.number == self.pr.number:
-                    pr_state = state
-                    break
+        pr_card, pr_state = self._get_board_card_state()
 
         # if card not on board, then it starts in the Backlog
         if pr_state is None:
@@ -85,9 +113,9 @@ class DataSet:
                 return
         
         if pr_state == "Backlog":
-            self.execute_backlog()
+            self.execute_backlog(pr_card)
         elif pr_state == "Queued for Submission":
-            self.execute_queued_submit()
+            self.execute_queued_submit(pr_card)
         elif pr_state == "Error Cycling":
             return self.execute_errorcycle()
         elif pr_state == "Requires Scientific Review":
@@ -104,23 +132,54 @@ class DataSet:
         cols = list(proj.get_columns())
         return [col for col in cols if col.name == column][0]
 
+    def _get_board_card_state(self, board=None):
+        if board is None:
+            board = _get_full_board(self.repo)
+
+        pr_state = None
+        pr_card = None
+        for state, cards in board.items():
+            for card in cards:
+                if card.get_content().number == self.pr.number:
+                    pr_state = state
+                    pr_card = card
+                    break
+
+        return pr_card, pr_state
+
     def set_backlog(self):
         backlog = self._get_column('Backlog')
         backlog.create_card(content_id=self.pr.id,
                             content_type='PullRequest')
 
-    def execute_backlog(self):
-        pass
+    def execute_backlog(self, pr_card):
+        """If PR is in the backlog and is merged, it will get moved to the
+        queued for submission state.
 
-    def _get_qca_client(self):
-        import qcportal as ptl
+        """
+        if self.pr.is_merged():
+            queuedsub = self._get_column('Queued for Submission')
+            pr_card.move(position='top', column=queuedsub)
 
-        client = ptl.FractalClient(username=os.environ['GCA_USER'],
-                                   password=os.environ['GCA_KEY'])
+            comment = f"""
+            ## Lifecycle - Backlog
 
-        return client
+            {self._get_meta().to_markdown()}
 
-    def execute_queued_submit(self, max_retries=3):
+            Merged dataset `{self.dataset}` moved from "Backlog" to "Queued for Submisison".
+
+            ----------
+            {self._version_info_report()}
+
+            """
+
+            # postprocess due to raw spacing above
+            comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+            # submit comment
+            self.pr.create_issue_comment(comment)
+
+    def execute_queued_submit(self, pr_card, max_retries=3):
         """Submit the dataset, with some retry logic.
 
         """
@@ -132,19 +191,24 @@ class DataSet:
         ds = deserialize(self.dataset)
         dataset_qcs = create_dataset(ds)
 
-        # submit to QCArchive
         try: 
+            # submit to QCArchive
             output = dataset_qcs.sumbit(client)
-            self._queued_submit_success(output)
+            self._queued_submit_report(output, success=True)
         except:
-            self._queued_submit_failed(traceback.format_exc())
+            self._queued_submit_report(traceback.format_exc(), success=False)
+        else:
+            # move card to Error Cycling if we successfully submitted
+            errcycle = self._get_column('Error Cycling')
+            pr_card.move(position='top', column=errcycle)
 
-    def _queued_submit_success(self, output):
-        # now construct the comment with the qcsubmit version info
-        version = get_version_info()
+    def _queued_submit_report(self, output, success):
+        success_text = "**SUCCESS**" if success else "**FAILED**"
 
         comment = f"""
-        ## QCSubmit Submission Report
+        ## Lifecycle - QCSubmit Submission Report : {success_text}
+
+        {self._get_meta().to_markdown()}
         
         Response from public QCArchive:
 
@@ -152,39 +216,9 @@ class DataSet:
         {output}
         ```
 
-        <details>
-        <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
-        <!-- have to be followed by an empty line! -->
+        ----------
+        {self._version_info_report()}
 
-        {version.to_markdown()}
-        </details>   
-        """
-
-        # postprocess due to raw spacing above
-        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
-
-        # submit comment
-        self.pr.create_issue_comment(comment)
-
-    def _queued_submit_failed(self, output):
-        # now construct the comment with the qcsubmit version info
-        version = get_version_info()
-
-        comment = f"""
-        ## QCSubmit Submission Report - **FAILED**
-        
-        Response from public QCArchive:
-
-        ```
-        {output}
-        ```
-
-        <details>
-        <summary><b>QCSubmit</b> version information(<i>click to expand</i>)</summary>
-        <!-- have to be followed by an empty line! -->
-
-        {version.to_markdown()}
-        </details>   
         """
 
         # postprocess due to raw spacing above
@@ -194,11 +228,14 @@ class DataSet:
         self.pr.create_issue_comment(comment)
 
     def execute_errorcycle(self, restart=False):
+        """Obtain complete, incomplete, error stats for dataset and report.
+        
+        For suspected random errors, we perform restarts.
 
+        """
         client = self._get_qca_client()
 
         dataset_name, dataset_type = self._parse_spec()
-
         ds = client.get_collection(dataset_type, dataset_name)
         
         if dataset_type == 'TorsionDriveDataset':
@@ -213,17 +250,18 @@ class DataSet:
         elif dataset_type == 'Dataset':
             return self._errorcycle_dataset(ds, client)
 
-
     def _errorcycle_torsiondrive(self, ds, client):
         tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
         opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
 
-        self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt)
+        opt_error_counts = mgt.count_unique_optimization_error_messages(
+                opts, full=True, pretty_print=True, tolerate_missing=True)
+
+        self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
 
         # restart errored torsiondrives and optimizations
-        #self._errorcycle_restart_optimizations(opts, client)
-        #self._errorcycle_restart_torsiondrives(tdrs, client)
-
+        self._errorcycle_restart_optimizations(opts, client)
+        self._errorcycle_restart_torsiondrives(tdrs, client)
 
     def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
         import pandas as pd
@@ -258,24 +296,11 @@ class DataSet:
         df.index.name = 'specification'
         return opts, df
 
-    def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt):
-        import pandas as pd
-
-        datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-
-        dataset_name, dataset_type = self._parse_spec()
-
-        meta = {'**Dataset Name**': dataset_name,
-                '**Dataset Type**': dataset_type,
-                '**UTC Date**': datehr}
-
-        meta = pd.DataFrame(pd.Series(meta, name=""))
-
-        # TODO: add error message samples for optimizations
+    def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
         comment = f"""
-        ## Error Cycling Report 
+        ## Lifecycle - Error Cycling Report 
 
-        {meta.to_markdown()}
+        {self._get_meta().to_markdown()}
 
         ### `TorsionDriveRecord` current status
 
@@ -284,6 +309,15 @@ class DataSet:
         ### `OptimizationRecord` current status
 
         {df_tdr_opt.to_markdown()}
+
+        #### `OptimizationRecord` Error Tracebacks:
+
+        ```
+        {opt_error_counts}
+        ```
+
+        ----------
+        {self._version_info_report()}
 
         """
 
@@ -305,18 +339,12 @@ class DataSet:
         pass
 
     def execute_requires_scientific_review(self):
-        # check state
-        ## exit early if already past this state
         pass
 
     def execute_end_of_life(self):
-        # check state
-        ## exit early if already past this state
         pass
 
     def execute_archived_complete(self):
-        # check state
-        ## exit early if already past this state
         pass
 
 
@@ -339,7 +367,7 @@ def create_dataset(dataset_data):
 
 def _get_full_board(repo):
     proj = [proj for proj in repo.get_projects() if proj.name == 'Dataset Tracking'][0]
-    board = {col.name: [card.get_content() for card in col.get_cards()] 
+    board = {col.name: [card for card in col.get_cards()] 
              for col in proj.get_columns()}
     return board
 
