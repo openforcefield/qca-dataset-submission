@@ -8,3 +8,5 @@ dependencies:
   - pip
   - pip:
       - PyGithub
+      - pandas
+      - tabulate

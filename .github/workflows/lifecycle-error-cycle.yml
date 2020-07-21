@@ -1,7 +1,7 @@
 ---
-# lifecycle processing for all datasets currently being tracked - submission
+# lifecycle processing for all datasets currently being tracked - error cycling
 
-name: Dataset Lifecycle - Submission
+name: Dataset Lifecycle - Error Cycling
 
 # TODO: add a trigger for a card moved on a project?
 # want to be able to make guarantees around a single action at a time
@@ -44,6 +44,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
-          OE_LICENSE: ${{ secrets.OE_LICENSE }}
         run: |
-            python ./management/lifecycle.py --states "Queued for Submission"
+            python ./management/lifecycle.py --states "Error Cycling"
