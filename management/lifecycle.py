@@ -8,8 +8,6 @@ from datetime import datetime
 
 from github import Github
 
-import management as mgt
-
 REPO_NAME = 'openforcefield/qca-dataset-submission'
 DATASET_FILENAME = 'dataset.json'
 
@@ -251,6 +249,8 @@ class DataSet:
             return self._errorcycle_dataset(ds, client)
 
     def _errorcycle_torsiondrive(self, ds, client):
+        import management as mgt
+
         tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
         opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
 
@@ -265,6 +265,7 @@ class DataSet:
 
     def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
         import pandas as pd
+        import management as mgt
 
         # gather torsiondrive results
         results = defaultdict(dict)
@@ -281,6 +282,7 @@ class DataSet:
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
         import pandas as pd
+        import management as mgt
 
         # gather torsiondrive optimization results
         results = defaultdict(dict)
@@ -328,11 +330,15 @@ class DataSet:
         self.pr.create_issue_comment(comment)
 
     def _errorcycle_restart_optimizations(self, opts, client):
+        import management as mgt
+
         # TODO: add some nuance for the types of optimzations
         # we will *not* restart, such as SCF convergence issues
         mgt.restart_optimizations(opts, client)
 
     def _errorcycle_restart_torsiondrives(self, tdrs, client):
+        import management as mgt
+
         mgt.restart_torsiondrives(tdrs, client)
 
     def _errorcycle_optimization(self, ds):
