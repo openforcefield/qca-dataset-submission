@@ -168,7 +168,7 @@ class DataSet:
 
             {self._get_meta().to_markdown()}
 
-            Merged dataset `{self.dataset}` moved from "Backlog" to "Queued for Submisison".
+            Merged dataset `{self.dataset}` moved from "Backlog" to "Queued for Submission".
 
             """
 
