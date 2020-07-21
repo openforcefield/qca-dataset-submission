@@ -191,7 +191,7 @@ class DataSet:
 
         try: 
             # submit to QCArchive
-            output = dataset_qcs.sumbit(client)
+            output = dataset_qcs.submit(client)
             self._queued_submit_report(output, success=True)
         except:
             self._queued_submit_report(traceback.format_exc(), success=False)
@@ -389,6 +389,7 @@ def get_version_info():
     Get the version info for the packages used to validate the submission.
     """
     import importlib
+    import pandas as pd
     report = {}
     # list the core packages here
     packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
