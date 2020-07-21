@@ -446,6 +446,8 @@ def main():
     else:
         prs = tracking_prs
 
+    print(f"Found {len(prs)} with the 'tracking' label")
+
     # grab the full project board state once so we don't have to hammer the API
     # over and over
     board = _get_full_board(repo)
@@ -453,6 +455,7 @@ def main():
     # for each PR, we examine the changes to determine the directory for the submission
     # this is where the mapping is made between the PR and the submission files
     for pr in prs:
+        print(f"Processing PR #{pr.number}")
         
         files = pr.get_files()
         datasets = [file.filename for file in files
@@ -461,6 +464,7 @@ def main():
         # execute lifecycle process based on current state
         # TODO: add excessive stdout logging for actions
         for dataset in datasets:
+            print(f"Processing dataset '{dataset}'")
             ds = DataSet(dataset, pr, gh)
             ds.execute_state(board, states=states)
 
