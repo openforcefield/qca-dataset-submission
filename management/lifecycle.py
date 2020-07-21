@@ -39,7 +39,7 @@ class DataSet:
             Github repo where datasets are tracked.
 
         """
-        self.dataset = os.path.abspath(dataset)
+        self.dataset = dataset
         self.pr = pr
         self.ghapi = ghapi
 
