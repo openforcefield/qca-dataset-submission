@@ -3,13 +3,10 @@
 
 name: Dataset Lifecycle - Submission
 
-# TODO: add a trigger for a card moved on a project?
-# want to be able to make guarantees around a single action at a time
-# I *think* this is guaranteed with only a single runner
 on:
-  # run every time a card is moved
-  #project_card:
-  #  types: [moved]
+  # run once a day at noon UTC
+  schedule:
+    - cron: "0 12 * * *"
   workflow_dispatch:
 
 jobs:

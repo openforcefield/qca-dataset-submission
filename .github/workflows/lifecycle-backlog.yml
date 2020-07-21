@@ -3,16 +3,10 @@
 
 name: Dataset Lifecycle - Backlog
 
-# TODO: add a trigger for a card moved on a project?
-# want to be able to make guarantees around a single action at a time
-# I *think* this is guaranteed with only a single runner
 on:
-  # run every 20 minutes
-  #schedule:
-  #  - cron: "0/20 * * * *"
-  # run every time a card is moved
-  #project_card:
-  #  types: [moved]
+  # run every 8 hours
+  schedule:
+    - cron: "0 0,8,16 * * *"
   workflow_dispatch:
 
 jobs:
