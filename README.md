@@ -1,5 +1,12 @@
 # OpenFF QCArchive Dataset Submission
 
+## Dataset Lifecycle
+
+All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](./LIFECYCLE.md).
+
+See [STANDARDS.md](./STANDARDS.md) for submission standards.
+Datasets must be submitted as pull requests.
+
 
 ## Dataset Priority
 
@@ -33,6 +40,3 @@ Data generation and submission scripts for the QCArchive ecosystem.
 * `2019-07-02 VEHICLe optimization dataset`: source files for `Open Force Field VEHICLe optimization dataset 1.0.0` (`OptimizationDataset`) for the VEHICLe dataset (heteraromatic rings of the future) (@jchodera)
 * `2019-07-05 OpenFF NCI250K Boron 1`: source files for `OpenMM NCI250K Boron 1` (`OptimizationDataset`) where small boron-containing compounds are extracted from the [NCI250K](https://cactus.nci.nih.gov/download/nci/) (@jchodera)
 * `2019-09-07-Pfizer-discrepancy-optimization-dataset-1`: source files for `Pfizer discrepancy optimization dataset 1` (@jchodera)
-
-## Guidelines and standards for submitting new datasets
-* See [STANDARDS.md](./STANDARDS.md)
