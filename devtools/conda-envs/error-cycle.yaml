@@ -1,19 +1,13 @@
-name: queued-submit
+name: error-cycle
 
 channels:
   - conda-forge
-  - omnia
-  - defaults
-  - openeye
-  - omnia/label/rc
 
 dependencies:
   - python
   - pip
   - qcportal
-  - qcsubmit
   - pip:
-      - basis_set_exchange
       - PyGithub
       - pandas
       - tabulate
