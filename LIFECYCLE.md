@@ -9,9 +9,9 @@ A submission PR changes state according to the arrows.
 Changes in state may be performed by automation or manually by a human when certain critera are met.
 
 The lifecycle process is described below, with [bracketed] items indicating the agent of action, one of:
-- GHA: Github Actions
-- Board: Github Project Board
-- Human: A maintainer of the `qca-dataset-submission` repository.
+- [GHA]: Github Actions
+- [Board]: Github Project Board
+- [Human]: A maintainer of the `qca-dataset-submission` repository.
 
 1. A PR is created against `qca-dataset-submission` by a submitter.
     - the template is filled out with informational sections according to the [PR template](.github/pull_request_template.md)
@@ -24,7 +24,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will add card to ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334) state for PR if not yet there.
 
 3. When dataset is ready for submission to public QCArchive (validations pass, submitters and reviewers satisfied), PR is merged.
-    - [board automation]  PR card will move to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) immediately.
+    - [Board]  PR card will move to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) immediately.
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will move PR card to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) if merged and in state ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334)
     - [GHA]  [`lifecycle-submission`](.github/workflows/lifecycle-submission.yml) will attempt to submit the dataset
         - if successful, will move card to state ["Error Cycling"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577365); add comment to PR
