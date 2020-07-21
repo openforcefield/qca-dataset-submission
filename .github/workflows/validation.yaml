@@ -1,0 +1,45 @@
+name: Dataset Validation
+
+
+on:
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  dataset_validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.7
+          activate-environment: validation
+          environment-file: devtools/conda-envs/validation.yaml
+          auto-activate-base: false
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+
+      - name: Validate Dataset
+        shell: bash -l {0}
+        env: # Or as an environment variable
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
+        run: |
+          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
+
+
