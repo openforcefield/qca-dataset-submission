@@ -294,14 +294,14 @@ class DataSet:
             for status in ['COMPLETE', 'INCOMPLETE', 'ERROR']:
                 results[spec][status] =  len(
                         [opt for opt in opts if opt.status == status])
-        
+
         df = pd.DataFrame(results).transpose()
         df.index.name = 'specification'
         return opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
         comment = f"""
-        ## Lifecycle - Error Cycling Report 
+        ## Lifecycle - Error Cycling Report
 
         {self._get_meta().to_markdown()}
 
@@ -342,8 +342,63 @@ class DataSet:
 
         mgt.restart_torsiondrives(tdrs, client)
 
-    def _errorcycle_optimization(self, ds):
-        pass
+    def _errorcycle_optimization(self, ds, client):
+        import management as mgt
+
+        opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client)
+
+        opt_error_counts = mgt.count_unique_optimization_error_messages(
+                opts, full=True, pretty_print=True, tolerate_missing=True)
+
+        self._errorcycle_optimization_report(df_opt, opt_error_counts)
+
+        # restart errored torsiondrives and optimizations
+        self._errorcycle_restart_optimizations(opts, client)
+
+    def _errorcycle_optimization_get_opt_errors(self, ds, client):
+        import pandas as pd
+        import management as mgt
+
+        # gather optimization results
+        results = defaultdict(dict)
+        for spec in ds.list_specifications().index.tolist():
+            opts = mgt.get_optimizations(ds, spec, client)
+
+            for status in ['COMPLETE', 'INCOMPLETE', 'ERROR']:
+                results[spec][status] =  len(
+                        [opt for opt in opts if opt.status == status])
+
+        df = pd.DataFrame(results).transpose()
+        df.index.name = 'specification'
+        return opts, df
+
+    def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
+        comment = f"""
+        ## Lifecycle - Error Cycling Report
+
+        {self._get_meta().to_markdown()}
+
+        ### `OptimizationRecord` current status
+
+        {df_opt.to_markdown()}
+
+        #### `OptimizationRecord` Error Tracebacks:
+
+        ```
+        {opt_error_counts}
+        ```
+
+        ----------
+        {self._version_info_report()}
+
+        """
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
+
 
     def execute_requires_scientific_review(self):
         pass
