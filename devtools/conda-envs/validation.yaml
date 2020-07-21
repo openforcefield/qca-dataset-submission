@@ -1,0 +1,19 @@
+name: validation
+
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+  - openeye
+  - omnia/label/rc
+
+dependencies:
+  - python
+  - pip
+
+  - qcsubmit
+  - PyGithub
+  - pandas
+  - tabulate
+  - pip:
+      - basis_set_exchange
