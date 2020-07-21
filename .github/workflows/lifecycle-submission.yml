@@ -53,6 +53,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
-          OE_LICENSE: ${{ secrets.OE_LICENSE }}
         run: |
             python ./management/lifecycle.py --states "Queued for Submission"
