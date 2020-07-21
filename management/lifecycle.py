@@ -98,11 +98,15 @@ class DataSet:
         if board is None:
             board = _get_full_board(self.repo)
 
-        pr_card, pr_state = self._get_board_card_state()
+        pr_card, pr_state = self._get_board_card_state(board)
 
         # if card not on board, then it starts in the Backlog
         if pr_state is None:
             pr_state = self.set_backlog()
+
+            # reload board, since we just added this card
+            board = _get_full_board(self.repo)
+            pr_card, pr_state = self._get_board_card_state(board)
 
         # exit early if states specified, and this PR is not
         # in one of those
@@ -165,9 +169,6 @@ class DataSet:
             {self._get_meta().to_markdown()}
 
             Merged dataset `{self.dataset}` moved from "Backlog" to "Queued for Submisison".
-
-            ----------
-            {self._version_info_report()}
 
             """
 
