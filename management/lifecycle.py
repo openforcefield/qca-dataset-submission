@@ -73,7 +73,7 @@ class DataSet:
 
         meta = {'**Dataset Name**': dataset_name,
                 '**Dataset Type**': dataset_type,
-                '**UTC Date**': datehr}
+                '**UTC Datetime**': datehr}
 
         return pd.DataFrame(pd.Series(meta, name=""))
 
