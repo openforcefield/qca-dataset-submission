@@ -60,8 +60,8 @@ class DataSet:
     def _get_qca_client(self):
         import qcportal as ptl
 
-        client = ptl.FractalClient(username=os.environ['GCA_USER'],
-                                   password=os.environ['GCA_KEY'])
+        client = ptl.FractalClient(username=os.environ['QCA_USER'],
+                                   password=os.environ['QCA_KEY'])
 
         return client
 
