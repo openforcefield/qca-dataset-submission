@@ -119,7 +119,7 @@ class DataSet:
         elif pr_state == "Queued for Submission":
             self.execute_queued_submit(pr_card)
         elif pr_state == "Error Cycling":
-            return self.execute_errorcycle()
+            return self.execute_errorcycle(pr_card)
         elif pr_state == "Requires Scientific Review":
             self.execute_requires_scientific_review()
         elif pr_state == "End of Life":
@@ -226,10 +226,12 @@ class DataSet:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def execute_errorcycle(self, restart=False):
+    def execute_errorcycle(self, pr_card, restart=False):
         """Obtain complete, incomplete, error stats for dataset and report.
         
         For suspected random errors, we perform restarts.
+
+        If dataset complete, move state to "Archived/Complete".
 
         """
         client = self._get_qca_client()
@@ -238,16 +240,38 @@ class DataSet:
         ds = client.get_collection(dataset_type, dataset_name)
         
         if dataset_type == 'TorsionDriveDataset':
-            return self._errorcycle_torsiondrive(ds, client)
+            complete = self._errorcycle_torsiondrive(ds, client)
 
         elif dataset_type == 'OptimizationDataset':
-            return self._errorcycle_optimization(ds, client)
+            complete = self._errorcycle_optimization(ds, client)
 
         elif dataset_type == 'GridOptimizationDataset':
-            return self._errorcycle_gridopt(ds, client)
+            complete = self._errorcycle_gridopt(ds, client)
 
         elif dataset_type == 'Dataset':
-            return self._errorcycle_dataset(ds, client)
+            complete = self._errorcycle_dataset(ds, client)
+
+        if complete:
+            self.set_archived_complete(pr_card)
+
+    def set_archived_complete(self, pr_card):
+        archived_complete = self._get_column('Archived/Complete')
+        pr_card.move(position='top', column=archived_complete)
+
+        comment = f"""
+        ## Lifecycle - Archived/Complete
+
+        {self._get_meta().to_markdown()}
+
+        **Dataset Complete!**
+
+        """
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
 
     def _errorcycle_torsiondrive(self, ds, client):
         import management as mgt
@@ -260,9 +284,16 @@ class DataSet:
 
         self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
 
-        # restart errored torsiondrives and optimizations
-        self._errorcycle_restart_optimizations(opts, client)
-        self._errorcycle_restart_torsiondrives(tdrs, client)
+        if ((df_tdr[['RUNNING', 'ERROR']].sum().sum() == 0) and
+            (df_tdr_opt[['INCOMPLETE', 'ERROR']].sum().sum() == 0)):
+            complete = True
+        else:
+            # restart errored torsiondrives and optimizations
+            self._errorcycle_restart_optimizations(opts, client)
+            self._errorcycle_restart_torsiondrives(tdrs, client)
+            complete = False
+
+        return complete
 
     def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
         import pandas as pd
@@ -352,8 +383,14 @@ class DataSet:
 
         self._errorcycle_optimization_report(df_opt, opt_error_counts)
 
-        # restart errored torsiondrives and optimizations
-        self._errorcycle_restart_optimizations(opts, client)
+        if (df_opt[['INCOMPLETE', 'ERROR']].sum().sum() == 0):
+            complete = True
+        else:
+            # restart errored optimizations
+            self._errorcycle_restart_optimizations(opts, client)
+            complete = False
+
+        return complete
 
     def _errorcycle_optimization_get_opt_errors(self, ds, client):
         import pandas as pd
