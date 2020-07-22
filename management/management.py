@@ -143,13 +143,14 @@ def count_unique_optimization_error_messages(
 
     errors = dict(errors)
 
+    content = ""
     if pretty_print:
         for key, value in errors.items():
-            print(f"There are {value} instances of")
-            print('-------------------------------------')
-            print(key)
-            print('-------------------------------------\n')
-        return None
+            content += f"There are {value} instances of\n"
+            content += '-------------------------------------\n'
+            content += f'{key}\n'
+            content += '-------------------------------------\n'
+        return content
     else:
         return errors
 
