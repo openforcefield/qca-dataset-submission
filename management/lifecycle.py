@@ -239,16 +239,16 @@ class DataSet:
         dataset_name, dataset_type = self._parse_spec()
         ds = client.get_collection(dataset_type, dataset_name)
         
-        if dataset_type == 'TorsionDriveDataset':
+        if dataset_type.lower() == 'TorsionDriveDataset'.lower():
             complete = self._errorcycle_torsiondrive(ds, client)
 
-        elif dataset_type == 'OptimizationDataset':
+        elif dataset_type.lower() == 'OptimizationDataset'.lower():
             complete = self._errorcycle_optimization(ds, client)
 
-        elif dataset_type == 'GridOptimizationDataset':
+        elif dataset_type.lower() == 'GridOptimizationDataset'.lower():
             complete = self._errorcycle_gridopt(ds, client)
 
-        elif dataset_type == 'Dataset':
+        elif dataset_type.lower() == 'Dataset'.lower():
             complete = self._errorcycle_dataset(ds, client)
 
         if complete:
