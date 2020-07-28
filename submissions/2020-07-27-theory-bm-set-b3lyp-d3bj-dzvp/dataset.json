@@ -1,5 +1,5 @@
 {
-  "dataset_name": "Theory benchmarking set B3LYP-D3BJ DZVP",
+  "dataset_name": "OpenFF Theory Benchmarking Set B3LYP-D3BJ DZVP v1.0",
   "dataset_tagline": "Torsiondrives for benchmarking B3LYP-D3BJ/DZVP",
   "dataset_type": "TorsiondriveDataset",
   "method": "B3LYP-D3BJ",
@@ -25,7 +25,7 @@
     "submitter": "hyesu",
     "creation_date": "2020-07-27",
     "collection_type": "TorsiondriveDataset",
-    "dataset_name": "Theory benchmarking set B3LYP-D3BJ DZVP",
+    "dataset_name": "OpenFF Theory Benchmarking Set B3LYP-D3BJ DZVP v1.0",
     "short_description": "Torsiondrives for benchmarking B3LYP-D3BJ/DZVP",
     "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-27-theory-bm-set-b3lyp-d3bj-dzvp",
     "long_description": "A torsiondrive dataset for benchmarking B3LYP-D3BJ/DZVP",
