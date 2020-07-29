@@ -4,11 +4,17 @@ This ensures that we have a consistent data model for downstream processes.
 # Required fields 
 
 Current list:
+
 * Ensure all submissions have cmiles, most important are mapped hydrogen smiles
 * Ensure the WBO is requested for all submissions, this should be included in the scf properties list using the flag `wiberg_lowdin_indices`
 
+## Job specifications (level of theory; settings)
+
+OpenFF depends on a QCSpecification named "default" which corresponds to `B3LYP-D3BJ/DZVP` in Psi4. Submissions may have multiple specifications, but must include the `default`.
+
 # Best practices
-* If any calculations are to be redone from another collection, re-use the old input (coordinates, atom ordering etc) as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
+
+* If any calculations are (to be redone from another collection, re-use the old input (coordinates, atom ordering etc) as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
 
 # Dataset naming and versioning
 
@@ -52,6 +58,11 @@ The dataset's group should be set to `"OpenFF"`.
 
 * See ["Molecule submission checklist"](https://github.com/openforcefield/qcsubmit/issues/9)
 
+* Unique keys in `ds.data.records` must not reference the same entry.
+* Unless explicitly specified in the submission descriptions, torsion drives must be on 4 connected atoms
+* Torsions driving a ring will give a warning, and torsions in a a ring of  3,4,5,6 atoms is considered an error
+* Warnings will be given if an atom does not have a complete valence set
+
 # Standard functions and modules for entry preparation
 
 * QCSubmit (https://github.com/openforcefield/qcsubmit)
@@ -61,3 +72,4 @@ The dataset's group should be set to `"OpenFF"`.
 ## Required fields
 
 * See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
+
