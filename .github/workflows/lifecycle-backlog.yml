@@ -4,6 +4,10 @@
 name: Dataset Lifecycle - Backlog
 
 on:
+  # run whenever a pull request is labeled
+  # triggers when we add the `tracking` label
+  pull_request:
+    types: [labeled]
   # run every 8 hours
   schedule:
     - cron: "0 0,8,16 * * *"
