@@ -191,6 +191,8 @@ class Submission:
         new_state = self.resolve_new_state(results)
         if new_state is not None:
             self.evolve_state(pr_card, pr_state, new_state)
+
+        if new_state == "Archived/Complete":
             for dataset in self.datasets:
                 dataset.comment_archived_complete()
 
