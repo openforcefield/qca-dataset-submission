@@ -439,6 +439,9 @@ class DataSet:
 
         {self._get_meta().to_markdown()}
 
+        All errored tasks and services will be restarted.
+        Errored states prior to restart reported below.
+
         ### `TorsionDriveRecord` current status
 
         {df_tdr.to_markdown()}
@@ -519,6 +522,9 @@ class DataSet:
         ## Lifecycle - Error Cycling Report
 
         {self._get_meta().to_markdown()}
+
+        All errored tasks will be restarted.
+        Errored states prior to restart reported below.
 
         ### `OptimizationRecord` current status
 
