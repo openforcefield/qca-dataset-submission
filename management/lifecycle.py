@@ -356,7 +356,6 @@ class DataSet:
             return {"new_state": "Error Cycling"}
 
     def comment_archived_complete(self):
-
         comment = f"""
         ## Lifecycle - Archived/Complete
 
