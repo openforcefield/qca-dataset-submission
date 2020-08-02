@@ -8,8 +8,8 @@ from datetime import datetime
 
 from github import Github
 
-REPO_NAME = 'openforcefield/qca-dataset-submission'
-DATASET_FILENAME = 'dataset.json'
+REPO_NAME = "openforcefield/qca-dataset-submission"
+DATASET_FILENAME = "dataset.json"
 
 
 class Submission:
@@ -47,8 +47,9 @@ class Submission:
 
     def _gather_datasets(self):
         files = self.pr.get_files()
-        datasets = [file.filename for file in files
-                    if DATASET_FILENAME in file.filename]
+        datasets = [
+            file.filename for file in files if DATASET_FILENAME in file.filename
+        ]
         return datasets
 
     @staticmethod
@@ -61,21 +62,21 @@ class Submission:
                     pr_state = state
                     pr_card = card
                     break
-    
+
         return pr_card, pr_state
-    
+
     @staticmethod
     def _get_column(repo, column):
-        proj = [proj for proj in repo.get_projects()
-                if proj.name == 'Dataset Tracking'][0]
-    
+        proj = [
+            proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"
+        ][0]
+
         cols = list(proj.get_columns())
         return [col for col in cols if col.name == column][0]
 
     def set_backlog(self):
-        backlog = self._get_column(self.repo, 'Backlog')
-        backlog.create_card(content_id=self.pr.id,
-                            content_type='PullRequest')
+        backlog = self._get_column(self.repo, "Backlog")
+        backlog.create_card(content_id=self.pr.id, content_type="PullRequest")
 
     def execute_state(self, board=None, states=None):
         """Based on current state of the PR, perform appropriate actions.
@@ -99,7 +100,7 @@ class Submission:
         if states is not None:
             if pr_state not in states:
                 return
-        
+
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
         elif pr_state == "Queued for Submission":
@@ -120,7 +121,7 @@ class Submission:
         # get unique states recommended by datasets for this PR
         # may not always be the same, say, if e.g. submission fails for one
         # of many datasets in this submission
-        new_card_state = set(res['new_state'] for res in dataset_results)
+        new_card_state = set(res["new_state"] for res in dataset_results)
 
         # if all datasets agree on the new card state, we change to that state
         if len(new_card_state) == 1:
@@ -133,7 +134,7 @@ class Submission:
         # no need to move if we are already in the new state
         if pr_state != new_state:
             state_col = self._get_column(self.repo, new_state)
-            pr_card.move(position='top', column=state_col)
+            pr_card.move(position="top", column=state_col)
 
     def execute_backlog(self, pr_card, pr_state):
         """If PR is in the backlog and is merged, it will get moved to the
@@ -152,17 +153,16 @@ class Submission:
             """
 
             # postprocess due to raw spacing above
-            comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+            comment = "\n".join([substr.strip() for substr in comment.split("\n")])
 
             # submit comment
             self.pr.create_issue_comment(comment)
 
             self.evolve_state(pr_card, pr_state, "Queued for Submission")
-            
 
-            return {'new_state': "Queued for Submission"}
+            return {"new_state": "Queued for Submission"}
         else:
-            return {'new state': "Backlog"}
+            return {"new state": "Backlog"}
 
     def execute_queued_submit(self, pr_card, pr_state):
         """Submit datasets, perhaps with some retry logic.
@@ -206,7 +206,7 @@ class DataSet:
     mapped onto states in the "Datset Tracking" project board.
     
     """
-    
+
     def __init__(self, dataset, submission, ghapi, repo=None):
         """Create new DataSet instance linking a submission dataset to its PR.
 
@@ -233,19 +233,20 @@ class DataSet:
             self.repo = repo
 
     def _parse_spec(self):
-        with open(self.dataset, 'r') as f:
+        with open(self.dataset, "r") as f:
             spec = json.load(f)
 
-        dataset_name = spec['dataset_name']
-        dataset_type = spec['dataset_type']
+        dataset_name = spec["dataset_name"]
+        dataset_type = spec["dataset_type"]
 
         return dataset_name, dataset_type
 
     def _get_qca_client(self):
         import qcportal as ptl
 
-        client = ptl.FractalClient(username=os.environ['QCA_USER'],
-                                   password=os.environ['QCA_KEY'])
+        client = ptl.FractalClient(
+            username=os.environ["QCA_USER"], password=os.environ["QCA_KEY"]
+        )
 
         return client
 
@@ -255,9 +256,11 @@ class DataSet:
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
         dataset_name, dataset_type = self._parse_spec()
 
-        meta = {'**Dataset Name**': dataset_name,
-                '**Dataset Type**': dataset_type,
-                '**UTC Datetime**': datehr}
+        meta = {
+            "**Dataset Name**": dataset_name,
+            "**Dataset Type**": dataset_type,
+            "**UTC Datetime**": datehr,
+        }
 
         return pd.DataFrame(pd.Series(meta, name=""))
 
@@ -287,15 +290,15 @@ class DataSet:
         ds = deserialize(self.dataset)
         dataset_qcs = create_dataset(ds)
 
-        try: 
+        try:
             # submit to QCArchive
             output = dataset_qcs.submit(client)
             self._queued_submit_report(output, success=True)
         except:
             self._queued_submit_report(traceback.format_exc(), success=False)
-            return {'new_state': "Queued for Submission"}
+            return {"new_state": "Queued for Submission"}
         else:
-            return {'new_state': "Error Cycling"}
+            return {"new_state": "Error Cycling"}
 
     def _queued_submit_report(self, output, success):
         success_text = "**SUCCESS**" if success else "**FAILED**"
@@ -317,7 +320,7 @@ class DataSet:
         """
 
         # postprocess due to raw spacing above
-        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
 
         # submit comment
         self.pr.create_issue_comment(comment)
@@ -334,23 +337,23 @@ class DataSet:
 
         dataset_name, dataset_type = self._parse_spec()
         ds = client.get_collection(dataset_type, dataset_name)
-        
-        if dataset_type.lower() == 'TorsionDriveDataset'.lower():
+
+        if dataset_type.lower() == "TorsionDriveDataset".lower():
             complete = self._errorcycle_torsiondrive(ds, client)
 
-        elif dataset_type.lower() == 'OptimizationDataset'.lower():
+        elif dataset_type.lower() == "OptimizationDataset".lower():
             complete = self._errorcycle_optimization(ds, client)
 
-        elif dataset_type.lower() == 'GridOptimizationDataset'.lower():
+        elif dataset_type.lower() == "GridOptimizationDataset".lower():
             complete = self._errorcycle_gridopt(ds, client)
 
-        elif dataset_type.lower() == 'Dataset'.lower():
+        elif dataset_type.lower() == "Dataset".lower():
             complete = self._errorcycle_dataset(ds, client)
 
         if complete:
-            return {'new_state': "Archived/Complete"}
+            return {"new_state": "Archived/Complete"}
         else:
-            return {'new_state': "Error Cycling"}
+            return {"new_state": "Error Cycling"}
 
     def comment_archived_complete(self):
 
@@ -364,7 +367,7 @@ class DataSet:
         """
 
         # postprocess due to raw spacing above
-        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
 
         # submit comment
         self.pr.create_issue_comment(comment)
@@ -376,12 +379,14 @@ class DataSet:
         opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
 
         opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True)
+            opts, full=True, pretty_print=True, tolerate_missing=True
+        )
 
         self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
 
-        if ((df_tdr[['RUNNING', 'ERROR']].sum().sum() == 0) and
-            (df_tdr_opt[['INCOMPLETE', 'ERROR']].sum().sum() == 0)):
+        if (df_tdr[["RUNNING", "ERROR"]].sum().sum() == 0) and (
+            df_tdr_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0
+        ):
             complete = True
         else:
             # restart errored torsiondrives and optimizations
@@ -400,12 +405,13 @@ class DataSet:
         for spec in ds.list_specifications().index.tolist():
             tdrs = mgt.get_torsiondrives(ds, spec, client)
 
-            for status in ['COMPLETE', 'RUNNING', 'ERROR']:
-                results[spec][status] =  len(
-                        [tdr for tdr in tdrs if tdr.status == status])
-        
+            for status in ["COMPLETE", "RUNNING", "ERROR"]:
+                results[spec][status] = len(
+                    [tdr for tdr in tdrs if tdr.status == status]
+                )
+
         df = pd.DataFrame(results).transpose()
-        df.index.name = 'specification'
+        df.index.name = "specification"
         return tdrs, df
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
@@ -415,15 +421,15 @@ class DataSet:
         # gather torsiondrive optimization results
         results = defaultdict(dict)
         for spec in ds.list_specifications().index.tolist():
-            opts = mgt.merge(
-                    mgt.get_torsiondrive_optimizations(ds, spec, client))
+            opts = mgt.merge(mgt.get_torsiondrive_optimizations(ds, spec, client))
 
-            for status in ['COMPLETE', 'INCOMPLETE', 'ERROR']:
-                results[spec][status] =  len(
-                        [opt for opt in opts if opt.status == status])
+            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
+                results[spec][status] = len(
+                    [opt for opt in opts if opt.status == status]
+                )
 
         df = pd.DataFrame(results).transpose()
-        df.index.name = 'specification'
+        df.index.name = "specification"
         return opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
@@ -452,7 +458,7 @@ class DataSet:
         """
 
         # postprocess due to raw spacing above
-        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
 
         # submit comment
         self.pr.create_issue_comment(comment)
@@ -475,11 +481,12 @@ class DataSet:
         opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client)
 
         opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True)
+            opts, full=True, pretty_print=True, tolerate_missing=True
+        )
 
         self._errorcycle_optimization_report(df_opt, opt_error_counts)
 
-        if (df_opt[['INCOMPLETE', 'ERROR']].sum().sum() == 0):
+        if df_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
             complete = True
         else:
             # restart errored optimizations
@@ -497,12 +504,13 @@ class DataSet:
         for spec in ds.list_specifications().index.tolist():
             opts = mgt.get_optimizations(ds, spec, client)
 
-            for status in ['COMPLETE', 'INCOMPLETE', 'ERROR']:
-                results[spec][status] =  len(
-                        [opt for opt in opts if opt.status == status])
+            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
+                results[spec][status] = len(
+                    [opt for opt in opts if opt.status == status]
+                )
 
         df = pd.DataFrame(results).transpose()
-        df.index.name = 'specification'
+        df.index.name = "specification"
         return opts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
@@ -527,11 +535,10 @@ class DataSet:
         """
 
         # postprocess due to raw spacing above
-        comment = "\n".join([substr.strip() for substr in comment.split('\n')])
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
 
         # submit comment
         self.pr.create_issue_comment(comment)
-
 
     def execute_requires_scientific_review(self):
         pass
@@ -544,13 +551,13 @@ class DataSet:
 
 
 def create_dataset(dataset_data):
-    from qcsubmit.datasets import (BasicDataset, OptimizationDataset,
-                                   TorsiondriveDataset)
+    from qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
         "BasicDataset": BasicDataset,
         "OptimizationDataset": OptimizationDataset,
-        "TorsiondriveDataset": TorsiondriveDataset}
+        "TorsiondriveDataset": TorsiondriveDataset,
+    }
 
     dataset_type = dataset_data["dataset_type"]
     dataset_class = datasets.get(dataset_type, None)
@@ -561,15 +568,17 @@ def create_dataset(dataset_data):
 
 
 def _get_full_board(repo):
-    proj = [proj for proj in repo.get_projects() if proj.name == 'Dataset Tracking'][0]
-    board = {col.name: [card for card in col.get_cards()] 
-             for col in proj.get_columns()}
+    proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
+    board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
     return board
 
 
 def _get_tracking_prs(repo):
-    prs = [pr for pr in repo.get_pulls(state='all') 
-       if 'tracking' in list(map(lambda x: x.name, pr.labels))]
+    prs = [
+        pr
+        for pr in repo.get_pulls(state="all")
+        if "tracking" in list(map(lambda x: x.name, pr.labels))
+    ]
     return prs
 
 
@@ -579,6 +588,7 @@ def get_version_info():
     """
     import importlib
     import pandas as pd
+
     report = {}
     # list the core packages here
     packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
@@ -589,9 +599,11 @@ def get_version_info():
     # now try openeye else use rdkit
     try:
         import openeye
+
         report["openeye"] = pd.Series({"version": openeye.__version__})
     except ImportError:
         import rdkit
+
         report["rdkit"] = pd.Series({"version": rdkit.__version__})
 
     return pd.DataFrame(report).transpose()
@@ -602,13 +614,23 @@ def main():
 
     """
     import argparse
-    
-    parser = argparse.ArgumentParser(description='Process PRs according to dataset lifecycle')
-    parser.add_argument('--states', type=str, nargs='*',
-                        help='states to limit processing to; if not provided, use all states')
-    parser.add_argument('--prs', type=int, nargs='*',
-                        help='PR numbers to limit processing to; if not provided, all labeled PRs processed')
-    
+
+    parser = argparse.ArgumentParser(
+        description="Process PRs according to dataset lifecycle"
+    )
+    parser.add_argument(
+        "--states",
+        type=str,
+        nargs="*",
+        help="states to limit processing to; if not provided, use all states",
+    )
+    parser.add_argument(
+        "--prs",
+        type=int,
+        nargs="*",
+        help="PR numbers to limit processing to; if not provided, all labeled PRs processed",
+    )
+
     args = parser.parse_args()
 
     if args.states:
@@ -621,7 +643,7 @@ def main():
     else:
         prnums = None
 
-    gh = Github(os.environ['GH_TOKEN'])
+    gh = Github(os.environ["GH_TOKEN"])
     repo = gh.get_repo(REPO_NAME)
 
     # gather up all PRs with the `tracking` label
@@ -649,7 +671,7 @@ def main():
 
         submission = Submission(pr, gh)
         submission.execute_state()
-        
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
