@@ -677,7 +677,7 @@ def main():
         print(f"Processing PR #{pr.number}")
 
         submission = Submission(pr, gh)
-        submission.execute_state()
+        submission.execute_state(board=board, states=states)
 
 
 if __name__ == "__main__":
