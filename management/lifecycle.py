@@ -146,9 +146,7 @@ class Submission:
             comment = f"""
             ## Lifecycle - Backlog
 
-            {self._get_meta().to_markdown()}
-
-            Merged dataset `{self.dataset}` moved from "Backlog" to "Queued for Submission".
+            Merged dataset moved from "Backlog" to "Queued for Submission".
 
             """
 
