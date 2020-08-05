@@ -4,6 +4,13 @@
 name: Dataset Lifecycle - Submission
 
 on:
+  # run when there is a push that includes something in ./submissions
+  # e.g. occurs when we merge a submission PR into master
+  push:
+    branches:
+      - master
+    paths:
+      - 'submissions/**'
   # run once a day at noon UTC
   schedule:
     - cron: "0 12 * * *"
