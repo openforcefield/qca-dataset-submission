@@ -63,3 +63,10 @@ The dataset's group should be set to `"OpenFF"`.
 ### Required fields
 
 * See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
+
+
+### Adding Compute to old datasets
+Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
+However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
+The dataset should be of the correct type and have the name set to that in the archive.   The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
+CI to search the public archive for the dataset and validate the basis coverage before submitting. 
