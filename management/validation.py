@@ -318,7 +318,7 @@ def main():
     file_names = json.loads(args.dataset_files)
     dataset_paths = []
     for file in file_names:
-        if ("compute.json" or "dataset.json") in file:
+        if "compute.json" in file or "dataset.json" in file:
             dataset_paths.append(file)
 
     comment = main_validation(dataset_paths)
