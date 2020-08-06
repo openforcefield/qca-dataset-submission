@@ -11,7 +11,7 @@
     "dipole",
     "quadrupole",
     "wiberg_lowdin_indices",
-    "mayer_indices",
+    "mayer_indices"
   ],
   "spec_name": "default",
   "spec_description": "OpenFF quantum chemistry input",
@@ -77,7 +77,7 @@
             "O",
             "H",
             "O",
-            "H",
+            "H"
           ],
           "geometry": [
              6.025297,
@@ -223,7 +223,7 @@
             -3.593873,
              7.468058,
             -0.968613,
-            -3.564731,
+            -3.564731
           ],
           "name": "OME_2NA_0NA_1",
           "molecular_charge":   0.00000,
@@ -231,12 +231,12 @@
           "fix_com": false,
           "fix-orientation": false,
           "extras": {}
-        },      ],
+        }      ],
       "attributes": {
       },
       "dihedrals": null,
       "extras": {},
-      "keywords": {,
+      "keywords": {
         "constraints": {
           "freeze": [
             {
@@ -245,7 +245,7 @@
                 19,
                 18,
                 15,
-                13,
+                13
               ]
             },
             {
@@ -254,7 +254,7 @@
                 22,
                 21,
                 11,
-                13,
+                13
               ]
             },
             {
@@ -263,7 +263,7 @@
                 24,
                 23,
                 9,
-                11,
+                11
               ]
             },
             {
@@ -272,7 +272,7 @@
                 40,
                 39,
                 36,
-                34,
+                34
               ]
             },
             {
@@ -281,7 +281,7 @@
                 43,
                 42,
                 32,
-                34,
+                34
               ]
             },
             {
@@ -290,7 +290,7 @@
                 45,
                 44,
                 30,
-                32,
+                32
               ]
             },
             {
@@ -299,7 +299,7 @@
                 47,
                 46,
                 28,
-                30,
+                30
               ]
             }
           ]
