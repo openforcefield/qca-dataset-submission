@@ -2,8 +2,8 @@
   "dataset_name": "mdgx-created data set",
   "dataset_tagline": "A data set created by mdgx",
   "dataset_type": "OptimizationDataSet",
-  "method": "d3bj b3lyp",
-  "basis": "def2-tzvpp",
+  "method": "b3lyp",
+  "basis": "d3bj def2-tzvpp",
   "program": "psi4",
   "maxiter": 200,
   "driver": "gradient",
@@ -11,7 +11,7 @@
     "dipole",
     "quadrupole",
     "wiberg_lowdin_indices",
-    "mayer_indices"
+    "mayer_indices",
   ],
   "spec_name": "default",
   "spec_description": "OpenFF quantum chemistry input",
@@ -231,79 +231,12 @@
           "fix_com": false,
           "fix-orientation": false,
           "extras": {}
-        }      ],
+        },      ],
       "attributes": {
       },
       "dihedrals": null,
       "extras": {},
       "keywords": {
-        "constraints": {
-          "freeze": [
-            {
-              "type": "dihedral",
-              "indices": [
-                19,
-                18,
-                15,
-                13
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                22,
-                21,
-                11,
-                13
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                24,
-                23,
-                9,
-                11
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                40,
-                39,
-                36,
-                34
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                43,
-                42,
-                32,
-                34
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                45,
-                44,
-                30,
-                32
-              ]
-            },
-            {
-              "type": "dihedral",
-              "indices": [
-                47,
-                46,
-                28,
-                30
-              ]
-            }
-          ]
-        }
       }
     }
   },
