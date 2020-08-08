@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import json
 import sys
-import numpy as np
 import os
+import io
 
+import numpy as np
 
 def dict_to_xyz_string(mol):
     bohr2ang = 0.529177
@@ -29,10 +30,15 @@ def qcmiles(jsmol, toolkit='rdkit'):
     obConversion.ReadString(obmol, xyz_str)
     sdf = obConversion.WriteString(obmol)
 
+    with io.StringIO(sdf) as sdf_stream:
+        qcmol = Molecule.from_file(sdf_stream, file_format='SDF').to_qcschema().dict()
+
     # would be nice if oFF could handle data as strings to avoid IO
-    open('mol.sdf','w').write(sdf)
-    qcmol = Molecule.from_file('mol.sdf').to_qcschema().dict()
-    os.remove("mol.sdf")
+    #with open('mol.sdf','w') as f:
+    #    f.write(sdf)
+
+    #qcmol = Molecule.from_file('mol.sdf').to_qcschema().dict()
+    #os.remove("mol.sdf")
 
     # cmiles wants the schema with a flat xyz
     if len(qcmol['geometry'].shape) > 1:
@@ -44,7 +50,9 @@ def qcmiles(jsmol, toolkit='rdkit'):
 
 def qcmiles_from_json_file(fnm, toolkit='rdkit'):
 
-    js = json.load(open(fnm))
+    with open(fnm, 'r') as f:
+        js = json.load(f)
+
     return qcmiles_from_json_str(js, toolkit=toolkit)
 
 
