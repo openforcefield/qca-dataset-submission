@@ -74,7 +74,7 @@ def main():
     args = parser.parse_args().__dict__
 
     if args["use_openeye"] and args["use_rdkit"]:
-        raise Exception("Cannot specifiy both use-rdkit and use-openeye")
+        raise Exception("Cannot specify both --use-rdkit and --use-openeye")
 
     if not (args["use_rdkit"] or args["use_openeye"]):
         args["use_rdkit"] = True
@@ -84,15 +84,14 @@ def main():
     else:
         tk = 'openeye'
 
-    print("using tk",tk)
-
-    import pprint
+    print("Using tk", tk)
 
     ret = qcmiles_from_json_file(args["input_json"], toolkit=tk)
+    
+    import pprint
     pp = pprint.PrettyPrinter(indent=4, width=80, compact=True)
     pp.pprint(ret)
-    # for attr in ret:
-    #     pp.pprint(attr)
+
 
 
 if __name__ == "__main__":
