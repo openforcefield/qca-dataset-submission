@@ -419,8 +419,10 @@ class DataSet:
 
         # gather torsiondrive optimization results
         results = defaultdict(dict)
+        all_opts = list()
         for spec in ds.list_specifications().index.tolist():
             opts = mgt.merge(mgt.get_torsiondrive_optimizations(ds, spec, client))
+            all_opts.extend(opts)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -429,7 +431,7 @@ class DataSet:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return opts, df
+        return all_opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
         comment = f"""
