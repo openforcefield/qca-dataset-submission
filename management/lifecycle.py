@@ -383,7 +383,7 @@ class DataSet:
 
         self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
 
-        if (df_tdr[["RUNNING", "ERROR"]].sum().sum() == 0) and (
+        if (df_tdr[["RUNNING", "INCOMPLETE", "ERROR"]].sum().sum() == 0) and (
             df_tdr_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0
         ):
             complete = True
@@ -404,7 +404,7 @@ class DataSet:
         for spec in ds.list_specifications().index.tolist():
             tdrs = mgt.get_torsiondrives(ds, spec, client)
 
-            for status in ["COMPLETE", "RUNNING", "ERROR"]:
+            for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
                     [tdr for tdr in tdrs if tdr.status == status]
                 )
