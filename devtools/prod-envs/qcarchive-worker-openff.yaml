@@ -9,7 +9,7 @@ dependencies:
   - qcfractal
 
     # Compute engines
-  - psi4 >1.4a2.dev700,<1.4a2
+  - psi4 =1.4a2.dev723+fb499f4
   - dftd3
   - gcp
   - rdkit
@@ -26,3 +26,4 @@ dependencies:
   - openforcefields >=1.2.0
   - openmm >=7.4.2
   - openmmforcefields >=0.8.0
+  - conda-forge::libiconv
