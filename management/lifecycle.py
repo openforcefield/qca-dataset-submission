@@ -452,9 +452,14 @@ class DataSet:
 
         #### `OptimizationRecord` Error Tracebacks:
 
+        <details>
+        <summary><b>Tracebacks</b> (<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
         ```
         {opt_error_counts}
         ```
+        </details>
 
         ----------
         {self._version_info_report()}
@@ -532,9 +537,14 @@ class DataSet:
 
         #### `OptimizationRecord` Error Tracebacks:
 
+        <details>
+        <summary><b>Tracebacks</b> (<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
         ```
         {opt_error_counts}
         ```
+        </details>
 
         ----------
         {self._version_info_report()}
