@@ -434,6 +434,11 @@ class DataSet:
         return all_opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
+
+        if len(opt_error_counts) > 60000:
+            opt_error_counts = opt_error_counts[:60000]
+            opt_error_counts += "\n--- Too many errors; truncated here ---\n"
+
         comment = f"""
         ## Lifecycle - Error Cycling Report
 
@@ -523,6 +528,11 @@ class DataSet:
         return opts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
+
+        if len(opt_error_counts) > 60000:
+            opt_error_counts = opt_error_counts[:60000]
+            opt_error_counts += "\n--- Too many errors; truncated here ---\n"
+
         comment = f"""
         ## Lifecycle - Error Cycling Report
 
