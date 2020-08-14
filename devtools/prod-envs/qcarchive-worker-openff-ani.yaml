@@ -1,0 +1,22 @@
+name: qcarchive-worker-openff-ani
+channel_priority: flexible
+channels:
+  - conda-forge
+  - pytorch-nightly
+  - defaults
+dependencies:
+  - python =3.7
+  - qcfractal
+  - qcengine =0.15.0
+
+  # ML calculations
+  - pytorch
+
+  # procedures
+  - geometric
+
+  # compute backends
+  - dask-jobqueue
+
+  - pip:
+    - torchani

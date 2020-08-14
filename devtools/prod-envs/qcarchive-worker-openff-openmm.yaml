@@ -1,19 +1,13 @@
-name: qcarchive-worker-openff
+name: qcarchive-worker-openff-openmm
 channel_priority: flexible
 channels:
   - conda-forge
-  - psi4/label/dev
   - omnia
   - defaults
 dependencies:
   - python =3.7
   - qcfractal
   - qcengine =0.15.0
-
-  # QM calculations
-  - psi4 =1.4a2.dev723+fb499f4
-  - dftd3
-  - gcp
     
   # MM calculations
   - openforcefield =0.7.1
