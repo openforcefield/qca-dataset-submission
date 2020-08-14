@@ -1,4 +1,5 @@
 from collections import defaultdict, Counter
+from pprint import pformat
 
 import qcportal as ptl
 
@@ -123,7 +124,8 @@ def get_unique_optimization_error_messages(optimizations, full=False):
 
 def count_unique_optimization_error_messages(
         optimizations, full=False, pretty_print=False, tolerate_missing=False):
-    errors = Counter()
+    #errors = Counter()
+    errors = defaultdict(set)
 
     for opt in optimizations:
         if opt.status != 'ERROR':
@@ -133,22 +135,29 @@ def count_unique_optimization_error_messages(
 
         if tolerate_missing:
             if err_content is None:
-                errors += Counter({None: 1})
+                #errors += Counter({None: 1})
+                errors[None].add(opt.id)
                 continue
 
         if full:
-            errors += Counter({err_content.error_message: 1})
+            errors[err_content.error_message].add(opt.id)
+            #errors += Counter({err_content.error_message: 1})
         else:
-            errors += Counter({err_content.error_message.split('\n')[-2]: 1})
+            errors[err_content.error_message.split('\n')[-2]].add(opt.id)
+            #errors += Counter({err_content.error_message.split('\n')[-2]: 1})
 
     errors = dict(errors)
 
     content = ""
     if pretty_print:
         for key, value in errors.items():
-            content += f"There are {value} instances of\n"
             content += '-------------------------------------\n'
+            content += f"count : {len(value)}\n"
+            content += '\n'
             content += f'{key}\n'
+            content += '\n'
+            content += 'ids : \n'
+            content += f'{pformat(value, width=80, compact=True)}\n'
             content += '-------------------------------------\n'
         return content
     else:
