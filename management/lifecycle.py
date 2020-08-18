@@ -401,8 +401,10 @@ class DataSet:
 
         # gather torsiondrive results
         results = defaultdict(dict)
+        all_tds = list()
         for spec in ds.list_specifications().index.tolist():
             tdrs = mgt.get_torsiondrives(ds, spec, client)
+            all_tds.extend(tdrs)
 
             for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -411,7 +413,7 @@ class DataSet:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return tdrs, df
+        return all_tds, df
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
         import pandas as pd
