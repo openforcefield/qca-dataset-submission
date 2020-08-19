@@ -9,12 +9,31 @@ Current list:
 * Ensure all submissions have cmiles, most important are mapped hydrogen smiles
 * Ensure the WBO is requested for all submissions, this should be included in the scf properties list using the flag `wiberg_lowdin_indices`
 
+## Required compute
+
+The following compute specs are required for a submission:
+
+- `default`:
+    - `method`: `'B3LYP-D3BJ'`
+    - `basis`: `'DZVP'`
+    - `program`: `'psi4'`
+- `openff-1.0.0`:
+    - `method`: `'openff-1.0.0'`
+    - `basis`: `'smirnoff'`
+    - `program`: `'openmm'`
+- `gaff-2.11`:
+    - `method`: `'gaff-2.11'`
+    - `basis`: `'antechamber'`
+
+
 ## Best practices
+
 * If any calculations are to be redone from another collection, re-use the old input (coordinates, atom ordering etc) as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
 
 ## Dataset naming and versioning
 
 Each dataset shall be versioned.
+
 - The naming of a dataset should have the following structure:
 
     `"OpenFF <descriptive and uniquely-identifying name> v<version number>"`
@@ -26,6 +45,21 @@ Each dataset shall be versioned.
 - A minor version change (e.g. `"v1.1"`) means cosmetic or minor additions/problems were addressed
     - mispelling
     - addition of a e.g. Wiberg bond orders
+
+- A major version change (e.g. `"v2.0"`) means major additions/problems were made/addressed
+    - new molecules or conformers added
+    - problematic molecules removed
+
+## Adding new compute to old datasets
+
+
+
+Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
+However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
+The dataset should be of the correct type and have the name set to that in the archive.
+The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
+CI to search the public archive for the dataset and validate the basis coverage before submitting. 
+
 
 ## Tags indicate status
 
@@ -65,8 +99,3 @@ The dataset's group should be set to `"OpenFF"`.
 * See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
 
 
-### Adding Compute to old datasets
-Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
-However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
-The dataset should be of the correct type and have the name set to that in the archive.   The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
-CI to search the public archive for the dataset and validate the basis coverage before submitting. 
