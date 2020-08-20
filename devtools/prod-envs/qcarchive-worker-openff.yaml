@@ -8,7 +8,7 @@ channels:
 dependencies:
   - python =3.7
   - qcfractal
-  - qcengine =0.15.0
+  - qcengine =0.16.0
 
   # QM calculations
   - psi4 =1.4a2.dev723+fb499f4

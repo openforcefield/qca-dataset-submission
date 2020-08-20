@@ -7,10 +7,10 @@ channels:
 dependencies:
   - python =3.7
   - qcfractal
-  - qcengine =0.15.0
+  - qcengine =0.16.0
 
   # ML calculations
-  - pytorch
+  - pytorch =1.6.0
 
   # procedures
   - geometric
@@ -19,4 +19,4 @@ dependencies:
   - dask-jobqueue
 
   - pip:
-    - torchani
+    - torchani =2.2
