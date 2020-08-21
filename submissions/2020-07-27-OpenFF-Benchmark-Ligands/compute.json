@@ -1,11 +1,11 @@
 {
   "qc_specifications": {
-    "openff_unconstrained-1.0.0": {
-      "method": "openff_unconstrained-1.0.0",
-      "basis": "smirnoff",
-      "program": "openmm",
-      "spec_name": "openff_unconstrained-1.0.0",
-      "spec_description": "Openff parsley 1.0.0 unconstrained spec.",
+    "ani2x": {
+      "method": "ani2x",
+      "basis": null,
+      "program": "torchani",
+      "spec_name": "ani2x",
+      "spec_description": "ANI2x ML potential.",
       "store_wavefunction": "none"
     }
   },
