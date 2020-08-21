@@ -1,12 +1,61 @@
 This file outlines the standards and requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
+STANDARDS version: 1
+
+Requires:
+	- QCEngine 0.13
+	- Other QCA pieces needed to understand the options below
+
 # Required fields 
 
-Current list:
+A human readable description of the fields and why they are necessary
 
-* Ensure all submissions have cmiles, most important are mapped hydrogen smiles
-* Ensure the WBO is requested for all submissions, this should be included in the scf properties list using the flag `wiberg_lowdin_indices`
+## Required fields layout
+
+- All datasets
+	- The name
+	- The metadata
+	* The `default` specification:
+		- `PSI4/B3LYP-D3BJ/DZVP`
+			- scf_properties
+				- `wiberg_lowdin_indices`
+				- `mayer_indices`
+	* The entry:
+		- `attributes`
+			- `canonical_isomeric_hydrogen_mapped_cmiles`
+		- The molecules
+			- A valid QCSchema molecule with the follwing also required:
+				- `extras`
+					- `canonical_isomeric_hydrogen_mapped_cmiles`
+				- `connectivity`
+
+- Optimizations
+	- The qc_spec options
+
+	- The optimizer options
+		- `program: geometric`
+			- The geometric options
+
+	
+- TorsionDrives
+	- The qc_spec options
+
+	- The optimizer options
+		- `program: geometric`
+			- The geometric options
+
+- Hessians
+	- The qc_spec options
+
+- GridOptimizations
+	- The qc_spec options
+
+* Training sets
+	- Necessary contributed values
+
+* Benchmarking sets
+	- Necessary contributes values
 
 ## Job specifications (level of theory; settings)
 
@@ -25,11 +74,14 @@ Each dataset shall be versioned.
 
 - The first submission of a dataset will have a version `"v1.0"`
 
+* The major version shall indicate the STANDARDS that the dataset conforms to. Datasets which are not intended to conform to these STANDARDS should start with 0, e.g. `"v0.1"`
+
 - A dataset with the suffix `"-beta"` is not to be used for production work.
 
 - A minor version change (e.g. `"v1.1"`) means cosmetic or minor additions/problems were addressed
-    - mispelling
-    - addition of a e.g. Wiberg bond orders
+    - Cosmetic changes
+	- Errors/bugs in the molecule specification
+	- Changes necessary to adhere to the STANDARDS
 
 # Tags indicate status
 
