@@ -25,7 +25,6 @@ The following compute specs are required for a submission:
     - `method`: `'gaff-2.11'`
     - `basis`: `'antechamber'`
 
-
 ## Best practices
 
 * If any calculations are to be redone from another collection, re-use the old input (coordinates, atom ordering etc) as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
@@ -50,16 +49,17 @@ Each dataset shall be versioned.
     - new molecules or conformers added
     - problematic molecules removed
 
+Operationally, datasets are defined in `dataset.json` files in this repository.
+
 ## Adding new compute to old datasets
 
+New compute specifications can be added to an existing dataset **without** a version update.
+These are considered supplementary to the original submisison, and do not factor into its identity or completeness status.
+    
+- The dataset should be of the correct type and have the name set to that in the archive.
+- The dataset entries should be empty and only the new `qc_specifications` section should be filled in.
 
-
-Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
-However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
-The dataset should be of the correct type and have the name set to that in the archive.
-The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
-CI to search the public archive for the dataset and validate the basis coverage before submitting. 
-
+Operationally, supplemental compute for a dataset are defined in `compute*.json` files.
 
 ## Tags indicate status
 
@@ -97,5 +97,3 @@ The dataset's group should be set to `"OpenFF"`.
 ### Required fields
 
 * See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
-
-
