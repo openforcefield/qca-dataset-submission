@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - psi4/label/dev
   - omnia
+  - pytorch-nightly
   - defaults
 dependencies:
   - python =3.7
@@ -22,8 +23,14 @@ dependencies:
   - openmmforcefields =0.8.0
   - conda-forge::libiconv
 
+  # ML calculations
+  - pytorch =1.6.0
+
   # procedures
   - geometric
 
   # compute backends
   - dask-jobqueue
+
+  - pip:
+    - torchani =2.2
