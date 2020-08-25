@@ -1,0 +1,22 @@
+name: qcarchive-worker-openff-ani
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python =3.7
+  - pip
+  - qcfractal
+  - qcengine =0.16.0
+
+  # ML calculations
+  - pytorch =1.6.0
+
+  # procedures
+  - geometric
+
+  # compute backends
+  - dask-jobqueue
+
+  - pip:
+    - torchani ==2.2
