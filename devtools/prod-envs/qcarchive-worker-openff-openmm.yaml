@@ -1,5 +1,4 @@
 name: qcarchive-worker-openff-openmm
-channel_priority: flexible
 channels:
   - conda-forge
   - omnia
