@@ -1,5 +1,4 @@
 name: qcarchive-worker-openff-psi4
-channel_priority: flexible
 channels:
   - conda-forge
   - psi4/label/dev
