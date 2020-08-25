@@ -20,9 +20,9 @@ jobs:
       matrix:
         env-name:
           - qcarchive-worker-openff
-         #- qcarchive-worker-openff-ani
-         #- qcarchive-worker-openff-openmm
-         #- qcarchive-worker-openff-psi4
+          - qcarchive-worker-openff-ani
+          - qcarchive-worker-openff-openmm
+          - qcarchive-worker-openff-psi4
     steps:
       - uses: actions/checkout@v2
 
