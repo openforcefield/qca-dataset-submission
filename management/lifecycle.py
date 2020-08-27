@@ -292,7 +292,7 @@ class DataSet:
 
         try:
             # submit to QCArchive
-            output = dataset_qcs.submit(client)
+            output = dataset_qcs.submit(client=client, ignore_errors=True)
             self._queued_submit_report(output, success=True)
         except:
             self._queued_submit_report(traceback.format_exc(), success=False)
