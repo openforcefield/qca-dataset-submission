@@ -1,20 +1,12 @@
-name: qcarchive-worker-openff
+name: qcarchive-worker-openff-openmm
 channels:
   - conda-forge
-  - psi4/label/dev
   - omnia
-  - pytorch
   - defaults
 dependencies:
   - python =3.7
-  - pip
   - qcfractal
   - qcengine =0.16.0
-
-  # QM calculations
-  - psi4 =1.4a2.dev723+fb499f4
-  - dftd3
-  - gcp
     
   # MM calculations
   - openforcefield =0.7.1
@@ -23,14 +15,8 @@ dependencies:
   - openmmforcefields =0.8.0
   - conda-forge::libiconv
 
-  # ML calculations
-  - pytorch =1.6.0
-
   # procedures
   - geometric
 
   # compute backends
   - dask-jobqueue
-
-  - pip:
-    - torchani ==2.2

@@ -1,0 +1,49 @@
+---
+# deployment of qcarchive prod environments for docker deployments
+
+name: Deployment - QCArchive Prod Docker Environments
+
+on:
+  # run once prod env deployments are in place
+  workflow_run:
+    workflows: ["Deployment - QCArchive Prod Environments"]
+    branches: [master]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  build-deploy-docker:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        env-name:
+          - qcarchive-worker-openff
+          - qcarchive-worker-openff-ani
+          - qcarchive-worker-openff-openmm
+          - qcarchive-worker-openff-psi4
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Inject environment name into Dockerfile
+        shell: bash
+        env:
+          ENV_NAME: ${{ matrix.env-name }}
+          BUILD_DIR: ./devtools/docker/qcarchive-worker-openff
+        run: |
+            mkdir ${BUILD_DIR}/tmp/
+
+            envsubst < ${BUILD_DIR}/Dockerfile > ${BUILD_DIR}/tmp/Dockerfile
+            cat ${BUILD_DIR}/tmp/Dockerfile
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          path: ./devtools/docker/qcarchive-worker-openff/tmp/
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: openforcefield/${{ matrix.env-name }}
+          add_git_labels: true
+          tag_with_ref: true
+          tag_with_sha: true
