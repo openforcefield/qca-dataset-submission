@@ -66,7 +66,7 @@ class Submission:
         files = self.pr.get_files()
         computes = list(filter(
             lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
-            files))
+            map(lambda x: x.filename, files)))
 
         return computes
 
