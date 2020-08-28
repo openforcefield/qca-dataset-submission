@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import glob
 import json
 import traceback
 from collections import defaultdict
@@ -10,10 +11,18 @@ from github import Github
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_FILENAME = "dataset.json"
+COMPUTE_GLOB = "compute*.json"
 
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
+
+    A submission has a lifecycle with well-defined states.
+    This class represents the current state of a submission,
+    and provides the machinery for execution of lifecycle processes based on that state.
+
+    All lifecycle state is stored on Github in the original PR for the submission,
+    mapped onto states in the "Datset Tracking" project board.
 
     """
 
@@ -44,6 +53,7 @@ class Submission:
             self.repo = repo
 
         self.datasets = self._gather_datasets()
+        self.computes = self._gather_computes()
 
     def _gather_datasets(self):
         files = self.pr.get_files()
@@ -51,6 +61,14 @@ class Submission:
             file.filename for file in files if DATASET_FILENAME in file.filename
         ]
         return datasets
+
+    def _gather_computes(self):
+        files = self.pr.get_files()
+        computes = list(filter(
+            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
+            files))
+
+        return computes
 
     @staticmethod
     def _get_board_card_state(board, pr):
@@ -172,6 +190,11 @@ class Submission:
             ds = DataSet(dataset, self, self.ghapi)
             results.append(ds.execute_queued_submit())
 
+        for compute in self.computes:
+            print(f"Processing compute '{compute}'")
+            ct = Compute(compute, self, self.ghapi)
+            results.append(ct.execute_queued_submit())
+
         new_state = self.resolve_new_state(results)
         if new_state is not None:
             self.evolve_state(pr_card, pr_state, new_state)
@@ -186,6 +209,11 @@ class Submission:
             ds = DataSet(dataset, self, self.ghapi)
             results.append(ds.execute_errorcycle())
 
+        for compute in self.computes:
+            print(f"Processing compute '{compute}'")
+            ct = Compute(compute, self, self.ghapi)
+            results.append(ct.execute_errorcycle())
+
         new_state = self.resolve_new_state(results)
         if new_state is not None:
             self.evolve_state(pr_card, pr_state, new_state)
@@ -195,25 +223,14 @@ class Submission:
                 dataset.comment_archived_complete()
 
 
-class DataSet:
-    """A dataset submitted to QCArchive.
-    
-    A dataset has a lifecycle with well-defined states.
-    This class represents the current state of a dataset,
-    and provides the machinery for execution of lifecycle processes based on that state.
-
-    All lifecycle state is stored on Github in the original PR for the submission,
-    mapped onto states in the "Datset Tracking" project board.
-    
-    """
-
-    def __init__(self, dataset, submission, ghapi, repo=None):
-        """Create new DataSet instance linking a submission dataset to its PR.
+class SubmittableBase:
+    def __init__(self, submittable, submission, ghapi, repo=None):
+        """Create new Submittable instance linking a submission dataset to its PR.
 
         Parameters
         ----------
-        dataset : path-like
-            Path to dataset submission file.
+        submittable : path-like
+            Path to submission file.
         submission : Submission
             Submission instance corresponding to the dataset submission.
         ghapi : github.Github
@@ -222,7 +239,7 @@ class DataSet:
             Github repo where datasets are tracked.
 
         """
-        self.dataset = dataset
+        self.submittable = submittable
         self.submission = submission
         self.pr = submission.pr
         self.ghapi = ghapi
@@ -233,7 +250,7 @@ class DataSet:
             self.repo = repo
 
     def _parse_spec(self):
-        with open(self.dataset, "r") as f:
+        with open(self.submittable, "r") as f:
             spec = json.load(f)
 
         dataset_name = spec["dataset_name"]
@@ -279,7 +296,7 @@ class DataSet:
         return comment
 
     def execute_queued_submit(self, max_retries=3):
-        """Submit the dataset, perhaps with some retry logic.
+        """Submit, perhaps with some retry logic.
 
         """
         from qcsubmit.serializers import deserialize
@@ -287,12 +304,12 @@ class DataSet:
         client = self._get_qca_client()
 
         # load dataset into QCSubmit class
-        ds = deserialize(self.dataset)
+        ds = deserialize(self.submittable)
         dataset_qcs = create_dataset(ds)
 
         try:
             # submit to QCArchive
-            output = dataset_qcs.submit(client=client, ignore_errors=True)
+            output = self.submit(dataset_qcs, client)
             self._queued_submit_report(output, success=True)
         except:
             self._queued_submit_report(traceback.format_exc(), success=False)
@@ -326,11 +343,11 @@ class DataSet:
         self.pr.create_issue_comment(comment)
 
     def execute_errorcycle(self, restart=False):
-        """Obtain complete, incomplete, error stats for dataset and report.
+        """Obtain complete, incomplete, error stats for submittable and report.
         
         For suspected random errors, we perform restarts.
 
-        If dataset complete, move state to "Archived/Complete".
+        If submittable complete, recommend state "Archived/Complete".
 
         """
         client = self._get_qca_client()
@@ -401,8 +418,10 @@ class DataSet:
 
         # gather torsiondrive results
         results = defaultdict(dict)
+        all_tds = list()
         for spec in ds.list_specifications().index.tolist():
             tdrs = mgt.get_torsiondrives(ds, spec, client)
+            all_tds.extend(tdrs)
 
             for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -411,7 +430,7 @@ class DataSet:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return tdrs, df
+        return all_tds, df
 
     def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
         import pandas as pd
@@ -575,6 +594,25 @@ class DataSet:
 
     def execute_archived_complete(self):
         pass
+
+
+class DataSet(SubmittableBase):
+    """A dataset submitted to QCArchive.
+
+    A dataset has a lifecycle with well-defined states.
+    The state of a dataset is the state of its submission PR.
+
+    """
+    def submit(self, dataset_qcs, client):
+        return dataset_qcs.submit(client=client)
+
+
+class Compute(SubmittableBase):
+    """Supplemental compute submitted to QCArchive.
+
+    """
+    def submit(self, dataset_qcs, client):
+        return dataset_qcs.submit(client=client, ignore_errors=True)
 
 
 def create_dataset(dataset_data):
