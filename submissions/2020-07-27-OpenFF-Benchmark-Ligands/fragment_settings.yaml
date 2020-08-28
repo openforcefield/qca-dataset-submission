@@ -1,0 +1,57 @@
+compute_tag: openff
+dataset_tags:
+- openff
+dihedral_ranges: null
+driver: gradient
+energy_decrease_thresh: null
+energy_upper_limit: 0.05
+grid_spacings:
+- 15
+maxiter: 200
+optimization_program:
+  check: 0
+  constraints: {}
+  convergence_set: GAU
+  coordsys: tric
+  enforce: 0.1
+  epsilon: 0.0
+  maxiter: 300
+  molcnv: false
+  program: geometric
+  qccnv: true
+  reset: true
+  tmax: 0.3
+  trust: 0.1
+priority: normal
+qc_specifications:
+  default:
+    basis: DZVP
+    method: B3LYP-D3BJ
+    program: psi4
+    spec_description: Standard OpenFF optimization quantum chemistry specification.
+    spec_name: default
+    store_wavefunction: none
+scf_properties:
+- dipole
+- quadrupole
+- wiberg_lowdin_indices
+- mayer_indices
+workflow:
+  StandardConformerGenerator:
+    clear_existing: true
+    component_description: Generate conformations for the given molecules
+    component_fail_message: Conformers could not be generated
+    component_name: StandardConformerGenerator
+    max_conformers: 10
+    toolkit: openeye
+  WBOFragmenter:
+    component_description: Fragment a molecule across all rotatble bonds using the
+      WBO fragmenter.
+    component_fail_message: The molecule could not fragmented correctly.
+    component_name: WBOFragmenter
+    functional_groups: null
+    heuristic: path_length
+    include_parent: false
+    keep_non_rotor_ring_substituents: true
+    threshold: 0.03
+    toolkit: openeye

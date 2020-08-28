@@ -1,0 +1,49 @@
+---
+# lifecycle processing for all datasets currently being tracked - backlog
+
+name: Dataset Lifecycle - Backlog
+
+on:
+  # run whenever a pull request is labeled
+  # triggers when we add the `tracking` label
+  pull_request:
+    types: [labeled]
+  # run every 8 hours
+  schedule:
+    - cron: "0 0,8,16 * * *"
+  workflow_dispatch:
+
+jobs:
+  exec-lifecycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.7
+          activate-environment: backlog
+          environment-file: devtools/conda-envs/backlog.yaml
+          auto-activate-base: false
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - name: Run lifecycle processing script
+        shell: bash -l {0}
+        env:
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+          QCA_USER: ${{ secrets.QCA_USER }}
+          QCA_KEY: ${{ secrets.QCA_KEY }}
+        run: |
+            python ./management/lifecycle.py --states "Backlog"

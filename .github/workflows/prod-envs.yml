@@ -1,0 +1,56 @@
+---
+# deployment of qcarchive prod environments
+
+name: Deployment - QCArchive Prod Environments
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'devtools/prod-envs/**.yaml'
+  workflow_dispatch:
+
+jobs:
+  deploy-conda-env:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache conda
+        uses: actions/cache@v1
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('etc/example-environment.yml') }}
+
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.7
+          activate-environment: anaconda-client-env
+          environment-file: devtools/conda-envs/anaconda-client-env.yaml
+          auto-activate-base: false
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - name: Deploy conda env
+        shell: bash -l {0}
+        env:
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN}}
+        run: |
+            anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/**.yaml
