@@ -1,0 +1,13 @@
+name: error-cycle
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python
+  - pip
+  - qcportal
+  - pip:
+      - PyGithub
+      - pandas
+      - tabulate

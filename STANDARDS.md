@@ -1,3 +1,5 @@
+# Dataset Standards
+
 This file outlines the standards and requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
@@ -191,7 +193,7 @@ A best-effort is made to ensure that a dataset follows its underlying STANDARDS.
 
 Each version increment should take the information from the previous `changelog` field, and add a new entry of the form { "version": description } that explains the modifications made to the dataset. Each dataset should therefore have the complete changelog.
 
-# Tags indicate status
+## Tags indicate status
 
 A tag `"complete"` indicates that a dataset is completed as far as OpenFF is concerned.
 This means that any errors remaining are known to be acceptable or impossible to fix.
@@ -202,7 +204,7 @@ This means that any errors remaining are being actively addressed.
 
 All datasets should also feature a `"openff"` tag.
 
-# Force Field Releases 
+## Force Field Releases
 
 When a new force field is released, a dataset corresponding to all results used for the force field fitting should be created.
 This gives a single reference for these data instead of many references.
@@ -210,11 +212,11 @@ The format of these dataset names is:
 
     `"OpenFF Force Field <friendly name> <ff version>"`
 
-# Group
+## Group
 
 The dataset's group should be set to `"OpenFF"`.
 
-# Molecule validation
+## Molecule validation
 
 * See ["Molecule submission checklist"](https://github.com/openforcefield/qcsubmit/issues/9)
 
@@ -227,9 +229,15 @@ The dataset's group should be set to `"OpenFF"`.
 
 * QCSubmit (https://github.com/openforcefield/qcsubmit)
 
-# Related/ongoing discussions
+## Related/ongoing discussions
 
-## Required fields
+### Required fields
 
 * See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
 
+
+### Adding Compute to old datasets
+Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
+However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
+The dataset should be of the correct type and have the name set to that in the archive.   The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
+CI to search the public archive for the dataset and validate the basis coverage before submitting. 

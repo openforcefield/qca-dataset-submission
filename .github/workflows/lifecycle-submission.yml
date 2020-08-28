@@ -1,0 +1,61 @@
+---
+# lifecycle processing for all datasets currently being tracked - submission
+
+name: Dataset Lifecycle - Submission
+
+on:
+  # run when there is a push that includes something in ./submissions
+  # e.g. occurs when we merge a submission PR into master
+  push:
+    branches:
+      - master
+    paths:
+      - 'submissions/**'
+  # run once a day at noon UTC
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+jobs:
+  exec-lifecycle:
+    runs-on: ubuntu-latest
+    env:
+      OE_LICENSE: ${{ github.workspace }}/oe_license.txt
+    steps:
+      - uses: actions/checkout@v2
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Configure conda
+        uses: goanpeca/setup-miniconda@v1
+        with:
+          python-version: 3.7
+          activate-environment: queued-submit
+          environment-file: devtools/conda-envs/queued-submit.yaml
+          auto-activate-base: false
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - name: Make oe_license.txt file from GH org secret "OE_LICENSE"
+        shell: bash
+        env:
+          OE_LICENSE_TEXT: ${{ secrets.OE_LICENSE }}
+        run: |
+          echo "${OE_LICENSE_TEXT}" > ${OE_LICENSE}
+
+      - name: Run lifecycle processing script
+        shell: bash -l {0}
+        env:
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+          QCA_USER: ${{ secrets.QCA_USER }}
+          QCA_KEY: ${{ secrets.QCA_KEY }}
+        run: |
+            python ./management/lifecycle.py --states "Queued for Submission"
