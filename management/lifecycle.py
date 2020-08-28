@@ -604,7 +604,7 @@ class DataSet(SubmittableBase):
 
     """
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client)
+        return dataset_qcs.submit(client=client)
 
 
 class Compute(SubmittableBase):
@@ -612,7 +612,7 @@ class Compute(SubmittableBase):
 
     """
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client, ignore_errors=True)
+        return dataset_qcs.submit(client=client, ignore_errors=True)
 
 
 def create_dataset(dataset_data):
