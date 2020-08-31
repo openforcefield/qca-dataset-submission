@@ -131,7 +131,10 @@ def count_unique_optimization_error_messages(
         if opt.status != 'ERROR':
             continue
 
-        err_content = opt.get_error()
+        try:
+            err_content = opt.get_error()
+        except:
+            err_content = None
 
         if tolerate_missing:
             if err_content is None:
