@@ -153,7 +153,7 @@ def count_unique_optimization_error_messages(
 
     content = ""
     if pretty_print:
-        for key, value in errors.items():
+        for value, key in sorted([(value, key) for key, value in errors.items()], reverse=True):
             content += '-------------------------------------\n'
             content += f"count : {len(value)}\n"
             content += '\n'
