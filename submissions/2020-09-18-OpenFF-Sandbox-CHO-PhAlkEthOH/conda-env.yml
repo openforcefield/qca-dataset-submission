@@ -1,0 +1,16 @@
+name: offsb-submit
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+dependencies:
+  - ambertools
+  - openbabel
+  - qcfractal
+  - cmiles
+  - openforcefield
+  - tqdm
+  - pip
+  - python=3.7
+  - pip:
+    - openff-spellbook
