@@ -9,7 +9,7 @@ This dataset is a collection of CHO molecules. The molecules are the AlkEthOH an
  - Collection: OptimizationDataset
  - Name: OpenFF Sandbox CHO PhAlkEthOH v1.0
  - Number of unique molecules: 7541
- - Number of unique steroisomers: 10638
+ - Number of unique stereoisomers: 10638
  - Number of unique conformations: 40133
  - Submitter: Trevor Gokey
  
@@ -30,9 +30,9 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 - `smi/AlkEthOH_chain.smi`
 - `smi/AlkEthOH_rings.smi`
 - `smi/PhEthOH.smi`: The initial molecule inputs containing the SMILES used for submission.
-- `smi/AlkEthOH_rings.smi.json`
-- `smi/AlkEthOH_chain.smi.json`
-- `smi/PhEthOH.smi.json`: The file containing a list of QCSchema molecules converted from the SMILES.
+- `smi/AlkEthOH_rings.smi.json.lzma`
+- `smi/AlkEthOH_chain.smi.json.lzma`
+- `smi/PhEthOH.smi.json.lzma`: The files containing a list of QCSchema molecules converted from the SMILES.
 - `smi/AlkEthOH_chain.smi.log`
 - `smi/AlkEthOH_rings.smi.log`
 - `smi/PhEthOH.smi.log`: A record of how many stereoisomers and conformers in the JSON file that were generated from the SMILES.
@@ -49,7 +49,7 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 - `./conda-env.yml`: The conda environment to submit the calculations
 
  ### Metadata
-
+```
 {
 	"submitter": "trevorgokey",
 	"creation_date": "2020-09-18",
@@ -71,3 +71,4 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 		}
 	]
 }
+```
