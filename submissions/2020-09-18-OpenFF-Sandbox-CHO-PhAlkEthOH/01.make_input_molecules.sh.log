@@ -1,0 +1,23 @@
+
+Sun Sep 20 09:40:52 PM PDT 2020
+Converting AlkEthOH_chain.smi to JSON conformers. Writing results to ./smi/AlkEthOH_chain.smi.log
+Sun Sep 20 09:43:47 PM PDT 2020
+Totals:
+  Inputs:            1303
+  Isomers:           2666
+  Conformations:     6291
+
+Converting AlkEthOH_rings.smi to JSON conformers. Writing results to ./smi/AlkEthOH_rings.smi.log
+Sun Sep 20 09:46:24 PM PDT 2020
+Totals:
+  Inputs:            1156
+  Isomers:           2890
+  Conformations:     9311
+
+Converting PhEthOH.smi to JSON conformers. Writing results to ./smi/PhEthOH.smi.log
+Sun Sep 20 10:17:52 PM PDT 2020
+Totals:
+  Inputs:            5082
+  Isomers:           5082
+  Conformations:    24531
+
