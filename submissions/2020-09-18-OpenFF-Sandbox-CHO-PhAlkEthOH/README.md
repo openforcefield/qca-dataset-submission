@@ -41,12 +41,12 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 - `01.make_input_molecules.sh`: The commands needed to enumerate stereoisomers and generate conformers from `smi` files to `json` files.
 - `02.submit_dataset.sh`: The commands needed to submit the JSON files in this submission to a QCArchive Optimization dataset.
 - `00.preprocess_input_data.sh.log`
-- `./01.make_input_molecules.sh.log`
-- `./02.submit_dataset.sh.log`: The output logs of each of the three steps.
-- `./lib/process_PheEthOH_mol2_to_smi.sh`
-- `./lib/smi_to_json.sh`: The helper command to convert a file of SMILES to QCSchema.
-- `./lib/to_smi.sh`: Converts a mol2 using `tleap` and `obabel`.
-- `./conda-env.yml`: The conda environment to submit the calculations
+- `01.make_input_molecules.sh.log`
+- `02.submit_dataset.sh.log`: The output logs of each of the three steps.
+- `lib/process_PheEthOH_mol2_to_smi.sh`: The helper command to extract and convert the mol2 files to SMILES
+- `lib/smi_to_json.sh`: The helper command to convert a file of SMILES to QCSchema.
+- `lib/to_smi.sh`: Converts a mol2 using `tleap` and `obabel`.
+- `conda-env.yml`: The conda environment to submit the calculations
 
  ### Metadata
 ```
