@@ -54,10 +54,10 @@
     "submitter": "dotsdl",
     "creation_date": "2020-10-02",
     "collection_type": "TorsiondriveDataset",
-    "dataset_name": "TorsionDriveDataset",
-    "short_description": "OpenForcefield TorsionDrives.",
+    "dataset_name": "OpenFF Substituted Phenyl Set 1",
+    "short_description": "TorsionDrives for WBOs, torsion relationship",
     "long_description_url": null,
-    "long_description": "A TorsionDrive dataset using geometric.",
+    "long_description": "A TorsionDrive dataset using geometric; investigating WBO and torsion barrier relationship",
     "elements": []
   },
   "provenance": {},
