@@ -32,7 +32,6 @@
 
 ## Compute expansion 2020.10.02 (dotsdl)
 Added compute expansion with the following specs in `compute.json`:
-- default (already computed)
 - openff-1.0.0
 - openff-1.2.0
 - openff-1.2.1

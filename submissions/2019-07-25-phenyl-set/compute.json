@@ -1,13 +1,5 @@
 {
   "qc_specifications": {
-    "default": {
-      "method": "B3LYP-D3BJ",
-      "basis": "DZVP",
-      "program": "psi4",
-      "spec_name": "default",
-      "spec_description": "Standard OpenFF optimization quantum chemistry specification.",
-      "store_wavefunction": "none"
-    },
     "openff-1.0.0": {
       "method": "openff-1.0.0",
       "basis": "smirnoff",
