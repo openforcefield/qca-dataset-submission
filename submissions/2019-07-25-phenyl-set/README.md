@@ -29,3 +29,10 @@
 
 ## Note 2020-05--07
 5 new biphenyl molecules were added to this set.
+
+## Compute expansion 2020.10.02 (dotsdl)
+Added compute expansion with the following specs in `compute.json`:
+- openff-1.0.0
+- openff-1.2.0
+- openff-1.2.1
+- gaff-2.11
