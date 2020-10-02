@@ -34,6 +34,6 @@
 Added compute expansion with the following specs in `compute.json`:
 - default (already computed)
 - openff-1.0.0
-- openff-1.0.0
-- openff-1.0.0
+- openff-1.2.0
+- openff-1.2.1
 - gaff-2.11
