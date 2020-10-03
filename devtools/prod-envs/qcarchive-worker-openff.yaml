@@ -9,7 +9,7 @@ dependencies:
   - python =3.7
   - pip
   - qcfractal =0.14.0
-  - qcengine =0.16.0
+  - qcengine =0.17.0
 
   # QM calculations
   - psi4 =1.4a2.dev723+fb499f4
