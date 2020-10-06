@@ -14,6 +14,20 @@ The way it's set up, we are scanning phi and psi of the central residue with a r
  - Number of unique molecules: 16
  - Submitter: Josh Horton
  
+##Changelog
+Here any information regarding dataset changes are recorded.
+##v2.1
+The dataset constraints were found to be incorrect due to a mistake in the indexing. The indecies were assumed to be 0 based but were indexed from 1 this is corrected in version 2.1.
+ - Date: 06/10/20
+ - Class: OpenFF constrained optimization 
+ - Purpose: Optimizations 
+ - Collection: OptimizationDataset
+ - Name: OpenFF Protein Fragments v2.1
+ - Number of unique molecules: 16
+ - Submitter: Josh Horton
+
+ 
+ 
 Note, each folder contains molecules saved via mol2 in each confirmation however the bond order is incorrect, we let openeye interpret it by re-saving to PDB first before creating the dataset.
 
  ### QCSubmit generation pipeline
