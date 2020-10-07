@@ -176,6 +176,13 @@ def restart_optimizations(optimizations, client):
             client.modify_tasks(operation='restart', base_result=opt.id)
 
 
+def regenerate_optimizations(optimizations, client):
+    for opt in optimizations:
+        if opt.status == 'INCOMPLETE' and (opt.trajectory is not None):
+            print(opt)
+            client.modify_tasks(operation='regenerate', base_result=opt.id)
+
+
 def restart_torsiondrives(torsiondrives, client):
     for tdr in torsiondrives:
         if tdr.status == 'ERROR':
