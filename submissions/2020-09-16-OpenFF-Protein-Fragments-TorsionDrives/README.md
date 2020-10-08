@@ -25,6 +25,7 @@ Details from David Cerutti:
  - Collection: TorsionDriveDataset 
  - Name: OpenFF Protein Fragments TorsionDrives v1.0
  - Number of unique molecules: 185
+ - Number of torsiondrives: 845
  - Submitter: David Dotson
  
 Note, each folder contains molecules saved via mol2 in each confirmation; however, the bond order is incorrect.
@@ -45,7 +46,8 @@ We let openeye interpret it by re-saving to PDB first before creating the datase
 ### Metadata
 
 - elements {'C', 'H', 'N', 'O', 'S'}
-- unique molecules 185
+- unique molecules: 185
+- torsiondrives: 845
 - scf properties:
     - `dipole`
     - `quadrupole`
