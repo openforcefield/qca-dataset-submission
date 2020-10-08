@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - omnia
   - defaults
+  - openeye
 dependencies:
   - ambertools
   - openbabel
@@ -12,5 +13,6 @@ dependencies:
   - tqdm
   - pip
   - python=3.7
+  - qcsubmit
   - pip:
-    - openff-spellbook
+    - openff-spellbook ==0.0.8
