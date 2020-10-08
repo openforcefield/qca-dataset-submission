@@ -23,6 +23,7 @@ jobs:
           - qcarchive-worker-openff-ani
           - qcarchive-worker-openff-openmm
           - qcarchive-worker-openff-psi4
+          - qcarchive-worker-openff-xtb
     steps:
       - uses: actions/checkout@v2
 
