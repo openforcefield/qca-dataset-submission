@@ -1,6 +1,6 @@
 ### Description
 
-This dataset is a collection of CHO molecules. The molecules are the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters.
+This dataset is a collection of CHO molecules. The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH SMILES contained some undefined stereo centers. When this was encountered, all stereoisomers were generated and submitted for calculation. Conformers were generated using a RMS cutoff of 3 Ångstroms.
 
 ### General Information
  - Date: 09/18/2020
@@ -43,7 +43,7 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 	"dataset_name": "OpenFF Sandbox CHO PhAlkEthOH v1.0", 
 	"short_description": "A diverse set of CHO molecules",
 	"long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH",
-	"long_description": "This dataset contains an expanded set of the AlkEthOH and PhEthOH datasets, which were used in the original derivation of the smirnoff99Frosst parameters.",
+	"long_description": "This dataset contains a stereo-expanded version of the AlkEthOH dataset, and the original PhEthOH dataset, which were used in the original derivation of the smirnoff99Frosst parameters.",
 	"elements": [
 		"C",
 		"H",
