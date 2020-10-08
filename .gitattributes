@@ -42,6 +42,7 @@
 /submissions/2020-08-12-OpenFF-Protein-Fragments-version2/Input_files.tar.gz filter=lfs diff=lfs merge=lfs -text
 /submissions/2020-08-12-OpenFF-Protein-Fragments-version2/dataset.json filter=lfs diff=lfs merge=lfs -text
 /submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH/smi/PhEthOH.smi.json.lzma filter=lfs diff=lfs merge=lfs -text
+/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
