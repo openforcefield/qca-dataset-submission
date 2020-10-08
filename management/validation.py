@@ -19,6 +19,8 @@ from qcsubmit.serializers import deserialize
 from qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
 
+from compression import anyopen
+
 datasets = {
     "dataset": BasicDataset,
     "optimizationdataset": OptimizationDataset,
@@ -34,7 +36,10 @@ def get_data(file_name):
     """
     Return the deserialized dataset file.
     """
-    return deserialize(file_name)
+    with anyopen(file_name, "r") as f:
+        spec = json.load(f)
+
+    return spec
 
 
 def create_dataset(dataset_data):
