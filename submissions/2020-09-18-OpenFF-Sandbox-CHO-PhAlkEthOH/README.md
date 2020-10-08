@@ -17,7 +17,7 @@ This dataset is a collection of CHO molecules. The molecules are the AlkEthOH an
 
 ```
 ./00.preprocess_input_data.sh
-./01.submit_dataset.sh
+./01.run-qcsubmit.ipynb
 ```
 
 The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES files from the contained mol2 files. Then, QCSubmit was used to filter duplicate SMILES, enumerate stereoisomers, and generate conformers. 
