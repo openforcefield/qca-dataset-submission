@@ -326,7 +326,7 @@ def main():
     for file in file_names:
         if "dataset.json" in file:
             dataset_paths.append(file)
-        elif glob.fnmatch.fnmatch(file, "compute*.json"):
+        elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
             dataset_paths.append(file)
 
     comment = main_validation(dataset_paths)
