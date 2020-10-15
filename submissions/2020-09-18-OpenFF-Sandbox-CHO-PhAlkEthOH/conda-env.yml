@@ -1,18 +1,12 @@
-name: offsb-submit
+name: qcsubmit-phalkethoh
 channels:
   - conda-forge
   - omnia
+  - omnia/label/rc
   - defaults
-  - openeye
 dependencies:
   - ambertools
   - openbabel
   - qcfractal
-  - cmiles
-  - openforcefield
-  - tqdm
-  - pip
   - python=3.7
   - qcsubmit
-  - pip:
-    - openff-spellbook ==0.0.8
