@@ -1,7 +1,7 @@
 ### Description
 
 This dataset is a collection of CHO molecules.
-The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters.
+The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH is described in more detail at [](https://chemrxiv.org/articles/ChemPer_An_Open_Source_Tool_for_Automatically_Generating_SMIRKS_Patterns/8304578/1)
 
 The AlkEthOH SMILES contained some undefined stereo centers.
 When this was encountered, all stereoisomers were generated and submitted for calculation.
