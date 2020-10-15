@@ -1,0 +1,12 @@
+name: qcsubmit-phalkethoh
+channels:
+  - conda-forge
+  - omnia
+  - omnia/label/rc
+  - defaults
+dependencies:
+  - ambertools
+  - openbabel
+  - qcfractal
+  - python=3.7
+  - qcsubmit
