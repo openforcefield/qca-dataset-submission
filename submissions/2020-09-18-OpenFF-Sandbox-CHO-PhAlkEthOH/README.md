@@ -1,7 +1,7 @@
 ### Description
 
 This dataset is a collection of CHO molecules.
-The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH was taken from [](https://github.com/openforcefield/open-forcefield-data/tree/master/Model-Systems/AlkEthOH_distrib)
+The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH was taken from [https://github.com/openforcefield/open-forcefield-data/tree/master/Model-Systems/AlkEthOH_distrib]()
 
 The AlkEthOH SMILES contained some undefined stereo centers.
 When this was encountered, all stereoisomers were generated and submitted for calculation.
