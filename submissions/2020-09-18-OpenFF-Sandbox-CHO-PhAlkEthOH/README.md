@@ -11,6 +11,7 @@ This dataset is a collection of CHO molecules. The molecules are from the AlkEth
  - Number of unique molecules: 7408
  - Number of unique stereoisomers: 10505
  - Number of unique conformations: 12592
+ - Number of tasks submitted: 12271
  - Submitter: Trevor Gokey
  
 ### QCSubmit generation pipeline

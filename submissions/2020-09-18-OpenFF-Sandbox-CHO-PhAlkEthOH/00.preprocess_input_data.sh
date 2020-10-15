@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This command requires tleap and obabel
+# This command requires tleap (ambertools) and obabel (openbabel)
 
 log=$(basename $0).log
 
