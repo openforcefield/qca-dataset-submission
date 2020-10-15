@@ -1,9 +1,14 @@
 ### Description
 
-This dataset is a collection of CHO molecules. The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH SMILES contained some undefined stereo centers. When this was encountered, all stereoisomers were generated and submitted for calculation. Conformers were generated using a RMS cutoff of 3 Ångstroms.
+This dataset is a collection of CHO molecules.
+The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters.
+
+The AlkEthOH SMILES contained some undefined stereo centers.
+When this was encountered, all stereoisomers were generated and submitted for calculation.
+Conformers were generated using a RMS cutoff of 3 Ångstroms.
 
 ### General Information
- - Date: 09/18/2020
+ - Date: 2020.09.18
  - Class: OpenFF Optimization dataset
  - Purpose: A set of CHO molecules to test force field typing schemes.
  - Collection: OptimizationDataset
@@ -21,7 +26,8 @@ This dataset is a collection of CHO molecules. The molecules are from the AlkEth
 ./01.run-qcsubmit.ipynb
 ```
 
-The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES files from the contained mol2 files. Then, QCSubmit was used to filter duplicate SMILES, enumerate stereoisomers, and generate conformers. 
+The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES files from the contained mol2 files.
+Then, QCSubmit was used to filter duplicate SMILES, enumerate stereoisomers, and generate conformers. 
 
 ### QCSubmit Manifest
  
@@ -30,12 +36,13 @@ The pipeline starts with preprocessing PhEthOH zip file to generate the SMILES f
 - `smi/PhEthOH.smi.bz2`: The initial molecule inputs containing the SMILES used for submission.
 - `smi/PhEthOH/PhEthOH_mol2files_frosst-20200919T083119Z-001.zip`: The mol2 files containing the PhEthOh molecules.
 - `00.preprocess_input_data.sh`: The commands needed to convert the extract and convert the mol2 files to create `PhEthOH.smi`
-- `01.run-qcsubmit.ipynb`: The commands needed setup and run QCSubmit.
+- `01.run-qcsubmit.ipynb`: The commands needed setup and run QCSubmit to create the submission.
 - `lib/process_PheEthOH_mol2_to_smi.sh`: The helper command to extract and convert the mol2 files to SMILES
 - `lib/to_smi.sh`: Converts a mol2 using `tleap` and `obabel`.
 - `conda-env.yml`: The conda environment to run the preparation steps
 
- ### Metadata
+### Metadata
+
 ```
 {
 	"submitter": "trevorgokey",
