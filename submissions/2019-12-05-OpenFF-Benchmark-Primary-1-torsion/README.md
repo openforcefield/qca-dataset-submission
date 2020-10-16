@@ -5,7 +5,7 @@
  - Class: Forcefield Benchmark 
  - Purpose: Validation of optimized force field torsion parameters
  - Collection: TorsiondriveDataset
- - Name: OpenFF Benchmark Primary 1 torsion
+ - Name: OpenFF Primary Benchmark 1 Torsion Set
  - Number of Entries: 259 1-D torsions (max 5 per SMIRKs)
  - Submitter: Hyesu Jang
 
