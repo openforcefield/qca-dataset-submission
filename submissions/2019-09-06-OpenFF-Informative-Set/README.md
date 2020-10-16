@@ -8,7 +8,7 @@ This provides an optimization dataset based on an initial batch of [Jordan Ehrma
  - Class: OpenFF geometry optimization
  - Purpose: Geometry optimization of informative molecules
  - Collection: OptimizationDataset
- - Name:
+ - Name: OpenFF Ehrman Informative Optimization v0.2
  - Number of Entries: 1117 (expandable)
  - Submitter: David Mobley
 

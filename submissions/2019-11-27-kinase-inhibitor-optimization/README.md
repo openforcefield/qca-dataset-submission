@@ -6,7 +6,7 @@ Geometry optimization of kinase inhibitor conformers to explore WBO conformation
  - Class: Kinase inhibitors WBO distribution
  - Purpose: Explore WBO conformation dependency
  - Collection: OptimizationDataset
- - Name: Kinase inhibitors WBO distributions
+ - Name: Kinase Inhibitors: WBO Distributions
  - Number of Entries: 5609 optimizations (expandable)
  - Submitter: Chaya Stern
 

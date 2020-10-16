@@ -6,7 +6,7 @@ This is a torsiondrive dataset created from the [OpenFF FEP benchmark dataset](h
  - Class: OpenFF torsiondrive 
  - Purpose: Torsiondrives 
  - Collection: TorsionDriveDataset
- - Name: OpenFF-FEP-Benchmark-Ligands
+ - Name: OpenFF-benchmark-ligand-fragments-v1.0
  - Number of Entries: 368
  - Submitter: Josh Horton
  

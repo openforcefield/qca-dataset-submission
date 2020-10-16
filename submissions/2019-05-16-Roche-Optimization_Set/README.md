@@ -5,7 +5,7 @@
  - Class: OpenFF geometry optimization
  - Purpose: Geometry optimization of Roche molecules
  - Collection: OptimizationDataset
- - Name:
+ - Name: OpenFF Optimization Set 1
  - Number of Entries: 937 (expandable)
  - Submitter: Chaya Stern
 
