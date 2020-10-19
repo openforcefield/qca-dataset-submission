@@ -518,6 +518,9 @@ class SubmittableBase:
         # we will *not* restart, such as SCF convergence issues
         mgt.restart_optimizations(opts, client)
 
+        # handle cases where an Optimization has status INCOMPLETE, but data is there
+        mgt.regenerate_optimizations(opts, client)
+
     def _errorcycle_restart_torsiondrives(self, tdrs, client):
         import management as mgt
 
