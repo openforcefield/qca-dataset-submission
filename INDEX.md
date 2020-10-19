@@ -1,12 +1,12 @@
-#Dude where's my Dataset?
+# Dude where's my Dataset?
 
 Finding the source of a dataset in QCArchive can be difficult, here we offer a mapping between a dataset in QCArchive and the folder which contains its inputs including a quick overview of some metadata including the status of the dataset.
 Note that new datasets submitted using QCSubmit know where they were created and have a `long_description_url` in the metadata which points directly to their home folder in this repo.
 
-###Status
+### Status
 The status refers to only the default spec which is required for all of our datasets currently this is `B3LYP-D3BJ/DZVP`.
 
-###key:
+### key:
 
 [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) 100% of all default spec jobs have been complete.
 
@@ -16,7 +16,7 @@ The status refers to only the default spec which is required for all of our data
 
 
 
-#Basic Datasets
+# Basic Datasets
 These are currently used to compute hessians for complete optimizations.
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
@@ -33,7 +33,7 @@ These are currently used to compute hessians for complete optimizations.
 | `SMIRNOFF Coverage Set 1` | [2019-06-25-smirnoff99Frost-coverage](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-06-25-smirnoff99Frost-coverage)  | Hessian calculations. |  Cl, Br, S, C, F, P, I, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 
 
-#Optimization Datasets
+# Optimization Datasets
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ These are currently used to compute hessians for complete optimizations.
 | `OpenFF Sandbox CHO PhAlkEthOH v1.0` | [2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH) | The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH was taken from [here](https://github.com/openforcefield/open-forcefield-data/tree/master/Model-Systems/AlkEthOH_distrib) | H, C, O | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
 
 
-#TorsionDrive Datasets
+# TorsionDrive Datasets
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
@@ -93,7 +93,7 @@ These are currently used to compute hessians for complete optimizations.
 | `OpenFF Protein Fragments TorsionDrives v1.0` | [2020-09-16-OpenFF-Protein-Fragments-TorsionDrives](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives) | his is a protein fragment dataset consisting of torsion drives on various protein fragments prepared by David Cerutti. We have 12 central residues capped with a combination of different terminal residues. We drive the following angles for each fragment: - omega - phi - psi - chi1 (if applicable) - chi2 (if applicable). | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 
 
-#Grid Optimization Dataset
+# Grid Optimization Dataset
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
