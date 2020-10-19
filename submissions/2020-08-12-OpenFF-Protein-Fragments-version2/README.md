@@ -1,6 +1,6 @@
 ## Description
 
-This is the full protein fragment dataset (version2) consisting of constrained optimizations on various protein fragments prepared by David Cerutti.
+This is the full protein peptide fragment dataset (version2) consisting of constrained optimizations on various protein peptide fragments prepared by David Cerutti.
 We have 12 central residues which are capped with a combination of different terminal residues.
 
 Details from David:
@@ -14,7 +14,7 @@ Details from David:
  - Purpose: Optimizations 
  - Collection: OptimizationDataset
  - Name: OpenFF Constrained Protein Fragments v2.1
- - Number of unique molecules: 16
+ - Number of unique molecules: 185
  - Submitter: Josh Horton
  
 ## Changelog
@@ -30,7 +30,7 @@ The indices were assumed to be 0 based but were indexed from 1; this is correcte
  - Purpose: Optimizations 
  - Collection: OptimizationDataset
  - Name: OpenFF Constrained Protein Fragments v2.1
- - Number of unique molecules: 16
+ - Number of unique molecules: 185
  - Submitter: Josh Horton
  
 Note, each folder contains molecules saved via mol2 in each confirmation however the bond order is incorrect, we let openeye interpret it by re-saving to PDB first before creating the dataset.
@@ -42,10 +42,10 @@ Note, each folder contains molecules saved via mol2 in each confirmation however
 ## QCSubmit Manifest
 
 - `Qcsubmit protein prep.ipynb`: Dataset creation notebook with instructions for submission.
-- `dataset.json`: The optimization dataset ready for submission.
-- `fragments.smi`: The smiles file of the biaryl molecules.
+- `dataset.json.xz`: The compressed constrained optimization dataset ready for submission.
+- `fragments.smi`: The smiles file of the peptdide molecules.
 - `protein_dataset.pdf`: A pdf file containing molecule 2D structures.
-- `Input_files`: Folders containing the input molecule conformations and the corresponding dihedral restraints.
+- `Input_files.tar.gz`: Folders containing the input molecule conformations and the corresponding dihedral restraints.
  
 ## Metadata
 
