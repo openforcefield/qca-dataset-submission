@@ -5,6 +5,7 @@ Script to run validation using qcsubmit on dataset_fragments.json files
 import copy
 import json
 import os
+import glob
 from argparse import ArgumentParser
 
 
@@ -323,7 +324,9 @@ def main():
     file_names = json.loads(args.dataset_files)
     dataset_paths = []
     for file in file_names:
-        if "compute.json" in file or "dataset.json" in file:
+        if "dataset.json" in file:
+            dataset_paths.append(file)
+        elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
             dataset_paths.append(file)
 
     comment = main_validation(dataset_paths)

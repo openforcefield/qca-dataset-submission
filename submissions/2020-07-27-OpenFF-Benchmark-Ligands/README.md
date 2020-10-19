@@ -36,14 +36,37 @@ This is a torsiondrive dataset created from the [OpenFF FEP benchmark dataset](h
         - name: default
         - method: B3LYP-D3BJ
         - basis: DZVP
+        - program: psi4
     - openff-1.0.0:
         - name: openff-1.0.0
         - method: openff-1.0.0
         - basis: smirnoff
+        - program: openmm
     - gaff-2.11:
         - name: gaff-2.11
         - method: gaff-2.11
         - basis: antechamber
+        - program: openmm
+    - ani2x:
+        - name: ani2x
+        - method: ani2x
+        - basis: None
+        - program: torchani
+    - gfn2xtb:
+        - name: gfn2xtb
+        - method: gfn2xtb
+        - basis: None
+        - program: xtb
+    - gfn1xtb:
+        - name: gfn1xtb 
+        - method: gfn1xtb
+        - basis: None
+        - program: xtb
+    - gfnff:
+        - name: gfnff
+        - method: gfnff
+        - basis: None
+        - program: xtb
      
     
     
