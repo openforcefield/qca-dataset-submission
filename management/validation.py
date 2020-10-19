@@ -20,8 +20,6 @@ from qcsubmit.serializers import deserialize
 from qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
 
-from compression import anyopen
-
 datasets = {
     "dataset": BasicDataset,
     "optimizationdataset": OptimizationDataset,
@@ -37,10 +35,7 @@ def get_data(file_name):
     """
     Return the deserialized dataset file.
     """
-    with anyopen(file_name, "r") as f:
-        spec = json.load(f)
-
-    return spec
+    return deserialize(file_name=file_name)
 
 
 def create_dataset(dataset_data):
@@ -324,10 +319,14 @@ def main():
     file_names = json.loads(args.dataset_files)
     dataset_paths = []
     for file in file_names:
-        if "dataset.json" in file:
-            dataset_paths.append(file)
-        elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
-            dataset_paths.append(file)
+        # this covers files that are deleted and picked up by the file change check
+        if os.path.exists(file):
+            if "dataset.json" in file:
+                dataset_paths.append(file)
+            elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
+                dataset_paths.append(file)
+        else:
+            continue
 
     comment = main_validation(dataset_paths)
 
