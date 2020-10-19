@@ -13,7 +13,7 @@ Details from David:
  - Class: OpenFF constrained optimization 
  - Purpose: Optimizations 
  - Collection: OptimizationDataset
- - Name: OpenFF Protein Fragments v2.0
+ - Name: OpenFF Constrained Protein Fragments v2.1
  - Number of unique molecules: 16
  - Submitter: Josh Horton
  
@@ -29,7 +29,7 @@ The indices were assumed to be 0 based but were indexed from 1; this is correcte
  - Class: OpenFF constrained optimization 
  - Purpose: Optimizations 
  - Collection: OptimizationDataset
- - Name: OpenFF Protein Fragments v2.1
+ - Name: OpenFF Constrained Protein Fragments v2.1
  - Number of unique molecules: 16
  - Submitter: Josh Horton
  
