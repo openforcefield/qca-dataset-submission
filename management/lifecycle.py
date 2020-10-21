@@ -222,7 +222,8 @@ class Submission:
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
-                dataset.comment_archived_complete()
+                ds = DataSet(dataset, self, self.ghapi)
+                ds.comment_archived_complete()
 
 
 class SubmittableBase:
