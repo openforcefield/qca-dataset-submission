@@ -26,5 +26,7 @@ python extract-pepconf-smiles.py
 ```
 
 ### QCSubmit Manifest
+* `extract-pepconf-smiles.py` - use the OpenEye Toolkit to perceive unique chemical structures from the PEPCONF repo
+* `pepconf.csv` - the unique SMILES with associated names from PEPCONF (absent `_#` conformer suffixes)
 
 ### Metadata
