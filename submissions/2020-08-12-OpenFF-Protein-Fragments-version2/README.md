@@ -1,6 +1,6 @@
 ## Description
 
-This is the full protein peptide fragment dataset (version2) consisting of constrained optimizations on various protein peptide fragments prepared by David Cerutti.
+This is the full protein peptide fragment dataset (version 2.1) consisting of constrained optimizations on various protein peptide fragments prepared by David Cerutti.
 We have 12 central residues which are capped with a combination of different terminal residues.
 
 Details from David:
