@@ -1,3 +1,4 @@
+import os
 from tempfile import NamedTemporaryFile
 
 import openeye
@@ -48,6 +49,12 @@ def main():
         for smiles in esp_store.list()
         for esp_record in esp_store.retrieve(smiles)
     ]
+
+    # Store the conformers as SDF files.
+    os.makedirs("conformers", exist_ok=True)
+
+    for i, molecule in enumerate(molecules):
+        molecule.to_file(os.path.join("conformers", f"{i}.sdf"), "SDF")
 
     # Generate the data set to submit.
     factory = BasicDatasetFactory(
