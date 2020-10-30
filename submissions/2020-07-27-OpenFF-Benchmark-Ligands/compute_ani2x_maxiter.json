@@ -4,7 +4,7 @@
       "method": "ani2x",
       "basis": null,
       "program": "torchani",
-      "spec_name": "ani2x",
+      "spec_name": "ani2x-v2",
       "spec_description": "ANI2x ML potential. With a higher maxiter.",
       "store_wavefunction": "none"
     }
@@ -27,8 +27,8 @@
   ],
   "compute_tag": "openff",
   "metadata": {
-    "submitter": "joshuahorton",
-    "creation_date": "2020-08-14",
+    "submitter": "trevorgokey",
+    "creation_date": "2020-10-30",
     "collection_type": "TorsiondriveDataset",
     "dataset_name": "TorsionDriveDataset",
     "short_description": "OpenForcefield TorsionDrives.",
