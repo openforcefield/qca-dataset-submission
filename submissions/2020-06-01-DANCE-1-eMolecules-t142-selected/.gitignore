@@ -1,9 +1,0 @@
-# Editor files
-.*.swp
-
-# Output files -- only `t142_selected.smi` (from DANCE) and
-# `optimization_inputs.json.gz` should be included.
-*.smi
-*.sdf
-*.txt
-*.json

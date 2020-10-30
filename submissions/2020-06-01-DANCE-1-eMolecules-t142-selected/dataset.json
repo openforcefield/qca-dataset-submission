@@ -1,0 +1,4 @@
+{
+    "dataset_name": "OpenFF DANCE 1 eMolecules t142 v1.0",
+    "dataset_type": "TorsionDriveDataset"
+}
