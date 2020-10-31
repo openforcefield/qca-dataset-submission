@@ -1,4 +1,4 @@
-# OpenFF Unconstrained Protein Fragments
+# OpenFF Protein Peptide Fragments unconstrained
 
 ### Description
 
@@ -16,7 +16,7 @@ Details from David Cerutti, referring to motivations for these selections:
  - Class: OpenFF Optimization
  - Purpose: Optimizations for common amino acids
  - Collection: OptimizationDataset
- - Name: OpenFF Unconstrained Protein Fragments v2.1
+ - Name: OpenFF Protein Peptide Fragments unconstrained v1.0
  - Number of unique molecules: 185
  - Number of optimizations: 6709
  - Submitter: David Dotson
