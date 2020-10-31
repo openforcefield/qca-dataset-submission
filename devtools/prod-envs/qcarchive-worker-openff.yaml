@@ -23,6 +23,7 @@ dependencies:
   - openmm =7.4.2
   - openmmforcefields =0.8.0
   - conda-forge::libiconv
+  - ambertools ==20.4
 
   # ML calculations
   - pytorch =1.6.0
