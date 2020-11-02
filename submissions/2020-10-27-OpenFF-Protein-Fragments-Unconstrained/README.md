@@ -21,7 +21,7 @@ Details from David Cerutti, referring to motivations for these selections:
  - Number of optimizations: 6709
  - Submitter: David Dotson
  
-Note, each folder contains molecules saved via mol2 in each confirmation; however, the bond order is incorrect.
+Note, each folder contains molecules saved via mol2 in each conformation; however, the bond order is incorrect.
 We let openeye interpret it by re-saving to PDB first before creating the dataset.
 
 ### QCSubmit generation pipeline
@@ -34,7 +34,7 @@ We let openeye interpret it by re-saving to PDB first before creating the datase
 - `dataset.json.bz2`: The compressed Optimization dataset ready for submission.
 - `protein_dataset.pdf`: A pdf file containing molecule 2D structures.
 - `../2020-08-12-OpenFF-Protein-Fragments-version2/Input_files.tar.gz`: Folders containing the input molecule conformations and the (unused) corresponding dihedral restraints.
-- `molecules.smi`: SMILES for every molecule in the submission
+- `molecules.smi`: SMILES for every molecule in the submission.
  
 ### Metadata
 
