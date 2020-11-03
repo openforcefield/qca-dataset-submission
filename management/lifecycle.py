@@ -9,8 +9,6 @@ from datetime import datetime
 
 from github import Github
 
-from compression import anyopen
-
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_FILENAME = "dataset.json"
 COMPUTE_GLOB = "compute*.json"
@@ -272,8 +270,8 @@ class SubmittableBase:
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
-        with anyopen(self.submittable, "r") as f:
-            spec = json.load(f)
+        from qcsubmit.serializers import deserialize
+        spec = deserialize(self.submittable)
 
         return spec
 
