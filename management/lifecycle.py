@@ -62,6 +62,11 @@ class Submission:
         datasets = [
             file.filename for file in files if DATASET_FILENAME in file.filename
         ]
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        datasets = [ds for ds in datasets if os.path.exists(ds)]
+
         return datasets
 
     def _gather_computes(self):
@@ -69,6 +74,10 @@ class Submission:
         computes = list(filter(
             lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
             map(lambda x: x.filename, files)))
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        computes = [cs for cs in computes if os.path.exists(cs)]
 
         return computes
 
