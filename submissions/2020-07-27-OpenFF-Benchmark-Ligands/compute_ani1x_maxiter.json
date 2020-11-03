@@ -6,8 +6,7 @@
       "program": "torchani",
       "spec_name": "ani1x",
       "spec_description": "ANI1x ML potential with a high maxiter of optimizations steps.",
-      "store_wavefunction": "none",
-      "implicit_solvent": null
+      "store_wavefunction": "none"
     },
     "ani1ccx": {
       "method": "ani1ccx",
@@ -15,8 +14,7 @@
       "program": "torchani",
       "spec_name": "ani1ccx",
       "spec_description": "ANI1ccx ML potential with a high maxiter of optimizations steps.",
-      "store_wavefunction": "none",
-      "implicit_solvent": null
+      "store_wavefunction": "none"
     }
   },
   "dataset_name": "OpenFF-benchmark-ligand-fragments-v1.0",
