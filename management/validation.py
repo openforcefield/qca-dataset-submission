@@ -15,7 +15,7 @@ from qcsubmit.datasets import (BasicDataset, OptimizationDataset,
                                TorsiondriveDataset)
 from qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
                                  LinearTorsionError,
-                                 MolecularComplexError, QCSpecificationError, ConstraintError)
+                                 MolecularComplexError, QCSpecificationError, ConstraintError, PCMSettingError)
 from qcsubmit.serializers import deserialize
 from qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
@@ -147,11 +147,12 @@ def check_qcspec_coverage(dataset_data):
         try:
             dataset.add_qc_spec(**spec)
             validated = check_mark
-        except QCSpecificationError:
+        except (QCSpecificationError, PCMSettingError):
             validated = cross
 
         spec_report[spec["spec_name"]] = {"**Specification Name**": spec["spec_name"], "**Method**": spec["method"],
-                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Validated**": validated}
+                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Implicit Solvent**": spec["implicit_solvent"]["medium_Solvent"],
+                                          "**Validated**": validated}
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
