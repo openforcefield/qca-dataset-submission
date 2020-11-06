@@ -150,8 +150,9 @@ def check_qcspec_coverage(dataset_data):
         except (QCSpecificationError, PCMSettingError):
             validated = cross
 
+        solvent = spec["implicit_solvent"]
         spec_report[spec["spec_name"]] = {"**Specification Name**": spec["spec_name"], "**Method**": spec["method"],
-                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Implicit Solvent**": spec["implicit_solvent"]["medium_Solvent"],
+                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Implicit Solvent**": solvent["medium_Solvent"] if solvent is not None else solvent,
                                           "**Validated**": validated}
 
     # now get the basis coverage
