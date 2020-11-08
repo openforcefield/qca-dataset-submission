@@ -9,8 +9,6 @@ from datetime import datetime
 
 from github import Github
 
-from compression import anyopen
-
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_FILENAME = "dataset.json"
 COMPUTE_GLOB = "compute*.json"
@@ -62,6 +60,11 @@ class Submission:
         datasets = [
             file.filename for file in files if DATASET_FILENAME in file.filename
         ]
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        datasets = [ds for ds in datasets if os.path.exists(ds)]
+
         return datasets
 
     def _gather_computes(self):
@@ -69,6 +72,10 @@ class Submission:
         computes = list(filter(
             lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
             map(lambda x: x.filename, files)))
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        computes = [cs for cs in computes if os.path.exists(cs)]
 
         return computes
 
@@ -263,8 +270,8 @@ class SubmittableBase:
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
-        with anyopen(self.submittable, "r") as f:
-            spec = json.load(f)
+        from qcsubmit.serializers import deserialize
+        spec = deserialize(self.submittable)
 
         return spec
 

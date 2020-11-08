@@ -15,12 +15,10 @@ from qcsubmit.datasets import (BasicDataset, OptimizationDataset,
                                TorsiondriveDataset)
 from qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
                                  LinearTorsionError,
-                                 MolecularComplexError, QCSpecificationError, ConstraintError)
+                                 MolecularComplexError, QCSpecificationError, ConstraintError, PCMSettingError)
 from qcsubmit.serializers import deserialize
 from qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
-
-from compression import anyopen
 
 datasets = {
     "dataset": BasicDataset,
@@ -37,10 +35,7 @@ def get_data(file_name):
     """
     Return the deserialized dataset file.
     """
-    with anyopen(file_name, "r") as f:
-        spec = json.load(f)
-
-    return spec
+    return deserialize(file_name=file_name)
 
 
 def create_dataset(dataset_data):
@@ -152,11 +147,13 @@ def check_qcspec_coverage(dataset_data):
         try:
             dataset.add_qc_spec(**spec)
             validated = check_mark
-        except QCSpecificationError:
+        except (QCSpecificationError, PCMSettingError):
             validated = cross
 
+        solvent = spec["implicit_solvent"]
         spec_report[spec["spec_name"]] = {"**Specification Name**": spec["spec_name"], "**Method**": spec["method"],
-                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Validated**": validated}
+                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Implicit Solvent**": solvent["medium_Solvent"] if solvent is not None else solvent,
+                                          "**Validated**": validated}
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
@@ -324,10 +321,14 @@ def main():
     file_names = json.loads(args.dataset_files)
     dataset_paths = []
     for file in file_names:
-        if "dataset.json" in file:
-            dataset_paths.append(file)
-        elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
-            dataset_paths.append(file)
+        # this covers files that are deleted and picked up by the file change check
+        if os.path.exists(file):
+            if "dataset.json" in file:
+                dataset_paths.append(file)
+            elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
+                dataset_paths.append(file)
+        else:
+            continue
 
     comment = main_validation(dataset_paths)
 
