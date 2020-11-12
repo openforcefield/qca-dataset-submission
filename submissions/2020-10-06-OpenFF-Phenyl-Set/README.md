@@ -52,33 +52,3 @@ Extracting original molecules, conformers, and CMILES information; generating QC
       method: B3LYP-D3BJ
       basis: DZVP
       program: psi4
-
-
-## Supplemental compute specs
-
-- scf properties:
-    - `dipole`
-    - `quadrupole`
-    - `wiberg_lowdin_indices`
-    - `mayer_indices`
-- qc spec
-    - name: openff-1.0.0
-      method: openff-1.0.0
-      basis: smirnoff
-      program: openmm
-    - name: openff-1.2.0
-      method: openff-1.2.0
-      basis: smirnoff
-      program: openmm
-    - name: openff-1.2.1
-      method: openff-1.2.1
-      basis: smirnoff
-      program: openmm
-    - name: openff-1.3.0
-      method: openff-1.3.0
-      basis: smirnoff
-      program: openmm
-    - name: gaff-2.11
-      method: gaff-2.11
-      basis: antechamber
-      program: openmm
