@@ -9,7 +9,7 @@ dependencies:
   - qcengine =0.17.0
 
   # QM calculations
-  - psi4 =1.4a2.dev723+fb499f4
+  - psi4 =1.4a2.dev1058+670a850
   - dftd3
   - gcp
     
