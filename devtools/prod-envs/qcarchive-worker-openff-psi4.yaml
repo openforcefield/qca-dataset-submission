@@ -5,7 +5,7 @@ channels:
   - defaults
 dependencies:
   - python =3.7
-  - qcfractal =0.14.0
+  - qcfractal =0.15.1
   - qcengine =0.17.0
 
   # QM calculations
