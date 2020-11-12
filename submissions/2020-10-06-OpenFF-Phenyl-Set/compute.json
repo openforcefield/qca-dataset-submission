@@ -41,7 +41,7 @@
       "store_wavefunction": "none"
     }
   },
-  "dataset_name": "OpenFF Substituted Phenyl Set 1",
+  "dataset_name": "OpenFF Substituted Phenyl Set 1 v2.0",
   "dataset_tagline": "OpenForcefield TorsionDrives.",
   "dataset_type": "TorsiondriveDataset",
   "maxiter": 200,
