@@ -1,175 +1,68 @@
-# Dataset Standards
 
-This file outlines the standards and requirements needed for submitting a dataset to QCArchive.
+This file outlines the standards and data requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
-STANDARDS version: 3-DRAFT (2020-08-23)
+STANDARDS version: 3-DRAFT (2020-11-13)
 
-Implementation:
+We distinguish between standards for the datasets (i.e. the actual data), and the standards for training force fields.
 
-	- QCEngine 
-	- QCElemental
-	- QCFractal
-	- QCSubmit
+# Dataset Standards
 
-# Required fields 
+## Each molecule must have the following information:
+- Canonical isomeric explict hydrogen mapped SMILES
+- Provenence info of SMILES generation (NEW)
+- Coordinates
+- Total Charge
+- Coordinates must be in CMILES order (discuss)
 
-Training a new Open Force Field requires a specific set of data. This data touches on multiple aspects, including the underlying the theoretical chemistry models, the data structures that organize the information, and the data required for downstream calculations.
+## Each dataset must have the following information:
+- Name
+- Version (NEW)
+- A short description
+- A long description
+- A link/URL/reference pointing to the provenence to reproduce dataset (e.g. the GH submission folder)
+- A changelog (NEW)
+- A github submitter username
+- The name of the person who selected/sourced the molecules (NEW)
+- A description of the meaning of the entry/molecule keys/names (NEW)
+- Each entry has canonical isomeric explict hydrogen mapped SMILES
+- Provenence info of CMILES generation (NEW)
+- A set of elements that the dataset contains
+- A set of charges that the dataset contains (NEW)
+- The mean and max molecular weight of molecules the dataset contains (NEW)
+- Enumerated stereo flag (True/False) (NEW)
+- Enumerated tautomers flag (True/False) (NEW)
+- Enumeration provenence info (NEW)
+- Computation blacklist (known failures) (NEW)
+* Dataset status (NEW):
+	- COMPLETE/DONE; all molecules were successful
+	- INCOMPLETE/DONE; some molecules were not calculated successfully, and won't be retried
+	- INCOMPLETE/WORKING; in progress
+	- NONCOMPLIANT/DONE; the dataset does not conform to the standards, and can't be fixed
+	- NONCOMPLIANT/WORKING; the dataset does not conform to the standards, is working anyways
+	- NONCOMPLIANT/PAUSED; the dataset does not conform to the standards, and calculations have been suspended
 
-## Required fields layout for Input
+## Each dataset README must contain the following information
 
-This layout closely follows the API and implementation provided by QCArchive. All objects can be represented as JSON, which will be provided as examples below.
+All information specified in the dataset
 
-### All datasets
-	- Name: str
-	- Metadata: Dict
-		- A human description of the entry names: str
-		- The changelog: Dict
-		- A short description: str
-		- A long description: str
-		* elements: List
-	* The Entry Specification:
-		- name: "default"
-		- description: str
-		- qc_spec
-			- driver: str
-			- method: "b3lyp-d3bj"
-			- basis: "dzvp"
-			- keywords: Dict
-				- maxiter: 200
-				- scf_properties: List
-					- dipole
-					- quadrupole
-					- wiberg_lowden_indices
-					- mayer_indices
-	* Entries: Dict
-		- attributes: Dict
-			- `canonical_isomeric_explicit_hydrogen_mapped_cmiles`
-		- The molecule configurations: Dict
-			- A valid QCSchema molecule with the follwing also required:
-				- `extras`
-					- `canonical_isomeric_explicit_hydrogen_mapped_cmiles`
-				- `connectivity`
+## Each revision must use the following procedure:
 
-- Name: str
-	The name of the dataset. This is the name that will be publicly visible and needed for query/access.
-- Metadata: Dict
-	- entry_names_description: str
-	 This field helps clarify the convention used for naming the entries. Each entry is named, and this name is an arbitrary string. This is a description to help understand any information that the names are conveying. See section `Best Practices` for examples. 
-	- changelog: Dict(version: str, description: str)
-	A description of the changes made to the dataset for each version.
-	- short_description: str
-	A concise description of the dataset and the information it contains. 
-	* long_description: str
-	A longer description which contains all information relevent to the dataset
-	* elements: List
-	A list of elements that are included in the dataset molecules.
+A revision means creating a new dataset based on an existing one, with the intent of fixing/improving it.
 
-- The Entry Specification
-Every dataset should have a specification named `'default'`, which includes all of the standard settings Open Force Field uses for its calculations. The complete requirements of this object are specific to each type of dataset; see the proceeding dataset sections for details. The following fields are required by all datasets.
-	- name: str
-	The name of the specification. A specification is analogous to the details and settings used for the calculations: all calculations grouped by a specification only differ by the input molecule.
-	- description: str
-	The description of this specification. See best practices for suggestions on what to put in this description
-	- The Quantum Chemistry specification: QCSpecification
-		- driver: str
-		The type of calculation. This setting depends on the type of dataset.
-		- method: str
-		The method used for calculation. The `default` specification requires this to be `B3LYP-D3BJ`
-		* basis: str
-		The basis set used for calculation. The `default` specification requires this to be `dzvp`, and is a name specific to PSI4.
-		* keywords: KeywordSet
-		A collection of options used by the program. For `default` this is the settings for PSI4. Each keyword set is defined by an ID, and on the public database this is current ID '2':
-			- maxiter: int
-			The maximum number of SCF iterations to use in PSI4. The `default` spec requires this to be 200.
-			* scf_properties: List
-			A list of properties that PSI4 should report. The `default` spec requires this to be:
-				- dipole
-				- quadropole
-				- wiberg_lowdin_indices
-				- mayer_indices
+- The changelog must be copied from the current version, and a new entry added in the new version
+- The dataset version information is updated
+- The README is updated
+- A notebook or record of the lines of python used to manipulate the dataset responsible for the revision
+	- If the revision should have the new version in the filename e.g. `update-v3.1.1.py` (this does not work for notebooks; discuss)
+- Update the `index` of datasets on the GH repo
 
-- The Entries
-Each entry represents a molecule. It includes the "chemical" information, such as SMILES and other metadata, as well as the "physical" information, such as positions. The information in an entry is dataset specific. Below represents the information needed by all datasets.
-	* attributes: Dict
-		- canonical_isomeric_explicit_hydrogen_mapped_cmiles: str
-		The canonical isomeric explicity hydrogen mapped SMILES string of the molecule. The map connects the absolution position of each atom in the SMILES string to the positions defined in the molecule entries. Thus the string `[H:2][Cl:1]` would indicate that the first position in the conformations would correspond to `Cl`. The indices in the map always start at 1; maps pointing to 0 generally mean "unmapped".
+## QCArchive-specific dataset standards
 
-### Optimizations
+- Compute tag is `openff`
+- The computations used for the FITTING standards use the specification named `default`
 
-The optimization dataset requires the following additional details.
-
-- The `default` EntrySpecification:
-
-	- The Optimization Specification: OptimizationSpecification
-		- program: "geometric"
-		- keywords: Dict
-			- coordsys: "tric"
-			- enforce: 0.1
-			- reset: True
-			- qcconv: True
-			- epsilon: 0.0
-
-* The Optimization Specification
-	The program to use for the optimization and the program-specific options it uses. The `default` spec requires the program to be `geometric`. The keywords vary depending on the dataset, for OptimizationDatasets they as listed above.
-
-	- Conforming example:
-
-	TODO: ADD HERE
-	
-- TorsionDrives
-
-	Essentially the same as OptimizationDatasets, but adding to each Entry requires a list of torsions (4-tuples) to drive, and the constant interval spacing. 
-	Additionally, each Entry contains a list of input molecules, whereas OptimizationDataset Entries contain a single molecule conformation.
-
-	After calculation, the Optimizations will have the following information
-
-	- Conforming example:
-	TODO: ADD HERE
-
-- Hessians
-	- The qc_spec options
-	- Conforming example:
-	TODO: ADD HERE
-
-- GridOptimizations
-	- The qc_spec options
-	- Conforming example:
-	TODO: ADD HERE
-
-* Training sets
-	- Metadata
-		- DOI 
-	- Necessary contributed values
-
-	- Conforming example:
-	TODO: ADD HERE
-
-* Benchmarking sets
-	- Metadata
-		- DOI
-	- Necessary contributed values
-
-	Conforming example:
-	TODO: ADD HERE
-
-## Required fields layout after calculation
-
-This specifies the fields that will be present after a calculation has been performed.
-
-## Job specifications (level of theory; settings)
-
-OpenFF depends on a QCSpecification named "default" which corresponds to `B3LYP-D3BJ/DZVP` in Psi4. Submissions may have multiple specifications, but must include the `default`. 
-
-# Best practices
-
-* If any calculations are to be redone from another collection, re-use the old input (coordinates, atom ordering etc) as this will avoid running the calculation again and will just create new references in the database to the old results and should help keep the cost of the calculations down.  
-
-# Entry naming
-
-Entries names are not subject to any requirements other than being a string of characters. Appropriate names can give more depth and insight to a dataset, so choosing an effective naming scheme should be taken seriously. A typical example is torsion drives, where the entry names are SMILES string with all elements converted to lower case, and the 4 atoms involved in the torsion are labeled, e.g. `'c[c:1][c:2][c:3][c:4]c'`. Another example is in optimization sets, where the lower-cased SMILES with `-N` appended is used, which signifies the conformation for that given molecule. Another option is just to name each entry with a stringified number, e.g. `'1', '2', '3'`, etc, but this does not convey any information, and should be avoided if possible. One case where this may potentially be appropriate is if the structures are large (proteins) and a short, managable name is not possible. However, one may decide to use sequences (`MEGFFFKSS`) or PDB IDs instead. Overall, the hallmarks of a good name is utility and readability. Whichever naming scheme is used, the `entry_names_description` must describe the convention.
-
-# Dataset naming and versioning
+## Dataset naming and versioning
 
 Each dataset shall be versioned.
 - The naming of a dataset should have the following structure:
@@ -182,62 +75,54 @@ Each dataset shall be versioned.
 
 * Datasets with versions starting with `"v1.x"` and `"v2.x"` do not follow any official STANDARDS, and thus should be considered `"v0.x"`.
 
-- A dataset with the suffix `"-beta"` is not to be used for production work.
-
-- A minor version change (e.g. `"v3.1"`) represents a cosmetic or minor additions/problems that were addressed:
-    - Cosmetic changes
+- A minor version change (e.g. `"v3.1"`) represents a minor addition and/or fixes problems:
 	- Errors/bugs in the molecule specification
-	- Changes necessary to adhere to the STANDARDS
+	- Changes necessary to adhere to the STANDARDS (i.e. changes necessary to placate the NONCOMPLIANT status)
+
+- A patch (e.g. `"v3.1.1"`) represents a cosmetic change, or a change that is based on dynamic information that does not change the underlying data:
+    - Cosmetic changes
+	- Updating the blacklist
+	- Updating the dataset status
+
+(It might be useful to make the version bump in the changelog, but not the actual dataset name; this would depend on the ability to changing a dataset metadata of an existing dataset. This would allow existing scripts to not need to update to use a new dataset name when e.g. we update the status to COMPLETE/DONE or NONCOMPLIANT/PAUSED->INCOMPLETE/WORKING).
 
 A best-effort is made to ensure that a dataset follows its underlying STANDARDS. One must assume that the newest version of a dataset best conforms to these STANDARDS, and the same promise may not hold for earlier versions. The changelog should address any changes made to improve compliance.
 
 Each version increment should take the information from the previous `changelog` field, and add a new entry of the form { "version": description } that explains the modifications made to the dataset. Each dataset should therefore have the complete changelog.
 
-## Tags indicate status
+# Fitting standards
 
-A tag `"complete"` indicates that a dataset is completed as far as OpenFF is concerned.
-This means that any errors remaining are known to be acceptable or impossible to fix.
-It also means that no additional work is being done on the dataset to get it to completion.
+Reference level of theory: `B3LYP/DZVP`
+Geometry optimizations: `geomeTRIC` using the TRIC coordinate system
+QM program: `Psi4`
 
-A tag `"inflight"` indicates that a dataset is not completed as far as OpenFF is concerned.
-This means that any errors remaining are being actively addressed.
+For unconstrained geometries, all molecules must have:
+- Wiberg Bond Orders (parameter interpolation)
+- Hessian (frequency fitting) (is this too restrictive? discuss)
 
-All datasets should also feature a `"openff"` tag.
+Pre-submission filtering:
+- Unless explicitly specified in the submission descriptions, torsion drives must be on 4 connected atoms
+- Torsions driving a ring will give a warning, and torsions in a a ring of  3,4,5,6 atoms is considered an error
+- Warnings will be given if an atom does not have a complete valence set
+
+Post-submission filtering: (we need testers/validators for these)
+	- OpenFF toolkit ingestion with strict stereo checking in RDKit
+	- Hydrogen bonding
+	- Torsion drives on rings or other high barrier issues
+	- CMILES change (no way to build new CMILES since connectivity cannot be trusted, also this means we can't trust per-molecule CMILES until this filtering check passes)
 
 ## Force Field Releases
 
-When a new force field is released, a dataset corresponding to all results used for the force field fitting should be created.
-This gives a single reference for these data instead of many references.
-The format of these dataset names is:
+Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. Filtering must be done prior, such that all molecules in the release datasets pass all post-submission filters.
 
-    `"OpenFF Force Field <friendly name> <ff version>"`
+The format of these dataset names must use the following format:
 
-## Group
+    `"OpenFF SMIRNOFF <friendly name> <ff version>"`
 
-The dataset's group should be set to `"OpenFF"`.
+for example, all datasets (optimizations, torsion drives, and Hessians) with the name `"OpenFF SMIRNOFF Sage 2.0.0"` would refer to all data used to train `openff-2.0.0.offxml` in the `openforcefields` package.
 
-## Molecule validation
+Besides the regular information from the other datasets, these fitting datasets must have:
 
-* See ["Molecule submission checklist"](https://github.com/openforcefield/qcsubmit/issues/9)
+- `DOI`
+- Dataset standards version (this document)
 
-* Unique keys in `ds.data.records` must not reference the same entry.
-* Unless explicitly specified in the submission descriptions, torsion drives must be on 4 connected atoms
-* Torsions driving a ring will give a warning, and torsions in a a ring of  3,4,5,6 atoms is considered an error
-* Warnings will be given if an atom does not have a complete valence set
-
-# Standard functions and modules for entry preparation
-
-* QCSubmit (https://github.com/openforcefield/qcsubmit)
-
-## Related/ongoing discussions
-
-### Required fields
-
-* See ["Fields that should be required for OpenFF submissions"](https://github.com/openforcefield/qcsubmit/issues/3)
-
-
-### Adding Compute to old datasets
-Datasets now support multiple QC specifications and will start compute for them all simultaneously when submitted.
-However in some cases you may want to add new specifications to old datasets already in the archive, to do this make a PR in the normal way with either a `dataset.json` or `compute.json` qcsubmit dataset. 
-The dataset should be of the correct type and have the name set to that in the archive.   The dataset entries should be empty and only the new `qc_specifications` section should be filled in which will cause the 
-CI to search the public archive for the dataset and validate the basis coverage before submitting. 
