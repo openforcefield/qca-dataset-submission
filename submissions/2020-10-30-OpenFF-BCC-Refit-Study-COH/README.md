@@ -28,7 +28,7 @@ The conformers included in the set where generated using version 0.0.1a4 of the 
 ### QCSubmit Manifest
 
 - `generate.py`: The script used to prepare the dataset.
-- `dataset.json`: The basic dataset ready for submission.
+- `dataset.json.xz`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `molecules.smi`: SMILES for every molecule in the submission.
  
