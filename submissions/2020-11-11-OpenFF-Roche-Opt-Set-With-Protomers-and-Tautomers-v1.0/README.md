@@ -8,8 +8,8 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
  - Class: OpenFF Optimization dataset
  - Purpose: Improve coverage of FF with addition of protonation states and tautomers
  - Collection: OptimizationDataset
- - Name: OpenFF Optimization Set 1 charged
- - Number of unique molecules: 468
+ - Name: OpenFF Roche Opt Set With Protomers and Tautomers v1.0
+ - Number of unique molecules: 1043
  - Number of unique conformers: 1043
  - Number of tasks submitted: -
  - Submitter: Pavan Behara
@@ -19,7 +19,7 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
 ```
 ./01.run-qcsubmit.ipynb
 ```
-`OpenFF_references.sdf.tar` contains the sdf file with 468 molecules 
+`OpenFF_references.sdf.tar` contains the sdf file with 1043 molecules 
 QCSubmit was used to filter duplicate SMILES, enumerate protomers, tautomers, and generate conformers. 
 
 ### QCSubmit Manifest
@@ -34,9 +34,9 @@ QCSubmit was used to filter duplicate SMILES, enumerate protomers, tautomers, an
 	"submitter": "pavankum",
 	"creation_date": "2020-11-11",
 	"collection_type": "OptimizationDataset",
-	"dataset_name": "OpenFF Optimization Set 1 charged", 
+	"dataset_name": "OpenFF Roche Opt Set With Protomers and Tautomers v1.0", 
 	"short_description": "",
-	"long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-11-11-OpenFF-Optimization-Set-1-charged",
+	"long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-11-11-OpenFF Roche Opt-Set-With-Protomers-and-Tautomers-v1.0",
 	"long_description": "This dataset contains a tuatomer and protomer expanded version of the Roche Optimization set, which was used in Gen 1 fitting of FF.",
 	"elements": [
 		"Cl",
