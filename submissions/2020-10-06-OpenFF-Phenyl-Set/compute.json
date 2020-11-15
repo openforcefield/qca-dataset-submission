@@ -8,14 +8,6 @@
       "spec_description": "default openff-1.0.0 spec",
       "store_wavefunction": "none"
     },
-    "openff-1.2.0": {
-      "method": "openff-1.2.0",
-      "basis": "smirnoff",
-      "program": "openmm",
-      "spec_name": "openff-1.2.0",
-      "spec_description": "default openff-1.2.0 spec",
-      "store_wavefunction": "none"
-    },
     "openff-1.2.1": {
       "method": "openff-1.2.1",
       "basis": "smirnoff",

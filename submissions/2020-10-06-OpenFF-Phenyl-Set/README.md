@@ -66,10 +66,6 @@ Extracting original molecules, conformers, and CMILES information; generating QC
       method: openff-1.0.0
       basis: smirnoff
       program: openmm
-    - name: openff-1.2.0
-      method: openff-1.2.0
-      basis: smirnoff
-      program: openmm
     - name: openff-1.2.1
       method: openff-1.2.1
       basis: smirnoff
