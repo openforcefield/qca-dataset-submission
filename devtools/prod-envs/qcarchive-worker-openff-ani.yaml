@@ -10,7 +10,7 @@ dependencies:
   - qcengine =0.17.0
 
   # ML calculations
-  - pytorch =1.6.0
+  - pytorch =1.6.0        # before upgrading, check interactions with other packages
 
   # procedures
   - geometric
