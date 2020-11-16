@@ -31,7 +31,7 @@ jobs:
           ulimit -a
 
       - name: Configure conda
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.7
           activate-environment: queued-submit
