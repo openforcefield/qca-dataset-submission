@@ -412,11 +412,22 @@ class SubmittableBase:
         tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client, dataset_specs)
         opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client, dataset_specs)
 
+        to_restart, defunct, himem = self._errorcycle_filter_optimizations(opts)
+
+        # retag defunct, himem opts
+        self._errorcycle_retag_optimizations(defunct, himem, client)
+
         opt_error_counts = mgt.count_unique_optimization_error_messages(
-            opts, full=True, pretty_print=True, tolerate_missing=True
+            to_restart, full=True, pretty_print=True, tolerate_missing=True
         )
 
-        self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
+        himem_opt_error_counts = mgt.count_unique_optimization_error_messages(
+            himem, tolerate_missing=True
+        )
+
+        #TODO: get set of torsiondrives with at least one defunct optimization
+        # subtract this from below to allow progress despite established failures
+        # may also want to include these torsiondrives in report
 
         if (df_tdr[["RUNNING", "INCOMPLETE", "ERROR"]].sum().sum() == 0) and (
             df_tdr_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0
@@ -424,9 +435,14 @@ class SubmittableBase:
             complete = True
         else:
             # restart errored torsiondrives and optimizations
-            self._errorcycle_restart_optimizations(opts, client)
+            self._errorcycle_restart_optimizations(to_restart + himem, client)
             self._errorcycle_restart_torsiondrives(tdrs, client)
             complete = False
+
+        self._errorcycle_torsiondrive_report(df_tdr,
+                                             df_tdr_opt,
+                                             opt_error_counts,
+                                             himem_opt_error_counts)
 
         return complete
 
@@ -476,11 +492,13 @@ class SubmittableBase:
         df.index.name = "specification"
         return all_opts, df
 
-    def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
+    def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts, himem_opt_error_counts):
 
         if len(opt_error_counts) > 60000:
             opt_error_counts = opt_error_counts[:60000]
             opt_error_counts += "\n--- Too many errors; truncated here ---\n"
+
+        himem_opt_error_count_total = sum(himem_opt_error_counts.values())
 
         comment = f"""
         ## Lifecycle - Error Cycling Report
@@ -497,6 +515,10 @@ class SubmittableBase:
         ### `OptimizationRecord` current status
 
         {df_tdr_opt.to_markdown()}
+
+        ### High Memory Error Counts
+
+        Total error count for optimizations requiring high memory: {himem_opt_error_count_total}
 
         #### `OptimizationRecord` Error Tracebacks:
 
@@ -626,7 +648,6 @@ class SubmittableBase:
             opt_error_counts += "\n--- Too many errors; truncated here ---\n"
 
         himem_opt_error_count_total = sum(himem_opt_error_counts.values())
-
 
         comment = f"""
         ## Lifecycle - Error Cycling Report
