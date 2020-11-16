@@ -4,6 +4,7 @@ import os
 import glob
 import json
 import traceback
+import functools
 from collections import defaultdict
 from datetime import datetime
 
@@ -519,15 +520,49 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    def _errorcycle_filter_optimizations(self, opts):
+        import management as mgt
+
+        defunct_filters = [mgt.filter_scf_convergence,
+                           mgt.filter_opt_convergence,
+                           mgt.filter_basis_coverage]
+
+        himem_filters = [mgt.filter_out_of_memory]
+
+        # apply all filters to get back only the optimizations we want to restart
+        restart_filter = functools.reduce(lambda f, g: lambda x: f(g(x)), defunct_filters + himem_filters, lambda x:x)
+        to_restart = restart_filter(opts)
+
+        # get optimizations we want to mark as defunct
+        # set defunct compute tag for all defunct opts
+        defunct = []
+        for filterfunc in defunct_filters:
+            defunct.extend(filterfunc(opts, return_filtered_instead=True))
+
+        # get optimizations we want to mark as himem
+        # set himem compute tag for all high memory opts
+        himem = []
+        for filterfunc in himem_filters:
+            himem.extend(filterfunc(opts, return_filtered_instead=True))
+
+        return to_restart, defunct, himem
+
+    def _errorcycle_retag_optimizations(self, defunct, himem, client):
+        import management as mgt
+
+        mgt.retag_optimizations_defunct(defunct, client)
+        mgt.retag_optimizations_himem(himem, client)
+
     def _errorcycle_restart_optimizations(self, opts, client):
         import management as mgt
 
-        # TODO: add some nuance for the types of optimzations
-        # we will *not* restart, such as SCF convergence issues
-        mgt.restart_optimizations(opts, client)
+        # restart all optimizations
+        restarted = mgt.restart_optimizations(opts, client)
 
         # handle cases where an Optimization has status INCOMPLETE, but data is there
         mgt.regenerate_optimizations(opts, client)
+
+        return restarted
 
     def _errorcycle_restart_torsiondrives(self, tdrs, client):
         import management as mgt
@@ -539,18 +574,27 @@ class SubmittableBase:
 
         opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
 
+        to_restart, defunct, himem = self._errorcycle_filter_optimizations(opts)
+
+        # retag defunct, himem opts
+        self._errorcycle_retag_optimizations(defunct, himem, client)
+
         opt_error_counts = mgt.count_unique_optimization_error_messages(
-            opts, full=True, pretty_print=True, tolerate_missing=True
+            to_restart, full=True, pretty_print=True, tolerate_missing=True
         )
 
-        self._errorcycle_optimization_report(df_opt, opt_error_counts)
+        himem_opt_error_counts = mgt.count_unique_optimization_error_messages(
+            himem, tolerate_missing=True
+        )
 
-        if df_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
+        if df_opt[["INCOMPLETE", "ERROR"]].sum().sum() - len(defunct) == 0:
             complete = True
         else:
-            # restart errored optimizations
-            self._errorcycle_restart_optimizations(opts, client)
+            # restart non-defunct or himem errored optimizations
+            restarted = self._errorcycle_restart_optimizations(to_restart + himem, client)
             complete = False
+
+        self._errorcycle_optimization_report(df_opt, opt_error_counts, himem_opt_error_counts)
 
         return complete
 
@@ -575,11 +619,14 @@ class SubmittableBase:
         df.index.name = "specification"
         return opts, df
 
-    def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
+    def _errorcycle_optimization_report(self, df_opt, opt_error_counts, himem_opt_error_counts):
 
         if len(opt_error_counts) > 60000:
             opt_error_counts = opt_error_counts[:60000]
             opt_error_counts += "\n--- Too many errors; truncated here ---\n"
+
+        himem_opt_error_count_total = sum(himem_opt_error_counts.values())
+
 
         comment = f"""
         ## Lifecycle - Error Cycling Report
@@ -592,6 +639,10 @@ class SubmittableBase:
         ### `OptimizationRecord` current status
 
         {df_opt.to_markdown()}
+
+        ### High Memory Error Counts
+
+        Total error count for optimizations requiring high memory: {himem_opt_error_count_total}
 
         #### `OptimizationRecord` Error Tracebacks:
 

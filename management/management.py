@@ -166,6 +166,53 @@ def count_unique_optimization_error_messages(
     else:
         return errors
 
+## error filtering
+
+def filter_optimizations(optimizations, to_match, return_filtered_instead=False):
+
+    if isinstance(to_match, str):
+        to_match = [to_match]
+
+    if return_filtered_instead:
+        return [opt for opt in optimizations
+                if any([tm in opt.get_error().error_message for tm in to_match])]
+    else:
+        return [opt for opt in optimizations
+                if not any([tm in opt.get_error().error_message for tm in to_match])]
+
+def filter_scf_convergence(optimizations, return_filtered_instead=False):
+
+    to_match = "Could not converge SCF iterations"
+
+    return filter_optimizations(optimizations,
+                                to_match,
+                                return_filtered_instead=return_filtered_instead)
+
+def filter_opt_convergence(optimizations, return_filtered_instead=False):
+
+    to_match = "Optimizer.optimizeGeometry() failed to converge"
+
+    return filter_optimizations(optimizations,
+                                to_match,
+                                return_filtered_instead=return_filtered_instead)
+
+def filter_basis_coverage(optimizations, return_filtered_instead=False):
+
+    to_match = ["does not support symbols"]
+
+    return filter_optimizations(optimizations,
+                                to_match,
+                                return_filtered_instead=return_filtered_instead)
+
+
+def filter_out_of_memory(optimizations, return_filtered_instead=False):
+
+    to_match = ["A process in the process pool was terminated abruptly",
+                "Unknown error, error message is not found"]
+
+    return filter_optimizations(optimizations,
+                                to_match,
+                                return_filtered_instead=return_filtered_instead)
 
 ## restarts
 
@@ -175,6 +222,8 @@ def restart_optimizations(optimizations, client):
             print(f"Restarted ERRORed optimization `{opt.id}`")
             client.modify_tasks(operation='restart', base_result=opt.id)
 
+    return optimizations
+
 
 def regenerate_optimizations(optimizations, client):
     for opt in optimizations:
@@ -182,9 +231,27 @@ def regenerate_optimizations(optimizations, client):
             print(f"Regnerated INCOMPLETE optimization `{opt.id}`")
             client.modify_tasks(operation='regenerate', base_result=opt.id)
 
+    return optimizations
+
 
 def restart_torsiondrives(torsiondrives, client):
     for tdr in torsiondrives:
         if tdr.status == 'ERROR':
             print(f"Restarted ERRORed torsiondrive `{tdr.id}`")
             client.modify_services('restart', procedure_id=tdr.id)
+
+
+## compute retag
+
+def retag_optimizations(optimizations, client, compute_tag):
+    for opt in optimizations:
+        print(f"Retagged optimization `{opt.id}` with `{compute_tag}")
+        client.modify_tasks(operation='modify', base_result=opt.id, new_tag=compute_tag)
+
+
+def retag_optimizations_himem(optimizations, client):
+    retag_optimizations(optimizations, client, compute_tag='openff-himem')
+
+
+def retag_optimizations_defunct(optimizations, client):
+    retag_optimizations(optimizations, client, compute_tag='openff-defunct')
