@@ -6,7 +6,33 @@
       "program": "psi4",
       "spec_name": "resp-2-vacuum",
       "spec_description": "The quantum chemistry specification used in the RESP2 publication for the vacuum (i.e. no PCM) calculations.",
-      "store_wavefunction": "orbitals_and_eigenvalues"
+      "store_wavefunction": "orbitals_and_eigenvalues",
+      "implicit_solvent": null
+    },
+    "resp-2-water": {
+      "method": "pw6b95",
+      "basis": "aug-cc-pV(D+d)Z",
+      "program": "psi4",
+      "spec_name": "resp-2-water",
+      "spec_description": "The quantum chemistry specification used in the RESP2 publication for the aqueous (i.e. with PCM) calculations.",
+      "store_wavefunction": "orbitals_and_eigenvalues",
+      "implicit_solvent": {
+        "units": "angstrom",
+        "codata": 2010,
+        "cavity_Type": "GePol",
+        "cavity_Area": 0.3,
+        "cavity_Scaling": true,
+        "cavity_RadiiSet": "Bondi",
+        "cavity_MinRadius": 52.917721067,
+        "cavity_Mode": "Implicit",
+        "medium_SolverType": "CPCM",
+        "medium_Nonequilibrium": false,
+        "medium_Solvent": "H2O",
+        "medium_MatrixSymm": true,
+        "medium_Correction": 0.0,
+        "medium_DiagonalScaling": 1.07,
+        "medium_ProbeRadius": 0.52917721067
+      }
     }
   },
   "dataset_name": "OpenFF BCC Refit Study COH v1.0",
@@ -27,10 +53,10 @@
   ],
   "compute_tag": "openff",
   "metadata": {
-    "creation_date": "2020-10-30",
+    "creation_date": "2020-11-19",
     "elements": [
-      "C",
       "H",
+      "C",
       "O"
     ],
     "collection_type": "DataSet",
@@ -41,7 +67,7 @@
     "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-10-30-OpenFF-BCC-Refit-Study-COH"
   },
   "provenance": {
-    "qcsubmit": "0+untagged.226.g64f751b.dirty",
+    "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
     "openforcefield": "0.8.0",
     "openeye": "2020.1.0",
     "openff-recharge": "0.0.1a4",
@@ -60,7 +86,7 @@
         "standard_inchi": "InChI=1S/C5H10/c1-2-4-5-3-1/h1-5H2",
         "inchi_key": "RGSFGYAAUTVSQA-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -220,6 +246,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -243,7 +270,7 @@
         "standard_inchi": "InChI=1S/C6H12/c1-2-4-6-5-3-1/h1-6H2",
         "inchi_key": "XDTMQSROBMDMFD-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -430,6 +457,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -453,7 +481,7 @@
         "standard_inchi": "InChI=1S/C4H8O/c1-2-4-5-3-1/h1-4H2",
         "inchi_key": "WYURNTSHIVDZCO-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -595,6 +623,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -618,7 +647,7 @@
         "standard_inchi": "InChI=1S/C5H10O/c1-2-4-6-5-3-1/h1-5H2",
         "inchi_key": "DHXVGJBLRPWPCS-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -787,6 +816,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -810,7 +840,7 @@
         "standard_inchi": "InChI=1S/C4H8O2/c1-2-6-4-3-5-1/h1-4H2",
         "inchi_key": "RYHBNJHYFVUHQT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -961,6 +991,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -984,7 +1015,7 @@
         "standard_inchi": "InChI=1S/C10H16/c1-8(2)10-6-4-9(3)5-7-10/h4,10H,1,5-7H2,2-3H3/t10-/m0/s1",
         "inchi_key": "XMGQYMWWDOXHJM-JTQLQIEISA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -1243,6 +1274,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -1266,7 +1298,7 @@
         "standard_inchi": "InChI=1S/C6H12/c1-3-5-6-4-2/h3H,1,4-6H2,2H3",
         "inchi_key": "LIKMAJRDDDTEIG-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -1448,6 +1480,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -1629,6 +1662,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -1652,7 +1686,7 @@
         "standard_inchi": "InChI=1S/C4H6O2/c1-3(5)4(2)6/h1-2H3",
         "inchi_key": "QSJXEFYPDANLFS-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -1780,6 +1814,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -1803,7 +1838,7 @@
         "standard_inchi": "InChI=1S/C5H10O/c1-4(2)5(3)6/h4H,1-3H3",
         "inchi_key": "SYBYTAAJFKOIEJ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -1967,6 +2002,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -1990,7 +2026,7 @@
         "standard_inchi": "InChI=1S/C6H12O/c1-5(2)4-6(3)7/h5H,4H2,1-3H3",
         "inchi_key": "NTIZESTWPVYFNL-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -2181,6 +2217,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -2204,7 +2241,7 @@
         "standard_inchi": "InChI=1S/C8H8O2/c1-7(9)10-8-5-3-2-4-6-8/h2-6H,1H3",
         "inchi_key": "IPBVNPXQWQGGJP-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -2391,6 +2428,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -2414,7 +2452,7 @@
         "standard_inchi": "InChI=1S/C8H8O/c1-7(9)8-5-3-2-4-6-8/h2-6H,1H3",
         "inchi_key": "KWOLFJPFCHCOCG-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -2592,6 +2630,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -2615,7 +2654,7 @@
         "standard_inchi": "InChI=1S/C9H10O/c1-7-5-3-4-6-9(7)8(2)10/h3-6H,1-2H3",
         "inchi_key": "YXWWHNCQZBVZPV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -2820,6 +2859,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -2843,7 +2883,7 @@
         "standard_inchi": "InChI=1S/C8H8O2/c1-6(9)7-4-2-3-5-8(7)10/h2-5,10H,1H3",
         "inchi_key": "JECYUBVRTQDVAT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -3030,6 +3070,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -3053,7 +3094,7 @@
         "standard_inchi": "InChI=1S/C4H10O/c1-4(2,3)5/h5H,1-3H3",
         "inchi_key": "DKGAVHZHDRPRBM-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -3208,6 +3249,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -3231,7 +3273,7 @@
         "standard_inchi": "InChI=1S/C3H6O/c1-3(2)4/h1-2H3",
         "inchi_key": "CSCPPACGZOOCGX-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -3341,6 +3383,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -3364,7 +3407,7 @@
         "standard_inchi": "InChI=1S/C8H14O2/c1-5(2)7(9)8(10)6(3)4/h5-6H,1-4H3",
         "inchi_key": "BANWXFSXYBCSAT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -3600,6 +3643,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -3835,6 +3879,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -4070,6 +4115,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -4305,6 +4351,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -4540,6 +4587,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -4563,7 +4611,7 @@
         "standard_inchi": "InChI=1S/C6H10O2/c1-4(2)6(8)5(3)7/h4H,1-3H3",
         "inchi_key": "JENYBWHRLYZSSZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -4745,6 +4793,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -4926,6 +4975,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5107,6 +5157,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5130,7 +5181,7 @@
         "standard_inchi": "InChI=1S/C8H18/c1-7(2)6-8(3,4)5/h7H,6H2,1-5H3",
         "inchi_key": "NHTMVDHEPJAVLT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -5384,6 +5435,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5407,7 +5459,7 @@
         "standard_inchi": "InChI=1S/C4H10O/c1-4(2)3-5/h4-5H,3H2,1-2H3",
         "inchi_key": "ZXEKIIBDNHEJCQ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -5562,6 +5614,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5585,7 +5638,7 @@
         "standard_inchi": "InChI=1S/C3H8O/c1-3(2)4/h3-4H,1-2H3",
         "inchi_key": "KFZMGEQAYNKOFK-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -5713,6 +5766,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5736,7 +5790,7 @@
         "standard_inchi": "InChI=1S/C6H14O/c1-5(2)7-6(3)4/h5-6H,1-4H3",
         "inchi_key": "ZAFNJMIOTHYJRJ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -5945,6 +5999,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -5968,7 +6023,7 @@
         "standard_inchi": "InChI=1S/C6H12O/c1-2-3-4-5-6-7/h3-4,7H,2,5-6H2,1H3/b4-3-",
         "inchi_key": "UFLHIIWVXFIJGU-ARJAWSKDSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -6159,6 +6214,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -6349,6 +6405,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -6539,6 +6596,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -6729,6 +6787,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -6919,6 +6978,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -6942,7 +7002,7 @@
         "standard_inchi": "InChI=1S/C10H16O/c1-9(2)7-4-5-10(3,6-7)8(9)11/h7H,4-6H2,1-3H3/t7-,10+/m0/s1",
         "inchi_key": "LHXDLQBQYFFVNW-OIBJUYFYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -7215,6 +7275,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -7238,7 +7299,7 @@
         "standard_inchi": "InChI=1S/C7H14/c1-7-5-3-2-4-6-7/h7H,2-6H2,1H3",
         "inchi_key": "UAEPNZWRGJTJPN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -7452,6 +7513,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -7475,7 +7537,7 @@
         "standard_inchi": "InChI=1S/C5H10/c1-4-5(2)3/h4H,1-3H3",
         "inchi_key": "BKOOMYPCSUNDGP-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -7630,6 +7692,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -7653,7 +7716,7 @@
         "standard_inchi": "InChI=1S/C4H8/c1-3-4-2/h3-4H,1-2H3/b4-3+",
         "inchi_key": "IAQRGUVFOMOMEM-ONEGZZNKSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -7781,6 +7844,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -7804,7 +7868,7 @@
         "standard_inchi": "InChI=1S/C7H12O2/c1-4-6(8)7(9)5(2)3/h5H,4H2,1-3H3",
         "inchi_key": "VYDFLMCRLHTTEX-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -8013,6 +8077,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -8221,6 +8286,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -8429,6 +8495,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -8637,6 +8704,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -8845,6 +8913,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -8868,7 +8937,7 @@
         "standard_inchi": "InChI=1S/C5H8O2/c1-3-5(7)4(2)6/h3H2,1-2H3",
         "inchi_key": "TZMFJUDUGYTVRY-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -9023,6 +9092,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9177,6 +9247,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9331,6 +9402,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9354,7 +9426,7 @@
         "standard_inchi": "InChI=1S/C5H10O/c1-3-5(6)4-2/h3-4H2,1-2H3",
         "inchi_key": "FDPIMTJIUBPUKL-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -9518,6 +9590,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9541,7 +9614,7 @@
         "standard_inchi": "InChI=1S/C4H8O2/c1-3-4(5)6-2/h3H2,1-2H3",
         "inchi_key": "RJUFJBKOKNCXHH-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -9687,6 +9760,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9710,7 +9784,7 @@
         "standard_inchi": "InChI=1S/C5H12O/c1-4-5(2,3)6/h6H,4H2,1-3H3",
         "inchi_key": "MSXVEPNJUHWQHW-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -9892,6 +9966,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -9915,7 +9990,7 @@
         "standard_inchi": "InChI=1S/C4H8O/c1-3-4(2)5/h3H2,1-2H3",
         "inchi_key": "ZWEHNKRNPOVVGH-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -10052,6 +10127,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -10075,7 +10151,7 @@
         "standard_inchi": "InChI=1S/C5H10O2/c1-3-4-5(6)7-2/h3-4H2,1-2H3",
         "inchi_key": "UUIQMZJEGPQKFD-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -10248,6 +10324,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -10271,7 +10348,7 @@
         "standard_inchi": "InChI=1S/C5H10O/c1-3-4-5(2)6/h3-4H2,1-2H3",
         "inchi_key": "XNLICIUVMPYHGG-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -10435,6 +10512,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -10458,7 +10536,7 @@
         "standard_inchi": "InChI=1S/C5H12/c1-3-5-4-2/h3-5H2,1-2H3",
         "inchi_key": "OFBQJSOFQDEBGM-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -10631,6 +10709,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -10654,7 +10733,7 @@
         "standard_inchi": "InChI=1S/C6H12O2/c1-3-4-5-6(7)8-2/h3-5H2,1-2H3",
         "inchi_key": "HNBDRPTVWVGKBR-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -10854,6 +10933,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -11053,6 +11133,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -11252,6 +11333,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -11451,6 +11533,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -11650,6 +11733,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -11673,7 +11757,7 @@
         "standard_inchi": "InChI=1S/C7H14O2/c1-3-5-6-7(8)9-4-2/h3-6H2,1-2H3",
         "inchi_key": "ICMAFTSLXCXHRK-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -11900,6 +11984,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -12126,6 +12211,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -12352,6 +12438,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -12578,6 +12665,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -12804,6 +12892,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -12827,7 +12916,7 @@
         "standard_inchi": "InChI=1S/C6H12O/c1-3-4-5-6(2)7/h3-5H2,1-2H3",
         "inchi_key": "QQZOPKMRPOGIEB-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -13018,6 +13107,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -13208,6 +13298,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -13398,6 +13489,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -13421,7 +13513,7 @@
         "standard_inchi": "InChI=1S/C6H14/c1-3-5-6-4-2/h3-6H2,1-2H3",
         "inchi_key": "VLKZOEOYAKHREP-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -13621,6 +13713,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -13644,7 +13737,7 @@
         "standard_inchi": "InChI=1S/C7H14O/c1-3-4-5-6-7(2)8/h3-6H2,1-2H3",
         "inchi_key": "CATSNJVOTSVZJV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -13862,6 +13955,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -14079,6 +14173,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -14296,6 +14391,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -14513,6 +14609,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -14730,6 +14827,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -14753,7 +14851,7 @@
         "standard_inchi": "InChI=1S/C7H16/c1-3-5-7-6-4-2/h3-7H2,1-2H3",
         "inchi_key": "IMNFDUFMRHMDMM-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -14980,6 +15078,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -15206,6 +15305,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -15229,7 +15329,7 @@
         "standard_inchi": "InChI=1S/C8H18/c1-3-5-7-8-6-4-2/h3-8H2,1-2H3",
         "inchi_key": "TVMXDCGIABBOFY-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -15483,6 +15583,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -15736,6 +15837,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -15989,6 +16091,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -16242,6 +16345,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -16495,6 +16599,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -16518,7 +16623,7 @@
         "standard_inchi": "InChI=1S/C9H20/c1-3-5-7-9-8-6-4-2/h3-9H2,1-2H3",
         "inchi_key": "BKIMMITUMNQMOS-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -16799,6 +16904,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -17079,6 +17185,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -17359,6 +17466,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -17639,6 +17747,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -17919,6 +18028,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -17942,7 +18052,7 @@
         "standard_inchi": "InChI=1S/C8H18O/c1-2-3-4-5-6-7-8-9/h9H,2-8H2,1H3",
         "inchi_key": "KBPLFHHGFOOTCA-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -18205,6 +18315,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -18467,6 +18578,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -18729,6 +18841,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -18991,6 +19104,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -19253,6 +19367,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -19276,7 +19391,7 @@
         "standard_inchi": "InChI=1S/C7H16O/c1-2-3-4-5-6-7-8/h8H,2-7H2,1H3",
         "inchi_key": "BBMCTIGTTCKYKF-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -19512,6 +19627,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -19747,6 +19863,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -19982,6 +20099,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -20217,6 +20335,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -20452,6 +20571,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -20475,7 +20595,7 @@
         "standard_inchi": "InChI=1S/C6H14O/c1-2-3-4-5-6-7/h7H,2-6H2,1H3",
         "inchi_key": "ZSIAUFGUXNUGDI-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -20684,6 +20804,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -20892,6 +21013,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -21100,6 +21222,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -21308,6 +21431,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -21516,6 +21640,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -21539,7 +21664,7 @@
         "standard_inchi": "InChI=1S/C5H12O/c1-2-3-4-5-6/h6H,2-5H2,1H3",
         "inchi_key": "AMQJEAYHLZJPGS-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -21721,6 +21846,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -21902,6 +22028,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22083,6 +22210,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22264,6 +22392,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22445,6 +22574,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22468,7 +22598,7 @@
         "standard_inchi": "InChI=1S/C4H10O/c1-2-3-4-5/h5H,2-4H2,1H3",
         "inchi_key": "LRHPLDYGYMQRHN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -22623,6 +22753,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22777,6 +22908,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -22800,7 +22932,7 @@
         "standard_inchi": "InChI=1S/C6H12O2/c1-3-4-5-8-6(2)7/h3-5H2,1-2H3",
         "inchi_key": "DKPFZGUDAPQIHT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -23000,6 +23132,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -23199,6 +23332,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -23398,6 +23532,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -23597,6 +23732,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -23796,6 +23932,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -23819,7 +23956,7 @@
         "standard_inchi": "InChI=1S/C5H10O2/c1-2-3-4-7-5-6/h5H,2-4H2,1H3",
         "inchi_key": "NMJJFJNHVMGPGM-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -23992,6 +24129,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -24164,6 +24302,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -24336,6 +24475,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -24508,6 +24648,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -24531,7 +24672,7 @@
         "standard_inchi": "InChI=1S/C8H18O/c1-3-5-7-9-8-6-4-2/h3-8H2,1-2H3",
         "inchi_key": "DURPTKYDGMDSBL-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -24794,6 +24935,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -25056,6 +25198,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -25318,6 +25461,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -25580,6 +25724,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -25842,6 +25987,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -25865,7 +26011,7 @@
         "standard_inchi": "InChI=1S/C6H14O2/c1-2-3-5-8-6-4-7/h7H,2-6H2,1H3",
         "inchi_key": "POAOYUHQDCAZBD-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -26083,6 +26229,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -26300,6 +26447,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -26517,6 +26665,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -26734,6 +26883,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -26951,6 +27101,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -26974,7 +27125,7 @@
         "standard_inchi": "InChI=1S/C3H8O/c1-2-3-4/h4H,2-3H2,1H3",
         "inchi_key": "BDERNNFJNOPAEC-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -27102,6 +27253,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -27125,7 +27277,7 @@
         "standard_inchi": "InChI=1S/C6H12O2/c1-3-5-8-6(7)4-2/h3-5H2,1-2H3",
         "inchi_key": "MCSINKKTEDDPNK-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -27325,6 +27477,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -27524,6 +27677,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -27723,6 +27877,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -27922,6 +28077,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -28121,6 +28277,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -28144,7 +28301,7 @@
         "standard_inchi": "InChI=1S/C7H14O2/c1-3-5-7(8)9-6-4-2/h3-6H2,1-2H3",
         "inchi_key": "HUAZGNHGCJGYNP-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -28371,6 +28528,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -28597,6 +28755,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -28823,6 +28982,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29049,6 +29209,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29275,6 +29436,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29298,7 +29460,7 @@
         "standard_inchi": "InChI=1S/C5H10O2/c1-3-4-7-5(2)6/h3-4H2,1-2H3",
         "inchi_key": "YKYONYBAUNKHLG-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -29471,6 +29633,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29643,6 +29806,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29815,6 +29979,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -29838,7 +30003,7 @@
         "standard_inchi": "InChI=1S/C4H8O2/c1-2-3-6-4-5/h4H,2-3H2,1H3",
         "inchi_key": "KFNNIILCVOLYIR-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -29984,6 +30149,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30007,7 +30173,7 @@
         "standard_inchi": "InChI=1S/C2H6O/c1-2-3/h3H,2H2,1H3",
         "inchi_key": "LFQSCWFLJHTTHZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -30108,6 +30274,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30131,7 +30298,7 @@
         "standard_inchi": "InChI=1S/C5H10O2/c1-3-5(6)7-4-2/h3-4H2,1-2H3",
         "inchi_key": "FKRCODPIKNYEAC-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -30304,6 +30471,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30476,6 +30644,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30648,6 +30817,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30820,6 +30990,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -30992,6 +31163,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -31015,7 +31187,7 @@
         "standard_inchi": "InChI=1S/C7H12O4/c1-3-10-6(8)5-7(9)11-4-2/h3-5H2,1-2H3",
         "inchi_key": "IYXGSMUGOJNHAZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -31242,6 +31414,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -31468,6 +31641,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -31694,6 +31868,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -31920,6 +32095,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32146,6 +32322,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32169,7 +32346,7 @@
         "standard_inchi": "InChI=1S/C6H14O/c1-5-7-6(2,3)4/h5H2,1-4H3",
         "inchi_key": "NUMQCACRALPSHD-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -32378,6 +32555,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32401,7 +32579,7 @@
         "standard_inchi": "InChI=1S/C7H16O/c1-5-7(3,4)8-6-2/h5-6H2,1-4H3",
         "inchi_key": "KFRVYYGHSPLXSZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -32637,6 +32815,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32660,7 +32839,7 @@
         "standard_inchi": "InChI=1S/C4H8O2/c1-3-6-4(2)5/h3H2,1-2H3",
         "inchi_key": "XEKOWRVHYACXOJ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -32806,6 +32985,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32829,7 +33009,7 @@
         "standard_inchi": "InChI=1S/C3H6O2/c1-2-5-3-4/h3H,2H2,1H3",
         "inchi_key": "WBJINCZRORDGAQ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -32948,6 +33128,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -32971,7 +33152,7 @@
         "standard_inchi": "InChI=1S/C4H10O2/c1-2-6-4-3-5/h5H,2-4H2,1H3",
         "inchi_key": "ZNQVEEAIQZEUHB-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -33135,6 +33316,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -33298,6 +33480,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -33461,6 +33644,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -33624,6 +33808,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -33647,7 +33832,7 @@
         "standard_inchi": "InChI=1S/C8H10O/c1-2-9-8-6-4-3-5-7-8/h3-7H,2H2,1H3",
         "inchi_key": "DLRJIFUOBPOJNS-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -33843,6 +34028,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -33866,7 +34052,7 @@
         "standard_inchi": "InChI=1S/C8H10/c1-2-8-6-4-3-5-7-8/h3-7H,2H2,1H3",
         "inchi_key": "YNQLUTRBYVCPMQ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34053,6 +34239,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -34076,7 +34263,7 @@
         "standard_inchi": "InChI=1S/CH4O/c1-2/h2H,1H3",
         "inchi_key": "OKKJLVBELUTLKV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34150,6 +34337,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -34173,7 +34361,7 @@
         "standard_inchi": "InChI=1S/C5H12O/c1-5(2,3)6-4/h1-4H3",
         "inchi_key": "BZLVMXJERCGZMT-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34355,6 +34543,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -34378,7 +34567,7 @@
         "standard_inchi": "InChI=1S/C3H6O2/c1-3(4)5-2/h1-2H3",
         "inchi_key": "KXKVLQRXCPHEJC-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34497,6 +34686,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -34520,7 +34710,7 @@
         "standard_inchi": "InChI=1S/C2H4O2/c1-4-2-3/h2H,1H3",
         "inchi_key": "TZIHFWKZFHZASV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34612,6 +34802,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -34635,7 +34826,7 @@
         "standard_inchi": "InChI=1S/C5H12O3/c1-7-4-5-8-3-2-6/h6H,2-5H2,1H3",
         "inchi_key": "SBASXUCJHJRPEV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -34835,6 +35026,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -35034,6 +35226,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -35233,6 +35426,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -35432,6 +35626,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -35631,6 +35826,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -35654,7 +35850,7 @@
         "standard_inchi": "InChI=1S/C6H14O3/c1-7-3-5-9-6-4-8-2/h3-6H2,1-2H3",
         "inchi_key": "SBZXBUIDTXKZTM-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -35881,6 +36077,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -36107,6 +36304,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -36333,6 +36531,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -36559,6 +36758,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -36785,6 +36985,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -36808,7 +37009,7 @@
         "standard_inchi": "InChI=1S/C7H8O/c1-8-7-5-3-2-4-6-7/h2-6H,1H3",
         "inchi_key": "RDOXTESZEPMUJZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -36977,6 +37178,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -37000,7 +37202,7 @@
         "standard_inchi": "InChI=1S/C8H10/c1-7-3-5-8(2)6-4-7/h3-6H,1-2H3",
         "inchi_key": "URLKBWYHVLBVBO-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -37187,6 +37389,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -37210,7 +37413,7 @@
         "standard_inchi": "InChI=1S/C7H8/c1-7-5-3-2-4-6-7/h2-6H,1H3",
         "inchi_key": "YXFVVABEGXRONW-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -37370,6 +37573,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -37393,7 +37597,7 @@
         "standard_inchi": "InChI=1S/C8H10/c1-7-5-3-4-6-8(7)2/h3-6H,1-2H3",
         "inchi_key": "CTQNGGLPUBDAKN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -37580,6 +37784,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -37603,7 +37808,7 @@
         "standard_inchi": "InChI=1S/C13H10O/c14-13(11-7-3-1-4-8-11)12-9-5-2-6-10-12/h1-10H",
         "inchi_key": "RWCCWEUUXYIKHB-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -37849,6 +38054,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -37872,7 +38078,7 @@
         "standard_inchi": "InChI=1S/C5H8O/c6-5-3-1-2-4-5/h1-4H2",
         "inchi_key": "BGTOWKSIORTVQH-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38023,6 +38229,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -38046,7 +38253,7 @@
         "standard_inchi": "InChI=1S/C6H10O/c7-6-4-2-1-3-5-6/h1-5H2",
         "inchi_key": "JHIVVAPYMSGYDF-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38224,6 +38431,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -38247,7 +38455,7 @@
         "standard_inchi": "InChI=1S/C7H12O/c8-7-5-3-1-2-4-6-7/h1-6H2",
         "inchi_key": "CGZZMOTZOONQIA-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38452,6 +38660,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -38475,7 +38684,7 @@
         "standard_inchi": "InChI=1S/C7H6O2/c8-6-9-7-4-2-1-3-5-7/h1-6H",
         "inchi_key": "GEOWCLRLLWTHDN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38635,6 +38844,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -38658,7 +38868,7 @@
         "standard_inchi": "InChI=1S/C7H6O/c8-6-7-4-2-1-3-5-7/h1-6H",
         "inchi_key": "HUMNYLRZRPPJDN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38809,6 +39019,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -38832,7 +39043,7 @@
         "standard_inchi": "InChI=1S/C3H8O3/c4-1-3(6)2-5/h3-6H,1-2H2",
         "inchi_key": "PEDCQBHIVMGVHV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -38978,6 +39189,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39123,6 +39335,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39268,6 +39481,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39413,6 +39627,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39558,6 +39773,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39581,7 +39797,7 @@
         "standard_inchi": "InChI=1S/C4H10O2/c5-3-1-2-4-6/h5-6H,1-4H2",
         "inchi_key": "WERYXYBDKMZEQL-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -39745,6 +39961,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -39908,6 +40125,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40071,6 +40289,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40234,6 +40453,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40397,6 +40617,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40420,7 +40641,7 @@
         "standard_inchi": "InChI=1S/C3H8O2/c4-2-1-3-5/h4-5H,1-3H2",
         "inchi_key": "YPFDHNVEDLHUCE-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -40557,6 +40778,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40693,6 +40915,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40829,6 +41052,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40965,6 +41189,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -40988,7 +41213,7 @@
         "standard_inchi": "InChI=1S/C9H12O/c10-8-4-7-9-5-2-1-3-6-9/h1-3,5-6,10H,4,7-8H2",
         "inchi_key": "VAJVDSVGBWFCLW-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -41211,6 +41436,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -41433,6 +41659,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -41655,6 +41882,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -41877,6 +42105,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42099,6 +42328,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42122,7 +42352,7 @@
         "standard_inchi": "InChI=1S/C2H6O2/c3-1-2-4/h3-4H,1-2H2",
         "inchi_key": "LYCAIKOWRPUZTN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -42232,6 +42462,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42255,7 +42486,7 @@
         "standard_inchi": "InChI=1S/C4H10O3/c5-1-3-7-4-2-6/h5-6H,1-4H2",
         "inchi_key": "MTHSVFCYNBDYFN-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -42428,6 +42659,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42600,6 +42832,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42772,6 +43005,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -42944,6 +43178,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43116,6 +43351,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43139,7 +43375,7 @@
         "standard_inchi": "InChI=1S/C8H10O/c9-7-6-8-4-2-1-3-5-8/h1-5,9H,6-7H2",
         "inchi_key": "WRMNZCZEMHIOCP-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -43335,6 +43571,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43530,6 +43767,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43553,7 +43791,7 @@
         "standard_inchi": "InChI=1S/C7H8O/c8-6-7-4-2-1-3-5-7/h1-5,8H,6H2",
         "inchi_key": "WVDDGKGOMKODPV-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -43722,6 +43960,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43745,7 +43984,7 @@
         "standard_inchi": "InChI=1S/C6H6O/c7-6-4-2-1-3-5-6/h1-5,7H",
         "inchi_key": "ISWSIDIOOBJBQZ-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -43887,6 +44126,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
@@ -43910,7 +44150,7 @@
         "standard_inchi": "InChI=1S/C6H6/c1-2-4-6-5-3-1/h1-6H",
         "inchi_key": "UHOVQNZJYSORNB-UHFFFAOYSA-N",
         "provenance": {
-          "qcsubmit": "0+untagged.226.g64f751b.dirty",
+          "qcsubmit": "v0.1.0+0.g5d1a330.dirty",
           "openforcefield": "0.8.0",
           "openeye": "2020.1.0"
         }
@@ -44043,6 +44283,7 @@
           ],
           "fix_com": false,
           "fix_orientation": false,
+          "fix_symmetry": "c1",
           "provenance": {
             "creator": "QCElemental",
             "version": "v0.17.0",
