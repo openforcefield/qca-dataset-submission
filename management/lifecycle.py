@@ -687,6 +687,15 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    def _errorcycle_dataset(self, ds, client, dataset_specs):
+        import management as mgt
+
+        # TODO: submitting our first dataset of this type today
+        # will need to examine task types and write appropriate error handling tools
+        # in management
+
+        return False
+
     def execute_requires_scientific_review(self):
         pass
 
@@ -720,12 +729,12 @@ def create_dataset(dataset_data):
     from qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
-        "BasicDataset": BasicDataset,
-        "OptimizationDataset": OptimizationDataset,
-        "TorsiondriveDataset": TorsiondriveDataset,
+        "dataset": BasicDataset,
+        "optimizationdataset": OptimizationDataset,
+        "torsiondrivedataset": TorsiondriveDataset,
     }
 
-    dataset_type = dataset_data["dataset_type"]
+    dataset_type = dataset_data["dataset_type"].lower()
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
