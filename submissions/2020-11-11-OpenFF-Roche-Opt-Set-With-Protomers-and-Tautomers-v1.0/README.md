@@ -9,9 +9,9 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
  - Purpose: Improve coverage of FF with addition of protonation states and tautomers
  - Collection: OptimizationDataset
  - Name: OpenFF Roche Opt Set With Protomers and Tautomers v1.0
- - Number of unique molecules: 1043
- - Number of unique conformers: 1043
- - Number of tasks submitted: 1041
+ - Number of unique molecules: 1376
+ - Number of unique conformers: 1376
+ - Number of tasks submitted: 1374
  - Submitter: Pavan Behara
  
 ### QCSubmit generation pipeline
@@ -19,8 +19,8 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
 ```
 ./01.run-qcsubmit.ipynb
 ```
-`OpenFF_references.sdf.tar` contains the sdf file with 1043 molecules 
-QCSubmit was used to filter duplicate SMILES, enumerate protomers, tautomers, and generate conformers. 
+`OpenFF_references.sdf.tar` contains the compressed sdf file with 468 molecules 
+QCSubmit was used to filter duplicate SMILES, enumerate protomers, tautomers, stereoisomers, and to generate conformers. 
 
 ### QCSubmit Manifest
  
