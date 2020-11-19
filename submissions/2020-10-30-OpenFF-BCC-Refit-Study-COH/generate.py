@@ -9,7 +9,7 @@ from openff.recharge.utilities.geometry import reorder_conformer
 from openforcefield.topology import Molecule
 from qcelemental.models.results import WavefunctionProtocolEnum
 
-from qcsubmit.common_structures import QCSpec
+from qcsubmit.common_structures import QCSpec, PCMSettings
 from qcsubmit.factories import BasicDatasetFactory
 
 
@@ -68,7 +68,27 @@ def main():
                     "for the vacuum (i.e. no PCM) calculations."
                 ),
                 store_wavefunction=WavefunctionProtocolEnum.orbitals_and_eigenvalues
-            )
+            ),
+            "resp-2-water": QCSpec(
+                method="pw6b95",
+                basis="aug-cc-pV(D+d)Z",
+                spec_name="resp-2-water",
+                spec_description=(
+                    "The quantum chemistry specification used in the RESP2 publication "
+                    "for the aqueous (i.e. with PCM) calculations."
+                ),
+                store_wavefunction=WavefunctionProtocolEnum.orbitals_and_eigenvalues,
+                implicit_solvent=PCMSettings(
+                    units="angstrom",
+                    cavity_Type="GePol",
+                    cavity_Area=0.3,
+                    cavity_Scaling=True,
+                    cavity_RadiiSet="Bondi",
+                    cavity_Mode="Implicit",
+                    medium_SolverType="CPCM",
+                    medium_Solvent="Water",
+                )
+            ),
         }
     )
 
