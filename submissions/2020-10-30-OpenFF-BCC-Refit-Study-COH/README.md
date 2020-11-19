@@ -47,3 +47,15 @@ The conformers included in the set where generated using version 0.0.1a4 of the 
     - method: pw6b95
     - basis: aug-cc-pV(D+d)Z
     - store_wavefunction: orbitals_and_eigenvalues
+- qc spec
+    - name: resp-2-water
+    - method: pw6b95
+    - basis: aug-cc-pV(D+d)Z
+    - store_wavefunction: orbitals_and_eigenvalues
+    - implicit_solvent:
+        - cavity_Type: GePol
+        - cavity_Area: 0.3
+        - cavity_Scaling: true
+        - cavity_RadiiSet: Bondi
+        - medium_SolverType: CPCM
+        - medium_Solvent: H2O
