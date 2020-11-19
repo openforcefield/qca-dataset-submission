@@ -1,0 +1,63 @@
+{
+  "qc_specifications": {
+    "ani2x-v2": {
+      "method": "ani2x",
+      "basis": null,
+      "program": "torchani",
+      "spec_name": "ani2x-v2",
+      "spec_description": "ANI2x ML potential. With a higher maxiter.",
+      "store_wavefunction": "none"
+    }
+  },
+  "dataset_name": "OpenFF-benchmark-ligand-fragments-v1.0",
+  "dataset_tagline": "OpenForcefield TorsionDrives.",
+  "dataset_type": "TorsiondriveDataset",
+  "maxiter": 200,
+  "driver": "gradient",
+  "scf_properties": [
+    "dipole",
+    "quadrupole",
+    "wiberg_lowdin_indices",
+    "mayer_indices"
+  ],
+  "priority": "normal",
+  "description": "A TorsionDrive dataset using geometric.",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "metadata": {
+    "submitter": "trevorgokey",
+    "creation_date": "2020-10-30",
+    "collection_type": "TorsiondriveDataset",
+    "dataset_name": "TorsionDriveDataset",
+    "short_description": "OpenForcefield TorsionDrives.",
+    "long_description_url": null,
+    "long_description": "A TorsionDrive dataset using geometric.",
+    "elements": []
+  },
+  "provenance": {},
+  "dataset": {},
+  "filtered_molecules": {},
+  "optimization_procedure": {
+    "program": "geometric",
+    "coordsys": "tric",
+    "enforce": 0.1,
+    "epsilon": 0.0,
+    "reset": true,
+    "qccnv": true,
+    "molcnv": false,
+    "check": 0,
+    "trust": 0.1,
+    "tmax": 0.3,
+    "maxiter": 3000,
+    "convergence_set": "GAU",
+    "constraints": {}
+  },
+  "grid_spacings": [
+    15
+  ],
+  "energy_upper_limit": 0.05,
+  "dihedral_ranges": null,
+  "energy_decrease_thresh": null
+}
