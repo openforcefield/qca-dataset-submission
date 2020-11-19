@@ -546,7 +546,7 @@ class SubmittableBase:
         import management as mgt
 
         defunct_filters = [mgt.filter_scf_convergence,
-                           mgt.filter_opt_convergence,
+                           #mgt.filter_opt_convergence,  # we'll hold off on this one; many do seem to go through eventually
                            mgt.filter_basis_coverage]
 
         himem_filters = [mgt.filter_out_of_memory]
