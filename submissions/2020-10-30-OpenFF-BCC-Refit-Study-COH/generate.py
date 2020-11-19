@@ -135,7 +135,7 @@ def main():
     )
 
     # Export the data set.
-    data_set.export_dataset("dataset.json")
+    data_set.export_dataset("dataset.json.xz")
     data_set.molecules_to_file('molecules.smi', 'smi')
 
     data_set.visualize("dataset.pdf", columns=8)
