@@ -11,7 +11,7 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
  - Name: OpenFF Roche Opt Set With Protomers and Tautomers v1.0
  - Number of unique molecules: 1376
  - Number of unique conformers: 1376
- - Number of tasks submitted: 1374
+ - Number of tasks submitted: 1376
  - Submitter: Pavan Behara
  
 ### QCSubmit generation pipeline
