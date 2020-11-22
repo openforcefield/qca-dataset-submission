@@ -188,3 +188,25 @@ def restart_torsiondrives(torsiondrives, client):
         if tdr.status == 'ERROR':
             print(f"Restarted ERRORed torsiondrive `{tdr.id}`")
             client.modify_services('restart', procedure_id=tdr.id)
+
+
+## modify tasks
+
+def retag_optimizations(optimizations, client, compute_tag):
+    for opt in optimizations:
+        client.modify_tasks(operation='modify', base_result=opt.id, new_tag=compute_tag)
+        print(f"Retagged optimization `{opt.id}` with `{compute_tag}")
+
+
+def reprioritize_optimizations(optimizations, client, priority):
+    """Priority can be one of "high", "normal", "low".
+
+    """
+    from qcportal.models.task_models import PriorityEnum
+    priority_map = {"high": PriorityEnum.HIGH,
+                    "normal": PriorityEnum.NORMAL,
+                    "low": PriorityEnum.LOW}
+
+    for opt in optimizations:
+        client.modify_tasks(operation='modify', base_result=opt.id, new_priority=priority_map[priority])
+        print(f"Reprioritized optimization `{opt.id}` with `{priority}")
