@@ -6,6 +6,41 @@ import qcportal as ptl
 
 ## failures and incompletes
 
+### basic results
+
+def get_results(dataset, spec, client):
+    ds = dataset
+    kwid = ds.list_keywords().reset_index().set_index('keywords').loc[spec, 'id']
+
+    # we go through molecules as a more reliable way to get to result records
+    # than ds.get_records
+    mols = ds.get_entries().molecule_id.tolist()
+    res = _query_results(mols, client, kwid)
+
+    return res
+
+
+def get_unfinished_results(dataset, spec, client):
+    res = get_results(dataset, spec, client)
+    res = [r for r in res if r.status != 'COMPLETE']
+
+    return res
+
+
+def _query_results(molids, client, keywords_id):
+    res = []
+    ids = list(molids)
+    for i in range(0,len(ids),1000):
+        ids_i = ids[i:i+1000]
+        res_i = client.query_results(molecule=ids_i,
+                                     keywords=keywords_id,
+                                     status=None)
+        res.extend(res_i)
+
+    return res
+
+### optimizations
+
 def get_optimizations(dataset, spec, client, dropna=False):
     ds = dataset
 
@@ -46,6 +81,7 @@ def _query_procedures(ids, client):
         
     return res
 
+### torsiondrives
 
 def get_torsiondrives(
         dataset, spec, client, noncomplete=False):
@@ -113,41 +149,28 @@ def merge(datadict):
 
 ## error messages
 
-def get_unique_optimization_error_messages(optimizations, full=False):
-    if full:
-        return set(opt.get_error().error_message
-                   for opt in optimizations if opt.status == 'ERROR')
-    else:
-        return set(opt.get_error().error_message.split('\n')[-2]
-                   for opt in optimizations if opt.status == 'ERROR')
-
-
-def count_unique_optimization_error_messages(
-        optimizations, full=False, pretty_print=False, tolerate_missing=False):
-    #errors = Counter()
+def count_unique_result_error_messages(
+        results, full=False, pretty_print=False, tolerate_missing=False):
     errors = defaultdict(set)
 
-    for opt in optimizations:
-        if opt.status != 'ERROR':
+    for res in results:
+        if res.status != 'ERROR':
             continue
 
         try:
-            err_content = opt.get_error()
+            err_content = res.get_error()
         except:
             err_content = None
 
         if tolerate_missing:
             if err_content is None:
-                #errors += Counter({None: 1})
-                errors[None].add(opt.id)
+                errors[None].add(res.id)
                 continue
 
         if full:
-            errors[err_content.error_message].add(opt.id)
-            #errors += Counter({err_content.error_message: 1})
+            errors[err_content.error_message].add(res.id)
         else:
-            errors[err_content.error_message.split('\n')[-2]].add(opt.id)
-            #errors += Counter({err_content.error_message.split('\n')[-2]: 1})
+            errors[err_content.error_message.split('\n')[-2]].add(res.id)
 
     errors = dict(errors)
 
@@ -167,7 +190,32 @@ def count_unique_optimization_error_messages(
         return errors
 
 
+def get_unique_optimization_error_messages(optimizations, full=False):
+    if full:
+        return set(opt.get_error().error_message
+                   for opt in optimizations if opt.status == 'ERROR')
+    else:
+        return set(opt.get_error().error_message.split('\n')[-2]
+                   for opt in optimizations if opt.status == 'ERROR')
+
+
+count_unique_optimization_error_messages = count_unique_result_error_messages
+
+
 ## restarts
+
+def restart_results(res, client):
+    for r in res:
+        if r.status == 'ERROR':
+            print(f"Restarted ERRORed result `{r.id}`")
+            client.modify_tasks(operation='restart', base_result=r.id)
+
+def regenerate_results(res, client):
+    for r in res:
+        if r.status == 'ERROR':
+            print(f"Regnerated INCOMPLETE result `{r.id}`")
+            client.modify_tasks(operation='regenerate', base_result=r.id)
+
 
 def restart_optimizations(optimizations, client):
     for opt in optimizations:
