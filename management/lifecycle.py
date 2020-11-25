@@ -519,6 +519,14 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    def _errorcycle_restart_results(self, res, client):
+        import management as mgt
+
+        mgt.restart_results(res, client)
+
+        # handle cases where an Result has status INCOMPLETE, but data is there
+        mgt.regenerate_results(res, client)
+
     def _errorcycle_restart_optimizations(self, opts, client):
         import management as mgt
 
@@ -617,12 +625,83 @@ class SubmittableBase:
 
     def _errorcycle_dataset(self, ds, client, dataset_specs):
         import management as mgt
+        res, df_res = self._errorcycle_dataset_get_result_errors(ds, client, dataset_specs)
 
-        # TODO: submitting our first dataset of this type today
-        # will need to examine task types and write appropriate error handling tools
-        # in management
+        res_error_counts = mgt.count_unique_result_error_messages(
+            res, full=True, pretty_print=True, tolerate_missing=True
+        )
 
-        return False
+        self._errorcycle_dataset_report(df_res, res_error_counts)
+
+        if df_res[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
+            complete = True
+        else:
+            # restart errored tasks
+            self._errorcycle_restart_results(res, client)
+            complete = False
+
+        return complete
+
+    def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
+        import pandas as pd
+        import management as mgt
+
+        if dataset_specs is None:
+            dataset_specs = ds.list_specifications().index.tolist()
+
+        # gather results
+        results = defaultdict(dict)
+        for spec in dataset_specs:
+            res = mgt.get_results(ds, spec, client)
+
+            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
+                results[spec][status] = len(
+                    [r for r in res if r.status == status]
+                )
+
+        df = pd.DataFrame(results).transpose()
+        df.index.name = "specification"
+        return res, df
+
+    def _errorcycle_dataset_report(self, df_res, res_error_counts):
+
+        if len(res_error_counts) > 60000:
+            res_error_counts = res_error_counts[:60000]
+            res_error_counts += "\n--- Too many errors; truncated here ---\n"
+
+        comment = f"""
+        ## Lifecycle - Error Cycling Report
+
+        {self._get_meta().to_markdown()}
+
+        All errored tasks will be restarted.
+        Errored states prior to restart reported below.
+
+        ### `ResultRecord` current status
+
+        {df_res.to_markdown()}
+
+        #### `ResultRecord` Error Tracebacks:
+
+        <details>
+        <summary><b>Tracebacks</b> (<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
+        ```
+        {res_error_counts}
+        ```
+        </details>
+
+        ----------
+        {self._version_info_report()}
+
+        """
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
 
     def execute_requires_scientific_review(self):
         pass
