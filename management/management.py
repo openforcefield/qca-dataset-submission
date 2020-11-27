@@ -210,6 +210,7 @@ def restart_results(res, client):
             print(f"Restarted ERRORed result `{r.id}`")
             client.modify_tasks(operation='restart', base_result=r.id)
 
+
 def regenerate_results(res, client):
     for r in res:
         if r.status == 'ERROR':

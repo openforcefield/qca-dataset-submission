@@ -571,8 +571,10 @@ class SubmittableBase:
 
         # gather optimization results
         results = defaultdict(dict)
+        all_opts = list()
         for spec in dataset_specs:
             opts = mgt.get_optimizations(ds, spec, client)
+            all_opts.extend(opts)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -581,7 +583,7 @@ class SubmittableBase:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return opts, df
+        return all_opts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
 
@@ -651,8 +653,10 @@ class SubmittableBase:
 
         # gather results
         results = defaultdict(dict)
+        all_res = list()
         for spec in dataset_specs:
             res = mgt.get_results(ds, spec, client)
+            all_res.extend(res)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -661,7 +665,7 @@ class SubmittableBase:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return res, df
+        return all_res, df
 
     def _errorcycle_dataset_report(self, df_res, res_error_counts):
 
