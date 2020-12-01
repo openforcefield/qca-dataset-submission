@@ -10,7 +10,7 @@ dependencies:
   - python
   - pip
   - qcportal
-  - qcsubmit==v0.1.0
+  - qcsubmit==0.1.1
   - pip:
       - PyGithub
       - pandas
