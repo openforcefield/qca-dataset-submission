@@ -49,6 +49,11 @@ Generating stereoisomers, conformers, and QCSubmit dataset:
     - `wiberg_lowdin_indices`
     - `mayer_indices`
 - qc spec
-    - name: default
-    - method: B3LYP-D3BJ
-    - basis: DZVP
+    - default
+        - method: B3LYP-D3BJ
+        - basis: DZVP
+        - program: psi4
+    - ani2x-qm
+        - method: WB97X
+        - basis: 6-31G*
+        - program: psi4
