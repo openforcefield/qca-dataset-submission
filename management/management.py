@@ -241,13 +241,15 @@ def restart_torsiondrives(torsiondrives, client):
 
 ## modify tasks
 
-def retag_optimizations(optimizations, client, compute_tag):
-    for opt in optimizations:
-        client.modify_tasks(operation='modify', base_result=opt.id, new_tag=compute_tag)
-        print(f"Retagged optimization `{opt.id}` with `{compute_tag}")
+def retag_results(results, client, compute_tag):
+    for res in results:
+        client.modify_tasks(operation='modify', base_result=res.id, new_tag=compute_tag)
+        print(f"Retagged result`{res.id}` with `{compute_tag}")
 
 
-def reprioritize_optimizations(optimizations, client, priority):
+retag_optimizations = retag_results
+
+def reprioritize_results(results, client, priority):
     """Priority can be one of "high", "normal", "low".
 
     """
@@ -256,6 +258,8 @@ def reprioritize_optimizations(optimizations, client, priority):
                     "normal": PriorityEnum.NORMAL,
                     "low": PriorityEnum.LOW}
 
-    for opt in optimizations:
-        client.modify_tasks(operation='modify', base_result=opt.id, new_priority=priority_map[priority])
-        print(f"Reprioritized optimization `{opt.id}` with `{priority}")
+    for res in results:
+        client.modify_tasks(operation='modify', base_result=res.id, new_priority=priority_map[priority])
+        print(f"Reprioritized result`{res.id}` with `{priority}")
+
+reprioritize_optimizations = reprioritize_results
