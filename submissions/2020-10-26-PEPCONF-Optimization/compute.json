@@ -1,10 +1,10 @@
 {
   "qc_specifications": {
-    "default": {
+    "ani2x-qm": {
       "method": "WB97X",
       "basis": "6-31G*",
       "program": "psi4",
-      "spec_name": "ANI-2x-QM",
+      "spec_name": "ani2x-qm",
       "spec_description": "QM optimization using the method/basis on which ANI2x is trained",
       "store_wavefunction": "none",
       "implicit_solvent": null
