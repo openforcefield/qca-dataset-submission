@@ -51,6 +51,6 @@ jobs:
       - name: Deploy conda env
         shell: bash -l {0}
         env:
-          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN}}
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
         run: |
             anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/**.yaml

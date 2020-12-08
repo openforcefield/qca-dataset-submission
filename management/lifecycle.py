@@ -60,6 +60,11 @@ class Submission:
         datasets = [
             file.filename for file in files if DATASET_FILENAME in file.filename
         ]
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        datasets = [ds for ds in datasets if os.path.exists(ds)]
+
         return datasets
 
     def _gather_computes(self):
@@ -67,6 +72,10 @@ class Submission:
         computes = list(filter(
             lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
             map(lambda x: x.filename, files)))
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        computes = [cs for cs in computes if os.path.exists(cs)]
 
         return computes
 
@@ -220,7 +229,8 @@ class Submission:
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
-                dataset.comment_archived_complete()
+                ds = DataSet(dataset, self, self.ghapi)
+                ds.comment_archived_complete()
 
 
 class SubmittableBase:
@@ -250,13 +260,20 @@ class SubmittableBase:
             self.repo = repo
 
     def _parse_spec(self):
-        with open(self.submittable, "r") as f:
-            spec = json.load(f)
+        spec = self._load_submittable()
 
         dataset_name = spec["dataset_name"]
         dataset_type = spec["dataset_type"]
 
-        return dataset_name, dataset_type
+        dataset_specs = spec.get("qc_specifications", None)
+
+        return dataset_name, dataset_type, dataset_specs
+
+    def _load_submittable(self):
+        from qcsubmit.serializers import deserialize
+        spec = deserialize(self.submittable)
+
+        return spec
 
     def _get_qca_client(self):
         import qcportal as ptl
@@ -271,7 +288,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type = self._parse_spec()
+        dataset_name, dataset_type, dataset_specs = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
@@ -304,7 +321,7 @@ class SubmittableBase:
         client = self._get_qca_client()
 
         # load dataset into QCSubmit class
-        ds = deserialize(self.submittable)
+        ds = self._load_submittable()
         dataset_qcs = create_dataset(ds)
 
         try:
@@ -352,20 +369,20 @@ class SubmittableBase:
         """
         client = self._get_qca_client()
 
-        dataset_name, dataset_type = self._parse_spec()
+        dataset_name, dataset_type, dataset_specs = self._parse_spec()
         ds = client.get_collection(dataset_type, dataset_name)
 
         if dataset_type.lower() == "TorsionDriveDataset".lower():
-            complete = self._errorcycle_torsiondrive(ds, client)
+            complete = self._errorcycle_torsiondrive(ds, client, dataset_specs)
 
         elif dataset_type.lower() == "OptimizationDataset".lower():
-            complete = self._errorcycle_optimization(ds, client)
+            complete = self._errorcycle_optimization(ds, client, dataset_specs)
 
         elif dataset_type.lower() == "GridOptimizationDataset".lower():
-            complete = self._errorcycle_gridopt(ds, client)
+            complete = self._errorcycle_gridopt(ds, client, dataset_specs)
 
         elif dataset_type.lower() == "Dataset".lower():
-            complete = self._errorcycle_dataset(ds, client)
+            complete = self._errorcycle_dataset(ds, client, dataset_specs)
 
         if complete:
             return {"new_state": "Archived/Complete"}
@@ -388,11 +405,11 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def _errorcycle_torsiondrive(self, ds, client):
+    def _errorcycle_torsiondrive(self, ds, client, dataset_specs):
         import management as mgt
 
-        tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client)
-        opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client)
+        tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client, dataset_specs)
+        opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client, dataset_specs)
 
         opt_error_counts = mgt.count_unique_optimization_error_messages(
             opts, full=True, pretty_print=True, tolerate_missing=True
@@ -412,14 +429,17 @@ class SubmittableBase:
 
         return complete
 
-    def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client):
+    def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client, dataset_specs):
         import pandas as pd
         import management as mgt
+
+        if dataset_specs is None:
+            dataset_specs = ds.list_specifications().index.tolist()
 
         # gather torsiondrive results
         results = defaultdict(dict)
         all_tds = list()
-        for spec in ds.list_specifications().index.tolist():
+        for spec in dataset_specs:
             tdrs = mgt.get_torsiondrives(ds, spec, client)
             all_tds.extend(tdrs)
 
@@ -432,14 +452,17 @@ class SubmittableBase:
         df.index.name = "specification"
         return all_tds, df
 
-    def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client):
+    def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client, dataset_specs):
         import pandas as pd
         import management as mgt
+
+        if dataset_specs is None:
+            dataset_specs = ds.list_specifications().index.tolist()
 
         # gather torsiondrive optimization results
         results = defaultdict(dict)
         all_opts = list()
-        for spec in ds.list_specifications().index.tolist():
+        for spec in dataset_specs:
             opts = mgt.merge(mgt.get_torsiondrive_optimizations(ds, spec, client))
             all_opts.extend(opts)
 
@@ -503,15 +526,18 @@ class SubmittableBase:
         # we will *not* restart, such as SCF convergence issues
         mgt.restart_optimizations(opts, client)
 
+        # handle cases where an Optimization has status INCOMPLETE, but data is there
+        mgt.regenerate_optimizations(opts, client)
+
     def _errorcycle_restart_torsiondrives(self, tdrs, client):
         import management as mgt
 
         mgt.restart_torsiondrives(tdrs, client)
 
-    def _errorcycle_optimization(self, ds, client):
+    def _errorcycle_optimization(self, ds, client, dataset_specs):
         import management as mgt
 
-        opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client)
+        opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
 
         opt_error_counts = mgt.count_unique_optimization_error_messages(
             opts, full=True, pretty_print=True, tolerate_missing=True
@@ -528,13 +554,16 @@ class SubmittableBase:
 
         return complete
 
-    def _errorcycle_optimization_get_opt_errors(self, ds, client):
+    def _errorcycle_optimization_get_opt_errors(self, ds, client, dataset_specs):
         import pandas as pd
         import management as mgt
 
+        if dataset_specs is None:
+            dataset_specs = ds.list_specifications().index.tolist()
+
         # gather optimization results
         results = defaultdict(dict)
-        for spec in ds.list_specifications().index.tolist():
+        for spec in dataset_specs:
             opts = mgt.get_optimizations(ds, spec, client)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:

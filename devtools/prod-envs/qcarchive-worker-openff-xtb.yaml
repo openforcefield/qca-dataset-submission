@@ -1,22 +1,20 @@
-name: qcarchive-worker-openff-ani
+name: qcarchive-worker-openff-xtb
 channels:
   - conda-forge
-  - pytorch
+  - psi4/label/dev
   - defaults
 dependencies:
   - python =3.7
-  - pip
   - qcfractal =0.14.0
   - qcengine =0.17.0
 
-  # ML calculations
-  - pytorch =1.6.0
-
+  # QM calculations
+  - xtb-python =20.1
+  - dftd3
+  - gcp
+    
   # procedures
   - geometric
 
   # compute backends
   - dask-jobqueue
-
-  - pip:
-    - torchani ==2.2
