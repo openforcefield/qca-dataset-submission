@@ -11,9 +11,9 @@ dependencies:
   - python
   - pip
   - qcportal
-  - qcsubmit
+  - qcsubmit==v0.1.0
   - pip:
-      - basis_set_exchange
+#      - basis_set_exchange
       - PyGithub
       - pandas
       - tabulate

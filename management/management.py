@@ -131,7 +131,10 @@ def count_unique_optimization_error_messages(
         if opt.status != 'ERROR':
             continue
 
-        err_content = opt.get_error()
+        try:
+            err_content = opt.get_error()
+        except:
+            err_content = None
 
         if tolerate_missing:
             if err_content is None:
@@ -150,9 +153,9 @@ def count_unique_optimization_error_messages(
 
     content = ""
     if pretty_print:
-        for key, value in errors.items():
+        for count, key, value in sorted([(len(value), key, value) for key, value in errors.items()], reverse=True):
             content += '-------------------------------------\n'
-            content += f"count : {len(value)}\n"
+            content += f"count : {count}\n"
             content += '\n'
             content += f'{key}\n'
             content += '\n'
@@ -169,12 +172,19 @@ def count_unique_optimization_error_messages(
 def restart_optimizations(optimizations, client):
     for opt in optimizations:
         if opt.status == 'ERROR':
-            print(opt)
+            print(f"Restarted ERRORed optimization `{opt.id}`")
             client.modify_tasks(operation='restart', base_result=opt.id)
+
+
+def regenerate_optimizations(optimizations, client):
+    for opt in optimizations:
+        if opt.status == 'INCOMPLETE' and (opt.final_molecule is not None):
+            print(f"Regnerated INCOMPLETE optimization `{opt.id}`")
+            client.modify_tasks(operation='regenerate', base_result=opt.id)
 
 
 def restart_torsiondrives(torsiondrives, client):
     for tdr in torsiondrives:
         if tdr.status == 'ERROR':
-            print(tdr)
+            print(f"Restarted ERRORed torsiondrive `{tdr.id}`")
             client.modify_services('restart', procedure_id=tdr.id)
