@@ -2,7 +2,7 @@
 This file outlines the standards and data requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
-STANDARDS version: 3-DRAFT (2020-12-08)
+STANDARDS version: 3 (adopted 2020.12.11)
 
 We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking force fields.
 
