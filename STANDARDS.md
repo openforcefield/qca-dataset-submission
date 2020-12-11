@@ -10,7 +10,7 @@ We distinguish between standards for the datasets (i.e. the actual data), and th
 
 ## Each molecule must have the following information:
 - Canonical isomeric explicit hydrogen mapped SMILES
-- Provenance info of SMILES generation (NEW)
+- Provenance information of SMILES generation (NEW)
 - Coordinates
 - Total charge
 
@@ -43,7 +43,7 @@ We distinguish between standards for the datasets (i.e. the actual data), and th
 	- INCOMPLETE/DONE/V3; some molecules were not calculated successfully, and won't be retried
 	- INCOMPLETE/WORKING/V3; in progress
 	- INCOMPLETE/DONE/NONE; the dataset does not conform to the standards, and can't be fixed
-	- INCOMPLETE/WORKING/NONE; the dataset does not conform to the standards, is working anyways
+	- INCOMPLETE/WORKING/NONE; the dataset does not conform to the standards, but is working anyways
 	- INCOMPLETE/PAUSED/NONE; the dataset does not conform to the standards, and calculations have been suspended
 
 ## Each dataset README must contain the following information
@@ -95,8 +95,6 @@ Each dataset shall be versioned.
 This allows the ability to record the version update in the changelog, but not the actual dataset name as this would require a new dataset in QCArchive. 
 
 A best-effort is made to ensure that a dataset follows its underlying STANDARDS. One must assume that the newest version of a dataset best conforms to these STANDARDS, and the same promise may not hold for earlier versions. The changelog should address any changes made to improve compliance.
-
-Each version increment should take the information from the previous `changelog` field, and add a new entry that explains the modifications made to the dataset. Each dataset should therefore have the complete changelog.
 
 # Fitting standards
 
