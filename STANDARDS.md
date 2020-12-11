@@ -4,7 +4,7 @@ This ensures that we have a consistent data model for downstream processes.
 
 STANDARDS version: 3 (adopted 2020.12.11)
 
-We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking force fields.
+We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking/testing force fields.
 
 # Dataset Standards
 
@@ -12,8 +12,7 @@ We distinguish between standards for the datasets (i.e. the actual data), and th
 - Canonical isomeric explicit hydrogen mapped SMILES
 - Provenance info of SMILES generation (NEW)
 - Coordinates
-- Total Charge
-- Coordinates must be in CMILES order (discuss)
+- Total charge
 
 ## Each dataset must have the following information:
 - Name
@@ -88,12 +87,12 @@ Each dataset shall be versioned.
 	- Errors/bugs in the molecule specification
 	- Changes necessary to adhere to the STANDARDS (i.e. changes necessary to placate the NONE compliance status)
 
-- A patch (e.g. `"v3.1.1"`) represents a cosmetic change, or a change that is based on dynamic information that does not change the underlying data:
+- A micro version change (e.g. `"v3.1.1"`) represents a cosmetic change, or a change that is based on dynamic information that does not change the underlying data:
     - Cosmetic changes
 	- Updating the blacklist
 	- Updating the dataset status
 
-(It might be useful to make the version bump in the changelog, but not the actual dataset name; this would depend on the ability to changing a dataset metadata of an existing dataset. This would allow existing scripts to not need to update to use a new dataset name when e.g. we update the status to COMPLETE/DONE/V3 or INCOMPLETE/PAUSED/NONE->INCOMPLETE/WORKING/V3).
+This allows the ability to record the version update in the changelog, but not the actual dataset name as this would require a new dataset in QCArchive. 
 
 A best-effort is made to ensure that a dataset follows its underlying STANDARDS. One must assume that the newest version of a dataset best conforms to these STANDARDS, and the same promise may not hold for earlier versions. The changelog should address any changes made to improve compliance.
 
@@ -101,27 +100,27 @@ Each version increment should take the information from the previous `changelog`
 
 # Fitting standards
 
-- Reference level of theory: `B3LYP/DZVP`
-- Geometry optimizations: `geomeTRIC` using the TRIC coordinate system
+- Reference level of theory: `B3LYP-D3BJ/DZVP`
+- Geometry optimization: `geomeTRIC` using the TRIC coordinate system
 - QM program: `Psi4`
 
 For unconstrained geometries, all molecules must have:
 
 - Wiberg Bond Orders (parameter interpolation)
-- Hessian (frequency fitting) (is this too restrictive? discuss)
+- Hessian (vibrational/force constant fitting)
 
 Pre-submission filtering:
 
-- Unless explicitly specified in the submission descriptions, torsion drives must be on 4 connected atoms
-- Torsions driving a ring will give a warning, and torsions in a a ring of  3,4,5,6 atoms is considered an error
+- Unless explicitly specified in the submission descriptions, torsion drives must be on four connected atoms
+- Torsions driving a ring will give a warning, and torsions in a a ring of  3, 4, 5, or 6 atoms is considered an error
 - Warnings will be given if an atom does not have a complete valence set
 
-Post-submission filtering: (we need testers/validators for these)
+Post-submission filtering:
 
 - OpenFF toolkit ingestion with strict stereo checking in RDKit
 - Hydrogen bonding
 - Torsion drives on rings or other high barrier issues
-- CMILES change (no way to build new CMILES since connectivity cannot be trusted, also this means we can't trust per-molecule CMILES until this filtering check passes)
+- CMILES (topology) change
 
 ## Force Field Releases
 
@@ -136,7 +135,6 @@ for example, all datasets (optimizations, torsion drives, and Hessians) with the
 Besides the regular information from the other datasets, these fitting datasets must have:
 
 - `DOI`
-- Dataset standards version (this document)
 
 ### Force Field Benchmarking
 
