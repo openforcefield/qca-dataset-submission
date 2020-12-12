@@ -136,9 +136,9 @@ Besides the regular information from the other datasets, these fitting datasets 
 
 ### Force Field Benchmarking
 
-These use an MM compute specification. The name of the specification must be the name of the FF file, e.g. 'openff-2.0.0'
+These use an MM compute specification. The name of the specification must be the name of the FF file, e.g. `openff-2.0.0`
 
-In these cases, the following pre-filter checks must be successful:
+In these cases, the following pre-submission checks must be successful:
 
 - OpenFF toolkit ingestion with strict stereo checking in RDKit
 - The OpenFF toolkit can successfully create an OpenMM system
