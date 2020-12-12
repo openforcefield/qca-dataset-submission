@@ -6,7 +6,7 @@ STANDARDS version: 3 (adopted 2020.12.11)
 
 We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking/testing force fields.
 
-# Dataset Standards
+# Dataset standards
 
 ## Each molecule must have the following information:
 - Canonical isomeric explicit hydrogen mapped SMILES
@@ -120,7 +120,7 @@ Post-submission filtering:
 - Torsion drives on rings or other high barrier issues
 - CMILES (topology) change
 
-## Force Field Releases
+## Force field releases
 
 Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. Filtering must be done prior, such that all molecules in the release datasets pass all post-submission filters.
 
@@ -134,7 +134,7 @@ Besides the regular information from the other datasets, these fitting datasets 
 
 - `DOI`
 
-### Force Field Benchmarking
+### Force field benchmarking
 
 These use an MM compute specification. The name of the specification must be the name of the FF file, e.g. `openff-2.0.0`
 
