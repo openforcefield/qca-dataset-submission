@@ -1,0 +1,13 @@
+name: qcsub_env
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+dependencies:
+  - cmiles
+  - openforcefield
+  - qcfractal
+  - qcsubmit=v0.1.0
+  - openeye-toolkits
+  - basis_set_exchange
+

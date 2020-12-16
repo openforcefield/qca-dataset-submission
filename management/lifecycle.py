@@ -9,8 +9,6 @@ from datetime import datetime
 
 from github import Github
 
-from compression import anyopen
-
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_FILENAME = "dataset.json"
 COMPUTE_GLOB = "compute*.json"
@@ -62,6 +60,11 @@ class Submission:
         datasets = [
             file.filename for file in files if DATASET_FILENAME in file.filename
         ]
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        datasets = [ds for ds in datasets if os.path.exists(ds)]
+
         return datasets
 
     def _gather_computes(self):
@@ -69,6 +72,10 @@ class Submission:
         computes = list(filter(
             lambda x: glob.fnmatch.fnmatch(os.path.basename(x), COMPUTE_GLOB),
             map(lambda x: x.filename, files)))
+
+        # we only want files that actually exist
+        # it can rarely be the case that a PR features changes to a path that is a file deletion
+        computes = [cs for cs in computes if os.path.exists(cs)]
 
         return computes
 
@@ -222,7 +229,8 @@ class Submission:
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
-                dataset.comment_archived_complete()
+                ds = DataSet(dataset, self, self.ghapi)
+                ds.comment_archived_complete()
 
 
 class SubmittableBase:
@@ -262,8 +270,8 @@ class SubmittableBase:
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
-        with anyopen(self.submittable, "r") as f:
-            spec = json.load(f)
+        from qcsubmit.serializers import deserialize
+        spec = deserialize(self.submittable)
 
         return spec
 
@@ -511,6 +519,14 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    def _errorcycle_restart_results(self, res, client):
+        import management as mgt
+
+        mgt.restart_results(res, client)
+
+        # handle cases where an Result has status INCOMPLETE, but data is there
+        mgt.regenerate_results(res, client)
+
     def _errorcycle_restart_optimizations(self, opts, client):
         import management as mgt
 
@@ -555,8 +571,10 @@ class SubmittableBase:
 
         # gather optimization results
         results = defaultdict(dict)
+        all_opts = list()
         for spec in dataset_specs:
             opts = mgt.get_optimizations(ds, spec, client)
+            all_opts.extend(opts)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
@@ -565,7 +583,7 @@ class SubmittableBase:
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return opts, df
+        return all_opts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
 
@@ -593,6 +611,88 @@ class SubmittableBase:
 
         ```
         {opt_error_counts}
+        ```
+        </details>
+
+        ----------
+        {self._version_info_report()}
+
+        """
+
+        # postprocess due to raw spacing above
+        comment = "\n".join([substr.strip() for substr in comment.split("\n")])
+
+        # submit comment
+        self.pr.create_issue_comment(comment)
+
+    def _errorcycle_dataset(self, ds, client, dataset_specs):
+        import management as mgt
+        res, df_res = self._errorcycle_dataset_get_result_errors(ds, client, dataset_specs)
+
+        res_error_counts = mgt.count_unique_result_error_messages(
+            res, full=True, pretty_print=True, tolerate_missing=True
+        )
+
+        self._errorcycle_dataset_report(df_res, res_error_counts)
+
+        if df_res[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
+            complete = True
+        else:
+            # restart errored tasks
+            self._errorcycle_restart_results(res, client)
+            complete = False
+
+        return complete
+
+    def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
+        import pandas as pd
+        import management as mgt
+
+        if dataset_specs is None:
+            dataset_specs = ds.list_specifications().index.tolist()
+
+        # gather results
+        results = defaultdict(dict)
+        all_res = list()
+        for spec in dataset_specs:
+            res = mgt.get_results(ds, spec, client)
+            all_res.extend(res)
+
+            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
+                results[spec][status] = len(
+                    [r for r in res if r.status == status]
+                )
+
+        df = pd.DataFrame(results).transpose()
+        df.index.name = "specification"
+        return all_res, df
+
+    def _errorcycle_dataset_report(self, df_res, res_error_counts):
+
+        if len(res_error_counts) > 60000:
+            res_error_counts = res_error_counts[:60000]
+            res_error_counts += "\n--- Too many errors; truncated here ---\n"
+
+        comment = f"""
+        ## Lifecycle - Error Cycling Report
+
+        {self._get_meta().to_markdown()}
+
+        All errored tasks will be restarted.
+        Errored states prior to restart reported below.
+
+        ### `ResultRecord` current status
+
+        {df_res.to_markdown()}
+
+        #### `ResultRecord` Error Tracebacks:
+
+        <details>
+        <summary><b>Tracebacks</b> (<i>click to expand</i>)</summary>
+        <!-- have to be followed by an empty line! -->
+
+        ```
+        {res_error_counts}
         ```
         </details>
 
@@ -640,12 +740,12 @@ def create_dataset(dataset_data):
     from qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
-        "BasicDataset": BasicDataset,
-        "OptimizationDataset": OptimizationDataset,
-        "TorsiondriveDataset": TorsiondriveDataset,
+        "dataset": BasicDataset,
+        "optimizationdataset": OptimizationDataset,
+        "torsiondrivedataset": TorsiondriveDataset,
     }
 
-    dataset_type = dataset_data["dataset_type"]
+    dataset_type = dataset_data["dataset_type"].lower()
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)

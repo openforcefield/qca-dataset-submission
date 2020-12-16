@@ -1,0 +1,105 @@
+{
+  "qc_specifications": {
+    "openff-1.0.0": {
+      "method": "openff-1.0.0",
+      "basis": "smirnoff",
+      "program": "openmm",
+      "spec_name": "openff-1.0.0",
+      "spec_description": "default openff-1.0.0 spec",
+      "store_wavefunction": "none"
+    },
+    "openff-1.1.1": {
+      "method": "openff-1.1.1",
+      "basis": "smirnoff",
+      "program": "openmm",
+      "spec_name": "openff-1.1.1",
+      "spec_description": "default openff-1.1.1 spec",
+      "store_wavefunction": "none"
+    },
+    "openff-1.2.0": {
+      "method": "openff-1.2.0",
+      "basis": "smirnoff",
+      "program": "openmm",
+      "spec_name": "openff-1.2.0",
+      "spec_description": "default openff-1.2.0 spec",
+      "store_wavefunction": "none"
+    },
+    "openff-1.2.1": {
+      "method": "openff-1.2.1",
+      "basis": "smirnoff",
+      "program": "openmm",
+      "spec_name": "openff-1.2.1",
+      "spec_description": "default openff-1.2.1 spec",
+      "store_wavefunction": "none"
+    },
+    "openff-1.3.0": {
+      "method": "openff-1.3.0",
+      "basis": "smirnoff",
+      "program": "openmm",
+      "spec_name": "openff-1.3.0",
+      "spec_description": "default openff-1.3.0 spec",
+      "store_wavefunction": "none"
+    },
+    "gaff-2.11": {
+      "method": "gaff-2.11",
+      "basis": "antechamber",
+      "program": "openmm",
+      "spec_name": "gaff-2.11",
+      "spec_description": "default gaff-2.11 spec",
+      "store_wavefunction": "none"
+    }
+  },
+  "dataset_name": "OpenFF Sandbox CHO PhAlkEthOH v1.0",
+  "dataset_tagline": "A diverse set of small CHO molecules",
+  "dataset_type": "OptimizationDataset",
+  "maxiter": 200,
+  "driver": "gradient",
+  "scf_properties": [
+    "dipole",
+    "quadrupole",
+    "wiberg_lowdin_indices",
+    "mayer_indices"
+  ],
+  "priority": "normal",
+  "description": "A diverse set of small CHO molecules",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "metadata": {
+    "submitter": "trevorgokey",
+    "creation_date": "2020-10-07",
+    "collection_type": "OptimizationDataset",
+    "dataset_name": "OpenFF Sandbox CHO PhAlkEthOH v1.0",
+    "short_description": "A diverse set of small CHO molecules",
+    "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH",
+    "long_description": "This dataset contains a stereo-expanded version of the AlkEthOH dataset, and the original PhEthOH dataset, which were used in the original derivation of the smirnoff99Frosst parameters.",
+    "elements": [
+      "O",
+      "C",
+      "H"
+    ]
+  },
+  "provenance": {
+    "qcsubmit": "0+untagged.190.g15c36cb.dirty",
+    "openforcefield": "0.7.2rc1",
+    "openeye": "2019.Oct.2"
+  },
+  "dataset": {},
+  "filtered_molecules": {},
+  "optimization_procedure": {
+    "program": "geometric",
+    "coordsys": "tric",
+    "enforce": 0.0,
+    "epsilon": 1e-05,
+    "reset": false,
+    "qccnv": false,
+    "molcnv": false,
+    "check": 0,
+    "trust": 0.1,
+    "tmax": 0.3,
+    "maxiter": 300,
+    "convergence_set": "GAU",
+    "constraints": {}
+  }
+}

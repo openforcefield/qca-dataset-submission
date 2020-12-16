@@ -52,6 +52,11 @@ This is a torsiondrive dataset created from the [OpenFF FEP benchmark dataset](h
         - method: ani2x
         - basis: None
         - program: torchani
+    - ani2x-v2:
+        - name: ani2x-v2
+        - method: ani2x
+        - basis: None
+        - program: torchani
     - gfn2xtb:
         - name: gfn2xtb
         - method: gfn2xtb

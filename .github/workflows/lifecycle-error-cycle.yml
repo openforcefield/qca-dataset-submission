@@ -22,11 +22,11 @@ jobs:
           ulimit -a
 
       - name: Configure conda
-        uses: goanpeca/setup-miniconda@v1
+        uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.7
-          activate-environment: queued-submit
-          environment-file: devtools/conda-envs/queued-submit.yaml
+          activate-environment: error-cycle
+          environment-file: devtools/conda-envs/error-cycle.yaml
           auto-activate-base: false
 
       - name: Environment Information
