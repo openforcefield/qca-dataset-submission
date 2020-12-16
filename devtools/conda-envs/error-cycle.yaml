@@ -2,11 +2,15 @@ name: error-cycle
 
 channels:
   - conda-forge
+  - omnia
+  - defaults
+  - omnia/label/rc
 
 dependencies:
   - python
   - pip
   - qcportal
+  - qcsubmit==0.1.1
   - pip:
       - PyGithub
       - pandas
