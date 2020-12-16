@@ -1,12 +1,12 @@
 # Dude where's my Dataset?
 
-Finding the source of a dataset in QCArchive can be difficult, here we offer a mapping between a dataset in QCArchive and the folder which contains its inputs including a quick overview of some metadata including the status of the dataset.
-Note that new datasets submitted using QCSubmit know where they were created and have a `long_description_url` in the metadata which points directly to their home folder in this repo.
+Finding the source of a dataset in QCArchive can be difficult; here we offer a mapping between a dataset in QCArchive and the folder which contains its inputs including a quick overview of some metadata and the status of the dataset.
+Note that new datasets submitted using QCSubmit know where they were created and have a `long_description_url` in the metadata which points directly to their home folder in this repository.
 
 ### Status
-The status refers to only the default spec which is required for all of our datasets currently this is `B3LYP-D3BJ/DZVP`.
+The status only refers to the `default` specification which is required for all of our datasets. Currently this is `B3LYP-D3BJ/DZVP`.
 
-### key:
+### Key:
 
 [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) 100% of all default spec jobs have been complete.
 
@@ -17,7 +17,7 @@ The status refers to only the default spec which is required for all of our data
 
 
 # Basic Datasets
-These are currently used to compute hessians for complete optimizations.
+These are currently used to compute properties of a minimum energy conformation (Hessians, wavefunctions, etc.), usually derived from completed optimization datasets.
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
@@ -34,6 +34,7 @@ These are currently used to compute hessians for complete optimizations.
 
 
 # Optimization Datasets
+These are currently used to find a minimum energy conformation of a molecule.
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
@@ -57,6 +58,7 @@ These are currently used to compute hessians for complete optimizations.
 
 
 # TorsionDrive Datasets
+These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
@@ -90,10 +92,11 @@ These are currently used to compute hessians for complete optimizations.
 | `OpenFF Theory Benchmarking Set B3LYP-D3BJ def2-TZVP v1.0` | [2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvp](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvp) | This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchmarking different QM levels. | Cl, F, C, S, P, O, H, N | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
 | `OpenFF Theory Benchmarking Set B3LYP-D3BJ def2-TZVPD v1.0` | [2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpd](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpd) | This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchmarking different QM levels. | Cl, F, C, S, P, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 | `OpenFF Theory Benchmarking Set B3LYP-D3BJ def2-TZVPP v1.0` | [2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpp](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpp) | This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchmarking different QM levels. | Cl, F, C, S, P, O, H, N | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
-| `OpenFF Protein Fragments TorsionDrives v1.0` | [2020-09-16-OpenFF-Protein-Fragments-TorsionDrives](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives) | his is a protein fragment dataset consisting of torsion drives on various protein fragments prepared by David Cerutti. We have 12 central residues capped with a combination of different terminal residues. We drive the following angles for each fragment: - omega - phi - psi - chi1 (if applicable) - chi2 (if applicable). | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
+| `OpenFF Protein Fragments TorsionDrives v1.0` | [2020-09-16-OpenFF-Protein-Fragments-TorsionDrives](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives) | This is a protein fragment dataset consisting of torsion drives on various protein fragments prepared by David Cerutti. We have 12 central residues capped with a combination of different terminal residues. We drive the following angles for each fragment: - omega - phi - psi - chi1 (if applicable) - chi2 (if applicable). | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 
 
-# Grid Optimization Dataset
+# GridOptimization Datasets
+These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.
 
 | QCArchive Dataset  | Folder  | Description  | Elements  | Status  |
 |---|---|---|---|---|
