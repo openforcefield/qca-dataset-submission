@@ -8,7 +8,7 @@
   [DANCE](https://github.com/btjnaka/dance) to improve t142 parameterization in
   smirnoff99Frosst.
 - Collection: TorsiondriveDataset
-- Name: DANCE 1 eMolecules t142 selected
+- Name: OpenFF DANCE 1 eMolecules t142 v1.0
 - Number of Entries: 20 1-D torsions
 - Submitter: Bryon Tjanaka (Mobley Lab)
 

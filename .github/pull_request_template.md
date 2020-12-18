@@ -5,4 +5,5 @@
 - [ ] Dataset is named `dataset.json`
 - [ ] A PDF depicting the molecules is attached, in the case of torsiondrives this should include the highlighting of the central bond, this can be done automatically using [qcsubmit](https://github.com/openforcefield/qcsubmit/blob/56680a7d3298b5d8962edcb840b0fdb34558c053/qcsubmit/datasets.py#L854). 
 - [ ] QCSubmit validation passed
+- [ ] Make a new dataset entry in the mapping table, INDEX.md
 - [ ] Ready to submit!

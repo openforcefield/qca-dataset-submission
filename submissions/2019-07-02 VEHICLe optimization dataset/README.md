@@ -11,7 +11,7 @@ Prepared by enumerating stereochemistry (but not protonation or tautomeric state
  - Class: Forcefield Parametrization
  - Purpose: VEHICLe (virtual exploratory heterocyclic library)
  - Collection: OptimizationDataset
- - Name: Open Force Field VEHICLe optimization dataset 1.0.0
+ - Name: OpenFF VEHICLe Set 1
  - Number of Entries: 24867
  - Submitter: John Chodera
 

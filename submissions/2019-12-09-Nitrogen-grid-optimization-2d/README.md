@@ -5,7 +5,7 @@
  - Class: Forcefield Parameterization
  - Purpose: Set of diverse trivalent nitrogen molecules for 2-D grid optimization
  - Collection: GridOptimization
- - Name: Nitrogen Grid Optimization
+ - Name: OpenFF Trivalent Nitrogen Set 2
  - Number of Entries: 323 2-D Grid optimizations
  - Submitter: Jessica Maat
 

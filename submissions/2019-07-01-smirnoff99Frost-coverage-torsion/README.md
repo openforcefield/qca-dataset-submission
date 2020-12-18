@@ -5,7 +5,7 @@
  - Class: Forcefield Parameterization
  - Purpose: Set of small molecules that use all smirnoff99Frost parameters
  - Collection: TorsiondriveDataset
- - Name: smirnoff99Frost parameter coverage torsion
+ - Name: SMIRNOFF Coverage Torsion Set 1
  - Number of Entries: 585 1-D torsions (max 5 per SMIRKs)
  - Submitter: Yudong Qiu
 
