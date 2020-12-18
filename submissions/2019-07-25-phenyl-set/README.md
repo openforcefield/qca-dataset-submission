@@ -5,7 +5,7 @@
  - Class: Fragmentation Research
  - Purpose: Investigate WBO and torsion barrier relationship
  - Collection: TorsionDriveDataset
- - Name: phenyl set
+ - Name: OpenFF Substituted Phenyl Set 1
  - Number of Entries: 174 (expandable)
  - Submitter: Chaya Stern
 
