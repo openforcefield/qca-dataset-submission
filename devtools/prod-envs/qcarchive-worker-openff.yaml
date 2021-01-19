@@ -16,6 +16,7 @@ dependencies:
   - xtb-python =20.2
   - dftd3
   - gcp
+  - gau2grid =2.0.3
     
   # MM calculations
   - openforcefield =0.8.3

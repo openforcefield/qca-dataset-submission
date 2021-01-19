@@ -12,6 +12,7 @@ dependencies:
   - psi4 =1.4a2.dev1058+670a850
   - dftd3
   - gcp
+  - gau2grid =2.0.3
     
   # procedures
   - geometric
