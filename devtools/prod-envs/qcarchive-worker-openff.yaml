@@ -8,7 +8,7 @@ channels:
 dependencies:
   - python =3.7
   - pip
-  - qcfractal =0.15.1
+  - qcfractal =0.15.2
   - qcengine =0.17.0
 
   # QM calculations
@@ -18,9 +18,9 @@ dependencies:
   - gcp
     
   # MM calculations
-  - openforcefield =0.8.0
+  - openforcefield =0.8.3
   - openforcefields =1.3.0
-  - openmm =7.4.2
+  - openmm =7.5.0
   - openmmforcefields =0.8.0
   - conda-forge::libiconv
   - ambertools ==20.4
