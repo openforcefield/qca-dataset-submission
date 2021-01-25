@@ -11,7 +11,7 @@ dependencies:
   - python
   - pip
 
-  - qcsubmit==0.1.1
+  - openff-qcsubmit =0.2.0
   - PyGithub
   - pandas
   - tabulate
