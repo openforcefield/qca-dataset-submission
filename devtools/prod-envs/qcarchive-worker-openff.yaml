@@ -12,7 +12,7 @@ dependencies:
   - qcengine =0.17.0
 
   # QM calculations
-  - psi4 =1.4a2.dev1058+670a850
+  - psi4 =1.4a3.dev26+51d7763
   - xtb-python =20.2
   - dftd3
   - gcp
