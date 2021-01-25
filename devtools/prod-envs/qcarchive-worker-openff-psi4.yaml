@@ -5,13 +5,14 @@ channels:
   - defaults
 dependencies:
   - python =3.7
-  - qcfractal =0.15.1
+  - qcfractal =0.15.2
   - qcengine =0.17.0
 
   # QM calculations
-  - psi4 =1.4a2.dev1058+670a850
+  - psi4 =1.4a3.dev26+51d7763
   - dftd3
   - gcp
+  - gau2grid =2.0.3
     
   # procedures
   - geometric
