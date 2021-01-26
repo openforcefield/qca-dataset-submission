@@ -57,3 +57,10 @@ Generating stereoisomers, conformers, and QCSubmit dataset:
         - method: WB97X
         - basis: 6-31G*
         - program: psi4
+    - default-dlc
+        - method: B3LYP-D3BJ
+        - basis: DZVP
+        - program: psi4
+        - optimization_procedure:
+            - coordsys: dlc
+            - reset: true
