@@ -1,0 +1,64 @@
+{
+  "qc_specifications": {
+    "default-dlc": {
+      "method": "b3lyp-d3bj",
+      "basis": "dzvp",
+      "program": "psi4",
+      "spec_name": "default-dlc",
+      "spec_description": "Standard OpenFF optimization quantum chemistry specification, with DLC internal coordinates.",
+      "store_wavefunction": "none",
+      "implicit_solvent": null
+    }
+  },
+  "dataset_name": "OpenFF PEPCONF OptimizationDataset v1.0",
+  "dataset_tagline": "OptimizationDataset of short peptides in various contexts, including disulfide bridges.",
+  "dataset_type": "OptimizationDataset",
+  "maxiter": 300,
+  "driver": "gradient",
+  "scf_properties": [
+    "dipole",
+    "quadrupole",
+    "wiberg_lowdin_indices",
+    "mayer_indices"
+  ],
+  "priority": "normal",
+  "description": "OptimizationDataset of short peptides in various contexts, including disulfide bridges.",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "metadata": {
+    "submitter": "jchodera",
+    "creation_date": "2020-11-08",
+    "collection_type": "OptimizationDataset",
+    "dataset_name": "OpenFF PEPCONF OptimizationDataset v1.0",
+    "short_description": "OptimizationDataset of short peptides in various contexts, including disulfide bridges.",
+    "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-10-26-PEPCONF-Optimization",
+    "long_description": "OptimizationDataset of short peptides in various contexts, including disulfide bridges. The source PEPCONF dataset is documented in [Nature Scientific Data](https://www.nature.com/articles/sdata2018310), and available on [GitHub](https://github.com/aoterodelaroza/pepconf). This dataset extracts the molecules that were simulated, but uses the QCSubmit infrastructure to generate a new `OptimizationDataset`, so does not use the original conformers.",
+    "elements": [
+      "S",
+      "O",
+      "N",
+      "C",
+      "H"
+    ]
+  },
+  "provenance": {},
+  "dataset": {},
+  "filtered_molecules": {},
+  "optimization_procedure": {
+    "program": "geometric",
+    "coordsys": "dlc",
+    "enforce": 0.0,
+    "epsilon": 1e-05,
+    "reset": true,
+    "qccnv": false,
+    "molcnv": false,
+    "check": 0,
+    "trust": 0.1,
+    "tmax": 0.3,
+    "maxiter": 500,
+    "convergence_set": "GAU",
+    "constraints": {}
+  }
+}
