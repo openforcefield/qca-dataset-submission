@@ -11,13 +11,13 @@ from argparse import ArgumentParser
 
 import pandas as pd
 from github import Github
-from qcsubmit.datasets import (BasicDataset, OptimizationDataset,
+from openff.qcsubmit.datasets import (BasicDataset, OptimizationDataset,
                                TorsiondriveDataset)
-from qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
+from openff.qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
                                  LinearTorsionError,
                                  MolecularComplexError, QCSpecificationError, ConstraintError, PCMSettingError)
-from qcsubmit.serializers import deserialize
-from qcsubmit.utils import update_specification_and_metadata
+from openff.qcsubmit.serializers import deserialize
+from openff.qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
 
 datasets = {
@@ -293,7 +293,7 @@ def get_version_info():
     import importlib
     report = {}
     # list the core packages here
-    packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    packages = ["openff.qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
     for package in packages:
         module = importlib.import_module(package)
         report[package] = pd.Series({"version": module.__version__})

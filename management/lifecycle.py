@@ -270,7 +270,7 @@ class SubmittableBase:
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
-        from qcsubmit.serializers import deserialize
+        from openff.qcsubmit.serializers import deserialize
         spec = deserialize(self.submittable)
 
         return spec
@@ -316,7 +316,7 @@ class SubmittableBase:
         """Submit, perhaps with some retry logic.
 
         """
-        from qcsubmit.serializers import deserialize
+        from openff.qcsubmit.serializers import deserialize
 
         client = self._get_qca_client()
 
@@ -737,7 +737,7 @@ class Compute(SubmittableBase):
 
 
 def create_dataset(dataset_data):
-    from qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
+    from openff.qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
         "dataset": BasicDataset,
@@ -777,7 +777,7 @@ def get_version_info():
 
     report = {}
     # list the core packages here
-    packages = ["qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    packages = ["openff.qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
     for package in packages:
         module = importlib.import_module(package)
         report[package] = pd.Series({"version": module.__version__})
