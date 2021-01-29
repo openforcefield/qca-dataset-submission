@@ -10,7 +10,7 @@ dependencies:
   - python
   - pip
   - qcportal
-  - openff-qcsubmit =0.2.0
+  - openff-qcsubmit =0.2.1
   - pip:
       - PyGithub
       - pandas
