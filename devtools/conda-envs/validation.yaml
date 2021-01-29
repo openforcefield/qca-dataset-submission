@@ -6,9 +6,10 @@ channels:
   - defaults
   - openeye
   - omnia/label/rc
+  - omnia/label/benchmark
 
 dependencies:
-  - python
+  - python =3.7
   - pip
 
   - openff-qcsubmit =0.2.1
