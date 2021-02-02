@@ -24,9 +24,8 @@ This is a torsion drive dataset that probes a range of WBO for different chemitr
 ### QCSubmit Manifest
 
 - `Generate_dataset.ipynb`: Dataset creation notebook with details on decisions made for submission.
-- `dataset_wbo.json.bz2`: The compressed TorsionDrive dataset ready for submission.
-- `torsions.pdf`: A pdf file containing molecule 2D structures.
-- `Input_files.tar.gz`: Folders containing the input molecule conformations and the (unused) corresponding dihedral restraints.
+- `dataset.json.bz2`: The compressed TorsionDrive dataset ready for submission.
+- `torsions_wbodataset.pdf`: A pdf file containing molecule 2D structures.
 - `molecules_wbo.smi`: SMILES for every molecule in the submission; duplicate molecules for each driven torsion dropped
 
 ### Metadata
