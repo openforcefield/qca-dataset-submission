@@ -1,4 +1,4 @@
-# OpenFF WBO TorsionDrives
+# OpenFF WBO Conjugated Torsion Series v1.0
 
 ### Description
 
@@ -12,9 +12,9 @@ The general principal behind the dataset is to start with a “base” chemical 
  - Class: OpenFF TorsionDrive
  - Purpose: TorsionDrive scans molecules with varying WBO and subsituted functional groups
  - Collection: TorsionDriveDataset
- - Name: OpenFF WBO TorsionDrives v1.0
- - Number of unique molecules: 94
- - Number of torsiondrives: 96
+ - Name: OpenFF WBO Conjugated Torsion Series v1.0
+ - Number of unique molecules: 104
+ - Number of torsiondrives: 104
  - Submitter: Jessica Maat
 
 
@@ -31,8 +31,8 @@ The general principal behind the dataset is to start with a “base” chemical 
 
 ### Metadata
 
-- unique molecules: 94
-- torsiondrives: 96
+- unique molecules: 104
+- torsiondrives: 104
 - scf properties:
     - `dipole`
     - `quadrupole`
