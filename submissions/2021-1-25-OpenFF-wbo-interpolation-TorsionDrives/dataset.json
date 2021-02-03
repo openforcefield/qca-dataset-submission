@@ -29,18 +29,18 @@
   "description": "Torsiondrives for selected dihedrals of varying WBO",
   "metadata": {
     "submitter": "jmaat",
-    "creation_date": "2021-01-29",
+    "creation_date": "2021-02-02",
     "collection_type": "TorsiondriveDataset",
     "dataset_name": "OpenFF WBO TorsionDrives v1.0",
     "short_description": "Torsiondrives for selected dihedrals of varying WBO",
     "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/",
     "long_description": "Torsiondrives for selected dihedrals of varying WBO",
     "elements": [
-      "S",
-      "C",
-      "H",
       "N",
-      "O"
+      "S",
+      "O",
+      "H",
+      "C"
     ]
   },
   "provenance": {
@@ -273,8 +273,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -513,8 +513,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -771,8 +771,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -1020,8 +1020,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -1359,8 +1359,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -1644,8 +1644,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -1920,8 +1920,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -2196,8 +2196,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -2436,8 +2436,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -2694,8 +2694,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -2988,8 +2988,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -3219,8 +3219,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -3432,8 +3432,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -3651,8 +3651,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -3888,8 +3888,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -4116,8 +4116,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -4434,8 +4434,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -4698,8 +4698,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -4953,8 +4953,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -5208,8 +5208,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -5427,8 +5427,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -5664,8 +5664,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -5937,8 +5937,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6147,8 +6147,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6271,8 +6271,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6395,8 +6395,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6537,8 +6537,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6670,8 +6670,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -6905,8 +6905,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7074,8 +7074,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7312,8 +7312,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7466,8 +7466,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7596,8 +7596,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7765,8 +7765,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -7943,8 +7943,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8058,8 +8058,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8209,8 +8209,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8354,8 +8354,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8517,8 +8517,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8671,8 +8671,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -8915,8 +8915,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -9123,8 +9123,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -9316,8 +9316,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -9503,8 +9503,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -9648,8 +9648,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -9838,8 +9838,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10037,8 +10037,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10173,8 +10173,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10345,8 +10345,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10523,8 +10523,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10719,8 +10719,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -10906,8 +10906,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -11183,8 +11183,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -11424,8 +11424,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -11650,8 +11650,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -11870,8 +11870,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12048,8 +12048,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12271,8 +12271,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12503,8 +12503,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12672,8 +12672,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12814,8 +12814,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -12950,8 +12950,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -13104,8 +13104,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -13249,8 +13249,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -13484,8 +13484,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -13665,8 +13665,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -13837,8 +13837,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14009,8 +14009,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14145,8 +14145,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14326,8 +14326,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14516,8 +14516,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14643,8 +14643,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -14824,8 +14824,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -15011,8 +15011,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -15216,8 +15216,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -15412,8 +15412,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -15698,8 +15698,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -15930,8 +15930,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -16153,8 +16153,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -16376,8 +16376,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -16563,8 +16563,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -16795,8 +16795,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -17036,8 +17036,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -17214,8 +17214,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -17410,8 +17410,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -17606,8 +17606,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -17820,8 +17820,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -18031,8 +18031,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -18326,8 +18326,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -18567,8 +18567,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -18799,8 +18799,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -19031,8 +19031,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -19227,8 +19227,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -19474,8 +19474,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -19730,8 +19730,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
@@ -19917,8 +19917,8 @@
         "grid_spacing": null,
         "dihedral_ranges": [
           [
-            -20,
-            20
+            -180,
+            180
           ]
         ],
         "energy_decrease_thresh": null,
