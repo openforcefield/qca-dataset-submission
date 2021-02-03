@@ -8,6 +8,7 @@ CC=Cc1ccc(cc1)NC
 CC=Cc1ccc(cc1)NON
 CC=Cc1ccc(cc1)C#N
 CC=Cc1ccc(cc1)C
+CC=Cc1ccc(cc1)S(=O)O
 CCOc1ccc(cc1)C=CC
 CC=Cc1ccc(cc1)[O-]
 C=Cc1ccc(cc1)O
@@ -20,6 +21,7 @@ CNc1ccc(cc1)C=C
 C=Cc1ccc(cc1)NON
 C=Cc1ccc(cc1)C#N
 Cc1ccc(cc1)C=C
+C=Cc1ccc(cc1)S(=O)O
 CCOc1ccc(cc1)C=C
 C=Cc1ccc(cc1)[O-]
 C(=O)(N)O
@@ -32,6 +34,7 @@ CNC(=O)N(C)C
 C(=O)(N)NON
 C(#N)C(=O)N
 CCC(=O)N
+CN(C)C(=O)S(=O)O
 CCOC(=O)N
 C(=O)(N)[O-]
 CNC(=O)O
@@ -44,6 +47,7 @@ CNC(=O)NC
 CNC(=O)NON
 CNC(=O)C#N
 CCC(=O)NC
+CNC(=O)S(=O)O
 CCOC(=O)NC
 CNC(=O)[O-]
 CN(C)C(=O)O
@@ -56,6 +60,7 @@ CNC(=O)N(C)C
 CN(C)C(=O)NON
 CN(C)C(=O)C#N
 CCC(=O)N(C)C
+CN(C)C(=O)S(=O)O
 CCOC(=O)N(C)C
 CN(C)C(=O)[O-]
 C=CC(=O)O
@@ -68,6 +73,7 @@ CNC(=O)C=C
 C=CC(=O)NON
 C=CC(=O)C#N
 CCC(=O)C=C
+C=CC(=O)S(=O)O
 CCOC(=O)C=C
 C=CC(=O)[O-]
 CN(C)C(=O)OO
@@ -80,6 +86,7 @@ CNOC(=O)N(C)C
 CN(C)C(=O)ONON
 CN(C)C(=O)OC#N
 CCOC(=O)N(C)C
+CN(C)C(=O)OS(=O)O
 CCOOC(=O)N(C)C
 CN(C)C(=O)O[O-]
 CN(C)C(=O)NO
@@ -92,5 +99,6 @@ CNNC(=O)N(C)C
 CN(C)C(=O)NNON
 CN(C)C(=O)NC#N
 CCNC(=O)N(C)C
+CN(C)C(=O)NS(=O)O
 CCONC(=O)N(C)C
 CN(C)C(=O)N[O-]

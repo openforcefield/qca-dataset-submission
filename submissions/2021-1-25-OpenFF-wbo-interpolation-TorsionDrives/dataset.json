@@ -2710,6 +2710,264 @@
         ]
       ]
     },
+    "enyl_CC=Cc1ccc(cc1)S(=O)O": {
+      "index": "enyl_CC=Cc1ccc(cc1)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            5.73711348,
+            -2.13866238,
+            -7.18631122,
+            5.73703643,
+            -2.2136956,
+            -4.36355382,
+            3.64688342,
+            -1.91586634,
+            -2.95889613,
+            3.5624,
+            -1.95833547,
+            -0.21248155,
+            5.51989948,
+            -3.08188906,
+            1.14922468,
+            5.43917203,
+            -3.12181327,
+            3.78358601,
+            3.40094015,
+            -2.03833393,
+            5.05629459,
+            1.44342839,
+            -0.91488881,
+            3.69451783,
+            1.52417026,
+            -0.8749633,
+            1.06014828,
+            3.29759282,
+            -2.08984664,
+            8.4418896,
+            0.89573656,
+            -0.79002759,
+            9.2226801,
+            2.78492552,
+            -5.08559899,
+            8.5655392,
+            6.04492638,
+            -0.20056917,
+            -7.83810324,
+            7.26603035,
+            -3.32160714,
+            -7.92090455,
+            3.9557648,
+            -2.81468182,
+            -7.99159158,
+            7.56626372,
+            -2.50946023,
+            -3.48001117,
+            1.85071685,
+            -1.57762853,
+            -3.89977367,
+            7.12146957,
+            -3.93327805,
+            0.18313817,
+            6.97833882,
+            -4.00399663,
+            4.81838297,
+            -0.15738153,
+            -0.06275656,
+            4.65880055,
+            -0.01540655,
+            0.00849791,
+            0.0247245,
+            2.31381815,
+            -5.60299094,
+            10.29233804
+          ],
+          "name": "C9H10O2S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              12,
+              1.0
+            ],
+            [
+              0,
+              13,
+              1.0
+            ],
+            [
+              0,
+              14,
+              1.0
+            ],
+            [
+              1,
+              2,
+              2.0
+            ],
+            [
+              1,
+              15,
+              1.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              2,
+              16,
+              1.0
+            ],
+            [
+              3,
+              8,
+              2.0
+            ],
+            [
+              3,
+              4,
+              1.0
+            ],
+            [
+              4,
+              5,
+              2.0
+            ],
+            [
+              4,
+              17,
+              1.0
+            ],
+            [
+              5,
+              6,
+              1.0
+            ],
+            [
+              5,
+              18,
+              1.0
+            ],
+            [
+              6,
+              7,
+              2.0
+            ],
+            [
+              6,
+              9,
+              1.0
+            ],
+            [
+              7,
+              8,
+              1.0
+            ],
+            [
+              7,
+              19,
+              1.0
+            ],
+            [
+              8,
+              20,
+              1.0
+            ],
+            [
+              9,
+              10,
+              2.0
+            ],
+            [
+              9,
+              11,
+              1.0
+            ],
+            [
+              11,
+              21,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:18][c:5]1[c:6]([c:7]([c:8]([c:9]([c:4]1[C:3](=[C:2]([H:16])[C:1]([H:13])([H:14])[H:15])[H:17])[H:21])[H:20])[S:10](=[O:11])[O:12][H:22])[H:19]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CC=Cc1ccc(cc1)S(=O)O",
+        "canonical_isomeric_smiles": "CC=Cc1ccc(cc1)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]c1c(c(c(c(c1C(=C([H])C([H])([H])[H])[H])[H])[H])S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]c1c(c(c(c(c1C(=C([H])C([H])([H])[H])[H])[H])[H])S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:18][c:5]1[c:6]([c:7]([c:8]([c:9]([c:4]1[C:3](=[C:2]([H:16])[C:1]([H:13])([H:14])[H:15])[H:17])[H:21])[H:20])[S:10](=[O:11])[O:12][H:22])[H:19]",
+        "molecular_formula": "C9H10O2S",
+        "standard_inchi": "InChI=1S/C9H10O2S/c1-2-3-8-4-6-9(7-5-8)12(10)11/h2-7H,1H3,(H,10,11)",
+        "inchi_key": "ZEHBEWKQJLBGOQ-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    },
     "enyl_CCOc1ccc(cc1)C=CC": {
       "index": "enyl_CCOc1ccc(cc1)C=CC",
       "initial_molecules": [
@@ -5686,6 +5944,243 @@
         ]
       ]
     },
+    "styrene_C=Cc1ccc(cc1)S(=O)O": {
+      "index": "styrene_C=Cc1ccc(cc1)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            2.61470008,
+            -0.10903844,
+            -4.39744207,
+            3.64688342,
+            -1.91586679,
+            -2.95889613,
+            3.5624,
+            -1.95833547,
+            -0.21248155,
+            5.51989948,
+            -3.08188906,
+            1.14922468,
+            5.43917203,
+            -3.12181327,
+            3.78358601,
+            3.40094015,
+            -2.03833393,
+            5.05629459,
+            1.44342839,
+            -0.91488881,
+            3.69451783,
+            1.52417026,
+            -0.8749633,
+            1.06014828,
+            3.29759282,
+            -2.08984664,
+            8.4418896,
+            0.89573656,
+            -0.79002759,
+            9.2226801,
+            2.78492552,
+            -5.08559899,
+            8.5655392,
+            2.7892012,
+            -0.21677298,
+            -6.43912829,
+            1.61149099,
+            1.5095737,
+            -3.64520109,
+            4.65995304,
+            -3.42586907,
+            -3.91885789,
+            7.12146957,
+            -3.93327805,
+            0.18313817,
+            6.97833882,
+            -4.00399663,
+            4.81838297,
+            -0.15738153,
+            -0.06275656,
+            4.65880055,
+            -0.01540655,
+            0.00849791,
+            0.0247245,
+            2.31381815,
+            -5.60299094,
+            10.29233804
+          ],
+          "name": "C8H8O2S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              2.0
+            ],
+            [
+              0,
+              11,
+              1.0
+            ],
+            [
+              0,
+              12,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              13,
+              1.0
+            ],
+            [
+              2,
+              7,
+              2.0
+            ],
+            [
+              2,
+              3,
+              1.0
+            ],
+            [
+              3,
+              4,
+              2.0
+            ],
+            [
+              3,
+              14,
+              1.0
+            ],
+            [
+              4,
+              5,
+              1.0
+            ],
+            [
+              4,
+              15,
+              1.0
+            ],
+            [
+              5,
+              6,
+              2.0
+            ],
+            [
+              5,
+              8,
+              1.0
+            ],
+            [
+              6,
+              7,
+              1.0
+            ],
+            [
+              6,
+              16,
+              1.0
+            ],
+            [
+              7,
+              17,
+              1.0
+            ],
+            [
+              8,
+              9,
+              2.0
+            ],
+            [
+              8,
+              10,
+              1.0
+            ],
+            [
+              10,
+              18,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:15][c:4]1[c:5]([c:6]([c:7]([c:8]([c:3]1[C:2](=[C:1]([H:12])[H:13])[H:14])[H:18])[H:17])[S:9](=[O:10])[O:11][H:19])[H:16]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "C=Cc1ccc(cc1)S(=O)O",
+        "canonical_isomeric_smiles": "C=Cc1ccc(cc1)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]c1c(c(c(c(c1C(=C([H])[H])[H])[H])[H])S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]c1c(c(c(c(c1C(=C([H])[H])[H])[H])[H])S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:15][c:4]1[c:5]([c:6]([c:7]([c:8]([c:3]1[C:2](=[C:1]([H:12])[H:13])[H:14])[H:18])[H:17])[S:9](=[O:10])[O:11][H:19])[H:16]",
+        "molecular_formula": "C8H8O2S",
+        "standard_inchi": "InChI=1S/C8H8O2S/c1-2-7-3-5-8(6-4-7)11(9)10/h2-6H,1H2,(H,9,10)",
+        "inchi_key": "PUCXFVISLAUOOJ-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          11,
+          0,
+          1,
+          2
+        ],
+        [
+          12,
+          0,
+          1,
+          2
+        ]
+      ]
+    },
     "styrene_CCOc1ccc(cc1)C=C": {
       "index": "styrene_CCOc1ccc(cc1)C=C",
       "initial_molecules": [
@@ -7787,6 +8282,189 @@
         ]
       ]
     },
+    "amide_primary_CN(C)C(=O)S(=O)O": {
+      "index": "amide_primary_CN(C)C(=O)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "N",
+            "C",
+            "C",
+            "O",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            -2.61963648,
+            0.21673899,
+            1.18935964,
+            -0.5139455,
+            -1.09540045,
+            -0.01201786,
+            -0.17261469,
+            -3.79997551,
+            0.36474748,
+            1.18656039,
+            0.23507701,
+            -1.53039353,
+            3.01135115,
+            -0.6963546,
+            -2.61867637,
+            0.81671679,
+            3.63884704,
+            -2.04200047,
+            2.96845964,
+            4.35537911,
+            -3.74286072,
+            1.6525097,
+            4.29414002,
+            0.80691562,
+            -2.03096323,
+            0.90664664,
+            3.0597819,
+            -3.1975498,
+            1.82634244,
+            0.0077584,
+            -4.21901917,
+            -1.09321361,
+            1.40612466,
+            -1.20972172,
+            -4.80617588,
+            -1.11319678,
+            1.84584015,
+            -4.22967593,
+            0.24797946,
+            -0.90906618,
+            -4.3012645,
+            2.22989813,
+            2.02027741,
+            6.11304665,
+            0.97277246
+          ],
+          "name": "C3H7NO3S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              8,
+              1.0
+            ],
+            [
+              0,
+              9,
+              1.0
+            ],
+            [
+              0,
+              10,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              11,
+              1.0
+            ],
+            [
+              2,
+              12,
+              1.0
+            ],
+            [
+              2,
+              13,
+              1.0
+            ],
+            [
+              3,
+              4,
+              2.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ],
+            [
+              5,
+              6,
+              2.0
+            ],
+            [
+              5,
+              7,
+              1.0
+            ],
+            [
+              7,
+              14,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:9][C:1]([H:10])([H:11])[N:2]([C:4](=[O:5])[S:6](=[O:7])[O:8][H:15])[C:3]([H:12])([H:13])[H:14]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CN(C)C(=O)S(=O)O",
+        "canonical_isomeric_smiles": "CN(C)C(=O)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:9][C:1]([H:10])([H:11])[N:2]([C:4](=[O:5])[S:6](=[O:7])[O:8][H:15])[C:3]([H:12])([H:13])[H:14]",
+        "molecular_formula": "C3H7NO3S",
+        "standard_inchi": "InChI=1S/C3H7NO3S/c1-4(2)3(5)8(6)7/h1-2H3,(H,6,7)",
+        "inchi_key": "ZGFSFYSTJWNFMV-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": []
+    },
     "amide_primary_CCOC(=O)N": {
       "index": "amide_primary_CCOC(=O)N",
       "initial_molecules": [
@@ -9849,6 +10527,169 @@
         [
           5,
           4,
+          2,
+          3
+        ]
+      ]
+    },
+    "amide_secondary_CNC(=O)S(=O)O": {
+      "index": "amide_secondary_CNC(=O)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "N",
+            "C",
+            "O",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            1.10482845,
+            1.18563835,
+            -3.54750834,
+            -0.36331395,
+            0.69774702,
+            -1.29836514,
+            0.0572869,
+            -1.34329943,
+            0.2681518,
+            1.66496278,
+            -2.98732174,
+            0.01353932,
+            -2.0371472,
+            -1.66519087,
+            2.99180828,
+            -1.14193935,
+            -4.00642101,
+            4.31564007,
+            -0.81199046,
+            0.72334416,
+            4.41799642,
+            0.21835982,
+            0.24109537,
+            -5.17323917,
+            1.18164325,
+            3.23385703,
+            -3.89375708,
+            3.0331373,
+            0.45394372,
+            -3.28820976,
+            -1.77495904,
+            1.91763248,
+            -0.84804319,
+            -1.34674824,
+            0.75783017,
+            6.2025593
+          ],
+          "name": "C2H5NO3S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              7,
+              1.0
+            ],
+            [
+              0,
+              8,
+              1.0
+            ],
+            [
+              0,
+              9,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              10,
+              1.0
+            ],
+            [
+              2,
+              3,
+              2.0
+            ],
+            [
+              2,
+              4,
+              1.0
+            ],
+            [
+              4,
+              5,
+              2.0
+            ],
+            [
+              4,
+              6,
+              1.0
+            ],
+            [
+              6,
+              11,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:8][C:1]([H:9])([H:10])[N:2]([H:11])[C:3](=[O:4])[S:5](=[O:6])[O:7][H:12]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CNC(=O)S(=O)O",
+        "canonical_isomeric_smiles": "CNC(=O)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C([H])([H])N([H])C(=O)S(=O)O[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])([H])N([H])C(=O)S(=O)O[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:8][C:1]([H:9])([H:10])[N:2]([H:11])[C:3](=[O:4])[S:5](=[O:6])[O:7][H:12]",
+        "molecular_formula": "C2H5NO3S",
+        "standard_inchi": "InChI=1S/C2H5NO3S/c1-3-2(4)7(5)6/h1H3,(H,3,4)(H,5,6)",
+        "inchi_key": "LQDNXCUUFMMVRC-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
           2,
           3
         ]
@@ -12293,6 +13134,202 @@
         ]
       ]
     },
+    "amide_tertiary_CN(C)C(=O)S(=O)O": {
+      "index": "amide_tertiary_CN(C)C(=O)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "N",
+            "C",
+            "C",
+            "O",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            -2.61963648,
+            0.21673899,
+            1.18935964,
+            -0.5139455,
+            -1.09540045,
+            -0.01201786,
+            -0.17261469,
+            -3.79997551,
+            0.36474748,
+            1.18656039,
+            0.23507701,
+            -1.53039353,
+            3.01135115,
+            -0.6963546,
+            -2.61867637,
+            0.81671679,
+            3.63884704,
+            -2.04200047,
+            2.96845964,
+            4.35537911,
+            -3.74286072,
+            1.6525097,
+            4.29414002,
+            0.80691562,
+            -2.03096323,
+            0.90664664,
+            3.0597819,
+            -3.1975498,
+            1.82634244,
+            0.0077584,
+            -4.21901917,
+            -1.09321361,
+            1.40612466,
+            -1.20972172,
+            -4.80617588,
+            -1.11319678,
+            1.84584015,
+            -4.22967593,
+            0.24797946,
+            -0.90906618,
+            -4.3012645,
+            2.22989813,
+            2.02027741,
+            6.11304665,
+            0.97277246
+          ],
+          "name": "C3H7NO3S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              8,
+              1.0
+            ],
+            [
+              0,
+              9,
+              1.0
+            ],
+            [
+              0,
+              10,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              11,
+              1.0
+            ],
+            [
+              2,
+              12,
+              1.0
+            ],
+            [
+              2,
+              13,
+              1.0
+            ],
+            [
+              3,
+              4,
+              2.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ],
+            [
+              5,
+              6,
+              2.0
+            ],
+            [
+              5,
+              7,
+              1.0
+            ],
+            [
+              7,
+              14,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:9][C:1]([H:10])([H:11])[N:2]([C:4](=[O:5])[S:6](=[O:7])[O:8][H:15])[C:3]([H:12])([H:13])[H:14]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CN(C)C(=O)S(=O)O",
+        "canonical_isomeric_smiles": "CN(C)C(=O)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:9][C:1]([H:10])([H:11])[N:2]([C:4](=[O:5])[S:6](=[O:7])[O:8][H:15])[C:3]([H:12])([H:13])[H:14]",
+        "molecular_formula": "C3H7NO3S",
+        "standard_inchi": "InChI=1S/C3H7NO3S/c1-4(2)3(5)8(6)7/h1-2H3,(H,6,7)",
+        "inchi_key": "ZGFSFYSTJWNFMV-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          1,
+          3,
+          4
+        ]
+      ]
+    },
     "amide_tertiary_CCOC(=O)N(C)C": {
       "index": "amide_tertiary_CCOC(=O)N(C)C",
       "initial_molecules": [
@@ -14337,6 +15374,160 @@
         [
           5,
           4,
+          2,
+          3
+        ]
+      ]
+    },
+    "carbonyl_C=CC(=O)S(=O)O": {
+      "index": "carbonyl_C=CC(=O)S(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "C",
+            "C",
+            "O",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            2.84823802,
+            1.90473538,
+            -2.355053,
+            1.1636097,
+            1.52860994,
+            -0.51296106,
+            -0.89399779,
+            -0.33464933,
+            -0.85009796,
+            -1.21044653,
+            -1.61994166,
+            -2.74244153,
+            -3.15435935,
+            -0.71125078,
+            1.70619493,
+            -3.27178421,
+            1.83304588,
+            2.94906838,
+            -5.52916315,
+            -0.94030033,
+            -0.17595666,
+            4.35353233,
+            3.27399323,
+            -2.10420125,
+            2.78513052,
+            0.88433803,
+            -4.13096314,
+            1.27699789,
+            2.57968028,
+            1.24086491,
+            -7.12555016,
+            -0.77218107,
+            0.76978636
+          ],
+          "name": "C3H4O3S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              2.0
+            ],
+            [
+              0,
+              7,
+              1.0
+            ],
+            [
+              0,
+              8,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              9,
+              1.0
+            ],
+            [
+              2,
+              3,
+              2.0
+            ],
+            [
+              2,
+              4,
+              1.0
+            ],
+            [
+              4,
+              5,
+              2.0
+            ],
+            [
+              4,
+              6,
+              1.0
+            ],
+            [
+              6,
+              10,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:8][C:1](=[C:2]([H:10])[C:3](=[O:4])[S:5](=[O:6])[O:7][H:11])[H:9]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "C=CC(=O)S(=O)O",
+        "canonical_isomeric_smiles": "C=CC(=O)S(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C(=C([H])C(=O)S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C(=C([H])C(=O)S(=O)O[H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:8][C:1](=[C:2]([H:10])[C:3](=[O:4])[S:5](=[O:6])[O:7][H:11])[H:9]",
+        "molecular_formula": "C3H4O3S",
+        "standard_inchi": "InChI=1S/C3H4O3S/c1-2-3(4)7(5)6/h2H,1H2,(H,5,6)",
+        "inchi_key": "IQLVPBBFUWMHEJ-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
           2,
           3
         ]
@@ -16812,6 +18003,211 @@
         [
           7,
           5,
+          3,
+          4
+        ]
+      ]
+    },
+    "carbamate_CN(C)C(=O)OS(=O)O": {
+      "index": "carbamate_CN(C)C(=O)OS(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "N",
+            "C",
+            "C",
+            "O",
+            "O",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            -1.52434338,
+            -0.77379718,
+            2.91144217,
+            0.23777522,
+            -1.63589222,
+            0.97178858,
+            1.14691124,
+            -4.21987971,
+            1.23213513,
+            1.05154758,
+            -0.13457781,
+            -1.05089632,
+            2.53746233,
+            -0.86593785,
+            -2.68391135,
+            0.00532823,
+            2.23849184,
+            -0.99852634,
+            0.80647335,
+            4.13638861,
+            -3.23844877,
+            -0.72822481,
+            3.48408613,
+            -5.53144382,
+            -0.36005293,
+            6.68136695,
+            -2.05797705,
+            -0.4639551,
+            0.08111422,
+            4.48169414,
+            -2.8144561,
+            0.63806349,
+            2.09704231,
+            -2.62322711,
+            -2.39105206,
+            3.61708387,
+            -0.13920627,
+            -5.47610147,
+            0.21203331,
+            3.04878047,
+            -4.3311848,
+            0.43001819,
+            1.1833382,
+            -4.70425972,
+            3.24134826,
+            -0.27776747,
+            8.06942157,
+            -3.29793569
+          ],
+          "name": "C3H7NO4S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              9,
+              1.0
+            ],
+            [
+              0,
+              10,
+              1.0
+            ],
+            [
+              0,
+              11,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              12,
+              1.0
+            ],
+            [
+              2,
+              13,
+              1.0
+            ],
+            [
+              2,
+              14,
+              1.0
+            ],
+            [
+              3,
+              4,
+              2.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ],
+            [
+              5,
+              6,
+              1.0
+            ],
+            [
+              6,
+              7,
+              2.0
+            ],
+            [
+              6,
+              8,
+              1.0
+            ],
+            [
+              8,
+              15,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:10][C:1]([H:11])([H:12])[N:2]([C:4](=[O:5])[O:6][S:7](=[O:8])[O:9][H:16])[C:3]([H:13])([H:14])[H:15]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CN(C)C(=O)OS(=O)O",
+        "canonical_isomeric_smiles": "CN(C)C(=O)OS(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)OS(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)OS(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:10][C:1]([H:11])([H:12])[N:2]([C:4](=[O:5])[O:6][S:7](=[O:8])[O:9][H:16])[C:3]([H:13])([H:14])[H:15]",
+        "molecular_formula": "C3H7NO4S",
+        "standard_inchi": "InChI=1S/C3H7NO4S/c1-4(2)3(5)8-9(6)7/h1-2H3,(H,6,7)",
+        "inchi_key": "QTWPFTUNHADFQB-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
+          3,
+          4
+        ],
+        [
+          2,
+          1,
           3,
           4
         ]
@@ -19499,6 +20895,220 @@
           5,
           3,
           2
+        ]
+      ]
+    },
+    "urea_CN(C)C(=O)NS(=O)O": {
+      "index": "urea_CN(C)C(=O)NS(=O)O",
+      "initial_molecules": [
+        {
+          "schema_name": "qcschema_molecule",
+          "schema_version": 2,
+          "validated": true,
+          "symbols": [
+            "C",
+            "N",
+            "C",
+            "C",
+            "O",
+            "N",
+            "S",
+            "O",
+            "O",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H",
+            "H"
+          ],
+          "geometry": [
+            -1.41520001,
+            -3.21699265,
+            -3.10920295,
+            -1.01327935,
+            -1.57447426,
+            -0.93626913,
+            -2.31395331,
+            -2.20644452,
+            1.415257,
+            0.60578746,
+            0.52039394,
+            -1.24241186,
+            1.67346931,
+            0.99431193,
+            -3.26255568,
+            0.86926339,
+            2.00955329,
+            0.91185135,
+            2.6996978,
+            4.56177821,
+            0.91868905,
+            4.89015132,
+            4.34559055,
+            -0.86225819,
+            3.7113545,
+            4.50402454,
+            3.77760704,
+            -3.04279362,
+            -2.53148314,
+            -4.20556272,
+            0.28222331,
+            -3.20614374,
+            -4.30904633,
+            -1.7879957,
+            -5.1540788,
+            -2.45368221,
+            -1.09355501,
+            -3.45452244,
+            2.51706635,
+            -2.68031149,
+            -0.45477284,
+            2.4441365,
+            -4.08509442,
+            -3.15498403,
+            0.94144522,
+            -0.07386856,
+            1.52725593,
+            2.50677385,
+            2.2897795,
+            4.64479172,
+            4.97395915
+          ],
+          "name": "C3H8N2O3S",
+          "molecular_charge": 0.0,
+          "molecular_multiplicity": 1,
+          "connectivity": [
+            [
+              0,
+              1,
+              1.0
+            ],
+            [
+              0,
+              9,
+              1.0
+            ],
+            [
+              0,
+              10,
+              1.0
+            ],
+            [
+              0,
+              11,
+              1.0
+            ],
+            [
+              1,
+              2,
+              1.0
+            ],
+            [
+              1,
+              3,
+              1.0
+            ],
+            [
+              2,
+              12,
+              1.0
+            ],
+            [
+              2,
+              13,
+              1.0
+            ],
+            [
+              2,
+              14,
+              1.0
+            ],
+            [
+              3,
+              4,
+              2.0
+            ],
+            [
+              3,
+              5,
+              1.0
+            ],
+            [
+              5,
+              6,
+              1.0
+            ],
+            [
+              5,
+              15,
+              1.0
+            ],
+            [
+              6,
+              7,
+              2.0
+            ],
+            [
+              6,
+              8,
+              1.0
+            ],
+            [
+              8,
+              16,
+              1.0
+            ]
+          ],
+          "fix_com": false,
+          "fix_orientation": false,
+          "fix_symmetry": "c1",
+          "provenance": {
+            "creator": "QCElemental",
+            "version": "v0.17.0",
+            "routine": "qcelemental.molparse.from_schema"
+          },
+          "extras": {
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:10][C:1]([H:11])([H:12])[N:2]([C:4](=[O:5])[N:6]([H:16])[S:7](=[O:8])[O:9][H:17])[C:3]([H:13])([H:14])[H:15]"
+          }
+        }
+      ],
+      "attributes": {
+        "canonical_smiles": "CN(C)C(=O)NS(=O)O",
+        "canonical_isomeric_smiles": "CN(C)C(=O)NS(=O)O",
+        "canonical_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)N([H])S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_smiles": "[H]C([H])([H])N(C(=O)N([H])S(=O)O[H])C([H])([H])[H]",
+        "canonical_isomeric_explicit_hydrogen_mapped_smiles": "[H:10][C:1]([H:11])([H:12])[N:2]([C:4](=[O:5])[N:6]([H:16])[S:7](=[O:8])[O:9][H:17])[C:3]([H:13])([H:14])[H:15]",
+        "molecular_formula": "C3H8N2O3S",
+        "standard_inchi": "InChI=1S/C3H8N2O3S/c1-5(2)3(6)4-9(7)8/h1-2H3,(H,4,6)(H,7,8)",
+        "inchi_key": "AKBSBCROXLXFFB-UHFFFAOYSA-N"
+      },
+      "extras": {},
+      "keywords": {
+        "grid_spacing": null,
+        "dihedral_ranges": [
+          [
+            -180,
+            180
+          ]
+        ],
+        "energy_decrease_thresh": null,
+        "energy_upper_limit": null
+      },
+      "dihedrals": [
+        [
+          0,
+          1,
+          3,
+          5
+        ],
+        [
+          2,
+          1,
+          3,
+          5
         ]
       ]
     },
