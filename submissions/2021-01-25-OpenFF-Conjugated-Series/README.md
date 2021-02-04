@@ -6,6 +6,8 @@ This is a torsion drive dataset that probes a range of Wiberg bond orders for di
 
 The general principal behind the dataset is to start with a “base” chemical group and substitute chemical groups onto these “base” groups. The “base” groups included in this dataset are enyl, styrene, primary amide, secondary amide, tertiary amide, carbamate, urea and carbonyl group. For each of these “base” chemical groups, we substitute (1) hydroxy, (2) thiol, (3) carboxylic, (4) primary amine, (5) protonated amine, (6) urea , (7) secondary amine, (8) hydroxyl amine , (9) nitrile, (10) alkene, (11)  sulfone, (12) ethoxy, (13) hydroxide groups. The aim is to substitute chemical groups with varying electron withdrawing and donating properties, which will vary the Wiberg bond order of the central torsion bond. This dataset enables exploration of the effects of Wiberg bond order on the torsion barrier height for various chemistries.
 
+This dataset enumerates the protomers, tautomers, and stereoisomers of the molecules.
+
 ### General Information
 
  - Date: 2021.02.21
@@ -13,17 +15,17 @@ The general principal behind the dataset is to start with a “base” chemical 
  - Purpose: A series of functional groups to study bond conjugation effects for FF parameter interpolation
  - Collection: TorsionDriveDataset
  - Name: OpenFF WBO Conjugated Series v1.0
- - Number of unique molecules: 165
- - Number of filtered molecules: 0
- - Number of torsiondrives: 190
- - Number of conformers min mean max: 1   7.21 10
+ - Number of unique molecules: 487
+ - Number of filtered molecules: 1
+ - Number of torsiondrives: 787
+ - Number of conformers min mean max: 1   9.05 10
  - Dataset Submitter: Jessica Maat
  - Dataset Generator: Trevor Gokey
  - Set of charges: {-1, 0, 1}
- - Mean molecular weight: 119.24
- - Max molecular weight: 233.29
+ - Mean molecular weight: 115.52
+ - Max molecular weight: 182.24
  - Enumerate stereoisomers: True
- - Enumerate tautomers: False
+ - Enumerate tautomers: True
  - Enumerate protomers: True
 
 
@@ -42,9 +44,9 @@ The general principal behind the dataset is to start with a “base” chemical 
 
 ```
 {'collection_type': 'TorsiondriveDataset',
- 'creation_date': datetime.date(2021, 2, 3),
+ 'creation_date': datetime.date(2021, 2, 4),
  'dataset_name': 'OpenFF WBO Conjugated Series v1.0',
- 'elements': {'N', 'O', 'S', 'C', 'H'},
+ 'elements': {'N', 'O', 'C', 'H', 'S'},
  'long_description': 'This is a torsion drive dataset that probes a range of '
                      'Wiberg bond orders for different chemistries to better '
                      'understand the relationship between torsion barrier '
@@ -67,7 +69,7 @@ The general principal behind the dataset is to start with a “base” chemical 
                      'central torsion bond. This dataset enables exploration '
                      'of the effects of Wiberg bond order on the torsion '
                      'barrier height for various chemistries.\n'
-                     'This dataset enumerates both the protomeric and '
+                     'This dataset enumerates the protomers, tautomers, and '
                      'stereoisomers of the molecules.',
  'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/OpenFF-WBO-Conjugated-Series', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/master/submissions/OpenFF-WBO-Conjugated-Series'),
  'short_description': 'A series of functional groups to study bond conjugation '
