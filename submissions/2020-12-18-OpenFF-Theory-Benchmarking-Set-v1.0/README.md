@@ -1,6 +1,6 @@
 ### Description
 
-This is a TorsionDrive dataset containing x 1-D torsions for theory benchmarking.
+This is a TorsionDrive dataset containing 1-D torsions for theory benchmarking.
 
 ### Dataset Information
 
@@ -20,17 +20,16 @@ This is a TorsionDrive dataset containing x 1-D torsions for theory benchmarking
 - Enumerate tautomers: False
 
 ### Torsion selection scheme
-1. 36 1-D torsions have been initially selected from Roche and Coverage set based on the two criteria:
+1. 36 1-D torsions have been initially selected from Roche and Coverage set based on two criteria:
     1. Consideration of the coverage of chemical diversity
         - Variations in central bonds, formal charges, element compositions, intramolecular interactions;
         - Inclusion of molecules (1) w/ non-zero formal charges, (2) w/ strong internal interactions, (3) w/ central bond conjugated( < 10 kcal/mol rotational barrier) or (4) w/ halogen
-
     2. Consistency in molecular size
-2. Additional x 1-D torsions have been selected to include more diverse charged molecules. 
-    1. From the recently isomerized Roche set by Pavan, extracted charged molecules.
-    2. Sparated the molecules into groups based on the type of charged functional group.
-        - -1 charged functional groups: `c[O-]`, `C(=O)[N-]`, `c[N-]c`, `S(=O)(=O)[N-]`, `S(=[N-])(=O)`
 
+2. Additional 1-D torsions have been selected to include more diverse charged molecules.
+    1. From the recently isomerized Roche set by Pavan, extracted charged molecules.
+    2. Separated the molecules into groups based on the type of charged functional group.
+        - -1 charged functional groups: `c[O-]`, `C(=O)[N-]`, `c[N-]c`, `S(=O)(=O)[N-]`, `S(=[N-])(=O)`
         - +1 charged functional groups: `[NH+,nH+](=,:[C,c])[C,c]`, `[NH+]([*])[*]`, `[NH2+]([*])[*]`, `[NH3+][*]`
     3. Then selected one molecule per each group (by picking a center molecule using MACCS keys fingerprint.)
     4. Using qcsubmit tool, generated 1-D torsions from the selected molecules. 
