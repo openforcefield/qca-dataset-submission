@@ -38,8 +38,7 @@ QCSubmit was used to filter duplicate SMILES, filter rotors < 3, enumerate stere
 	"short_description": "",
 	"long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-12-02-Genentech-PDB-Ligand-Expo-fragment-optimization-neutral-v1.0",
 	"long_description": "This dataset contains Genentech PDB Ligand Expo neutral set of molecules that fragments molecules with greater than 3 rotors",
-	"elements": [
-	]
+	"elements": [C ,Cl ,F ,N ,O ,I ,S ,H ,Br]
 }
 ```
 
