@@ -1,6 +1,8 @@
 ### Description
 
-This is the second of the Genentech PDB Ligand Expo Dataset referenced here (https://github.com/openforcefield/qca-dataset-submission/pull/48). This contains neutral molecules and with number of rotors more than three. These molecules are fragmented.
+This is the second of the Genentech PDB Ligand Expo Dataset referenced here (https://github.com/openforcefield/qca-dataset-submission/pull/48).
+This contains neutral molecules and with number of rotors more than three.
+These molecules are fragmented.
 Conformers were generated using a RMS cutoff of 3 Ångstroms.
 
 ### General Information
@@ -42,3 +44,18 @@ QCSubmit was used to filter duplicate SMILES, filter rotors < 3, enumerate stere
 }
 ```
 
+### Compute specs
+
+```
+{
+  "qc_specifications": {
+    "default-dlc": {
+      "method": "B3LYP-D3BJ",
+      "basis": "DZVP",
+      "program": "psi4",
+      "spec_name": "default-dlc",
+      "spec_description": "Standard OpenFF optimization quantum chemistry specification, with DLC internal coordinates for geomeTRIC.",
+      "store_wavefunction": "none",
+      "implicit_solvent": null
+    }
+```
