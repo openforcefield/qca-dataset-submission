@@ -5,7 +5,7 @@
  - Class: Forcefield Parametrization
  - Purpose: Set of small molecules that use all smirnoff99Frost parameters
  - Collection: OptimizationDataset
- - Name: smirnoff99Frost parameter coverage
+ - Name: SMIRNOFF Coverage Set 1
  - Number of Entries: 156 (expandable)
  - Submitter: Chaya Stern
 

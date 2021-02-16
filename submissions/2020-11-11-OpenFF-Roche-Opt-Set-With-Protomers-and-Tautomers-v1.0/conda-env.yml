@@ -2,7 +2,9 @@ name: qcsub_env
 channels:
   - conda-forge
   - omnia
+  - openeye
   - defaults
+  - omnia/label/rc
 dependencies:
   - cmiles
   - openforcefield

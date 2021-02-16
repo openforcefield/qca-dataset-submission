@@ -7,7 +7,7 @@ This is a TorsionDrive dataset consisting of biaryl torsions provided by Christo
  - Class: OpenFF torsiondrive 
  - Purpose: Torsiondrives 
  - Collection: TorsionDriveDataset
- - Name: Openff-Rowley-Biaryl-set
+ - Name: OpenFF Rowley Biaryl v1.0
  - Number of Entries: 87
  - Submitter: Josh Horton
  

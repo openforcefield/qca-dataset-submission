@@ -5,7 +5,7 @@
  - Class: Forcefield Parameterization
  - Purpose: Set of diverse trivalent nitrogen molecules for 1-D grid optimization, this is a secondary dataset
  - Collection: GridOptimization
- - Name: Nitrogen Grid Optimization Dataset 3
+ - Name: OpenFF Trivalent Nitrogen Set 3
  - Number of Entries: 116 1-D Grid optimizations
  - Submitter: Jessica Maat
 

@@ -5,7 +5,7 @@
  - Class: Fragmentation Research
  - Purpose: Test fragmenter.
  - Collection: TorsionDriveDataset
- - Name: Fragmenter Testing
+ - Name: OpenFF Fragmenter Validation 1.0
  - Number of Entries: 22 (expandable)
  - Submitter: Chaya Stern
 
