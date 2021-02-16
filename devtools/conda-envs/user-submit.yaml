@@ -1,0 +1,23 @@
+name: queued-submit
+
+channels:
+  - conda-forge
+  - omnia
+  - defaults
+  - openeye
+  - omnia/label/rc
+  - omnia/label/benchmark
+
+dependencies:
+  - python =3.7
+  - pip
+  - qcportal
+  - openff-qcsubmit =0.2.1
+  - openforcefield
+  - fragmenter =0.0.7
+  - openeye-toolkits =2019.10.2
+  - pip:
+#      - basis_set_exchange
+      - PyGithub
+      - pandas
+      - tabulate

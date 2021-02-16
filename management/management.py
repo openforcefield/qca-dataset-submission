@@ -213,7 +213,7 @@ def restart_results(res, client):
 
 def regenerate_results(res, client):
     for r in res:
-        if r.status == 'ERROR':
+        if r.status == 'INCOMPLETE':
             print(f"Regnerated INCOMPLETE result `{r.id}`")
             client.modify_tasks(operation='regenerate', base_result=r.id)
 

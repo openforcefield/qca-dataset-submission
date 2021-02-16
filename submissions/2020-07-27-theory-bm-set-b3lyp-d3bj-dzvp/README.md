@@ -18,7 +18,7 @@ This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchm
 - Class: OpenFF torsiondrive 
 - Purpose: a torsiondrive dataset calculated with B3LYP-D3BJ/DZVP for benchmarking different QM levels 
 - Collection: TorsionDriveDataset
-- Name: OpenFF Theory Benchmarking Set B3LYP-D3BJ DZVP
+- Name: OpenFF Theory Benchmarking Set B3LYP-D3BJ DZVP v1.0
 - Number of Entries: 36
 - Submitter: Hyesu Jang
  

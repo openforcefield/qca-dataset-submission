@@ -1,11 +1,11 @@
-# OpenFF Benchmark Full 1 torsion
+# OpenFF Primary Benchmark 2 Torsion Set
 
 ### General Information
  - Date: 1/17/2020
  - Class: Forcefield Benchmark 
  - Purpose: Validation of optimized force field torsion parameters
  - Collection: TorsiondriveDataset
- - Name: OpenFF Benchmark Full 1 torsion
+ - Name: OpenFF Primary Benchmark 2 Torsion Set
  - Number of Entries: 595 1-D torsions (max 5 per SMIRKs)
  - Submitter: Hyesu Jang
 

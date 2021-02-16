@@ -5,12 +5,13 @@ channels:
   - omnia
   - defaults
   - omnia/label/rc
+  - omnia/label/benchmark
 
 dependencies:
-  - python
+  - python =3.7
   - pip
   - qcportal
-  - qcsubmit==0.1.1
+  - openff-qcsubmit =0.2.1
   - pip:
       - PyGithub
       - pandas
