@@ -9,7 +9,7 @@ This is a Optimization dataset consisting of 380 conformers for benchmarking B3L
 - Class: OpenFF Optimization dataset
 - Purpose: a optimization dataset calculated with B3LYP-NL/def2-TZVPD for benchmarking different QM levels 
 - Collection: OptimizationDataset
-- Name: OpenFF Theory Benchmakring Set B3LYP-NL def2-TZVPD v1.0
+- Name: OpenFF Theory Benchmarking Constrained Optimization Set B3LYP-NL def2-TZVPD v1.0
 - Number of Entries: 30
 - Submitter: Hyesu Jang
  
@@ -26,7 +26,7 @@ This is a Optimization dataset consisting of 380 conformers for benchmarking B3L
 {'submitter': 'hyejang',
  'creation_date': '2020-12-01',
  'collection_type': 'OptimizationDataset',
- 'dataset_name': 'OpenFF Theory Benchmakring Set B3LYP-NL def2-TZVPD v1.0',
+ 'dataset_name': 'OpenFF Theory Benchmarking Constrained Optimization Set B3LYP-NL def2-TZVPD v1.0',
  'short_description': 'Optimized geometries for benchmaking b3lyp-nl/def2-TZVPD',
  'long_description_url': 'https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-11-25-theory-bm-set-b3lyp-nl-def2-tzvpd',
  'long_description': 'An optimization dataset for benchmarking b3lyp-nl/def2-TZVPD',
