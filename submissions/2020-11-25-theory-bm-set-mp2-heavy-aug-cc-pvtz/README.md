@@ -9,7 +9,7 @@ This is a Optimization dataset consisting of 380 conformers for benchmarking MP2
 - Class: OpenFF Optimization dataset
 - Purpose: a optimization dataset calculated with MP2/heavy-aug-cc-pVTZ for benchmarking different QM levels 
 - Collection: OptimizationDataset
-- Name: OpenFF Theory Benchmakring Set MP2 heavy-aug-cc-pVTZ v1.0
+- Name: OpenFF Theory Benchmarking Constrained Optimization Set MP2 heavy-aug-cc-pVTZ v1.0
 - Number of Entries: 30
 - Submitter: Hyesu Jang
  
@@ -26,7 +26,7 @@ This is a Optimization dataset consisting of 380 conformers for benchmarking MP2
 {'submitter': 'hyejang',
  'creation_date': '2020-12-01',
  'collection_type': 'OptimizationDataset',
- 'dataset_name': 'OpenFF Theory Benchmakring Set MP2 heavy-aug-cc-pVTZ v1.0',
+ 'dataset_name': 'OpenFF Theory Benchmarking Constrained Optimization Set MP2 heavy-aug-cc-pVTZ v1.0',
  'short_description': 'Optimized geometries for benchmaking MP2/heavy-aug-cc-pVTZ',
  'long_description_url': 'https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-11-25-theory-bm-set-mp2-heavy-aug-cc-pvtz',
  'long_description': 'An optimization dataset for benchmarking MP2/heavy-aug-cc-pVTZ',
