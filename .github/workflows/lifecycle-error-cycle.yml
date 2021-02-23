@@ -22,7 +22,7 @@ jobs:
           ulimit -a
 
       - name: Cache conda
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         env:
           CACHE_NUMBER: 0
         with:
