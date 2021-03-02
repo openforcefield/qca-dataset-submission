@@ -13,6 +13,8 @@ REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_FILENAME = "dataset.json"
 COMPUTE_GLOB = "compute*.json"
 
+PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
+
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -26,7 +28,7 @@ class Submission:
 
     """
 
-    def __init__(self, pr, ghapi, repo=None):
+    def __init__(self, pr, ghapi, repo=None, priority=1):
         """Create a new Submission instance that performs operations on PR
         card state based on data in the PR itself.
 
@@ -42,10 +44,14 @@ class Submission:
             An authenticated Github Python API client object.
         repo : str
             Github repo where datasets are tracked.
+        priority : int
+            Priority to use for the dataset if set by method calls;
+            one of 0, 1, or 2, in increasing-priority order.
 
         """
         self.pr = pr
         self.ghapi = ghapi
+        self.priority = priority
 
         if repo is None:
             self.repo = ghapi.get_repo(REPO_NAME)
@@ -105,7 +111,8 @@ class Submission:
         backlog = self._get_column(self.repo, "Backlog")
         backlog.create_card(content_id=self.pr.id, content_type="PullRequest")
 
-    def execute_state(self, board=None, states=None):
+    def execute_state(self, board=None, states=None,
+                      reset_errors=False, set_priority=False):
         """Based on current state of the PR, perform appropriate actions.
 
         """
@@ -133,7 +140,8 @@ class Submission:
         elif pr_state == "Queued for Submission":
             return self.execute_queued_submit(pr_card, pr_state)
         elif pr_state == "Error Cycling":
-            return self.execute_errorcycle(pr_card, pr_state)
+            return self.execute_errorcycle(pr_card, pr_state,
+                    reset_errors=reset_errors, set_priority=set_priority)
         elif pr_state == "Requires Scientific Review":
             return self.execute_requires_scientific_review(pr_card, pr_state)
         elif pr_state == "End of Life":
@@ -208,20 +216,24 @@ class Submission:
         if new_state is not None:
             self.evolve_state(pr_card, pr_state, new_state)
 
-    def execute_errorcycle(self, pr_card, pr_state):
+    def execute_errorcycle(self, pr_card, pr_state,
+                           reset_errors=False,
+                           set_priority=False):
         """Error cycle each dataset
 
         """
         results = []
         for dataset in self.datasets:
             print(f"Processing dataset '{dataset}'")
-            ds = DataSet(dataset, self, self.ghapi)
-            results.append(ds.execute_errorcycle())
+            ds = DataSet(dataset, self, self.ghapi, priority=self.priority)
+            results.append(ds.execute_errorcycle(reset_errors=reset_errors,
+                                                 set_priority=set_priority))
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
-            ct = Compute(compute, self, self.ghapi)
-            results.append(ct.execute_errorcycle())
+            ct = Compute(compute, self, self.ghapi, priority=self.priority)
+            results.append(ct.execute_errorcycle(reset_errors=reset_errors,
+                                                 set_priority=set_priority))
 
         new_state = self.resolve_new_state(results)
         if new_state is not None:
@@ -234,7 +246,8 @@ class Submission:
 
 
 class SubmittableBase:
-    def __init__(self, submittable, submission, ghapi, repo=None):
+    def __init__(self, submittable, submission, ghapi, repo=None,
+                 priority=1):
         """Create new Submittable instance linking a submission dataset to its PR.
 
         Parameters
@@ -247,6 +260,9 @@ class SubmittableBase:
             An authenticated Github Python API client object.
         repo : str
             Github repo where datasets are tracked.
+        priority : int
+            Priority to use for the dataset if set by method calls;
+            one of 0, 1, or 2, in increasing-priority order.
 
         """
         self.submittable = submittable
@@ -359,7 +375,9 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def execute_errorcycle(self, restart=False):
+    def execute_errorcycle(self,
+                           reset_errors=False,
+                           set_priority=False):
         """Obtain complete, incomplete, error stats for submittable and report.
         
         For suspected random errors, we perform restarts.
@@ -373,16 +391,20 @@ class SubmittableBase:
         ds = client.get_collection(dataset_type, dataset_name)
 
         if dataset_type.lower() == "TorsionDriveDataset".lower():
-            complete = self._errorcycle_torsiondrive(ds, client, dataset_specs)
+            complete = self._errorcycle_torsiondrive(ds, client, dataset_specs,
+                    reset_errors=reset_errors, set_priority=set_priority)
 
         elif dataset_type.lower() == "OptimizationDataset".lower():
-            complete = self._errorcycle_optimization(ds, client, dataset_specs)
+            complete = self._errorcycle_optimization(ds, client, dataset_specs,
+                    reset_errors=reset_errors, set_priority=set_priority)
 
         elif dataset_type.lower() == "GridOptimizationDataset".lower():
-            complete = self._errorcycle_gridopt(ds, client, dataset_specs)
+            complete = self._errorcycle_gridopt(ds, client, dataset_specs,
+                    reset_errors=reset_errors, set_priority=set_priority)
 
         elif dataset_type.lower() == "Dataset".lower():
-            complete = self._errorcycle_dataset(ds, client, dataset_specs)
+            complete = self._errorcycle_dataset(ds, client, dataset_specs,
+                    reset_errors=reset_errors, set_priority=set_priority)
 
         if complete:
             return {"new_state": "Archived/Complete"}
@@ -405,17 +427,19 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def _errorcycle_torsiondrive(self, ds, client, dataset_specs):
+    def _errorcycle_torsiondrive(self, ds, client, dataset_specs,
+            reset_errors=False, set_priority=False):
         import management as mgt
 
         tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client, dataset_specs)
         opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client, dataset_specs)
 
-        opt_error_counts = mgt.count_unique_optimization_error_messages(
-            opts, full=True, pretty_print=True, tolerate_missing=True
-        )
+        if reset_errors:
+            opt_error_counts = mgt.count_unique_optimization_error_messages(
+                opts, full=True, pretty_print=True, tolerate_missing=True
+            )
 
-        self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
+            self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
 
         if (df_tdr[["RUNNING", "INCOMPLETE", "ERROR"]].sum().sum() == 0) and (
             df_tdr_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0
@@ -423,8 +447,12 @@ class SubmittableBase:
             complete = True
         else:
             # restart errored torsiondrives and optimizations
-            self._errorcycle_restart_optimizations(opts, client)
-            self._errorcycle_restart_torsiondrives(tdrs, client)
+            if reset_errors:
+                self._errorcycle_restart_optimizations(opts, client)
+                self._errorcycle_restart_torsiondrives(tdrs, client)
+            if set_priority:
+                self._set_priority_optimizations(opts, client)
+                self._set_priority_torsiondrives(opts, client)
             complete = False
 
         return complete
@@ -542,22 +570,43 @@ class SubmittableBase:
 
         mgt.restart_torsiondrives(tdrs, client)
 
-    def _errorcycle_optimization(self, ds, client, dataset_specs):
+    def _set_priority_results(self, res, client):
+        for r in res:
+            client.modify_tasks(operation='modify',
+                    base_result=r.id, new_priority=self.priority)
+            print(f"Reprioritized result`{r.id}` with `{self.priority}")
+
+    def _set_priority_optimizations(self, opts, client):
+        for opt in opts:
+            client.modify_tasks(operation='modify',
+                    base_result=opt.id, new_priority=self.priority)
+            print(f"Reprioritized result`{opt.id}` with `{self.priority}")
+
+    def _set_priority_torsiondrives(self, tdrs, client):
+        # TODO: no way to reprioritize services at the moment
+        pass
+
+    def _errorcycle_optimization(self, ds, client, dataset_specs,
+            reset_errors=False, set_priority=False):
         import management as mgt
 
         opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
 
-        opt_error_counts = mgt.count_unique_optimization_error_messages(
-            opts, full=True, pretty_print=True, tolerate_missing=True
-        )
+        if reset_errors:
+            opt_error_counts = mgt.count_unique_optimization_error_messages(
+                opts, full=True, pretty_print=True, tolerate_missing=True
+            )
 
-        self._errorcycle_optimization_report(df_opt, opt_error_counts)
+            self._errorcycle_optimization_report(df_opt, opt_error_counts)
 
         if df_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
             complete = True
         else:
-            # restart errored optimizations
-            self._errorcycle_restart_optimizations(opts, client)
+            if reset_errors:
+                # restart errored optimizations
+                self._errorcycle_restart_optimizations(opts, client)
+            if set_priority:
+                self._set_priority_optimizations(opts, client)
             complete = False
 
         return complete
@@ -625,21 +674,27 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def _errorcycle_dataset(self, ds, client, dataset_specs):
+    def _errorcycle_dataset(self, ds, client, dataset_specs,
+            reset_errors=False, set_priority=False):
         import management as mgt
         res, df_res = self._errorcycle_dataset_get_result_errors(ds, client, dataset_specs)
 
-        res_error_counts = mgt.count_unique_result_error_messages(
-            res, full=True, pretty_print=True, tolerate_missing=True
-        )
+        if reset_errors:
+            res_error_counts = mgt.count_unique_result_error_messages(
+                res, full=True, pretty_print=True, tolerate_missing=True
+            )
 
-        self._errorcycle_dataset_report(df_res, res_error_counts)
+            self._errorcycle_dataset_report(df_res, res_error_counts)
 
         if df_res[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
             complete = True
         else:
-            # restart errored tasks
-            self._errorcycle_restart_results(res, client)
+            if reset_errors:
+                # restart errored tasks
+                self._errorcycle_restart_results(res, client)
+            if set_priority:
+                self._set_priority_results(res, client)
+
             complete = False
 
         return complete
@@ -816,6 +871,17 @@ def main():
         nargs="*",
         help="PR numbers to limit processing to; if not provided, all labeled PRs processed",
     )
+    parser.add_argument(
+        "--set-priority",
+        action=argparse.BooleanOptionalAction,
+        help="Triggers priority (re)setting based on Github PR label",
+    )
+    parser.add_argument(
+        "--reset-errors",
+        action=argparse.BooleanOptionalAction,
+        help="Whether to reset errored cases",
+    )
+
 
     args = parser.parse_args()
 
@@ -853,11 +919,28 @@ def main():
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
     for pr in prs:
+        # if we are setting priority, check for priority label(s) on PR
+        # take highest one and set priority downstream
+        # if no priority label(s), DO NOT set priority at all for this PR
+        if args.set_priority:
+            labels =  set(map(lambda x: x.name, pr.labels))
+            priorities = set(PRIORITIES.keys()) & labels
+
+            if not priorities:
+                set_priority = False
+            else:
+                set_priority = True
+                selected_priority = 0
+                for priority in priorities:
+                    selected_priority = max(selected_priority, PRIORITIES[priority])
+
         print(f"Processing PR #{pr.number}")
 
-        submission = Submission(pr, gh)
-        submission.execute_state(board=board, states=states)
-
+        submission = Submission(pr, gh, priority=selected_priority)
+        submission.execute_state(board=board,
+                                 states=states,
+                                 reset_errors=args.reset_errors,
+                                 set_priority=set_priority)
 
 if __name__ == "__main__":
     main()
