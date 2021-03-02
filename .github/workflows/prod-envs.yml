@@ -18,13 +18,14 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Cache conda
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         env:
-          # Increase this value to reset cache if etc/example-environment.yml has not changed
           CACHE_NUMBER: 0
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('devtools/conda-envs/anaconda-client-env.yaml') }}
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('devtools/conda-envs/anaconda-client-env.yaml') }}
 
       - name: Additional info about the build
         shell: bash
@@ -39,8 +40,8 @@ jobs:
           python-version: 3.7
           activate-environment: anaconda-client-env
           environment-file: devtools/conda-envs/anaconda-client-env.yaml
-          auto-activate-base: false
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+          auto-activate-base: false
 
       - name: Environment Information
         shell: bash -l {0}
