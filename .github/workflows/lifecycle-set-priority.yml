@@ -1,7 +1,7 @@
 ---
 # lifecycle processing for all datasets currently being tracked - error cycling
 
-name: Dataset Lifecycle - Error Cycling : Reprioritize
+name: Dataset Lifecycle - Error Cycling - Reprioritize
 
 on:
   # run whenever a pull request is labeled
