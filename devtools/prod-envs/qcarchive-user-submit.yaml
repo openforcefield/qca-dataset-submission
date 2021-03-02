@@ -1,4 +1,4 @@
-name: queued-submit
+name: qcarchive-user-submit
 
 channels:
   - conda-forge
