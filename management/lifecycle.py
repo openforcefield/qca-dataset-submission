@@ -573,15 +573,17 @@ class SubmittableBase:
 
     def _set_priority_results(self, res, client):
         for r in res:
-            client.modify_tasks(operation='modify',
-                    base_result=r.id, new_priority=self.priority)
-            print(f"Reprioritized result`{r.id}` with `{self.priority}")
+            if r.status != 'COMPLETE':
+                client.modify_tasks(operation='modify',
+                        base_result=r.id, new_priority=self.priority)
+                print(f"Reprioritized result`{r.id}` with `{self.priority}")
 
     def _set_priority_optimizations(self, opts, client):
         for opt in opts:
-            client.modify_tasks(operation='modify',
-                    base_result=opt.id, new_priority=self.priority)
-            print(f"Reprioritized result`{opt.id}` with `{self.priority}")
+            if opt.status != 'COMPLETE':
+                client.modify_tasks(operation='modify',
+                        base_result=opt.id, new_priority=self.priority)
+                print(f"Reprioritized result`{opt.id}` with `{self.priority}")
 
     def _set_priority_torsiondrives(self, tdrs, client):
         # TODO: no way to reprioritize services at the moment
