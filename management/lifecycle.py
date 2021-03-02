@@ -269,6 +269,7 @@ class SubmittableBase:
         self.submission = submission
         self.pr = submission.pr
         self.ghapi = ghapi
+        self.priority = priority
 
         if repo is None:
             self.repo = ghapi.get_repo(REPO_NAME)
@@ -873,12 +874,12 @@ def main():
     )
     parser.add_argument(
         "--set-priority",
-        action=argparse.BooleanOptionalAction,
+        action='store_true',
         help="Triggers priority (re)setting based on Github PR label",
     )
     parser.add_argument(
         "--reset-errors",
-        action=argparse.BooleanOptionalAction,
+        action='store_true',
         help="Whether to reset errored cases",
     )
 
@@ -919,6 +920,9 @@ def main():
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
     for pr in prs:
+
+        print(f"Processing PR #{pr.number}")
+
         # if we are setting priority, check for priority label(s) on PR
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
@@ -928,13 +932,14 @@ def main():
 
             if not priorities:
                 set_priority = False
+                selected_priority=1   # need something, but should have no effect due to `set_priority=False`
             else:
                 set_priority = True
                 selected_priority = 0
                 for priority in priorities:
                     selected_priority = max(selected_priority, PRIORITIES[priority])
 
-        print(f"Processing PR #{pr.number}")
+                print("Setting priority to '{}'".format(selected_priority))
 
         submission = Submission(pr, gh, priority=selected_priority)
         submission.execute_state(board=board,
