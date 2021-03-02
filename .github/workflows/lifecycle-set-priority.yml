@@ -4,7 +4,7 @@
 name: Dataset Lifecycle - Error Cycling - Reprioritize
 
 on:
-   run twice a day at 4h, 20h UTC
+  # run twice a day at 4h, 20h UTC
   schedule:
     - cron: "0 04,20 * * *"
   workflow_dispatch:
