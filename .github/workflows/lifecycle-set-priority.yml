@@ -1,12 +1,16 @@
 ---
 # lifecycle processing for all datasets currently being tracked - error cycling
 
-name: Dataset Lifecycle - Error Cycling
+name: Dataset Lifecycle - Error Cycling : Reprioritize
 
 on:
+  # run whenever a pull request is labeled
+  # triggers when we add any `priority-*` label
+  pull_request:
+    types: [labeled]
   # run once a day at noon UTC
-  schedule:
-    - cron: "0 12 * * *"
+  #schedule:
+  #  - cron: "0 12 * * *"
   workflow_dispatch:
 
 jobs:
@@ -53,4 +57,4 @@ jobs:
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
-            python ./management/lifecycle.py --states "Error Cycling" --reset-errors --set-priority
+            python ./management/lifecycle.py --states "Error Cycling" --set-priority
