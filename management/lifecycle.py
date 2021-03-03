@@ -942,6 +942,9 @@ def main():
                     selected_priority = max(selected_priority, PRIORITIES[priority])
 
                 print("Setting priority to '{}'".format(selected_priority))
+        else:
+            set_priority = False
+            selected_priority=1   # need something, but should have no effect due to `set_priority=False`
 
         submission = Submission(pr, gh, priority=selected_priority)
         submission.execute_state(board=board,
