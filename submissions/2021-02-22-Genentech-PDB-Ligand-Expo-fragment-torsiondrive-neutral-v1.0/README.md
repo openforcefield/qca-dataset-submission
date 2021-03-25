@@ -10,9 +10,11 @@ Conformers were generated using a RMS cutoff of 3 Ångstroms.
  - Purpose: Improve coverage of FF
  - Collection: TorsionDriveDataset
  - Name: Genentech PDB Ligand Expo fragment torsiondrive neutral v1.0
- - Number of unique molecules: --
- - Number of unique conformers: --
- - Number of tasks submitted: --
+ - Number of unique molecules: 1448
+ - Number of filtered molecules: 98
+ - Number of conformers min mean max: 1   1.02 3
+ - Number of unique conformers: 3816
+ - Number of tasks submitted: 3816
  - Submitter: Pavan Behara
  
 ### QCSubmit generation pipeline
@@ -36,9 +38,9 @@ QCSubmit was used to filter duplicate SMILES, enumerate stereoisomers, and to ge
 	"creation_date": "2021-02-22",
 	"collection_type": "TorsionDriveDataset",
 	"dataset_name": "Genentech PDB Ligand Expo fragment torsiondrive neutral v1.0", 
-	"short_description": "",
+	"short_description": "Torsion drives for neutral molecules of genentech set that have greater than 3 rotors and fragmented.",
 	"long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-02-22-Genentech-PDB-Ligand-Expo-fragment-torsiondrive-neutral-v1.0",
-	"long_description": "This dataset contains torsiondrives for Genentech PDB Ligand Expo neutral set of fragmented molecules",
+	"long_description": "This dataset contains torsiondrives for Genentech PDB Ligand Expo neutral set of fragmented molecules.",
 	"elements": [C ,Cl ,F ,N ,O ,I ,S ,H ,Br]
 }
 ```
@@ -46,15 +48,13 @@ QCSubmit was used to filter duplicate SMILES, enumerate stereoisomers, and to ge
 ### Compute specs
 
 ```
-{
-  "qc_specifications": {
-    "default-dlc": {
-      "method": "B3LYP-D3BJ",
-      "basis": "DZVP",
-      "program": "psi4",
-      "spec_name": "default-dlc",
-      "spec_description": "Standard OpenFF optimization quantum chemistry specification, with DLC internal coordinates for geomeTRIC.",
-      "store_wavefunction": "none",
-      "implicit_solvent": null
-    }
+Spec: default
+{'basis': 'DZVP',
+ 'implicit_solvent': None,
+ 'method': 'B3LYP-D3BJ',
+ 'program': 'psi4',
+ 'spec_description': 'Standard OpenFF optimization quantum chemistry '
+                     'specification.',
+ 'spec_name': 'default',
+ 'store_wavefunction': 'none'}
 ```
