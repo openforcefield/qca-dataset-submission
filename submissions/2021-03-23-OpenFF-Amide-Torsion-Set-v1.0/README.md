@@ -17,7 +17,7 @@ remedy this.
  - Number of unique molecules        214
  - Number of filtered molecules      0
  - Number of torsion drives          260
- - Number of conformers min mean max 1   1.26 2
+ - Number of conformers min mean max 1   8.18 10
  - Dataset Submitter: Simon Boothroyd
  - Dataset Generator: Simon Boothroyd
  - Set of charges: {-2, -1, 0}
