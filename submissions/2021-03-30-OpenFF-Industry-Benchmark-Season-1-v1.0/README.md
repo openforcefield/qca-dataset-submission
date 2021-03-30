@@ -43,7 +43,7 @@ of the OpenFF line of force fields in comparison with other contemporary force f
 {'collection_type': 'OptimizationDataset',
  'creation_date': datetime.date(2021, 3, 30),
  'dataset_name': 'OpenFF Industry Benchmark Season 1 v1.0',
- 'elements': set(),
+ 'elements': {'N', 'F', 'Cl', 'C', 'H', 'O', 'Br', 'P', 'S'},
  'long_description': 'The combination of all publicly chossen compound sets by '
                      'industry partners from the OpenFF season 1 industry '
                      'benchmark.',
