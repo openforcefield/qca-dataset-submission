@@ -9,7 +9,8 @@ CNc1ccc(cc1)[N+]#N
 CN(C)c1ccc(cc1)OC
 CN(C)c1ccc(cc1)S
 CN(C)c1ccc(cc1)C(=O)O
-CN(C)c1ccc(cc1)[N+]#Nc2cc(ccc2N)[O-]
+CN(C)c1ccc(cc1)[N+]#N
+c1cc(ccc1N)[O-]
 Cc1ccc(cc1)N
 c1cc(ccc1C#N)N
 C[N+](C)(C)c1ccc(cc1)N
