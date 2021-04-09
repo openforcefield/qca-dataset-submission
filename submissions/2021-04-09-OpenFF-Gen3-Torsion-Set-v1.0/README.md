@@ -2,7 +2,7 @@
 
 ### Description
 
-This dataset is a simple-molecule-only dataset, a candidate of Sage torsion parameter training set. 
+This dataset is a simple-molecule-only dataset, which is a part of Sage torsion parameter training set candidate. 
 
 ### General Information
 
@@ -36,3 +36,23 @@ This dataset is a simple-molecule-only dataset, a candidate of Sage torsion para
 - `dataset.smi`: SMILES for every molecule in the submission; duplicate molecules for each driven torsion dropped
 
 ### Metadata
+
+```
+{'basis': 'DZVP',
+ 'implicit_solvent': None,
+ 'method': 'B3LYP-D3BJ',
+ 'program': 'psi4',
+ 'spec_description': 'Standard OpenFF optimization quantum chemistry '
+                     'specification.',
+ 'spec_name': 'default',
+ 'store_wavefunction': 'none'}
+```
+
+### SCF Properties
+
+```
+[<SCFProperties.Dipole: 'dipole'>,
+ <SCFProperties.Quadrupole: 'quadrupole'>,
+ <SCFProperties.WibergLowdinIndices: 'wiberg_lowdin_indices'>,
+ <SCFProperties.MayerIndices: 'mayer_indices'>]
+```
