@@ -1,9 +1,8 @@
 ### Description
 
-This dataset is the public counterpart of the OpenFF Industry Benchmark Season 1. Each industry partner has selected a 
-range of diverse molecules which represent there current chemical interests. The dataset will be used in conjunction with 
-private counterparts also designed by each partner to give an unbiased assessment of the progress and current performance 
-of the OpenFF line of force fields in comparison with other contemporary force fields. 
+This dataset is the public counterpart of the OpenFF Industry Benchmark Season 1.
+Each industry partner has selected a range of diverse molecules which represent their current chemical interests.
+The dataset will be used in conjunction with private counterparts also designed by each partner to give an unbiased assessment of the progress and current performance of the OpenFF line of force fields in comparison with other contemporary force fields.
 
 
 ### General Information
@@ -44,7 +43,7 @@ of the OpenFF line of force fields in comparison with other contemporary force f
  'creation_date': datetime.date(2021, 3, 30),
  'dataset_name': 'OpenFF Industry Benchmark Season 1 v1.0',
  'elements': {'N', 'F', 'Cl', 'C', 'H', 'O', 'Br', 'P', 'S'},
- 'long_description': 'The combination of all publicly chossen compound sets by '
+ 'long_description': 'The combination of all publicly chosen compound sets by '
                      'industry partners from the OpenFF season 1 industry '
                      'benchmark.',
  'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-03-30-OpenFF-Industry-Benchmark-Season-1-v1.0', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/master/submissions/2021-03-30-OpenFF-Industry-Benchmark-Season-1-v1.0'),
