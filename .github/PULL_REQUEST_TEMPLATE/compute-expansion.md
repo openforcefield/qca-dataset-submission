@@ -1,10 +1,3 @@
----
-name: Compute Expansion
-about: An expansion of compute specs on one or more existing datasets
-label: compute-expansion
-template: compute-expansion.md
----
-
 ## Compute Expansion Checklist
 
 - [ ] Compute expansion matches pattern `compute*.json`; may feature a compression extension, such as `.bz2`
