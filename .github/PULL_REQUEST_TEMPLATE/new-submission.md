@@ -1,10 +1,3 @@
----
-name: New Submission
-about: An entirely new submission of one or more datasets
-label: new-submission
-template: new-submission.md
----
-
 ## New Submission Checklist
 
 - [ ] Created a new folder in the submissions directory containing the dataset
