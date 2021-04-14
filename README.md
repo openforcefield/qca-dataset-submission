@@ -24,7 +24,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
 
 1. A PR is created against `qca-dataset-submission` by a submitter.
     - the template is filled out with informational sections according to the [PR template](.github/pull_request_template.md)
-    - [GHA]  `validation` operates on all `dataset.json` files found in the PR; performs validation checks
+    - [GHA]  `validation` operates on all `dataset*.json` files found in the PR; performs validation checks
         - comment made based on validation checks
         - reruns on each push
 

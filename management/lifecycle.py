@@ -10,7 +10,7 @@ from datetime import datetime
 from github import Github
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
-DATASET_FILENAME = "dataset.json"
+DATASET_GLOB = "dataset*.json"
 COMPUTE_GLOB = "compute*.json"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
@@ -63,9 +63,9 @@ class Submission:
 
     def _gather_datasets(self):
         files = self.pr.get_files()
-        datasets = [
-            file.filename for file in files if DATASET_FILENAME in file.filename
-        ]
+        datasets = list(filter(
+            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), DATASET_GLOB),
+            map(lambda x: x.filename, files)))
 
         # we only want files that actually exist
         # it can rarely be the case that a PR features changes to a path that is a file deletion
