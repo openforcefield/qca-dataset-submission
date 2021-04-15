@@ -1,7 +1,7 @@
 ---
 # lifecycle processing for all datasets currently being tracked - error cycling
 
-name: Dataset Lifecycle - Error Cycling - Reprioritize
+name: "Dataset Lifecycle - Reprioritize/Retag"
 
 on:
   # run twice a day at 4h, 20h UTC
@@ -53,4 +53,4 @@ jobs:
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
-            python ./management/lifecycle.py --states "Error Cycling" --set-priority
+            python ./management/lifecycle.py --states "Error Cycling" --set-priority --set-computetag
