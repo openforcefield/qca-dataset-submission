@@ -927,6 +927,11 @@ def main():
         help="Triggers priority (re)setting based on Github PR label",
     )
     parser.add_argument(
+        "--set-computetag",
+        action='store_true',
+        help="Triggers compute tag (re)setting based on Github PR label",
+    )
+    parser.add_argument(
         "--reset-errors",
         action='store_true',
         help="Whether to reset errored cases",
