@@ -10,8 +10,8 @@ from datetime import datetime
 from github import Github
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
-DATASET_GLOB = "dataset*.json"
-COMPUTE_GLOB = "compute*.json"
+DATASET_GLOB = "dataset*.json*"
+COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
 
