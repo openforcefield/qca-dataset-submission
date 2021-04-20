@@ -29,7 +29,10 @@ This dataset is a simple-molecule-only dataset, which is a part of Sage torsion 
  - `generate-dataset`: The notebook used to generate the dataset from the input smiles set.
 
 ### QCSubmit Manifest
-
+- `1.gen-substituent-lists`: Step1. Generation of a list of small and rigid substituents.
+- `2.gen-mol-list`: Step2. Generation of small molecules.
+- `3.filter-mol-list`: Step3. Elimination of internal hydrogen bond forming molecules.
+- `4.select-torsions`: Step4. List molecules matching to each torsion parameter and select torsions.
 - `generate-dataset`: Dataset creation notebook with details on decisions made for submission.
 - `dataset.json.bz2`: The compressed TorsionDrive dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
