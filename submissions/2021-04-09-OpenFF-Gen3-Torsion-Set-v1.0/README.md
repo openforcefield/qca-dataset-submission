@@ -11,16 +11,16 @@ This dataset is a simple-molecule-only dataset, which is a part of Sage torsion 
  - Purpose: For valence parameter optimization 
  - Collection: TorsionDriveDataset
  - Name: OpenFF Gen3 Torsion Set v1.0
- - Number of unique molecules        2433
- - Number of filtered molecules      167
- - Number of torsion drives          4684
- - Number of conformers min mean max 1   1.05 4
+ - Number of unique molecules        888
+ - Number of filtered molecules      0
+ - Number of torsion drives          889
+ - Number of conformers min mean max 1   2.61 12
  - Dataset Submitter: Hyesu Jang
  - Dataset Generator: Hyesu Jang
- - Set of charges: [-1.0, 0.0, 1.0, 2.0]
- - Mean molecular weight: 154.34
- - Max molecular weight: 514.56
- - Enumerate stereoisomers: True
+ - Set of charges: [0.0, 1.0]
+ - Mean molecular weight: 131.31
+ - Max molecular weight: 433.68
+ - Enumerate stereoisomers: False
  - Enumerate tautomers: False
  - Enumerate protomers: False 
 
