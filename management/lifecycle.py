@@ -28,7 +28,7 @@ class Submission:
 
     """
 
-    def __init__(self, pr, ghapi, repo=None, priority=1):
+    def __init__(self, pr, ghapi, repo=None, priority=1, computetag='openff'):
         """Create a new Submission instance that performs operations on PR
         card state based on data in the PR itself.
 
@@ -47,11 +47,16 @@ class Submission:
         priority : int
             Priority to use for the dataset if set by method calls;
             one of 0, 1, or 2, in increasing-priority order.
+        computetag : str
+            Compute tag to use for the dataset if set by method calls;
+            tasks with a given compute tag will only be computed by managers
+            configured to service that tag.
 
         """
         self.pr = pr
         self.ghapi = ghapi
         self.priority = priority
+        self.computetag = computetag
 
         if repo is None:
             self.repo = ghapi.get_repo(REPO_NAME)
@@ -112,7 +117,8 @@ class Submission:
         backlog.create_card(content_id=self.pr.id, content_type="PullRequest")
 
     def execute_state(self, board=None, states=None,
-                      reset_errors=False, set_priority=False):
+                      reset_errors=False, set_priority=False,
+                      set_computetag=False):
         """Based on current state of the PR, perform appropriate actions.
 
         """
@@ -141,7 +147,8 @@ class Submission:
             return self.execute_queued_submit(pr_card, pr_state)
         elif pr_state == "Error Cycling":
             return self.execute_errorcycle(pr_card, pr_state,
-                    reset_errors=reset_errors, set_priority=set_priority)
+                    reset_errors=reset_errors, set_priority=set_priority,
+                    set_computetag=set_computetag)
         elif pr_state == "Requires Scientific Review":
             return self.execute_requires_scientific_review(pr_card, pr_state)
         elif pr_state == "End of Life":
@@ -218,22 +225,27 @@ class Submission:
 
     def execute_errorcycle(self, pr_card, pr_state,
                            reset_errors=False,
-                           set_priority=False):
+                           set_priority=False,
+                           set_computetag=False):
         """Error cycle each dataset
 
         """
         results = []
         for dataset in self.datasets:
             print(f"Processing dataset '{dataset}'")
-            ds = DataSet(dataset, self, self.ghapi, priority=self.priority)
+            ds = DataSet(dataset, self, self.ghapi,
+                         priority=self.priority, computetag=self.computetag)
             results.append(ds.execute_errorcycle(reset_errors=reset_errors,
-                                                 set_priority=set_priority))
+                                                 set_priority=set_priority,
+                                                 set_computetag=set_computetag))
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
-            ct = Compute(compute, self, self.ghapi, priority=self.priority)
+            ct = Compute(compute, self, self.ghapi,
+                         priority=self.priority, computetag=self.computetag)
             results.append(ct.execute_errorcycle(reset_errors=reset_errors,
-                                                 set_priority=set_priority))
+                                                 set_priority=set_priority,
+                                                 set_computetag=set_computetag))
 
         new_state = self.resolve_new_state(results)
         if new_state is not None:
@@ -247,7 +259,7 @@ class Submission:
 
 class SubmittableBase:
     def __init__(self, submittable, submission, ghapi, repo=None,
-                 priority=1):
+                 priority=1, computetag='openff'):
         """Create new Submittable instance linking a submission dataset to its PR.
 
         Parameters
@@ -263,6 +275,10 @@ class SubmittableBase:
         priority : int
             Priority to use for the dataset if set by method calls;
             one of 0, 1, or 2, in increasing-priority order.
+        computetag : str
+            Compute tag to use for the dataset if set by method calls;
+            tasks with a given compute tag will only be computed by managers
+            configured to service that tag.
 
         """
         self.submittable = submittable
@@ -270,6 +286,7 @@ class SubmittableBase:
         self.pr = submission.pr
         self.ghapi = ghapi
         self.priority = priority
+        self.computetag = computetag
 
         if repo is None:
             self.repo = ghapi.get_repo(REPO_NAME)
@@ -378,7 +395,8 @@ class SubmittableBase:
 
     def execute_errorcycle(self,
                            reset_errors=False,
-                           set_priority=False):
+                           set_priority=False,
+                           set_computetag=False):
         """Obtain complete, incomplete, error stats for submittable and report.
         
         For suspected random errors, we perform restarts.
@@ -393,19 +411,23 @@ class SubmittableBase:
 
         if dataset_type.lower() == "TorsionDriveDataset".lower():
             complete = self._errorcycle_torsiondrive(ds, client, dataset_specs,
-                    reset_errors=reset_errors, set_priority=set_priority)
+                    reset_errors=reset_errors, set_priority=set_priority,
+                    set_computetag=set_computetag)
 
         elif dataset_type.lower() == "OptimizationDataset".lower():
             complete = self._errorcycle_optimization(ds, client, dataset_specs,
-                    reset_errors=reset_errors, set_priority=set_priority)
+                    reset_errors=reset_errors, set_priority=set_priority,
+                    set_computetag=set_computetag)
 
         elif dataset_type.lower() == "GridOptimizationDataset".lower():
             complete = self._errorcycle_gridopt(ds, client, dataset_specs,
-                    reset_errors=reset_errors, set_priority=set_priority)
+                    reset_errors=reset_errors, set_priority=set_priority,
+                    set_computetag=set_computetag)
 
         elif dataset_type.lower() == "Dataset".lower():
             complete = self._errorcycle_dataset(ds, client, dataset_specs,
-                    reset_errors=reset_errors, set_priority=set_priority)
+                    reset_errors=reset_errors, set_priority=set_priority,
+                    set_computetag=set_computetag)
 
         if complete:
             return {"new_state": "Archived/Complete"}
@@ -429,7 +451,7 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     def _errorcycle_torsiondrive(self, ds, client, dataset_specs,
-            reset_errors=False, set_priority=False):
+            reset_errors=False, set_priority=False, set_computetag=False):
         import management as mgt
 
         tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client, dataset_specs)
@@ -453,7 +475,10 @@ class SubmittableBase:
                 self._errorcycle_restart_torsiondrives(tdrs, client)
             if set_priority:
                 self._set_priority_optimizations(opts, client)
-                self._set_priority_torsiondrives(opts, client)
+                self._set_priority_torsiondrives(tdrs, client)
+            if set_computetag:
+                self._set_computetag_optimizations(opts, client)
+                self._set_computetag_torsiondrives(tdrs, client)
             complete = False
 
         return complete
@@ -583,14 +608,32 @@ class SubmittableBase:
             if opt.status != 'COMPLETE':
                 client.modify_tasks(operation='modify',
                         base_result=opt.id, new_priority=self.priority)
-                print(f"Reprioritized result`{opt.id}` with `{self.priority}")
+                print(f"Reprioritized optimization `{opt.id}` with `{self.priority}")
 
     def _set_priority_torsiondrives(self, tdrs, client):
         # TODO: no way to reprioritize services at the moment
         pass
 
+    def _set_computetag_results(self, res, client):
+        for r in res:
+            if r.status != 'COMPLETE':
+                client.modify_tasks(operation='modify',
+                        base_result=r.id, new_tag=self.computetag)
+                print(f"Retagged result`{r.id}` with `{self.computetag}")
+
+    def _set_computetag_optimizations(self, opts, client):
+        for opt in opts:
+            if opt.status != 'COMPLETE':
+                client.modify_tasks(operation='modify',
+                        base_result=opt.id, new_tag=self.computetag)
+                print(f"Retagged optimization `{opt.id}` with `{self.computetag}")
+
+    def _set_computetag_torsiondrives(self, tdrs, client):
+        # TODO: no way to retag services at the moment
+        pass
+
     def _errorcycle_optimization(self, ds, client, dataset_specs,
-            reset_errors=False, set_priority=False):
+            reset_errors=False, set_priority=False, set_computetag=False):
         import management as mgt
 
         opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
@@ -610,6 +653,8 @@ class SubmittableBase:
                 self._errorcycle_restart_optimizations(opts, client)
             if set_priority:
                 self._set_priority_optimizations(opts, client)
+            if set_computetag:
+                self._set_computetag_optimizations(opts, client)
             complete = False
 
         return complete
@@ -678,7 +723,7 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     def _errorcycle_dataset(self, ds, client, dataset_specs,
-            reset_errors=False, set_priority=False):
+            reset_errors=False, set_priority=False, set_computetag=False):
         import management as mgt
         res, df_res = self._errorcycle_dataset_get_result_errors(ds, client, dataset_specs)
 
@@ -697,6 +742,8 @@ class SubmittableBase:
                 self._errorcycle_restart_results(res, client)
             if set_priority:
                 self._set_priority_results(res, client)
+            if set_computetag:
+                self._set_computetag_results(res, client)
 
             complete = False
 
@@ -880,6 +927,11 @@ def main():
         help="Triggers priority (re)setting based on Github PR label",
     )
     parser.add_argument(
+        "--set-computetag",
+        action='store_true',
+        help="Triggers compute tag (re)setting based on Github PR label",
+    )
+    parser.add_argument(
         "--reset-errors",
         action='store_true',
         help="Whether to reset errored cases",
@@ -934,7 +986,7 @@ def main():
 
             if not priorities:
                 set_priority = False
-                selected_priority=1   # need something, but should have no effect due to `set_priority=False`
+                selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
             else:
                 set_priority = True
                 selected_priority = 0
@@ -944,13 +996,31 @@ def main():
                 print("Setting priority to '{}'".format(selected_priority))
         else:
             set_priority = False
-            selected_priority=1   # need something, but should have no effect due to `set_priority=False`
+            selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
 
-        submission = Submission(pr, gh, priority=selected_priority)
+        if args.set_computetag:
+            labels =  set(map(lambda x: x.name, pr.labels))
+            computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
+
+            if not computetags:
+                set_computetag = False
+                selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
+            else:
+                # if multiple compute tags on the PR, we choose the first one lexically
+                set_computetag = True
+                selected_computetag = sorted(computetags)[0]
+
+                print("Setting computetag to '{}'".format(selected_computetag))
+        else:
+            set_computetag = False
+            selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
+
+        submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
         submission.execute_state(board=board,
                                  states=states,
                                  reset_errors=args.reset_errors,
-                                 set_priority=set_priority)
+                                 set_priority=set_priority,
+                                 set_computetag=set_computetag)
 
 if __name__ == "__main__":
     main()

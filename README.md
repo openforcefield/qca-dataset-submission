@@ -32,7 +32,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [Human]  add 'tracking' tag to PR
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will add card to ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334) state for PR if not yet there.
 
-3. When dataset is ready for submission to public QCArchive (validations pass, submitters and reviewers satisfied), PR is merged.
+3. When the submission is ready to be submitted to public QCArchive (validations pass, submitters and reviewers satisfied), PR is merged.
     - [Board]  PR card will move to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) immediately.
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will move PR card to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) if merged and in state ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334)
     - [GHA]  [`lifecycle-submission`](.github/workflows/lifecycle-submission.yml) will attempt to submit the dataset
@@ -52,6 +52,29 @@ The lifecycle process is described below, with [bracketed] items indicating the 
 6. [GHA]  `lifecycle-end-of-life` will add tag 'end-of-life' to dataset in QCArchive for PR in ["End of Life"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577336)
 
 7. [GHA]  `lifecycle-archived-complete` will add tag 'archived-complete' to dataset in QCArchive for PR in ["Archived/Complete"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577372)
+
+## Management Touchpoints
+
+In addition to the states given above, there are additional touchpoints available for managing dataset submissions:
+
+1. The `tracking` label is the "on/off" switch for automation via Github Actions.
+   To disable all automation on a submission PR, remove this label.
+   To enable automation, add the label.
+
+2. Submission *priority* can be changed by adding one of the following labels:
+    - `priority-high`: highest priority
+    - `priority-normal`: normal priority
+    - `priority-low`: lowest priority
+
+3. Submission routing to QCFractal managers on different compute resources can be accomplished with *compute tags*.
+   Add a label like `compute-<tagname>` to set the compute tag for all QCArchive tasks associated with a submisison.
+   Be sure to coordinate with QCFractal manager admins to ensure your chosen compute tag is being served on the expected resources.
+   This mechanism can also be used to "dead-letter" computations that are no longer desired by setting a compute tag that no manager will service.
+
+4. The order of a submission PR in a [Dataset Tracking](https://github.com/openforcefield/qca-dataset-submission/projects/1) column matters.
+   Submissions higher in a column will be operated on first by all Github Action automation.
+   For example, if you want to error cycle a submission before any others so it has a higher chance of being pulled by idle manager workers, place it at the top of the Error Cycling column.
+   
 
 # Dude where's my Dataset?
 
