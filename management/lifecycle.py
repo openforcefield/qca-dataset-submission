@@ -1000,11 +1000,11 @@ def main():
 
         if args.set_computetag:
             labels =  set(map(lambda x: x.name, pr.labels))
-            computetags = [l for l in labels if l.startswith('compute-')]
+            computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
 
             if not computetags:
                 set_computetag = False
-                selected_computetag = 'openff'   # need something, but should have no effect due to `set_priority=False`
+                selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
             else:
                 # if multiple compute tags on the PR, we choose the first one lexically
                 set_computetag = True
@@ -1013,7 +1013,7 @@ def main():
                 print("Setting computetag to '{}'".format(selected_computetag))
         else:
             set_computetag = False
-            selected_computetag = 'openff'   # need something, but should have no effect due to `set_priority=False`
+            selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
         submission.execute_state(board=board,
