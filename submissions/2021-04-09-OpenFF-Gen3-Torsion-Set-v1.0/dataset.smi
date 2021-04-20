@@ -24,7 +24,7 @@ CC(C)(C1CC(C1)N)C(=O)O
 C1CC(CCC1CCC#N)O
 C[C@H](C[C@@H](C)N)CO
 C(CCF)CF
-C[C@H](C[C@@H]1CCCN(C1)C)O
+C[C@H](C[C@@H]1CCC[N@](C1)C)O
 C[C@@H](C1C=CNC=C1)S(=O)(=O)C
 C[C@H](C[N+]#[C-])C=C=C
 CC(C)[C@H](CO)O
@@ -260,7 +260,6 @@ C/C=C\C=C=C
 C=C=Cc1cccc(c1)C#N
 C/C=C\c1ccccc1
 C=C=CC1=CCCC1
-C/C=C\C=C/C
 C=C=CC=C=C
 C/C=C\c1cccc(c1)C#N
 CNC(=O)c1ccc(cn1)F
@@ -283,12 +282,12 @@ CCC(=O)C(=C)C
 CC(C)CNS(=O)(=O)C
 CC(C)N(C)CN=[N+]=[N-]
 CC(C)N(C)C(C)(F)F
-CC(C)N(C)C[P@@H](=O)O
-CCN(C)[C@H]1CCCC=C1
+CC(C)[N@@](C)C[P@@H](=O)O
+CC[N@@](C)[C@H]1CCCC=C1
 CC(C)N(C)CC(=O)O
 CCN[C@H]1CCCC=C1
 CC(C)(C#N)NC
-CC[C@H](N(C)OC)O
+CC[C@H]([N@@](C)OC)O
 CCNC1C=CCC=C1
 C=NNC1CCCCC1
 C=NN[C@@H]1CCCNC(=O)C1
@@ -304,12 +303,12 @@ CC(C)N(C)C1CCS(=O)(=O)CC1
 CC(C)(C)NC
 CCNC(C)(C)O
 CC(C)C(C)(C)N(C)OC
-CC[C@H](N(C)CC)O
+CC[C@H]([N@@](C)CC)O
 CCCN(C)OC
 CC(C)[C@@H](N)NC
 CC1(CCC(CC1)N(C)OC)C
 C[C@H]([C@@H](C)O)NC(C)(C)C
-CC(C)N(C)[C@H](CO)O
+CC(C)[N@@](C)[C@H](CO)O
 CCN[C@@H](C)[C@@H](C)O
 CC(C)(C)N[C@@H]1CCSC1
 CNCC(F)F
@@ -411,7 +410,7 @@ CN(C)C1=CCNCN1
 CC(=CNO)C
 C1CC=C(C1)NO
 CN(C1=CCCC1)C(=O)N
-C/C=C\N(C)OC
+C/C=C\[N@@](C)OC
 CC(=CNN)C
 CN(C1=CCCC1)OC
 CCNC1=CCCC1
@@ -777,7 +776,7 @@ CSS(=C)(=C)C
 CC1(COP(=S)(OC1)SC)C
 CSOO
 CS/N=[N+](/C(Br)Br)\[O-]
-CN([S@@](=N)(=O)C)S(=O)(=O)C
+C[N@@]([S@@](=N)(=O)C)S(=O)(=O)C
 CS(=C)(=C)NC(=O)N
 CS(=C)(=C)N=[N+]=[N-]
 CS(=C)(=C)N=C
@@ -819,7 +818,7 @@ CC(C)N(C)S(=O)(=O)O
 CN(OC)S(=O)(=O)O
 CN(C)[S@@](=N)(=O)C
 CCN(C)S(=O)(=O)O
-CCN(C)[S@@](=N)(=O)C
+CC[N@@](C)[S@@](=N)(=O)C
 CC(=O)NS(=C)(=C)C
 CCS(=O)(=O)NC(=O)C
 CC(=O)N(C)[S@@](=N)(=O)C
@@ -876,9 +875,9 @@ CC(C)OP1(=S)OCC(CO1)(C)C
 CC1(COP(=S)(OC1)OC)C
 CC1(COP(=S)(OC1)OC(F)F)C
 CC1(COP(=S)(OC1)NC)C
-CCN(C)[P@@H](=O)CN
+CC[N@@](C)[P@@H](=O)CN
 CC(C)(C)N[P@@H](=O)CN
-CC(C)N(C)[P@@H](=O)CN
+CC(C)[N@@](C)[P@@H](=O)CN
 CC1(COP(=S)(OC1)NS(=O)(=O)C)C
 CC1(COP(=S)(OC1)[N+](=O)[O-])C
 CC1(COP(=S)(OC1)NO)C
