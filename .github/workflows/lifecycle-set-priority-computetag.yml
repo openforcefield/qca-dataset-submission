@@ -1,0 +1,56 @@
+---
+# lifecycle processing for all datasets currently being tracked - error cycling
+
+name: "Dataset Lifecycle - Reprioritize/Retag"
+
+on:
+  # run twice a day at 4h, 20h UTC
+  schedule:
+    - cron: "0 04,20 * * *"
+  workflow_dispatch:
+
+jobs:
+  exec-lifecycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Additional info about the build
+        shell: bash
+        run: |
+          uname -a
+          df -h
+          ulimit -a
+
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('devtools/conda-envs/error-cycle.yaml') }}
+
+      - name: Configure conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.7
+          activate-environment: error-cycle
+          environment-file: devtools/conda-envs/error-cycle.yaml
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+          auto-activate-base: false
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
+      - name: Run lifecycle processing script
+        shell: bash -l {0}
+        env:
+          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+          QCA_USER: ${{ secrets.QCA_USER }}
+          QCA_KEY: ${{ secrets.QCA_KEY }}
+        run: |
+            python ./management/lifecycle.py --states "Error Cycling" --set-priority --set-computetag

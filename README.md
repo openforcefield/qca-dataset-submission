@@ -24,7 +24,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
 
 1. A PR is created against `qca-dataset-submission` by a submitter.
     - the template is filled out with informational sections according to the [PR template](.github/pull_request_template.md)
-    - [GHA]  `validation` operates on all `dataset.json` files found in the PR; performs validation checks
+    - [GHA]  `validation` operates on all `dataset*.json` files found in the PR; performs validation checks
         - comment made based on validation checks
         - reruns on each push
 
@@ -32,7 +32,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [Human]  add 'tracking' tag to PR
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will add card to ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334) state for PR if not yet there.
 
-3. When dataset is ready for submission to public QCArchive (validations pass, submitters and reviewers satisfied), PR is merged.
+3. When the submission is ready to be submitted to public QCArchive (validations pass, submitters and reviewers satisfied), PR is merged.
     - [Board]  PR card will move to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) immediately.
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will move PR card to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) if merged and in state ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334)
     - [GHA]  [`lifecycle-submission`](.github/workflows/lifecycle-submission.yml) will attempt to submit the dataset
@@ -52,6 +52,29 @@ The lifecycle process is described below, with [bracketed] items indicating the 
 6. [GHA]  `lifecycle-end-of-life` will add tag 'end-of-life' to dataset in QCArchive for PR in ["End of Life"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577336)
 
 7. [GHA]  `lifecycle-archived-complete` will add tag 'archived-complete' to dataset in QCArchive for PR in ["Archived/Complete"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577372)
+
+## Management Touchpoints
+
+In addition to the states given above, there are additional touchpoints available for managing dataset submissions:
+
+1. The `tracking` label is the "on/off" switch for automation via Github Actions.
+   To disable all automation on a submission PR, remove this label.
+   To enable automation, add the label.
+
+2. Submission *priority* can be changed by adding one of the following labels:
+    - `priority-high`: highest priority
+    - `priority-normal`: normal priority
+    - `priority-low`: lowest priority
+
+3. Submission routing to QCFractal managers on different compute resources can be accomplished with *compute tags*.
+   Add a label like `compute-<tagname>` to set the compute tag for all QCArchive tasks associated with a submisison.
+   Be sure to coordinate with QCFractal manager admins to ensure your chosen compute tag is being served on the expected resources.
+   This mechanism can also be used to "dead-letter" computations that are no longer desired by setting a compute tag that no manager will service.
+
+4. The order of a submission PR in a [Dataset Tracking](https://github.com/openforcefield/qca-dataset-submission/projects/1) column matters.
+   Submissions higher in a column will be operated on first by all Github Action automation.
+   For example, if you want to error cycle a submission before any others so it has a higher chance of being pulled by idle manager workers, place it at the top of the Error Cycling column.
+   
 
 # Dude where's my Dataset?
 
@@ -110,6 +133,7 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Protein Fragments v1.0` | [2020-07-06-OpenFF-Protein-Fragments-Initial](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-06-OpenFF-Protein-Fragments-Initial) | This is the initial test of running constrained optimizations on various protein fragments prepared by David Cerutti. Here we just have ALA as the central residue. | H, C, O, N |  [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
 | `OpenFF Protein Fragments v2.0` | [2020-08-12-OpenFF-Protein-Fragments-version2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-08-12-OpenFF-Protein-Fragments-version2) | This is the full protein fragment dataset (version2) consisting of constrained optimizations on various protein fragments prepared by David Cerutti. We have 12 central residues which are capped with a combination of different terminal residues. | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 | `OpenFF Sandbox CHO PhAlkEthOH v1.0` | [2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH) | The molecules are from the AlkEthOH and PhEthOH datasets originally used to build the smirnoff99Frosst parameters. The AlkEthOH was taken from [here](https://github.com/openforcefield/open-forcefield-data/tree/master/Model-Systems/AlkEthOH_distrib) | H, C, O | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
+| `OpenFF Industry Benchmark Season 1 v1.0` | [2021-03-30-OpenFF-Industry-Benchmark-Season-1-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-03-30-OpenFF-Industry-Benchmark-Season-1-v1.0) | The combination of all publicly chosen compound sets by industry partners from the OpenFF season 1 industry benchmark | N, F, Cl, C, H, O, Br, P, S | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
 
 
 # TorsionDrive Datasets
@@ -149,7 +173,8 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Theory Benchmarking Set B3LYP-D3BJ def2-TZVPP v1.0` | [2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpp](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-30-theory-bm-set-b3lyp-d3bj-def2-tzvpp) | This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchmarking different QM levels. | Cl, F, C, S, P, O, H, N | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
 | `OpenFF Protein Fragments TorsionDrives v1.0` | [2020-09-16-OpenFF-Protein-Fragments-TorsionDrives](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives) | This is a protein fragment dataset consisting of torsion drives on various protein fragments prepared by David Cerutti. We have 12 central residues capped with a combination of different terminal residues. We drive the following angles for each fragment: - omega - phi - psi - chi1 (if applicable) - chi2 (if applicable). | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 | `OpenFF WBO Conjugated Series v1.0` | [2021-01-25-OpenFF-Conjugated-Series](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-01-25-OpenFF-Conjugated-Series) | This is a torsion drive dataset that consists of various chemistries that probe a range of conjugated bonds. The goal of this dataset is to develop WBO interpolated torsions for the OpenFF force field. | S, C, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
-| `OpenFF Amide Torsion Set v1.0` | [2021-01-25-OpenFF-Conjugated-Series](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-01-25-OpenFF-Conjugated-Series) | Amides, thioamides and amidines diversely functionalized. | S, C, O, H, N | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)
+| `OpenFF Amide Torsion Set v1.0` | [2021-03-23-OpenFF-Amide-Torsion-Set-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-03-23-OpenFF-Amide-Torsion-Set-v1.0) | Amides, thioamides and amidines diversely functionalized. | S, C, O, H, N | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)
+| `OpenFF Aniline Para Opt v1.0` | [2021-04-02-OpenFF-Aniline-Para-Opt-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) | Optimizations of diverse, para-substituted aniline derivatives.| Br, C, O, N, S, H, Cl, F| [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)
 
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.
