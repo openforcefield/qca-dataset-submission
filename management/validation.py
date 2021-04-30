@@ -87,6 +87,8 @@ def validate_dataset(dataset_data):
         except ConstraintError:
             errors["constraints"].append(entry["index"])
 
+    # TODO: add in error reporting of *which* indices caused failures in any check
+
     report = {
         "**Valid Cmiles**": cross if errors["cmiles"] else check_mark,
         "**Connected Dihedrals**": cross if errors["dihedrals"] else check_mark,
