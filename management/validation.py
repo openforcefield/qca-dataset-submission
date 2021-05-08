@@ -323,9 +323,9 @@ def main():
     for file in file_names:
         # this covers files that are deleted and picked up by the file change check
         if os.path.exists(file):
-            if glob.fnmatch.fnmatch(os.path.basename(file), "dataset*.json"):
+            if glob.fnmatch.fnmatch(os.path.basename(file), "dataset*.json*"):
                 dataset_paths.append(file)
-            elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
+            elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json*"):
                 dataset_paths.append(file)
         else:
             continue
