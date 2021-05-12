@@ -1,8 +1,8 @@
-# OpenFF Gen3 Torsion Set v1.0
+# OpenFF Gen3 Optimization Set v1.0
 
 ### Description
 
-This dataset is a simple-molecule-only dataset, which is a part of Sage torsion parameter training set candidate. 
+This dataset is a simple-molecule-only optimization dataset, which is a part of Sage torsion parameter training set candidate. 
 
 ### General Information
 
