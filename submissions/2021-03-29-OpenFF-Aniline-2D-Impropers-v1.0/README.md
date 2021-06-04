@@ -2,7 +2,9 @@
 
 ### Description
 
-This dataset contains a set of aniline derivatives which have para-substituted groups of varying electron donating and withdrawing properties. This dataset was curated in an effort to improve and understand improper torsions in force fields. We will scan the improper and proper angle simultaneously to better understand the coupling and energetics of these torsions.
+This dataset contains a set of aniline derivatives which have para-substituted groups of varying electron donating and withdrawing properties.
+This dataset was curated in an effort to improve and understand improper torsions in force fields.
+We will scan the improper and proper angle simultaneously to better understand the coupling and energetics of these torsions.
 
 ### General Information
 
