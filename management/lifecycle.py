@@ -596,37 +596,25 @@ class SubmittableBase:
 
         mgt.restart_torsiondrives(tdrs, client)
 
-    def _set_priority_results(self, res, client):
-        for r in res:
-            if r.status != 'COMPLETE':
-                client.modify_tasks(operation='modify',
-                        base_result=r.id, new_priority=self.priority)
-                print(f"Reprioritized result`{r.id}` with `{self.priority}")
+    def _set_priority_results(self, results, client):
+        import management as mgt
+        mgt.reprioritize_results(results, client, self.priority)
 
     def _set_priority_optimizations(self, opts, client):
-        for opt in opts:
-            if opt.status != 'COMPLETE':
-                client.modify_tasks(operation='modify',
-                        base_result=opt.id, new_priority=self.priority)
-                print(f"Reprioritized optimization `{opt.id}` with `{self.priority}")
+        import management as mgt
+        mgt.reprioritize_optimizations(opts, client, self.priority)
 
     def _set_priority_torsiondrives(self, tdrs, client):
         # TODO: no way to reprioritize services at the moment
         pass
 
-    def _set_computetag_results(self, res, client):
-        for r in res:
-            if r.status != 'COMPLETE':
-                client.modify_tasks(operation='modify',
-                        base_result=r.id, new_tag=self.computetag)
-                print(f"Retagged result`{r.id}` with `{self.computetag}")
+    def _set_computetag_results(self, results, client):
+        import management as mgt
+        mgt.retag_results(results, client, self.computetag)
 
     def _set_computetag_optimizations(self, opts, client):
-        for opt in opts:
-            if opt.status != 'COMPLETE':
-                client.modify_tasks(operation='modify',
-                        base_result=opt.id, new_tag=self.computetag)
-                print(f"Retagged optimization `{opt.id}` with `{self.computetag}")
+        import management as mgt
+        mgt.retag_optimizations(opts, client, self.computetag)
 
     def _set_computetag_torsiondrives(self, tdrs, client):
         # TODO: no way to retag services at the moment
