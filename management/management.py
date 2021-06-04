@@ -204,11 +204,10 @@ count_unique_optimization_error_messages = count_unique_result_error_messages
 
 ## restarts
 
-def restart_results(res, client):
-    for r in res:
-        if r.status == 'ERROR':
-            print(f"Restarted ERRORed result `{r.id}`")
-            client.modify_tasks(operation='restart', base_result=r.id)
+def restart_results(results, client):
+    erred = [res.id for res in results if res.status == 'ERROR']
+    client.modify_tasks(operation='restart', base_result=erred)
+    print(f"Restarted ERRORed results:\n====\n{erred}\n====\n")
 
 
 def regenerate_results(res, client):
@@ -218,11 +217,7 @@ def regenerate_results(res, client):
             client.modify_tasks(operation='regenerate', base_result=r.id)
 
 
-def restart_optimizations(optimizations, client):
-    for opt in optimizations:
-        if opt.status == 'ERROR':
-            print(f"Restarted ERRORed optimization `{opt.id}`")
-            client.modify_tasks(operation='restart', base_result=opt.id)
+restart_optimizations = restart_results
 
 
 def regenerate_optimizations(optimizations, client):
@@ -242,12 +237,13 @@ def restart_torsiondrives(torsiondrives, client):
 ## modify tasks
 
 def retag_results(results, client, compute_tag):
-    for res in results:
-        client.modify_tasks(operation='modify', base_result=res.id, new_tag=compute_tag)
-        print(f"Retagged result`{res.id}` with `{compute_tag}")
+    incomplete = [res.id for res in results if res.status != 'COMPLETE']
+    client.modify_tasks(operation='modify', base_result=incomplete, new_tag=compute_tag)
+    print(f"Retagged results with `{compute_tag}':\n====\n{incomplete}\n====\n")
 
 
 retag_optimizations = retag_results
+
 
 def reprioritize_results(results, client, priority):
     """Priority can be one of "high", "normal", "low".
@@ -258,8 +254,9 @@ def reprioritize_results(results, client, priority):
                     "normal": PriorityEnum.NORMAL,
                     "low": PriorityEnum.LOW}
 
-    for res in results:
-        client.modify_tasks(operation='modify', base_result=res.id, new_priority=priority_map[priority])
-        print(f"Reprioritized result`{res.id}` with `{priority}")
+    incomplete = [res.id for res in results if res.status != 'COMPLETE']
+    client.modify_tasks(operation='modify', base_result=incomplete, new_priority=priority_map[priority])
+    print(f"Reprioritized results as `{priority}':\n====\n{incomplete}\n====\n")
+
 
 reprioritize_optimizations = reprioritize_results
