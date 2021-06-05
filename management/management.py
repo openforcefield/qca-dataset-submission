@@ -251,8 +251,12 @@ def reprioritize_results(results, client, priority):
     """
     from qcportal.models.task_models import PriorityEnum
     priority_map = {"high": PriorityEnum.HIGH,
+                    2: PriorityEnum.HIGH,
                     "normal": PriorityEnum.NORMAL,
-                    "low": PriorityEnum.LOW}
+                    1: PriorityEnum.NORMAL,
+                    "low": PriorityEnum.LOW,
+                    0: PriorityEnum.LOW,
+                    }
 
     incomplete = [res.id for res in results if res.status != 'COMPLETE']
     client.modify_tasks(operation='modify', base_result=incomplete, new_priority=priority_map[priority])
