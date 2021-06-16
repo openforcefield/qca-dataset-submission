@@ -1,6 +1,6 @@
 {
   "qc_specifications": {
-    "default": {
+    "WB97X-D3BJ": {
       "method": "WB97X-D3BJ",
       "basis": "DZVP",
       "program": "psi4",
