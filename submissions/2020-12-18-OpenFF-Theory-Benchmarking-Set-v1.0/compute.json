@@ -5,7 +5,7 @@
       "basis": "DZVP",
       "program": "psi4",
       "spec_name": "default",
-      "spec_description": "Standard OpenFF optimization quantum chemistry specification.",
+      "spec_description": "A torsiondrive dataset for benchmarking WB97X-D3BJ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     }
@@ -47,9 +47,9 @@
     ]
   },
   "provenance": {
-    "qcsubmit": "0.1.1+14.ga6eec90",
-    "openforcefield": "0.8.0",
-    "openeye": "2019.Oct.2"
+    "qcsubmit": "0.2.1",
+    "openforcefield": "0.8.4",
+    "rdkit": "2021.03.3"
   },
   "dataset": {},
   "filtered_molecules": {},
