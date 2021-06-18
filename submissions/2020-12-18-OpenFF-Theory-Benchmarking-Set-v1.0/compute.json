@@ -14,7 +14,16 @@
       "basis": "DZVP",
       "program": "psi4",
       "spec_name": "PW6B95-D3BJ",
-      "spec_description": "A torsiondrive dataset for benchmarking WB97X-D3BJ",
+      "spec_description": "A torsiondrive dataset for benchmarking PW6B95-D3BJ",
+      "store_wavefunction": "none",
+      "implicit_solvent": null
+    },
+    "B3LYP-D3MBJ/DZVP": {
+      "method": "B3LYP-D3MBJ",
+      "basis": "DZVP",
+      "program": "psi4",
+      "spec_name": "B3LYP-D3MBJ/DZVP",
+      "spec_description": "A torsiondrive dataset for benchmarking B3LYP-D3MBJ/DZVP ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     }
