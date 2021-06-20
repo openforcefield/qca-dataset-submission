@@ -1,6 +1,6 @@
 {
   "qc_specifications": {
-    "WB97X-D3BJ": {
+    "WB97X-D3BJ/DZVP": {
       "method": "WB97X-D3BJ",
       "basis": "DZVP",
       "program": "psi4",
@@ -9,7 +9,7 @@
       "store_wavefunction": "none",
       "implicit_solvent": null
     },
-    "PW6B95-D3BJ": {
+    "PW6B95-D3BJ/DZVP": {
       "method": "PW6B95-D3BJ",
       "basis": "DZVP",
       "program": "psi4",
@@ -73,7 +73,7 @@
   "filtered_molecules": {},
   "optimization_procedure": {
     "program": "geometric",
-    "coordsys": "tric",
+    "coordsys": "dlc",
     "enforce": 0.1,
     "epsilon": 0.0,
     "reset": true,
