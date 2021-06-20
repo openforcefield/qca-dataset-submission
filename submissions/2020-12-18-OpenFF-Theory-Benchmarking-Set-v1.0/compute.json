@@ -4,7 +4,7 @@
       "method": "WB97X-D3BJ",
       "basis": "DZVP",
       "program": "psi4",
-      "spec_name": "WB97X-D3BJ",
+      "spec_name": "WB97X-D3BJ/DZVP",
       "spec_description": "A torsiondrive dataset for benchmarking WB97X-D3BJ",
       "store_wavefunction": "none",
       "implicit_solvent": null
@@ -13,7 +13,7 @@
       "method": "PW6B95-D3BJ",
       "basis": "DZVP",
       "program": "psi4",
-      "spec_name": "PW6B95-D3BJ",
+      "spec_name": "PW6B95-D3BJ/DZVP",
       "spec_description": "A torsiondrive dataset for benchmarking PW6B95-D3BJ",
       "store_wavefunction": "none",
       "implicit_solvent": null
