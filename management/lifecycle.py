@@ -297,7 +297,7 @@ class SubmittableBase:
         spec = self._load_submittable()
 
         dataset_name = spec["dataset_name"]
-        dataset_type = spec["dataset_type"]
+        dataset_type = spec["type"]
 
         dataset_specs = spec.get("qc_specifications", None)
 
@@ -398,7 +398,7 @@ class SubmittableBase:
                            set_priority=False,
                            set_computetag=False):
         """Obtain complete, incomplete, error stats for submittable and report.
-        
+
         For suspected random errors, we perform restarts.
 
         If submittable complete, recommend state "Archived/Complete".
@@ -818,7 +818,7 @@ class DataSet(SubmittableBase):
 
     """
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, threads=1)
+        return dataset_qcs.submit(client=client, processes=1)
 
 
 class Compute(SubmittableBase):
@@ -826,7 +826,7 @@ class Compute(SubmittableBase):
 
     """
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True, threads=1)
+        return dataset_qcs.submit(client=client, ignore_errors=True, processes=1)
 
 
 def create_dataset(dataset_data):
@@ -838,7 +838,7 @@ def create_dataset(dataset_data):
         "torsiondrivedataset": TorsiondriveDataset,
     }
 
-    dataset_type = dataset_data["dataset_type"].lower()
+    dataset_type = dataset_data["type"].lower()
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
@@ -870,7 +870,7 @@ def get_version_info():
 
     report = {}
     # list the core packages here
-    packages = ["openff.qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    packages = ["openff.qcsubmit", "openff.toolkit", "basis_set_exchange", "qcelemental"]
     for package in packages:
         module = importlib.import_module(package)
         report[package] = pd.Series({"version": module.__version__})
