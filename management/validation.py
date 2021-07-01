@@ -12,12 +12,12 @@ from argparse import ArgumentParser
 import pandas as pd
 from github import Github
 from openff.qcsubmit.datasets import (BasicDataset, OptimizationDataset,
-                               TorsiondriveDataset)
+                                      TorsiondriveDataset,
+                                      update_specification_and_metadata)
 from openff.qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
                                  LinearTorsionError,
                                  MolecularComplexError, QCSpecificationError, ConstraintError, PCMSettingError)
 from openff.qcsubmit.serializers import deserialize
-from openff.qcsubmit.utils import update_specification_and_metadata
 import qcportal as ptl
 
 datasets = {
@@ -39,12 +39,27 @@ def get_data(file_name):
 
 
 def create_dataset(dataset_data):
-    dataset_type = dataset_data["dataset_type"]
+    dataset_type = dataset_data["type"]
     dataset_class = datasets.get(dataset_type.lower(), None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
     else:
         raise RuntimeError(f"The dataset type {dataset_type} is not supported.")
+
+
+def create_spec_report(spec, validated):
+
+    solvent = spec["implicit_solvent"]
+
+    return {
+        "**Specification Name**": spec["spec_name"],
+        "**Method**": spec["method"],
+        "**Basis**": spec["basis"],
+        "**Wavefunction Protocol**": spec["store_wavefunction"],
+        "**Implicit Solvent**": solvent["medium_Solvent"] if solvent is not None else solvent,
+        "**Keywords**": json.dumps({} if not spec["keywords"] else spec["keywords"]),
+        "**Validated**": validated
+    }
 
 
 def validate_dataset(dataset_data):
@@ -107,6 +122,16 @@ def check_metadata(dataset_data):
     dataset = create_dataset(data_copy)
     try:
         dataset.metadata.validate_metadata(raise_errors=True)
+
+        # QCSubmit no longer validates that `long_description_url` is `None` so we
+        # need to check it here.
+        if dataset.metadata.long_description_url is None:
+
+            raise DatasetInputError(
+                "The metadata has the following incomplete fields "
+                "['long_description_url']"
+            )
+
         report = check_mark
     except DatasetInputError:
         report = cross
@@ -146,16 +171,14 @@ def check_qcspec_coverage(dataset_data):
     # now try and add each spec
     spec_report = {}
     for spec in qc_specs.values():
+
         try:
             dataset.add_qc_spec(**spec)
             validated = check_mark
         except (QCSpecificationError, PCMSettingError):
             validated = cross
 
-        solvent = spec["implicit_solvent"]
-        spec_report[spec["spec_name"]] = {"**Specification Name**": spec["spec_name"], "**Method**": spec["method"],
-                                          "**Basis**": spec["basis"], "**Wavefunction Protocol**": spec["store_wavefunction"], "**Implicit Solvent**": solvent["medium_Solvent"] if solvent is not None else solvent,
-                                          "**Validated**": validated}
+        spec_report[spec["spec_name"]] = create_spec_report(spec, validated)
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
@@ -180,7 +203,7 @@ def get_meta_info(dataset_data):
         elm_str = elements
 
     return {"**Dataset Name**": dataset_data.get("dataset_name", missing),
-            "**Dataset Type**": dataset_data.get("dataset_type", missing),
+            "**Dataset Type**": dataset_data.get("type", missing),
             "**Elements**": elm_str,
             }
 
@@ -194,9 +217,6 @@ def check_compute_request(dataset_data):
     client = ptl.FractalClient()
     # now update the dataset with client elements and specs
     updated_dataset = update_specification_and_metadata(dataset=dataset, client=client)
-    if updated_dataset.metadata.validate_metadata(raise_errors=False):
-        # fill in missing fields
-        updated_dataset.metadata.long_description_url = "https://test.org"
     # now we need to try and add each spec this will raise errors if the spec has already been stored
     spec_report = {}
     for spec in qc_specs.values():
@@ -206,10 +226,7 @@ def check_compute_request(dataset_data):
         except QCSpecificationError:
             validated = cross
 
-        spec_report[spec["spec_name"]] = {"**Specification Name**": spec["spec_name"], "**Method**": spec["method"],
-                                          "**Basis**": spec["basis"],
-                                          "**Wavefunction Protocol**": spec["store_wavefunction"],
-                                          "**Validated**": validated}
+        spec_report[spec["spec_name"]] = create_spec_report(spec, validated)
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
@@ -295,7 +312,7 @@ def get_version_info():
     import importlib
     report = {}
     # list the core packages here
-    packages = ["openff.qcsubmit", "openforcefield", "basis_set_exchange", "qcelemental"]
+    packages = ["openff.qcsubmit", "openff.toolkit", "basis_set_exchange", "qcelemental"]
     for package in packages:
         module = importlib.import_module(package)
         report[package] = pd.Series({"version": module.__version__})
