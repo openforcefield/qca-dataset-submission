@@ -297,7 +297,11 @@ class SubmittableBase:
         spec = self._load_submittable()
 
         dataset_name = spec["dataset_name"]
-        dataset_type = spec["type"]
+
+        if "type" in spec:
+            dataset_type = spec["type"]
+        elif "dataset_type" in spec:
+            dataset_type = spec["dataset_type"]
 
         dataset_specs = spec.get("qc_specifications", None)
 
