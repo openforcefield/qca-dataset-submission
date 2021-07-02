@@ -1,0 +1,19 @@
+name: qcarchive-user-submit
+
+channels:
+  - conda-forge
+  - defaults
+  - openeye
+
+dependencies:
+  - python =3.7
+  - pip
+  - qcportal
+  - openff-qcsubmit =0.2.2
+  - openff-toolkit
+  - openeye-toolkits
+  - pip:
+#      - basis_set_exchange
+      - PyGithub
+      - pandas
+      - tabulate
