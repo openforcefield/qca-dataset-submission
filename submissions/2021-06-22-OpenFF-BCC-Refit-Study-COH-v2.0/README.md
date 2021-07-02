@@ -3,10 +3,10 @@
 ### Description
 
 A data set curated for the initial stage of the on-going OpenFF study which aims to co-optimize the AM1BCC bond charge correction (BCC) parameters against an experimental training set of density and enthalpy of mixing data points and a QM training set of electric field data.
-
+    
 The initial data set is limited to only molecules composed of C, O, H. This limited scope significantly reduces the number of BCC parameters which must be retrained, thus allowing for easier convergence of the initial optimizations.
 
-The included molecules we combinatorially generated to cover a range of alcohol, ether, and carbonyl containing molecules.
+The included molecules were combinatorially generated to cover a range of alcohol, ether, and carbonyl containing molecules.
 
 ### General Information
 
@@ -45,9 +45,9 @@ The included molecules we combinatorially generated to cover a range of alcohol,
 
 ```
 {'collection_type': 'OptimizationDataset',
- 'creation_date': datetime.date(2021, 6, 22),
+ 'creation_date': datetime.date(2021, 7, 2),
  'dataset_name': 'OpenFF BCC Refit Study COH v2.0',
- 'elements': {'O', 'H', 'C'},
+ 'elements': {'H', 'O', 'C'},
  'long_description': 'A data set curated for the initial stage of the on-going '
                      'OpenFF study which aims to co-optimize the AM1BCC bond '
                      'charge correction (BCC) parameters against an '
@@ -61,7 +61,7 @@ The included molecules we combinatorially generated to cover a range of alcohol,
                      'retrained, thus allowing for easier convergence of the '
                      'initial optimizations.\n'
                      '\n'
-                     'The included molecules we combinatorially generated to '
+                     'The included molecules were combinatorially generated to '
                      'cover a range of alcohol, ether, and carbonyl containing '
                      'molecules.',
  'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-06-22-OpenFF-BCC-Refit-Study-COH-v2.0', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/master/submissions/2021-06-22-OpenFF-BCC-Refit-Study-COH-v2.0'),
@@ -73,47 +73,17 @@ The included molecules we combinatorially generated to cover a range of alcohol,
 ## QC specifications:
 
 ```
-{'collection_type': 'OptimizationDataset',
- 'creation_date': datetime.date(2021, 7, 1),
- 'dataset_name': 'OpenFF BCC Refit Study COH v2.0',
- 'elements': {'O', 'C', 'H'},
- 'long_description': 'A data set curated for the initial stage of the on-going '
-                     'OpenFF study which aims to co-optimize the AM1BCC bond '
-                     'charge correction (BCC) parameters against an '
-                     'experimental training set of density and enthalpy of '
-                     'mixing data points and a QM training set of electric '
-                     'field data.\n'
-                     '\n'
-                     'The initial data set is limited to only molecules '
-                     'composed of C, O, H. This limited scope significantly '
-                     'reduces the number of BCC parameters which must be '
-                     'retrained, thus allowing for easier convergence of the '
-                     'initial optimizations.\n'
-                     '\n'
-                     'The included molecules we combinatorially generated to '
-                     'cover a range of alcohol, ether, and carbonyl containing '
-                     'molecules.',
- 'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-06-22-OpenFF-BCC-Refit-Study-COH-v2.0', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/master/submissions/2021-06-22-OpenFF-BCC-Refit-Study-COH-v2.0'),
- 'short_description': 'Optimizations of diverse, para-substituted aniline '
-                      'derivatives.',
- 'submitter': 'simonboothroyd'}
-9
-for spec, obj in dataset.qc_specifications.items():
-    print("Spec:", spec)
-    pprint(obj.dict())
-Spec: hf-6-31G*
+Spec: hf/6-31G*
 {'basis': '6-31G*',
  'implicit_solvent': None,
- 'keywords': {'dft_pruning_scheme': 'robust',
-              'dft_radial_points': 99,
-              'dft_spherical_points': 590},
+ 'keywords': None,
  'method': 'hf',
  'program': 'psi4',
  'spec_description': 'The quantum chemistry specification used to generate the '
                      'original AM1BCCs.',
- 'spec_name': 'hf-6-31G*',
+ 'spec_name': 'hf/6-31G*',
  'store_wavefunction': 'orbitals_and_eigenvalues'}
-Spec: resp-2-vacuum
+Spec: pw6b95/aug-cc-pV(D+d)Z/uf
 {'basis': 'aug-cc-pV(D+d)Z',
  'implicit_solvent': None,
  'keywords': {'dft_pruning_scheme': 'robust',
@@ -122,10 +92,12 @@ Spec: resp-2-vacuum
  'method': 'pw6b95',
  'program': 'psi4',
  'spec_description': 'The quantum chemistry specification used in the RESP2 '
-                     'publication for the vacuum (i.e. no PCM) calculations.',
- 'spec_name': 'resp-2-vacuum',
+                     'publication for the vacuum (i.e. no PCM) calculations '
+                     "modified to use an 'ultra-fine' DFT grid to improve SCF "
+                     'convergence.',
+ 'spec_name': 'pw6b95/aug-cc-pV(D+d)Z/uf',
  'store_wavefunction': 'orbitals_and_eigenvalues'}
-Spec: resp-2-water
+Spec: pw6b95/aug-cc-pV(D+d)Z/uf,pcm
 {'basis': 'aug-cc-pV(D+d)Z',
  'implicit_solvent': {'cavity_Area': 0.3,
                       'cavity_MinRadius': 52.917721067,
@@ -148,9 +120,10 @@ Spec: resp-2-water
  'method': 'pw6b95',
  'program': 'psi4',
  'spec_description': 'The quantum chemistry specification used in the RESP2 '
-                     'publication for the aqueous (i.e. with PCM) '
-                     'calculations.',
- 'spec_name': 'resp-2-water',
+                     'publication for the aqueous (i.e. with PCM) calculations '
+                     "modified to use an 'ultra-fine' DFT grid to improve SCF "
+                     'convergence.',
+ 'spec_name': 'pw6b95/aug-cc-pV(D+d)Z/uf,pcm',
  'store_wavefunction': 'orbitals_and_eigenvalues'}
 ```
 
