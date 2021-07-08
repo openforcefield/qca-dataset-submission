@@ -1,20 +1,29 @@
 {
   "qc_specifications": {
-    "MP2/AUG-CC-PVTZ": {
-      "method": "MP2",
-      "basis": "aug-cc-pVTZ",
+    "WB97X-D3BJ/DZVP": {
+      "method": "WB97X-D3BJ",
+      "basis": "DZVP",
       "program": "psi4",
-      "spec_name": "MP2/AUG-CC-PVTZ",
-      "spec_description": "A torsiondrive dataset for benchmarking MP2/AUG-CC_PVTZ",
+      "spec_name": "WB97X-D3BJ/DZVP",
+      "spec_description": "A torsiondrive dataset for benchmarking WB97X-D3BJ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     },
-    "MP2/HEAVY-AUG-CC-PVTZ": {
-      "method": "MP2",
-      "basis": "heavy-aug-cc-pVTZ",
+    "PW6B95-D3BJ/DZVP": {
+      "method": "PW6B95-D3BJ",
+      "basis": "DZVP",
       "program": "psi4",
-      "spec_name": "MP2/HEAVY-AUG-CC-PVTZ",
-      "spec_description": "A torsiondrive dataset for benchmarking MP2/HEAVY-AUG-CC-PVTZ",
+      "spec_name": "PW6B95-D3BJ/DZVP",
+      "spec_description": "A torsiondrive dataset for benchmarking PW6B95-D3BJ",
+      "store_wavefunction": "none",
+      "implicit_solvent": null
+    },
+    "B3LYP-D3MBJ/DZVP": {
+      "method": "B3LYP-D3MBJ",
+      "basis": "DZVP",
+      "program": "psi4",
+      "spec_name": "B3LYP-D3MBJ/DZVP",
+      "spec_description": "A torsiondrive dataset for benchmarking B3LYP-D3MBJ/DZVP ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     }
