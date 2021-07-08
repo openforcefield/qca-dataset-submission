@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 
 import os
@@ -842,7 +843,11 @@ def create_dataset(dataset_data):
         "torsiondrivedataset": TorsiondriveDataset,
     }
 
-    dataset_type = dataset_data["type"].lower()
+    if "type" in dataset_data:
+        dataset_type = dataset_data["type"]
+    elif "dataset_type" in dataset_data:
+        dataset_type = dataset_data["dataset_type"]
+
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
