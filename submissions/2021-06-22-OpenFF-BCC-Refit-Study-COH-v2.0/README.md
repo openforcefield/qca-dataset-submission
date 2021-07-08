@@ -30,12 +30,12 @@ The included molecules were combinatorially generated to cover a range of alcoho
 
 ### QCSubmit generation pipeline
 
-- `generate-dataset.py`: A script which shows how the dataset was prepared from the input files. 
+- `generate-dataset.ipynb`: A notebook which shows how the dataset was prepared from the input files.
 - `generate-smiles.py`: A python script which combines an aniline scaffold with diverse functional groups. 
 
 ### QCSubmit Manifest
 
-- `generate-dataset.py`
+- `generate-dataset.ipynb`
 - `generate-smiles.py`
 - `dataset.json.bz2`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
