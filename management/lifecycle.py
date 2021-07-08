@@ -844,9 +844,9 @@ def create_dataset(dataset_data):
     }
 
     if "type" in dataset_data:
-        dataset_type = dataset_data["type"]
+        dataset_type = dataset_data["type"].lower()
     elif "dataset_type" in dataset_data:
-        dataset_type = dataset_data["dataset_type"]
+        dataset_type = dataset_data["dataset_type"].lower()
 
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
