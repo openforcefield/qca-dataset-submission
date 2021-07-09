@@ -1,29 +1,20 @@
 {
   "qc_specifications": {
-    "WB97X-D3BJ/DZVP": {
-      "method": "WB97X-D3BJ",
-      "basis": "DZVP",
+    "MP2/aug-cc-pVTZ": {
+      "method": "MP2",
+      "basis": "aug-cc-pVTZ",
       "program": "psi4",
-      "spec_name": "WB97X-D3BJ/DZVP",
-      "spec_description": "A torsiondrive dataset for benchmarking WB97X-D3BJ",
+      "spec_name": "MP2/aug-cc-pVTZ",
+      "spec_description": "A torsiondrive dataset for benchmarking MP2/aug-cc-pVTZ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     },
-    "PW6B95-D3BJ/DZVP": {
-      "method": "PW6B95-D3BJ",
-      "basis": "DZVP",
+    "MP2/heavy-aug-cc-pVTZ": {
+      "method": "MP2",
+      "basis": "heavy-aug-cc-pVTZ",
       "program": "psi4",
-      "spec_name": "PW6B95-D3BJ/DZVP",
-      "spec_description": "A torsiondrive dataset for benchmarking PW6B95-D3BJ",
-      "store_wavefunction": "none",
-      "implicit_solvent": null
-    },
-    "B3LYP-D3MBJ/DZVP": {
-      "method": "B3LYP-D3MBJ",
-      "basis": "DZVP",
-      "program": "psi4",
-      "spec_name": "B3LYP-D3MBJ/DZVP",
-      "spec_description": "A torsiondrive dataset for benchmarking B3LYP-D3MBJ/DZVP ",
+      "spec_name": "MP2/heavy-aug-cc-pVTZ",
+      "spec_description": "A torsiondrive dataset for benchmarking MP2/heavy-aug-cc-pVTZ",
       "store_wavefunction": "none",
       "implicit_solvent": null
     }
@@ -39,7 +30,7 @@
     "wiberg_lowdin_indices",
     "mayer_indices"
   ],
-  "priority": "normal",
+  "priority": "high",
   "description": "A torsiondrive dataset for theory benchmarking",
   "dataset_tags": [
     "openff"
