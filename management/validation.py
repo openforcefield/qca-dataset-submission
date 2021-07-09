@@ -39,7 +39,12 @@ def get_data(file_name):
 
 
 def create_dataset(dataset_data):
-    dataset_type = dataset_data["type"]
+
+    if "type" in dataset_data:
+        dataset_type = dataset_data["type"]
+    elif "dataset_type" in dataset_data:
+        dataset_type = dataset_data["dataset_type"]
+
     dataset_class = datasets.get(dataset_type.lower(), None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
@@ -202,8 +207,14 @@ def get_meta_info(dataset_data):
     else:
         elm_str = elements
 
+    if "type" in dataset_data:
+        dataset_type = dataset_data["type"]
+    elif "dataset_type" in dataset_data:
+        dataset_type = dataset_data["dataset_type"]
+
+
     return {"**Dataset Name**": dataset_data.get("dataset_name", missing),
-            "**Dataset Type**": dataset_data.get("type", missing),
+            "**Dataset Type**": dataset_type,
             "**Elements**": elm_str,
             }
 
