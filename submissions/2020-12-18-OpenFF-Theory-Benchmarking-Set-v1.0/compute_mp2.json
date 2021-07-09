@@ -30,7 +30,7 @@
     "wiberg_lowdin_indices",
     "mayer_indices"
   ],
-  "priority": "high",
+  "priority": "normal",
   "description": "A torsiondrive dataset for theory benchmarking",
   "dataset_tags": [
     "openff"
