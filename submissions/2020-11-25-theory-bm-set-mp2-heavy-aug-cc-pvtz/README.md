@@ -1,6 +1,7 @@
 ### Description
 
-This is a Constrained Optimization dataset for benchmarking MP2/heavy-aug-cc-pVTZ. This takes the final optimized geometries from the default-spec torsiondrives at https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-12-18-OpenFF-Theory-Benchmarking-Set-v1.0 and does the optimizations at this higher level of theory.
+This is a Constrained Optimization dataset for benchmarking MP2/heavy-aug-cc-pVTZ. This takes the final optimized geometries from the default-spec torsiondrives at https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-12-18-OpenFF-Theory-Benchmarking-Set-v1.0 and performs the optimizations at this higher level of theory. 
+
 
 
 ### General Information 
