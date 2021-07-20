@@ -28,7 +28,10 @@ datasets = {
 check_mark = ":heavy_check_mark:"
 cross = ":x:"
 missing = ":heavy_exclamation_mark:"
+
 REPO_NAME = 'openforcefield/qca-dataset-submission'
+DATASET_GLOB = "dataset*.json*"
+COMPUTE_GLOB = "compute*.json*"
 
 
 def get_data(file_name):
@@ -353,9 +356,9 @@ def main():
     for file in file_names:
         # this covers files that are deleted and picked up by the file change check
         if os.path.exists(file):
-            if "dataset.json" in file:
+            if glob.fnmatch.fnmatch(os.path.basename(file), DATASET_GLOB):
                 dataset_paths.append(file)
-            elif glob.fnmatch.fnmatch(os.path.basename(file), "compute*.json"):
+            elif glob.fnmatch.fnmatch(os.path.basename(file), COMPUTE_GLOB):
                 dataset_paths.append(file)
         else:
             continue
