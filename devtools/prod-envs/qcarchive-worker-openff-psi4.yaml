@@ -1,16 +1,16 @@
 name: qcarchive-worker-openff-psi4
 channels:
+  - psi4
   - conda-forge
-  - psi4/label/dev
   - defaults
 dependencies:
   - python =3.7
-  - qcfractal =0.15.2
-  - qcengine =0.17.0
+  - qcfractal =0.15.6
+  - qcengine =0.19.0
 
   # QM calculations
-  - psi4 =1.4a3.dev63+afa0c21
-  - dftd3 =3.2.1
+  - psi4 =1.4
+  - dftd3 #=3.2.1
   - gcp
   - gau2grid =2.0.7
     
