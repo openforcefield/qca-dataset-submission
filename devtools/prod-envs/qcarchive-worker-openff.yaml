@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - pytorch
   - defaults
+  - conda-forge/label/openff-forcefields_dev
 dependencies:
   - python =3.7
   - pip
