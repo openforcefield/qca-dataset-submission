@@ -14,6 +14,16 @@ on:
 jobs:
   deploy-conda-env:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        env-name:
+          - qcarchive-user-submit
+          - qcarchive-worker-openff
+          - qcarchive-worker-openff-ani
+          - qcarchive-worker-openff-openmm
+          - qcarchive-worker-openff-psi4
+          - qcarchive-worker-openff-xtb
     steps:
       - uses: actions/checkout@v2
 
@@ -25,7 +35,7 @@ jobs:
           path: ~/conda_pkgs_dir
           key:
             ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-            hashFiles('devtools/conda-envs/anaconda-client-env.yaml') }}
+            hashFiles('devtools/prod-envs/${{ matrix.env-name }}.yaml') }}
 
       - name: Additional info about the build
         shell: bash
@@ -34,12 +44,12 @@ jobs:
           df -h
           ulimit -a
 
-      - name: Configure conda
+      - name: Configure conda; test creation of environment
         uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.7
-          activate-environment: anaconda-client-env
-          environment-file: devtools/conda-envs/anaconda-client-env.yaml
+          activate-environment: ${{ matrix.env-name }}
+          environment-file: devtools/prod-envs/${{ matrix.env-name }}.yaml
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
 
@@ -54,4 +64,5 @@ jobs:
         env:
           ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
         run: |
+            conda install -y anaconda-client
             anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/**.yaml
