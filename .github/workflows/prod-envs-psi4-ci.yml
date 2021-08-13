@@ -5,12 +5,16 @@
 name: CI - Prod Env psi4 Testing
 
 on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'devtools/prod-envs/**.yaml'
   push:
     branches:
       - master
     paths:
-      - 'devtools/prod-envs/qcarchive-worker-openff.yaml'
-      - 'devtools/prod-envs/qcarchive-worker-openff-psi4.yaml'
+      - 'devtools/prod-envs/**.yaml'
   workflow_dispatch:
 
 jobs:
