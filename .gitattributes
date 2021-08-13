@@ -54,6 +54,7 @@
 /submissions/2021-06-04-OpenFF-Industry-Benchmark-Season-1-v1.1/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-06-04-OpenFF-Industry-Benchmark-Season-1-v1.1/dataset.pdf.bz2 filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-06-04-OpenFF-Industry-Benchmark-Season-1-v1.1/merck/refdata.json.bz2 filter=lfs diff=lfs merge=lfs -text
+/submissions/2021-07-28-OpenFF-Industry-Benchmark-Season-1-MM-v1.1/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
