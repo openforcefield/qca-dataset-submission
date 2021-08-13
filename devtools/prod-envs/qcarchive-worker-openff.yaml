@@ -37,3 +37,4 @@ dependencies:
 
   - pip:
     - torchani ==2.2
+
