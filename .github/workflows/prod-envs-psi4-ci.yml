@@ -32,6 +32,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('devtools/prod-envs/${{ matrix.env-name }}.yaml') }}
+
       - name: Configure conda
         uses: conda-incubator/setup-miniconda@v2
         with:
@@ -40,11 +50,11 @@ jobs:
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
 
-      - name: Run qca-dataset-submission psi4 tests
-        shell: bash -l {0}
-        run: |
-            conda install -c conda-forge pytest
-            pytest ./devtools/tests/psi4/test_qcengine_psi4.py
+      #- name: Run qca-dataset-submission psi4 tests
+      #  shell: bash -l {0}
+      #  run: |
+      #      conda install -c conda-forge pytest
+      #      pytest ./devtools/tests/psi4/test_qcengine_psi4.py
 
       - name: Run openff-qcsubmit tests
         shell: bash -l {0}
