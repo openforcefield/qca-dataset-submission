@@ -1,0 +1,47 @@
+---
+# testing of psi4-containing production environments
+# intended to check that a new psi4 pin doesn't break expectations for compute, before merging and deploying to production systems
+
+name: CI - Prod Env psi4 Testing
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'devtools/prod-envs/qcarchive-worker-openff.yaml'
+      - 'devtools/prod-envs/qcarchive-worker-openff-psi4.yaml'
+  workflow_dispatch:
+
+jobs:
+  build-deploy-docker:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        env-name:
+          - qcarchive-worker-openff
+          - qcarchive-worker-openff-psi4
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: ${{ matrix.env-name }}
+          environment-file: devtools/prod-envs/${{ matrix.env-name }}.yaml
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+          auto-activate-base: false
+
+      - name: Run qca-dataset-submission psi4 tests
+        shell: bash -l {0}
+        run: |
+            pytest ./devtools/tests/psi4/test_qcengine_psi4.py
+
+      - name: Run openff-qcsubmit tests
+        shell: bash -l {0}
+        run: |
+            conda install -c conda-forge openff-qcsubmit
+
+            QCSUBMIT_TESTDIR=$(dirname $(python -c "import openff.qcsubmit.tests as tests; print(tests.__file__)"))
+            pytest $QCSUBMIT_TESTDIR
