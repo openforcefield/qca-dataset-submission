@@ -2,7 +2,6 @@ name: qcarchive-worker-openff-openmm
 channels:
   - conda-forge
   - defaults
-  - conda-forge/label/openff-forcefields_dev
 dependencies:
   - python =3.7
   - qcfractal =0.15.2
@@ -10,7 +9,7 @@ dependencies:
     
   # MM calculations
   - openff-toolkit =0.10.0
-  - openff-forcefields =2.0.0rc.2
+  - openff-forcefields =2.0.0
   - openmm =7.5.1
   - openmmforcefields =0.9.0
   - conda-forge::libiconv
