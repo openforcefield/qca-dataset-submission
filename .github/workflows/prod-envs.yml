@@ -65,4 +65,4 @@ jobs:
           ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
         run: |
             conda install -y anaconda-client
-            anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/**.yaml
+            anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/${{ matrix.env-name }}.yaml
