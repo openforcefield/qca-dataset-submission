@@ -14,6 +14,7 @@ from github import Github
 from openff.qcsubmit.datasets import (BasicDataset, OptimizationDataset,
                                       TorsiondriveDataset,
                                       update_specification_and_metadata)
+from openff.qcsubmit.common_structures import SCFProperties, Metadata
 from openff.qcsubmit.exceptions import (DatasetInputError, DihedralConnectionError,
                                  LinearTorsionError,
                                  MolecularComplexError, QCSpecificationError, ConstraintError, PCMSettingError)
@@ -38,11 +39,17 @@ def get_data(file_name):
     """
     Return the deserialized dataset file.
     """
-    return deserialize(file_name=file_name)
+    data = deserialize(file_name=file_name)
+    # fix for scf properties moving from dataset to spec
+    if "scf_properties" in data and "qc_specifications" in data:
+        scf_properties = data.pop("scf_properties")
+
+        for spec in data["qc_specifications"].values():
+            spec["scf_properties"] = scf_properties
+    return data
 
 
 def create_dataset(dataset_data):
-
     if "type" in dataset_data:
         dataset_type = dataset_data["type"]
     elif "dataset_type" in dataset_data:
@@ -55,11 +62,11 @@ def create_dataset(dataset_data):
         raise RuntimeError(f"The dataset type {dataset_type} is not supported.")
 
 
-def create_spec_report(spec, validated):
+def create_spec_report(spec, validated, extras):
 
     solvent = spec["implicit_solvent"]
 
-    return {
+    data = {
         "**Specification Name**": spec["spec_name"],
         "**Method**": spec["method"],
         "**Basis**": spec["basis"],
@@ -68,6 +75,8 @@ def create_spec_report(spec, validated):
         "**Keywords**": json.dumps({} if not spec.get("keywords", None) else spec["keywords"]),
         "**Validated**": validated
     }
+    data.update(extras)
+    return data
 
 
 def validate_dataset(dataset_data):
@@ -87,7 +96,7 @@ def validate_dataset(dataset_data):
     # remove the entries so they can be checked one by one
     entries = data_copy.pop("dataset")
     # remove the scf props and meta data as this will be checked in a different step
-    del data_copy["scf_properties"]
+    # try as this is now a per spec property
     del data_copy["metadata"]
     del data_copy["qc_specifications"]
     dataset = create_dataset(data_copy)
@@ -97,7 +106,7 @@ def validate_dataset(dataset_data):
         try:
             dataset.add_molecule(**entry, molecule=None)
         except DatasetInputError:
-            # this mean the cmiles is not valid
+            # this means the cmiles is not valid
             errors["cmiles"].append(entry["index"])
             # remove the index error after the qcsubmit patch
         except DihedralConnectionError:
@@ -123,17 +132,14 @@ def validate_dataset(dataset_data):
 
 
 def check_metadata(dataset_data):
-    # remove the dataset and scf props
-    data_copy = copy.deepcopy(dataset_data)
-    del data_copy["scf_properties"]
-    del data_copy["dataset"]
-    dataset = create_dataset(data_copy)
+    # build and validate the metadata object
+    metadata = Metadata.parse_obj(dataset_data["metadata"])
     try:
-        dataset.metadata.validate_metadata(raise_errors=True)
+        metadata.validate_metadata(raise_errors=True)
 
         # QCSubmit no longer validates that `long_description_url` is `None` so we
         # need to check it here.
-        if dataset.metadata.long_description_url is None:
+        if metadata.long_description_url is None:
 
             raise DatasetInputError(
                 "The metadata has the following incomplete fields "
@@ -147,18 +153,14 @@ def check_metadata(dataset_data):
     return {"**Complete Metatdata**": report}
 
 
-def check_scf_props(dataset_data):
-    # remove the metadata and dataset
-    data_copy = copy.deepcopy(dataset_data)
-    del data_copy["dataset"]
-    del data_copy["metadata"]
-    try:
-        _ = create_dataset(data_copy)
-        report = check_mark
-    except DatasetInputError:
-        report = cross
-
-    return {"**Valid SCF Properties**": report}
+def check_scf_props(spec):
+    # check each scf_prop in the spec
+    for scf_property in spec["scf_properties"]:
+        try:
+            SCFProperties(scf_property)
+        except QCSpecificationError:
+            return {"**Valid SCF Properties**": cross}
+    return {"**Valid SCF Properties**": check_mark}
 
 
 def check_qcspec_coverage(dataset_data):
@@ -169,7 +171,6 @@ def check_qcspec_coverage(dataset_data):
     data_copy = copy.deepcopy(dataset_data)
     # remove any data that could cause an error
     del data_copy["dataset"]
-    del data_copy["scf_properties"]
     metadata = data_copy.pop("metadata")
     qc_specs = data_copy.pop("qc_specifications")
     # make the empty dataset and add the elements back
@@ -179,14 +180,16 @@ def check_qcspec_coverage(dataset_data):
     # now try and add each spec
     spec_report = {}
     for spec in qc_specs.values():
-
+        valid_scf_props = check_scf_props(spec)
         try:
+            # remove the scf props so they dont cause issues
+            del spec["scf_properties"]
             dataset.add_qc_spec(**spec)
             validated = check_mark
         except (QCSpecificationError, PCMSettingError):
             validated = cross
 
-        spec_report[spec["spec_name"]] = create_spec_report(spec, validated)
+        spec_report[spec["spec_name"]] = create_spec_report(spec, validated, valid_scf_props)
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
@@ -279,8 +282,6 @@ def main_validation(dataset_names):
         dataset_validators.update(validate_dataset(data))
         # now check the metadata
         dataset_validators.update(check_metadata(data))
-        # now check the scf
-        dataset_validators.update(check_scf_props(data))
         # now check the qcspec if not already done
         if qc_coverage is None:
             qc_coverage = check_qcspec_coverage(data)
