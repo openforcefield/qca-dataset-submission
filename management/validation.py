@@ -10,7 +10,7 @@ from argparse import ArgumentParser
 
 
 import pandas as pd
-from github import Github
+# from github import Github
 from openff.qcsubmit.datasets import (BasicDataset, OptimizationDataset,
                                       TorsiondriveDataset,
                                       update_specification_and_metadata)
@@ -44,8 +44,13 @@ def get_data(file_name):
     if "scf_properties" in data and "qc_specifications" in data:
         scf_properties = data.pop("scf_properties")
 
-        for spec in data["qc_specifications"].values():
-            spec["scf_properties"] = scf_properties
+        # the spec also changed from dict to list at some point
+        if isinstance(data["qc_specifications"], dict):
+            for spec in data["qc_specifications"].values():
+                spec["scf_properties"] = scf_properties
+        else:
+            for spec in data["qc_specifications"]:
+                spec["scf_properties"] = scf_properties
     return data
 
 
@@ -347,34 +352,34 @@ def main():
 
     parser = ArgumentParser(description="Validation methods for QCSubmit datasets.")
     parser.add_argument("dataset_files", help="This is the dataset file that should be validated.")
-    parser.add_argument("pull_number", type=int, help="This is the PR number that danger bot will report on.")
+    # parser.add_argument("pull_number", type=int, help="This is the PR number that danger bot will report on.")
 
     args = parser.parse_args()
 
     # now work out what is to be validated
-    file_names = json.loads(args.dataset_files)
-    dataset_paths = []
-    for file in file_names:
-        # this covers files that are deleted and picked up by the file change check
-        if os.path.exists(file):
-            if glob.fnmatch.fnmatch(os.path.basename(file), DATASET_GLOB):
-                dataset_paths.append(file)
-            elif glob.fnmatch.fnmatch(os.path.basename(file), COMPUTE_GLOB):
-                dataset_paths.append(file)
-        else:
-            continue
+    # file_names = json.loads(args.dataset_files)
+    dataset_paths = [args.dataset_files]
+    # for file in file_names:
+    #     # this covers files that are deleted and picked up by the file change check
+    #     if os.path.exists(file):
+    #         if glob.fnmatch.fnmatch(os.path.basename(file), DATASET_GLOB):
+    #             dataset_paths.append(file)
+    #         elif glob.fnmatch.fnmatch(os.path.basename(file), COMPUTE_GLOB):
+    #             dataset_paths.append(file)
+    #     else:
+    #         continue
 
     comment = main_validation(dataset_paths)
-
-    # now we need the pr and to add the comment.
-    g = Github(os.environ['GH_TOKEN'])
-    repo = g.get_repo(REPO_NAME)
-    pr = repo.get_pull(args.pull_number)
-    pr.create_issue_comment(comment)
-
-    # now we need to work out if the workflow should fail
-    if missing in comment or cross in comment:
-        raise DatasetInputError("The datasets have errors please see report for details.")
+    print(comment)
+    # # now we need the pr and to add the comment.
+    # g = Github(os.environ['GH_TOKEN'])
+    # repo = g.get_repo(REPO_NAME)
+    # pr = repo.get_pull(args.pull_number)
+    # pr.create_issue_comment(comment)
+    #
+    # # now we need to work out if the workflow should fail
+    # if missing in comment or cross in comment:
+    #     raise DatasetInputError("The datasets have errors please see report for details.")
 
 
 if __name__ == "__main__":
