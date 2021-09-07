@@ -193,6 +193,8 @@ def check_qcspec_coverage(dataset_data):
         valid_scf_props = check_scf_props(spec)
         try:
             # remove the scf props so they dont cause issues
+            # we already validated them explicitly above in the call to `check_scf_props`
+            # not necessary to validate them twice, and we want to distinguish them from other errors
             del spec["scf_properties"]
             dataset.add_qc_spec(**spec)
             validated = check_mark
