@@ -31,6 +31,6 @@ This takes the final optimized geometries from the [MP2/heavy-au-cc-pVTZ-spec to
  'dataset_name': 'OpenFF Theory Benchmarking Single Point Energies v1.0',
  'short_description': 'Single point energies with different levels of theory',
  'long_description_url': 'https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-09-06-theory-bm-single-points',
- 'long_description': 'Single point calculations of torsiondrive final geometries from reference spec calculation with different basis sets and functionals',
+ 'long_description': 'Single point calculations of torsiondrive final geometries from reference spec (MP2/heavy-aug-cc-pVTZ) calculation with different basis sets and functionals',
  'elements': []}
 ```
