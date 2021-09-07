@@ -102,8 +102,11 @@ def validate_dataset(dataset_data):
     entries = data_copy.pop("dataset")
     # remove the scf props and meta data as this will be checked in a different step
     # try as this is now a per spec property
+    try:
+        del data_copy["qc_specifications"]
+    except KeyError:
+        pass
     del data_copy["metadata"]
-    del data_copy["qc_specifications"]
     dataset = create_dataset(data_copy)
 
     # now check each entry
@@ -124,8 +127,10 @@ def validate_dataset(dataset_data):
         except ConstraintError:
             errors["constraints"].append(entry["index"])
 
-    # TODO: add in error reporting of *which* indices caused failures in any check
-
+    # print out the errors and the index of any entries which fall into this type
+    print("Errors and entries:")
+    for error, entries in errors.items():
+        print(f"Error type: {error}, entries: {entries}")
     report = {
         "**Valid Cmiles**": cross if errors["cmiles"] else check_mark,
         "**Connected Dihedrals**": cross if errors["dihedrals"] else check_mark,
