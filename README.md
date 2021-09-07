@@ -109,6 +109,8 @@ These are currently used to compute properties of a minimum energy conformation 
 | `OpenFF Gen 2 Opt Set 5 Bayer` | [2020-03-20-OpenFF-Gen-2-Optimization-Set-5-Bayer](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-5-Bayer) | Hessian calculations. | Si, Cl, Br, F, C, S, O, H, N | [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 | `OpenFF VEHICLe Set 1` | [2019-07-02 VEHICLe optimization dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-07-02%20VEHICLe%20optimization%20dataset)  |  Hessian calculations. | S, C, O, H, N  |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red)  |
 | `SMIRNOFF Coverage Set 1` | [2019-06-25-smirnoff99Frost-coverage](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-06-25-smirnoff99Frost-coverage)  | Hessian calculations. |  Cl, Br, S, C, F, P, I, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
+| `OpenFF Theory Benchmarking Single Point Energies v1.0` | [2021-09-06-theory-bm-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-09-06-theory-bm-single-points)  | Single Point Energy calculations. |  Cl, F, C, S, O, H, N, P | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
+
 
 
 # Optimization Datasets
