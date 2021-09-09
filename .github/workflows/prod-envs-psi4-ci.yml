@@ -60,6 +60,7 @@ jobs:
         shell: bash -l {0}
         run: |
             conda install -c conda-forge openff-qcsubmit requests-mock
+            conda install -c -c openeye openeye-toolkits
 
             QCSUBMIT_TESTDIR=$(dirname $(python -c "import openff.qcsubmit.tests as tests; print(tests.__file__)"))
             pytest $QCSUBMIT_TESTDIR
