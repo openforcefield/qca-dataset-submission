@@ -29,6 +29,8 @@ jobs:
           - qcarchive-worker-openff-openmm
           - qcarchive-worker-openff-psi4
           - qcarchive-worker-openff-xtb
+    env:
+      OE_LICENSE: ${{ github.workspace }}/oe_license.txt
     steps:
       - uses: actions/checkout@v2
 
@@ -49,6 +51,13 @@ jobs:
           environment-file: devtools/prod-envs/${{ matrix.env-name }}.yaml
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
+
+      - name: Make oe_license.txt file from GH org secret "OE_LICENSE"
+        shell: bash
+        env:
+          OE_LICENSE_TEXT: ${{ secrets.OE_LICENSE }}
+        run: |
+          echo "${OE_LICENSE_TEXT}" > ${OE_LICENSE}
 
       #- name: Run qca-dataset-submission psi4 tests
       #  shell: bash -l {0}
