@@ -902,6 +902,7 @@ def main():
 
     """
     import argparse
+    import gc
 
     parser = argparse.ArgumentParser(
         description="Process PRs according to dataset lifecycle"
@@ -1018,6 +1019,8 @@ def main():
                                  reset_errors=args.reset_errors,
                                  set_priority=set_priority,
                                  set_computetag=set_computetag)
+
+        gc.collect()
 
 if __name__ == "__main__":
     main()
