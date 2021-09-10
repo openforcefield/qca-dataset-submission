@@ -43,24 +43,14 @@ def _query_results(molids, client, keywords_id):
 
 def get_optimizations(dataset, spec, client, dropna=False):
     ds = dataset
-
-    while True:
-        try:
-            ds.status(spec)
-        except:
-            pass
-        else:
-            break
+    ds.status(spec)
 
     if dropna:
         df = ds.df.dropna()
     else:
         df = ds.df
 
-    ids = list(set(i.id for i in df[spec]))
-    
-    res = _query_procedures(ids, client)    
-
+    res = df[spec].tolist()
     return res
 
 
@@ -173,6 +163,11 @@ def count_unique_result_error_messages(
             errors[err_content.error_message.split('\n')[-2]].add(res.id)
 
     errors = dict(errors)
+
+    # Convert None key to a string to avoid issues with sorting below
+    if None in errors:
+        errors["None"] = errors[None]
+        errors.pop(None)
 
     content = ""
     if pretty_print:
