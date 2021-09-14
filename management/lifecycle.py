@@ -464,7 +464,7 @@ class SubmittableBase:
 
         if reset_errors:
             opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True
+                opts, client=client, full=True, pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
@@ -732,7 +732,7 @@ class SubmittableBase:
 
         if reset_errors:
             res_error_counts = mgt.count_unique_result_error_messages(
-                res, full=True, pretty_print=True, tolerate_missing=True
+                res, client=client, full=True, pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_dataset_report(df_res, res_error_counts)
