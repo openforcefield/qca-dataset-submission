@@ -629,11 +629,12 @@ class SubmittableBase:
             reset_errors=False, set_priority=False, set_computetag=False):
         import management as mgt
 
-        opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
+        optdicts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
 
         if reset_errors:
             opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True
+                optdicts, client=client, full=True,
+                pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_optimization_report(df_opt, opt_error_counts)
@@ -643,16 +644,19 @@ class SubmittableBase:
         else:
             if reset_errors:
                 # restart errored optimizations
-                self._errorcycle_restart_optimizations(opts, client)
+                self._errorcycle_restart_optimizations(optdicts, client)
             if set_priority:
-                self._set_priority_optimizations(opts, client)
+                self._set_priority_optimizations(optdicts, client)
             if set_computetag:
-                self._set_computetag_optimizations(opts, client)
+                self._set_computetag_optimizations(optdicts, client)
             complete = False
 
         return complete
 
     def _errorcycle_optimization_get_opt_errors(self, ds, client, dataset_specs):
+        import copy
+        import gc
+
         import pandas as pd
         import management as mgt
 
@@ -661,19 +665,25 @@ class SubmittableBase:
 
         # gather optimization results
         results = defaultdict(dict)
-        all_opts = list()
+        all_opts_dicts = list()
         for spec in dataset_specs:
-            opts = mgt.get_optimizations(ds, spec, client)
-            all_opts.extend(opts)
+            dsc = copy.deepcopy(ds)
+            opts = mgt.get_optimizations(dsc, spec, client)
+            all_opts_dicts.extend([
+                {'id': opt.id, 'status': opt.status, 'final_molecule': opt.final_molecule}
+                for opt in opts])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
                     [opt for opt in opts if opt.status == status]
                 )
+            del opts
+            gc.collect()
+
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return all_opts, df
+        return all_opts_dicts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
 
