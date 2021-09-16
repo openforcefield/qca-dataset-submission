@@ -2,9 +2,11 @@
 
 ### Description
 
-A torsiondrive dataset created from the [OpenFF FEP benchmark dataset](https://github.com/openmm/openmmforcefields/tree/master/openmmforcefields/data/perses_jacs_systems) ligands. The ligands are fragmented using openeye/ambertools and openff-fragmenter before having key torsions driven.
+A torsiondrive dataset created from the [OpenFF FEP benchmark dataset](https://github.com/openmm/openmmforcefields/tree/master/openmmforcefields/data/perses_jacs_systems) ligands. The ligands are fragmented using openeye/ambertools and openff-fragmenter before having key torsions driven. 
+Multiple specifications are included alongside the openff default to be used for benchmarking.
+
 This second version expands the original dataset with new fragments produced by openff-fragmenter after its refactor as the performance is now slightly different in some cases depending on which backend toolkit is used
-and fixes some known issues around incorrect stereochemistry. 
+and fixes some known issues around incorrect stereochemistry. Here we combine fragments from both antechamber and openeye backends into one dataset.
 
 ### General Information
 
@@ -32,7 +34,7 @@ and fixes some known issues around incorrect stereochemistry.
 
 ### QCSubmit Manifest
 
-- `Dataset_Generation.ipynb`
+- `Dataset_Generation.ipynb`: A notebook which shows how the dataset was prepared from the input files.
 - `dataset.json.bz2`: The torsiondrive dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures with targeted torsions highlighted.
 - `dataset.smi`: SMILES for every molecule in the submission.
@@ -71,5 +73,160 @@ Spec: default
                      'specification.',
  'spec_name': 'default',
  'store_wavefunction': 'none'}
+Spec: gfn0xtb
+{'basis': None,
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'gfn0xtb',
+ 'program': 'xtb',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for gn0xtb',
+ 'spec_name': 'gfn0xtb',
+ 'store_wavefunction': 'none'}
+Spec: gfn1xtb
+{'basis': None,
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'gfn1xtb',
+ 'program': 'xtb',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for gfn1xtb',
+ 'spec_name': 'gfn1xtb',
+ 'store_wavefunction': 'none'}
+Spec: gfn2xtb
+{'basis': None,
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'gfn2xtb',
+ 'program': 'xtb',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for gfn2xtb',
+ 'spec_name': 'gfn2xtb',
+ 'store_wavefunction': 'none'}
+Spec: gfnff
+{'basis': None,
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'gfnff',
+ 'program': 'xtb',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for gfnff',
+ 'spec_name': 'gfnff',
+ 'store_wavefunction': 'none'}
+Spec: ani2x
+{'basis': None,
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'ani2x',
+ 'program': 'torchani',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for ani2x',
+ 'spec_name': 'ani2x',
+ 'store_wavefunction': 'none'}
+Spec: openff-1.0.0
+{'basis': 'smirnoff',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'openff-1.0.0',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for openff-1.0.0',
+ 'spec_name': 'openff-1.0.0',
+ 'store_wavefunction': 'none'}
+Spec: openff-1.1.1
+{'basis': 'smirnoff',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'openff-1.1.1',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for openff-1.1.1',
+ 'spec_name': 'openff-1.1.1',
+ 'store_wavefunction': 'none'}
+Spec: openff-1.2.1
+{'basis': 'smirnoff',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'openff-1.2.1',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for openff-1.2.1',
+ 'spec_name': 'openff-1.2.1',
+ 'store_wavefunction': 'none'}
+Spec: openff-1.3.0
+{'basis': 'smirnoff',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'openff-1.3.0',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for openff-1.3.0',
+ 'spec_name': 'openff-1.3.0',
+ 'store_wavefunction': 'none'}
+Spec: openff-2.0.0
+{'basis': 'smirnoff',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'openff-2.0.0',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for openff-2.0.0',
+ 'spec_name': 'openff-2.0.0',
+ 'store_wavefunction': 'none'}
+Spec: gaff-2.11
+{'basis': 'antechamber',
+ 'implicit_solvent': None,
+ 'keywords': None,
+ 'maxiter': 200,
+ 'method': 'gaff-2.11',
+ 'program': 'openmm',
+ 'scf_properties': ['dipole',
+                    'quadrupole',
+                    'wiberg_lowdin_indices',
+                    'mayer_indices'],
+ 'spec_description': 'A default spec for gaff-2.11',
+ 'spec_name': 'gaff-2.11',
+ 'store_wavefunction': 'none'}
+​
 ```
 
