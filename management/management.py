@@ -49,7 +49,8 @@ def _query_results(molids, client, keywords_id):
                 success = True
             except Exception as e:
                 tries += 1
-                sleep(5)
+                print(f"Retrying after sleep; {tries} tries so far")
+                sleep(30)
                 exception = str(e)
 
         if not success:
