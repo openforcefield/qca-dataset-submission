@@ -1,3 +1,5 @@
+from time import sleep
+
 from collections import defaultdict, Counter
 from pprint import pformat
 
@@ -28,13 +30,31 @@ def get_unfinished_results(dataset, spec, client):
 
 
 def _query_results(molids, client, keywords_id):
+    # retry limit hardcode
+    limit = 3
+
     res = []
     ids = list(molids)
     for i in range(0,len(ids),1000):
         ids_i = ids[i:i+1000]
-        res_i = client.query_results(molecule=ids_i,
-                                     keywords=keywords_id,
-                                     status=None)
+
+        success = False
+        tries = 0
+        exception = None
+        while (not success) and (tries < limit):
+            try:
+                res_i = client.query_results(molecule=ids_i,
+                                             keywords=keywords_id,
+                                             status=None)
+                success = True
+            except Exception as e:
+                tries += 1
+                sleep(5)
+                exception = str(e)
+
+        if not success:
+            raise Exception(f"Failed with exception: {exception}")
+
         res.extend(res_i)
 
     return res
