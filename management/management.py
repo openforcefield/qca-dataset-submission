@@ -31,12 +31,14 @@ def get_unfinished_results(dataset, spec, client):
 
 def _query_results(molids, client, keywords_id):
     # retry limit hardcode
-    limit = 3
+    limit = 5
+    batchsize = 200
 
     res = []
     ids = list(molids)
-    for i in range(0,len(ids),1000):
-        ids_i = ids[i:i+1000]
+    for i in range(0,len(ids),batchsize):
+        print(f"Fetching {i} to {i+batchsize}")
+        ids_i = ids[i:i+batchsize]
 
         success = False
         tries = 0
@@ -50,7 +52,7 @@ def _query_results(molids, client, keywords_id):
             except Exception as e:
                 tries += 1
                 print(f"Retrying after sleep; {tries} tries so far")
-                sleep(30)
+                sleep(5)
                 exception = str(e)
 
         if not success:
