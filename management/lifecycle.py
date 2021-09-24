@@ -833,7 +833,7 @@ class DataSet(SubmittableBase):
 
     """
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, processes=1)
+        return dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
 
 
 class Compute(SubmittableBase):
