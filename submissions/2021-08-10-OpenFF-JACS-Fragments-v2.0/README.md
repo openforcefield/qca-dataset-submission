@@ -2,11 +2,14 @@
 
 ### Description
 
-A torsiondrive dataset created from the [OpenFF FEP benchmark dataset](https://github.com/openmm/openmmforcefields/tree/master/openmmforcefields/data/perses_jacs_systems) ligands. The ligands are fragmented using openeye/ambertools and openff-fragmenter before having key torsions driven. 
+A torsiondrive dataset created from the [OpenFF FEP benchmark dataset](https://github.com/openmm/openmmforcefields/tree/master/openmmforcefields/data/perses_jacs_systems) ligands.
+The ligands are fragmented using openeye/ambertools and openff-fragmenter before having key torsions driven. 
 Multiple specifications are included alongside the openff default to be used for benchmarking.
 
-This second version expands the original dataset with new fragments produced by openff-fragmenter after its refactor as the performance is now slightly different in some cases depending on which backend toolkit is used
-and fixes some known issues around incorrect stereochemistry. Here we combine fragments from both antechamber and openeye backends into one dataset.
+This second version expands the original dataset with new fragments produced by openff-fragmenter after its refactor,
+as the performance is now slightly different in some cases depending on which backend toolkit is used,
+and fixes some known issues around incorrect stereochemistry.
+Here we combine fragments from both antechamber and openeye backends into one dataset.
 
 ### General Information
 
@@ -227,6 +230,5 @@ Spec: gaff-2.11
  'spec_description': 'A default spec for gaff-2.11',
  'spec_name': 'gaff-2.11',
  'store_wavefunction': 'none'}
-​
 ```
 
