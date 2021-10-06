@@ -2,9 +2,11 @@
 
 ### Description
 
-A data set used for training ESP-fitting based typed atomic polarizabilities with a direct approximation. Seven single-point calculations will be performed on each conformer: an unpolarized ESP and six polarized ESPs with imposed external electric fields.
+A data set used for training ESP-fitting based typed atomic polarizabilities with a direct approximation.
+Seven optimizations will be performed on each conformer: an unpolarized ESP and six polarized ESPs with imposed external electric fields.
 
-This relatively small data set consisted of 39 small molecules that have commonly occurred functional groups in drug-like molecule, such as hydroxyl group, aromatic ring, carbonyl group, methyl group, and amines. One positively charged and one negatively charged molecule are fitted simultaneously to capture the electronic polarization. 
+This relatively small data set consisted of 39 small molecules that have commonly occurred functional groups in drug-like molecule, such as hydroxyl group, aromatic ring, carbonyl group, methyl group, and amines.
+One positively charged and one negatively charged molecule are fitted simultaneously to capture the electronic polarization.
 
 The initial data set is limited to only molecules composed of C, O, H, and N to enable an element-based and relatively fast test.
 
@@ -51,7 +53,7 @@ The initial data set is limited to only molecules composed of C, O, H, and N to 
  'long_description': 'A data set used for training typed polarizabilities '
                      'using direct polarization.\n'
                      'This data set only includes element C, H, N, and O.',
- 'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/resppol/submissions/2021-10-01-OpenFF-resppol-mp2-single-point', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/resppol/submissions/2021-10-01-OpenFF-resppol-mp2-single-point'),
+ 'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-10-01-OpenFF-resppol-mp2-single-point', scheme='https', host='github.com', tld='com', host_type='domain', path='/openforcefield/qca-dataset-submission/tree/master/submissions/2021-10-01-OpenFF-resppol-mp2-single-point'),
  'short_description': 'Optimizations of ESP-fitting based direct '
                       'polarizabilities.',
  'submitter': 'willawang'}
