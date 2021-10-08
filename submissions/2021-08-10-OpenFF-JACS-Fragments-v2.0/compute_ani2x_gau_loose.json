@@ -1,0 +1,65 @@
+{
+  "qc_specifications": {
+    "ani2x_gau_loose": {
+      "method": "ani2x",
+      "basis": null,
+      "program": "torchani",
+      "spec_name": "ani2x_gau_loose",
+      "spec_description": "A loose version of the ani2x specification with a higher maxiter.",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    }
+  },
+  "driver": "gradient",
+  "priority": "normal",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "dataset_name": "OpenFF-benchmark-ligand-fragments-v2.0",
+  "dataset_tagline": "XXXXXXXX",
+  "type": "TorsionDriveDataset",
+  "description": "XXXXXXXX",
+  "metadata": {
+    "submitter": "joshua",
+    "creation_date": "2021-10-08",
+    "collection_type": "TorsionDriveDataset",
+    "dataset_name": "OpenFF-benchmark-ligand-fragments-v2.0",
+    "short_description": "XXXXXXXX",
+    "long_description_url": null,
+    "long_description": "XXXXXXXX",
+    "elements": []
+  },
+  "provenance": {},
+  "dataset": {},
+  "filtered_molecules": {},
+  "optimization_procedure": {
+    "program": "geometric",
+    "coordsys": "dlc",
+    "enforce": 0.1,
+    "epsilon": 0.0,
+    "reset": true,
+    "qccnv": true,
+    "molcnv": false,
+    "check": 0,
+    "trust": 0.1,
+    "tmax": 0.3,
+    "maxiter": 3000,
+    "convergence_set": "GAU_LOOSE",
+    "constraints": {}
+  },
+  "grid_spacing": [
+    15
+  ],
+  "energy_upper_limit": 0.05,
+  "dihedral_ranges": null,
+  "energy_decrease_thresh": null
+}
