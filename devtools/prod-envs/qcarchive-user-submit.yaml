@@ -12,3 +12,4 @@ dependencies:
   - openff-qcsubmit
   - openff-toolkit 
   - openeye-toolkits
+  - qcelemental >=0.17.0,<0.23
