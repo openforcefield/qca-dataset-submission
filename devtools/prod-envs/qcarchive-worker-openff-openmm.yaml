@@ -6,6 +6,7 @@ dependencies:
   - python =3.7
   - qcfractal =0.15.2
   - qcengine =0.19.0
+  - qcelemental >=0.17.0,<0.23
     
   # MM calculations
   - openff-toolkit =0.10.0
