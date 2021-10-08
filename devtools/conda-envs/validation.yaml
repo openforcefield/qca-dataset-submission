@@ -3,13 +3,13 @@ name: validation
 channels:
   - conda-forge
   - defaults
-  - conda-forge/label/openff-forcefields_dev
 
 dependencies:
   - python =3.7
   - pip
   - openff-qcsubmit =0.2.3
-  - openff-forcefields >=2.0.0rc.2
+  - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
   - tabulate
+  - qcportal >=0.15.6
