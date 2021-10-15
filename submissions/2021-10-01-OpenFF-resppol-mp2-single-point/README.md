@@ -10,6 +10,8 @@ One positively charged and one negatively charged molecule are fitted simultaneo
 
 The initial data set is limited to only molecules composed of C, O, H, and N to enable an element-based and relatively fast test.
 
+The v1.1 version of this dataset fixes incorrect values for the `PERTURB_DIPOLE` keyword; these are meant to be a list of floats, not a string.
+
 
 ### General Information
 
