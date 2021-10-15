@@ -7,7 +7,7 @@ channels:
 dependencies:
   - python =3.7
   - pip
-  - openff-qcsubmit =0.2.3
+  - openff-qcsubmit =0.2.4
   - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
