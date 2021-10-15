@@ -15,7 +15,7 @@ The v1.1 version of this dataset fixes incorrect values for the `PERTURB_DIPOLE`
 
 ### General Information
 
-- Date: 2021.10.05
+- Date: 2021.10.14
 - Class: OpenFF Optimization Dataset
 - Purpose: C,H,O,N training data for training ESP-fitting based atomic polarizabilities and partial charges
 - Collection: OptimizationDataset
