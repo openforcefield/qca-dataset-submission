@@ -10,14 +10,16 @@ One positively charged and one negatively charged molecule are fitted simultaneo
 
 The initial data set is limited to only molecules composed of C, O, H, and N to enable an element-based and relatively fast test.
 
+The v1.1 version of this dataset fixes incorrect values for the `PERTURB_DIPOLE` keyword; these are meant to be a list of floats, not a string.
+
 
 ### General Information
 
-- Date: 2021.10.05
+- Date: 2021.10.14
 - Class: OpenFF Optimization Dataset
 - Purpose: C,H,O,N training data for training ESP-fitting based atomic polarizabilities and partial charges
 - Collection: OptimizationDataset
-- Name: OpenFF RESP Polarizability Optimizations v1.0 
+- Name: OpenFF RESP Polarizability Optimizations v1.1 
 - Number of unique molecules        39
 - Number of filtered molecules      0
 - Number of conformers              105
@@ -34,6 +36,7 @@ The initial data set is limited to only molecules composed of C, O, H, and N to 
 ### QCSubmit generation pipeline
 
 - `generate-dataset.ipynb`: A notebook which shows how the dataset was prepared from the input files.
+- `generate-dataset-v1.1.ipynb`: A notebook which shows how the dataset was prepared from the input files, for v1.1
 - `molecules.smi`: A text file which includes the SMILES strings of input molecules.
 
 ### QCSubmit Manifest
@@ -42,14 +45,16 @@ The initial data set is limited to only molecules composed of C, O, H, and N to 
 - `dataset.json.bz2`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `dataset.smi`: SMILES for every molecule in the submission.
+
+Corresponding files for v1.1 also included.
  
 ### Metadata
 
 ```
 {'collection_type': 'OptimizationDataset',
- 'creation_date': datetime.date(2021, 10, 5),
- 'dataset_name': 'OpenFF RESP Polarizability Optimizations v1.0',
- 'elements': {'H', 'C', 'O', 'N'},
+ 'creation_date': datetime.date(2021, 10, 14),
+ 'dataset_name': 'OpenFF RESP Polarizability Optimizations v1.1',
+ 'elements': {'O', 'C', 'N', 'H'},
  'long_description': 'A data set used for training typed polarizabilities '
                      'using direct polarization.\n'
                      'This data set only includes element C, H, N, and O.',
@@ -66,7 +71,7 @@ Spec: MP2/aug-cc-pVTZ/X-
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[-0.01, 0.0, 0.0]',
+              'PERTURB_DIPOLE': [-0.01, 0.0, 0.0],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
@@ -86,7 +91,7 @@ Spec: MP2/aug-cc-pVTZ/X+
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[0.01, 0.0, 0.0]',
+              'PERTURB_DIPOLE': [0.01, 0.0, 0.0],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
@@ -106,7 +111,7 @@ Spec: MP2/aug-cc-pVTZ/Y-
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[0.0, -0.01, 0.0]',
+              'PERTURB_DIPOLE': [0.0, -0.01, 0.0],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
@@ -126,7 +131,7 @@ Spec: MP2/aug-cc-pVTZ/Y+
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[0.0, 0.01, 0.0]',
+              'PERTURB_DIPOLE': [0.0, 0.01, 0.0],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
@@ -146,7 +151,7 @@ Spec: MP2/aug-cc-pVTZ/Z-
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[0.0, 0.0, -0.01]',
+              'PERTURB_DIPOLE': [0.0, 0.0, -0.01],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
@@ -166,7 +171,7 @@ Spec: MP2/aug-cc-pVTZ/Z+
 {'basis': 'aug-cc-pVTZ',
  'implicit_solvent': None,
  'keywords': {'E_CONVERGENCE': '1.0e-8',
-              'PERTURB_DIPOLE': '[0.0, 0.0, 0.01]',
+              'PERTURB_DIPOLE': [0.0, 0.0, 0.01],
               'PERTURB_H': True,
               'PERTURB_WITH': 'DIPOLE',
               'mp2_type': 'df',
