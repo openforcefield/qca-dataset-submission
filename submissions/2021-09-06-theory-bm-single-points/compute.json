@@ -1,10 +1,10 @@
 {
   "qc_specifications": {
-    "mp2/heavy-aug-cc-pv_tpd_z": {
+    "mp2/heavy-aug-cc-pv(t+d)z": {
       "method": "mp2",
-      "basis": "heavy-aug-cc-pv_tpd_z",
+      "basis": "heavy-aug-cc-pv(t+d)z",
       "program": "psi4",
-      "spec_name": "mp2/heavy-aug-cc-pv_tpd_z",
+      "spec_name": "mp2/heavy-aug-cc-pv(t+d)z",
       "spec_description": "single point calculation",
       "store_wavefunction": "none",
       "implicit_solvent": null,
