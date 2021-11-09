@@ -36,4 +36,18 @@ Dipeptide dataset for ML applications.
 - `dipeptides.pdf`: A pdf file containing molecule 2D structures.
 - `dipeptides.smi`: SMILES for every molecule in the submission.
  
+## Metadata
+
+- elements {'N', 'C', 'O', 'H', 'S'}
+- unique molecules 677
+- scf properties:
+    - dipole
+    - quadrupole
+    - wiberg_lowdin_indices
+    - mayer_indices
+    - mbis_charges
+- qc spec
+    - name: wB97M-D3BJ/def2-TZVPPD
+    - method: wB97M-D3BJ
+    - basis: def2-TZVPPD
 
