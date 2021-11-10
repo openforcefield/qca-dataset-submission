@@ -1,6 +1,6 @@
 ## Description
 
-This is a single point energy calculation of solvated amino acids. More description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/solvated-amino-acids.
+This is a single point energy calculation of solvated amino acids. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/solvated-amino-acids.
 
 ## General Information
 
@@ -8,15 +8,15 @@ This is a single point energy calculation of solvated amino acids. More descript
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE Solvated Amino acids
+ - Name: SPICE Solvated Amino Acids Single Points Dataset
  - Number of unique molecules: 26
- - Number of filtered molecules      0
- - Number of conformers              1300
- - Number of conformers min mean max 50  50.00 50
+ - Number of filtered molecules:      0
+ - Number of conformers:              1300
+ - Number of conformers min mean max: 50  50.00 50
  - Set of charges: [-1.0, 0.0, 1.0]
- - Dataset Submitter: Josh Horton/Pavan Behara/David Dotson
+ - Dataset Submitter: Josh Horton, Pavan Behara, David Dotson
  - Dataset Generator: Peter Eastman
- - Dataset Source: https://github.com/openmm/qmdataset/tree/main/dipeptides
+ - Dataset Source: https://github.com/openmm/qmdataset/tree/main/solvated-amino-acids
 
 ## Changelog
 
