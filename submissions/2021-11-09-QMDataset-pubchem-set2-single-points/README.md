@@ -8,13 +8,13 @@ This is a single point energy calculation of pubchem set2 (2501-5000) molecules.
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE PubChem Set 2 single points
- - Number of unique molecules        2431
- - Number of filtered molecules      0
- - Number of conformers              121540
- - Number of conformers min mean max 40  50.00 50
+ - Name: SPICE PubChem Set 2 Single Points Dataset
+ - Number of unique molecules:        2431
+ - Number of filtered molecules:      0
+ - Number of conformers:              121540
+ - Number of conformers min mean max: 40  50.00 50
  - Set of charges: [-6.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0]
- - Dataset Submitter: Josh Horton/Pavan Behara/David Dotson
+ - Dataset Submitter: Josh Horton, Pavan Behara, David Dotson
  - Dataset Generator: Peter Eastman
  - Dataset Source: https://github.com/openmm/qmdataset/tree/main/pubchem
 
