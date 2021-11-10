@@ -1,6 +1,6 @@
 ## Description
 
-This is a single point energy calculation of pubchem set2 (2501-5000) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
+This is a single point energy calculation of pubchem set 5 (10001-12500) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
 
 ## General Information
 
