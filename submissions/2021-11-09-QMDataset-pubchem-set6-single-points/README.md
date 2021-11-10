@@ -1,6 +1,6 @@
 ## Description
 
-This is a single point energy calculation of pubchem set2 (2501-5000) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
+This is a single point energy calculation of pubchem set 6 (12501-15000) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
 
 ## General Information
 
@@ -8,13 +8,13 @@ This is a single point energy calculation of pubchem set2 (2501-5000) molecules.
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE PubChem Set 6 single points
+ - Name: SPICE PubChem Set 6 Single Points Dataset
  - Number of unique molecules:        2476
  - Number of filtered molecules:      0
  - Number of conformers:              123800
  - Number of conformers min mean max: 50  50.00 50
  - Set of charges: [-5.0, -4.0, -2.0, -1.0, 0.0, 1.0, 2.0]
- - Dataset Submitter: Josh Horton/Pavan Behara/David Dotson
+ - Dataset Submitter: Josh Horton, Pavan Behara, David Dotson
  - Dataset Generator: Peter Eastman
  - Dataset Source: https://github.com/openmm/qmdataset/tree/main/pubchem
 
@@ -37,7 +37,7 @@ Here any information regarding dataset changes are recorded.
 ## Metadata
 
 - elements {'Cl', 'O', 'N', 'H', 'C', 'P', 'S', 'F', 'Br', 'I'}
-- unique molecules 2463
+- unique molecules 2476
 - scf properties:
     - dipole
     - quadrupole
