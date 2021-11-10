@@ -2,7 +2,7 @@
 
 ### Description
 
-Dipeptide dataset for ML applications.
+Dipeptide dataset for ML applications. Detailed description on how the dataset is generated can be found at: https://github.com/openmm/qmdataset/tree/main/dipeptides
 
 ### General Information
 
@@ -10,7 +10,7 @@ Dipeptide dataset for ML applications.
 - Class: OpenFF Dataset
 - Purpose: QM dataset of dipeptides for ML
 - Collection: Dataset
-- Name: SPICE Dipeptides single points
+- Name: SPICE Dipeptides Single Points Dataset
 - Number of unique molecules        677
 - Number of filtered molecules      0
 - Number of conformers              33850
