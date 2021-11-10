@@ -8,7 +8,7 @@ This is a single point energy calculation of DES370K molecules. Detailed descrip
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE DES370K Single Points Dataset
+ - Name: SPICE DES370K Single Points Dataset v1.0
  - Number of unique molecules:        3407
  - Number of filtered molecules:      0
  - Number of conformers:              345682
