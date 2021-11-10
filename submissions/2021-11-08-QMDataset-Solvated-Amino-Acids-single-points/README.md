@@ -8,7 +8,7 @@ This is a single point energy calculation of solvated amino acids. Detailed desc
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE Solvated Amino Acids Single Points Dataset
+ - Name: SPICE Solvated Amino Acids Single Points Dataset v1.0
  - Number of unique molecules: 26
  - Number of filtered molecules:      0
  - Number of conformers:              1300
