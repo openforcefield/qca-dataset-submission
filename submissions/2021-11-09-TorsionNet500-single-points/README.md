@@ -8,7 +8,7 @@ Single point energies of final geometries of TorsionNet500 dataset from https://
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: TorsionNet500 single points
+ - Name: TorsionNet500 Single Points Dataset v1.0
  - Number of unique molecules:        500
  - Number of filtered molecules:      0
  - Number of conformers:              12000
