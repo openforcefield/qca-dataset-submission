@@ -1,6 +1,6 @@
 ## Description
 
-This is a single point energy calculation of pubchem set2 (2501-5000) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
+This is a single point energy calculation of pubchem set 5 (10001-12500) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
 
 ## General Information
 
@@ -8,7 +8,7 @@ This is a single point energy calculation of pubchem set2 (2501-5000) molecules.
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE PubChem Set 5 Single Points Dataset
+ - Name: SPICE PubChem Set 5 Single Points Dataset v1.0
  - Number of unique molecules:        2463
  - Number of filtered molecules:      0
  - Number of conformers:              123150
