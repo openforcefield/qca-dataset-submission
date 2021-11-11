@@ -38,6 +38,8 @@ jobs:
           environment-file: devtools/conda-envs/validation.yaml
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
+          mamba-version: "*"
+          use-mamba: true
 
       - name: Environment Information
         shell: bash -l {0}
