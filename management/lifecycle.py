@@ -754,6 +754,7 @@ class SubmittableBase:
 
     def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
         import pandas as pd
+        import management as mgt
 
         # NOTE: this doesn't work for basic datasets :/
         if dataset_specs is None:
@@ -764,9 +765,11 @@ class SubmittableBase:
         all_res = list()
         for spec, value in dataset_specs.items():
 
-            res = ds.get_records(method=value['method'],
-                                 basis=value['basis'],
-                                 program=value['program'])
+            res = mgt.get_results(ds,
+                                  method=value['method'],
+                                  basis=value['basis'],
+                                  program=value['program'])
+
             all_res.extend(res)
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:

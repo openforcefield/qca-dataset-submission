@@ -11,7 +11,17 @@ import qcportal as ptl
 ### basic results
 
 def get_results(dataset, method, basis, program):
-    return dataset.get_records(method=method, basis=basis, program=program)
+    results = dataset.get_records(method=method, basis=basis, program=program)
+
+    # dataset.get_records returns a list of dataframes for chained operations *sigh*
+    if isinstance(results, list):
+        out = []
+        for res in results:
+            out.extend(res.record.tolist())
+    else:
+        out = results.record.tolist()
+
+    return out
 
 
 def get_unfinished_results(dataset, method, basis, program):
