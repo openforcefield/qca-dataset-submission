@@ -10,61 +10,19 @@ import qcportal as ptl
 
 ### basic results
 
-def get_results(dataset, spec, client):
-    ds = dataset
-    kwid = ds.list_keywords().reset_index().set_index('keywords').loc[spec, 'id']
-
-    # we go through molecules as a more reliable way to get to result records
-    # than ds.get_records
-    mols = ds.get_entries().molecule_id.tolist()
-    res = _query_results(mols, client, kwid)
-
-    return res
+def get_results(dataset, method, basis, program):
+    return dataset.get_records(method=method, basis=basis, program=program)
 
 
-def get_unfinished_results(dataset, spec, client):
-    res = get_results(dataset, spec, client)
+def get_unfinished_results(dataset, method, basis, program):
+    res = get_results(dataset, method, basis, program)
     res = [r for r in res if r.status != 'COMPLETE']
-
-    return res
-
-
-def _query_results(molids, client, keywords_id):
-    # retry limit hardcode
-    limit = 5
-    batchsize = 200
-
-    res = []
-    ids = list(molids)
-    for i in range(0,len(ids),batchsize):
-        print(f"Fetching {i} to {i+batchsize}")
-        ids_i = ids[i:i+batchsize]
-
-        success = False
-        tries = 0
-        exception = None
-        while (not success) and (tries < limit):
-            try:
-                res_i = client.query_results(molecule=ids_i,
-                                             keywords=keywords_id,
-                                             status=None)
-                success = True
-            except Exception as e:
-                tries += 1
-                print(f"Retrying after sleep; {tries} tries so far")
-                sleep(5)
-                exception = str(e)
-
-        if not success:
-            raise Exception(f"Failed with exception: {exception}")
-
-        res.extend(res_i)
 
     return res
 
 ### optimizations
 
-def get_optimizations(dataset, spec, client, dropna=False):
+def get_optimizations(dataset, spec, dropna=False):
     ds = dataset
     ds.status(spec)
 
@@ -96,8 +54,7 @@ def _query_procedures(ids, client):
 
 ### torsiondrives
 
-def get_torsiondrives(
-        dataset, spec, client, noncomplete=False):
+def get_torsiondrives(dataset, spec):
 
     ds = dataset
 
