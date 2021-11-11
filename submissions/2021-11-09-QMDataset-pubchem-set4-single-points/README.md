@@ -8,7 +8,7 @@ This is a single point energy calculation of pubchem set4 (7501-10000) molecules
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE PubChem Set 4 Single Points Dataset
+ - Name: SPICE PubChem Set 4 Single Points Dataset v1.0
  - Number of unique molecules        2455
  - Number of filtered molecules      0
  - Number of conformers              122750
