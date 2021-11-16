@@ -27,11 +27,7 @@ Optimization set created from the smiles of SPICE Dipeptide dataset. Detailed de
 ### QCSubmit generation pipeline
 
 - `Dataset-Generation.ipynb`: A notebook which shows how the dataset was prepared from the input files. 
-
-### QCSubmit Manifest
-
-- `Dataset-Generation.ipynb`
-- `dataset.json.bz2`: The basic dataset ready for submission.
+- `dataset.json.bz2`: The optimization dataset ready for submission.
 - `dipeptides.pdf`: A pdf file containing molecule 2D structures.
 - `dipeptides.smi`: SMILES for every molecule in the submission.
  
