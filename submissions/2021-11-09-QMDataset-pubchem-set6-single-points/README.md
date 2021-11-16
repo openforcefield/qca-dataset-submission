@@ -29,7 +29,7 @@ Here any information regarding dataset changes are recorded.
 ## QCSubmit Manifest
 
 - `Dataset_Generation.ipynb`: Dataset creation notebook with instructions for submission.
-- `dataset.json.bz2`: The compressed constrained optimization dataset ready for submission.
+- `dataset.json.bz2`: The compressed gradient dataset ready for submission.
 - `pubchem-set6.smi`: The smiles file of the peptide molecules.
 - `pubchem-set6.pdf`: A pdf file containing molecule 2D structures.
 - `pubchem-set6.hdf5.tar.gz`: HDF5 file which contains structures and is the main input for the dataset
