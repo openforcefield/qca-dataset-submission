@@ -143,7 +143,7 @@ def count_unique_result_error_messages(
             continue
 
         try:
-            kv = client.query_kvstore([r['id']])[r['id']]
+            kv = client.query_kvstore([r['error']])[r['error']]
             err_content = kv.get_json()
         except:
             err_content = None
