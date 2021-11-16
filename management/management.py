@@ -213,10 +213,10 @@ def regenerate_results(results, client):
     regenerate = []
     for res in results:
         if not isinstance(res, dict):
-            if res.status == 'INCOMPLETE':
+            if res.status == 'INCOMPLETE' and (res.return_result is not None):
                 regenerate.append(res.id)
         else:
-            if res['status'] == 'INCOMPLETE':
+            if res['status'] == 'INCOMPLETE' and (res['return_result'] is not None):
                 regenerate.append(res['id'])
 
     for rid in regenerate:
