@@ -5,12 +5,12 @@ channels:
   - defaults
 dependencies:
   - python =3.7
-  - qcfractal =0.15.6
-  - qcengine =0.20.0
-  - qcelemental >=0.17.0,<0.23
+  - qcfractal =0.15.7
+  - qcengine =0.20.1
+  - qcelemental =0.23
 
   # QM calculations
-  - psi4 =1.4
+  - psi4 =1.4.1
   - dftd3 #=3.2.1
   - gcp
   - gau2grid =2.0.7
