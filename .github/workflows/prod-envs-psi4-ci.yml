@@ -73,3 +73,4 @@ jobs:
 
             QCSUBMIT_TESTDIR=$(dirname $(python -c "import openff.qcsubmit.tests as tests; print(tests.__file__)"))
             pytest $QCSUBMIT_TESTDIR
+
