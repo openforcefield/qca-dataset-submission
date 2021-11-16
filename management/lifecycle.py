@@ -499,7 +499,7 @@ class SubmittableBase:
         results = defaultdict(dict)
         all_tds = list()
         for spec in dataset_specs:
-            tdrs = mgt.get_torsiondrives(ds, spec, client)
+            tdrs = mgt.get_torsiondrives(ds, spec)
             all_tds.extend(tdrs)
 
             for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
