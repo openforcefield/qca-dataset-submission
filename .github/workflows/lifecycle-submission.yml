@@ -23,6 +23,14 @@ jobs:
       OE_LICENSE: ${{ github.workspace }}/oe_license.txt
     steps:
       - uses: actions/checkout@v2
+
+      - name: ensure we only have one instance running
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+        with:
+          abort-after-seconds: 60
+
       - name: Additional info about the build
         shell: bash
         run: |
