@@ -97,7 +97,7 @@ class Submission:
         pr_card = None
         for state, cards in board.items():
             for card in cards:
-                if card.get_content().number == pr.number:
+                if card.pr_number == pr.number:
                     pr_state = state
                     pr_card = card
                     break
@@ -874,6 +874,13 @@ def create_dataset(dataset_data):
 def _get_full_board(repo):
     proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
     board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
+
+    # attach pr number to each card; we do this *once* here to avoid too many API calls,
+    # exhausting our limit
+    for col, cards in board.items():
+        for card in cards:
+            card.pr_number = card.get_content().number
+
     return board
 
 
