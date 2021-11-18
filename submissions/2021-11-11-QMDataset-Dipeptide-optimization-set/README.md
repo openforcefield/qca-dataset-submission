@@ -13,16 +13,15 @@ Optimization set created from the smiles of SPICE Dipeptide dataset. Detailed de
 - Name: SPICE Dipeptides Single Points Dataset v1.0
 - Number of unique molecules        677
 - Number of filtered molecules      0
-- Number of conformers              677
+- Number of conformers              6767
+- Number of conformers min mean max 7  10.00 10
+- Mean molecular weight: 313.72
+- Max molecular weight: 445.51
+- Charges: [-2.0, -1.0, 0.0, 1.0, 2.0]
 - Dataset Submitter: Josh Horton/Pavan Behara/David Dotson
 - Dataset Generator: Peter Eastman
 - Dataset Source: https://github.com/openmm/qmdataset/tree/main/dipeptides
 - Set of charges: [-2.0, -1.0, 0.0, 1.0, 2.0]
-- Mean molecular weight: 313.72
-- Max molecular weight: 445.51
-- Enumerate stereoisomers: False
-- Enumerate tautomers: False
-- Enumerate protomers: False
 
 ### QCSubmit generation pipeline
 
