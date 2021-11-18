@@ -57,6 +57,8 @@
 /submissions/2021-07-28-OpenFF-Industry-Benchmark-Season-1-MM-v1.1/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-11-08-QMDataset-pubchem-set1-single-points/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-11-08-QMDataset-pubchem-set1-single-points/pubchem-1-2500.hdf5.tar.gz filter=lfs diff=lfs merge=lfs -text
+/submissions/2021-11-08-QMDataset-Dipeptide-single-points/dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
+/submissions/2021-11-08-QMDataset-Dipeptide-single-points/dipeptides.hdf5.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
