@@ -1,0 +1,79 @@
+CHARGE     -6.25 ( -6 )
+Formula: H18 C11 N3 O5 S2 
+ATOM      1  H1  ACE     1      28.273  23.929  26.036  0.112300        HC
+ATOM      2  CH3 ACE     1      28.196  24.967  26.354 -0.366200        CT
+ATOM      3  H2  ACE     1      28.932  25.177  27.126  0.112300        HC
+ATOM      4  H3  ACE     1      27.197  25.169  26.735  0.112300        HC
+ATOM      5  C   ACE     1      28.465  25.867  25.170  0.597200         C
+ATOM      6  O   ACE     1      28.688  25.368  24.070 -0.567900         O
+ATOM      7  N   CCY     2      28.411  27.175  25.411 -0.567900         N
+ATOM      8  H   CCY     2      28.209  27.496  26.349 -0.567900         H
+ATOM      9  CA  CCY     2      28.700  28.271  24.484 -0.567900        CX
+ATOM     10  HA  CCY     2      29.640  28.058  23.979 -0.567900        H1
+ATOM     11  CB  CCY     2      27.586  28.380  23.428 -0.567900        2C
+ATOM     12  HB2 CCY     2      27.492  27.421  22.920 -0.567900        H1
+ATOM     13  HB3 CCY     2      27.938  29.106  22.694 -0.567900        H1
+ATOM     14  SG  CCY     2      25.935  28.937  23.955 -0.567900         S
+ATOM     15  C   CCY     2      28.902  29.590  25.257 -0.567900         C
+ATOM     16  O   CCY     2      28.637  29.583  26.483 -0.567900        O2
+ATOM     17  OXT CCY     2      29.338  30.565  24.607 -0.567900        O2
+ATOM     18  H1  ACE     3      23.257  21.200  23.815  0.112300        HC
+ATOM     19  CH3 ACE     3      23.485  22.009  23.123 -0.366200        CT
+ATOM     20  H2  ACE     3      22.772  22.005  22.302  0.112300        HC
+ATOM     21  H3  ACE     3      24.496  21.885  22.739  0.112300        HC
+ATOM     22  C   ACE     3      23.396  23.325  23.861  0.597200         C
+ATOM     23  O   ACE     3      23.101  23.344  25.049 -0.567900         O
+ATOM     24  N   CYX     4      23.653  24.422  23.152 -0.415700         N
+ATOM     25  H   CYX     4      23.843  24.331  22.165  0.271900         H
+ATOM     26  CA  CYX     4      23.659  25.785  23.687  0.042900        CX
+ATOM     27  HA  CYX     4      22.898  25.864  24.464  0.076600        H1
+ATOM     28  CB  CYX     4      25.030  26.032  24.336 -0.079000        2C
+ATOM     29  HB2 CYX     4      25.219  25.208  25.026  0.091000        H1
+ATOM     30  HB3 CYX     4      25.805  25.991  23.570  0.091000        H1
+ATOM     31  SG  CYX     4      25.247  27.555  25.293 -0.108100         S
+ATOM     32  C   CYX     4      23.313  26.801  22.581  0.597300         C
+ATOM     33  O   CYX     4      23.361  26.465  21.395 -0.567900         O
+ATOM     34  N   NME     5      22.935  28.027  22.962 -0.415700         N
+ATOM     35  H   NME     5      22.984  28.243  23.947  0.271900         H
+ATOM     36  CH3 NME     5      22.607  29.115  22.042 -0.149000        CT
+ATOM     37  HH31NME     5      23.528  29.540  21.639  0.097600        H1
+ATOM     38  HH32NME     5      22.002  28.736  21.216  0.097600        H1
+ATOM     39  HH33NME     5      22.055  29.896  22.565  0.097600        H1
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   15   16    9      C    O
+BOND    8   15   17    9      C  OXT
+BOND    9   14   31    1     SG   SG
+BOND   10   11   12    1     CB  HB2
+BOND   11   11   13    1     CB  HB3
+BOND   12   11   14    1     CB   SG
+BOND   13    9   10    1     CA   HA
+BOND   14    9   11    1     CA   CB
+BOND   15    9   15    1     CA    C
+BOND   16    7    8    1      N    H
+BOND   17    7    9    1      N   CA
+BOND   18   22   23    2      C    O
+BOND   19   22   24    1      C    N
+BOND   20   19   20    1    CH3   H2
+BOND   21   19   21    1    CH3   H3
+BOND   22   19   22    1    CH3    C
+BOND   23   18   19    1     H1  CH3
+BOND   24   32   33    2      C    O
+BOND   25   32   34    1      C    N
+BOND   26   28   29    1     CB  HB2
+BOND   27   28   30    1     CB  HB3
+BOND   28   28   31    1     CB   SG
+BOND   29   26   27    1     CA   HA
+BOND   30   26   28    1     CA   CB
+BOND   31   26   32    1     CA    C
+BOND   32   24   25    1      N    H
+BOND   33   24   26    1      N   CA
+BOND   34   36   37    1    CH3 HH31
+BOND   35   36   38    1    CH3 HH32
+BOND   36   36   39    1    CH3 HH33
+BOND   37   34   35    1      N    H
+BOND   38   34   36    1      N  CH3

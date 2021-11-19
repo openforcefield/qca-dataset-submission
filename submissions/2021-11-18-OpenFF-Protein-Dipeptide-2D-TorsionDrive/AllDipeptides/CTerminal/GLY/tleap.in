@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = sequence { ACE CGLY }
+set x box { 48.0 48.0 48.0 }
+saveAmberParm x GLY.prmtop GLY.inpcrd
+quit

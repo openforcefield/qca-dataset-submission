@@ -1,0 +1,65 @@
+CHARGE    -14.20 ( -14 )
+Formula: H13 C13 N2 O3 
+ATOM      1  H1  ACE     1      25.876  25.449  25.239  0.112300        HC
+ATOM      2  CH3 ACE     1      25.947  26.112  24.379 -0.366200        CT
+ATOM      3  H2  ACE     1      25.049  26.722  24.303  0.112300        HC
+ATOM      4  H3  ACE     1      26.077  25.530  23.469  0.112300        HC
+ATOM      5  C   ACE     1      27.141  27.023  24.558  0.597200         C
+ATOM      6  O   ACE     1      27.774  26.988  25.608 -0.567900         O
+ATOM      7  N   CTR     2      27.426  27.813  23.523 -0.567900         N
+ATOM      8  H   CTR     2      26.840  27.770  22.701 -0.567900         H
+ATOM      9  CA  CTR     2      28.490  28.817  23.425 -0.567900        CX
+ATOM     10  HA  CTR     2      28.580  29.369  24.359 -0.567900        H1
+ATOM     11  CB  CTR     2      29.819  28.113  23.111 -0.567900        CT
+ATOM     12  HB2 CTR     2      30.048  27.421  23.923 -0.567900        HC
+ATOM     13  HB3 CTR     2      29.692  27.527  22.200 -0.567900        HC
+ATOM     14  CG  CTR     2      30.998  29.018  22.926 -0.567900        C*
+ATOM     15  CD1 CTR     2      31.383  29.550  21.746 -0.567900        CW
+ATOM     16  HD1 CTR     2      30.856  29.386  20.814 -0.567900        H4
+ATOM     17  NE1 CTR     2      32.473  30.377  21.937 -0.567900        NA
+ATOM     18  HE1 CTR     2      32.872  30.935  21.199 -0.567900         H
+ATOM     19  CE2 CTR     2      32.831  30.439  23.267 -0.567900        CN
+ATOM     20  CZ2 CTR     2      33.827  31.146  23.959 -0.567900        CA
+ATOM     21  HZ2 CTR     2      34.506  31.790  23.423 -0.567900        HA
+ATOM     22  CH2 CTR     2      33.912  31.018  25.356 -0.567900        CA
+ATOM     23  HH2 CTR     2      34.665  31.564  25.906 -0.567900        HA
+ATOM     24  CZ3 CTR     2      33.000  30.194  26.041 -0.567900        CA
+ATOM     25  HZ3 CTR     2      33.052  30.111  27.116 -0.567900        HA
+ATOM     26  CE3 CTR     2      32.002  29.491  25.335 -0.567900        CA
+ATOM     27  HE3 CTR     2      31.287  28.879  25.866 -0.567900        HA
+ATOM     28  CD2 CTR     2      31.896  29.587  23.930 -0.567900        CB
+ATOM     29  C   CTR     2      28.117  29.831  22.334 -0.567900         C
+ATOM     30  O   CTR     2      27.672  29.360  21.261 -0.567900        O2
+ATOM     31  OXT CTR     2      28.233  31.045  22.604 -0.567900        O2
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   29   30    9      C    O
+BOND    8   29   31    9      C  OXT
+BOND    9   26   27    1    CE3  HE3
+BOND   10   26   28    7    CE3  CD2
+BOND   11   24   25    1    CZ3  HZ3
+BOND   12   24   26    8    CZ3  CE3
+BOND   13   22   23    1    CH2  HH2
+BOND   14   22   24    7    CH2  CZ3
+BOND   15   20   21    1    CZ2  HZ2
+BOND   16   20   22    8    CZ2  CH2
+BOND   17   19   20    7    CE2  CZ2
+BOND   18   19   28    8    CE2  CD2
+BOND   19   17   18    1    NE1  HE1
+BOND   20   17   19    1    NE1  CE2
+BOND   21   15   16    1    CD1  HD1
+BOND   22   15   17    1    CD1  NE1
+BOND   23   14   15    2     CG  CD1
+BOND   24   14   28    1     CG  CD2
+BOND   25   11   12    1     CB  HB2
+BOND   26   11   13    1     CB  HB3
+BOND   27   11   14    1     CB   CG
+BOND   28    9   10    1     CA   HA
+BOND   29    9   11    1     CA   CB
+BOND   30    9   29    1     CA    C
+BOND   31    7    8    1      N    H
+BOND   32    7    9    1      N   CA

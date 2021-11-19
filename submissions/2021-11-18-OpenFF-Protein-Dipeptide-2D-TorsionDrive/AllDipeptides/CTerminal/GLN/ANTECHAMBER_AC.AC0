@@ -1,0 +1,49 @@
+CHARGE    -10.22 ( -10 )
+Formula: H11 C7 N2 O4 
+ATOM      1  H1  ACE     1      25.758  25.133  24.315  0.112300        HC
+ATOM      2  CH3 ACE     1      25.862  26.184  24.053 -0.366200        CT
+ATOM      3  H2  ACE     1      25.272  26.798  24.731  0.112300        HC
+ATOM      4  H3  ACE     1      25.537  26.347  23.028  0.112300        HC
+ATOM      5  C   ACE     1      27.316  26.580  24.175  0.597200         C
+ATOM      6  O   ACE     1      28.142  25.742  24.524 -0.567900         O
+ATOM      7  N   CGL     2      27.598  27.850  23.887 -0.567900         N
+ATOM      8  H   CGL     2      26.841  28.478  23.650 -0.567900         H
+ATOM      9  CA  CGL     2      28.901  28.518  23.972 -0.567900        CX
+ATOM     10  HA  CGL     2      29.447  28.141  24.835 -0.567900        H1
+ATOM     11  CB  CGL     2      29.710  28.220  22.692 -0.567900        2C
+ATOM     12  HB2 CGL     2      29.883  27.145  22.628 -0.567900        HC
+ATOM     13  HB3 CGL     2      29.137  28.535  21.818 -0.567900        HC
+ATOM     14  CG  CGL     2      31.064  28.948  22.686 -0.567900        2C
+ATOM     15  HG2 CGL     2      30.891  30.023  22.634 -0.567900        HC
+ATOM     16  HG3 CGL     2      31.583  28.736  23.622 -0.567900        HC
+ATOM     17  CD  CGL     2      31.993  28.572  21.532 -0.567900         C
+ATOM     18  OE1 CGL     2      31.774  27.679  20.730 -0.567900         O
+ATOM     19  NE2 CGL     2      33.108  29.259  21.397 -0.567900         N
+ATOM     20  HE21CGL     2      33.691  28.998  20.627 -0.567900         H
+ATOM     21  HE22CGL     2      33.300  30.012  22.032 -0.567900         H
+ATOM     22  C   CGL     2      28.692  30.022  24.207 -0.567900         C
+ATOM     23  O   CGL     2      27.648  30.528  23.737 -0.567900        O2
+ATOM     24  OXT CGL     2      29.571  30.623  24.860 -0.567900        O2
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   22   23    9      C    O
+BOND    8   22   24    9      C  OXT
+BOND    9   19   20    1    NE2 HE21
+BOND   10   19   21    1    NE2 HE22
+BOND   11   17   18    2     CD  OE1
+BOND   12   17   19    1     CD  NE2
+BOND   13   14   15    1     CG  HG2
+BOND   14   14   16    1     CG  HG3
+BOND   15   14   17    1     CG   CD
+BOND   16   11   12    1     CB  HB2
+BOND   17   11   13    1     CB  HB3
+BOND   18   11   14    1     CB   CG
+BOND   19    9   10    1     CA   HA
+BOND   20    9   11    1     CA   CB
+BOND   21    9   22    1     CA    C
+BOND   22    7    8    1      N    H
+BOND   23    7    9    1      N   CA

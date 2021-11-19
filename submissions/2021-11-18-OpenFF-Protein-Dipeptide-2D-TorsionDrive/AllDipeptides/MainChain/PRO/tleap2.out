@@ -1,0 +1,28 @@
+-I: Adding /home/cerutti/amberXpt/dat/leap/prep to search path.
+-I: Adding /home/cerutti/amberXpt/dat/leap/lib to search path.
+-I: Adding /home/cerutti/amberXpt/dat/leap/parm to search path.
+-I: Adding /home/cerutti/amberXpt/dat/leap/cmd to search path.
+-f: Source tleap2.in.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: ./tleap2.in
+----- Source: /home/cerutti/amberXpt/dat/leap/cmd/leaprc.protein.ff14SB
+----- Source of /home/cerutti/amberXpt/dat/leap/cmd/leaprc.protein.ff14SB done
+Log file: ./leap.log
+Loading parameters: /home/cerutti/amberXpt/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /home/cerutti/amberXpt/dat/leap/parm/frcmod.ff14SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff14SB protein backbone and sidechain parameters
+Loading library: /home/cerutti/amberXpt/dat/leap/lib/amino12.lib
+Loading library: /home/cerutti/amberXpt/dat/leap/lib/aminoct12.lib
+Loading library: /home/cerutti/amberXpt/dat/leap/lib/aminont12.lib
+Loading PDB file: ./PRO.pdb
+  total atoms in file: 26
+Writing mol2 file: PRO.mol2
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 0; Notes = 0.

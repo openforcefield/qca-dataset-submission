@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = sequence { ACE PRO NME }
+set x box { 48.0 48.0 48.0 }
+saveAmberParm x PRO.prmtop PRO.inpcrd
+quit

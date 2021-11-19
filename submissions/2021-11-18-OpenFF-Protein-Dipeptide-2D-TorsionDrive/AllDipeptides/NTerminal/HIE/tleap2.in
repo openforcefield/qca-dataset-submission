@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = loadPdb "HIE.pdb"
+set x box { 48.0 48.0 48.0 }
+saveMol2 x HIE.mol2 1
+quit

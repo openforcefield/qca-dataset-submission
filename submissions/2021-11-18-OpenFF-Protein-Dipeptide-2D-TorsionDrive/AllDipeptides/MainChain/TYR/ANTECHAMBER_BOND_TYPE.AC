@@ -1,0 +1,68 @@
+CHARGE      0.00 ( 0 )
+Formula: H16 C12 N2 O3 
+ATOM      1  H1  ACE     1      25.889  25.333  24.902  0.112300        HC
+ATOM      2  CH3 ACE     1      25.958  26.221  24.275 -0.366200        CT
+ATOM      3  H2  ACE     1      25.194  26.938  24.570  0.112300        HC
+ATOM      4  H3  ACE     1      25.824  25.943  23.231  0.112300        HC
+ATOM      5  C   ACE     1      27.323  26.842  24.456  0.597200         C
+ATOM      6  O   ACE     1      28.130  26.342  25.228 -0.567900         O
+ATOM      7  N   TYR     2      27.576  27.937  23.743 -0.415700         N
+ATOM      8  H   TYR     2      26.849  28.313  23.152  0.271900         H
+ATOM      9  CA  TYR     2      28.830  28.694  23.799 -0.001400        CX
+ATOM     10  HA  TYR     2      29.214  28.654  24.819  0.087600        H1
+ATOM     11  CB  TYR     2      29.864  28.039  22.867 -0.015200        CT
+ATOM     12  HB2 TYR     2      29.988  26.994  23.154  0.029500        HC
+ATOM     13  HB3 TYR     2      29.479  28.054  21.846  0.029500        HC
+ATOM     14  CG  TYR     2      31.228  28.701  22.899 -0.001100        CA
+ATOM     15  CD1 TYR     2      31.644  29.525  21.834 -0.190600        CA
+ATOM     16  HD1 TYR     2      31.000  29.667  20.976  0.169900        HA
+ATOM     17  CE1 TYR     2      32.895  30.170  21.887 -0.234100        CA
+ATOM     18  HE1 TYR     2      33.211  30.799  21.069  0.165600        HA
+ATOM     19  CZ  TYR     2      33.731  29.993  23.011  0.322600         C
+ATOM     20  OH  TYR     2      34.938  30.613  23.073 -0.557900        OH
+ATOM     21  HH  TYR     2      35.152  31.069  22.258  0.399200        HO
+ATOM     22  CE2 TYR     2      33.311  29.172  24.078 -0.234100        CA
+ATOM     23  HE2 TYR     2      33.961  29.041  24.930  0.165600        HA
+ATOM     24  CD2 TYR     2      32.062  28.525  24.020 -0.190600        CA
+ATOM     25  HD2 TYR     2      31.744  27.887  24.836  0.169900        HA
+ATOM     26  C   TYR     2      28.597  30.172  23.444  0.597300         C
+ATOM     27  O   TYR     2      27.616  30.502  22.777 -0.567900         O
+ATOM     28  N   NME     3      29.497  31.060  23.885 -0.415700         N
+ATOM     29  H   NME     3      30.304  30.702  24.375  0.271900         H
+ATOM     30  CH3 NME     3      29.427  32.498  23.636 -0.149000        CT
+ATOM     31  HH31NME     3      28.438  32.873  23.905  0.097600        H1
+ATOM     32  HH32NME     3      30.182  33.019  24.227  0.097600        H1
+ATOM     33  HH33NME     3      29.599  32.696  22.576  0.097600        H1
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   26   27    2      C    O
+BOND    8   26   28    1      C    N
+BOND    9   24   25    1    CD2  HD2
+BOND   10   22   23    1    CE2  HE2
+BOND   11   22   24    7    CE2  CD2
+BOND   12   20   21    1     OH   HH
+BOND   13   19   20    1     CZ   OH
+BOND   14   19   22    8     CZ  CE2
+BOND   15   17   18    1    CE1  HE1
+BOND   16   17   19    7    CE1   CZ
+BOND   17   15   16    1    CD1  HD1
+BOND   18   15   17    8    CD1  CE1
+BOND   19   14   15    7     CG  CD1
+BOND   20   14   24    8     CG  CD2
+BOND   21   11   12    1     CB  HB2
+BOND   22   11   13    1     CB  HB3
+BOND   23   11   14    1     CB   CG
+BOND   24    9   10    1     CA   HA
+BOND   25    9   11    1     CA   CB
+BOND   26    9   26    1     CA    C
+BOND   27    7    8    1      N    H
+BOND   28    7    9    1      N   CA
+BOND   29   30   31    1    CH3 HH31
+BOND   30   30   32    1    CH3 HH32
+BOND   31   30   33    1    CH3 HH33
+BOND   32   28   29    1      N    H
+BOND   33   28   30    1      N  CH3

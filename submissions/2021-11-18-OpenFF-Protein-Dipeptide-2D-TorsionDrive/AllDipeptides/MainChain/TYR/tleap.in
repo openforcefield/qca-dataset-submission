@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = sequence { ACE TYR NME }
+set x box { 48.0 48.0 48.0 }
+saveAmberParm x TYR.prmtop TYR.inpcrd
+quit

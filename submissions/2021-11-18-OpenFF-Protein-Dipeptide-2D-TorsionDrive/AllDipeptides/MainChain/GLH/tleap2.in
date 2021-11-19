@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = loadPdb "GLH.pdb"
+set x box { 48.0 48.0 48.0 }
+saveMol2 x GLH.mol2 1
+quit

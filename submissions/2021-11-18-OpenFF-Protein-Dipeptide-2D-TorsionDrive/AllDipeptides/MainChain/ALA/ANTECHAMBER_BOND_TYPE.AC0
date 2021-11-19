@@ -1,0 +1,45 @@
+CHARGE     -0.00 ( 0 )
+Formula: H12 C6 N2 O2 
+ATOM      1  H1  ACE     1      25.950  25.179  24.582  0.112300        HC
+ATOM      2  CH3 ACE     1      25.986  26.176  24.145 -0.366200        CT
+ATOM      3  H2  ACE     1      25.332  26.843  24.703  0.112300        HC
+ATOM      4  H3  ACE     1      25.673  26.131  23.104  0.112300        HC
+ATOM      5  C   ACE     1      27.405  26.691  24.218  0.597200         C
+ATOM      6  O   ACE     1      28.285  25.999  24.713 -0.567900         O
+ATOM      7  N   ALA     2      27.621  27.909  23.728 -0.415700         N
+ATOM      8  H   ALA     2      26.838  28.435  23.370  0.271900         H
+ATOM      9  CA  ALA     2      28.916  28.589  23.730  0.033700        CX
+ATOM     10  HA  ALA     2      29.471  28.288  24.620  0.082300        H1
+ATOM     11  CB  ALA     2      29.710  28.153  22.489 -0.182500        CT
+ATOM     12  HB1 ALA     2      29.172  28.440  21.584  0.060300        HC
+ATOM     13  HB2 ALA     2      30.691  28.627  22.488  0.060300        HC
+ATOM     14  HB3 ALA     2      29.844  27.070  22.499  0.060300        HC
+ATOM     15  C   ALA     2      28.737  30.119  23.778  0.597300         C
+ATOM     16  O   ALA     2      27.675  30.634  23.429 -0.567900         O
+ATOM     17  N   NME     3      29.784  30.841  24.197 -0.415700         N
+ATOM     18  H   NME     3      30.622  30.348  24.461  0.271900         H
+ATOM     19  CH3 NME     3      29.784  32.300  24.293 -0.149000        CT
+ATOM     20  HH31NME     3      28.951  32.628  24.918  0.097600        H1
+ATOM     21  HH32NME     3      30.720  32.652  24.729  0.097600        H1
+ATOM     22  HH33NME     3      29.663  32.734  23.299  0.097600        H1
+BOND    1    5    6    1      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   15   16    1      C    O
+BOND    8   15   17    1      C    N
+BOND    9   11   12    1     CB  HB1
+BOND   10   11   13    1     CB  HB2
+BOND   11   11   14    1     CB  HB3
+BOND   12    9   10    1     CA   HA
+BOND   13    9   11    1     CA   CB
+BOND   14    9   15    1     CA    C
+BOND   15    7    8    1      N    H
+BOND   16    7    9    1      N   CA
+BOND   17   19   20    1    CH3 HH31
+BOND   18   19   21    1    CH3 HH32
+BOND   19   19   22    1    CH3 HH33
+BOND   20   17   18    1      N    H
+BOND   21   17   19    1      N  CH3

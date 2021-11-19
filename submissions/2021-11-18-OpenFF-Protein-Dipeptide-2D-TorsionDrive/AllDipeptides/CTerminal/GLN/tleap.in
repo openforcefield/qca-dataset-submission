@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = sequence { ACE CGLN }
+set x box { 48.0 48.0 48.0 }
+saveAmberParm x GLN.prmtop GLN.inpcrd
+quit

@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = sequence { NPHE NME }
+set x box { 48.0 48.0 48.0 }
+saveAmberParm x PHE.prmtop PHE.inpcrd
+quit

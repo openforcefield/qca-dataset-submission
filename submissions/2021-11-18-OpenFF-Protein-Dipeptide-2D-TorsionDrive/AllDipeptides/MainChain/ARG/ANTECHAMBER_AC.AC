@@ -1,0 +1,73 @@
+CHARGE      1.00 ( 1 )
+Formula: H20 C9 N5 O2 
+ATOM      1  H1  ACE     1      26.138  25.214  24.583  0.112300         H
+ATOM      2  CH3 ACE     1      26.124  26.209  24.139 -0.366200       C.3
+ATOM      3  H2  ACE     1      25.413  26.835  24.676  0.112300         H
+ATOM      4  H3  ACE     1      25.837  26.135  23.092  0.112300         H
+ATOM      5  C   ACE     1      27.506  26.811  24.243  0.597200       C.2
+ATOM      6  O   ACE     1      28.418  26.182  24.765 -0.567900       O.2
+ATOM      7  N   ARG     2      27.671  28.039  23.742 -0.347900      N.am
+ATOM      8  H   ARG     2      26.871  28.490  23.320  0.274700         H
+ATOM      9  CA  ARG     2      28.942  28.780  23.768 -0.263700       C.3
+ATOM     10  HA  ARG     2      29.476  28.515  24.682  0.156000         H
+ATOM     11  CB  ARG     2      29.787  28.342  22.555 -0.000700       C.3
+ATOM     12  HB2 ARG     2      29.888  27.255  22.575  0.032700         H
+ATOM     13  HB3 ARG     2      29.263  28.617  21.637  0.032700         H
+ATOM     14  CG  ARG     2      31.194  28.957  22.536  0.039000       C.3
+ATOM     15  HG2 ARG     2      31.121  30.043  22.463  0.028500         H
+ATOM     16  HG3 ARG     2      31.716  28.692  23.456  0.028500         H
+ATOM     17  CD  ARG     2      31.981  28.424  21.331  0.048600       C.3
+ATOM     18  HD2 ARG     2      32.042  27.336  21.408  0.068700         H
+ATOM     19  HD3 ARG     2      31.438  28.683  20.419  0.068700         H
+ATOM     20  NE  ARG     2      33.344  28.991  21.272 -0.529500       N.3
+ATOM     21  HE  ARG     2      33.600  29.629  22.006  0.345600         H
+ATOM     22  CZ  ARG     2      34.256  28.739  20.348  0.807600     C.cat
+ATOM     23  NH1 ARG     2      34.029  27.928  19.353 -0.862700       N.3
+ATOM     24  HH11ARG     2      33.132  27.480  19.289  0.447800         H
+ATOM     25  HH12ARG     2      34.732  27.748  18.660  0.447800         H
+ATOM     26  NH2 ARG     2      35.428  29.305  20.406 -0.862700       N.3
+ATOM     27  HH21ARG     2      35.650  29.938  21.155  0.447800         H
+ATOM     28  HH22ARG     2      36.117  29.111  19.703  0.447800         H
+ATOM     29  C   ARG     2      28.683  30.288  23.768  0.734100       C.2
+ATOM     30  O   ARG     2      28.008  30.786  22.875 -0.589400       O.2
+ATOM     31  N   NME     3      29.250  31.004  24.744 -0.415700      N.am
+ATOM     32  H   NME     3      29.758  30.508  25.458  0.271900         H
+ATOM     33  CH3 NME     3      29.101  32.453  24.889 -0.149000       C.3
+ATOM     34  HH31NME     3      28.055  32.699  25.084  0.097600         H
+ATOM     35  HH32NME     3      29.712  32.817  25.716  0.097600         H
+ATOM     36  HH33NME     3      29.407  32.954  23.968  0.097600         H
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   29   30    2      C    O
+BOND    8   29   31    1      C    N
+BOND    9   26   27    1    NH2 HH21
+BOND   10   26   28    1    NH2 HH22
+BOND   11   23   24    1    NH1 HH11
+BOND   12   23   25    1    NH1 HH12
+BOND   13   22   23    1     CZ  NH1
+BOND   14   22   26    1     CZ  NH2
+BOND   15   20   21    1     NE   HE
+BOND   16   20   22    2     NE   CZ
+BOND   17   17   18    1     CD  HD2
+BOND   18   17   19    1     CD  HD3
+BOND   19   17   20    1     CD   NE
+BOND   20   14   15    1     CG  HG2
+BOND   21   14   16    1     CG  HG3
+BOND   22   14   17    1     CG   CD
+BOND   23   11   12    1     CB  HB2
+BOND   24   11   13    1     CB  HB3
+BOND   25   11   14    1     CB   CG
+BOND   26    9   10    1     CA   HA
+BOND   27    9   11    1     CA   CB
+BOND   28    9   29    1     CA    C
+BOND   29    7    8    1      N    H
+BOND   30    7    9    1      N   CA
+BOND   31   33   34    1    CH3 HH31
+BOND   32   33   35    1    CH3 HH32
+BOND   33   33   36    1    CH3 HH33
+BOND   34   31   32    1      N    H
+BOND   35   31   33    1      N  CH3

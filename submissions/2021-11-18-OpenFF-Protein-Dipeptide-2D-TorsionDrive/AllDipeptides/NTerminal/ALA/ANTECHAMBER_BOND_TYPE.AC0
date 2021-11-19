@@ -1,0 +1,37 @@
+CHARGE     -0.00 ( 0 )
+Formula: H11 C4 N2 O1 
+ATOM      1  N   NAL     1      27.385  25.512  24.057  0.000000        N3
+ATOM      2  H1  NAL     1      27.769  24.952  23.307  0.000000         H
+ATOM      3  H2  NAL     1      26.380  25.564  23.975  0.000000         H
+ATOM      4  H3  NAL     1      27.640  25.064  24.928  0.000000         H
+ATOM      5  CA  NAL     1      27.988  26.865  24.020  0.000000        CX
+ATOM      6  HA  NAL     1      27.768  27.325  23.056  0.000000        HP
+ATOM      7  CB  NAL     1      27.401  27.749  25.130  0.000000        CT
+ATOM      8  HB1 NAL     1      27.633  27.328  26.110  0.000000        HC
+ATOM      9  HB2 NAL     1      27.822  28.754  25.068  0.000000        HC
+ATOM     10  HB3 NAL     1      26.319  27.819  25.016  0.000000        HC
+ATOM     11  C   NAL     1      29.508  26.737  24.141  0.000000         C
+ATOM     12  O   NAL     1      29.966  25.636  24.424  0.000000         O
+ATOM     13  N   NME     2      30.270  27.814  23.916 -0.415700         N
+ATOM     14  H   NME     2      29.834  28.697  23.691  0.271900         H
+ATOM     15  CH3 NME     2      31.732  27.801  24.000 -0.149000        CT
+ATOM     16  HH31NME     2      32.138  26.978  23.407  0.097600        H1
+ATOM     17  HH32NME     2      32.143  28.741  23.624  0.097600        H1
+ATOM     18  HH33NME     2      32.047  27.669  25.037  0.097600        H1
+BOND    1   11   12    1      C    O
+BOND    2   11   13    1      C    N
+BOND    3    7    8    1     CB  HB1
+BOND    4    7    9    1     CB  HB2
+BOND    5    7   10    1     CB  HB3
+BOND    6    5    6    1     CA   HA
+BOND    7    5    7    1     CA   CB
+BOND    8    5   11    1     CA    C
+BOND    9    1    2    1      N   H1
+BOND   10    1    3    1      N   H2
+BOND   11    1    4    1      N   H3
+BOND   12    1    5    1      N   CA
+BOND   13   15   16    1    CH3 HH31
+BOND   14   15   17    1    CH3 HH32
+BOND   15   15   18    1    CH3 HH33
+BOND   16   13   14    1      N    H
+BOND   17   13   15    1      N  CH3

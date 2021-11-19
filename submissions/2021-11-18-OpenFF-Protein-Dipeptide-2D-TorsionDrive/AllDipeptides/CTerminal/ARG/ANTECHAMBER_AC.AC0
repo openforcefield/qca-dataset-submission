@@ -1,0 +1,63 @@
+CHARGE    -14.20 ( -14 )
+Formula: H16 C8 N4 O3 
+ATOM      1  H1  ACE     1      25.680  25.183  24.302  0.112300        HC
+ATOM      2  CH3 ACE     1      25.793  26.253  24.135 -0.366200        CT
+ATOM      3  H2  ACE     1      25.303  26.805  24.935  0.112300        HC
+ATOM      4  H3  ACE     1      25.358  26.528  23.176  0.112300        HC
+ATOM      5  C   ACE     1      27.265  26.598  24.129  0.597200         C
+ATOM      6  O   ACE     1      28.098  25.710  24.289 -0.567900         O
+ATOM      7  N   CAR     2      27.568  27.881  23.930 -0.567900         N
+ATOM      8  H   CAR     2      26.816  28.550  23.813 -0.567900         H
+ATOM      9  CA  CAR     2      28.903  28.493  23.972 -0.567900        CX
+ATOM     10  HA  CAR     2      29.455  28.107  24.827 -0.567900        H1
+ATOM     11  CB  CAR     2      29.661  28.168  22.672 -0.567900        C8
+ATOM     12  HB2 CAR     2      29.792  27.087  22.598 -0.567900        HC
+ATOM     13  HB3 CAR     2      29.079  28.515  21.816 -0.567900        HC
+ATOM     14  CG  CAR     2      31.035  28.846  22.657 -0.567900        C8
+ATOM     15  HG2 CAR     2      30.903  29.927  22.595 -0.567900        HC
+ATOM     16  HG3 CAR     2      31.569  28.604  23.578 -0.567900        HC
+ATOM     17  CD  CAR     2      31.884  28.419  21.464 -0.567900        C8
+ATOM     18  HD2 CAR     2      32.107  27.354  21.548 -0.567900        H1
+ATOM     19  HD3 CAR     2      31.321  28.601  20.546 -0.567900        H1
+ATOM     20  NE  CAR     2      33.131  29.201  21.444 -0.567900        N2
+ATOM     21  HE  CAR     2      33.209  29.897  22.169 -0.567900         H
+ATOM     22  CZ  CAR     2      34.112  29.107  20.575 -0.567900        CA
+ATOM     23  NH1 CAR     2      34.087  28.245  19.599 -0.567900        N2
+ATOM     24  HH11CAR     2      33.285  27.645  19.524 -0.567900         H
+ATOM     25  HH12CAR     2      34.839  28.184  18.941 -0.567900         H
+ATOM     26  NH2 CAR     2      35.148  29.889  20.673 -0.567900        N2
+ATOM     27  HH21CAR     2      35.182  30.566  21.415 -0.567900         H
+ATOM     28  HH22CAR     2      35.897  29.824  20.012 -0.567900         H
+ATOM     29  C   CAR     2      28.778  30.003  24.189 -0.567900         C
+ATOM     30  O   CAR     2      27.747  30.547  23.740 -0.567900        O2
+ATOM     31  OXT CAR     2      29.739  30.566  24.753 -0.567900        O2
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   29   30    9      C    O
+BOND    8   29   31    9      C  OXT
+BOND    9   26   27    1    NH2 HH21
+BOND   10   26   28    1    NH2 HH22
+BOND   11   23   24    1    NH1 HH11
+BOND   12   23   25    1    NH1 HH12
+BOND   13   22   23    1     CZ  NH1
+BOND   14   22   26    1     CZ  NH2
+BOND   15   20   21    1     NE   HE
+BOND   16   20   22    2     NE   CZ
+BOND   17   17   18    1     CD  HD2
+BOND   18   17   19    1     CD  HD3
+BOND   19   17   20    1     CD   NE
+BOND   20   14   15    1     CG  HG2
+BOND   21   14   16    1     CG  HG3
+BOND   22   14   17    1     CG   CD
+BOND   23   11   12    1     CB  HB2
+BOND   24   11   13    1     CB  HB3
+BOND   25   11   14    1     CB   CG
+BOND   26    9   10    1     CA   HA
+BOND   27    9   11    1     CA   CB
+BOND   28    9   29    1     CA    C
+BOND   29    7    8    1      N    H
+BOND   30    7    9    1      N   CA

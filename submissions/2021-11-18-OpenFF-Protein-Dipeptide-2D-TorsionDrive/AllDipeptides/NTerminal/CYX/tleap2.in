@@ -1,0 +1,6 @@
+source leaprc.protein.ff14SB
+x = loadPdb "CYX.pdb"
+bond x.1.SG x.4.SG
+set x box { 48.0 48.0 48.0 }
+saveMol2 x CYX.mol2 1
+quit

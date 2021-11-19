@@ -1,0 +1,75 @@
+CHARGE      0.00 ( 0 )
+Formula: H17 C14 N3 O2 
+ATOM      1  H1  ACE     1      25.987  25.343  25.068  0.112300        HC
+ATOM      2  CH3 ACE     1      26.037  26.135  24.322 -0.366200        CT
+ATOM      3  H2  ACE     1      25.187  26.804  24.443  0.112300        HC
+ATOM      4  H3  ACE     1      26.028  25.698  23.325  0.112300        HC
+ATOM      5  C   ACE     1      27.318  26.912  24.518  0.597200         C
+ATOM      6  O   ACE     1      28.091  26.607  25.417 -0.567900         O
+ATOM      7  N   TRP     2      27.538  27.920  23.677 -0.415700         N
+ATOM      8  H   TRP     2      26.840  28.135  22.980  0.271900         H
+ATOM      9  CA  TRP     2      28.712  28.797  23.720 -0.027500        CX
+ATOM     10  HA  TRP     2      29.022  28.915  24.759  0.112300        H1
+ATOM     11  CB  TRP     2      29.868  28.144  22.946 -0.005000        CT
+ATOM     12  HB2 TRP     2      30.130  27.203  23.433  0.033900        HC
+ATOM     13  HB3 TRP     2      29.522  27.909  21.938  0.033900        HC
+ATOM     14  CG  TRP     2      31.112  28.973  22.840 -0.141500        C*
+ATOM     15  CD1 TRP     2      31.621  29.485  21.697 -0.163800        CW
+ATOM     16  HD1 TRP     2      31.194  29.338  20.711  0.206200        H4
+ATOM     17  NE1 TRP     2      32.746  30.233  21.984 -0.341800        NA
+ATOM     18  HE1 TRP     2      33.294  30.707  21.281  0.341200         H
+ATOM     19  CE2 TRP     2      33.010  30.254  23.337  0.138000        CN
+ATOM     20  CZ2 TRP     2      33.997  30.881  24.111 -0.260100        CA
+ATOM     21  HZ2 TRP     2      34.755  31.491  23.642  0.157200        HA
+ATOM     22  CH2 TRP     2      33.987  30.703  25.505 -0.113400        CA
+ATOM     23  HH2 TRP     2      34.741  31.178  26.118  0.141700        HA
+ATOM     24  CZ3 TRP     2      32.998  29.900  26.102 -0.197200        CA
+ATOM     25  HZ3 TRP     2      32.999  29.759  27.174  0.144700        HA
+ATOM     26  CE3 TRP     2      32.012  29.273  25.314 -0.238700        CA
+ATOM     27  HE3 TRP     2      31.266  28.648  25.784  0.170000        HA
+ATOM     28  CD2 TRP     2      31.991  29.437  23.912  0.124300        CB
+ATOM     29  C   TRP     2      28.381  30.195  23.175  0.597300         C
+ATOM     30  O   TRP     2      27.456  30.346  22.378 -0.567900         O
+ATOM     31  N   NME     3      29.137  31.215  23.603 -0.415700         N
+ATOM     32  H   NME     3      29.911  30.999  24.215  0.271900         H
+ATOM     33  CH3 NME     3      28.956  32.603  23.187 -0.149000        CT
+ATOM     34  HH31NME     3      27.915  32.898  23.332  0.097600        H1
+ATOM     35  HH32NME     3      29.602  33.258  23.773  0.097600        H1
+ATOM     36  HH33NME     3      29.204  32.703  22.129  0.097600        H1
+BOND    1    5    6    1      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   29   30    1      C    O
+BOND    8   29   31    1      C    N
+BOND    9   26   27    1    CE3  HE3
+BOND   10   26   28    1    CE3  CD2
+BOND   11   24   25    1    CZ3  HZ3
+BOND   12   24   26    1    CZ3  CE3
+BOND   13   22   23    1    CH2  HH2
+BOND   14   22   24    1    CH2  CZ3
+BOND   15   20   21    1    CZ2  HZ2
+BOND   16   20   22    1    CZ2  CH2
+BOND   17   19   20    1    CE2  CZ2
+BOND   18   19   28    1    CE2  CD2
+BOND   19   17   18    1    NE1  HE1
+BOND   20   17   19    1    NE1  CE2
+BOND   21   15   16    1    CD1  HD1
+BOND   22   15   17    1    CD1  NE1
+BOND   23   14   15    1     CG  CD1
+BOND   24   14   28    1     CG  CD2
+BOND   25   11   12    1     CB  HB2
+BOND   26   11   13    1     CB  HB3
+BOND   27   11   14    1     CB   CG
+BOND   28    9   10    1     CA   HA
+BOND   29    9   11    1     CA   CB
+BOND   30    9   29    1     CA    C
+BOND   31    7    8    1      N    H
+BOND   32    7    9    1      N   CA
+BOND   33   33   34    1    CH3 HH31
+BOND   34   33   35    1    CH3 HH32
+BOND   35   33   36    1    CH3 HH33
+BOND   36   31   32    1      N    H
+BOND   37   31   33    1      N  CH3

@@ -1,0 +1,5 @@
+source leaprc.protein.ff14SB
+x = loadPdb "ILE.pdb"
+set x box { 48.0 48.0 48.0 }
+saveMol2 x ILE.mol2 1
+quit

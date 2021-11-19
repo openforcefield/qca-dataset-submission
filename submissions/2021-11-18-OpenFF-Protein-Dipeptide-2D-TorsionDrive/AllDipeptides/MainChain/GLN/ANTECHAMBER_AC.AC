@@ -1,0 +1,59 @@
+CHARGE      0.00 ( 0 )
+Formula: H15 C8 N3 O3 
+ATOM      1  H1  ACE     1      26.015  25.261  24.692  0.112300         H
+ATOM      2  CH3 ACE     1      26.054  26.210  24.159 -0.366200       C.3
+ATOM      3  H2  ACE     1      25.316  26.894  24.574  0.112300         H
+ATOM      4  H3  ACE     1      25.853  26.043  23.102  0.112300         H
+ATOM      5  C   ACE     1      27.433  26.804  24.316  0.597200       C.2
+ATOM      6  O   ACE     1      28.286  26.218  24.971 -0.567900       O.2
+ATOM      7  N   GLN     2      27.650  27.976  23.724 -0.415700      N.am
+ATOM      8  H   GLN     2      26.891  28.413  23.221  0.271900         H
+ATOM      9  CA  GLN     2      28.930  28.689  23.738 -0.003100       C.3
+ATOM     10  HA  GLN     2      29.475  28.409  24.641  0.085000         H
+ATOM     11  CB  GLN     2      29.759  28.245  22.517 -0.003600       C.3
+ATOM     12  HB2 GLN     2      29.883  27.161  22.562  0.017100         H
+ATOM     13  HB3 GLN     2      29.210  28.488  21.606  0.017100         H
+ATOM     14  CG  GLN     2      31.154  28.890  22.444 -0.064500       C.3
+ATOM     15  HG2 GLN     2      31.054  29.966  22.303  0.035200         H
+ATOM     16  HG3 GLN     2      31.677  28.709  23.383  0.035200         H
+ATOM     17  CD  GLN     2      32.011  28.342  21.303  0.695100       C.2
+ATOM     18  OE1 GLN     2      31.584  27.590  20.447 -0.608600       O.2
+ATOM     19  NE2 GLN     2      33.273  28.707  21.237 -0.940700      N.am
+ATOM     20  HE21GLN     2      33.789  28.318  20.467  0.425100         H
+ATOM     21  HE22GLN     2      33.674  29.325  21.913  0.425100         H
+ATOM     22  C   GLN     2      28.701  30.208  23.771  0.597300       C.2
+ATOM     23  O   GLN     2      27.783  30.710  23.125 -0.567900       O.2
+ATOM     24  N   NME     3      29.541  30.940  24.514 -0.415700      N.am
+ATOM     25  H   NME     3      30.254  30.456  25.036  0.271900         H
+ATOM     26  CH3 NME     3      29.464  32.395  24.638 -0.149000       C.3
+ATOM     27  HH31NME     3      28.473  32.681  24.999  0.097600         H
+ATOM     28  HH32NME     3      30.219  32.758  25.337  0.097600         H
+ATOM     29  HH33NME     3      29.622  32.857  23.662  0.097600         H
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   22   23    2      C    O
+BOND    8   22   24    1      C    N
+BOND    9   19   20    1    NE2 HE21
+BOND   10   19   21    1    NE2 HE22
+BOND   11   17   18    2     CD  OE1
+BOND   12   17   19    1     CD  NE2
+BOND   13   14   15    1     CG  HG2
+BOND   14   14   16    1     CG  HG3
+BOND   15   14   17    1     CG   CD
+BOND   16   11   12    1     CB  HB2
+BOND   17   11   13    1     CB  HB3
+BOND   18   11   14    1     CB   CG
+BOND   19    9   10    1     CA   HA
+BOND   20    9   11    1     CA   CB
+BOND   21    9   22    1     CA    C
+BOND   22    7    8    1      N    H
+BOND   23    7    9    1      N   CA
+BOND   24   26   27    1    CH3 HH31
+BOND   25   26   28    1    CH3 HH32
+BOND   26   26   29    1    CH3 HH33
+BOND   27   24   25    1      N    H
+BOND   28   24   26    1      N  CH3

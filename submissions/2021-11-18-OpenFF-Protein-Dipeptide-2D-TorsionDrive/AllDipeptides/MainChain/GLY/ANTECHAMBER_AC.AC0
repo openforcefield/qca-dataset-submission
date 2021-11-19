@@ -1,0 +1,39 @@
+CHARGE      0.00 ( 0 )
+Formula: H10 C5 N2 O2 
+ATOM      1  H1  ACE     1      26.044  24.972  24.000  0.112300        HC
+ATOM      2  CH3 ACE     1      26.000  26.060  24.000 -0.366200        CT
+ATOM      3  H2  ACE     1      25.480  26.406  24.891  0.112300        HC
+ATOM      4  H3  ACE     1      25.480  26.406  23.109  0.112300        HC
+ATOM      5  C   ACE     1      27.409  26.607  24.000  0.597200         C
+ATOM      6  O   ACE     1      28.366  25.844  24.000 -0.567900         O
+ATOM      7  N   GLY     2      27.536  27.931  24.000 -0.415700         N
+ATOM      8  H   GLY     2      26.706  28.505  24.000  0.271900         H
+ATOM      9  CA  GLY     2      28.822  28.630  24.000 -0.025200        CX
+ATOM     10  HA2 GLY     2      29.390  28.337  24.884  0.069800        H1
+ATOM     11  HA3 GLY     2      29.390  28.337  23.116  0.069800        H1
+ATOM     12  C   GLY     2      28.662  30.153  24.000  0.597300         C
+ATOM     13  O   GLY     2      27.542  30.660  24.000 -0.567900         O
+ATOM     14  N   NME     3      29.791  30.873  24.000 -0.415700         N
+ATOM     15  H   NME     3      30.664  30.369  24.000  0.271900         H
+ATOM     16  CH3 NME     3      29.853  32.336  24.000 -0.149000        CT
+ATOM     17  HH31NME     3      28.848  32.765  24.000  0.097600        H1
+ATOM     18  HH32NME     3      30.380  32.685  24.889  0.097600        H1
+ATOM     19  HH33NME     3      30.380  32.685  23.111  0.097600        H1
+BOND    1    5    6    2      C    O
+BOND    2    5    7    1      C    N
+BOND    3    2    3    1    CH3   H2
+BOND    4    2    4    1    CH3   H3
+BOND    5    2    5    1    CH3    C
+BOND    6    1    2    1     H1  CH3
+BOND    7   12   13    2      C    O
+BOND    8   12   14    1      C    N
+BOND    9    9   10    1     CA  HA2
+BOND   10    9   11    1     CA  HA3
+BOND   11    9   12    1     CA    C
+BOND   12    7    8    1      N    H
+BOND   13    7    9    1      N   CA
+BOND   14   16   17    1    CH3 HH31
+BOND   15   16   18    1    CH3 HH32
+BOND   16   16   19    1    CH3 HH33
+BOND   17   14   15    1      N    H
+BOND   18   14   16    1      N  CH3
