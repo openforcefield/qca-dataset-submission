@@ -11,9 +11,9 @@ on:
       - master
     paths:
       - 'submissions/**'
-  # run once a day at noon UTC
+  # run three times a day, offset from other workflows
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 02,10,18 * * *"
   workflow_dispatch:
 
 jobs:
