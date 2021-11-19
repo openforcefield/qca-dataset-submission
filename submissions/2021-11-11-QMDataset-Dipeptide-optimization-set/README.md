@@ -13,8 +13,8 @@ Optimization set created from the smiles of SPICE Dipeptide dataset. Detailed de
 - Name: SPICE Dipeptides Single Points Dataset v1.0
 - Number of unique molecules        677
 - Number of filtered molecules      0
-- Number of conformers              6767
-- Number of conformers min mean max 7  10.00 10
+- Number of conformers              33327
+- Number of conformers min mean max 7  49.23 50
 - Mean molecular weight: 313.72
 - Max molecular weight: 445.51
 - Charges: [-2.0, -1.0, 0.0, 1.0, 2.0]
