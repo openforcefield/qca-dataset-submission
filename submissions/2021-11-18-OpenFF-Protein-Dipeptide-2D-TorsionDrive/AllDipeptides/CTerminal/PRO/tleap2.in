@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = loadPdb "PRO.pdb"
-set x box { 48.0 48.0 48.0 }
-saveMol2 x PRO.mol2 1
-quit

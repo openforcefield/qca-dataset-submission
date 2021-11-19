@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = sequence { ACE ASN NME }
-set x box { 48.0 48.0 48.0 }
-saveAmberParm x ASN.prmtop ASN.inpcrd
-quit

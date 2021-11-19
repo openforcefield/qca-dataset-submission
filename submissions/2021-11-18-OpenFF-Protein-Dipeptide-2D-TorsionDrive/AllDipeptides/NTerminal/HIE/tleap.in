@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = sequence { NHIE NME }
-set x box { 48.0 48.0 48.0 }
-saveAmberParm x HIE.prmtop HIE.inpcrd
-quit

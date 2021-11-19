@@ -1,6 +1,0 @@
-source leaprc.protein.ff14SB
-x = sequence { NCYX NME ACE CYX NME }
-bond x.1.SG x.4.SG
-set x box { 48.0 48.0 48.0 }
-saveAmberParm x CYX.prmtop CYX.inpcrd
-quit

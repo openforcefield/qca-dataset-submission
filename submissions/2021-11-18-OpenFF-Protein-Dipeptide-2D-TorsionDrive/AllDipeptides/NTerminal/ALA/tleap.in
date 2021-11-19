@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = sequence { NALA NME }
-set x box { 48.0 48.0 48.0 }
-saveAmberParm x ALA.prmtop ALA.inpcrd
-quit

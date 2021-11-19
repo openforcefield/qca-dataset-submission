@@ -33,7 +33,7 @@ Two-dimensional TorsionDrives on phi and psi for dipeptides of alanine and two r
 
 ## QCSubmit Manifest
 
-- `AllDipeptides` contains MOL2 files for 26 main chain and 23 N-terminal and C-terminal dipeptides from [https://github.com/openforcefield/amber-ff-porting/blob/master/AllDipeptides.tar.gz]
+- `AllDipeptides.tar.gz` contains MOL2 files for 26 main chain and 23 N-terminal and C-terminal dipeptides from [https://github.com/openforcefield/amber-ff-porting/blob/master/AllDipeptides.tar.gz]
 - `dataset.json.bz2`: Compressed dataset ready for submission
 - `dataset.pdf`: Visualization of 2D graphs for dataset molecules with driven torsions highlighted
 - `dataset.smi`: Smiles strings for dataset molecules

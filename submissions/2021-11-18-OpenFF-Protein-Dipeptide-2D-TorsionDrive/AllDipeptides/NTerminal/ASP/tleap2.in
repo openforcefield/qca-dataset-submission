@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = loadPdb "ASP.pdb"
-set x box { 48.0 48.0 48.0 }
-saveMol2 x ASP.mol2 1
-quit

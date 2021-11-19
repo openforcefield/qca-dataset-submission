@@ -1,5 +1,0 @@
-source leaprc.protein.ff14SB
-x = sequence { ACE CLYS }
-set x box { 48.0 48.0 48.0 }
-saveAmberParm x LYS.prmtop LYS.inpcrd
-quit
