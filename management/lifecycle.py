@@ -4,6 +4,7 @@
 import os
 import glob
 import json
+import time
 import traceback
 from collections import defaultdict
 from datetime import datetime
@@ -830,6 +831,17 @@ class SubmittableBase:
     def execute_archived_complete(self):
         pass
 
+    def submit(self, dataset_qcs, client):
+        # getting `OSError: Server communication failure. Reason: Gateway Time-out`
+        # retrying seems to work eventually
+        while response is None:
+            try:
+                response = dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
+            except OSError:
+                pass
+                time.sleep(60)
+        return response
+
 
 class DataSet(SubmittableBase):
     """A dataset submitted to QCArchive.
@@ -838,16 +850,14 @@ class DataSet(SubmittableBase):
     The state of a dataset is the state of its submission PR.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
+    ...
 
 
 class Compute(SubmittableBase):
     """Supplemental compute submitted to QCArchive.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True, processes=1)
+    ...
 
 
 def create_dataset(dataset_data):
