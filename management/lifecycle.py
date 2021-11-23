@@ -834,6 +834,7 @@ class SubmittableBase:
     def submit(self, dataset_qcs, client):
         # getting `OSError: Server communication failure. Reason: Gateway Time-out`
         # retrying seems to work eventually
+        response = None
         while response is None:
             try:
                 response = dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
