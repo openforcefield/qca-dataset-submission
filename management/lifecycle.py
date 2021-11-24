@@ -671,7 +671,11 @@ class SubmittableBase:
             dsc = copy.deepcopy(ds)
             opts = mgt.get_optimizations(dsc, spec, client)
             all_opts_dicts.extend([
-                {'id': opt.id, 'status': opt.status, 'final_molecule': opt.final_molecule}
+                {'id': opt.id,
+                 'status': opt.status,
+                 'final_molecule': opt.final_molecule,
+                 'error': opt.error,
+                }
                 for opt in opts])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
@@ -755,6 +759,7 @@ class SubmittableBase:
 
     def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
         import pandas as pd
+        import numpy as np
         import management as mgt
 
         # NOTE: this doesn't work for basic datasets :/
@@ -771,12 +776,18 @@ class SubmittableBase:
                                   basis=value['basis'],
                                   program=value['program'])
 
-            all_res.extend(res)
+            all_res.extend([r for r in res if r is not np.NaN])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
-                    [r for r in res if r.status == status]
+                    [r for r in res if (r is not np.NaN) and (r.status == status)]
                 )
+
+            # for the case of no record in place yet
+            results[spec]["NaN"] = len(
+                    [r for r in res if r is np.NaN]
+                )
+
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
