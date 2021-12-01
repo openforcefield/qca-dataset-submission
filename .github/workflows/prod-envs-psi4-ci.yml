@@ -68,7 +68,7 @@ jobs:
       - name: Run openff-qcsubmit tests
         shell: bash -l {0}
         run: |
-            conda install -c conda-forge openff-qcsubmit requests-mock openff-fragmenter
+            conda install -c conda-forge openff-qcsubmit requests-mock openff-fragmenter torsiondrive
             conda install -c openeye openeye-toolkits
 
             QCSUBMIT_TESTDIR=$(dirname $(python -c "import openff.qcsubmit.tests as tests; print(tests.__file__)"))
