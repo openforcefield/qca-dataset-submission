@@ -52,6 +52,12 @@ jobs:
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
 
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
       - name: Make oe_license.txt file from GH org secret "OE_LICENSE"
         shell: bash
         env:
@@ -65,12 +71,21 @@ jobs:
       #      conda install -c conda-forge pytest
       #      pytest ./devtools/tests/psi4/test_qcengine_psi4.py
 
+      - name: Install openff-qcsubmit test dependencies
+        shell: bash -l {0}
+        run: |
+            conda install -c conda-forge openff-qcsubmit requests-mock openff-fragmenter-base torsiondrive basis_set_exchange
+            conda install -c openeye openeye-toolkits
+
+      - name: Environment Information
+        shell: bash -l {0}
+        run: |
+          conda info
+          conda list
+
       - name: Run openff-qcsubmit tests
         shell: bash -l {0}
         run: |
-            conda install -c conda-forge openff-qcsubmit requests-mock openff-fragmenter torsiondrive
-            conda install -c openeye openeye-toolkits
-
             QCSUBMIT_TESTDIR=$(dirname $(python -c "import openff.qcsubmit.tests as tests; print(tests.__file__)"))
             pytest $QCSUBMIT_TESTDIR
 
