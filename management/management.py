@@ -133,18 +133,22 @@ def count_unique_result_error_messages(
         results, client, full=False, pretty_print=False, tolerate_missing=False):
     errors = defaultdict(set)
 
+    get_errors = []
     for res in results:
         if not isinstance(res, dict):
             r = res.dict()
         else:
             r = res
 
-        if r['status'] != 'ERROR':
-            continue
+        if r['status'] == 'ERROR':
+            get_errors.append(r)
 
+    # group as many into single kvstore call as possible
+    kv = client.query_kvstore([r['error'] for r in get_errors])
+
+    for r in get_errors:
         try:
-            kv = client.query_kvstore([r['id']])[r['id']]
-            err_content = kv.get_json()
+            err_content = kv[r['error']].get_json()
         except:
             err_content = None
 
@@ -213,10 +217,10 @@ def regenerate_results(results, client):
     regenerate = []
     for res in results:
         if not isinstance(res, dict):
-            if res.status == 'INCOMPLETE':
+            if res.status == 'INCOMPLETE' and (res.return_result is not None):
                 regenerate.append(res.id)
         else:
-            if res['status'] == 'INCOMPLETE':
+            if res['status'] == 'INCOMPLETE' and (res['return_result'] is not None):
                 regenerate.append(res['id'])
 
     for rid in regenerate:
