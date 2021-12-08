@@ -8,6 +8,11 @@ dependencies:
   - python =3.7
   - pip
   #- openff-qcsubmit =0.3.0
+  - openff-toolkit-base
+  - basis_set_exchange
+  - pydantic
+  - typing-extensions
+  - cachetools
   - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
