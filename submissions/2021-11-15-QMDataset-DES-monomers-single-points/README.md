@@ -8,7 +8,7 @@ This is a single point energy calculation of DES monomers. Detailed description 
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE DES Monomers Single Points Dataset v1.0
+ - Name: SPICE DES Monomers Single Points Dataset v1.1
  - Number of unique molecules:        374
  - Number of filtered molecules:      0
  - Number of conformers:              18700
