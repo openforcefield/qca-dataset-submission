@@ -1,0 +1,118 @@
+{
+  "qc_specifications": {
+    "mp2/heavy-aug-cc-pv(t+d)z": {
+      "method": "mp2",
+      "basis": "heavy-aug-cc-pv(t+d)z",
+      "program": "psi4",
+      "spec_name": "mp2/heavy-aug-cc-pv(t+d)z",
+      "spec_description": "single point calculation",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    },
+    "gfn1xtb": {
+      "method": "gfn1xtb",
+      "basis": null,
+      "program": "xtb",
+      "spec_name": "gfn1xtb",
+      "spec_description": "A default spec for gfn1xtb",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    },
+    "gfn2xtb": {
+      "method": "gfn2xtb",
+      "basis": null,
+      "program": "xtb",
+      "spec_name": "gfn2xtb",
+      "spec_description": "A default spec for gfn2xtb",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    },
+    "gfnff": {
+      "method": "gfnff",
+      "basis": null,
+      "program": "xtb",
+      "spec_name": "gfnff",
+      "spec_description": "A default spec for gfnff",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    },
+    "ani2x": {
+      "method": "ani2x",
+      "basis": null,
+      "program": "torchani",
+      "spec_name": "ani2x",
+      "spec_description": "A default spec for ani2x",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices"
+      ],
+      "keywords": null
+    }
+  },
+  "driver": "energy",
+  "priority": "normal",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "dataset_name": "OpenFF Theory Benchmarking Single Point Energies v1.0",
+  "dataset_tagline": "Single point energies at final geometries of torsiondrives calculated at reference spec MP2/heavy-aug-cc-pVTZ",
+  "type": "DataSet",
+  "description": "A basic dataset for benchmarking different levels of theory",
+  "metadata": {
+    "submitter": "pavankum",
+    "creation_date": "2021-09-16",
+    "collection_type": "DataSet",
+    "dataset_name": "OpenFF Theory Benchmarking Single Point Energies v1.0",
+    "short_description": "Single point energies at final geometries of torsiondrives calculated at reference spec MP2/heavy-aug-cc-pVTZ",
+    "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-09-06-theory-bm-single-points",
+    "long_description": "Single point calculations of torsiondrive final geometries from reference spec (MP2/heavy-aug-cc-pVTZ) calculation with different basis sets and functionals",
+    "elements": []
+  },
+  "provenance": {
+    "openff-qcsubmit": "0.2.3",
+    "openff-toolkit": "0.9.2",
+    "OpenEyeToolkitWrapper": "2021.1.1",
+    "RDKitToolkitWrapper": "2021.03.4",
+    "AmberToolsToolkitWrapper": "21.0"
+  },
+  "dataset": {},
+  "filtered_molecules": {}
+}

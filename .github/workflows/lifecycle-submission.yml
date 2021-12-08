@@ -11,9 +11,9 @@ on:
       - master
     paths:
       - 'submissions/**'
-  # run once a day at noon UTC
+  # run three times a day, offset from other workflows
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 02,10,18 * * *"
   workflow_dispatch:
 
 jobs:
@@ -23,6 +23,14 @@ jobs:
       OE_LICENSE: ${{ github.workspace }}/oe_license.txt
     steps:
       - uses: actions/checkout@v2
+
+      - name: ensure we only have one instance running
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+        with:
+          abort-after-seconds: 60
+
       - name: Additional info about the build
         shell: bash
         run: |
@@ -48,6 +56,8 @@ jobs:
           environment-file: devtools/conda-envs/queued-submit.yaml
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           auto-activate-base: false
+          mamba-version: "*"
+          use-mamba: true
 
       - name: Environment Information
         shell: bash -l {0}
