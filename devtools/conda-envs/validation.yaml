@@ -13,6 +13,7 @@ dependencies:
   - pydantic
   - typing-extensions
   - cachetools
+  - rdkit
   - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
