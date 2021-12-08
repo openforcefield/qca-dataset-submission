@@ -4,6 +4,7 @@
 import os
 import glob
 import json
+import time
 import traceback
 from collections import defaultdict
 from datetime import datetime
@@ -97,7 +98,7 @@ class Submission:
         pr_card = None
         for state, cards in board.items():
             for card in cards:
-                if card.get_content().number == pr.number:
+                if card.pr_number == pr.number:
                     pr_state = state
                     pr_card = card
                     break
@@ -499,7 +500,7 @@ class SubmittableBase:
         results = defaultdict(dict)
         all_tds = list()
         for spec in dataset_specs:
-            tdrs = mgt.get_torsiondrives(ds, spec, client)
+            tdrs = mgt.get_torsiondrives(ds, spec)
             all_tds.extend(tdrs)
 
             for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
@@ -670,7 +671,11 @@ class SubmittableBase:
             dsc = copy.deepcopy(ds)
             opts = mgt.get_optimizations(dsc, spec, client)
             all_opts_dicts.extend([
-                {'id': opt.id, 'status': opt.status, 'final_molecule': opt.final_molecule}
+                {'id': opt.id,
+                 'status': opt.status,
+                 'final_molecule': opt.final_molecule,
+                 'error': opt.error,
+                }
                 for opt in opts])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
@@ -754,22 +759,35 @@ class SubmittableBase:
 
     def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
         import pandas as pd
+        import numpy as np
         import management as mgt
 
+        # NOTE: this doesn't work for basic datasets :/
         if dataset_specs is None:
             dataset_specs = ds.list_specifications().index.tolist()
 
         # gather results
         results = defaultdict(dict)
         all_res = list()
-        for spec in dataset_specs:
-            res = mgt.get_results(ds, spec, client)
-            all_res.extend(res)
+        for spec, value in dataset_specs.items():
+
+            res = mgt.get_results(ds,
+                                  method=value['method'],
+                                  basis=value['basis'],
+                                  program=value['program'])
+
+            all_res.extend([r for r in res if r is not np.NaN])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
-                    [r for r in res if r.status == status]
+                    [r for r in res if (r is not np.NaN) and (r.status == status)]
                 )
+
+            # for the case of no record in place yet
+            results[spec]["NaN"] = len(
+                    [r for r in res if r is np.NaN]
+                )
+
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
@@ -824,6 +842,18 @@ class SubmittableBase:
     def execute_archived_complete(self):
         pass
 
+    def submit(self, dataset_qcs, client):
+        # getting `OSError: Server communication failure. Reason: Gateway Time-out`
+        # retrying seems to work eventually
+        response = None
+        while response is None:
+            try:
+                response = dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
+            except OSError:
+                pass
+                time.sleep(60)
+        return response
+
 
 class DataSet(SubmittableBase):
     """A dataset submitted to QCArchive.
@@ -832,16 +862,14 @@ class DataSet(SubmittableBase):
     The state of a dataset is the state of its submission PR.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, processes=1, ignore_errors=True)
+    ...
 
 
 class Compute(SubmittableBase):
     """Supplemental compute submitted to QCArchive.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True, processes=1)
+    ...
 
 
 def create_dataset(dataset_data):
@@ -868,6 +896,13 @@ def create_dataset(dataset_data):
 def _get_full_board(repo):
     proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
     board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
+
+    # attach pr number to each card; we do this *once* here to avoid too many API calls,
+    # exhausting our limit
+    for col, cards in board.items():
+        for card in cards:
+            card.pr_number = card.get_content().number
+
     return board
 
 

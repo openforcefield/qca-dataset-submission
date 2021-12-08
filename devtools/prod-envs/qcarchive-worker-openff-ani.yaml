@@ -6,9 +6,9 @@ channels:
 dependencies:
   - python =3.7
   - pip
-  - qcfractal =0.15.2
-  - qcengine =0.19.0
-  - qcelemental >=0.17.0,<0.23
+  - qcfractal =0.15.7
+  - qcengine =0.20.1
+  - qcelemental =0.23
 
   # ML calculations
   - pytorch =1.6.0        # before upgrading, check interactions with other packages
