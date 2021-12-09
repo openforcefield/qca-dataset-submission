@@ -5,8 +5,8 @@ name: "Dataset Lifecycle - Reprioritize/Retag"
 
 on:
   # run five times a day
-  schedule:
-    - cron: "0 00,04,08,16,20 * * *"
+  #schedule:
+  #  - cron: "0 00,04,08,16,20 * * *"
   workflow_dispatch:
 
 jobs:
