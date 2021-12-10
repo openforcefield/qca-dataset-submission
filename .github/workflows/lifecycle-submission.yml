@@ -12,8 +12,8 @@ on:
     paths:
       - 'submissions/**'
   # run three times a day, offset from other workflows
-  #schedule:
-  #  - cron: "0 02,10,18 * * *"
+  schedule:
+    - cron: "0 02,10,18 * * *"
   workflow_dispatch:
 
 jobs:
