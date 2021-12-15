@@ -10,8 +10,8 @@ import qcportal as ptl
 
 ### basic results
 
-def get_results(dataset, method, basis, program):
-    results = dataset.get_records(method=method, basis=basis, program=program)
+def get_results(dataset, method, basis, program, keywords):
+    results = dataset.get_records(method=method, basis=basis, program=program, keywords=keywords)
 
     # dataset.get_records returns a list of dataframes for chained operations *sigh*
     if isinstance(results, list):
