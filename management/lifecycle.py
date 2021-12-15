@@ -774,7 +774,8 @@ class SubmittableBase:
             res = mgt.get_results(ds,
                                   method=value['method'],
                                   basis=value['basis'],
-                                  program=value['program'])
+                                  program=value['program'],
+                                  keywords=value['spec_name'])
 
             all_res.extend([r for r in res if r is not np.NaN])
 
