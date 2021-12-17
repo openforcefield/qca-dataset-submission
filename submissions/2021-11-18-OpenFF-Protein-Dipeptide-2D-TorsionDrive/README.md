@@ -1,8 +1,10 @@
-# OpenFF Protein Dipeptide 2-D TorsionDrive v1.0
+# OpenFF Protein Dipeptide 2-D TorsionDrive v1.1
 
 ## Description
 
 Two-dimensional TorsionDrives on phi and psi for dipeptides of alanine and two rotamers of proline and tryptophan
+
+Note: v1.0 was submitted with `openff-qcsubmit` 0.2.4, but this dataset requires 0.3.0 to make use of the constraints defined in `additional_keywords` for each torsiondrive optimization.
 
 ## General Information
 
@@ -10,7 +12,7 @@ Two-dimensional TorsionDrives on phi and psi for dipeptides of alanine and two r
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: 2-D scans of (phi, psi) for dipeptides
 - Collection: TorsiondriveDataset
-- Name: OpenFF Protein Dipeptide 2-D TorsionDrive v1.0
+- Name: OpenFF Protein Dipeptide 2-D TorsionDrive v1.1
 - Number of unique molecules: 3
 - Number of filtered molecules: 0
 - Number of torsion drives: 5
