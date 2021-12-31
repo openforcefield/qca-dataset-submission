@@ -1,5 +1,10 @@
 # OpenFF Gen 2 Optimization Set Protomers
 
+Optimization set created from the smiles of missing protomers in Gen 2 optimization sets.
+
+Reasonable protomers enumerated for all the molecules in Gen2 optimization datasets and if at least one enumerated reasonable protonation state doesn't match with the molecule's current state then those molecules are added in this dataset.
+Molecules with nitro groups are excluded from this filtering since pentavalent nitrogens `(O=N(-*)=O)` are not appropriate.
+
 ## General Information
  - Date: 12/21/2021
  - Class: Forcefield Parameterization
