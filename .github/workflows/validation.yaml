@@ -48,7 +48,7 @@ jobs:
           conda list
 
       - id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
+        uses: trilom/file-changes-action@v1.2.4
 
       - name: Validate Dataset
         shell: bash -l {0}
