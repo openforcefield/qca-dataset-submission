@@ -7,8 +7,17 @@ channels:
 dependencies:
   - python =3.7
   - pip
-
-  - openff-qcsubmit =0.2.2
+  #- openff-qcsubmit =0.3.0
+  - openff-toolkit-base
+  - basis_set_exchange
+  - pydantic
+  - typing-extensions
+  - cachetools
+  - rdkit
+  - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
   - tabulate
+  - qcportal >=0.15.6
+  - pip:
+      - git+https://github.com/openforcefield/openff-qcsubmit.git@main

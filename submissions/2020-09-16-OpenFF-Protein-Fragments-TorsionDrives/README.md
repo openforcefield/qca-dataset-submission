@@ -1,5 +1,8 @@
 # OpenFF Protein Fragments TorsionDrives
 
+### Note: This dataset contains mis-labeled chiral centers (It should consist entirely of L- amino acids, but some graphs indicate D- chirality).
+
+
 ### Description
 
 This is a protein fragment dataset consisting of torsion drives on various protein fragments prepared by David Cerutti.

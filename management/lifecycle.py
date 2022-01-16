@@ -1,8 +1,10 @@
+
 #!/usr/bin/env python
 
 import os
 import glob
 import json
+import time
 import traceback
 from collections import defaultdict
 from datetime import datetime
@@ -96,7 +98,7 @@ class Submission:
         pr_card = None
         for state, cards in board.items():
             for card in cards:
-                if card.get_content().number == pr.number:
+                if card.pr_number == pr.number:
                     pr_state = state
                     pr_card = card
                     break
@@ -297,7 +299,11 @@ class SubmittableBase:
         spec = self._load_submittable()
 
         dataset_name = spec["dataset_name"]
-        dataset_type = spec["type"]
+
+        if "type" in spec:
+            dataset_type = spec["type"]
+        elif "dataset_type" in spec:
+            dataset_type = spec["dataset_type"]
 
         dataset_specs = spec.get("qc_specifications", None)
 
@@ -459,7 +465,7 @@ class SubmittableBase:
 
         if reset_errors:
             opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True
+                opts, client=client, full=True, pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
@@ -494,7 +500,7 @@ class SubmittableBase:
         results = defaultdict(dict)
         all_tds = list()
         for spec in dataset_specs:
-            tdrs = mgt.get_torsiondrives(ds, spec, client)
+            tdrs = mgt.get_torsiondrives(ds, spec)
             all_tds.extend(tdrs)
 
             for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
@@ -624,11 +630,12 @@ class SubmittableBase:
             reset_errors=False, set_priority=False, set_computetag=False):
         import management as mgt
 
-        opts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
+        optdicts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
 
         if reset_errors:
             opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, full=True, pretty_print=True, tolerate_missing=True
+                optdicts, client=client, full=True,
+                pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_optimization_report(df_opt, opt_error_counts)
@@ -638,16 +645,19 @@ class SubmittableBase:
         else:
             if reset_errors:
                 # restart errored optimizations
-                self._errorcycle_restart_optimizations(opts, client)
+                self._errorcycle_restart_optimizations(optdicts, client)
             if set_priority:
-                self._set_priority_optimizations(opts, client)
+                self._set_priority_optimizations(optdicts, client)
             if set_computetag:
-                self._set_computetag_optimizations(opts, client)
+                self._set_computetag_optimizations(optdicts, client)
             complete = False
 
         return complete
 
     def _errorcycle_optimization_get_opt_errors(self, ds, client, dataset_specs):
+        import copy
+        import gc
+
         import pandas as pd
         import management as mgt
 
@@ -656,19 +666,29 @@ class SubmittableBase:
 
         # gather optimization results
         results = defaultdict(dict)
-        all_opts = list()
+        all_opts_dicts = list()
         for spec in dataset_specs:
-            opts = mgt.get_optimizations(ds, spec, client)
-            all_opts.extend(opts)
+            dsc = copy.deepcopy(ds)
+            opts = mgt.get_optimizations(dsc, spec, client)
+            all_opts_dicts.extend([
+                {'id': opt.id,
+                 'status': opt.status,
+                 'final_molecule': opt.final_molecule,
+                 'error': opt.error,
+                }
+                for opt in opts])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
                     [opt for opt in opts if opt.status == status]
                 )
+            del opts
+            gc.collect()
+
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
-        return all_opts, df
+        return all_opts_dicts, df
 
     def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
 
@@ -717,7 +737,7 @@ class SubmittableBase:
 
         if reset_errors:
             res_error_counts = mgt.count_unique_result_error_messages(
-                res, full=True, pretty_print=True, tolerate_missing=True
+                res, client=client, full=True, pretty_print=True, tolerate_missing=True
             )
 
             self._errorcycle_dataset_report(df_res, res_error_counts)
@@ -739,22 +759,36 @@ class SubmittableBase:
 
     def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
         import pandas as pd
+        import numpy as np
         import management as mgt
 
+        # NOTE: this doesn't work for basic datasets :/
         if dataset_specs is None:
             dataset_specs = ds.list_specifications().index.tolist()
 
         # gather results
         results = defaultdict(dict)
         all_res = list()
-        for spec in dataset_specs:
-            res = mgt.get_results(ds, spec, client)
-            all_res.extend(res)
+        for spec, value in dataset_specs.items():
+
+            res = mgt.get_results(ds,
+                                  method=value['method'],
+                                  basis=value['basis'],
+                                  program=value['program'],
+                                  keywords=value['spec_name'])
+
+            all_res.extend([r for r in res if r is not np.NaN])
 
             for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
                 results[spec][status] = len(
-                    [r for r in res if r.status == status]
+                    [r for r in res if (r is not np.NaN) and (r.status == status)]
                 )
+
+            # for the case of no record in place yet
+            results[spec]["NaN"] = len(
+                    [r for r in res if r is np.NaN]
+                )
+
 
         df = pd.DataFrame(results).transpose()
         df.index.name = "specification"
@@ -809,6 +843,9 @@ class SubmittableBase:
     def execute_archived_complete(self):
         pass
 
+    def submit(self, dataset_qcs, client):
+        return dataset_qcs.submit(client=client, processes=1, ignore_errors=True, chunk_size=200)
+
 
 class DataSet(SubmittableBase):
     """A dataset submitted to QCArchive.
@@ -817,16 +854,14 @@ class DataSet(SubmittableBase):
     The state of a dataset is the state of its submission PR.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, processes=1)
+    ...
 
 
 class Compute(SubmittableBase):
     """Supplemental compute submitted to QCArchive.
 
     """
-    def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True, processes=1)
+    ...
 
 
 def create_dataset(dataset_data):
@@ -838,7 +873,11 @@ def create_dataset(dataset_data):
         "torsiondrivedataset": TorsiondriveDataset,
     }
 
-    dataset_type = dataset_data["type"].lower()
+    if "type" in dataset_data:
+        dataset_type = dataset_data["type"].lower()
+    elif "dataset_type" in dataset_data:
+        dataset_type = dataset_data["dataset_type"].lower()
+
     dataset_class = datasets.get(dataset_type, None)
     if dataset_class is not None:
         return dataset_class.parse_obj(dataset_data)
@@ -849,6 +888,13 @@ def create_dataset(dataset_data):
 def _get_full_board(repo):
     proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
     board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
+
+    # attach pr number to each card; we do this *once* here to avoid too many API calls,
+    # exhausting our limit
+    for col, cards in board.items():
+        for card in cards:
+            card.pr_number = card.get_content().number
+
     return board
 
 
@@ -893,6 +939,7 @@ def main():
 
     """
     import argparse
+    import gc
 
     parser = argparse.ArgumentParser(
         description="Process PRs according to dataset lifecycle"
@@ -1009,6 +1056,8 @@ def main():
                                  reset_errors=args.reset_errors,
                                  set_priority=set_priority,
                                  set_computetag=set_computetag)
+
+        gc.collect()
 
 if __name__ == "__main__":
     main()

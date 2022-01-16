@@ -39,7 +39,7 @@ This is a TorsionDrive dataset containing 1-D torsions for theory benchmarking.
 
 - `QCSubmit workflow.ipynb`: curation of torsiondrive dataset using qcsubmit package.
 - `dataset.json.bz2`: The torsiondrive dataset ready for submission.
-
+- `compute*.json`: additional specs added after the first submission.
 ## Metadata
 
 ```
