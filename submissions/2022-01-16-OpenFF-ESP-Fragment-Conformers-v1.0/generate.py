@@ -15,7 +15,7 @@ def main():
     dataset_factory = BasicDatasetFactory()
 
     dataset = BasicDataset(
-        dataset_name="OpenFF BCC Refit Study COH v1.0",
+        dataset_name="OpenFF ESP Fragment Conformers v1.0",
         dataset_tagline="HF/6-31G* conformers of diverse fragments.",
         description="A dataset that contains a diverse set of fragments generated from "
         "the Enamine 10K and 50K diversity libraries, the curated ZINC and ChEMBL "
@@ -40,6 +40,7 @@ def main():
         "See the `gnn-charge-models` repository, and particularly the "
         "`data-set-curation` directory for further details.",
     )
+    dataset.clear_qcspecs()
     dataset.add_qc_spec(
         program="psi4",
         method="hf",
@@ -78,6 +79,8 @@ def main():
     dataset.molecules_to_file('dataset.smi', 'smi')
 
     dataset.visualize("dataset.pdf", columns=8)
+
+    print(dataset.qc_specifications)
 
 
 if __name__ == '__main__':
