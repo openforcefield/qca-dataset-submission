@@ -1,3 +1,5 @@
+from time import sleep
+
 from collections import defaultdict, Counter
 from pprint import pformat
 
@@ -8,59 +10,38 @@ import qcportal as ptl
 
 ### basic results
 
-def get_results(dataset, spec, client):
-    ds = dataset
-    kwid = ds.list_keywords().reset_index().set_index('keywords').loc[spec, 'id']
+def get_results(dataset, method, basis, program, keywords):
+    results = dataset.get_records(method=method, basis=basis, program=program, keywords=keywords)
 
-    # we go through molecules as a more reliable way to get to result records
-    # than ds.get_records
-    mols = ds.get_entries().molecule_id.tolist()
-    res = _query_results(mols, client, kwid)
+    # dataset.get_records returns a list of dataframes for chained operations *sigh*
+    if isinstance(results, list):
+        out = []
+        for res in results:
+            out.extend(res.record.tolist())
+    else:
+        out = results.record.tolist()
 
-    return res
+    return out
 
 
-def get_unfinished_results(dataset, spec, client):
-    res = get_results(dataset, spec, client)
+def get_unfinished_results(dataset, method, basis, program):
+    res = get_results(dataset, method, basis, program)
     res = [r for r in res if r.status != 'COMPLETE']
-
-    return res
-
-
-def _query_results(molids, client, keywords_id):
-    res = []
-    ids = list(molids)
-    for i in range(0,len(ids),1000):
-        ids_i = ids[i:i+1000]
-        res_i = client.query_results(molecule=ids_i,
-                                     keywords=keywords_id,
-                                     status=None)
-        res.extend(res_i)
 
     return res
 
 ### optimizations
 
-def get_optimizations(dataset, spec, client, dropna=False):
+def get_optimizations(dataset, spec, dropna=False):
     ds = dataset
-
-    while True:
-        try:
-            ds.status(spec)
-        except:
-            pass
-        else:
-            break
+    ds.status(spec)
 
     if dropna:
         df = ds.df.dropna()
     else:
         df = ds.df
 
-    ids = list(set(i.id for i in df[spec]))
-    
-    res = _query_procedures(ids, client)    
-
+    res = df[spec].tolist()
     return res
 
 
@@ -83,8 +64,7 @@ def _query_procedures(ids, client):
 
 ### torsiondrives
 
-def get_torsiondrives(
-        dataset, spec, client, noncomplete=False):
+def get_torsiondrives(dataset, spec):
 
     ds = dataset
 
@@ -150,29 +130,44 @@ def merge(datadict):
 ## error messages
 
 def count_unique_result_error_messages(
-        results, full=False, pretty_print=False, tolerate_missing=False):
+        results, client, full=False, pretty_print=False, tolerate_missing=False):
     errors = defaultdict(set)
 
+    get_errors = []
     for res in results:
-        if res.status != 'ERROR':
-            continue
+        if not isinstance(res, dict):
+            r = res.dict()
+        else:
+            r = res
 
+        if r['status'] == 'ERROR':
+            get_errors.append(r)
+
+    # group as many into single kvstore call as possible
+    kv = client.query_kvstore([r['error'] for r in get_errors])
+
+    for r in get_errors:
         try:
-            err_content = res.get_error()
+            err_content = kv[r['error']].get_json()
         except:
             err_content = None
 
         if tolerate_missing:
             if err_content is None:
-                errors[None].add(res.id)
+                errors[None].add(r['id'])
                 continue
 
         if full:
-            errors[err_content.error_message].add(res.id)
+            errors[err_content['error_message']].add(r['id'])
         else:
-            errors[err_content.error_message.split('\n')[-2]].add(res.id)
+            errors[err_content['error_message'].split('\n')[-2]].add(r['id'])
 
     errors = dict(errors)
+
+    # Convert None key to a string to avoid issues with sorting below
+    if None in errors:
+        errors["None"] = errors[None]
+        errors.pop(None)
 
     content = ""
     if pretty_print:
@@ -205,26 +200,51 @@ count_unique_optimization_error_messages = count_unique_result_error_messages
 ## restarts
 
 def restart_results(results, client):
-    erred = [res.id for res in results if res.status == 'ERROR']
+    erred = []
+    for res in results:
+        if not isinstance(res, dict):
+            if res.status == 'ERROR':
+                erred.append(res.id)
+        else:
+            if res['status'] == 'ERROR':
+                erred.append(res['id'])
+
     client.modify_tasks(operation='restart', base_result=erred)
     print(f"Restarted ERRORed results:\n====\n{erred}\n====\n")
 
 
-def regenerate_results(res, client):
-    for r in res:
-        if r.status == 'INCOMPLETE':
-            print(f"Regnerated INCOMPLETE result `{r.id}`")
-            client.modify_tasks(operation='regenerate', base_result=r.id)
+def regenerate_results(results, client):
+    regenerate = []
+    for res in results:
+        if not isinstance(res, dict):
+            if res.status == 'INCOMPLETE' and (res.return_result is not None):
+                regenerate.append(res.id)
+        else:
+            if res['status'] == 'INCOMPLETE' and (res['return_result'] is not None):
+                regenerate.append(res['id'])
+
+    for rid in regenerate:
+        print(f"Regnerated INCOMPLETE result `{rid}`")
+        client.modify_tasks(operation='regenerate', base_result=rid)
 
 
 restart_optimizations = restart_results
 
 
 def regenerate_optimizations(optimizations, client):
-    for opt in optimizations:
-        if opt.status == 'INCOMPLETE' and (opt.final_molecule is not None):
-            print(f"Regnerated INCOMPLETE optimization `{opt.id}`")
-            client.modify_tasks(operation='regenerate', base_result=opt.id)
+
+    regenerate = []
+    for res in optimizations:
+        if not isinstance(res, dict):
+            if res.status == 'INCOMPLETE' and (res.final_molecule is not None):
+                regenerate.append(res.id)
+        else:
+            if res['status'] == 'INCOMPLETE' and (res['final_molecule'] is not None):
+                regenerate.append(res['id'])
+
+    for optid in regenerate:
+        print(f"Regnerated INCOMPLETE optimization `{optid}`")
+        client.modify_tasks(operation='regenerate', base_result=optid)
 
 
 def restart_torsiondrives(torsiondrives, client):
@@ -237,9 +257,17 @@ def restart_torsiondrives(torsiondrives, client):
 ## modify tasks
 
 def retag_results(results, client, compute_tag):
-    incomplete = [res.id for res in results if res.status != 'COMPLETE']
-    client.modify_tasks(operation='modify', base_result=incomplete, new_tag=compute_tag)
-    print(f"Retagged results with `{compute_tag}':\n====\n{incomplete}\n====\n")
+    retag = []
+    for res in results:
+        if not isinstance(res, dict):
+            if res.status != 'COMPLETE':
+                retag.append(res.id)
+        else:
+            if res['status'] != 'COMPLETE':
+                retag.append(res['id'])
+
+    client.modify_tasks(operation='modify', base_result=retag, new_tag=compute_tag)
+    print(f"Retagged results with `{compute_tag}':\n====\n{retag}\n====\n")
 
 
 retag_optimizations = retag_results
@@ -258,9 +286,17 @@ def reprioritize_results(results, client, priority):
                     0: PriorityEnum.LOW,
                     }
 
-    incomplete = [res.id for res in results if res.status != 'COMPLETE']
-    client.modify_tasks(operation='modify', base_result=incomplete, new_priority=priority_map[priority])
-    print(f"Reprioritized results as `{priority}':\n====\n{incomplete}\n====\n")
+    reprioritize = []
+    for res in results:
+        if not isinstance(res, dict):
+            if res.status != 'COMPLETE':
+                reprioritize.append(res.id)
+        else:
+            if res['status'] != 'COMPLETE':
+                reprioritize.append(res['id'])
+
+    client.modify_tasks(operation='modify', base_result=reprioritize, new_priority=priority_map[priority])
+    print(f"Reprioritized results as `{priority}':\n====\n{reprioritize}\n====\n")
 
 
 reprioritize_optimizations = reprioritize_results

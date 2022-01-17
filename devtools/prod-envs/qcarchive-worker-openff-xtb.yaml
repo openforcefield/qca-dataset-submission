@@ -1,12 +1,13 @@
 name: qcarchive-worker-openff-xtb
 channels:
+  - psi4
   - conda-forge
-  - psi4/label/dev
   - defaults
 dependencies:
   - python =3.7
-  - qcfractal =0.15.2
-  - qcengine =0.17.0
+  - qcfractal =0.15.7
+  - qcengine =0.20.1
+  - qcelemental =0.23
 
   # QM calculations
   - xtb-python =20.2
