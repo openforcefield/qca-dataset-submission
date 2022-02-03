@@ -79,6 +79,7 @@
 /submissions/2022-02-02-OpenFF-ESP-Industry-Benchmark-Set-v1.0-optimization-set/dataset.json.xz filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-11-09-QMDataset-pubchem-set2-single-points/dataset-v1.2.json.bz2 filter=lfs diff=lfs merge=lfs -text
 /submissions/2021-11-09-QMDataset-pubchem-set3-single-points/dataset-v1.2.json.bz2 filter=lfs diff=lfs merge=lfs -text
+/submissions/2021-11-09-QMDataset-pubchem-set4-single-points/dataset-v1.2.json.bz2 filter=lfs diff=lfs merge=lfs -text
 *.bz2 filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.gz filter=lfs diff=lfs merge=lfs -text
