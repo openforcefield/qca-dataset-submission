@@ -5,9 +5,9 @@ channels:
   - defaults
 
 dependencies:
-  - python =3.7
+  - python =3.8
   - pip
-  - qcportal >=0.15.6
+  - qcportal >=0.15.8.1
   - openff-qcsubmit =0.3.0
   - openff-forcefields >=2.0.0
   - PyGithub
