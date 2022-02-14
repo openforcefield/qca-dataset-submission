@@ -18,6 +18,6 @@ dependencies:
   - PyGithub
   - pandas
   - tabulate
-  - qcportal >=0.15.8.1
+  - qcportal >=0.15.8
   - pip:
       - git+https://github.com/openforcefield/openff-qcsubmit.git@main
