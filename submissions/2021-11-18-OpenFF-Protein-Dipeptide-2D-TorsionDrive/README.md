@@ -11,6 +11,7 @@ Note: v1.0 was submitted with `openff-qcsubmit` 0.2.4, but this dataset requires
 - v1.0 Dipeptides of alanine and two rotamers each of proline and tryptophan with `openff-qcsubmit` 0.2.4
 - v1.1 Dipeptides of alanine and two rotamers each of proline and tryptophan with `openff-qcsubmit` 0.3.0
 - v2.0 Dipeptides of most populated rotamer of 20 canonical amino acids and ASH, CYX, GLH, HID, HIP, and LYN
+- v2.1 Screened frustrated conformers of arginine with short CG-CD distance
 
 ## General Information
 
@@ -22,7 +23,7 @@ Note: v1.0 was submitted with `openff-qcsubmit` 0.2.4, but this dataset requires
 - Number of unique molecules: 26
 - Number of filtered molecules: 0
 - Number of torsion drives: 26
-- Number of conformers min mean max: 408 569.54 576
+- Number of conformers min mean max: 408 569.15 576
 - Dataset Submitter: Chapin Cavender
 - Dataset Generator: Chapin Cavender
 - Set of charges: [-1.0, 0.0, 1.0]
