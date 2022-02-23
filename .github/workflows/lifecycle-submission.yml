@@ -23,6 +23,8 @@ jobs:
       OE_LICENSE: ${{ github.workspace }}/oe_license.txt
     steps:
       - uses: actions/checkout@v2
+        with:
+          lfs: true
 
       - name: ensure we only have one instance running
         uses: softprops/turnstyle@v1
