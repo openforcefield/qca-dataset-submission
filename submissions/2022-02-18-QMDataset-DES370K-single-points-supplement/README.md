@@ -1,6 +1,9 @@
 ## Description
 
-This is a supplement to single point energy calculation of DES370K (initial submission here, https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-DES370K-single-points). This dataset includes rerun of calculations failed due to MBIS charge calculation convergence errors. QCSpecification excludes MBIS charges in scf_properties on this set. Detailed description on how the initial dataset is generated can be found at https://github.com/openmm/qmdataset/tree/main/des370k.
+This is a supplement to single point energy calculation of DES370K (initial submission here, https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-DES370K-single-points).
+This dataset includes rerun of calculations failed due to MBIS charge calculation convergence errors.
+QCSpecification excludes MBIS charges in `scf_properties` on this set.
+Detailed description on how the initial dataset is generated can be found [here](https://github.com/openmm/qmdataset/tree/main/des370k).
 
 ## General Information
 
