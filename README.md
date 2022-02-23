@@ -7,6 +7,83 @@ All datasets submitted to QCArchive via this repository conform to the [Dataset 
 See [STANDARDS.md](./STANDARDS.md) for submission standards.
 Datasets must be submitted as pull requests.
 
+## User Quickstart
+
+0. Ensure `git-lfs` is installed on your local machine: https://git-lfs.github.com/
+
+1. To submit a new dataset, begin by cloning this repository:
+   ```
+   export GIT_LFS_SKIP_SMUDGE=1
+   git clone git@github.com:openforcefield/qca-dataset-submission.git
+   ```
+   
+   This will clone the repo, but avoid downloading existing LFS objects.
+   If you wish to download all LFS objects, leave off the `export GIT_LFS_SKIP_SMUDGE=1`.
+
+
+2. Once cloned, create and switch to a new branch from `master`,
+   then create a new directory in `qca-dataset-submission/submissions/`:
+   ```
+   git checkout -b <dataset-branch>
+   mkdir qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0
+   ```
+   You will add all submission artifacts to this directory.
+
+
+3. Create and activate a new conda env with basic submission-preparation requirements with:
+    ```
+    conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
+    conda activate qcarchive-user-submit
+    ```
+
+
+4. Choose a starting notebook and README based on the type of dataset you wish to submit:
+    - [`OptimizationDataset`](./examples/OptimizationDataset/)
+
+   Copy the notebook and README for the dataset you want into the directory you created.
+
+   ```
+   cp examples/<dataset-type>/* qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0
+   ```
+
+
+5. Start up a Jupyter notebook with your new notebook:
+    ```
+    jupyter notebook qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0/generate-dataset.ipynb
+    ```
+   Edit the contents with appropriate metadata information,
+   read in your molecules using the cells appropriate for your input data,
+   and make any other modifications as needed for your specific needs.
+
+
+6. Copy generated metadata components into README.
+   Write a reasonably-detailed high-level description of the submission at the top.
+
+
+7. Commit the following files in the submission directory you made:
+    - your input files; please compress them if possible with e.g. `bzip2`
+    - `generate-dataset.ipynb`
+    - `dataset.pdf`
+    - `dataset.smi`
+    - `dataset.json.bz2`
+
+
+8. Push your branch to Github:
+    ```
+    git push origin <dataset-branch>
+    ```
+
+
+9. Make a new PR for the branch.
+   Validation will run automatically on your `dataset.json.*` file, indicating any potential issues prior to submission.
+   Ask for help if you see validation failures you do not understand.
+   Ping a reviewer in the comments.
+
+
+10. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
+    Computations specified by the submission will be performed on OpenFF-managed compute resources.
+
+
 # The Lifecycle of a Dataset Submission
 
 All Open Force Field datasets submitted to QCArchive undergo well-defined *lifecycle*.
