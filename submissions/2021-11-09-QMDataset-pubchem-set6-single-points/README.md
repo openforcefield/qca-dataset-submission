@@ -2,6 +2,8 @@
 
 This is a single point energy calculation of pubchem set 6 (12501-15000) molecules. Detailed description on how the data is generated can be found at https://github.com/openmm/qmdataset/tree/main/pubchem.
 
+v1.2 removes wavefunction storage, as this uses a substantial amount of space on public QCArchive and was not desired for this dataset.
+
 ## General Information
 
  - Date: 2021.11.09
