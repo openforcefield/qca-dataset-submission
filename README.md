@@ -7,6 +7,83 @@ All datasets submitted to QCArchive via this repository conform to the [Dataset 
 See [STANDARDS.md](./STANDARDS.md) for submission standards.
 Datasets must be submitted as pull requests.
 
+## User Quickstart
+
+0. Ensure `git-lfs` is installed on your local machine: https://git-lfs.github.com/
+
+1. To submit a new dataset, begin by cloning this repository:
+   ```
+   export GIT_LFS_SKIP_SMUDGE=1
+   git clone git@github.com:openforcefield/qca-dataset-submission.git
+   ```
+   
+   This will clone the repo, but avoid downloading existing LFS objects.
+   If you wish to download all LFS objects, leave off the `export GIT_LFS_SKIP_SMUDGE=1`.
+
+
+2. Once cloned, create and switch to a new branch from `master`,
+   then create a new directory in `qca-dataset-submission/submissions/`:
+   ```
+   git checkout -b <dataset-branch>
+   mkdir qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0
+   ```
+   You will add all submission artifacts to this directory.
+
+
+3. Create and activate a new conda env with basic submission-preparation requirements with:
+    ```
+    conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
+    conda activate qcarchive-user-submit
+    ```
+
+
+4. Choose a starting notebook and README based on the type of dataset you wish to submit:
+    - [`OptimizationDataset`](./examples/OptimizationDataset/)
+
+   Copy the notebook and README for the dataset you want into the directory you created.
+
+   ```
+   cp examples/<dataset-type>/* qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0
+   ```
+
+
+5. Start up a Jupyter notebook with your new notebook:
+    ```
+    jupyter notebook qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0/generate-dataset.ipynb
+    ```
+   Edit the contents with appropriate metadata information,
+   read in your molecules using the cells appropriate for your input data,
+   and make any other modifications as needed for your specific needs.
+
+
+6. Copy generated metadata components into README.
+   Write a reasonably-detailed high-level description of the submission at the top.
+
+
+7. Commit the following files in the submission directory you made:
+    - your input files; please compress them if possible with e.g. `bzip2`
+    - `generate-dataset.ipynb`
+    - `dataset.pdf`
+    - `dataset.smi`
+    - `dataset.json.bz2`
+
+
+8. Push your branch to Github:
+    ```
+    git push origin <dataset-branch>
+    ```
+
+
+9. Make a new PR for the branch.
+   Validation will run automatically on your `dataset.json.*` file, indicating any potential issues prior to submission.
+   Ask for help if you see validation failures you do not understand.
+   Ping a reviewer in the comments.
+
+
+10. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
+    Computations specified by the submission will be performed on OpenFF-managed compute resources.
+
+
 # The Lifecycle of a Dataset Submission
 
 All Open Force Field datasets submitted to QCArchive undergo well-defined *lifecycle*.
@@ -111,11 +188,18 @@ These are currently used to compute properties of a minimum energy conformation 
 | `SMIRNOFF Coverage Set 1` | [2019-06-25-smirnoff99Frost-coverage](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-06-25-smirnoff99Frost-coverage)  | Hessian calculations. |  Cl, Br, S, C, F, P, I, O, H, N |  [![Error](https://img.shields.io/badge/Status-Error-red)](https://img.shields.io/badge/Status-Error-red) |
 |`OpenFF ESP Fragment Conformers v1.0` | [2022-01-16-OpenFF-ESP-Fragment-Conformers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/) | ESP Calculations | N, Cl, C, H, P, Br, O, F, S |[![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
 | `OpenFF Theory Benchmarking Single Point Energies v1.0` | [2021-09-06-theory-bm-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-09-06-theory-bm-single-points)  | Single Point Energy dataset for the final optimized geometries from MP2/heavy-aug-cc-pVTZ torsiondrives. |  Cl, F, C, S, O, H, N, P | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
-| `SPICE Solvated Amino Acids Single Points Dataset v1.0` | [2021-11-08-QMDataset-Solvated-Amino-Acids-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-Solvated-Amino-Acids-single-points)  | Single point energy calculation of solvated amino acids. | N, S, O, C, H | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
 | `TorsionNet500 Single Points Dataset v1.0` | [2021-11-09-TorsionNet500-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-TorsionNet500-single-points) | Single point energies of final geometries of TorsionNet500 dataset. | H, O, F, S, N, Cl, C | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
-| `SPICE DES Monomers Single Points Dataset v1.0` | [2021-11-15-QMDataset-DES-monomers-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-15-QMDataset-DES-monomers-single-points | Single point energy calculation of DES monomers. | I, C, Br, P, Cl, H, S, O, F, N | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
-| `SPICE Dipeptides Single Points Dataset v1.2` | [2021-11-08-QMDataset-Dipeptide-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-Dipeptide-single-points)  | SPICE single point dataset for ML applications. | C ,N ,O ,H ,S  | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
-| `SPICE DES370K Single Points Dataset Supplement v1.0` | [2022-02-18-QMDataset-DES370K-single-points-supplement](https://github.com//openforcefield/qca-dataset-submission/tree/master/submissions/2022-02-18-QMDataset-DES370K-single-points-supplement) | SPICE single point dataset for ML applications. | F, H, Cl, S, I, Br, N, Li, O, C, Na | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
+| `SPICE DES Monomers Single Points Dataset v1.1` | [2021-11-15-QMDataset-DES-monomers-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-15-QMDataset-DES-monomers-single-points ) | Single point energy calculation of DES monomers. | I, C, Br, P, Cl, H, S, O, F, N | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
+| `SPICE Solvated Amino Acids Single Points Dataset v1.1` | [2021-11-08-QMDataset-Solvated-Amino-Acids-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-Solvated-Amino-Acids-single-points )  | Single point energy calculation of solvated amino acids. | N, S, O, C, H | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
+| `SPICE DES370K Single Points Dataset v1.0` | [2021-11-08-QMDataset-DES370K-single-points]( https://github.com//openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-DES370K-single-points ) | SPICE single point dataset for ML applications. | 'N', 'O', 'Mg', 'H', 'F', 'K', 'Br', 'Na', 'P', 'Cl', 'I', 'Ca', 'S', 'Li', 'C' | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green) |
+| `SPICE DES370K Single Points Dataset Supplement v1.0` | [2022-02-18-QMDataset-DES370K-single-points-supplement]( https://github.com//openforcefield/qca-dataset-submission/tree/master/submissions/2022-02-18-QMDataset-DES370K-single-points-supplement ) | SPICE single point dataset for ML applications. | F, H, Cl, S, I, Br, N, Li, O, C, Na | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
+| `SPICE Dipeptides Single Points Dataset v1.2` | [2021-11-08-QMDataset-Dipeptide-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-Dipeptide-single-points )  | SPICE single point dataset for ML applications. | C ,N ,O ,H ,S  | [![Complete](https://img.shields.io/badge/Status-Complete-brightgreen)](https://img.shields.io/badge/Status-Complete-green)  |
+| `SPICE PubChem Set 1 Single Points Dataset v1.2` | [2021-11-08-QMDataset-pubchem-set1-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-08-QMDataset-pubchem-set1-single-points )  | SPICE single point dataset for ML applications. | 'O', 'Cl', 'N', 'C', 'P', 'Br', 'S', 'F', 'I', 'H' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
+| `SPICE PubChem Set 2 Single Points Dataset v1.2` | [2021-11-09-QMDataset-pubchem-set2-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set2-single-points )  | SPICE single point dataset for ML applications. | 'H', 'P', 'C', 'Cl', 'Br', 'N', 'F', 'S', 'O', 'I' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
+| `SPICE PubChem Set 3 Single Points Dataset v1.2` | [2021-11-09-QMDataset-pubchem-set3-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set3-single-points )  | SPICE single point dataset for ML applications. | 'N', 'C', 'S', 'Cl', 'Br', 'F', 'P', 'I', 'H', 'O' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
+| `SPICE PubChem Set 4 Single Points Dataset v1.2` | [2021-11-09-QMDataset-pubchem-set4-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set4-single-points )  | SPICE single point dataset for ML applications. | 'N', 'S', 'Br', 'O', 'C', 'F', 'H', 'I', 'Cl', 'P' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
+| `SPICE PubChem Set 5 Single Points Dataset v1.2` | [2021-11-09-QMDataset-pubchem-set5-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set5-single-points )  | SPICE single point dataset for ML applications. | 'F', 'H', 'S', 'Br', 'Cl', 'N', 'P', 'C', 'I', 'O' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
+| `SPICE PubChem Set 6 Single Points Dataset v1.2` | [2021-11-09-QMDataset-pubchem-set6-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set6-single-points )  | SPICE single point dataset for ML applications. | 'Cl', 'O', 'N', 'H', 'C', 'P', 'S', 'F', 'Br', 'I' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
 
 
 # Optimization Datasets

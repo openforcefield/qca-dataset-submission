@@ -10,7 +10,7 @@ v1.2 removes wavefunction storage, as this uses a substantial amount of space on
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE PubChem Set 2 Single Points Dataset v1.0
+ - Name: SPICE PubChem Set 2 Single Points Dataset v1.2
  - Number of unique molecules:        2431
  - Number of filtered molecules:      0
  - Number of conformers:              121540

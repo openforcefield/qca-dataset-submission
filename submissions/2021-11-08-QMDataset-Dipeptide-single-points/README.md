@@ -12,7 +12,7 @@ v1.2 removes wavefunction storage, as this uses a substantial amount of space on
 - Class: OpenFF Dataset
 - Purpose: QM dataset of dipeptides for ML
 - Collection: Dataset
-- Name: SPICE Dipeptides Single Points Dataset v1.1
+- Name: SPICE Dipeptides Single Points Dataset v1.2
 - Number of unique molecules        677
 - Number of filtered molecules      0
 - Number of conformers              33850
