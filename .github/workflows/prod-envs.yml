@@ -25,7 +25,8 @@ jobs:
           - qcarchive-worker-openff-psi4
           - qcarchive-worker-openff-xtb
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: nschloe/action-cached-lfs-checkout@v1
 
       - name: ensure we only have one instance running
         uses: softprops/turnstyle@v1
