@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-from openff.qcsubmit.common_structures import Metadata, QCSpec, MoleculeAttributes
+from openff.qcsubmit.common_structures import Metadata, QCSpec, MoleculeAttributes, SCFProperties
 from openff.qcsubmit.datasets import BasicDataset
 from openff.qcsubmit.results import OptimizationResultCollection
 from openff.qcsubmit.results.filters import ConnectivityFilter
@@ -46,7 +46,13 @@ def main():
                 spec_description=(
                     "The standard HF/6-31G* basis used to derive RESP style charges."
                 ),
-                store_wavefunction=WavefunctionProtocolEnum.orbitals_and_eigenvalues
+                store_wavefunction=WavefunctionProtocolEnum.orbitals_and_eigenvalues,
+                scf_properties=[
+                    SCFProperties.Dipole,
+                    SCFProperties.Quadrupole,
+                    SCFProperties.WibergLowdinIndices,
+                    SCFProperties.MBISCharges
+                ]
             )
         }
     )
