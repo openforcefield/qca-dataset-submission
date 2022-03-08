@@ -38,7 +38,7 @@ def main():
                 "2022-02-02-OpenFF-ESP-Industry-Benchmark-Set-v1.1-single-point"
             )
         ),
-        qc_specs={
+        qc_specifications={
             "HF/6-31G*": QCSpec(
                 program="psi4",
                 method="hf",
