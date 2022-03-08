@@ -3,7 +3,7 @@ from collections import defaultdict
 from openff.qcsubmit.common_structures import Metadata, QCSpec, MoleculeAttributes, SCFProperties
 from openff.qcsubmit.datasets import BasicDataset
 from openff.qcsubmit.results import OptimizationResultCollection
-from openff.qcsubmit.results.filters import ConnectivityFilter
+from openff.qcsubmit.results.filters import ConnectivityFilter, ConformerRMSDFilter
 from qcelemental.models import DriverEnum
 from qcelemental.models.results import WavefunctionProtocolEnum
 from qcportal import FractalClient
@@ -17,7 +17,8 @@ def main():
         spec_name="HF/6-31G*"
     )
     filtered_records = optimization_results.filter(
-        ConnectivityFilter()
+        ConnectivityFilter(),
+        ConformerRMSDFilter(rmsd_tolerance=0.05)
     ).to_records()
 
     dataset = BasicDataset(
@@ -77,7 +78,7 @@ def main():
             molecule=base_molecule,
             attributes=MoleculeAttributes.from_openff_molecule(base_molecule),
             extras=base_record.extras,
-            keywords=record.keywords,
+            keywords=base_record.keywords,
         )
 
     # Export the data set.
