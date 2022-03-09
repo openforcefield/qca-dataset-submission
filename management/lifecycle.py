@@ -258,6 +258,48 @@ class Submission:
                 ds = DataSet(dataset, self, self.ghapi)
                 ds.comment_archived_complete()
 
+    def execute_requires_scientific_review(self):
+        # add `scientific-review` label
+        # remove `end-of-life`, `complete` label if present
+        labels =  set(map(lambda x: x.name, self.pr.labels))
+
+        add_label = "scientific-review"
+
+        if add_label not in labels:
+            self.pr.add_to_labels(add_label)
+
+        for label in ("end-of-life", "complete"):
+            if label in labels:
+                self.pr.remove_from_labels(label)
+
+    def execute_end_of_life(self, pr_card, pr_state):
+        # add `end-of-life` label
+        # remove `scientific-review`, `complete` label if present
+        labels =  set(map(lambda x: x.name, self.pr.labels))
+
+        add_label = "end-of-life"
+
+        if add_label not in labels:
+            self.pr.add_to_labels(add_label)
+
+        for label in ("scientific-review", "complete"):
+            if label in labels:
+                self.pr.remove_from_labels(label)
+
+    def execute_archived_complete(self, pr_card, pr_state):
+        # add `complete` label
+        # remove `scientific-review`, `end-of-life` label if present
+        labels =  set(map(lambda x: x.name, self.pr.labels))
+
+        add_label = "complete"
+
+        if add_label not in labels:
+            self.pr.add_to_labels(add_label)
+
+        for label in ("scientific-review", "end-of-life"):
+            if label in labels:
+                self.pr.remove_from_labels(label)
+
 
 class SubmittableBase:
     def __init__(self, submittable, submission, ghapi, repo=None,
@@ -833,15 +875,6 @@ class SubmittableBase:
 
         # submit comment
         self.pr.create_issue_comment(comment)
-
-    def execute_requires_scientific_review(self):
-        pass
-
-    def execute_end_of_life(self):
-        pass
-
-    def execute_archived_complete(self):
-        pass
 
     def submit(self, dataset_qcs, client):
         return dataset_qcs.submit(client=client, processes=1, ignore_errors=True, chunk_size=200)
