@@ -8,7 +8,7 @@ dependencies:
   - python =3.8
   - pip
   - qcportal >=0.15.8
-  - openff-qcsubmit =0.3.0
+  - openff-qcsubmit =0.3.1
   - openff-forcefields >=2.0.0
   - PyGithub
   - pandas
