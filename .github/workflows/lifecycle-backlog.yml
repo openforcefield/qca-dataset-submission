@@ -1,7 +1,7 @@
 ---
-# lifecycle processing for all datasets currently being tracked - backlog
+# lifecycle processing for all datasets currently being tracked - backlog and post-compute
 
-name: Dataset Lifecycle - Backlog
+name: Dataset Lifecycle - Backlog and Post-Compute
 
 on:
   # run whenever a pull request is labeled
@@ -68,4 +68,4 @@ jobs:
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
-            python ./management/lifecycle.py --states "Backlog"
+            python ./management/lifecycle.py --states "Backlog" "Requires Scientific Review" "End of Life" "Archived/Complete"
