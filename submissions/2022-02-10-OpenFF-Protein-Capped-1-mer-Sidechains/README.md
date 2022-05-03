@@ -9,6 +9,7 @@ TorsionDrives on chi1 and chi2 for capped 1-mers of amino acids with a rotatable
 - v1.0 Initial submission
 - v1.1 Screened initial conformers with bad geometry using qcelemental `guess_connectivity`
 - v1.2 Additional screen of initial conformers based on tetrahedral geometry for tetravalent atoms
+- v1.3 Subsample initial conformers to resolve geometry convergence errors for some optimizations in 'GLU-alpha', 'GLU-beta', and 'LYS-alpha' TorsionDrives
 
 ## General Information
 
@@ -16,15 +17,15 @@ TorsionDrives on chi1 and chi2 for capped 1-mers of amino acids with a rotatable
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: 2-D scans of (chi1, chi2) for protein capped 1-mers
 - Collection: TorsiondriveDataset
-- Name: OpenFF Protein Capped 1-mer Sidechains v1.2
+- Name: OpenFF Protein Capped 1-mer Sidechains v1.3
 - Number of unique molecules: 23
 - Number of filtered molecules: 0
-- Number of torsion drives: 46
-- Number of conformers min mean max: 24 454.91 576
+- Number of torsion drives: 61
+- Number of conformers min mean max: 24 378.46 576
 - Dataset Submitter: Chapin Cavender
 - Dataset Generator: Chapin Cavender
 - Set of charges: [-1.0, 0.0, 1.0]
-- Mean molecular weight: 206.90
+- Mean molecular weight: 205.58
 - Max molecular weight: 350.46
 - Enumerate stereoisomers: False
 - Enumerate tautomers: False
