@@ -1,4 +1,4 @@
-# OpenFF Protein Capped 1-mer Sidechains v1.0
+# OpenFF Protein Capped 3-mer Backbones v1.0
 
 ## Description
 
