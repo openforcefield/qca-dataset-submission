@@ -9,7 +9,7 @@ This is a single point energy calculation of ion pairs of monoatomic species. De
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
- - Name: SPICE Ion Pairs Single Points Dataset v1.0
+ - Name: SPICE Ion Pairs Single Points Dataset v1.1
  - Number of unique molecules:        28
  - Number of filtered molecules:      0
  - Number of conformers:              1428
@@ -21,7 +21,7 @@ This is a single point energy calculation of ion pairs of monoatomic species. De
 
 ## Changelog
 
-Here any information regarding dataset changes are recorded.
+MBIS charge calculation removed since it results in around 10% of calculations failing.
 
 ## QCSubmit generation pipeline
 
@@ -30,7 +30,7 @@ Here any information regarding dataset changes are recorded.
 ## QCSubmit Manifest
 
 - `Dataset_Generation.ipynb`: Dataset creation notebook with instructions for submission.
-- `dataset.json.bz2`: The compressed gradient dataset ready for submission.
+- `dataset-v1.1.json.bz2`: The compressed gradient dataset ready for submission.
 - `dataset.smi`: The smiles file of the peptide molecules.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `dataset.hdf5`: HDF5 file which contains structures and is the main input for the dataset
@@ -44,7 +44,6 @@ Here any information regarding dataset changes are recorded.
     - quadrupole
     - wiberg_lowdin_indices
     - mayer_indices
-    - mbis_charges
 - qc spec
     - name: wB97M-D3BJ/def2-TZVPPD
     - method: wB97M-D3BJ
