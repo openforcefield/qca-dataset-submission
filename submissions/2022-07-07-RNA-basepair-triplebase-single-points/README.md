@@ -4,18 +4,18 @@ This is a single point energy calculations of RNA basepairs and triple bases. De
 
 ## General Information
 
- - Date: 2022.07.07
+ - Date: 2022.07.13
  - Class: Basic dataset 
  - Purpose: Energy calculation
  - Collection: BasicDataset
  - Name: RNA Single Point Dataset v1.0
- - Number of unique molecules:        97
+ - Number of unique molecules:        94
  - Number of filtered molecules:      0
- - Number of conformers:              7873
- - Number of conformers min mean max: 1  81.16 362
- - Mean molecular weight: 832.93
+ - Number of conformers:              4489
+ - Number of conformers min mean max: 1  47.76 174
+ - Mean molecular weight: 833.83
  - Max molecular weight: 971.64
- - Set of Charges: [-10.0, -4.0, -2.0, 0.0]
+ - Set of Charges: [-2.0, 0.0]
  - Dataset Submitter: Kenichiro Takaba
  - Dataset Generator: Kenichiro Takaba
  - Dataset Source: https://github.com/choderalab/rna_bgsu
@@ -32,7 +32,7 @@ Here any information regarding dataset changes are recorded.
 
 - `generate-datasetn.ipynb`: Dataset creation notebook with instructions for submission.
 - `rdmols_loopMOTIFS.pkl`: The pickle file which contains 4056 rdkit molecules and is the main input for the dataset
-- `rdmols_triplebaseDB.pkl`: The pickle file which contains 3679 rdkit molecules and is the main input for the dataset
+- `rdmols_triplebaseDB_exemplar.pkl`: The pickle file which contains 295 rdkit molecules and is the main input for the dataset
 - `rdmols_basepairCATALOG.pkl`: The pickle file which contains 138 rdkit molecules and is the main input for the dataset
 - `dataset.json.bz`: The compressed gradient dataset ready for submission.
 - `dataset.smi`: The smiles file of the peptide molecules.
@@ -43,16 +43,28 @@ Here any information regarding dataset changes are recorded.
 
 ## Metadata
 
-- elements {P', 'C', 'H', 'N', 'O'}
-- unique molecules 97
-- scf properties:
-    - dipole
-    - quadrupole
-    - wiberg_lowdin_indices
-    - mayer_indices
-    - mbis_charges
-- qc spec
-    - name: wB97M-D3BJ/def2-TZVPPD
-    - method: wB97M-D3BJ
-    - basis: def2-TZVPPD
+- elements {'P', 'N', 'O', 'C', 'H'}
+- unique molecules 94
+- Spec: default
+    - scf properties:
+        - dipole
+        - quadrupole
+        - wiberg_lowdin_indices
+        - mayer_indices
+    - qc spec
+        - name: default
+        - method: B3LYP-D3BJ
+        - basis: DZVP
+- Spec: wb97m-d3bj/def2-tzvppd
+    - scf properties:
+        - dipole
+        - quadrupole
+        - wiberg_lowdin_indices
+        - mayer_indices
+    - qc spec
+        - name: wB97M-D3BJ/def2-TZVPPD
+        - method: wB97M-D3BJ
+        - basis: def2-TZVPPD
+    - keywords
+        - wcombine: False
     
