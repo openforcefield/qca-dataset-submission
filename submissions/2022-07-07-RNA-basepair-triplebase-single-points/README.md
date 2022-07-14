@@ -31,11 +31,11 @@ Here any information regarding dataset changes are recorded.
 ## QCSubmit Manifest
 
 - `generate-datasetn.ipynb`: Dataset creation notebook with instructions for submission.
-- `rdmols_loopMOTIFS.pkl`: The pickle file which contains 4056 rdkit molecules and is the main input for the dataset
-- `rdmols_triplebaseDB_exemplar.pkl`: The pickle file which contains 295 rdkit molecules and is the main input for the dataset
-- `rdmols_basepairCATALOG.pkl`: The pickle file which contains 138 rdkit molecules and is the main input for the dataset
+- `rdmols_loopMOTIFS.pkl`: The pickle file which contains 4056 rdkit molecules which are internal/hairpin/junction loop motifs.
+- `rdmols_triplebaseDB_exemplar.pkl`: The pickle file which contains 295 rdkit molecules which are experimental base triples.
+- `rdmols_basepairCATALOG.pkl`: The pickle file which contains 138 rdkit molecules which are RNA base pairs.
 - `dataset.json.bz`: The compressed gradient dataset ready for submission.
-- `dataset.smi`: The smiles file of the peptide molecules.
+- `dataset.smi`: The smiles file of the nucleic acids.
 - `drawimage.py`: Notebook used to save 2D molecule structures used for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `pdb/pdb.tar.gz`: The compressed pdb structures that were used to generate the rdkit molecule objects which are saved as pickle files.
