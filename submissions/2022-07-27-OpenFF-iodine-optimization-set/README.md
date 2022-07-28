@@ -2,7 +2,17 @@
 
 ### Description
 
-Optimization set created from Gen1 and Gen2 molecules containing iodine. Earlier datasets with iodine containing molecules and openff-default QC specification of B3LYP-D3BJ/DZVP have a discrepancy in the auxiliary basis set of Iodine, discovered by Bill Swope and Trevor Gokey. This was corrected since psi4-1.4rc3. 
+Optimization set created from Gen1, Gen2, and other opt datasets that contain molecules with iodine. Earlier datasets with iodine containing molecules and openff-default QC specification of B3LYP-D3BJ/DZVP have a discrepancy in the auxiliary basis set of Iodine, discovered by Bill Swope and Trevor Gokey. This was corrected since psi4-1.4rc3. 
+
+Molecules with iodine from the following sets are added and the coordinates are translated by 2 bohrs so that the records won't get populated by old data on QCA: 
+["OpenFF Discrepancy Benchmark 1",
+"OpenFF Gen 2 Opt Set 2 Coverage",
+"OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy",
+"SMIRNOFF Coverage Set 1",
+"OpenFF Ehrman Informative Optimization v0.2",
+"FDA optimization dataset 1",
+"Kinase Inhibitors: WBO Distributions"]
+
 
 ### General Information
 
@@ -11,13 +21,13 @@ Optimization set created from Gen1 and Gen2 molecules containing iodine. Earlier
 - Purpose: QM dataset of force field fitting
 - Collection: OptimizationDataset
 - Name: OpenFF Iodine Chemistry Optimization Dataset v1.0
-- Number of unique molecules        68
+- Number of unique molecules        99
 - Number of filtered molecules      0
-- Number of conformers              250
-- Number of conformers min mean max 1   3.68 22
-- Mean molecular weight: 318.83
-- Max molecular weight: 440.19
-- Charges: [0.0]
+- Number of conformers              327
+- Number of conformers min mean max 1   3.30 22
+- Mean molecular weight: 318.53
+- Max molecular weight: 533.92
+- Charges: [-1.0, 0.0, 1.0]
 - Dataset Submitter: Pavan Behara
 - Dataset Generator: Pavan Behara
 
