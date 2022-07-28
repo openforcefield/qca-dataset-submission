@@ -2,9 +2,9 @@
 
 ### Description
 
-Optimization set created from Gen1, Gen2, and other opt datasets that contain molecules with iodine. Earlier datasets with iodine containing molecules and openff-default QC specification of B3LYP-D3BJ/DZVP have a discrepancy in the auxiliary basis set of Iodine, discovered by Bill Swope and Trevor Gokey. This was corrected since psi4-1.4rc3. 
+Optimization set created from Gen1, Gen2, and other opt datasets that contain molecules with Iodine. Earlier datasets with Iodine containing molecules and openff-default QC specification of B3LYP-D3BJ/DZVP have a discrepancy in the auxiliary basis set of Iodine, discovered by Bill Swope and Trevor Gokey. This was corrected since psi4-1.4rc3. 
 
-Molecules with iodine from the following sets are added and the coordinates are translated by 2 bohrs so that the records won't get populated by old data on QCA: 
+Molecules with Iodine from the following sets are added and the coordinates are translated by 2 bohrs so that the records won't get populated by old data on QCA: 
 ["OpenFF Discrepancy Benchmark 1",
 "OpenFF Gen 2 Opt Set 2 Coverage",
 "OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy",
