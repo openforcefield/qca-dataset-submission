@@ -250,12 +250,13 @@ def check_compute_request(dataset_data):
     spec_report = {}
     for spec in qc_specs.values():
         try:
+            valid_scf_props = check_scf_props(spec)
             updated_dataset.add_qc_spec(**spec)
             validated = check_mark
         except QCSpecificationError:
             validated = cross
 
-        spec_report[spec["spec_name"]] = create_spec_report(spec, validated)
+        spec_report[spec["spec_name"]] = create_spec_report(spec, validated, valid_scf_props)
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
