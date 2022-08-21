@@ -1,0 +1,61 @@
+{
+  "qc_specifications": {
+    "openff-default": {
+      "method": "B3LYP-D3BJ",
+      "basis": "DZVP",
+      "program": "psi4",
+      "spec_name": "openff-default",
+      "spec_description": "Openff standard quantum chemistry specification",
+      "store_wavefunction": "none",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "wiberg_lowdin_indices",
+        "mayer_indices",
+        "mbis_charges"
+      ]
+    }
+  },
+  "driver": "gradient",
+  "priority": "normal",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "dataset_name": "SPICE PubChem Set 3 Single Points Dataset v1.2",
+  "dataset_tagline": "QM dataset for ML",
+  "type": "DataSet",
+  "description": "Data source: https://github.com/openmm/qmdataset/tree/main/pubchem",
+  "metadata": {
+    "submitter": "Josh Horton, Pavan Behara, David Dotson",
+    "creation_date": "2022-08-17",
+    "collection_type": "DataSet",
+    "dataset_name": "SPICE PubChem Set 3 Single Points Dataset v1.2",
+    "short_description": "QM dataset for ML",
+    "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-11-09-QMDataset-pubchem-set3-single-points",
+    "long_description": "Data source: https://github.com/openmm/qmdataset/tree/main/pubchem",
+    "elements": [
+      "Cl",
+      "H",
+      "Br",
+      "S",
+      "I",
+      "C",
+      "N",
+      "P",
+      "F",
+      "O"
+    ]
+  },
+  "provenance": {
+    "openff-qcsubmit": "0.2.4",
+    "openff-toolkit": "0.10.1",
+    "OpenEyeToolkitWrapper": "2021.1.1",
+    "RDKitToolkitWrapper": "2021.03.5",
+    "AmberToolsToolkitWrapper": "21.0"
+  },
+  "dataset": {},
+  "filtered_molecules": {}
+}
