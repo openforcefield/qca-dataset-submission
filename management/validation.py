@@ -249,13 +249,14 @@ def check_compute_request(dataset_data):
     # now we need to try and add each spec this will raise errors if the spec has already been stored
     spec_report = {}
     for spec in qc_specs.values():
+        valid_scf_props = check_scf_props(spec)
         try:
             updated_dataset.add_qc_spec(**spec)
             validated = check_mark
         except QCSpecificationError:
             validated = cross
 
-        spec_report[spec["spec_name"]] = create_spec_report(spec, validated)
+        spec_report[spec["spec_name"]] = create_spec_report(spec, validated, valid_scf_props)
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
