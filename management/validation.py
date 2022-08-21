@@ -249,8 +249,8 @@ def check_compute_request(dataset_data):
     # now we need to try and add each spec this will raise errors if the spec has already been stored
     spec_report = {}
     for spec in qc_specs.values():
+        valid_scf_props = check_scf_props(spec)
         try:
-            valid_scf_props = check_scf_props(spec)
             updated_dataset.add_qc_spec(**spec)
             validated = check_mark
         except QCSpecificationError:
