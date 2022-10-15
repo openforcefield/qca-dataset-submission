@@ -5,25 +5,25 @@ channels:
   - pytorch
   - defaults
 dependencies:
-  - python =3.8
+  - python =3.9
   - qcfractal =0.15.8.1
-  - qcengine =0.22.0
-  - qcelemental =0.24.0
+  - qcengine =0.24.1
+  - qcelemental =0.25.0
 
   # QM calculations
-  - psi4 =1.4.1
+  - psi4 =1.6.1
   - xtb-python =20.2
   - dftd3 #=3.2.1
   - gcp
   - gau2grid =2.0.7
     
   # MM calculations
-  - openff-toolkit =0.10.2
+  - openff-toolkit =0.11.1
   - openff-forcefields =2.0.0
   - openmm =7.7.0
-  - openmmforcefields =0.10.0
+  - openmmforcefields =0.11.2
   - conda-forge::libiconv
-  - ambertools ==21.11
+  - ambertools ==22.0
 
   # ML calculations
   - pytorch =1.6.0        # before upgrading, check interactions with other packages
@@ -35,4 +35,4 @@ dependencies:
   - dask-jobqueue
 
   - pip:
-    - torchani ==2.2
+    - torchani ==2.2.2
