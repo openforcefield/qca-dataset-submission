@@ -11,13 +11,11 @@ dependencies:
   - qcelemental =0.25.0
 
   # ML calculations
-  - pytorch =1.6.0        # before upgrading, check interactions with other packages
+  - pytorch =1.12.*       # before upgrading, check interactions with other packages
+  - torchani ==2.2.2
 
   # procedures
   - geometric
 
   # compute backends
   - dask-jobqueue
-
-  - pip:
-    - torchani ==2.2.2
