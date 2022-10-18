@@ -6,10 +6,10 @@ channels:
   - openeye
 
 dependencies:
-  - python =3.8
+  - python =3.9
   - pip
   - qcportal
   - openff-qcsubmit
   - openff-toolkit 
   - openeye-toolkits
-  - qcelemental =0.24.0
+  - qcelemental =0.25.0

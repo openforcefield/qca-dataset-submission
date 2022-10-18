@@ -4,13 +4,13 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python =3.8
+  - python =3.9
   - qcfractal =0.15.8.1
-  - qcengine =0.22.0
-  - qcelemental =0.24.0
+  - qcengine =0.24.1
+  - qcelemental =0.25.0
 
   # QM calculations
-  - psi4 =1.4.1
+  - psi4 =1.6.1
   - dftd3 #=3.2.1
   - gcp
   - gau2grid =2.0.7

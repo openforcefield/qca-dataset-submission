@@ -19,7 +19,6 @@ jobs:
       fail-fast: false
       matrix:
         env-name:
-          - qcarchive-worker-openff
           - qcarchive-worker-openff-ani
           - qcarchive-worker-openff-openmm
           - qcarchive-worker-openff-psi4

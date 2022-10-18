@@ -4,20 +4,18 @@ channels:
   - pytorch
   - defaults
 dependencies:
-  - python =3.8
+  - python =3.9
   - pip
   - qcfractal =0.15.8.1
-  - qcengine =0.22.0
-  - qcelemental =0.24.0
+  - qcengine =0.24.1
+  - qcelemental =0.25.0
 
   # ML calculations
-  - pytorch =1.6.0        # before upgrading, check interactions with other packages
+  - pytorch =1.12.1       # before upgrading, check interactions with other packages
+  - torchani ==2.2.2
 
   # procedures
   - geometric
 
   # compute backends
   - dask-jobqueue
-
-  - pip:
-    - torchani ==2.2
