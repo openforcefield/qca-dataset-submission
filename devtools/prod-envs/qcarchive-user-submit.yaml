@@ -9,6 +9,7 @@ dependencies:
   - python =3.9
   - pip
   - qcportal
+  - h5py =3.1.0     # pinning because latest (3.3.0) build appears broken
   - openff-qcsubmit
   - openff-toolkit 
   - openeye-toolkits
