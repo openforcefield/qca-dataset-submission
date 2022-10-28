@@ -30,7 +30,7 @@ Here any information regarding dataset changes are recorded.
  
 ## QCSubmit Manifest
 
-- `generate-datasetn.ipynb`: Dataset creation notebook with instructions for submission.
+- `generate-dataset.ipynb`: Dataset creation notebook with instructions for submission.
 - `rdmols_loopMOTIFS.pkl.tar.gz`: The compressed pickle file containing 40835 rdkit molecules which are extracted from internal/hairpin/junction loop motifs.
 - `dataset.json.bz`: The compressed basic dataset ready for submission.
 - `dataset.smi`: The smiles file of the nucleic acids.
