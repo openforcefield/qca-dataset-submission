@@ -8,7 +8,7 @@ dependencies:
   - python =3.8
   - pip
   #- openff-qcsubmit =0.3.0
-  - openff-toolkit-base =0.10.6
+  - openff-toolkit-base
   - basis_set_exchange
   - pydantic
   - typing-extensions
@@ -21,6 +21,6 @@ dependencies:
   - openmm
   - pint <0.20
   - qcportal >=0.15.8
-  - importlib_metadata =4.11.4
+  - importlib_metadata =5.0.0
   - pip:
       - git+https://github.com/openforcefield/openff-qcsubmit.git@main
