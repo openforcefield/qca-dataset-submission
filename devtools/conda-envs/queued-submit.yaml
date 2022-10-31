@@ -13,3 +13,4 @@ dependencies:
   - PyGithub
   - pandas
   - tabulate
+  - importlib_metadata =5.0.0
