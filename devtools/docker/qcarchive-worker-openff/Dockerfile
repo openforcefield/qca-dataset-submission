@@ -1,9 +1,9 @@
-FROM continuumio/miniconda3
+FROM condaforge/mambaforge
 
 SHELL ["/bin/bash", "-c"]
 
-RUN conda install anaconda-client
-RUN conda env create -n qcfractal openforcefield/${ENV_NAME}
+RUN mamba install anaconda-client
+RUN mamba env create -n qcfractal openforcefield/${ENV_NAME}
 
 RUN groupadd -g 999 qcfractal && \
     useradd -m -r -u 999 -g qcfractal qcfractal
