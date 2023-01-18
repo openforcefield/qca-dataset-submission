@@ -2,7 +2,8 @@ name: error-cycle
 
 channels:
   - conda-forge
-
+  - defaults
+channel_priority: strict
 dependencies:
   - python =3.8
   - pip
