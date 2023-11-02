@@ -39,6 +39,8 @@ Each conformer will be converged according to the 'GAU_LOOSE' criteria.
 * `dataset.smi`: Smiles strings for dataset molecules
 * `generate-dataset.ipynb`: Notebook describing dataset generation and submission
 * `filtered-cl-esps-replaced-with-br.smi`: Input SMILES
+* `input-environment.yaml`: Environment file used to create Python environment for the notebook
+* `full-environment.yaml`: Fully-resolved environment used to execute the notebook.
 
 
 ## Metadata
