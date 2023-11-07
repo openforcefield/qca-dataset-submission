@@ -2,7 +2,6 @@ name: validation
 
 channels:
   - conda-forge
-  - defaults
 
 dependencies:
   - python
