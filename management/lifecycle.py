@@ -11,6 +11,8 @@ from datetime import datetime
 
 from github import Github
 
+QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
+
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_GLOB = "dataset*.json*"
 COMPUTE_GLOB = "compute*.json*"
@@ -360,8 +362,10 @@ class SubmittableBase:
     def _get_qca_client(self):
         import qcportal as ptl
 
-        client = ptl.FractalClient(
-            username=os.environ["QCA_USER"], password=os.environ["QCA_KEY"]
+        client = ptl.PortalClient(
+            address=QCFRACTAL_URL,
+            username=os.environ["QCA_USER"],
+            password=os.environ["QCA_KEY"]
         )
 
         return client
@@ -398,8 +402,6 @@ class SubmittableBase:
         """Submit, perhaps with some retry logic.
 
         """
-        from openff.qcsubmit.serializers import deserialize
-
         client = self._get_qca_client()
 
         # load dataset into QCSubmit class
@@ -877,7 +879,7 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, processes=1, ignore_errors=True, chunk_size=200)
+        return dataset_qcs.submit(client=client, ignore_errors=True)
 
 
 class DataSet(SubmittableBase):

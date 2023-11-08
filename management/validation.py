@@ -26,9 +26,11 @@ datasets = {
     "optimizationdataset": OptimizationDataset,
     "torsiondrivedataset": TorsiondriveDataset}
 
-check_mark = ":heavy_check_mark:"
+check_mark = ":fire:"
 cross = ":x:"
 missing = ":heavy_exclamation_mark:"
+
+QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = 'openforcefield/qca-dataset-submission'
 DATASET_GLOB = "dataset*.json*"
@@ -239,14 +241,19 @@ def get_meta_info(dataset_data):
 
 def check_compute_request(dataset_data):
     """
-    Check the compute request this will access the archive and check the element coverage and any specs already ran.
+    Check the compute request. 
+    This will access the archive and check the element coverage and any specs already ran.
     """
     qc_specs = dataset_data.pop("qc_specifications")
     dataset = create_dataset(dataset_data)
-    client = ptl.FractalClient()
+    client = ptl.PortalClient(QCFRACTAL_URL)
+
     # now update the dataset with client elements and specs
-    updated_dataset = update_specification_and_metadata(dataset=dataset, client=client)
-    # now we need to try and add each spec this will raise errors if the spec has already been stored
+    updated_dataset = update_specification_and_metadata(dataset=dataset,
+                                                        client=client)
+
+    # now we need to try and add each spec; this will raise errors if the spec
+    # has already been stored
     spec_report = {}
     for spec in qc_specs.values():
         valid_scf_props = check_scf_props(spec)
@@ -260,6 +267,7 @@ def check_compute_request(dataset_data):
 
     # now get the basis coverage
     all_coverage = dataset._get_missing_basis_coverage(raise_errors=False)
+
     # now we need to update each report
     for key, report in spec_report.items():
         coverage = all_coverage.get(key, missing)
