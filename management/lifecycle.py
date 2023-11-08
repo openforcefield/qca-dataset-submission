@@ -11,6 +11,8 @@ from datetime import datetime
 
 from github import Github
 
+QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
+
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_GLOB = "dataset*.json*"
 COMPUTE_GLOB = "compute*.json*"
