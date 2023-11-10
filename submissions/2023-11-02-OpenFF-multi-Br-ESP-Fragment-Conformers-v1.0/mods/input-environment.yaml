@@ -1,0 +1,13 @@
+name: qcsubmit-0501
+channels:
+  - openeye
+  - conda-forge
+dependencies:
+  - pip
+  - openff-toolkit-base
+  - rdkit
+  - openeye-toolkits
+  - pandas
+  - ipykernel
+  - pip:
+    - git+https://github.com/openforcefield/openff-qcsubmit.git@0.50.1
