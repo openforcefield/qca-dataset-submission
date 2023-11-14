@@ -5,9 +5,8 @@ channels:
 
 dependencies:
   - python
-  - pip
   - qcportal >=0.49
-  #- openff-qcsubmit >=0.50.0
+  - openff-qcsubmit >=0.50.1
   - openff-toolkit-base >=0.12
   - openff-forcefields >=2.0.0
   - PyGithub
@@ -15,5 +14,3 @@ dependencies:
   - tabulate
   - importlib_metadata =5.0.0
   - openmm
-  - pip:
-    - git+https://github.com/openforcefield/openff-qcsubmit.git@0.50.1
