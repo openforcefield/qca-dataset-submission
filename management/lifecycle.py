@@ -5,8 +5,10 @@ import os
 import glob
 import json
 import time
+from pprint import pformat
 import traceback
-from collections import defaultdict
+from itertools import chain
+from collections import defaultdict, Counter
 from datetime import datetime
 
 from github import Github
@@ -460,22 +462,22 @@ class SubmittableBase:
         ds = client.get_collection(dataset_type, dataset_name)
 
         if dataset_type.lower() == "TorsionDriveDataset".lower():
-            complete = self._errorcycle_torsiondrive(ds, client, dataset_specs,
+            complete = self._errorcycle_torsiondrive(
+                    ds, client, dataset_specs,
                     reset_errors=reset_errors, set_priority=set_priority,
                     set_computetag=set_computetag)
 
         elif dataset_type.lower() == "OptimizationDataset".lower():
-            complete = self._errorcycle_optimization(ds, client, dataset_specs,
-                    reset_errors=reset_errors, set_priority=set_priority,
-                    set_computetag=set_computetag)
-
-        elif dataset_type.lower() == "GridOptimizationDataset".lower():
-            complete = self._errorcycle_gridopt(ds, client, dataset_specs,
+            complete = self._errorcycle_dataset(
+                    ds, client, dataset_specs,
+                    self._errorcycle_optimization_report,
                     reset_errors=reset_errors, set_priority=set_priority,
                     set_computetag=set_computetag)
 
         elif dataset_type.lower() == "Dataset".lower():
-            complete = self._errorcycle_dataset(ds, client, dataset_specs,
+            complete = self._errorcycle_dataset(
+                    ds, client, dataset_specs,
+                    self._errorcycle_dataset_report,
                     reset_errors=reset_errors, set_priority=set_priority,
                     set_computetag=set_computetag)
 
@@ -500,84 +502,90 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
+    @staticmethod
+    def count_unique_error_messages(errors, pretty_print=False):
+        errors = defaultdict(set)
+    
+        for id, error in errors:
+            errors["\n".join([error[i] for i in ['error_type', 'error_message']])].add(id)
+    
+        errors = dict(errors)
+    
+        content = ""
+        if pretty_print:
+            for count, key, value in sorted([(len(value), key, value) for key, value in errors.items()], reverse=True):
+                content += '-------------------------------------\n'
+                content += f"count : {count}\n"
+                content += '\n'
+                content += f'{key}\n'
+                content += '\n'
+                content += 'ids : \n'
+                content += f'{pformat(value, width=80, compact=True)}\n'
+                content += '-------------------------------------\n'
+            return content
+        else:
+            return errors
+
     def _errorcycle_torsiondrive(self, ds, client, dataset_specs,
             reset_errors=False, set_priority=False, set_computetag=False):
-        import management as mgt
+        import pandas as pd
+        from qcportal.record_models import RecordStatusEnum
 
-        tdrs, df_tdr = self._errorcycle_torsiondrive_get_tdr_errors(ds, client, dataset_specs)
-        opts, df_tdr_opt = self._errorcycle_torsiondrive_get_tdr_opt_errors(ds, client, dataset_specs)
+        if dataset_specs is None:
+            dataset_specs = ds.specification_names
+
+        df_status = self._errorcycle_get_status(ds, dataset_specs)
 
         if reset_errors:
-            opt_error_counts = mgt.count_unique_optimization_error_messages(
-                opts, client=client, full=True, pretty_print=True, tolerate_missing=True
-            )
+            erred_rec_ids = []
+            erred_opts = {}
+            status_counts = {}
+            for ds_spec in dataset_specs:
+                recs = ds.iterate_records(
+                        specification_names=[ds_spec], 
+                        #status='error'
+                        )
 
-            self._errorcycle_torsiondrive_report(df_tdr, df_tdr_opt, opt_error_counts)
+                # build up optimization statuses and errors, if present
+                erred_opts[ds_spec] = []
+                status_counts[ds_spec] = Counter({status.value.upper(): 0 for status in list(RecordStatusEnum)})
+                for entry, spec, rec in recs:
+                    if rec.status == 'error':
+                        erred_rec_ids.append(rec.id)
+                    for opt in chain.from_iterable(rec.optimizations.values()):
+                        status_counts[ds_spec][opt.status.value.upper()] += 1
 
-        if (df_tdr[["RUNNING", "INCOMPLETE", "ERROR"]].sum().sum() == 0) and (
-            df_tdr_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0
-        ):
+                        if opt.status == 'error':
+                            erred_opts[ds_spec].append((opt.id, opt.error))
+
+            # create status counts dataframe
+            df_opt_status = pd.DataFrame(status_counts).transpose()
+            df_opt_status = df_opt_status[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
+            df_opt_status.index.name = 'specification'
+
+            # aggregate all errors to get single set of counts for error messages
+            errors = {}
+            for ds_spec in erred_opts:
+                errors.update({r[0]: r[1] for r in erred_opts[ds_spec]})
+
+            error_counts = self.count_unique_error_messages(errors, pretty_print=True)
+
+            self._errorcycle_torsiondrive_report(df_status, df_opt_status, error_counts)
+
+        if df_status[["WAITING", "RUNNING", "ERROR"]].sum().sum() == 0:
             complete = True
         else:
-            # restart errored torsiondrives and optimizations
             if reset_errors:
-                self._errorcycle_restart_optimizations(opts, client)
-                self._errorcycle_restart_torsiondrives(tdrs, client)
+                client.reset_records(erred_rec_ids)
             if set_priority:
-                self._set_priority_optimizations(opts, client)
-                self._set_priority_torsiondrives(tdrs, client)
+                ds.modify_records(specification_names=list(dataset_specs),
+                                  new_priority=self.priority)
             if set_computetag:
-                self._set_computetag_optimizations(opts, client)
-                self._set_computetag_torsiondrives(tdrs, client)
+                ds.modify_records(specification_names=list(dataset_specs),
+                                  new_tag=self.computetag)
             complete = False
 
         return complete
-
-    def _errorcycle_torsiondrive_get_tdr_errors(self, ds, client, dataset_specs):
-        import pandas as pd
-        import management as mgt
-
-        if dataset_specs is None:
-            dataset_specs = ds.list_specifications().index.tolist()
-
-        # gather torsiondrive results
-        results = defaultdict(dict)
-        all_tds = list()
-        for spec in dataset_specs:
-            tdrs = mgt.get_torsiondrives(ds, spec)
-            all_tds.extend(tdrs)
-
-            for status in ["COMPLETE", "RUNNING", "INCOMPLETE", "ERROR"]:
-                results[spec][status] = len(
-                    [tdr for tdr in tdrs if tdr.status == status]
-                )
-
-        df = pd.DataFrame(results).transpose()
-        df.index.name = "specification"
-        return all_tds, df
-
-    def _errorcycle_torsiondrive_get_tdr_opt_errors(self, ds, client, dataset_specs):
-        import pandas as pd
-        import management as mgt
-
-        if dataset_specs is None:
-            dataset_specs = ds.list_specifications().index.tolist()
-
-        # gather torsiondrive optimization results
-        results = defaultdict(dict)
-        all_opts = list()
-        for spec in dataset_specs:
-            opts = mgt.merge(mgt.get_torsiondrive_optimizations(ds, spec, client))
-            all_opts.extend(opts)
-
-            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
-                results[spec][status] = len(
-                    [opt for opt in opts if opt.status == status]
-                )
-
-        df = pd.DataFrame(results).transpose()
-        df.index.name = "specification"
-        return all_opts, df
 
     def _errorcycle_torsiondrive_report(self, df_tdr, df_tdr_opt, opt_error_counts):
 
@@ -623,118 +631,25 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def _errorcycle_restart_results(self, res, client):
-        import management as mgt
-
-        mgt.restart_results(res, client)
-
-        # handle cases where an Result has status INCOMPLETE, but data is there
-        mgt.regenerate_results(res, client)
-
-    def _errorcycle_restart_optimizations(self, opts, client):
-        import management as mgt
-
-        # TODO: add some nuance for the types of optimzations
-        # we will *not* restart, such as SCF convergence issues
-        mgt.restart_optimizations(opts, client)
-
-        # handle cases where an Optimization has status INCOMPLETE, but data is there
-        mgt.regenerate_optimizations(opts, client)
-
-    def _errorcycle_restart_torsiondrives(self, tdrs, client):
-        import management as mgt
-
-        mgt.restart_torsiondrives(tdrs, client)
-
-    def _set_priority_results(self, results, client):
-        import management as mgt
-        mgt.reprioritize_results(results, client, self.priority)
-
-    def _set_priority_optimizations(self, opts, client):
-        import management as mgt
-        mgt.reprioritize_optimizations(opts, client, self.priority)
-
-    def _set_priority_torsiondrives(self, tdrs, client):
-        # TODO: no way to reprioritize services at the moment
-        pass
-
-    def _set_computetag_results(self, results, client):
-        import management as mgt
-        mgt.retag_results(results, client, self.computetag)
-
-    def _set_computetag_optimizations(self, opts, client):
-        import management as mgt
-        mgt.retag_optimizations(opts, client, self.computetag)
-
-    def _set_computetag_torsiondrives(self, tdrs, client):
-        # TODO: no way to retag services at the moment
-        pass
-
-    def _errorcycle_optimization(self, ds, client, dataset_specs,
-            reset_errors=False, set_priority=False, set_computetag=False):
-        import management as mgt
-
-        optdicts, df_opt = self._errorcycle_optimization_get_opt_errors(ds, client, dataset_specs)
-
-        if reset_errors:
-            opt_error_counts = mgt.count_unique_optimization_error_messages(
-                optdicts, client=client, full=True,
-                pretty_print=True, tolerate_missing=True
-            )
-
-            self._errorcycle_optimization_report(df_opt, opt_error_counts)
-
-        if df_opt[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
-            complete = True
-        else:
-            if reset_errors:
-                # restart errored optimizations
-                self._errorcycle_restart_optimizations(optdicts, client)
-            if set_priority:
-                self._set_priority_optimizations(optdicts, client)
-            if set_computetag:
-                self._set_computetag_optimizations(optdicts, client)
-            complete = False
-
-        return complete
-
-    def _errorcycle_optimization_get_opt_errors(self, ds, client, dataset_specs):
-        import copy
-        import gc
-
+    def _errorcycle_get_status(self, ds, dataset_specs):
         import pandas as pd
-        import management as mgt
+        from qcportal.record_models import RecordStatusEnum
 
         if dataset_specs is None:
-            dataset_specs = ds.list_specifications().index.tolist()
+            dataset_specs = ds.specification_names
+        
+        status = ds.status()
+        status_ = {key: {status.value.upper(): counts.get(status, 0)
+                         for status in list(RecordStatusEnum)}
+                   for key, counts in status.items() if key in dataset_specs.keys()}
 
-        # gather optimization results
-        results = defaultdict(dict)
-        all_opts_dicts = list()
-        for spec in dataset_specs:
-            dsc = copy.deepcopy(ds)
-            opts = mgt.get_optimizations(dsc, spec, client)
-            all_opts_dicts.extend([
-                {'id': opt.id,
-                 'status': opt.status,
-                 'final_molecule': opt.final_molecule,
-                 'error': opt.error,
-                }
-                for opt in opts])
+        df = pd.DataFrame(status_).transpose()
+        df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
+        df.index.name = 'specification'
 
-            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
-                results[spec][status] = len(
-                    [opt for opt in opts if opt.status == status]
-                )
-            del opts
-            gc.collect()
+        return df
 
-
-        df = pd.DataFrame(results).transpose()
-        df.index.name = "specification"
-        return all_opts_dicts, df
-
-    def _errorcycle_optimization_report(self, df_opt, opt_error_counts):
+    def _errorcycle_optimization_report(self, df_status, opt_error_counts):
 
         if len(opt_error_counts) > 60000:
             opt_error_counts = opt_error_counts[:60000]
@@ -750,7 +665,7 @@ class SubmittableBase:
 
         ### `OptimizationRecord` current status
 
-        {df_opt.to_markdown()}
+        {df_status.to_markdown()}
 
         #### `OptimizationRecord` Error Tracebacks:
 
@@ -774,69 +689,38 @@ class SubmittableBase:
         # submit comment
         self.pr.create_issue_comment(comment)
 
-    def _errorcycle_dataset(self, ds, client, dataset_specs,
+    def _errorcycle_dataset(self, ds, client, dataset_specs, report_method,
             reset_errors=False, set_priority=False, set_computetag=False):
-        import management as mgt
-        res, df_res = self._errorcycle_dataset_get_result_errors(ds, client, dataset_specs)
+
+        if dataset_specs is None:
+            dataset_specs = ds.specification_names
+
+        df_status = self._errorcycle_get_status(ds, dataset_specs)
 
         if reset_errors:
-            res_error_counts = mgt.count_unique_result_error_messages(
-                res, client=client, full=True, pretty_print=True, tolerate_missing=True
-            )
+            erred_recs = ds.iterate_records(
+                    specification_names=list(dataset_specs), 
+                    status='error')
 
-            self._errorcycle_dataset_report(df_res, res_error_counts)
+            errors = {r.id: r.error for r in erred_recs}
+            error_counts = self.count_unique_error_messages(errors, pretty_print=True)
 
-        if df_res[["INCOMPLETE", "ERROR"]].sum().sum() == 0:
+            report_method(df_status, error_counts)
+
+        if df_status[["WAITING", "RUNNING", "ERROR"]].sum().sum() == 0:
             complete = True
         else:
             if reset_errors:
-                # restart errored tasks
-                self._errorcycle_restart_results(res, client)
+                client.reset_records(list(errors))
             if set_priority:
-                self._set_priority_results(res, client)
+                ds.modify_records(specification_names=list(dataset_specs),
+                                  new_priority=self.priority)
             if set_computetag:
-                self._set_computetag_results(res, client)
-
+                ds.modify_records(specification_names=list(dataset_specs),
+                                  new_tag=self.computetag)
             complete = False
 
         return complete
-
-    def _errorcycle_dataset_get_result_errors(self, ds, client, dataset_specs):
-        import pandas as pd
-        import numpy as np
-        import management as mgt
-
-        # NOTE: this doesn't work for basic datasets :/
-        if dataset_specs is None:
-            dataset_specs = ds.list_specifications().index.tolist()
-
-        # gather results
-        results = defaultdict(dict)
-        all_res = list()
-        for spec, value in dataset_specs.items():
-
-            res = mgt.get_results(ds,
-                                  method=value['method'],
-                                  basis=value['basis'],
-                                  program=value['program'],
-                                  keywords=value['spec_name'])
-
-            all_res.extend([r for r in res if r is not np.NaN])
-
-            for status in ["COMPLETE", "INCOMPLETE", "ERROR"]:
-                results[spec][status] = len(
-                    [r for r in res if (r is not np.NaN) and (r.status == status)]
-                )
-
-            # for the case of no record in place yet
-            results[spec]["NaN"] = len(
-                    [r for r in res if r is np.NaN]
-                )
-
-
-        df = pd.DataFrame(results).transpose()
-        df.index.name = "specification"
-        return all_res, df
 
     def _errorcycle_dataset_report(self, df_res, res_error_counts):
 
