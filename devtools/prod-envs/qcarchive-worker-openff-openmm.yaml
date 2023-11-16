@@ -1,24 +1,20 @@
 name: qcarchive-worker-openff-openmm
 channels:
   - conda-forge
-  - defaults
 dependencies:
-  - python =3.9
-  - qcfractal =0.15.8.1
-  - h5py =3.1.0     # pinning because latest (3.3.0) build appears broken
-  - qcengine =0.25.0
-  - qcelemental =0.25.1
+  - python
+  - qcfractalcompute =0.51
+  - qcengine =0.29.0
+  - qcelemental =0.27.1
     
   # MM calculations
-  - openff-toolkit =0.11.1
-  - openff-forcefields =2.0.0
-  - openmm =7.7.0
-  - openmmforcefields =0.11.2
-  - conda-forge::libiconv
-  - ambertools ==21.11
+  - openff-toolkit =0.14.5
+  - openff-forcefields =2023.11.0
+  - openmm =8.0.0
+  - openmmforcefields =0.12.0
+  #- conda-forge::libiconv
+  #- ambertools ==21.11
 
   # procedures
   - geometric
 
-  # compute backends
-  - dask-jobqueue

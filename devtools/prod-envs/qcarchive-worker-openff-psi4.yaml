@@ -1,23 +1,17 @@
 name: qcarchive-worker-openff-psi4
 channels:
-  - psi4
   - conda-forge
-  - defaults
 dependencies:
-  - python =3.9
-  - qcfractal =0.15.8.1
-  - h5py =3.1.0     # pinning because latest (3.3.0) build appears broken
-  - qcengine =0.24.1
-  - qcelemental =0.25.0
+  - python
+  - qcfractalcompute =0.51
+  - qcengine =0.29.0
+  - qcelemental =0.27.1
 
   # QM calculations
-  - psi4 =1.6.1
-  - dftd3 #=3.2.1
+  - psi4 =1.8.2
+  - dftd3-python #=3.2.1
   - gcp
   - gau2grid =2.0.7
     
   # procedures
   - geometric
-
-  # compute backends
-  - dask-jobqueue

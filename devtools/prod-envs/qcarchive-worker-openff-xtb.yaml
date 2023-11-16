@@ -1,22 +1,17 @@
 name: qcarchive-worker-openff-xtb
 channels:
-  - psi4
   - conda-forge
-  - defaults
+  - psi4
 dependencies:
-  - python =3.9
-  - qcfractal =0.15.8.1
-  - h5py =3.1.0     # pinning because latest (3.3.0) build appears broken
-  - qcengine =0.25.0
-  - qcelemental =0.25.1
+  - python
+  - qcfractalcompute =0.51
+  - qcengine =0.29.0
+  - qcelemental =0.27.1
 
   # QM calculations
   - xtb-python =20.2
-  - dftd3
+  - dftd3-python
   - gcp
     
   # procedures
   - geometric
-
-  # compute backends
-  - dask-jobqueue
