@@ -459,7 +459,7 @@ class SubmittableBase:
         client = self._get_qca_client()
 
         dataset_name, dataset_type, dataset_specs = self._parse_spec()
-        ds = client.get_collection(dataset_type, dataset_name)
+        ds = client.get_dataset(dataset_type, dataset_name)
 
         if dataset_type.lower() == "TorsionDriveDataset".lower():
             complete = self._errorcycle_torsiondrive(
