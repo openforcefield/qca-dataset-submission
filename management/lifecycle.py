@@ -21,6 +21,11 @@ COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
 
+DATASET_TYPES = {
+        'dataset': 'singlepoint',
+        'optimizationdataset': 'optimization',
+        'torsiondrivedataset': 'torsiondrive'}
+
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -347,9 +352,9 @@ class SubmittableBase:
         dataset_name = spec["dataset_name"]
 
         if "type" in spec:
-            dataset_type = spec["type"]
+            dataset_type = DATASET_TYPES[spec["type"].lower()]
         elif "dataset_type" in spec:
-            dataset_type = spec["dataset_type"]
+            dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
 
         dataset_specs = spec.get("qc_specifications", None)
 
