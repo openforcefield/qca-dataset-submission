@@ -1,4 +1,4 @@
-FROM condaforge/mambaforge
+FROM condaforge/miniforge3
 
 SHELL ["/bin/bash", "-c"]
 
@@ -13,4 +13,4 @@ USER qcfractal
 ENV PATH /opt/conda/bin:$PATH
 RUN echo "source activate qcfractal" > ~/.bashrc
 
-ENTRYPOINT /bin/bash -c "source activate qcfractal && qcfractal-manager --config-file /etc/qcfractal-manager/manager.yaml -v"
+ENTRYPOINT /bin/bash -c "source activate qcfractal && qcfractal-compute-manager --config /etc/qcfractal-manager/manager.yaml -v"
