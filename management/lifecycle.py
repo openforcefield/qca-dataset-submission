@@ -466,20 +466,20 @@ class SubmittableBase:
         dataset_name, dataset_type, dataset_specs = self._parse_spec()
         ds = client.get_dataset(dataset_type, dataset_name)
 
-        if dataset_type.lower() == "TorsionDriveDataset".lower():
+        if dataset_type == "torsiondrive":
             complete = self._errorcycle_torsiondrive(
                     ds, client, dataset_specs,
                     reset_errors=reset_errors, set_priority=set_priority,
                     set_computetag=set_computetag)
 
-        elif dataset_type.lower() == "OptimizationDataset".lower():
+        elif dataset_type == "optimization":
             complete = self._errorcycle_dataset(
                     ds, client, dataset_specs,
                     self._errorcycle_optimization_report,
                     reset_errors=reset_errors, set_priority=set_priority,
                     set_computetag=set_computetag)
 
-        elif dataset_type.lower() == "Dataset".lower():
+        elif dataset_type == "singlepoint":
             complete = self._errorcycle_dataset(
                     ds, client, dataset_specs,
                     self._errorcycle_dataset_report,
