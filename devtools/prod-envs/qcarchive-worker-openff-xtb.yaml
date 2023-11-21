@@ -1,7 +1,6 @@
 name: qcarchive-worker-openff-xtb
 channels:
   - conda-forge
-  - psi4
 dependencies:
   - python =3.10
   - qcfractalcompute =0.51

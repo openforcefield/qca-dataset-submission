@@ -1,6 +1,7 @@
 name: qcarchive-worker-openff-psi4
 channels:
   - conda-forge
+  - conda-forge/label/libint_dev
 dependencies:
   - python =3.10
   - qcfractalcompute =0.51
