@@ -508,10 +508,10 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     @staticmethod
-    def count_unique_error_messages(errors, pretty_print=False):
+    def count_unique_error_messages(errors_in, pretty_print=False):
         errors = defaultdict(set)
     
-        for id, error in errors:
+        for id, error in errors_in:
             errors["\n".join([error[i] for i in ['error_type', 'error_message']])].add(id)
     
         errors = dict(errors)
