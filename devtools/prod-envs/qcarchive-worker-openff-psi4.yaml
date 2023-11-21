@@ -1,7 +1,7 @@
 name: qcarchive-worker-openff-psi4
 channels:
-  - conda-forge
   - conda-forge/label/libint_dev
+  - conda-forge
 dependencies:
   - python =3.10
   - qcfractalcompute =0.51
@@ -10,10 +10,12 @@ dependencies:
 
   # QM calculations
   - psi4 =1.8.2
-  - dftd3-python #=3.2.1
+  - dftd3-python
   - gcp-correction
-  - gau2grid =2.0.7
-  - libint
+  - scipy
     
   # procedures
   - geometric
+
+  - pip:
+    - basis_set_exchange
