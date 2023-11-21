@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
-  - python =3.11
+  - python =3.10
   - pip
   - qcfractalcompute =0.51
   - qcengine =0.29.0

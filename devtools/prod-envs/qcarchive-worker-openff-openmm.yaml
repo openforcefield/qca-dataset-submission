@@ -2,7 +2,7 @@ name: qcarchive-worker-openff-openmm
 channels:
   - conda-forge
 dependencies:
-  - python =3.11
+  - python =3.10
   - qcfractalcompute =0.51
   - qcengine =0.29.0
   - qcelemental =0.27.1
