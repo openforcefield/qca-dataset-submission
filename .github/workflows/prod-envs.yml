@@ -11,6 +11,10 @@ on:
       - 'devtools/prod-envs/**.yaml'
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash -l {0}
+
 jobs:
   deploy-conda-env:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
       matrix:
         env-name:
           - qcarchive-user-submit
-          - qcarchive-worker-openff-ani
+          #- qcarchive-worker-openff-ani
           - qcarchive-worker-openff-openmm
           - qcarchive-worker-openff-psi4
           - qcarchive-worker-openff-xtb
@@ -34,44 +38,25 @@ jobs:
         with:
           abort-after-seconds: 60
 
-      - name: Cache conda
-        uses: actions/cache@v2
-        env:
-          CACHE_NUMBER: 0
-        with:
-          path: ~/conda_pkgs_dir
-          key:
-            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-            hashFiles('devtools/prod-envs/${{ matrix.env-name }}.yaml') }}
-
       - name: Additional info about the build
-        shell: bash
         run: |
           uname -a
           df -h
           ulimit -a
 
-      - name: Configure conda; test creation of environment
-        uses: conda-incubator/setup-miniconda@v2
+      - name: Install environment
+        uses: mamba-org/setup-micromamba@v1
         with:
-          python-version: 3.9
-          miniforge-variant: Mambaforge
-          activate-environment: ${{ matrix.env-name }}
           environment-file: devtools/prod-envs/${{ matrix.env-name }}.yaml
-          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
-          auto-activate-base: false
-          use-mamba: true
 
       - name: Environment Information
-        shell: bash -l {0}
         run: |
           conda info
           conda list
 
       - name: Deploy conda env
-        shell: bash -l {0}
         env:
           ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
         run: |
-            conda install -y anaconda-client
+            micromamba install -y anaconda-client
             anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/${{ matrix.env-name }}.yaml
