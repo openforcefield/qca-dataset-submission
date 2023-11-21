@@ -12,6 +12,7 @@ dependencies:
   - dftd3-python #=3.2.1
   - gcp-correction
   - gau2grid =2.0.7
+  - libint
     
   # procedures
   - geometric

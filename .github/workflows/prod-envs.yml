@@ -58,5 +58,5 @@ jobs:
         env:
           ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
         run: |
-            mamba install -y anaconda-client
+            micromamba install -y anaconda-client
             anaconda -t ${ANACONDA_TOKEN} upload --user openforcefield devtools/prod-envs/${{ matrix.env-name }}.yaml

@@ -2,6 +2,7 @@ name: qcarchive-worker-openff-ani
 channels:
   - conda-forge
   - pytorch
+  - nvidia
 dependencies:
   - python =3.10
   - pip
