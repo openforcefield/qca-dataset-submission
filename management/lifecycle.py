@@ -707,7 +707,7 @@ class SubmittableBase:
                     specification_names=list(dataset_specs), 
                     status='error')
 
-            errors = {r.id: r.error for r in erred_recs}
+            errors = {r.id: r.error for entry, spec, r in erred_recs}
             error_counts = self.count_unique_error_messages(errors, pretty_print=True)
 
             report_method(df_status, error_counts)
