@@ -1,0 +1,11 @@
+name: qcsubmit-050
+channels:
+  - openeye
+  - conda-forge
+dependencies:
+  - openff-qcsubmit >=0.5.0
+  - openff-toolkit-base
+  - rdkit
+  - openeye-toolkits
+  - pandas
+  - ipykernel
