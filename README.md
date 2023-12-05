@@ -205,7 +205,7 @@ These are currently used to compute properties of a minimum energy conformation 
 | `RNA Single Point Dataset v1.0` | [2022-07-07-RNA-basepair-triplebase-single-points]( https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-07-07-RNA-basepair-triplebase-single-points )  | RNA single point dataset consisting of RNA basepairs and triple bases. | 'P', 'N', 'O', 'C', 'H' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  |
 |`RNA Trinucleotide Single Point Dataset v1.0` | [2022-10-21-RNA-trinucleotide-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-10-21-RNA-trinucleotide-single-points) | Single point energy calculations of RNA basepairs and triple bases | 'O', 'N', 'C', 'H', 'P' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
 |`RNA Nucleoside Single Point Dataset v1.0` | [2023-03-09-RNA-nucleoside-single-points](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-03-09-RNA-nucleoside-single-points) | Single point energy calculations of RNA nucleosides without O5' hydroxyl atom | 'O', 'N', 'C', 'H' | [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange) |
-
+|`OpenFF multi-Br ESP Fragment Conformers v1.1`| [2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point) | Single point ESP calculations | Br, C, F, H, N, O, P, S | |
 
 
 
