@@ -21,8 +21,8 @@ This dataset is read in the Jupyter notebook to create the submission.
 * Class: OpenFF Optimization Dataset
 * Purpose: Geometry optimization
 * Name: XtalPi Shared Fragments TorsiondriveDataset v1.0
-* Number of unique molecules: 198
-* Number of conformers (min, mean, max): 1 12 30
+* Number of unique molecules: 169
+* Number of conformers (min, mean, max): 1 2.5 6
 * Molecular weight (min, mean, max): 78.50 201.15 314.38
 * Charges: -2, -1, 0
 * Dataset submitter: Lily Wang
