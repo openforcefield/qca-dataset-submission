@@ -1,0 +1,25 @@
+name: qca-datasets
+
+channels:
+  - openeye
+  - conda-forge
+
+dependencies:
+  - python >=3.10
+  - pip
+
+  - click
+
+  # Parameterization
+  - openff-toolkit
+  - openeye-toolkits ==2022.1.1
+  - openff-interchange
+  - openff-qcsubmit >=0.50.1
+  - rdkit
+  - ambertools
+  
+  # Plotting and analysis
+  - seaborn
+  - mdanalysis
+  - ipykernel
+  - pyarrow
