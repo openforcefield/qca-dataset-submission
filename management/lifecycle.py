@@ -511,7 +511,7 @@ class SubmittableBase:
     def count_unique_error_messages(errors_in, pretty_print=False):
         errors = defaultdict(set)
     
-        for id, error in errors_in:
+        for id, error in errors_in.items():
             errors["\n".join([error[i] for i in ['error_type', 'error_message']])].add(id)
     
         errors = dict(errors)
