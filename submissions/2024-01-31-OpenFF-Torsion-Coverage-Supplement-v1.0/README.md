@@ -14,13 +14,13 @@ from the [NCI Open 2012-05-01][nci] database.
 * Class: OpenFF TorsionDrive Dataset
 * Purpose: Improve proper torsion coverage in Sage
 * Name: OpenFF Torsion Coverage Supplement v1.0
-* Number of unique molecules: 679
-* Number of filtered molecules: 18
-* Number of conformers: 679
-* Number of conformers (min, mean, max): 1, 4.07, 10
-* Mean molecular weight: 400.69
-* Max molecular weight: 833.16
-* Charges: [-6, -5, -3, -2, -1, 0, 1, 2]
+* Number of unique molecules: 43
+* Number of filtered molecules: 0
+* Number of conformers: 43
+* Number of conformers (min, mean, max): 1, 1.88, 7
+* Mean molecular weight: 202.95
+* Max molecular weight: 431.57
+* Charges: [-2, -1, 0, 1, 2]
 * Dataset submitter: Brent Westbrook
 * Dataset generator: Brent Westbrook
 
@@ -40,7 +40,7 @@ from the [NCI Open 2012-05-01][nci] database.
 
 ## Metadata
 
-* elements: {As, B, Br, C, Cl, F, H, I, N, O, P, S, Si}
+* elements: {C, Cl, F, H, N, O, S}
 * Spec: default
   * basis: DZVP
   * implicit_solvent: None
