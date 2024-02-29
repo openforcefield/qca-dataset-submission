@@ -9,7 +9,7 @@ multiplicity][tm] project. The molecules in this data set were selected from the
 
 ## General Information
 
-* Date: 2024-01-31
+* Date: 2024-02-29
 * Class: OpenFF TorsionDrive Dataset
 * Purpose: Improve proper torsion coverage in Sage
 * Name: OpenFF Torsion Coverage Supplement v1.0
