@@ -4,9 +4,8 @@
 
 A torsion drive data set created to improve the coverage of both existing Sage
 2.1.0 proper torsion parameters and new parameters added through the [torsion
-multiplicity][tm] project. The molecules in this data set were primarily
-selected from the [ChEMBL 33][chembl] database, with three additional molecules
-from the [NCI Open 2012-05-01][nci] database.
+multiplicity][tm] project. The molecules in this data set were selected from the
+[ChEMBL 33][chembl] database with additional processing steps described below.
 
 ## General Information
 
@@ -28,6 +27,13 @@ from the [NCI Open 2012-05-01][nci] database.
 
 * `generate-dataset.ipynb`: This notebook shows how the dataset was prepared
   from the input files: `all.smiles` and `tm.v2.offxml`.
+* The list of proper torsion parameter ID and SMILES pairs in `all.smiles` were
+  collected by searching the ChEMBL database for all of the molecules matching
+  the parameters of interest, fragmenting these molecules with the
+  [RECAP][recap] algorithm as implemented in RDKit, clustering them based on
+  their 1024-bit [Morgan][morgan] fingerprints using the [DBSCAN][dbscan]
+  algorithm, and taking the two smallest molecules from these cluster centroids.
+  The code used for all of these steps can be found [here][chembl-search].
 
 ## QCSubmit Manifest
 
@@ -58,3 +64,7 @@ from the [NCI Open 2012-05-01][nci] database.
 [tm]: https://openforcefield.atlassian.net/wiki/spaces/FF/pages/2603909164/Torsion+multiplicity
 [chembl]: https://www.ebi.ac.uk/chembl/
 [nci]: https://cactus.nci.nih.gov/download/nci/
+[recap]: https://www.rdkit.org/docs/source/rdkit.Chem.Recap.html
+[morgan]: https://www.rdkit.org/docs/cppapi/namespaceRDKit_1_1MorganFingerprints.html
+[dbscan]: https://en.wikipedia.org/wiki/DBSCAN
+[chembl-search]: https://github.com/ntBre/chembl-search
