@@ -114,7 +114,9 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [GHA]  [`lifecycle-backlog`](.github/workflows/lifecycle-backlog.yml) will move PR card to state ["Queued for Submission"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577335) if merged and in state ["Backlog"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577334)
     - [GHA]  [`lifecycle-submission`](.github/workflows/lifecycle-submission.yml) will attempt to submit the dataset
         - if successful, will move card to state ["Error Cycling"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577365); add comment to PR
-        - if failed, will keep card queued; add comment to PR; attempt again next execution 
+        - if failed, will keep card queued; add comment to PR; attempt again next execution
+     
+    - [Human] Submit worker jobs on a server to begin compute. If using Nautilus, carefully monitor utilization and scale down resources as jobs finish.
 
 4. COMPLETE, INCOMPLETE, ERROR numbers reported for `Optimizations`, `TorsionDrives`
     - [GHA]  [`lifecycle-error-cycle`](.github/workflows/lifecycle-error-cycle.yml) will collect the above statistics for state ["Error Cycling"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577365) PRs
@@ -125,6 +127,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [Human]  if errors appear persistent,  move to state ["Requires Scientific Review"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577358)
     - discussion should be had on PR for next version
     - [Human]  once decided, state moved to ["End of Life"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577336)
+    - [Human] ensure all worker jobs have been shut down.
 
 6. [GHA]  `lifecycle-end-of-life` will add tag 'end-of-life' to dataset in QCArchive for PR in ["End of Life"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577336)
 
@@ -243,6 +246,8 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Protein Capped 1-mers 3-mers Optimization Dataset v1.0` | [2022-05-30-OpenFF-Protein-Capped-1-mers-3-mers-Optimization](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-05-30-OpenFF-Protein-Capped-1-mers-3-mers-Optimization) | Optimization dataset for protein capped 1-mers Ace-X-Nme and capped 3-mers Ace-Y-X-Y-Nme with Y = {Ala, Val} and X = 26 canonical amino acids with common protomers/tautomers (Ash, Cyx, Glh, Hid, Hip, and Lyn) | H, C, N, O, S |
 | `OpenFF Iodine Chemistry Optimization Dataset v1.0` | [2022-07-27-OpenFF-iodine-optimization-set](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-07-27-OpenFF-iodine-optimization-set) | Optimization set created from Gen1 and Gen2 molecules containing iodine | 'C', 'F', 'O', 'H', 'Br', 'Cl', 'N', 'I', 'S' |
 | `OpenFF multi-Br ESP Fragment Conformers v1.0` | [2023-11-02-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-11-02-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.0) | Optimization set created from [2022-01-16-OpenFF-ESP-Fragment-Conformers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-01-16-OpenFF-ESP-Fragment-Conformers-v1.0) by selecting molecules with multiple Cl atoms and replacing them with Br | Br, C, F, H, N, O, P, S |
+| `XtalPi Shared Fragments OptimizationDataset v1.0` | [2024-01-30-xtalpi-shared-fragments-optimization-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-01-30-xtalpi-shared-fragments-optimization-v1.0) | Representative optimization molecules used to fit XFF | C, H, Cl, Br, S, O, F, N, P |
+
 
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
