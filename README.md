@@ -299,6 +299,7 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF-Protein-Capped-3-mer-Omega-v1.0` | [2023-02-06-OpenFF-Protein-Capped-3-mer-Omega](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-02-06-OpenFF-Protein-Capped-3-mer-Omega) | TorsionDrives on omega for capped 3-mers Ace-Ala-X-Ala-Nme. | H, C, N, O, S |
 | `XtalPi Shared Fragments TorsiondriveDataset v1.0` | [2024-01-30-xtalpi-shared-fragments-torsiondrive-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-01-30-xtalpi-shared-fragments-torsiondrive-v1.0) | Representative torsion scan molecules used to fit XFF | C, H, Cl, Br, S, O, F, N, P |
 | `OpenFF Torsion Coverage Supplement v1.0` | [2024-02-29-OpenFF-Torsion-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-02-29-OpenFF-Torsion-Coverage-Supplement-v1.0) | Additional TorsionDrives to improve coverage for Sage 2.1.0 proper torsions and new parameters from the torsion multiplicity work | C, Cl, F, H, N, O, S | |
+| `OpenFF-RNA-Dinucleoside-Monophosphate-TorsionDrives-v1.0` | [2024-03-26-OpenFF-RNA-Dinucleoside-Monophosphate-TorsionDrives](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-03-26-OpenFF-RNA-Dinucleoside-Monophosphate-TorsionDrives-v1.0) | TorsionDrives of non-ring backbone, glycosidic, and hydroxyl dihedrals in RNA XpY 2-mers. | H, C, N, O, P |
 
 
 # GridOptimization Datasets
