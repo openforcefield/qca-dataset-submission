@@ -7,7 +7,7 @@
 
 # ## Imports
 
-# In[1]:
+# In[ ]:
 
 
 import openff.qcsubmit
@@ -27,7 +27,7 @@ print("QCPortal:", qcportal.__version__)
 print("PyArrow:", pyarrow.__version__)
 
 
-# In[2]:
+# In[ ]:
 
 
 import tqdm
@@ -43,7 +43,7 @@ from openff.qcsubmit.factories import TorsiondriveDatasetFactory
 
 # ## Setting up dataset
 
-# In[3]:
+# In[ ]:
 
 
 dataset_factory = TorsiondriveDatasetFactory()
@@ -51,20 +51,20 @@ dataset_factory = TorsiondriveDatasetFactory()
 
 # ## Loading input
 
-# In[4]:
+# In[ ]:
 
 
 input_dataset = ds.dataset("/data/chodera/lilywang/datasets/xff/output/xff-20-percent-td-dataset")
 input_dataset.schema
 
 
-# In[6]:
+# In[ ]:
 
 
 print(f"Total #confs: {input_dataset.count_rows()}")
 
 
-# In[7]:
+# In[ ]:
 
 
 from openff.toolkit import Molecule
@@ -104,7 +104,7 @@ for (mapped_smiles, *_), subdf in df.groupby(by=groupby):
 len(all_molecules)
 
 
-# In[8]:
+# In[ ]:
 
 
 dataset = dataset_factory.create_dataset(
@@ -115,7 +115,6 @@ dataset = dataset_factory.create_dataset(
         "in fitting the XFF force field "
         "(DOI: 10.1021/acs.jctc.3c00920). "
         "Conformers are the post-optimization geometries shared by XtalPi. "
-        "Each conformer will be converged according to the 'GAU_LOOSE' criteria."
     ),
     molecules=all_molecules
 )
@@ -127,7 +126,7 @@ dataset.metadata.long_description_url = (
 )
 
 
-# In[9]:
+# In[ ]:
 
 
 dataset.dict()
@@ -135,7 +134,7 @@ dataset.dict()
 
 # ## Exporting dataset
 
-# In[10]:
+# In[ ]:
 
 
 dataset.export_dataset("dataset.json.bz2")
@@ -147,21 +146,21 @@ print(dataset.qc_specifications)
 
 # ## Dataset information
 
-# In[11]:
+# In[ ]:
 
 
 import numpy as np
 from collections import Counter
 
 
-# In[12]:
+# In[ ]:
 
 
 print("n_molecules:", dataset.n_molecules)
 print("n_conformers:", dataset.n_records)
 
 
-# In[13]:
+# In[ ]:
 
 
 n_confs = np.array(
@@ -172,7 +171,7 @@ n_heavy_atoms = np.array(
 )
 
 
-# In[14]:
+# In[ ]:
 
 
 print(
@@ -185,7 +184,7 @@ for n_heavy in sorted(counts):
     print(f"{str(n_heavy):>3}: {counts[n_heavy]}")
 
 
-# In[15]:
+# In[ ]:
 
 
 unique_charges = set([
@@ -195,7 +194,7 @@ unique_charges = set([
 unique_charges
 
 
-# In[16]:
+# In[ ]:
 
 
 masses = np.array([
@@ -205,7 +204,7 @@ masses = np.array([
 print("MW (min, mean, max):", masses.min(), masses.mean(), masses.max())
 
 
-# In[17]:
+# In[ ]:
 
 
 elements = set(

@@ -34,7 +34,8 @@ This dataset is read in the Jupyter notebook to create the submission.
 ## QCSubmit generation pipeline
 
 * `generate-dataset.ipynb`: This notebook shows how the dataset was prepared from the input files.
-
+* `generate-dataset.py`: This is the Python script version of the notebook
+* `generate-dataset.pdf`: This is the PDF of the notebook
 
 ## QCSubmit Manifest
 
@@ -42,6 +43,8 @@ This dataset is read in the Jupyter notebook to create the submission.
 * `dataset.pdf.tar.gz`: Visualization of dataset molecules, compressed
 * `dataset.smi`: Smiles strings for dataset molecules
 * `generate-dataset.ipynb`: Notebook describing dataset generation and submission
+* `generate-dataset.py`: This is the Python script version of the notebook
+* `generate-dataset.pdf`: This is the PDF of the notebook
 * `input-environment.yaml`: Environment file used to create Python environment for the notebook
 * `full-environment.yaml`: Fully-resolved environment used to execute the notebook.
 * `convert-to-td-dataset.py`: Python script used to parse MOL2 files.
