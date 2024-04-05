@@ -2,8 +2,8 @@
 
 Do not waste resources. Our access to NRP is not guaranteed and is dependent on our good behavior. If we get in trouble they will apply penalties to the entire openforcefield namespace.
 
-* Have a browser tab open to monitor your % utilization. Keep this as high as possible. Generally, GPU+processor requests should be over 70% and memory over 35%
-* Have the element/matrix chat open and check every few hours whether the admins are trying to get your attention.
+* Have a browser tab open to [monitor your % utilization](https://grafana.nrp-nautilus.io/d/zytktgwWz/utilization-by-namespace?orgId=1&from=now-3h&to=now). Keep this as high as possible. Generally, GPU+processor requests should be over 70% and memory over 35%
+* Have the [element/matrix chat](https://element.nrp-nautilus.io/#/room/#general:matrix.nrp-nautilus.io) open and check every few hours whether the admins are trying to get your attention.
 * See the QCF manager yaml for some of the special keywords/tolerations that make workers pre-emptible. 
 
 # Playbook
