@@ -1,19 +1,19 @@
-# OpenFF Torsion Benchmark Supplement v1.0
+# OpenFF Torsion Benchmark Supplement Optimization Dataset v1.0
 
 ## Description
 
 An optimization data set created to expand the benchmarking data for both
 existing Sage 2.2.0 proper torsion parameters and new parameters added through
-the [torsion multiplicity][tm] project. The molecules in this data set were The
-molecules in this data set were selected from the [ChEMBL 33][chembl] database
-with additional processing steps described below.
+the [torsion multiplicity][tm] project. The molecules in this data set were
+selected from the [ChEMBL 33][chembl] database with additional processing steps
+described below.
 
 ## General Information
 
 * Date: 2024-04-17
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve proper torsion training data in Sage
-* Name: OpenFF Torsion Drive Supplement v1.0
+* Name: OpenFF Torsion Benchmark Supplement Optimization Dataset v1.0
 * Number of unique molecules: 51
 * Number of filtered molecules: 0
 * Number of conformers: 51
@@ -65,4 +65,4 @@ with additional processing steps described below.
 <!-- References -->
 [tm]: https://openforcefield.atlassian.net/wiki/spaces/FF/pages/2603909164/Torsion+multiplicity
 [chembl]: https://www.ebi.ac.uk/chembl/
-[cura]: https://github.com/ntBre/cura
+[cura]: https://github.com/ntBre/cura/tree/8deb89fcbc84e3688968deadfdf2ff682bfd1e19
