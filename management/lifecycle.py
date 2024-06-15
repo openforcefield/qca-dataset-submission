@@ -267,7 +267,7 @@ class Submission:
                 ds = DataSet(dataset, self, self.ghapi)
                 ds.comment_archived_complete()
 
-    def execute_requires_scientific_review(self):
+    def execute_requires_scientific_review(self, pr_card, pr_state):
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
         labels =  set(map(lambda x: x.name, self.pr.labels))
