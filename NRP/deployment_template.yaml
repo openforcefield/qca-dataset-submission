@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openff-qca-qm
+  labels:
+    k8s-app: openff-qca-qm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      k8s-app: openff-qca-qm
+  template:
+    metadata:
+      labels:
+        k8s-app: openff-qca-qm
+    spec:
+      priorityClassName: nice
+      tolerations:
+        - key: "nautilus.io/suncave"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "nautilus.io/wave"
+          operator: "Exists"
+          effect: "NoSchedule"
+        - key: "nautilus.io/science-dmz"
+          operator: "Exists"
+          effect: "NoSchedule"
+      containers:
+      - image: "openforcefield/qcarchive-worker-openff-psi4:sha-7669e1b"
+        name: openff-pod
+        resources:
+          limits:
+            cpu: 4
+            memory: 6Gi
+            ephemeral-storage: 20Gi
+          requests:
+            cpu: 4
+            memory: 6Gi
+            ephemeral-storage: 20Gi
+        volumeMounts:
+          - name: manager-config-secret
+            mountPath: "/etc/qcfractal-manager"
+            readOnly: true
+          - name: fscratch
+            mountPath: /fscratch
+        env:
+          - name: SCF_MEM_SAFETY_FACTOR
+            value: "0.5"
+      volumes:
+        - name: manager-config-secret
+          secret:
+            secretName: manager-qm-config-yaml
+        - name: fscratch
+          emptyDir: {}

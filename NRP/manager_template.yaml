@@ -1,0 +1,22 @@
+cluster: openff-nrp-qm
+loglevel: INFO
+update_frequency: 180.0
+parsl_run_dir: "/fscratch/parsl_run_dir"
+
+server:
+  fractal_uri: https://api.qcarchive.molssi.org
+  username: <FILL THIS IN>
+  password: <FILL THIS IN>
+  verify: True
+
+executors:
+  local_executor:
+    type: local
+    max_workers: 1
+    cores_per_worker: 4
+    memory_per_worker: 6
+    scratch_directory: "/fscratch"
+    queue_tags:
+      - 'openff'
+    environments:
+      use_manager_environment: True
