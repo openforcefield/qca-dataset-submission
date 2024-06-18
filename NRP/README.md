@@ -14,7 +14,7 @@ If changing manager/deployment CPUs or RAM, coordinate changes in both manager.y
 
 Deployments have tons of tolerations allowing them to run on pre-emptible resources that normal jobs can’t use, also have nice priority. This means our jobs will die more often, but we should be comfortable requesting tons of resources. Just make sure we use what we request, or scale down if not!
 
-    kubectl --context=nautilus create secret generic manager-qm-config-yaml --from-file=manager.yaml
+    kubectl --context=nautilus create secret generic manager-qm-config-yaml-<YOUR INITIALS HERE> --from-file=manager.yaml
 
     kubectl --context=nautilus apply -f deployment.yaml
 
@@ -22,9 +22,9 @@ Deployments have tons of tolerations allowing them to run on pre-emptible resour
 
     kubectl logs openff-qca-qm-856ccd6795-pnkkc
 
-    kubectl --context=nautilus delete deployment openff-qca-qm
+    kubectl --context=nautilus delete deployment openff-qca-qm-<YOUR INITIALS HERE>
 
-    kubectl --context=nautilus delete secret manager-qm-config-yaml
+    kubectl --context=nautilus delete secret manager-qm-config-yaml-<YOUR INITIALS HERE>
 
     kubectl --context=nautilus get deployment openff-qca-qm
 
@@ -49,6 +49,7 @@ In particular
 * Click "Get Config" on the top right of the login page and follow the instructions.
 * Install kubectl on your computer (brew using mac, several options on linux) https://kubernetes.io/docs/tasks/tools/#kubectl
 * Verify that your config is happy by running something like `kubectl --context=nautilus get deployment` and ensure you see OpenFF's running jobs. 
+* If you start seeing errors rejecting your token, such as `oauth2: cannot fetch token: 401 Unauthorized`, you may need to update your config by re-downloading it.
 
 ### Getting QCA credentials
 
