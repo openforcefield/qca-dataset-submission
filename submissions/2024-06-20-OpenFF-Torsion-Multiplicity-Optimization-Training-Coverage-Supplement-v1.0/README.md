@@ -13,13 +13,13 @@ covered by ChEMBL.
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve proper torsion coverage in Sage
 * Name: OpenFF Torsion Multiplicity Optimization Training Coverage Supplement v1.0
-* Number of unique molecules: 
-* Number of filtered molecules: 
-* Number of conformers: 
-* Number of conformers per molecule (min, mean, max): , , 
-* Mean molecular weight: 
-* Max molecular weight: 
-* Charges: 
+* Number of unique molecules: 37
+* Number of filtered molecules: 0
+* Number of conformers: 259
+* Number of conformers per molecule (min, mean, max): 1, 7.00, 10
+* Mean molecular weight: 187.31
+* Max molecular weight: 489.48
+* Charges: [0.0, 1.0, 2.0]
 * Dataset submitter: Brent Westbrook
 * Dataset generator: Brent Westbrook
 
@@ -47,8 +47,18 @@ found [here][frag].
 * `dataset.smi`: Smiles strings for dataset molecules
 
 ## Metadata
-
-* elements: 
-* Spec: 
+* Elements: {C, Cl, S, O, H, P, N, Br}
+* Spec: default
+	* basis: DZVP
+	* implicit_solvent: None
+	* keywords: {}
+	* maxiter: 200
+	* method: B3LYP-D3BJ
+	* program: psi4
+	* SCF properties:
+		* dipole
+		* quadrupole
+		* wiberg_lowdin_indices
+		* mayer_indices
 
 [frag]: https://github.com/ntBre/valence-fitting/tree/c1e98fb20e7a4c9622ff031d8b23fb0b1846be7d/02_curate-data/frag
