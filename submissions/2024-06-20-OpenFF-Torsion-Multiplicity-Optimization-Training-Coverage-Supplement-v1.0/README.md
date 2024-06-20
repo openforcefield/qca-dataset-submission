@@ -39,7 +39,7 @@ found [here][frag].
 * `input-environment.yaml`: Environment file used to create Python environment for the notebook
 * `full-environment.yaml`: Fully-resolved environment used to execute the notebook
 * `ff.offxml`: Draft force field with Sage 2.2.0 proper torsions split to ensure single multiplicities
-* `test.toml`: Experimental input file for defining variables used throughout the QCA submission process
+* `opt.toml`: Experimental input file for defining variables used throughout the QCA submission process
 
 ### Output Files
 * `dataset.json.bz2`: Compressed dataset ready for submission
