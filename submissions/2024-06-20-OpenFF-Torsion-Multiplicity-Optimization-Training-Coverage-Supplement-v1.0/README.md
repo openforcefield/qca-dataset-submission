@@ -15,8 +15,8 @@ covered by ChEMBL.
 * Name: OpenFF Torsion Multiplicity Optimization Training Coverage Supplement v1.0
 * Number of unique molecules: 37
 * Number of filtered molecules: 0
-* Number of conformers: 259
-* Number of conformers per molecule (min, mean, max): 1, 7.00, 10
+* Number of conformers: 185
+* Number of conformers per molecule (min, mean, max): 1, 5.00, 10
 * Mean molecular weight: 187.31
 * Max molecular weight: 489.48
 * Charges: [0.0, 1.0, 2.0]
