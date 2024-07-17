@@ -23,9 +23,9 @@ junk = re.compile("[(,)]")
 
 # proper torsion parameter IDs to drive
 target_params = [
-    "t2",
-    "t3",
-    "t4",
+    # "t2",
+    # "t3",
+    # "t4",
     "t45",
     "t46",
     "t50",
@@ -37,6 +37,7 @@ target_params = [
 
 # drive each torsion matching one of the target parameters for each molecule
 molecules = list()
+unmatched = list()  # input smiles not matched by target_params
 with open("input.smi") as inp:
     for line in tqdm(inp, desc="Tagging torsions"):
         smiles = line.strip()
@@ -48,8 +49,14 @@ with open("input.smi") as inp:
             sym = get_symmetry_group(tors[1:3], sym_classes)
             if p.id in target_params:
                 ti.add_torsion(tors, sym, (-165, 180))
+        if not len(ti.torsions):
+            unmatched.append(smiles)
         mol.properties["dihedrals"] = ti
         molecules.append(mol)
+
+print("unmatched smiles:")
+for m in unmatched:
+    print(f"\t{m}")
 
 
 # build the dataset
@@ -75,10 +82,10 @@ dataset.metadata.long_description_url = (
 # check that the molecules in the dataset match the initial molecules
 old_smiles = {m.to_smiles(isomeric=False) for m in molecules}
 new_smiles = {m.to_smiles(isomeric=False) for m in dataset.molecules}
-# usually I check the symmetric difference, but in this case, three SMILES had
+# usually I check the symmetric difference, but in this case, some SMILES have
 # no torsions matching the target parameters and were filtered out
 assert not new_smiles - old_smiles
-assert len(old_smiles) - 3 == len(new_smiles)
+assert len(old_smiles) - len(unmatched) == len(new_smiles)
 
 
 # summarize dataset for readme
