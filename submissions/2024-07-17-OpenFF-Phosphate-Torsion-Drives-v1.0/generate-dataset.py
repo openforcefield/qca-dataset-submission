@@ -31,6 +31,19 @@ target_params = [
     "t160",
 ]
 
+
+def is_ring_torsion(
+    mol: Molecule,
+    indices: tuple[int, int, int, int],
+) -> bool:
+    i, j, k, m = indices
+    return (
+        mol.get_bond_between(i, j).is_in_ring()
+        and mol.get_bond_between(j, k).is_in_ring()
+        and mol.get_bond_between(k, m).is_in_ring()
+    )
+
+
 # drive each torsion matching one of the target parameters for each molecule
 molecules = list()
 unmatched = list()  # input smiles not matched by target_params
@@ -43,7 +56,7 @@ with open("input.smi") as inp:
         sym_classes = get_symmetry_classes(mol)
         for tors, p in labels.items():
             sym = get_symmetry_group(tors[1:3], sym_classes)
-            if p.id in target_params:
+            if p.id in target_params and not is_ring_torsion(mol, tors):
                 ti.add_torsion(tors, sym, (-165, 180))
         if not len(ti.torsions):
             unmatched.append(smiles)
