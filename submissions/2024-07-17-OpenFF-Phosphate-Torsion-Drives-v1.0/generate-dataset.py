@@ -1,6 +1,4 @@
-import re
 import tomllib
-from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
@@ -18,8 +16,6 @@ ff = ForceField("openff-2.1.0.offxml")
 # load config
 with open("td.toml", "rb") as f:
     config = tomllib.load(f)
-
-junk = re.compile("[(,)]")
 
 # proper torsion parameter IDs to drive
 target_params = [
