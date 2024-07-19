@@ -19,11 +19,13 @@ with open("td.toml", "rb") as f:
 
 # proper torsion parameter IDs to drive
 target_params = [
+    # alkane parameters
     # "t2",
     # "t3",
     # "t4",
-    "t45",
-    "t46",
+    # alkene parameters
+    # "t45",
+    # "t46",
     "t50",
     "t95",
     "t123a",
