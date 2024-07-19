@@ -71,7 +71,7 @@ for m in unmatched:
 # build the dataset
 dataset_factory = TorsiondriveDatasetFactory()
 dataset_factory.add_workflow_components(
-    workflow_components.StandardConformerGenerator(max_conformers=10)
+    workflow_components.StandardConformerGenerator(max_conformers=5)
 )
 
 dataset = dataset_factory.create_dataset(
