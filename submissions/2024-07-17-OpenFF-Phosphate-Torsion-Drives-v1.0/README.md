@@ -11,12 +11,12 @@ parameters in Sage.
 * Class: OpenFF TorsionDrive Dataset
 * Purpose: Improver phosphate coverage in Sage
 * Name: OpenFF Phosphate Torsion Drives v1.0
-* Number of unique molecules: 69
-* Number of driven torsions: 570
+* Number of unique molecules: 63
+* Number of driven torsions: 318
 * Number of filtered molecules: 0
-* Number of conformers: 5121
-* Number of conformers per molecule (min, mean, max): 1, 8.98, 10
-* Mean molecular weight: 397.14
+* Number of conformers: 1526
+* Number of conformers per molecule (min, mean, max): 1, 4.80, 5
+* Mean molecular weight: 392.25
 * Max molecular weight: 785.55
 * Charges: [-5.0, -4.0, -3.0, -2.0, -1.0, 0.0]
 * Dataset generator: Patrick Frankel
@@ -44,7 +44,7 @@ parameters in Sage.
 * `output.smi`: SMILES strings for dataset molecules
 
 ## Metadata
-* Elements: {S, C, H, O, P, N}
+* Elements: {C, S, N, H, O, P}
 * Spec: default
 	* basis: DZVP
 	* implicit_solvent: None
