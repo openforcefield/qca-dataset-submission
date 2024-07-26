@@ -27,7 +27,8 @@ def main():
     # default keywords to ensure ultra fine grid
     keywords = {
         "dft_spherical_points": 590,
-        "dft_radial_points": 99
+        "dft_radial_points": 99,
+        "debug": 1
     }
     properties = [
         SCFProperties.Dipole,
@@ -49,7 +50,7 @@ def main():
         scf_properties=properties
     )
     ddx_spec = DDXSettings(
-        ddx_solvent="water"
+        ddx_solvent_epsilon=78.4
     )
     dataset.add_qc_spec(
         program="psi4",
