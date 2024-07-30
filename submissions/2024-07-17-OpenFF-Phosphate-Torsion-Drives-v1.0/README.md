@@ -9,7 +9,7 @@ parameters in Sage.
 
 * Date: 2024-07-17
 * Class: OpenFF TorsionDrive Dataset
-* Purpose: Improver phosphate coverage in Sage
+* Purpose: Improve phosphate coverage in Sage
 * Name: OpenFF Phosphate Torsion Drives v1.0
 * Number of unique molecules: 63
 * Number of driven torsions: 318
