@@ -48,7 +48,7 @@ unmatched = list()  # input smiles not matched by target_params
 with open("input.smi") as inp:
     for line in tqdm(inp, desc="Tagging torsions"):
         smiles = line.strip()
-        mol = Molecule.from_smiles(smiles, allow_undefined_stereo=True)
+        mol = Molecule.from_smiles(smiles)
         labels = ff.label_molecules(mol.to_topology())[0]["ProperTorsions"]
         ti = TorsionIndexer()
         sym_classes = get_symmetry_classes(mol)
