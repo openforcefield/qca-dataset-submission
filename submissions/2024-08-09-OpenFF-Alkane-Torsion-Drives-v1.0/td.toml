@@ -1,0 +1,56 @@
+name = "OpenFF Alkane Torsion Drives v1.0"
+description = """
+A torsion drive data set created to improve the coverage of alkane and alkene
+parameters in Sage.
+"""
+short_description = "Alka/ene torsion drives"
+class = "torsiondrive"
+purpose = "Improve proper torsion coverage in Sage"
+generator = "Michael Shirts"
+submitter = "Brent Westbrook"
+
+[[pipeline]]
+filename = "generate-dataset.py"
+description = """
+This script shows how the dataset was prepared from the input file `input.smi`.
+"""
+
+[[pipeline]]
+description = """
+The list of SMILES in `input.smi` were curated by hand to correspond to
+alka/ene parameters missing coverage in Sage.
+"""
+
+# input files
+[[manifest]]
+filename = "generate-dataset.py"
+description = "Script describing dataset generation and submission"
+
+[[manifest]]
+filename = "input.smi"
+description = "Input SMILES"
+
+[[manifest]]
+filename = "input-environment.yaml"
+description = "Environment file used to create Python environment for the script"
+
+[[manifest]]
+filename = "full-environment.yaml"
+description = "Fully-resolved environment used to execute the script"
+
+[[manifest]]
+filename = "td.toml"
+description = "Experimental input file for defining variables used throughout the QCA submission process"
+
+# output files
+[[manifest]]
+filename = "dataset.json.bz2"
+description = "Compressed dataset ready for submission"
+
+[[manifest]]
+filename = "dataset.pdf"
+description = "Visualization of dataset molecules"
+
+[[manifest]]
+filename = "dataset.smi"
+description = "Smiles strings for dataset molecules"
