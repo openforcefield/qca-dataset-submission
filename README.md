@@ -308,6 +308,7 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Torsion Drive Supplement v1.0` | [2024-04-17-OpenFF-Torsion-Drive-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-04-17-OpenFF-Torsion-Drive-Supplement-v1.0) | Additional TorsionDrives to expand training data for Sage 2.2.0 proper torsions and new parameters from the torsion multiplicity work | H, C, N, O, P, S | |
 | `OpenFF Torsion Multiplicity Torsion Drive Coverage Supplement v1.0` | [2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0) | Additional torsion drive training data for Sage 2.2.0 proper torsions and new parameters from the torsion multiplicity work | N, Br, H, P, Cl, O, C, S | |
 | `OpenFF Phosphate Torsion Drives v1.0` | [2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0) | Lipid-like phosphate torsions | C, S, N, H, O, P | |
+| `OpenFF Alkane Torsion Drives v1.0` | [2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0) | Alka/ene torsion drives | C, H | |
 
 
 # GridOptimization Datasets
