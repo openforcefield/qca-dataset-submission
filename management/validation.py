@@ -78,7 +78,7 @@ def create_spec_report(spec, validated, extras):
         "**Method**": spec["method"],
         "**Basis**": spec["basis"],
         "**Wavefunction Protocol**": spec["store_wavefunction"],
-        "**Implicit Solvent**": solvent["medium_Solvent"] if solvent is not None else solvent,
+        "**Implicit Solvent**": json.dumps(solvent) if solvent is not None else solvent,
         "**Keywords**": json.dumps({} if not spec.get("keywords", None) else spec["keywords"]),
         "**Validated**": validated
     }
