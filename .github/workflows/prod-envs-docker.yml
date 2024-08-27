@@ -51,7 +51,7 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ matrix.env-name }}-latest
-          file: ${BUILD_DIR}/tmp/Dockerfile
+          file: ./devtools/docker/qcarchive-worker-openff/tmp/Dockerfile
           #path: ./devtools/docker/qcarchive-worker-openff/tmp/
           #username: ${{ secrets.DOCKERHUB_USERNAME }}
           #password: ${{ secrets.DOCKERHUB_PASSWORD }}
