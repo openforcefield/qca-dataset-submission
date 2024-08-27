@@ -5,11 +5,11 @@ name: Deployment - QCArchive Prod Docker Environments
 
 on:
   # run once prod env deployments are in place
-  workflow_run:
-    workflows: ["Deployment - QCArchive Prod Environments"]
-    branches: [master, use-ghcr]
-    types:
-      - completed
+  #workflow_run:
+  #  workflows: ["Deployment - QCArchive Prod Environments"]
+  #  branches: [master]
+  #  types:
+  #    - completed
   workflow_dispatch:
 
 jobs:
