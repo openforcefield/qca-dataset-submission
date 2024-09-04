@@ -6,6 +6,7 @@ class ProjectV2Project(dict):
     def __init__(self, project_node_id):
         self.project_node_id = project_node_id
         data = self._get_project_data("PVT_kwDOARrkss4Am84U")
+        print(data)
         self.columns = dict()
         for item in data['data']['node']['items']['nodes']:
             for field in item['fieldValues']['nodes']:
