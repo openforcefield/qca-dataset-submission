@@ -2,8 +2,7 @@ FROM condaforge/miniforge3
 
 SHELL ["/bin/bash", "-c"]
 
-RUN mamba install anaconda-client
-RUN mamba env create -n qcfractal openforcefield/${ENV_NAME}
+RUN mamba env create -n qcfractal -f https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/use-ghcr/devtools/prod-envs/${ENV_NAME}.yaml
 
 RUN groupadd -g 999 qcfractal && \
     useradd -m -r -u 999 -g qcfractal qcfractal

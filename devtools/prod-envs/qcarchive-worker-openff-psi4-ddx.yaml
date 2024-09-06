@@ -5,12 +5,13 @@ channels:
 dependencies:
   - python =3.10
   - pip
-  - qcfractalcompute =0.51
-  - qcengine =0.29.0
-  - qcelemental =0.27.1
+  - qcfractalcompute
+  - qcengine
+  - qcelemental
 
   # QM calculations
-  - psi4 =1.8.2
+  - psi4
+  - pyddx 
   - dftd3-python
   - gcp-correction
   - scipy

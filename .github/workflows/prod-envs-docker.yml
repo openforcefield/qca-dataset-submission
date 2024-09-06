@@ -4,12 +4,6 @@
 name: Deployment - QCArchive Prod Docker Environments
 
 on:
-  # run once prod env deployments are in place
-  workflow_run:
-    workflows: ["Deployment - QCArchive Prod Environments"]
-    branches: [master]
-    types:
-      - completed
   workflow_dispatch:
 
 jobs:
@@ -22,6 +16,7 @@ jobs:
           - qcarchive-worker-openff-ani
           - qcarchive-worker-openff-openmm
           - qcarchive-worker-openff-psi4
+          - qcarchive-worker-openff-psi4-ddx
           - qcarchive-worker-openff-xtb
     steps:
       - name: Checkout code
@@ -33,7 +28,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
         with:
           abort-after-seconds: 60
-
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Inject environment name into Dockerfile
         shell: bash
         env:
@@ -46,12 +46,9 @@ jobs:
             cat ${BUILD_DIR}/tmp/Dockerfile
 
       - name: Build and push Docker images
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v6
         with:
-          path: ./devtools/docker/qcarchive-worker-openff/tmp/
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: openforcefield/${{ matrix.env-name }}
-          add_git_labels: true
-          tag_with_ref: true
-          tag_with_sha: true
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ matrix.env-name }}-latest
+          file: ./devtools/docker/qcarchive-worker-openff/tmp/Dockerfile

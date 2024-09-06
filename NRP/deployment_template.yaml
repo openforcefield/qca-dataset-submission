@@ -26,7 +26,7 @@ spec:
           operator: "Exists"
           effect: "NoSchedule"
       containers:
-      - image: "openforcefield/qcarchive-worker-openff-psi4:sha-7669e1b"
+      - image: "ghcr.io/openforcefield/qca-dataset-submission:qcarchive-worker-openff-psi4-latest"
         name: openff-pod
         resources:
           limits:
