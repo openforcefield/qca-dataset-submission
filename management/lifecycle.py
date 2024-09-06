@@ -107,7 +107,7 @@ class Submission:
         pr_card = None
         for state, cards in board.items():
             for card in cards:
-                if card.pr_number == pr.number:
+                if int(card.pr_number) == int(pr.number):
                     pr_state = state
                     pr_card = card
                     break
@@ -809,17 +809,17 @@ def create_dataset(dataset_data):
         raise RuntimeError(f"The dataset type {dataset_type} is not supported.")
 
 
-def _get_full_board(repo):
-    proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
-    board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
-
-    # attach pr number to each card; we do this *once* here to avoid too many API calls,
-    # exhausting our limit
-    for col, cards in board.items():
-        for card in cards:
-            card.pr_number = card.get_content().number
-
-    return board
+# def _get_full_board(repo):
+#     proj = [proj for proj in repo.get_projects() if proj.name == "Dataset Tracking"][0]
+#     board = {col.name: [card for card in col.get_cards()] for col in proj.get_columns()}
+#
+#     # attach pr number to each card; we do this *once* here to avoid too many API calls,
+#     # exhausting our limit
+#     for col, cards in board.items():
+#         for card in cards:
+#             card.pr_number = card.get_content().number
+#
+#     return board
 
 
 def _get_tracking_prs(repo):
@@ -928,7 +928,9 @@ def main():
 
     # grab the full project board state once so we don't have to hammer the API
     # over and over
-    board = _get_full_board(repo)
+    #board = _get_full_board(repo)
+    import projectsv2
+    board = projectsv2._get_full_board()
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
