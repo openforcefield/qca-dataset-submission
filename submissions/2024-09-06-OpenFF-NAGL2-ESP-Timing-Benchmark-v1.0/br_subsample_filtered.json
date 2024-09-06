@@ -2,73 +2,73 @@
   "entries": {
     "https://api.qcarchive.molssi.org:443/": [
       {
-        "type": "optimization",
-        "record_id": 119136524,
+        "type": "basic",
+        "record_id": 119137907,
         "cmiles": "[H:8][c:7]1[c:9]([c:11]([c:13]2[c:4]([c:5]1[Br:6])[N:3]=[C:2]([O:14]2)[H:1])[Br:12])[H:10]",
         "inchi_key": "NPFWFGNIBCYDRR-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119137079,
+        "type": "basic",
+        "record_id": 119138396,
         "cmiles": "[H:6][c:5]1[c:7]2[c:8]([c:9]([c:2]([c:3]1[Br:4])[H:1])[Br:10])[N:11]([C:13](=[S:14])[N:15]2[H:16])[H:12]",
         "inchi_key": "JZGOLAQUSVAEDG-PZWAIHAUNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136862,
+        "type": "basic",
+        "record_id": 119138264,
         "cmiles": "[H:1][c:2]1[c:3]([c:5]([c:7]([c:9]([c:11]1[Br:12])[H:10])[F:8])[Br:6])[H:4]",
         "inchi_key": "WNSNPGHNIJOOPM-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136864,
+        "type": "basic",
+        "record_id": 119138333,
         "cmiles": "[H:1][c:2]1[c:3]([c:5]([c:7]([c:9]([c:13]1[Br:14])[N:10]([H:11])[H:12])[Br:8])[H:6])[Br:4]",
         "inchi_key": "GVPODVKBTHCGFU-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136518,
+        "type": "basic",
+        "record_id": 119137923,
         "cmiles": "[H:6][c:5]1[c:7]([c:9]([c:11]([c:15]([c:4]1[C:2](=[O:3])[H:1])[Br:16])[N:12]([H:13])[H:14])[Br:10])[H:8]",
         "inchi_key": "AHHGDUYTZFKXSJ-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136912,
+        "type": "basic",
+        "record_id": 119138309,
         "cmiles": "[H:4][c:3]1[c:2]([c:15]([c:11]([c:9]([c:5]1[S:6](=[O:7])[O-:8])[Br:10])[N:12]([H:13])[H:14])[Br:16])[H:1]",
         "inchi_key": "XYIUEZYTWIRQQF-ATSQFBFLNA-M"
       },
       {
-        "type": "optimization",
-        "record_id": 119136563,
+        "type": "basic",
+        "record_id": 119137910,
         "cmiles": "[H:1][c:2]1[c:9]([c:7]([n:6][n:5][c:3]1[Br:4])[Br:8])[C:10]([H:11])([H:12])[N+:13]([H:14])([H:15])[H:16]",
         "inchi_key": "JEQDZYRYMJLTGC-ZVMNLLSENA-O"
       },
       {
-        "type": "optimization",
-        "record_id": 119136744,
+        "type": "basic",
+        "record_id": 119138050,
         "cmiles": "[H:7][c:6]1[c:4]([n:3][c:2]([n:10][c:8]1[Br:9])[H:1])[Br:5]",
         "inchi_key": "CEPVZSXIONCAJV-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136829,
+        "type": "basic",
+        "record_id": 119138198,
         "cmiles": "[H:6][c:5]1[c:7]([c:12]([c:17]([c:2]([c:3]1[Br:4])[H:1])[Br:18])[C:13]([H:14])([H:15])[H:16])[C:8]([H:9])([H:10])[H:11]",
         "inchi_key": "MUOWYDXIKBTQHA-UHFFFAOYNA-N"
       },
       {
-        "type": "optimization",
-        "record_id": 119136484,
+        "type": "basic",
+        "record_id": 119137893,
         "cmiles": "[H:6][c:5]1[c:7]([c:12]([c:20]([c:2]([c:3]1[Br:4])[H:1])[Br:21])[C:13]([H:14])([H:15])[N+:16]([H:17])([H:18])[H:19])[C:8]([H:9])([H:10])[H:11]",
         "inchi_key": "MNGWTOLLDHDLIY-OOMQJMLZNA-O"
       },
       {
-        "type": "optimization",
-        "record_id": 119136490,
+        "type": "basic",
+        "record_id": 119137944,
         "cmiles": "[H:1][c:2]1[c:3]([c:5]([c:7]([c:18]([c:20]1[Br:21])[H:19])[C:8]([H:9])([C:10]([H:11])([H:12])[H:13])[N+:14]([H:15])([H:16])[H:17])[Br:6])[H:4]",
         "inchi_key": "VWIJODSEAQBYNY-ZIAFNODZNA-O"
       }
     ]
   },
   "provenance": {},
-  "type": "OptimizationResultCollection"
+  "type": "BasicResultCollection"
 }
