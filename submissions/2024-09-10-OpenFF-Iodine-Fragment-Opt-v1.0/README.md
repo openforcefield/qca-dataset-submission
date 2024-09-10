@@ -1,4 +1,4 @@
-# OpenFF multi-Br ESP Fragment Conformers v1.0
+# OpenFF Iodine Fragment Opt v1.0
 
 ## Description
 
