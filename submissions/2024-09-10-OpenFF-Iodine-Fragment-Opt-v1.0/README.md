@@ -35,7 +35,7 @@ Each conformer will be converged according to the 'GAU_LOOSE' criteria.
 ## QCSubmit Manifest
 
 * `dataset.json.bz2`: Compressed dataset ready for submission
-* `dataset.pdf`: Visualization of dataaset molecules
+* `dataset.pdf`: Visualization of dataset molecules
 * `dataset.smi`: Smiles strings for dataset molecules
 * `generate-dataset.ipynb`: Notebook describing dataset generation and submission
 * `enumerated.smi`: Input SMILES
