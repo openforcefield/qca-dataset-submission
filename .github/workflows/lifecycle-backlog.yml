@@ -53,7 +53,7 @@ jobs:
 
       - name: Run lifecycle processing script
         env:
-          GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED }}
+          GH_TOKEN: ${{ secrets.QCA_DATASET_SUBMISSION_PAT }}
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
