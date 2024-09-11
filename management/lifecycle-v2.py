@@ -367,6 +367,7 @@ class ProjectV2Column:
             item.number
         )
         self.project.move_card_to_column(card, self.column_name)
+        return card
 
 
     def _add_card_to_self(self, card_node_id, card_url, card_name, card_number):
