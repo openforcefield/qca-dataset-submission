@@ -1,16 +1,14 @@
 ---
-# test lifecycle processing. This only executes if
-# the PR has a "test-ci" label
+# test lifecycle processing
 
 name: Test lifecycle
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
+    types:
+      - labeled
   workflow_dispatch:
 
 defaults:
