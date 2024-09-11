@@ -139,6 +139,7 @@ class Submission:
         if board is None:
             board = projectsv2._get_full_board()
         # look for the card
+        pr_state = None
         for col_name, cards in board.items():
             for card in cards:
                 if int(card.pr_number) == int(self.pr.number):
