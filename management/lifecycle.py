@@ -147,20 +147,13 @@ class Submission:
                     pr_state = col_name
 
         # pr_card, pr_state = self._get_board_card_state(board, self.pr)
-
         # if card not on board, then it starts in the Backlog
-        if pr_state is None:
-            pr_state = self.set_backlog()
+        # skip this completely, we can't do it
+        # if pr_state is None:
+            # pr_state = self.set_backlog()
 
-            # # reload board, since we just added this card
-            board = projectsv2._get_full_board()
-            # look for the card
-            for col_name, cards in board.items():
-                for card in cards:
-                    if int(card.pr_number) == int(self.pr.number):
-                        pr_card = card
-                        pr_state = col_name
-
+            # reload board, since we just added this card
+            # board = _get_full_board(self.repo)
             # pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
         # exit early if states specified, and this PR is not
