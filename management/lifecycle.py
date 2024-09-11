@@ -138,12 +138,12 @@ class Submission:
         # we're going to give up on evolving boards entirely for now
         if board is None:
             board = projectsv2._get_full_board()
-            # look for the card
-            for col_name, cards in board.items():
-                for card in cards:
-                    if int(card.pr_number) == int(self.pr.number):
-                        pr_card = card
-                        pr_state = col_name
+        # look for the card
+        for col_name, cards in board.items():
+            for card in cards:
+                if int(card.pr_number) == int(self.pr.number):
+                    pr_card = card
+                    pr_state = col_name
 
         # pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
