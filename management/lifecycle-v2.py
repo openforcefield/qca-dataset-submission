@@ -654,7 +654,8 @@ class Submission:
         return computes
 
 
-    def execute_state(self, states=None):
+    def execute_state(self, states=None, reset_errors=False, set_priority=False,
+                      set_computetag=False):
         card = self.project._get_item_card(self.item)
         # if card not on board, then it starts in the Backlog
         if card is None:
@@ -679,6 +680,11 @@ class Submission:
             "Archived/Complete": self.execute_archived_complete,
         }
         if card.column.column_name in ACTIONS:
+            if card.column.column_name == "Error Cycling":
+                return ACTIONS[card.column.column_name](card,
+                                                        reset_errors=reset_errors,
+                                                        set_priority=set_priority,
+                                                        set_computetag=set_computetag)
             return ACTIONS[card.column.column_name](card)
         
     
