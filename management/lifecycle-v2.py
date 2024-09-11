@@ -59,11 +59,11 @@ class PullRequest:
         self.merged = merged
 
     @classmethod
-    def from_node_item(cls, repo, node_item):
+    def from_node_item(cls, repo, node_item, number=None):
         return cls(
             repo,
             node_item["id"],
-            node_item["number"],
+            node_item.get("number", number),
             node_item.get("title"),
             node_item.get("url"),
             node_item.get("merged"),
