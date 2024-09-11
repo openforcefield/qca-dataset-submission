@@ -1,12 +1,16 @@
 ---
-# lifecycle processing for all datasets currently being tracked - error cycling
+# test lifecycle processing. This only executes if
+# the PR has a "test-ci" label
 
-name: "Dataset Lifecycle - Reprioritize/Retag"
+name: Test lifecycle
 
 on:
-  # run five times a day
-  schedule:
-    - cron: "0 00,04,08,16,20 * * *"
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
   workflow_dispatch:
 
 defaults:
@@ -14,8 +18,11 @@ defaults:
     shell: bash -l {0}
 
 jobs:
-  exec-lifecycle:
+  test-lifecycle:
+    if: contains(github.event.pull_request.labels.*.name, 'test-ci')
     runs-on: ubuntu-latest
+    env:
+      OE_LICENSE: ${{ github.workspace }}/oe_license.txt
     steps:
       - name: Checkout code
         uses: nschloe/action-cached-lfs-checkout@v1
@@ -36,7 +43,7 @@ jobs:
       - name: Install environment
         uses: mamba-org/setup-micromamba@v1
         with:
-          environment-file: devtools/conda-envs/error-cycle.yaml
+          environment-file: devtools/conda-envs/queued-submit.yaml
           create-args: >-
             python=3.11
           cache-environment: true
@@ -46,10 +53,16 @@ jobs:
           conda info
           conda list
 
+      - name: Make oe_license.txt file from GH org secret "OE_LICENSE"
+        env:
+          OE_LICENSE_TEXT: ${{ secrets.OE_LICENSE }}
+        run: |
+          echo "${OE_LICENSE_TEXT}" > ${OE_LICENSE}
+
       - name: Run lifecycle processing script
         env:
           GH_TOKEN: ${{ secrets.QCA_DATASET_SUBMISSION_PAT }}
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
-            python ./management/lifecycle.py --states "Error Cycling" --set-priority --set-computetag
+            python ./management/lifecycle-v2.py --run-tests

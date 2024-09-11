@@ -3,6 +3,7 @@
 
 """Lifecycle management for QCArchive datasets using GraphQL interface"""
 
+import json
 import os
 import pathlib
 import requests
@@ -46,6 +47,9 @@ class PullRequest:
     merged : bool, optional
         Whether the PR has been merged
     """
+    def __repr__(self):
+        return f"PullRequest({self.repo.repo_name}, {self.number}, {self.title})"
+
     def __init__(self, repo, id: str, number: int, title: str, url: str, merged=None):
         self.repo = repo
         self.id = id
@@ -66,11 +70,12 @@ class PullRequest:
         )
     
     def get_label_names(self) -> list[str]:
+        """Get the names of the labels on the PR"""
         query = """
-        query {
-          repository(owner: "$owner", name: "$name") {
+        query($owner: String!, $name: String!, $number: Int!) {
+          repository(owner: $owner, name: $name) {
             pullRequest(number: $number) {
-              labels(first: 10) {
+              labels(first: 100) {
                 nodes {
                   name
                 }
@@ -87,12 +92,18 @@ class PullRequest:
         return label_names
     
     def add_to_labels(self, label: str):
+        """Add a label to the PR by name
+
+        Note: labels must already exist in the repository
+        """
         label_id = self.repo.get_label_id(label)
         query = """
-        mutation {
-          addLabelsToLabelable(input: {labelableId: "$id", labelIds: ["$label_id"]}) {
+        mutation($id: ID!, $label_id: ID!) {
+          addLabelsToLabelable(input: { labelableId: $id, labelIds: [$label_id] }) {
             labelable {
-              id
+                labels {
+                    nodes { name }
+                }
             }
           }
         }
@@ -101,12 +112,18 @@ class PullRequest:
         return _post_query(query, variables)
     
     def remove_from_labels(self, label: str):
+        """Remove a label from the PR by name
+        
+        Note: labels must already exist in the repository
+        """
         label_id = self.repo.get_label_id(label)
         query = """
-        mutation {
-          removeLabelsFromLabelable(input: {labelableId: "$id", labelIds: ["$label_id"]}) {
+        mutation($id: ID!, $label_id: ID!) {
+          removeLabelsFromLabelable(input: { labelableId: $id, labelIds: [$label_id]}) {
             labelable {
-              id
+              labels {
+                nodes { name }
+              }
             }
           }
         }
@@ -115,9 +132,10 @@ class PullRequest:
         return _post_query(query, variables)
     
     def add_issue_comment(self, body: str):
+        """Add a comment to the PR"""
         query = """
-        mutation {
-          addComment(input: {subjectId: "$id", body: "$body"}) {
+        mutation($id: ID!, $body: String!) {
+          addComment(input: { subjectId: $id, body: $body }) {
             commentEdge {
               node {
                 id
@@ -131,8 +149,8 @@ class PullRequest:
     
     def get_file_paths(self) -> list[pathlib.Path]:
         query = """
-        query {
-          repository(owner: "$owner", name: "$name") {
+        query($owner: String!, $name: String!, $number: Int!) {
+          repository(owner: $owner, name: $name) {
             pullRequest(number: $number) {
               files(first: 100) {
                 nodes {
@@ -152,6 +170,16 @@ class PullRequest:
 
 
 class Repo:
+    """A single repository on GitHub.
+    
+    Parameters
+    ----------
+    name : str, optional
+        The name of the repository
+    owner : str, optional
+        The owner of the repository
+    
+    """
     def __init__(
         self,
         name: str = "qca-dataset-submission",
@@ -161,11 +189,12 @@ class Repo:
         self.owner = owner
         self.repo_name = f"{owner}/{name}"
 
-    def get_label_id(self, label: str):
+    def get_label_id(self, label: str) -> str:
+        """Get the node ID of a label"""
         query = """
-        query {
-          repository(owner: "$owner", name: "$name") {
-            label(name: "$label") {
+        query($owner: String!, $name: String!, $label: String!) {
+          repository(owner: $owner, name: $name) {
+            label(name: $label) {
               id
             }
           }
@@ -178,10 +207,10 @@ class Repo:
     def get_tracking_pull_requests(self) -> list[PullRequest]:
         """Get pull requests with the 'tracking' label"""
 
-        query = """
-        query {
-          repository(owner: "$owner", name: "$name") {
-            pullRequests(first: 100, labels: ["tracking"], after: $cursor) {
+        query_base = """
+        query($owner: String!, $name: String! %s) {
+          repository(owner: $owner, name: $name) {
+            pullRequests(first: 100, labels: ["tracking"] %s) {
               pageInfo {
                 hasNextPage
                 endCursor
@@ -196,8 +225,8 @@ class Repo:
           }
         }
         """
-
-        variables = {"owner": self.owner, "name": self.name, "cursor": None}
+        query = query_base % ("", "")
+        variables = {"owner": self.owner, "name": self.name}
         data = _post_query(query, variables)
         has_next_page = data["data"]["repository"]["pullRequests"]["pageInfo"]["hasNextPage"]
 
@@ -207,6 +236,7 @@ class Repo:
             prs.append(pr)
         
         while has_next_page:
+            query = query_base % (", $cursor: String", ", after: $cursor")
             cursor = data["data"]["repository"]["pullRequests"]["pageInfo"]["endCursor"]
             variables["cursor"] = cursor
             data = _post_query(query, variables)
@@ -231,8 +261,8 @@ class Repo:
         
         """
         query = """
-        query {
-          repository(owner: "$owner", name: "$name") {
+        query($owner: String!, $name: String!, $number: Int!) {
+          repository(owner: $owner, name: $name) {
             pullRequest(number: $number) {
               id
               title
@@ -266,6 +296,9 @@ class ProjectV2PRCard:
     number : int
         The PR number
     """
+    def __repr__(self):
+        return f"ProjectV2PRCard({self.project}, {self.column}, {self.card_node_id}, {self.card_name}, {self.number})"
+    
     def __init__(self, project, column, card_node_id, card_url, card_name, number):
         self.project = project
         self.card_node_id = card_node_id
@@ -287,8 +320,8 @@ class ProjectV2Column:
     ----------
     project : Project
         The project board where the column is located
-    column_node_id : str
-        The node ID of the column
+    column_option_id : str
+        The option ID of the column
     column_name : str
         The name of the column
 
@@ -298,45 +331,43 @@ class ProjectV2Column:
     cards : list[ProjectV2PRCard]
         The cards in the column
     """
-    def __init__(self, project, column_node_id, column_name):
+    def __repr__(self):
+        return f"ProjectV2Column({self.project}, {self.column_option_id}, {self.column_name})"
+
+    def __init__(self, project, column_option_id, column_name):
         self.project = project
-        self.column_node_id = column_node_id
+        self.column_option_id = column_option_id
         self.column_name = column_name
         self.cards = list()
 
     def add_card(self, item: PullRequest):
         """Add a card to the top of the specified column"""
-        query = """
-        mutation {
-          addProjectCard(input: {contentId: "$content_id", projectColumnId: "$column_id"}) {
-            cardEdge {
-              node {
-                id
-                content {
-                    __typename
-                    ... on Issue {
-                      title
-                      url
+        add_card_query = """
+            mutation($project_id: ID!, $content_id: ID!) {
+                addProjectV2ItemById(input: { projectId: $project_id, contentId: $content_id }) {
+                    item {
+                        id
                     }
-                    ... on PullRequest {
-                      title
-                      url
-                    }
-                  }
-              }
+                }
             }
-          }
-        }
         """
+
         variables = {
-            "content_id": item.id,
-            "column_id": self.column_node_id
+            "project_id": self.project.project_node_id,
+            "content_id": item.id
         }
-        data = _post_query(query, variables)
-        return self._add_card_to_self_from_content(
-            data["data"]["addProjectCard"]["cardEdge"]["node"]
+
+        data = _post_query(add_card_query, variables)
+        card_id = data["data"]["addProjectV2ItemById"]["item"]["id"]
+
+        card = self._add_card_to_self(
+            card_id,
+            item.url,
+            item.title,
+            item.number
         )
-        
+        self.project.move_card_to_column(card, self.column_name)
+
 
     def _add_card_to_self(self, card_node_id, card_url, card_name, card_number):
         """Updates self with card information"""
@@ -373,8 +404,8 @@ class Project:
     @classmethod
     def from_repo(cls, repo: Repo, project_number: int = 2):
         query = """
-        query {
-          organization(login: "$owner") {
+        query($owner: String!, $project_number: Int!) {
+          organization(login: $owner) {
           projectV2(number: $project_number) {
             id
             }
@@ -386,8 +417,14 @@ class Project:
             "project_number": project_number
         }
         data = _post_query(query, variables)
-        project_node_id = data["data"]["repository"]["project"]["id"]
+        project_node_id = data["data"]["organization"]["projectV2"]["id"]
         return cls(repo, project_node_id)
+    
+    def add_item_to_column(self, item: PullRequest, column: str):
+        if isinstance(column, str):
+            column = self.columns_by_name[column]
+
+        return column.add_card(item)
     
 
     def _get_item_card(self, item: PullRequest):
@@ -402,7 +439,10 @@ class Project:
     def __init__(self, repo, node_id: str):
         self.repo = repo
         self.project_node_id = node_id
+        # The _column_status_id is the fieldId needed to label the Status
+        self._column_status_id = ""
         self._reinitialize()
+        
 
 
     def _reinitialize(self):
@@ -411,63 +451,101 @@ class Project:
         self.cards_by_id = {}
 
         # set up project board
+        # first get all columns and create them initially
+        column_data = self._get_all_columns()
+        for item in column_data:
+            if item.get("name") == "Status":
+                self._column_status_id = item["id"]
+
+                for option in item["options"]:
+                    self._create_or_retrieve_column(option["name"], option["id"])
+
         project_data = self._get_project_data()
         # this is the card item
         for node_item in project_data:
             for field in node_item['fieldValues']['nodes']:
-                if "name" in field:  # this is the column item
+                if "name" in field and field["field"]["name"] == "Status":  # this is the column item
                     column_name = field['name']
-                    column_node_id = field['id']
-                    column = self.__create_or_retrieve_column(column_name, column_node_id)
+                    column_option_id = field['optionId']
+                    column = self._create_or_retrieve_column(column_name, column_option_id)
                     column._add_card_to_self_from_content(node_item)
+
 
     def _create_or_retrieve_column(
         self,
         column_name: str,
-        column_node_id: str,
+        column_option_id: str,
     ):
         if column_name in self.columns_by_name:
-            assert column_node_id in self.columns_by_id
+            assert column_option_id in self.columns_by_id
             return self.columns_by_name[column_name]
-        column = ProjectV2Column(self, column_node_id, column_name)
+        column = ProjectV2Column(self, column_option_id, column_name)
         self.columns_by_name[column_name] = column
-        self.columns_by_id[column_node_id] = column
+        self.columns_by_id[column_option_id] = column
         return column
-    
-    
-
     
 
     def move_card_to_column(self, card, column: str):
         """Moves card to the top of the specified column"""
         if isinstance(card, str):
             card = self.cards_by_id[card]
-        
+
         query = """
-        mutation {
-          moveProjectCard(input: {cardId: "$card_id", columnId: "$column_id"}) {
-            cardEdge {
-              node {
-                id
+        mutation($card_id: ID!, $column_status_id: ID!, $project_id: ID!, $new_column_id: String!) {
+          updateProjectV2ItemFieldValue(input: {
+            itemId: $card_id,
+            fieldId: $column_status_id,
+            projectId: $project_id,
+            value: { singleSelectOptionId: $new_column_id }
+        }) {
+            projectV2Item { id }
+          }
+        }
+        """
+        column = self.columns_by_name[column]
+        variables = {
+            "card_id": card.card_node_id,
+            "column_status_id": self._column_status_id,
+            "project_id": self.project_node_id,
+            "new_column_id": column.column_option_id
+        }
+        return _post_query(query, variables)
+
+    def _get_all_columns(self):
+        """Get all columns, even if they're empty with no cards"""
+
+        # 100 should be more. We can include pagination later if necessary
+
+        query = """
+        query($project_node_id: ID!) {
+          node(id: $project_node_id) {
+            ... on ProjectV2 {
+              fields(first: 100) {
+                nodes {
+                  ... on ProjectV2SingleSelectField {
+                    name
+                    id
+                    options {
+                      id
+                      name
+                    }
+                  }
+                }
               }
             }
           }
         }
         """
-        variables = {
-            "card_id": card.card_node_id,
-            "column_id": self.columns_by_name[column].column_node_id
-        }
-        return _post_query(query, variables)
-
-
+        variables = {"project_node_id": self.project_node_id}
+        data = _post_query(query, variables)
+        return data["data"]["node"]["fields"]["nodes"]
 
     def _get_project_data(self):
-        query = """
-        query {
-          node(id: "$project_node_id") {
+        query_base = """
+        query($project_node_id: ID! %s) {
+          node(id: $project_node_id) {
             ... on ProjectV2 {
-              items(first: 100, after: $cursor) {
+              items(first: 100 %s) {
                 nodes {
                   id
                   content {
@@ -475,17 +553,26 @@ class Project:
                     ... on Issue {
                       title
                       url
+                      number
                     }
                     ... on PullRequest {
                       title
                       url
+                      number
                     }
                   }
                   fieldValues(first: 10) {
                     nodes {
                       ... on ProjectV2ItemFieldSingleSelectValue {
+                        field {
+                          ... on ProjectV2SingleSelectField {
+                            name
+                            id
+                          }
+                        }
                         name
-                        id
+                        optionId
+                        
                       }
                     }
                   }
@@ -499,12 +586,14 @@ class Project:
           }
         }
         """
-        variables = {"project_node_id": self.project_node_id, "cursor": None}
+        query = query_base % ("", "")
+        variables = {"project_node_id": self.project_node_id}
         data = _post_query(query, variables)
 
         output_data = list(data['data']['node']['items']['nodes'])
         has_next_page = data["data"]["node"]["items"]["pageInfo"]["hasNextPage"]
         while has_next_page:
+            query = query_base % (", $cursor: String", ", after: $cursor")
             cursor = data["data"]["node"]["items"]["pageInfo"]["endCursor"]
             variables["cursor"] = cursor
             data = _post_query(query, variables)
@@ -565,7 +654,6 @@ class Submission:
         return computes
 
 
-
     def execute_state(self, states=None):
         card = self.project._get_item_card(self.item)
         # if card not on board, then it starts in the Backlog
@@ -624,6 +712,7 @@ class Submission:
         return new_state
 
     def execute_queued_submit(self, card):
+        """Process a PR in the 'Queued for Submission' state"""
         from submittable import DataSet, Compute
 
         results = []
@@ -644,6 +733,7 @@ class Submission:
     def execute_errorcycle(self, card, reset_errors=False,
                            set_priority=False,
                            set_computetag=False):
+        """Process a PR in the 'Error Cycling' state"""
         from submittable import DataSet, Compute
 
         results = []
@@ -681,6 +771,7 @@ class Submission:
                 ds.comment_archived_complete()
 
     def execute_requires_scientific_review(self, card):
+        """Process a PR in the 'Requires Scientific Review' state"""
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
         labels =  self.item.get_label_names()
@@ -696,6 +787,7 @@ class Submission:
 
     
     def execute_end_of_life(self, card):
+        """Process a PR in the 'End of Life' state"""
         # add `end-of-life` label
         # remove `scientific-review`, `complete` label if present
         labels =  self.item.get_label_names()
@@ -710,6 +802,7 @@ class Submission:
                 self.item.remove_from_labels(label)
 
     def execute_archived_complete(self, card):
+        """Process a PR in the 'Archived/Complete' state"""
         # add `complete` label
         # remove `scientific-review`, `end-of-life` label if present
         labels = self.item.get_label_names()
@@ -723,6 +816,81 @@ class Submission:
             if label in labels:
                 self.item.remove_from_labels(label)
 
+
+def run_tests():
+    repo = Repo()
+
+    # gather up all PRs with the `tracking` label
+    prs = repo.get_tracking_pull_requests()
+    print(f"Found {len(prs)} with the 'tracking' label")
+    print(prs)
+
+    print("Creating project")
+    project = Project.from_repo(repo, project_number=2)
+    print(f"Project {project.project_node_id}")
+    print(f"Columns: {project.columns_by_name.keys()}")
+    for column_name, column in project.columns_by_name.items():
+        print("===")
+        print(column_name, column.column_option_id)
+        for card in column.cards:
+            print(card.card_name, card.card_node_id)
+    
+    print("===")
+    print("Cards")
+    for card in project.cards_by_id.values():
+        print(card)
+    print("")
+
+    # try test on latest
+    pr = sorted(prs, key=lambda pr: pr.number)[-1]
+    print(f"Processing PR #{pr.number}")
+    labels = pr.get_label_names()
+
+    card = project._get_item_card(pr)
+    previous_column = None
+    if card:
+        previous_column = card.column.column_name
+    print(f"PR #{pr.number} is in column {previous_column}")
+
+    # print files
+    files = pr.get_file_paths()
+    print("Files:")
+    print(files)
+    assert len(files) > 0
+
+    # temporarily move to "Backlog"
+    if card:
+        print("Moving card to backlog")
+        data = project.move_card_to_column(card, "Backlog")
+    else:
+        print(f"Adding card to backlog")
+        data = project.add_item_to_column(pr, "Backlog")
+        print(data)
+    project._reinitialize()
+    card = project._get_item_card(pr)
+    assert card.column.column_name == "Backlog"
+
+    # move back to original column
+    if previous_column:
+        project.move_card_to_column(card, previous_column)
+        project._reinitialize()
+        card = project._get_item_card(pr)
+        assert card.column.column_name == previous_column
+
+
+    # temporarily add label
+    data = pr.add_to_labels("test-label")
+    print(data)
+    label_names = pr.get_label_names()
+    assert "test-label" in label_names
+
+    data = pr.remove_from_labels("test-label")
+    print(data)
+    labels = pr.get_label_names()
+    assert "test-label" not in labels
+
+    # add comment
+    pr.add_issue_comment("This is a test comment from running CI. Please ignore")
 
     
 
@@ -760,8 +928,18 @@ def main():
         action='store_true',
         help="Whether to reset errored cases",
     )
+    parser.add_argument(
+        "--run-tests",
+        action='store_true',
+        help="Ignores everything else and runs a test function",
+    )
 
     args = parser.parse_args()
+    if args.run_tests:
+        run_tests()
+        return
+
+
     states = args.states if args.states else None
     prnums = args.prs if args.prs else None
     
@@ -829,4 +1007,9 @@ def main():
             set_priority=set_priority,
             set_computetag=set_computetag
         )
-        
+        gc.collect()
+
+
+
+if __name__ == "__main__":
+    main()
