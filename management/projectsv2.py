@@ -63,34 +63,10 @@ class ProjectV2Project(dict):
         }
         """ % project_node_id
 
-        data = self._post_query(query)
-        return data
-    
-    def _post_query(self, query):
         headers = {"Authorization": f"Bearer {os.environ['GH_TOKEN']}"}
         response = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
 
         data = response.json()
-        return data
-    
-    def _get_column_id(self, column_name: str):
-        for column in self.columns.values():
-            if column.column_name == column_name:
-                return column.column_node_id
-    
-    def _create_card_from_content_id(self, content_id, column_name: str):
-        column_id = self._get_column_id(column_name)
-        query = """
-        mutation {
-          addProjectCard(input: {contentId: "%s", projectColumnId: "%s"}) {
-            cardEdge {
-              node {
-                id
-              }
-        }
-        """ % (content_id, column_id)
-
-        data = self._post_query(query)
         return data
 
 
@@ -114,13 +90,8 @@ class ProjectV2PRCard:
         pass
 
 
-def _get_project():
-    proj = ProjectV2Project("PVT_kwDOARrkss4Am84U")
-    return proj
-
-
 def _get_full_board():
-    proj = _get_project()
+    proj = ProjectV2Project("PVT_kwDOARrkss4Am84U")
     board = {col.column_name: [card for card in col.cards] for col in proj.columns.values()}
 
     for col, cards in board.items():

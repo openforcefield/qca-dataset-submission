@@ -124,15 +124,8 @@ class Submission:
         return [col for col in cols if col.name == column][0]
 
     def set_backlog(self):
-        import projectsv2
-        project = projectsv2._get_project()
-        project._create_card_from_content_id(
-            content_id=self.pr.id,
-            column_name="Backlog"
-        )
-
-        # backlog = self._get_column(self.repo, "Backlog")
-        # backlog.create_card(content_id=self.pr.id, content_type="PullRequest")
+        backlog = self._get_column(self.repo, "Backlog")
+        backlog.create_card(content_id=self.pr.id, content_type="PullRequest")
 
     def execute_state(self, board=None, states=None,
                       reset_errors=False, set_priority=False,
@@ -140,11 +133,8 @@ class Submission:
         """Based on current state of the PR, perform appropriate actions.
 
         """
-        import projectsv2
-
         if board is None:
-            board = projectsv2._get_full_board()
-            # board = _get_full_board(self.repo)
+            board = _get_full_board(self.repo)
 
         pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
@@ -153,8 +143,7 @@ class Submission:
             pr_state = self.set_backlog()
 
             # reload board, since we just added this card
-            board = projectsv2._get_full_board()
-            # board = _get_full_board(self.repo)
+            board = _get_full_board(self.repo)
             pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
         # exit early if states specified, and this PR is not
