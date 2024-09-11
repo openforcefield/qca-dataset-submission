@@ -133,24 +133,43 @@ class Submission:
         """Based on current state of the PR, perform appropriate actions.
 
         """
-        if board is None:
-            board = _get_full_board(self.repo)
+        import projectsv2
 
-        pr_card, pr_state = self._get_board_card_state(board, self.pr)
+        # we're going to give up on evolving boards entirely for now
+        if board is None:
+            board = projectsv2._get_full_board()
+            # look for the card
+            for col_name, cards in board.items():
+                for card in cards:
+                    if int(card.pr_number) == int(self.pr.number):
+                        pr_card = card
+                        pr_state = col_name
+
+        # pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
         # if card not on board, then it starts in the Backlog
         if pr_state is None:
             pr_state = self.set_backlog()
 
-            # reload board, since we just added this card
-            board = _get_full_board(self.repo)
-            pr_card, pr_state = self._get_board_card_state(board, self.pr)
+            # # reload board, since we just added this card
+            board = projectsv2._get_full_board()
+            # look for the card
+            for col_name, cards in board.items():
+                for card in cards:
+                    if int(card.pr_number) == int(self.pr.number):
+                        pr_card = card
+                        pr_state = col_name
+
+            # pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
         # exit early if states specified, and this PR is not
         # in one of those
         if states is not None:
             if pr_state not in states:
                 return
+            
+        pr_card = None
+        pr_state = None
 
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
@@ -199,7 +218,8 @@ class Submission:
             comment = f"""
             ## Lifecycle - Backlog
 
-            Merged dataset moved from "Backlog" to "Queued for Submission".
+            Project boards are not working as expected.
+            However, please consider this queued for submission.
 
             """
 
@@ -209,11 +229,11 @@ class Submission:
             # submit comment
             self.pr.create_issue_comment(comment)
 
-            self.evolve_state(pr_card, pr_state, "Queued for Submission")
+        #     self.evolve_state(pr_card, pr_state, "Queued for Submission")
 
-            return {"new_state": "Queued for Submission"}
-        else:
-            return {"new state": "Backlog"}
+        #     return {"new_state": "Queued for Submission"}
+        # else:
+        #     return {"new state": "Backlog"}
 
     def execute_queued_submit(self, pr_card, pr_state):
         """Submit datasets, perhaps with some retry logic.
@@ -231,8 +251,11 @@ class Submission:
             results.append(ct.execute_queued_submit())
 
         new_state = self.resolve_new_state(results)
-        if new_state is not None:
-            self.evolve_state(pr_card, pr_state, new_state)
+        # if new_state is not None:
+        #     self.evolve_state(pr_card, pr_state, new_state)
+
+        # comment status on PR
+        self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
     def execute_errorcycle(self, pr_card, pr_state,
                            reset_errors=False,
@@ -259,8 +282,11 @@ class Submission:
                                                  set_computetag=set_computetag))
 
         new_state = self.resolve_new_state(results)
-        if new_state is not None:
-            self.evolve_state(pr_card, pr_state, new_state)
+        # if new_state is not None:
+        #     self.evolve_state(pr_card, pr_state, new_state)
+
+        # comment status on PR
+        self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
