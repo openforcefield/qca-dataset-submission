@@ -140,6 +140,7 @@ class Submission:
             board = projectsv2._get_full_board()
         # look for the card
         pr_state = None
+        pr_card = None
         for col_name, cards in board.items():
             for card in cards:
                 if int(card.pr_number) == int(self.pr.number):
@@ -162,9 +163,6 @@ class Submission:
             if pr_state not in states:
                 return
             
-        pr_card = None
-        pr_state = None
-
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
         elif pr_state == "Queued for Submission":
