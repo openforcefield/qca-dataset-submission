@@ -4,8 +4,9 @@
 
 An optimization data set created to improve the training coverage of sulfonic
 and phosphonic acids, sulfone, sulfonate, sulfinyl, sulfoximine, sulfonamides,
-thioether, and 1,3-thiazole groups. The molecules in this data set were selected
-from the ChEMBL 34 database.
+thioether, and 1,3-thiazole groups. The molecules in this data set were manually
+selected from a subset of the smallest matching structures in the ChEMBL 34
+database.
 
 ## General Information
 
