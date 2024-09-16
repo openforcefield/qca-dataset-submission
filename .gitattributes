@@ -86,3 +86,5 @@
 *.gz filter=lfs diff=lfs merge=lfs -text
 *.xz filter=lfs diff=lfs merge=lfs -text
 *.zst filter=lfs diff=lfs merge=lfs -text
+*.bz filter=lfs diff=lfs merge=lfs -text
+*bz2 filter=lfs diff=lfs merge=lfs -text
