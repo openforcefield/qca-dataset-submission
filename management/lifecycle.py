@@ -247,7 +247,8 @@ class Submission:
         #     self.evolve_state(pr_card, pr_state, new_state)
 
         # comment status on PR
-        self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
+        if new_state != pr_state:
+            self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
     def execute_errorcycle(self, pr_card, pr_state,
                            reset_errors=False,
@@ -278,7 +279,8 @@ class Submission:
         #     self.evolve_state(pr_card, pr_state, new_state)
 
         # comment status on PR
-        self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
+        if new_state != pr_state:
+            self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
