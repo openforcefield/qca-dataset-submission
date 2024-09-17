@@ -1,0 +1,48 @@
+name: esp-bm-submit
+channels:
+  - conda-forge
+  - openeye
+dependencies:
+  - python
+  - pip
+  - click
+  - openff-toolkit
+  - openff-qcsubmit
+  - openmmforcefields
+  - openeye::openeye-toolkits
+  - openff-interchange-base
+  - qcportal
+  - geometric=1
+  - jupyter
+  - seaborn
+  - pandas
+  - pydantic =2
+  - ipython
+  - ipdb
+  - pre-commit
+  - rich
+  - pytest
+  - pytest-cov
+  - pytest-xdist
+  - pytest-randomly
+  - pytest-timeout
+  - smirnoff-plugins
+  - click-option-group
+  - dask
+  - dask-jobqueue
+  - tqdm
+  - openmm
+  - ambertools
+  - qubekit
+  - forcebalance=1.9.6
+  - ndcctools
+  - cmiles
+  - geometric
+  - black
+  - isort
+  - flake8 
+  - mamba
+  - nglview
+  - deepchem
+  - pip:
+    - git+https://github.com/openforcefield/yammbs.git@0.0.8
