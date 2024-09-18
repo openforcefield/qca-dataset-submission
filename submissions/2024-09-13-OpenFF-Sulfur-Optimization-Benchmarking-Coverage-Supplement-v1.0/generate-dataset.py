@@ -1,4 +1,3 @@
-import tomllib
 from pathlib import Path
 
 import numpy as np
@@ -8,14 +7,15 @@ from openff.qcsubmit.factories import OptimizationDatasetFactory
 from openff.toolkit import ForceField, Molecule
 from tqdm import tqdm
 
+from qcaide import Submission
+
 # Load config file and force field
 ff = ForceField("openff-2.1.0.offxml")
-with open("opt.toml", "rb") as f:
-    config = tomllib.load(f)
+config = Submission.from_toml("opt.toml")
 
 # Load molecules
 molecules = list()
-with open("train.smi") as inp:
+with open("bench.smi") as inp:
     for line in tqdm(inp, desc="Loading molecules"):
         if line.startswith("#"):
             continue
@@ -34,12 +34,12 @@ dataset_factory.add_workflow_components(
 
 # populate dataset
 dataset = dataset_factory.create_dataset(
-    dataset_name=config["name"],
-    tagline=config["name"],
-    description=config["short_description"],
+    dataset_name=config.name,
+    tagline=config.name,
+    description=config.description,
     molecules=molecules,
 )
-dataset.metadata.submitter = config["submitter"]
+dataset.metadata.submitter = config.submitter
 dataset.metadata.long_description_url = (
     "https://github.com/openforcefield/qca-dataset-submission/tree/master/"
     "submissions/" + str(Path.cwd().name)
