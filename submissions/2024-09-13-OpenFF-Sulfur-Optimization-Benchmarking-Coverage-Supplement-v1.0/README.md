@@ -14,13 +14,13 @@ the ChEMBL 34 database.
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve coverage in Sage
 * Name: OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0
-* Number of unique molecules: 
-* Number of filtered molecules: 
-* Number of conformers: 
-* Number of conformers per molecule (min, mean, max): , , 
-* Mean molecular weight: 
-* Max molecular weight: 
-* Charges: 
+* Number of unique molecules: 45
+* Number of filtered molecules: 0
+* Number of conformers: 319
+* Number of conformers per molecule (min, mean, max): 1, 7.09, 10
+* Mean molecular weight: 218.17
+* Max molecular weight: 430.45
+* Charges: [-1.0, 0.0, 1.0]
 * Dataset submitter: Brent Westbrook
 * Dataset generator: Brent Westbrook
 
@@ -46,5 +46,16 @@ variables used throughout the QCA submission process
 
 ## Metadata
 
-* elements: 
-* Spec: 
+* Elements: {S, P, Cl, C, N, O, H, Br, F}
+* Spec: default
+	* basis: DZVP
+	* implicit_solvent: None
+	* keywords: {}
+	* maxiter: 200
+	* method: B3LYP-D3BJ
+	* program: psi4
+	* SCF properties:
+		* dipole
+		* quadrupole
+		* wiberg_lowdin_indices
+		* mayer_indices
