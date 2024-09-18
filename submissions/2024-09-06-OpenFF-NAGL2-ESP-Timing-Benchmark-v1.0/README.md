@@ -1,7 +1,7 @@
 # OpenFF NAGL2 ESP Timing Benchmark v1.0
 
 ## Description
-A dataset of 1005 molecules, sub-sampled from the [OpenFF multi-Br ESP Fragment Conformers v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point), the [OpenFF Iodine Fragment Opt v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-10-OpenFF-Iodine-Fragment-Opt-v1.0), and the [OpenFF ESP Fragment Conformers v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-01-16-OpenFF-ESP-Fragment-Conformers-v1.0) datasets.
+A dataset of 1005 molecules, sub-sampled from the [OpenFF multi-Br ESP Fragment Conformers v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point), the [OpenFF Iodine Fragment Opt v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-10-OpenFF-Iodine-Fragment-Opt-v1.0), and the [OpenFF ESP Fragment Conformers v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-01-16-OpenFF-ESP-Fragment-Conformers-v1.0) datasets. Calculated at the PBE0/def2-TZVPPD level of theory
 
 Sub-sampling was done in `subsample_esp_ds.ipynb` by selecting 945 conformers at random from the ESP Fragment dataset, 53 from the I fragment dataset, and 11 from the multi-Br dataset.
 
@@ -40,7 +40,7 @@ The purpose of this dataset is to estimate timing and storage requirements for t
 ## Metadata
 * elements: {'H', 'P', 'C', 'N', 'O', 'S', 'Cl', 'I', 'Br', 'F'}
 * unique molecules: 1005
-* Spec: wB97X-V/def2-TZVPPD
+* Spec: PBE0/def2-TZVPPD
   * SCF properties:
     * Dipole
     * Quadrupole
@@ -51,7 +51,7 @@ The purpose of this dataset is to estimate timing and storage requirements for t
     * WibergLowdinIndices
     * DipolePolarizabilities
    * QC Spec:
-     * name: wB97X-V/def2-TZVPPD
-     * method: wB97X-V
+     * name: PBE0/def2-TZVPPD
+     * method: PBE0
      * basis: def2-TZVPPD
      * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
