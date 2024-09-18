@@ -1,7 +1,7 @@
 # OpenFF NAGL2 ESP Timing Benchmark ddx v1.0
 
 ## Description
-A dataset of 1005 molecules from the [OpenFF NAGL2 ESP Timing Benchmark](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-06-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.0) dataset, calculated at the wB97X-V/def2-TZVPPD/ddx water level of theory.
+A dataset of 1005 molecules from the [OpenFF NAGL2 ESP Timing Benchmark](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-06-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.0) dataset, calculated at the PBE0/def2-TZVPPD/ddx water level of theory.
 
 The purpose of this dataset is to estimate timing and storage requirements for this methodology, which is a candidate for NAGL2 dataset generation.
 
@@ -34,13 +34,13 @@ The purpose of this dataset is to estimate timing and storage requirements for t
 * `esp_subsample_filtered.json`: subset of ESP50k dataset selected for this benchmark
 
 ## Metadata
-* Elements: {S, C, O, Br, P, Cl, N, F, I, H}
-* Spec: wB97X-V/def2-TZVPPD/ddx-water
+* Elements: {Br, F, I, N, Cl, C, P, H, S, O}
+* Spec: pbe0/def2-TZVPPD/ddx-water
 	* basis: def2-TZVPPD
 	* implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
 	* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
 	* maxiter: 200
-	* method: wb97X-V
+	* method: pbe0
 	* program: psi4
 	* SCF properties:
 		* dipole
