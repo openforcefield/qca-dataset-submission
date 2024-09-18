@@ -211,7 +211,7 @@ These are currently used to compute properties of a minimum energy conformation 
 |`OpenFF multi-Br ESP Fragment Conformers v1.1`| [2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-11-30-OpenFF-multi-Br-ESP-Fragment-Conformers-v1.1-single-point) | Single point ESP calculations                                                                            | Br, C, F, H, N, O, P, S | |
 |`MLPepper RECAP Optimized Fragments v1.0`| [2024-07-26-MLPepper-RECAP-Optimized-Fragments-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-26-MLPepper-RECAP-Optimized-Fragments-v1.0) | Single point property calculations for charge models  | P ,B ,Cl ,Br ,C ,H ,I ,F ,O ,N ,Si ,S | |
 |`OpenFF NAGL2 ESP Timing Benchmark v1.0` | [2024-09-06-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-06-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.0) | Single point ESP calculations for timing/memory benchmarking | 'P', 'S', 'N', 'C', 'Cl', 'F', 'Br', 'O', 'H', 'I' | |
-
+|`OpenFF NAGL2 ESP Timing Benchmark v1.1` | [2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1) | Single point ESP calculations for timing/memory benchmarking | 'P', 'S', 'N', 'C', 'Cl', 'F', 'Br', 'O', 'H', 'I' | |
 
 
 # Optimization Datasets
