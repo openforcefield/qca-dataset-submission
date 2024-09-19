@@ -5,6 +5,7 @@ import qcportal  # noqa avoid zstd disaster
 from openff.qcsubmit.factories import BasicDatasetFactory
 from openff.qcsubmit.results import OptimizationResultCollection
 from openff.qcsubmit.results.filters import (
+    ConnectivityFilter,
     RecordStatusEnum,
     RecordStatusFilter,
 )
@@ -27,7 +28,8 @@ print(f"Retrieved {opt.n_results} results")
 
 with portal_client_manager(lambda _: client):
     recs = opt.filter(
-        RecordStatusFilter(status=RecordStatusEnum.complete)
+        RecordStatusFilter(status=RecordStatusEnum.complete),
+        ConnectivityFilter(tolerance=1.2),
     ).to_records()
 
 print(f"Filtered to {len(recs)} completed records")
