@@ -1,0 +1,81 @@
+{
+  "qc_specifications": {
+    "pbe0/def2-TZVPPD": {
+      "method": "pbe0",
+      "basis": "def2-TZVPPD",
+      "program": "psi4",
+      "spec_name": "pbe0/def2-TZVPPD",
+      "spec_description": "PBE0 functional with def2-TZVPPD basis set",
+      "store_wavefunction": "orbitals_and_eigenvalues",
+      "implicit_solvent": null,
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "lowdin_charges",
+        "mulliken_charges",
+        "mbis_charges",
+        "mayer_indices",
+        "wiberg_lowdin_indices",
+        "dipole_polarizabilities"
+      ],
+      "keywords": {
+        "dft_spherical_points": 590,
+        "dft_radial_points": 99
+      }
+    },
+    "pbe0/def2-TZVPPD/ddx-water": {
+      "method": "pbe0",
+      "basis": "def2-TZVPPD",
+      "program": "psi4",
+      "spec_name": "pbe0/def2-TZVPPD/ddx-water",
+      "spec_description": "PBE0 functional with def2-TZVPPD basis set and DDX water (eps = 78.4) using UFF radii and 1.1x scaling factor",
+      "store_wavefunction": "none",
+      "implicit_solvent": {
+        "ddx_model": "pcm",
+        "ddx_radii_scaling": 1.1,
+        "ddx_radii_set": "uff",
+        "ddx_solvent_epsilon": 78.4,
+        "ddx_solvent": "water"
+      },
+      "maxiter": 200,
+      "scf_properties": [
+        "dipole",
+        "quadrupole",
+        "lowdin_charges",
+        "mulliken_charges",
+        "mbis_charges",
+        "mayer_indices",
+        "wiberg_lowdin_indices",
+        "dipole_polarizabilities"
+      ],
+      "keywords": {
+        "dft_spherical_points": 590,
+        "dft_radial_points": 99
+      }
+    }
+  },
+  "driver": "properties",
+  "priority": "normal",
+  "dataset_tags": [
+    "openff"
+  ],
+  "compute_tag": "openff",
+  "dataset_name": "OpenFF NAGL2 ESP Timing Benchmark v1.1",
+  "dataset_tagline": "PBE0/def2-TZVPPD single point calculations of ~1000 diverse molecules.",
+  "type": "DataSet",
+  "description": "PBE0/def2-TZVPPD/vacuum single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
+  "metadata": {
+    "submitter": "amcisaac",
+    "creation_date": "2024-09-25",
+    "collection_type": "DataSet",
+    "dataset_name": "OpenFF NAGL2 ESP Timing Benchmark v1.1",
+    "short_description": "PBE0/def2-TZVPPD single point calculations of ~1000 diverse molecules.",
+    "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1",
+    "long_description": "PBE0/def2-TZVPPD/vacuum single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
+    "elements": []
+  },
+  "provenance": {},
+  "dataset": {},
+  "filtered_molecules": {}
+}
