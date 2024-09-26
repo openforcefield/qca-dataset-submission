@@ -64,15 +64,15 @@
   "dataset_name": "OpenFF NAGL2 ESP Timing Benchmark v1.1",
   "dataset_tagline": "PBE0/def2-TZVPPD single point calculations of ~1000 diverse molecules.",
   "type": "DataSet",
-  "description": "PBE0/def2-TZVPPD/vacuum single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
+  "description": "PBE0/def2-TZVPPD/vacuum and ddX water single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
   "metadata": {
     "submitter": "amcisaac",
-    "creation_date": "2024-09-25",
+    "creation_date": "2024-09-26",
     "collection_type": "DataSet",
     "dataset_name": "OpenFF NAGL2 ESP Timing Benchmark v1.1",
     "short_description": "PBE0/def2-TZVPPD single point calculations of ~1000 diverse molecules.",
     "long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1",
-    "long_description": "PBE0/def2-TZVPPD/vacuum single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
+    "long_description": "PBE0/def2-TZVPPD/vacuum and ddX water single point calculations of ~1000 diverse molecules sub-sampled from the ESP50k, multi-BR ESP, and I fragment datasets, to benchmark computational cost.",
     "elements": []
   },
   "provenance": {},
