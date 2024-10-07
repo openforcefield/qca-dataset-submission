@@ -13,7 +13,7 @@ Hessian single points for the final molecules in the (OpenFF Aniline Para Opt v1
 * Number of unique molecules: 50
 * Number of conformers: 223
 * Number of conformers (min, mean, max): 1 4.46 10
-* Molecular weight (min, mean, max): 107.15370300000001 150.423601985 343.842162
+* Molecular weight (min, mean, max): 107.15, 150.42, 343.84
 * Charges: -1.0, 0.0, 1.0
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
