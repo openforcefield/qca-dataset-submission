@@ -87,7 +87,7 @@ Datasets must be submitted as pull requests.
 If you have already computed a dataset but want to re-compute it with a new `QCSpec` (e.g. new level of theory), you can do so using a compute expansion. This is faster than creating a new dataset, and explicitly links datasets with the same molecules and purpose.
 A compute expansion involves adding a file called `compute.json` to your original submission, which contains the dataset metadata (identical to the original dataset) and the new compute spec. 
 This can be done manually, or programatically. 
-The programatic description is provided below, with an  of the notebook and  of the file. 
+The programatic description is provided below, with an example of the notebook and of the file. 
 
 1. Create a new branch as described above, and navigate the the submission directory of the dataset you want to expand.
 2. Create a new jupyter notebook called `generate-compute.ipynb` [example here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/generate-compute.ipynb).
