@@ -2,7 +2,7 @@
 
 ## Description
 
-Hessian single points for the final molecules in the (OpenFF Aniline Para Opt v1.0 dataset)[https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0] at the B3LYP-D3BJ/DZVP level of theory.
+Hessian single points for the final molecules in the [OpenFF Aniline Para Opt v1.0 dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) at the B3LYP-D3BJ/DZVP level of theory.
 
 ## General information
 
