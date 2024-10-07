@@ -1,20 +1,20 @@
-# OpenFF Aniline Para Hessian v1.0
+# OpenFF Gen2 Hessian Dataset Protomers v1.0
 
 ## Description
 
-Hessian single points for the final molecules in the [OpenFF Aniline Para Opt v1.0 dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) at the B3LYP-D3BJ/DZVP level of theory.
+Hessian single points for the final molecules in the [OpenFF Gen2 Optimization Dataset Protomers v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers) at the B3LYP-D3BJ/DZVP level of theory.
 
 ## General information
 
 * Date: 2024-10-07
 * Class: OpenFF Basic Dataset
 * Purpose: Hessian dataset generation for MSM parameters
-* Name: OpenFF Aniline Para Hessian v1.0
-* Number of unique molecules: 50
-* Number of conformers: 223
-* Number of conformers (min, mean, max): 1 4.46 10
-* Molecular weight (min, mean, max): 107.15, 150.42, 343.84
-* Charges: -1.0, 0.0, 1.0
+* Name: OpenFF Gen2 Hessian Dataset Protomers v1.0
+* Number of unique molecules: 108
+* Number of conformers: 597
+* Number of conformers (min, mean, max): 1, 5.53, 10
+* Molecular weight (min, mean, max): 82.06, 282.05, 542.59
+* Charges: -3.0, -2.0, -1.0, 0.0, 1.0, 2.0
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
 
@@ -36,8 +36,8 @@ Hessian single points for the final molecules in the [OpenFF Aniline Para Opt v1
 
 ## Metadata
 
-* elements: {'O', 'Cl', 'S', 'Br', 'H', 'F', 'N', 'C'}
-* unique molecules: 50
+* elements: {'H', 'C', 'Cl', 'P', 'F', 'Br', 'O', 'N', 'S'}
+* unique molecules: 108
 * Spec: B3LYP-D3BJ/DZVP
     * SCF properties:
         * dipole
