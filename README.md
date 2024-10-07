@@ -89,7 +89,7 @@ A compute expansion involves adding a file called `compute.json` to your origina
 This can be done manually, or programatically. 
 The programatic description is provided below, with an example of the notebook and of the file. 
 
-1. Create a new branch as described above, and navigate the the submission directory of the dataset you want to expand.
+1. Create a new branch as described above, and navigate to the submission directory of the dataset you want to expand.
 2. Create a new jupyter notebook called `generate-compute.ipynb` [example here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/generate-compute.ipynb).
 3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same metadata as the original (e.g. same name, description, etc) and skip the molecule addition step.
 * Please note that the default `compute_tag` is `openff`; if you need to use a different one, please add it explicitly to the dataset at this step, as the `compute.json` file overrides the compute tag added manually to the PR. If you do need to change the compute tag after submission, you can change it by updating the label on the PR and the change will take effect when the error cycling action runs next.
