@@ -6,15 +6,15 @@ Hessian single points for the final molecules in the [OpenFF Iodine Chemistry Op
 
 ## General information
 
-* Date: 2024-10-07
+* Date: 2024-10-08
 * Class: OpenFF Basic Dataset
 * Purpose: Hessian dataset generation for MSM parameters
 * Name: OpenFF Iodine Chemistry Hessian Dataset v1.0 
-* Number of unique molecules: 
-* Number of conformers: 
-* Number of conformers (min, mean, max): 
-* Molecular weight (min, mean, max): 
-* Charges: 
+* Number of unique molecules: 99
+* Number of conformers: 327
+* Number of conformers (min, mean, max): 1, 3.30, 22
+* Molecular weight (min, mean, max): 221.95 318.54 533.92
+* Charges: -1.0, 0.0, 1.0
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
 
@@ -36,8 +36,8 @@ Hessian single points for the final molecules in the [OpenFF Iodine Chemistry Op
 
 ## Metadata
 
-* elements: 
-* unique molecules: 
+* elements: I, F, Br, C, Cl, O, S, N, H
+* unique molecules: 99
 * Spec: B3LYP-D3BJ/DZVP
     * SCF properties:
         * dipole
