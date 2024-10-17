@@ -93,22 +93,3 @@ then optimisation dataset.
 		* mayer_indices
 		* wiberg_lowdin_indices
 		* dipole_polarizabilities
-
-## QC specifications:
-
-<!-- copy spec outputs from generation notebook here -->
-
-```
-
-```
-
-## SCF Properties
-
-<!-- copy scf property outputs from generation notebook here -->
-
-```
-[<SCFProperties.Dipole: 'dipole'>,
- <SCFProperties.Quadrupole: 'quadrupole'>,
- <SCFProperties.WibergLowdinIndices: 'wiberg_lowdin_indices'>,
- <SCFProperties.MayerIndices: 'mayer_indices'>]
-```
