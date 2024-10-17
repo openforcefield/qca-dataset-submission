@@ -1,7 +1,7 @@
 from openff.qcsubmit.results import OptimizationResultCollection
 from openff.qcsubmit.results.filters import ConnectivityFilter, RecordStatusFilter, RecordStatusEnum
 from openff.qcsubmit.common_structures import QCSpec, SCFProperties
-from openff.qcsubmit.common_structures import DDXSettings, SCFProperties, Metadata
+# from openff.qcsubmit.common_structures import DDXSettings, SCFProperties, Metadata
 from qcportal import PortalClient
 
 DATASET_NAME  = "PubChem_I_fragments"
@@ -11,7 +11,7 @@ PASSWORD = "kuano123"
 client = PortalClient(address=ADDRESS, username=USERNAME, password=PASSWORD)
 
 result_dataset = OptimizationResultCollection.from_server(client=client, datasets=DATASET_NAME, spec_name="aimnet2-wb97m-d3")
-
+print(result_dataset)
 print(f"Dataset has {result_dataset.n_results} raw results.")
 
 status_filter = RecordStatusFilter(status=RecordStatusEnum.complete)
@@ -42,3 +42,4 @@ basic_dataset = result_dataset.create_basic_dataset(
 )
 
 basic_dataset.export_dataset("esp_50k_I_singlepoint_dataset.json.bz2")
+basic_dataset.molecules_to_file("iodine_filtered.smi", "smi")
