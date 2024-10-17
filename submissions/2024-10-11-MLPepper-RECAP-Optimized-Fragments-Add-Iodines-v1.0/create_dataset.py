@@ -27,7 +27,6 @@ def main():
     keywords = {
         "dft_spherical_points": 590,
         "dft_radial_points": 99,
-        "debug": 1
     }
     properties = [
         SCFProperties.Dipole,

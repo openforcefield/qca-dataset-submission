@@ -1,4 +1,4 @@
-# OpenFF BCC Refit Study COH v2.0
+# MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0
 
 ## Description
 
@@ -48,16 +48,14 @@ then optimisation dataset.
 - `create_dataset.py`: Script to create the singlepoint dataset from the optimization set, removing any connectivity issues. 
 
 ### Output Files
-- `generate-dataset.ipynb`
 - `dataset.json.bz2`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `dataset.smi`: SMILES for every molecule in the submission.
 - `dataset_mlpepper.smi`: The MLPepper original smile list used to generate new iodine compounds.
 - `extra_iodines.smi`: The iodines taken from Lily and Lexi's set. 
 - `iodine_smiles.smi`: The iodine compounds generated from the MLPepper set for optimisation.
-- `iodine_filtered.smi`: The filtered iodine compounds.
+- `iodine_filtered.smi`: The iodine compounds after filtering for connectivity issues after optimisation.
 
- 
 ### Metadata
 
 * Elements: {N, Si, O, I, Br, F, Cl, B, C, P, S, H}

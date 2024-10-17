@@ -4,10 +4,10 @@ from openff.qcsubmit.common_structures import QCSpec, SCFProperties
 # from openff.qcsubmit.common_structures import DDXSettings, SCFProperties, Metadata
 from qcportal import PortalClient
 
-DATASET_NAME  = "PubChem_I_fragments"
-ADDRESS = "http://10.64.1.130:7777"
-USERNAME = "kuano"
-PASSWORD = "kuano123"
+DATASET_NAME  = ""
+ADDRESS = ""
+USERNAME = ""
+PASSWORD = ""
 client = PortalClient(address=ADDRESS, username=USERNAME, password=PASSWORD)
 
 result_dataset = OptimizationResultCollection.from_server(client=client, datasets=DATASET_NAME, spec_name="aimnet2-wb97m-d3")
