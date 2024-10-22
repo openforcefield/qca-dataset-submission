@@ -14,41 +14,37 @@ We distinguish between standards for the datasets (i.e. the actual data), and th
 - Coordinates
 - Total charge
 
-## Each dataset must have the following information:
+## Each dataset's metadata/entries must have the following: 
 - Name
-- Version (NEW)
+- Version 
 - A short description
 - A long description
 - A link/URL/reference pointing to the provenance to reproduce dataset (e.g. the GH submission folder)
-- A changelog (NEW)
+- A github submitter username
+- Each entry has canonical isomeric explicit hydrogen mapped SMILES
+
+## Each dataset subdirectory in QCA Dataset submission must have the following information:
+- Full environment used to generate dataset
+- Dataset generation script including the following:
+        - How conformers were generated
+        - Origin of SMILES strings
+	- Enumerated stereo flag (True/False)
+	- Enumerated tautomers flag (True/False)
+	- Enumeration keywords/settings
+
+ - A descriptive README file, as described below
+
+## Each dataset README must contain the following information:
+
+- All information specified in the dataset
+- A changelog (if there are changes)
 	- The changelog is a python-like dictionary of the form `{ version: entry }`
 	- Each entry in the changelog has the python dictionary form `{ person: str, date: str, description: str }`
-- A github submitter username
-- The name of the person who selected/sourced the molecules (NEW)
-- A description of the meaning of the entry/molecule keys/names (NEW)
-- Each entry has canonical isomeric explicit hydrogen mapped SMILES
-- Provenance info of CMILES generation
+- The name of the person who selected/sourced the molecules 
+- A description of the meaning of the entry/molecule keys/names
 - A set of elements that the dataset contains
-- A set of charges that the dataset contains (NEW)
-- The mean and max molecular weight of molecules the dataset contains (NEW)
-- Enumerated stereo flag (True/False) (NEW)
-- Enumerated tautomers flag (True/False) (NEW)
-- Enumeration provenance info (NEW)
-- Computation blacklist (known failures) (NEW)
-- Dataset status flags (NEW):
-	- Complete: `COMPLETE` `INCOMPLETE`
-	- State: `DONE` `WORKING` `PAUSED`
-	- Compliance: `V3` `NONE`
-	- COMPLETE/DONE/V3; all molecules were successful
-	- INCOMPLETE/DONE/V3; some molecules were not calculated successfully, and won't be retried
-	- INCOMPLETE/WORKING/V3; in progress
-	- INCOMPLETE/DONE/NONE; the dataset does not conform to the standards, and can't be fixed
-	- INCOMPLETE/WORKING/NONE; the dataset does not conform to the standards, but is working anyways
-	- INCOMPLETE/PAUSED/NONE; the dataset does not conform to the standards, and calculations have been suspended
-
-## Each dataset README must contain the following information
-
-All information specified in the dataset
+- A set of charges that the dataset contains
+- The mean and max molecular weight of molecules the dataset contains 
 
 ## Each revision must use the following procedure:
 
