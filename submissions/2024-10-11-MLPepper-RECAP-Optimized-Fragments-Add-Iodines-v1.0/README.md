@@ -34,7 +34,6 @@ An off equilibrium data set will also be generated to enable conformation depend
 
 - `create_optimisation.py`: Was used to create the iodine Cl and Br replacements from the original MLPepper, and 
 then optimisation dataset.
-- `add_extra_iodines.py`: Was used to add the extra iodines from Lexi and Lily's set, and then add them to the optimsation dataset. 
 - `create_singlepoints.py`: Was used to create the singlepoints dataset for the optimised iodine sets.
 - `create_dataset.py`: Finally this script combines the resulting datasets into a single point dataset ready for submission.
 
@@ -43,7 +42,6 @@ then optimisation dataset.
 ### Input Files
 
 - `create_optimisation.py`: Script used to make the optimisation dataset for local optimisation. 
-- `add_extra_iodines.py`: Script to add additional iodines to them local optimisation set.
 - `create_singlepoints.py`: Script to create the singlepoints dataset from the optimised geometries.
 - `create_dataset.py`: Script to create the singlepoint dataset from the optimization set, removing any connectivity issues. 
 
@@ -51,43 +49,45 @@ then optimisation dataset.
 - `dataset.json.bz2`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `dataset.smi`: SMILES for every molecule in the submission.
-- `dataset_mlpepper.smi`: The MLPepper original smile list used to generate new iodine compounds.
-- `extra_iodines.smi`: The iodines taken from Lily and Lexi's set. 
-- `iodine_smiles.smi`: The iodine compounds generated from the MLPepper set for optimisation.
-- `iodine_filtered.smi`: The iodine compounds after filtering for connectivity issues after optimisation.
 
 ### Metadata
 
-* Elements: {N, Si, O, I, Br, F, Cl, B, C, P, S, H}
+* Number of conformers: 6131
+* Number of conformers per molecule (min, mean, max): 1, 1.07, 3
+* Mean molecular weight: 278.86
+* Max molecular weight: 701.59
+* Charges: [-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+## Metadata
+* Elements: {Br, Cl, S, B, O, Si, C, N, I, P, H, F}
 * Spec: wb97x-d/def2-tzvpp
-	* basis: def2-tzvpp
-	* implicit_solvent: None
-	* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
-	* maxiter: 200
-	* method: wb97x-d
-	* program: psi4
-	* SCF properties:
-		* dipole
-		* quadrupole
-		* lowdin_charges
-		* mulliken_charges
-		* mbis_charges
-		* mayer_indices
-		* wiberg_lowdin_indices
-		* dipole_polarizabilities
+        * basis: def2-tzvpp
+        * implicit_solvent: None
+        * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
+        * maxiter: 200
+        * method: wb97x-d
+        * program: psi4
+        * SCF properties:
+                * dipole
+                * quadrupole
+                * lowdin_charges
+                * mulliken_charges
+                * mbis_charges
+                * mayer_indices
+                * wiberg_lowdin_indices
+                * dipole_polarizabilities
 * Spec: wb97x-d/def2-tzvpp/ddx-water
-	* basis: def2-tzvpp
-	* implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
-	* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
-	* maxiter: 200
-	* method: wb97x-d
-	* program: psi4
-	* SCF properties:
-		* dipole
-		* quadrupole
-		* lowdin_charges
-		* mulliken_charges
-		* mbis_charges
-		* mayer_indices
-		* wiberg_lowdin_indices
-		* dipole_polarizabilities
+        * basis: def2-tzvpp
+        * implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
+        * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
+        * maxiter: 200
+        * method: wb97x-d
+        * program: psi4
+        * SCF properties:
+                * dipole
+                * quadrupole
+                * lowdin_charges
+                * mulliken_charges
+                * mbis_charges
+                * mayer_indices
+                * wiberg_lowdin_indices
+                * dipole_polarizabilities
