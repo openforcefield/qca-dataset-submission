@@ -18,11 +18,11 @@ def main():
         if 'Br' in molecule:
             iodine_smiles.append(molecule.replace('Br','I'))
             
-    with open('./iodine_smiles.smi','w+') as file:
+    with open('./iodine_dataset.smi','w+') as file:
         for iodine in iodine_smiles:
             file.write(iodine + '\n')
 
-    client = PortalClient(address="http://10.64.1.130:7777", username="kuano", password="kuano123")
+    client = PortalClient(address="", username="", password="")
     
     factory = OptimizationDatasetFactory()
     # setup the aimnet2 specs and tags
@@ -37,17 +37,12 @@ def main():
     factory.compute_tag = "aimnet2"
     # build the workflow
 
-    # fragment = workflow_components.RECAPFragmenter()
-    # factory.add_workflow_components(fragment)
-
     stereo_expander = workflow_components.EnumerateStereoisomers()
     factory.add_workflow_components(stereo_expander)
     
     conf_gen = workflow_components.StandardConformerGenerator(max_conformers=5, toolkit="rdkit")
     factory.add_workflow_components(conf_gen)
-
-    # should we remove molecules which don't have Boron and Silicon do we need the other fragments?
-    
+        
     dataset = factory.create_dataset(
         dataset_name="PubChem_I_fragments",
         description="A dataset of RECAP fragmented molecules from the SPICE2 Iodines replaced with Chlorines molecules extracted from PubChem.",

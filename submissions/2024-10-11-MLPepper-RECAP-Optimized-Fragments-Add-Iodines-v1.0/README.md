@@ -19,12 +19,12 @@ An off equilibrium data set will also be generated to enable conformation depend
 * Date: 2024-10-11
 * Class: OpenFF SinglePoint Dataset
 * Purpose: Electrostatic properties for ML prediction models 
-* Name: MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0
-* Number of unique molecules: 5604
+* Name: MLPepper RECAP Optimized Fragments v1.0 Add Iodines
+* Number of unique molecules: 5733
 * Number of filtered molecules: 0
-* Number of conformers: 6041
-* Number of conformers per molecule (min, mean, max): 1, 1.08, 4
-* Mean molecular weight: 280.08
+* Number of conformers: 6131
+* Number of conformers per molecule (min, mean, max): 1, 1.07, 3
+* Mean molecular weight: 278.86
 * Max molecular weight: 701.59
 * Charges: [-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
 * Dataset submitter: Josh Horton/ Charlie Adams
@@ -49,6 +49,7 @@ then optimisation dataset.
 - `dataset.json.bz2`: The basic dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
 - `dataset.smi`: SMILES for every molecule in the submission.
+- `dataset_mlpepper.smi`: SMILES of the original dataset to generate the Iodines
 
 ### Metadata
 
@@ -57,37 +58,36 @@ then optimisation dataset.
 * Mean molecular weight: 278.86
 * Max molecular weight: 701.59
 * Charges: [-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
-## Metadata
-* Elements: {Br, Cl, S, B, O, Si, C, N, I, P, H, F}
+* Elements: {B, Si, I, C, N, Br, O, S, Cl, H, F, P}
 * Spec: wb97x-d/def2-tzvpp
-	* basis: def2-tzvpp
-	* implicit_solvent: None
-	* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
-	* maxiter: 200
-	* method: wb97x-d
-	* program: psi4
-	* SCF properties:
-			* dipole
-			* quadrupole
-			* lowdin_charges
-			* mulliken_charges
-			* mbis_charges
-			* mayer_indices
-			* wiberg_lowdin_indices
-			* dipole_polarizabilities
+        * basis: def2-tzvpp
+        * implicit_solvent: None
+        * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+        * maxiter: 200
+        * method: wb97x-d
+        * program: psi4
+        * SCF properties:
+                * dipole
+                * quadrupole
+                * lowdin_charges
+                * mulliken_charges
+                * mbis_charges
+                * mayer_indices
+                * wiberg_lowdin_indices
+                * dipole_polarizabilities
 * Spec: wb97x-d/def2-tzvpp/ddx-water
-	* basis: def2-tzvpp
-	* implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
-	* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99, 'debug': 1}
-	* maxiter: 200
-	* method: wb97x-d
-	* program: psi4
-	* SCF properties:
-			* dipole
-			* quadrupole
-			* lowdin_charges
-			* mulliken_charges
-			* mbis_charges
-			* mayer_indices
-			* wiberg_lowdin_indices
-			* dipole_polarizabilities
+        * basis: def2-tzvpp
+        * implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
+        * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+        * maxiter: 200
+        * method: wb97x-d
+        * program: psi4
+        * SCF properties:
+                * dipole
+                * quadrupole
+                * lowdin_charges
+                * mulliken_charges
+                * mbis_charges
+                * mayer_indices
+                * wiberg_lowdin_indices
+                * dipole_polarizabilities
