@@ -6,7 +6,7 @@ import numpy as np
 
 def main():
     # load the datasets optimised at aimnet2
-    esp_50k_I = load_dataset('esp_50k_I_singlepoint_dataset.json.bz2')
+    esp_50k_I = load_dataset('dataset.json.bz2')
 
     dataset = BasicDataset(
         dataset_name="MLPepper RECAP Optimized Fragments v1.0 Add Iodines",
