@@ -40,6 +40,7 @@ The purpose of this dataset is to estimate timing and storage requirements for t
 * `compute.json`: compute expansion specs
 * `generate-compute-wb97xd`: Notebook used to generate the second compute expansion `compute2.json`
 * `compute2.json`: second compute expansion specs
+* `ddx_error_exploration.ipynb`: Notebook examining errors in the initial PBE0/def2-TZVPPD/DDX dataset
 
 ## Metadata
 * elements: {'H', 'P', 'C', 'N', 'O', 'S', 'Cl', 'I', 'Br', 'F'}
