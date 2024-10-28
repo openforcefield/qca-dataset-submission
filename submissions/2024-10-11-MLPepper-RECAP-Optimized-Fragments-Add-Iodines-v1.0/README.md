@@ -44,6 +44,8 @@ then optimisation dataset.
 - `create_optimisation.py`: Script used to make the optimisation dataset for local optimisation. 
 - `create_singlepoints.py`: Script to create the singlepoints dataset from the optimised geometries.
 - `create_dataset.py`: Script to create the singlepoint dataset from the optimization set, removing any connectivity issues. 
+- `basic_env.yml`: input file to create environment this dataset was built with.
+- `conda_export.yml`: file created from conda export.
 
 ### Output Files
 - `dataset.json.bz2`: The basic dataset ready for submission.
