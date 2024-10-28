@@ -41,5 +41,5 @@ basic_dataset = result_dataset.create_basic_dataset(
     )]
 )
 
-basic_dataset.export_dataset("dataset.json.bz2")
+basic_dataset.export_dataset("iodine_filtered.json.bz2")
 basic_dataset.molecules_to_file("iodine_filtered.smi", "smi")
