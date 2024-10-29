@@ -62,34 +62,34 @@ then optimisation dataset.
 * Charges: [-4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
 * Elements: {B, Si, I, C, N, Br, O, S, Cl, H, F, P}
 * Spec: wb97x-d/def2-tzvpp
-* basis: def2-tzvpp
-* implicit_solvent: None
-* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
-* maxiter: 200
-* method: wb97x-d
-* program: psi4
-* SCF properties:
-  * dipole
-  * quadrupole
-  * lowdin_charges
-  * mulliken_charges
-  * mbis_charges
-  * mayer_indices
-  * wiberg_lowdin_indices
-  * dipole_polarizabilities
+  * basis: def2-tzvpp
+  * implicit_solvent: None
+  * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+  * maxiter: 200
+  * method: wb97x-d
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * lowdin_charges
+    * mulliken_charges
+    * mbis_charges
+    * mayer_indices
+    * wiberg_lowdin_indices
+    * dipole_polarizabilities
 * Spec: wb97x-d/def2-tzvpp/ddx-water
-* basis: def2-tzvpp
-* implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
-* keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
-* maxiter: 200
-* method: wb97x-d
-* program: psi4
-* SCF properties:
-  * dipole
-  * quadrupole
-  * lowdin_charges
-  * mulliken_charges
-  * mbis_charges
-  * mayer_indices
-  * wiberg_lowdin_indices
-  * dipole_polarizabilities
+  * basis: def2-tzvpp
+  * implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
+  * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+  * maxiter: 200
+  * method: wb97x-d
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * lowdin_charges
+    * mulliken_charges
+    * mbis_charges
+    * mayer_indices
+    * wiberg_lowdin_indices
+    * dipole_polarizabilities
