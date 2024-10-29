@@ -231,7 +231,7 @@ These are currently used to compute properties of a minimum energy conformation 
 |`OpenFF Sulfur Hessian Training Coverage Supplement v1.0` | [2024-09-18-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.0) | Additional Hessian training data for Sage sulfur and phosphorus parameters (from ['OpenFF Sulfur Optimization Training Coverage Supplement v1.0'](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0)) | O, S, C, Cl, P, N, F, Br, H | |
 | `OpenFF Aniline Para Hessian v1.0` | [2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0) | Hessian single points for the final molecules in the `OpenFF Aniline Para Opt v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) | 'O', 'Cl', 'S', 'Br', 'H', 'F', 'N', 'C' ||
 |`OpenFF Gen2 Hessian Dataset Protomers v1.0` | [2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0/) | Hessian single points for the final molecules in the `OpenFF Gen2 Optimization Dataset Protomers v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers) | 'H', 'C', 'Cl', 'P', 'F', 'Br', 'O', 'N', 'S'||
-
+| `MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0` | [2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0)  | Set of diverse iodine containing molecules with a number of calculated electrostatic properties.   | Br, Cl, S, B, O, Si, C, N, I, P, H, F|   |
 
 
 # Optimization Datasets
@@ -277,7 +277,6 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Sulfur Optimization Training Coverage Supplement v1.0` | [2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0) | Additional optimization training data for Sage sulfur and phosphorus parameters | C, S, F, O, H, Cl, Br, P, N | |
 | `OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0` | [2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0) | Additional optimization benchmarking data for Sage sulfur and phosphorus parameters | S, P, Cl, C, N, O, H, Br, F | |
 | `OpenFF Lipid Optimization Training Supplement v1.0` | [2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0) | Additional optimization training data for Sage from representative LIPID MAPS fragments | I, Br, O, H, P, C, N, Cl, F, S | |
-
 
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
@@ -335,7 +334,6 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Torsion Multiplicity Torsion Drive Coverage Supplement v1.0` | [2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0) | Additional torsion drive training data for Sage 2.2.0 proper torsions and new parameters from the torsion multiplicity work | N, Br, H, P, Cl, O, C, S | |
 | `OpenFF Phosphate Torsion Drives v1.0` | [2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0) | Lipid-like phosphate torsions | C, S, N, H, O, P | |
 | `OpenFF Alkane Torsion Drives v1.0` | [2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0) | Alka/ene torsion drives | C, H | |
-
 
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.
