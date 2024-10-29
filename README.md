@@ -278,7 +278,6 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0` | [2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0) | Additional optimization benchmarking data for Sage sulfur and phosphorus parameters | S, P, Cl, C, N, O, H, Br, F | |
 | `OpenFF Lipid Optimization Training Supplement v1.0` | [2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0) | Additional optimization training data for Sage from representative LIPID MAPS fragments | I, Br, O, H, P, C, N, Cl, F, S | |
 
-
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
 
