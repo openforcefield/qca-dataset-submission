@@ -95,6 +95,14 @@ tag = "data/lipidmaps.smi"
 with open("inchis.dat") as inp:
     old_inchis = {inchi.strip() for inchi in inp}
 
+# update previous inchis with those from the fragment dataset
+with open(
+    "../2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0/output.smi"
+) as inp:
+    for s in inp:
+        mol = Molecule.from_smiles(s.strip(), allow_undefined_stereo=True)
+        old_inchis.add(mol.to_inchikey())
+
 lp = rdSimDivPickers.LeaderPicker()
 
 ids, fps = load_fingerprints(
