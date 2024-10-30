@@ -19,13 +19,13 @@ training or benchmarking data were also filtered out.
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve testing coverage in Sage
 * Name: OpenFF Lipid Optimization Benchmark Supplement v1.0
-* Number of unique molecules: 
-* Number of filtered molecules: 
-* Number of conformers: 
-* Number of conformers per molecule (min, mean, max): , , 
-* Mean molecular weight: 
-* Max molecular weight: 
-* Charges: 
+* Number of unique molecules: 997
+* Number of filtered molecules: 6
+* Number of conformers: 8387
+* Number of conformers per molecule (min, mean, max): 1, 8.41, 10
+* Mean molecular weight: 374.84
+* Max molecular weight: 1425.34
+* Charges: [0.0, 1.0]
 * Dataset submitter: Brent Westbrook
 * Dataset generator: Brent Westbrook
 
@@ -47,6 +47,16 @@ variables used throughout the QCA submission process
 * `output.smi`: SMILES strings for dataset molecules
 
 ## Metadata
-
-* elements: 
-* Spec: 
+* Elements: {O, H, C, Br, P, N, Cl, F, S, I}
+* Spec: default
+	* basis: DZVP
+	* implicit_solvent: None
+	* keywords: {}
+	* maxiter: 200
+	* method: B3LYP-D3BJ
+	* program: psi4
+	* SCF properties:
+		* dipole
+		* quadrupole
+		* wiberg_lowdin_indices
+		* mayer_indices
