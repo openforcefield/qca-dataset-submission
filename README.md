@@ -104,7 +104,7 @@ When the PR is merged, the following happens:
 
 * CI checks for `compute*.json*`, so files can be called anything so long as they follow that pattern.
 
-* This gets loaded into a QCSubmit `dataset` structure in CI (see `lifecycle.py`, `SubmittableBase`) and submitted to MolSSI with `openff.qcsubmit.datasets.datasets._BaseDataset.submit()`
+* This gets loaded into a QCSubmit `dataset` structure in CI (see `lifecycle.py`, [`SubmittableBase`](https://github.com/openforcefield/qca-dataset-submission/blob/master/management/lifecycle.py#L333)) and submitted to MolSSI with [`openff.qcsubmit.datasets.datasets._BaseDataset.submit()`](https://github.com/openforcefield/openff-qcsubmit/blob/main/openff/qcsubmit/datasets/datasets.py#L174)
 
 * `submit()` checks if the dataset already exists using only the dataset type and name. Changes in descriptions, other metadata, etc. don't affect anything. New/different molecules will also be ignored if the dataset name already exists.
 
