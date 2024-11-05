@@ -38,9 +38,11 @@ The purpose of this dataset is to estimate timing and storage requirements for t
 * `esp_subsample_filtered.json`: subset of ESP50k dataset selected for this benchmark
 * `generate-compute.ipynb`: Notebook used to generate the compute expansion `compute.json`
 * `compute.json`: compute expansion specs
-* `generate-compute-wb97xd`: Notebook used to generate the second compute expansion `compute2.json`
+* `generate-compute-wb97xd.ipynb`: Notebook used to generate the second compute expansion `compute2.json`
 * `compute2.json`: second compute expansion specs
 * `ddx_error_exploration.ipynb`: Notebook examining errors in the initial PBE0/def2-TZVPPD/DDX dataset
+* `generate-compute-nodiffuse.ipynb`: Notebook used to generate the third compute expansion `compute3.json`
+* `compute3.json`: Third compute expansion specs, removes diffuse functions
 
 ## Metadata
 * elements: {'H', 'P', 'C', 'N', 'O', 'S', 'Cl', 'I', 'Br', 'F'}
@@ -109,3 +111,35 @@ The purpose of this dataset is to estimate timing and storage requirements for t
 		* mayer_indices
 		* wiberg_lowdin_indices
 		* dipole_polarizabilities
+* Spec: wb97x-d/def2-TZVPP/ddx-water
+  * basis: def2-TZVPP
+  * implicit_solvent: {'ddx_model': 'pcm', 'ddx_radii_scaling': 1.1, 'ddx_radii_set': 'uff', 'ddx_solvent_epsilon': 78.4, 'ddx_solvent': 'water'}
+  * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+  * maxiter: 200
+  * method: wb97x-d
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * lowdin_charges
+    * mulliken_charges
+    * mbis_charges
+    * mayer_indices
+    * wiberg_lowdin_indices
+    * dipole_polarizabilities
+* Spec: wb97x-d/def2-TZVPP
+  * basis: def2-TZVPP
+  * implicit_solvent: None
+  * keywords: {'dft_spherical_points': 590, 'dft_radial_points': 99}
+  * maxiter: 200
+  * method: wb97x-d
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * lowdin_charges
+    * mulliken_charges
+    * mbis_charges
+    * mayer_indices
+    * wiberg_lowdin_indices
+    * dipole_polarizabilities
