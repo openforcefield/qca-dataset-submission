@@ -8,14 +8,15 @@ dependencies:
   - qcfractalcompute
   - qcengine
   - qcelemental
-
+  
   # QM calculations
   - psi4
   - pyddx 
   - dftd3-python
   - gcp-correction
   - scipy
-    
+  - openff-toolkit
+
   # procedures
   - geometric
 
