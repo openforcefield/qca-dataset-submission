@@ -10,7 +10,7 @@ Supplement v1.0`.
 
 ## General Information
 
-* Date: 2024-09-18
+* Date: 2024-11-08
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve coverage in Sage
 * Name: OpenFF Sulfur Hessian Training Coverage Supplement v1.1
