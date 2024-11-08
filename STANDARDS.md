@@ -58,7 +58,7 @@ As a rule, we never modify existing datasets, so any changes must be made using 
 
 A revision means creating a new dataset based on an existing one, with the intent of fixing/improving it.
 
-- The changelog must be copied from the current version (if it exists), and a new entry added for the new version. The changelog should describe any changes between the new version and previous version, including QCAIDs of any records that were removed or modified, with an explanation as to why they were removed.
+- The changelog must be copied from the current version (if it exists), and a new entry added for the new version. The changelog should describe any changes between the new version and previous version, including QCArchive record ids of any records that were removed or modified, with an explanation as to why they were removed.
 - The dataset version information is updated, and the description updated if necessary
 - The README is updated
 - A notebook or script used to manipulate the dataset and generate the revision
