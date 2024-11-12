@@ -2,7 +2,7 @@
 This file outlines the standards and data requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
-STANDARDS version: 4 (adopted 2024.11.XX)
+STANDARDS version: 4 (adopted 2024.11.12)
 
 We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking/testing force fields.
 
@@ -17,7 +17,7 @@ As a rule, we never modify existing datasets, so any changes must be made using 
 - Total charge
 
 ## Each dataset's metadata on QCA must have the following: 
-- Name (which matches the submission directory on `qca-dataset-submission`, but with the words separated by spaces and NOT hyphens or underscores)
+- Name (which matches the submission directory on `qca-dataset-submission`, but without the date and with the words separated by spaces and NOT hyphens or underscores. See the section below on naming)
 - Version 
 - A short description
 - A long description, including the following:
@@ -85,7 +85,7 @@ Each dataset shall be versioned according to `vX.Y.Z`. X refers to the major ver
 
 * Datasets with versions starting with `"v1.x"` and `"v2.x"` do not follow any official STANDARDS, and thus should be considered `"v0.x"`. 
 
-- A minor version change (e.g. `"v3.1"`) represents a minor addition and/or fixes problems:
+- A minor version change (e.g. `"v4.1"`) represents a minor addition and/or fixes problems:
 	- Adding molecules or removing/replacing records with an underlying problem
 	- Errors/bugs in the molecule specification
 	- Changes necessary to adhere to the STANDARDS (i.e. changes necessary to placate the NONE compliance status)
