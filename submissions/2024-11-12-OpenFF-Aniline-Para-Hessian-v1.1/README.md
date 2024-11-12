@@ -1,4 +1,4 @@
-# OpenFF Aniline Para Hessian v1.0
+# OpenFF Aniline Para Hessian v1.1
 
 ## Description
 
@@ -6,10 +6,10 @@ Hessian single points for the final molecules in the [OpenFF Aniline Para Opt v1
 
 ## General information
 
-* Date: 2024-10-07
+* Date: 2024-11-12
 * Class: OpenFF Basic Dataset
 * Purpose: Hessian dataset generation for MSM parameters
-* Name: OpenFF Aniline Para Hessian v1.0
+* Name: OpenFF Aniline Para Hessian v1.1
 * Number of unique molecules: 50
 * Number of conformers: 223
 * Number of conformers (min, mean, max): 1 4.46 10
@@ -18,6 +18,10 @@ Hessian single points for the final molecules in the [OpenFF Aniline Para Opt v1
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
 
+## Changelog
+
+Compared to OpenFF Aniline Para Hessian v1.0, this dataset has been re-generated with an updated `create_basic_dataset` from QCSubmit 0.54 so as to preserve the molecule IDs between optimization and Hessian datasets.
+The molecules and results should be nearly identical, but preserving molecule IDs improves our ability to process the dataset in our forcefield fitting pipeline.
 
 ## QCSubmit generation pipeline
 
