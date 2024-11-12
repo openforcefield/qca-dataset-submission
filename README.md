@@ -1,5 +1,5 @@
 # OpenFF QCArchive Dataset Submission
-  
+
 ## Dataset Lifecycle
 
 All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](./LIFECYCLE.md).
@@ -16,7 +16,7 @@ Datasets must be submitted as pull requests.
    export GIT_LFS_SKIP_SMUDGE=1
    git clone git@github.com:openforcefield/qca-dataset-submission.git
    ```
-   
+
    This will clone the repo, but avoid downloading existing LFS objects.
    If you wish to download all LFS objects, leave off the `export GIT_LFS_SKIP_SMUDGE=1`.
 
@@ -85,16 +85,16 @@ Datasets must be submitted as pull requests.
 
 ### Creating a compute expansion
 If you have already computed a dataset but want to re-compute it with a new `QCSpec` (e.g. new level of theory), you can do so using a compute expansion. This is faster than creating a new dataset, and explicitly links datasets with the same molecules and purpose.
-A compute expansion involves adding a file called `compute.json` to your original submission, which contains the dataset metadata (identical to the original dataset) and the new compute spec. 
-This can be done manually, or programatically. 
-The programatic description is provided below, with an example of the notebook and of the file. 
+A compute expansion involves adding a file called `compute.json` to your original submission, which contains the dataset metadata (identical to the original dataset) and the new compute spec.
+This can be done manually, or programatically.
+The programatic description is provided below, with an example of the notebook and of the file.
 
 1. Create a new branch as described above, and navigate to the submission directory of the dataset you want to expand.
 2. Create a new jupyter notebook called `generate-compute.ipynb` [example here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/generate-compute.ipynb).
 3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same name as the original and skip the molecule addition step.
 * See below for details about how changes to the dataset are propagated; note that the dataset name must be the same, and changes to any metadata except `compute-tag` and the `QCSpec` will be ignored when submitting the compute expansion.
 * Please note that the default `compute_tag` is `openff`; if you need to use a different one, please add it explicitly to the dataset at this step, as the `compute.json` file overrides the compute tag added manually to the PR. If you do need to change the compute tag after submission, you can change it by updating the label on the PR and the change will take effect when the error cycling action runs next.
-4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json). 
+4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
 5. Add the additional compute spec to the submission's `README.md` file.
 6. Add the `generate-compute.ipynb` and `compute.json` files to the submission's `QCSubmit Manifest` entry in the `README.md` file.
 7. Proof the submission and open a PR. Dataset validation will run automatically.
@@ -120,7 +120,7 @@ All Open Force Field datasets submitted to QCArchive undergo well-defined *lifec
 
 ![Dataset Lifecycle](assets/lifecycle-diagram.png)
 
-Each labeled rectangle in the lifecycle represents a *state*. 
+Each labeled rectangle in the lifecycle represents a *state*.
 A submission PR changes state according to the arrows.
 Changes in state may be performed by automation or manually by a human when certain critera are met.
 
@@ -145,7 +145,7 @@ The lifecycle process is described below, with [bracketed] items indicating the 
     - [GHA]  [`lifecycle-submission`](.github/workflows/lifecycle-submission.yml) will attempt to submit the dataset
         - if successful, will move card to state ["Error Cycling"](https://github.com/openforcefield/qca-dataset-submission/projects/1#column-9577365); add comment to PR
         - if failed, will keep card queued; add comment to PR; attempt again next execution
-     
+
     - [Human] Submit worker jobs on a server to begin compute. If using Nautilus, carefully monitor utilization and scale down resources as jobs finish.
 
 4. COMPLETE, INCOMPLETE, ERROR numbers reported for `Optimizations`, `TorsionDrives`
@@ -184,7 +184,7 @@ In addition to the states given above, there are additional touchpoints availabl
 4. The order of a submission PR in a [Dataset Tracking](https://github.com/openforcefield/qca-dataset-submission/projects/1) column matters.
    Submissions higher in a column will be operated on first by all Github Action automation.
    For example, if you want to error cycle a submission before any others so it has a higher chance of being pulled by idle manager workers, place it at the top of the Error Cycling column.
-   
+
 
 # Dude where's my Dataset?
 
@@ -246,6 +246,7 @@ These are currently used to compute properties of a minimum energy conformation 
 |`OpenFF Sulfur Hessian Training Coverage Supplement v1.1` | [2024-11-08-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-08-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.1) | Additional Hessian training data for Sage sulfur and phosphorus parameters (from ['OpenFF Sulfur Optimization Training Coverage Supplement v1.0'](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0)) | O, S, C, Cl, P, N, F, Br, H | |
 | `OpenFF Aniline Para Hessian v1.0` | [2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0) | Hessian single points for the final molecules in the `OpenFF Aniline Para Opt v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) | 'O', 'Cl', 'S', 'Br', 'H', 'F', 'N', 'C' ||
 |`OpenFF Gen2 Hessian Dataset Protomers v1.0` | [2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0/) | Hessian single points for the final molecules in the `OpenFF Gen2 Optimization Dataset Protomers v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers) | 'H', 'C', 'Cl', 'P', 'F', 'Br', 'O', 'N', 'S'||
+|`OpenFF Gen2 Hessian Dataset Protomers v1.1` | [2024-11-12-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-12-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.1/) | Hessian single points for the final molecules in the `OpenFF Gen2 Optimization Dataset Protomers v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers), re-generated to preserve molecule IDs between opt and basic datasets. | 'H', 'C', 'Cl', 'P', 'F', 'Br', 'O', 'N', 'S'||
 | `MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0` | [2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0)  | Set of diverse iodine containing molecules with a number of calculated electrostatic properties.   | Br, Cl, S, B, O, Si, C, N, I, P, H, F|   |
 | `OpenFF Iodine Chemistry Hessian Dataset v1.0` | [2024-11-11-OpenFF-Iodine-Chemistry-Hessian-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-11-OpenFF-Iodine-Chemistry-Hessian-Dataset-v1.0) | Hessian single points for the final molecules in the `OpenFF Iodine Chemistry Optimization Dataset v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-07-27-OpenFF-iodine-optimization-set) |  I, F, Br, C, Cl, O, S, N, H ||
 
