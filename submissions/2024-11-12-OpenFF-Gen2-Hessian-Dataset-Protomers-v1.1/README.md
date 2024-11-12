@@ -19,7 +19,7 @@ Hessian single points for the final molecules in the [OpenFF Gen2 Optimization D
 * Dataset generator: Alexandra McIsaac
 
 ## Changelog
-Compared to OpenFF Gen2 Hessian Dataset Protomers v1.0, this dataset has been re-generated with an updated `create_basic_dataset` from QCSubmit 0.54 so as to preserve the molecule_ids between optimization and Hessian datasets.
+Compared to OpenFF Gen2 Hessian Dataset Protomers v1.0, this dataset has been re-generated with an updated `create_basic_dataset` from QCSubmit 0.54 so as to preserve the molecule IDs between optimization and Hessian datasets.
 The molecules and results should be nearly identical, but preserving molecule IDs improves our ability to process the dataset in our forcefield fitting pipeline.
 
 ## QCSubmit generation pipeline
