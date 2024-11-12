@@ -1,0 +1,15 @@
+name: qcarchive-user-submit
+
+channels:
+  - conda-forge
+  - openeye
+
+dependencies:
+  - python =3.11
+  - pip
+  - qcportal >=0.49
+  - openff-qcsubmit >= 0.54
+  - openff-toolkit
+  - openeye-toolkits
+  - pip:
+    - git+https://github.com/ntBre/qcaide
