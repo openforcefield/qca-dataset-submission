@@ -91,14 +91,28 @@ The programatic description is provided below, with an example of the notebook a
 
 1. Create a new branch as described above, and navigate to the submission directory of the dataset you want to expand.
 2. Create a new jupyter notebook called `generate-compute.ipynb` [example here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/generate-compute.ipynb).
-3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same metadata as the original (e.g. same name, description, etc) and skip the molecule addition step.
+3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same name as the original and skip the molecule addition step.
+* See below for details about how changes to the dataset are propagated; note that the dataset name must be the same, and changes to any metadata except `compute-tag` and the `QCSpec` will be ignored when submitting the compute expansion.
 * Please note that the default `compute_tag` is `openff`; if you need to use a different one, please add it explicitly to the dataset at this step, as the `compute.json` file overrides the compute tag added manually to the PR. If you do need to change the compute tag after submission, you can change it by updating the label on the PR and the change will take effect when the error cycling action runs next.
-4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
+4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json). 
 5. Add the additional compute spec to the submission's `README.md` file.
 6. Add the `generate-compute.ipynb` and `compute.json` files to the submission's `QCSubmit Manifest` entry in the `README.md` file.
 7. Proof the submission and open a PR. Dataset validation will run automatically.
 8. Once the dataset is validated, request a review, and once approved, your compute expansion will be submitted!
 
+When the PR is merged, the following happens:
+
+* CI checks for `compute*.json*`, so files can be called anything so long as they follow that pattern.
+
+* This gets loaded into a QCSubmit `dataset` structure in CI (see `lifecycle.py`, [`SubmittableBase`](https://github.com/openforcefield/qca-dataset-submission/blob/master/management/lifecycle.py#L333)) and submitted to MolSSI with [`openff.qcsubmit.datasets.datasets._BaseDataset.submit()`](https://github.com/openforcefield/openff-qcsubmit/blob/main/openff/qcsubmit/datasets/datasets.py#L174)
+
+* `submit()` checks if the dataset already exists using only the dataset type and name. Changes in descriptions, other metadata, etc. don't affect anything. New/different molecules will also be ignored if the dataset name already exists.
+
+* `submit()` adds the specifications
+
+* `submit()` submits with the `compute_tag` and `priority` within the new `compute.json`.
+
+* Other info in the dataset, such as `dataset_tags`, are not incorporated into additional compute submissons and thus changing them will not affect the dataset.
 
 # The Lifecycle of a Dataset Submission
 
@@ -231,8 +245,8 @@ These are currently used to compute properties of a minimum energy conformation 
 |`OpenFF Sulfur Hessian Training Coverage Supplement v1.0` | [2024-09-18-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.0) | Additional Hessian training data for Sage sulfur and phosphorus parameters (from ['OpenFF Sulfur Optimization Training Coverage Supplement v1.0'](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0)) | O, S, C, Cl, P, N, F, Br, H | |
 | `OpenFF Aniline Para Hessian v1.0` | [2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Aniline-Para-Hessian-v1.0) | Hessian single points for the final molecules in the `OpenFF Aniline Para Opt v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0) | 'O', 'Cl', 'S', 'Br', 'H', 'F', 'N', 'C' ||
 |`OpenFF Gen2 Hessian Dataset Protomers v1.0` | [2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-07-OpenFF-Gen2-Hessian-Dataset-Protomers-v1.0/) | Hessian single points for the final molecules in the `OpenFF Gen2 Optimization Dataset Protomers v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers) | 'H', 'C', 'Cl', 'P', 'F', 'Br', 'O', 'N', 'S'||
+| `MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0` | [2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0)  | Set of diverse iodine containing molecules with a number of calculated electrostatic properties.   | Br, Cl, S, B, O, Si, C, N, I, P, H, F|   |
 | `OpenFF Iodine Chemistry Hessian Dataset v1.0` | [2024-11-11-OpenFF-Iodine-Chemistry-Hessian-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-11-OpenFF-Iodine-Chemistry-Hessian-Dataset-v1.0) | Hessian single points for the final molecules in the `OpenFF Iodine Chemistry Optimization Dataset v1.0` [dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-07-27-OpenFF-iodine-optimization-set) |  I, F, Br, C, Cl, O, S, N, H ||
-
 
 
 # Optimization Datasets
@@ -277,6 +291,7 @@ These are currently used to find a minimum energy conformation of a molecule.
 |`OpenFF Iodine Fragment Opt v1.0` | [2024-09-10-OpenFF-Iodine-Fragment-Opt-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-10-OpenFF-Iodine-Fragment-Opt-v1.0) | B3LYP-D3BJ/DZVP optimized conformers for a variety of I-containing fragment molecules | C, O, I, S, F, Br, Cl, N, H ||
 | `OpenFF Sulfur Optimization Training Coverage Supplement v1.0` | [2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0) | Additional optimization training data for Sage sulfur and phosphorus parameters | C, S, F, O, H, Cl, Br, P, N | |
 | `OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0` | [2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Optimization-Benchmarking-Coverage-Supplement-v1.0) | Additional optimization benchmarking data for Sage sulfur and phosphorus parameters | S, P, Cl, C, N, O, H, Br, F | |
+| `OpenFF Lipid Optimization Training Supplement v1.0` | [2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0) | Additional optimization training data for Sage from representative LIPID MAPS fragments | I, Br, O, H, P, C, N, Cl, F, S | |
 
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
@@ -334,7 +349,6 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Torsion Multiplicity Torsion Drive Coverage Supplement v1.0` | [2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0) | Additional torsion drive training data for Sage 2.2.0 proper torsions and new parameters from the torsion multiplicity work | N, Br, H, P, Cl, O, C, S | |
 | `OpenFF Phosphate Torsion Drives v1.0` | [2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0) | Lipid-like phosphate torsions | C, S, N, H, O, P | |
 | `OpenFF Alkane Torsion Drives v1.0` | [2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0) | Alka/ene torsion drives | C, H | |
-
 
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.

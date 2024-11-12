@@ -1,0 +1,15 @@
+name: qc-submit
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - qcportal=0.53
+  - openff-qcsubmit=0.50.3
+  - openff-toolkit
+  - ca-certificates
+  - certifi
+  - openssl
+  - nglview
+prefix: /mnt/nfs/home/nca121/mambaforge/envs/qc-submit
