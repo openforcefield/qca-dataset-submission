@@ -1,11 +1,11 @@
-name: submit-hess-ds
+name: submit-hess-ds-newqcs
 channels:
   - conda-forge
   - openeye
 dependencies:
   - python
   - openff-toolkit
-  - openff-qcsubmit
+  - openff-qcsubmit >= 0.54
   - openmmforcefields
   - openeye::openeye-toolkits
   - openff-interchange-base
@@ -16,5 +16,5 @@ dependencies:
   - smirnoff-plugins
   - tqdm
   - cmiles
-  - mamba
+  - mamba==2.0.2
   - nglview
