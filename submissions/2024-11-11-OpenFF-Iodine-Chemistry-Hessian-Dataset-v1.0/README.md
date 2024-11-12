@@ -6,7 +6,7 @@ Hessian single points for the final molecules in the [OpenFF Iodine Chemistry Op
 
 ## General information
 
-* Date: 2024-10-08
+* Date: 2024-11-11
 * Class: OpenFF Basic Dataset
 * Purpose: Hessian dataset generation for MSM parameters
 * Name: OpenFF Iodine Chemistry Hessian Dataset v1.0 
