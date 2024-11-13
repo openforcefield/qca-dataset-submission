@@ -83,7 +83,7 @@ Each dataset shall be versioned according to `vX.Y.Z`. X refers to the major ver
 
 * The major version shall indicate the STANDARDS that the dataset conforms to. Datasets which are not intended to conform to any STANDARDS should start with 0, e.g. `"v0.1"`. 
 
-* Datasets with versions starting with `"v1.x"` and `"v2.x"` do not follow any official STANDARDS, and thus should be considered `"v0.x"`. 
+* Datasets with versions starting with `"v1.x"` and `"v2.x"` do not follow any official STANDARDS, and thus should be considered `"v0.x"`.
 
 - A minor version change (e.g. `"v4.1"`) represents a minor addition and/or fixes problems:
 	- Adding molecules or removing/replacing records with an underlying problem
@@ -111,17 +111,17 @@ Pre-submission filtering:
 
 Post-submission filtering:
 
-- Stereochemistry is preserved (e.g. QCSubmit's `UnperceivableStereoFilter`)
-- CMILES (topology) change (e.g. QCSubmit's `ConnectivityFilter`)
-- Calculation ran successfully (e.g. QCSubmit's `RecordStatusFilter`)
-- Hydrogen bonding (for torsion drives only) (e.g. QCSubmit's `HydrogenBondFilter`)
+- Stereochemistry is preserved (e.g. QCSubmit's [`UnperceivableStereoFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.UnperceivableStereoFilter.html#openff.qcsubmit.results.filters.UnperceivableStereoFilter))
+- CMILES (topology) change (e.g. QCSubmit's [`ConnectivityFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ConnectivityFilter.html#openff.qcsubmit.results.filters.ConnectivityFilter))
+- Calculation ran successfully (e.g. QCSubmit's [`RecordStatusFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.RecordStatusFilter.html#openff.qcsubmit.results.filters.RecordStatusFilter))
+- Hydrogen bonding (for torsion drives only) (e.g. QCSubmit's [`HydrogenBondFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.HydrogenBondFilter.html#openff.qcsubmit.results.filters.HydrogenBondFilter))
 - Torsion drives on rings or other high barrier issues
 - Removing any other known issues
 
 
 ## Force field releases
 
-Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. All filtering must be done prior to dataset upload, including both the post-submission filters listed above and any fitting-related filters such as `ChargeCheckFilter`, `ConformerRMSDFilter`, or `ElementFilter`, such that all molecules in the release datasets correspond exactly to the data used for the force field fit.
+Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. All filtering must be done prior to dataset upload, including both the post-submission filters listed above and any fitting-related filters such as a charge check filter, [`ConformerRMSDFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ConformerRMSDFilter.html#openff.qcsubmit.results.filters.ConformerRMSDFilter), or [`ElementFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ElementFilter.html#openff.qcsubmit.results.filters.ElementFilter), such that all molecules in the release datasets correspond exactly to the data used for the force field fit.
 
 The format of these dataset names must use the following format:
 
