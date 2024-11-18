@@ -2,65 +2,67 @@
 This file outlines the standards and data requirements needed for submitting a dataset to QCArchive.
 This ensures that we have a consistent data model for downstream processes.
 
-STANDARDS version: 3 (adopted 2020.12.11)
+STANDARDS version: 4 (adopted 2024.11.12)
 
 We distinguish between standards for the datasets (i.e. the actual data), and the standards for training/fitting and benchmarking/testing force fields.
 
 # Dataset standards
 
+Each new dataset, or version bump, must have its own corresponding directory in `qca-dataset-submission/submissions`.
+As a rule, we never modify existing datasets, so any changes must be made using a version bump (e.g. removing records with an underlying problem).
+
 ## Each molecule must have the following information:
 - Canonical isomeric explicit hydrogen mapped SMILES
-- Provenance information of SMILES generation (NEW)
 - Coordinates
 - Total charge
 
-## Each dataset must have the following information:
-- Name
-- Version (NEW)
+## Each dataset's metadata on QCA must have the following: 
+- Name (which matches the submission directory on `qca-dataset-submission`, but without the date and with the words separated by spaces and NOT hyphens or underscores. See the section below on naming)
+- Version 
 - A short description
-- A long description
+- A long description, including the following:
+    - Intended usage of the dataset
+    - Level of theory
+    - Elements covered
+    - Charges covered
+    - Min, mean, and max molecular weight of the molecules in the dataset
+    - Zenodo DOI (for public release datasets only, see below on FF releases)
+    - Description should be kept up-to-date if e.g. new compute specs are added, using the [`set_description`](https://molssi.github.io/QCFractal/user_guide/records/base.html#qcportal.dataset_models.BaseDataset.set_description) function in QCPortal.
 - A link/URL/reference pointing to the provenance to reproduce dataset (e.g. the GH submission folder)
-- A changelog (NEW)
-	- The changelog is a python-like dictionary of the form `{ version: entry }`
-	- Each entry in the changelog has the python dictionary form `{ person: str, date: str, description: str }`
 - A github submitter username
-- The name of the person who selected/sourced the molecules (NEW)
-- A description of the meaning of the entry/molecule keys/names (NEW)
 - Each entry has canonical isomeric explicit hydrogen mapped SMILES
-- Provenance info of CMILES generation
+
+## Each dataset subdirectory in QCA Dataset submission must have the following information:
+- Full environment used to generate dataset
+- Dataset generation script(s) including the following:
+    - How conformers were generated
+    - Origin of SMILES strings
+    - Enumerated stereo flag (True/False)
+    - Enumerated tautomers flag (True/False)
+    - Enumeration keywords/settings
+    - Code used to set up the dataset
+
+ - A descriptive README file, as described below
+
+## Each dataset README must contain the following information:
+
+- All information specified in the dataset description/metadata
+- A changelog (if there are changes, see the revision section below)
+- The name of the person who selected/sourced the molecules 
+- A description of the meaning of the entry/molecule keys/names, if not generated automatically by QCSubmit
 - A set of elements that the dataset contains
-- A set of charges that the dataset contains (NEW)
-- The mean and max molecular weight of molecules the dataset contains (NEW)
-- Enumerated stereo flag (True/False) (NEW)
-- Enumerated tautomers flag (True/False) (NEW)
-- Enumeration provenance info (NEW)
-- Computation blacklist (known failures) (NEW)
-- Dataset status flags (NEW):
-	- Complete: `COMPLETE` `INCOMPLETE`
-	- State: `DONE` `WORKING` `PAUSED`
-	- Compliance: `V3` `NONE`
-	- COMPLETE/DONE/V3; all molecules were successful
-	- INCOMPLETE/DONE/V3; some molecules were not calculated successfully, and won't be retried
-	- INCOMPLETE/WORKING/V3; in progress
-	- INCOMPLETE/DONE/NONE; the dataset does not conform to the standards, and can't be fixed
-	- INCOMPLETE/WORKING/NONE; the dataset does not conform to the standards, but is working anyways
-	- INCOMPLETE/PAUSED/NONE; the dataset does not conform to the standards, and calculations have been suspended
-
-## Each dataset README must contain the following information
-
-All information specified in the dataset
+- A set of charges that the dataset contains
+- The min, mean and max molecular weight of molecules the dataset contains 
 
 ## Each revision must use the following procedure:
 
 A revision means creating a new dataset based on an existing one, with the intent of fixing/improving it.
 
-- The changelog must be copied from the current version, and a new entry added in the new version
-- The dataset version information is updated
+- The revision must be created in its own directory in `qca-dataset-submission` 
+- The changelog must be copied from the current version (if it exists), and a new entry added for the new version. The changelog should describe any changes between the new version and previous version, including QCArchive record ids of any records that were removed or modified, with an explanation as to why they were removed.
+- The dataset version information is updated, and the description updated if necessary (see above in the "long description" section for more details)
 - The README is updated
-- A notebook or record of the lines of python used to manipulate the dataset responsible for the revision
-	- Each file of record should be named with the version that it first addresses, e.g. `submit-v3.0`
-		- If `submit-v3.0` also includes a `v3.1 and v3.2` update, then a new file for `v3.2.1` would be `submit-v3.2.1.py`
-	- Python notebooks should have version changes in order, and can be run incrementally.
+- A notebook or script used to manipulate the dataset and generate the revision
 - Update the `index` of datasets on the GH repository
 
 ## QCArchive-specific dataset standards
@@ -70,29 +72,23 @@ A revision means creating a new dataset based on an existing one, with the inten
 
 ## Dataset naming and versioning
 
-Each dataset shall be versioned.
+Each dataset shall be versioned according to `vX.Y.Z`. X refers to the major version, Y to the minor version, and Z to a micro version.
 - The naming of a dataset should have the following structure:
 
     `"OpenFF <descriptive and uniquely-identifying name> v<version number>"`
 
-- The first submission of a dataset will have a version `"v3.0"`
+  Where the words in the dataset should be separated by spaces.
+
+- The first submission of a dataset will have a version `"v4.0"`
 
 * The major version shall indicate the STANDARDS that the dataset conforms to. Datasets which are not intended to conform to any STANDARDS should start with 0, e.g. `"v0.1"`. 
 
 * Datasets with versions starting with `"v1.x"` and `"v2.x"` do not follow any official STANDARDS, and thus should be considered `"v0.x"`.
 
-- A minor version change (e.g. `"v3.1"`) represents a minor addition and/or fixes problems:
-	- Adding molecules
-	- Adding compute specifications
+- A minor version change (e.g. `"v4.1"`) represents a minor addition and/or fixes problems:
+	- Adding molecules or removing/replacing records with an underlying problem
 	- Errors/bugs in the molecule specification
 	- Changes necessary to adhere to the STANDARDS (i.e. changes necessary to placate the NONE compliance status)
-
-- A micro version change (e.g. `"v3.1.1"`) represents a cosmetic change, or a change that is based on dynamic information that does not change the underlying data:
-    - Cosmetic changes
-	- Updating the blacklist
-	- Updating the dataset status
-
-This allows the ability to record the version update in the changelog, but not the actual dataset name as this would require a new dataset in QCArchive. 
 
 A best-effort is made to ensure that a dataset follows its underlying STANDARDS. One must assume that the newest version of a dataset best conforms to these STANDARDS, and the same promise may not hold for earlier versions. The changelog should address any changes made to improve compliance.
 
@@ -115,14 +111,17 @@ Pre-submission filtering:
 
 Post-submission filtering:
 
-- OpenFF toolkit ingestion with strict stereo checking in RDKit
-- Hydrogen bonding
+- Stereochemistry is preserved (e.g. QCSubmit's [`UnperceivableStereoFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.UnperceivableStereoFilter.html#openff.qcsubmit.results.filters.UnperceivableStereoFilter))
+- CMILES (topology) change (e.g. QCSubmit's [`ConnectivityFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ConnectivityFilter.html#openff.qcsubmit.results.filters.ConnectivityFilter))
+- Calculation ran successfully (e.g. QCSubmit's [`RecordStatusFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.RecordStatusFilter.html#openff.qcsubmit.results.filters.RecordStatusFilter))
+- Hydrogen bonding (for torsion drives only) (e.g. QCSubmit's [`HydrogenBondFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.HydrogenBondFilter.html#openff.qcsubmit.results.filters.HydrogenBondFilter))
 - Torsion drives on rings or other high barrier issues
-- CMILES (topology) change
+- Removing any other known issues
+
 
 ## Force field releases
 
-Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. Filtering must be done prior, such that all molecules in the release datasets pass all post-submission filters.
+Upon fitting for a new force field release, for the purpose of paper publication, public reference, etc, all molecules should be placed in a single dataset (per type). This gives a single reference for these data instead of many references. All filtering must be done prior to dataset upload, including both the post-submission filters listed above and any fitting-related filters such as a charge check filter, [`ConformerRMSDFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ConformerRMSDFilter.html#openff.qcsubmit.results.filters.ConformerRMSDFilter), or [`ElementFilter`](https://docs.openforcefield.org/projects/qcsubmit/en/stable/api/generated/openff.qcsubmit.results.filters.ElementFilter.html#openff.qcsubmit.results.filters.ElementFilter), such that all molecules in the release datasets correspond exactly to the data used for the force field fit.
 
 The format of these dataset names must use the following format:
 
@@ -136,10 +135,5 @@ Besides the regular information from the other datasets, these fitting datasets 
 
 ### Force field benchmarking
 
-These use an MM compute specification. The name of the specification must be the name of the FF file, e.g. `openff-2.0.0`
-
-In these cases, the following pre-submission checks must be successful:
-
-- OpenFF toolkit ingestion with strict stereo checking in RDKit
-- The OpenFF toolkit can successfully create an OpenMM system
+All force field benchmarking will be done using the [YAMMBS](https://github.com/openforcefield/yammbs/tree/main/yammbs) package. Standards will be introduced as our process for these benchmarks is finalized.
 
