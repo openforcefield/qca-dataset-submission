@@ -29,15 +29,19 @@ Datasets must be submitted as pull requests.
    ```
    You will add all submission artifacts to this directory.
 
+   **If you have a wide distribution of molecule sizes in your dataset, please submit the dataset in multiple parts sorted by molecule size.**
+   **A good rule of thumb is that anything with a molecular weight less than 300 Da can be submitted together, and anything more than that should be split into a second dataset (or possibly more, depending on the size of the remaining molecules)**
+   
 
-3. Create and activate a new conda env with basic submission-preparation requirements with:
+
+4. Create and activate a new conda env with basic submission-preparation requirements with:
     ```
     conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
     conda activate qcarchive-user-submit
     ```
 
 
-4. Choose a starting notebook and README based on the type of dataset you wish to submit:
+5. Choose a starting notebook and README based on the type of dataset you wish to submit:
     - [`OptimizationDataset`](./examples/OptimizationDataset/)
 
    Copy the notebook and README for the dataset you want into the directory you created.
@@ -47,7 +51,7 @@ Datasets must be submitted as pull requests.
    ```
 
 
-5. Start up a Jupyter notebook with your new notebook:
+6. Start up a Jupyter notebook with your new notebook:
     ```
     jupyter notebook qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0/generate-dataset.ipynb
     ```
@@ -56,11 +60,11 @@ Datasets must be submitted as pull requests.
    and make any other modifications as needed for your specific needs.
 
 
-6. Copy generated metadata components into README.
+7. Copy generated metadata components into README.
    Write a reasonably-detailed high-level description of the submission at the top.
 
 
-7. Commit the following files in the submission directory you made:
+8. Commit the following files in the submission directory you made:
     - your input files; please compress them if possible with e.g. `bzip2`
     - `generate-dataset.ipynb`
     - `dataset.pdf`
@@ -68,19 +72,19 @@ Datasets must be submitted as pull requests.
     - `dataset.json.bz2`
 
 
-8. Push your branch to Github:
+9. Push your branch to Github:
     ```
     git push origin <dataset-branch>
     ```
 
 
-9. Make a new PR for the branch.
+10. Make a new PR for the branch.
    Validation will run automatically on your `dataset.json.*` file, indicating any potential issues prior to submission.
    Ask for help if you see validation failures you do not understand.
    Ping a reviewer in the comments.
 
 
-10. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
+11. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
     Computations specified by the submission will be performed on OpenFF-managed compute resources.
 
 ### Creating a compute expansion
