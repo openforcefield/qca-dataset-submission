@@ -34,14 +34,14 @@ Datasets must be submitted as pull requests.
    
 
 
-4. Create and activate a new conda env with basic submission-preparation requirements with:
+3. Create and activate a new conda env with basic submission-preparation requirements with:
     ```
     conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
     conda activate qcarchive-user-submit
     ```
 
 
-5. Choose a starting notebook and README based on the type of dataset you wish to submit:
+4. Choose a starting notebook and README based on the type of dataset you wish to submit:
     - [`OptimizationDataset`](./examples/OptimizationDataset/)
 
    Copy the notebook and README for the dataset you want into the directory you created.
@@ -51,7 +51,7 @@ Datasets must be submitted as pull requests.
    ```
 
 
-6. Start up a Jupyter notebook with your new notebook:
+5. Start up a Jupyter notebook with your new notebook:
     ```
     jupyter notebook qca-dataset-submission/submissions/YYYY-MM-DD-OpenFF-<DESCRIPTIVE-DATASET-NAME>-v1.0/generate-dataset.ipynb
     ```
@@ -60,11 +60,11 @@ Datasets must be submitted as pull requests.
    and make any other modifications as needed for your specific needs.
 
 
-7. Copy generated metadata components into README.
+6. Copy generated metadata components into README.
    Write a reasonably-detailed high-level description of the submission at the top.
 
 
-8. Commit the following files in the submission directory you made:
+7. Commit the following files in the submission directory you made:
     - your input files; please compress them if possible with e.g. `bzip2`
     - `generate-dataset.ipynb`
     - `dataset.pdf`
@@ -72,19 +72,19 @@ Datasets must be submitted as pull requests.
     - `dataset.json.bz2`
 
 
-9. Push your branch to Github:
+8. Push your branch to Github:
     ```
     git push origin <dataset-branch>
     ```
 
 
-10. Make a new PR for the branch.
+9. Make a new PR for the branch.
    Validation will run automatically on your `dataset.json.*` file, indicating any potential issues prior to submission.
    Ask for help if you see validation failures you do not understand.
    Ping a reviewer in the comments.
 
 
-11. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
+10. Once reviewed and approved, your submission will be merged and submitted to QCArchive!
     Computations specified by the submission will be performed on OpenFF-managed compute resources.
 
 ### Creating a compute expansion
