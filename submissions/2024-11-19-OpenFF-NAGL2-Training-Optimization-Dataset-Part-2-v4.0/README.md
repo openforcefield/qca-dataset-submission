@@ -39,6 +39,7 @@ using the OpenEye backend of the OpenFF toolkit
 * `generate-dataset-part2.ipynb`: Notebook describing dataset generation and submission
 * `input-environment.yaml`: Environment file used to create Python environment for the notebook
 * `input-environment-full.yaml`: Fully-resolved environment used to execute the notebook.
+* `mlpepper.json.bz2`: Zipped version of the mlpepper dataset that can be read in for quicker conformer generation
 
 ## Metadata
 * Elements: {Si, B, O, I, S, Cl, N, H, C, P, F, Br}
