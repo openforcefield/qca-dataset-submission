@@ -3,7 +3,7 @@
 ## Description
 A dataset containing molecules from the [`MLPepper RECAP Optimized Fragments v1.0`](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-26-MLPepper-RECAP-Optimized-Fragments-v1.0)
 and [`MLPepper RECAP Optimized Fragments v1.0 Add Iodines`](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0) datasets,
-with additional conformers and optimized at the OpenFF default level of theory (B3LYP-D3BJ/DZVP).
+with new conformers and optimized at the OpenFF default level of theory (B3LYP-D3BJ/DZVP).
 The dataset is intended to be used for calculating single point energies and properties,
 which will then be used to train our second-generation graph neural network charge model (NAGL2).
 This is part 1, for molecules with molecular weight less than 300 Da.

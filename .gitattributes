@@ -88,7 +88,3 @@
 *.zst filter=lfs diff=lfs merge=lfs -text
 *.bz filter=lfs diff=lfs merge=lfs -text
 *bz2 filter=lfs diff=lfs merge=lfs -text
-/mnt/storage/nobackup/nca121/qca-dataset-submission/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0/esp_50k_I_singlepoint_dataset.json.bz2 filter=lfs diff=lfs merge=lfs -text
-/mnt/storage/nobackup/nca121/qca-dataset-submission/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0/dataset.pdf filter=lfs diff=lfs merge=lfs -text
-/mnt/storage/nobackup/nca121/qca-dataset-submission/submissions/2024-10-11-MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0/iodine_filtered.json.bz2 filter=lfs diff=lfs merge=lfs -text
-/submissions/2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-*-v4.0/mlpepper.json filter=lfs diff=lfs merge=lfs -text
