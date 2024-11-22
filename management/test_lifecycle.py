@@ -81,10 +81,10 @@ def test_partition_records(dsname, dstype, bins, want):
         ),
     ],
 )
-def test_set_mw_compute_tags(dsname, dstype, tag, want):
+def test_update_compute_tags(dsname, dstype, tag, want):
     from qcportal import PortalClient
 
-    from lifecycle import set_mw_compute_tags
+    from lifecycle import update_compute_tags
 
     class DummyClient:
         def __init__(self):
@@ -97,7 +97,7 @@ def test_set_mw_compute_tags(dsname, dstype, tag, want):
     ds = client.get_dataset(dstype, dsname)
 
     dummy = DummyClient()
-    set_mw_compute_tags(dummy, ds, tag, include_complete=True)
+    update_compute_tags(dummy, ds, list(), tag, include_complete=True)
 
     # calls depends on dict iteration order, so sort the output by number of
     # record_ids in each bin

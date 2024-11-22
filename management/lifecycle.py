@@ -134,6 +134,16 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         client.modify_records(record_ids, new_tag=new_tag)
 
 
+def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
+    if SPLIT_TAG.search(new_tag) is None:
+        dataset.modify_records(
+            specification_names=specification_names,
+            new_tag=new_tag,
+        )
+    else:
+        set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
+
+
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
 
@@ -713,11 +723,12 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                if SPLIT_TAG.search(self.computetag) is None:
-                    ds.modify_records(specification_names=list(dataset_specs),
-                                    new_tag=self.computetag)
-                else:
-                    set_mw_compute_tags(client, ds, self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=list(dataset_specs),
+                    new_tag=self.computetag,
+                )
 
             complete = False
 
@@ -852,11 +863,12 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                if SPLIT_TAG.search(self.computetag) is None:
-                    ds.modify_records(specification_names=list(dataset_specs),
-                                    new_tag=self.computetag)
-                else:
-                    set_mw_compute_tags(client, ds, self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=list(dataset_specs),
+                    new_tag=self.computetag,
+                )
             complete = False
 
         return complete
