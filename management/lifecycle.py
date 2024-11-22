@@ -4,6 +4,7 @@
 import os
 import glob
 import json
+import re
 import time
 from pprint import pformat
 import traceback
@@ -25,6 +26,112 @@ DATASET_TYPES = {
         'dataset': 'singlepoint',
         'optimizationdataset': 'optimization',
         'torsiondrivedataset': 'torsiondrive'}
+
+# matches tags with a trailing _mw-###, allowing splitting of datasets by
+# molecular weight based on these tags
+SPLIT_TAG = re.compile(r"_mw(-\d+)+$")
+# matches just the end of a SPLIT_TAG, capturing the final number
+SPLIT_TAG_END = re.compile(r"-(\d+)$")
+
+
+def parse_tags(compute_tag) -> tuple[list[float], str]:
+    """Parses a compute tag matching ``SPLIT_TAG`` into a sequence of molecular
+    weights. Also returns the base component of the tag"""
+    tag = compute_tag
+    ret = list()
+    while (m := SPLIT_TAG_END.search(tag)) is not None:
+        ret.append(float(m[1]))
+        tag = tag[: m.start(1) - 1]
+
+    # don't change the tag if it just happens to end with _mw, SPLIT_TAG only
+    # matches if there are -### following it
+    return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
+
+
+def try_get_smiles(entry) -> str | None:
+    """Try to extract a SMILES from multiple fields in ``entry``. Based on code
+    from qcsubmit, see ``BasicResultCollection.from_datasets``, for example.
+    """
+    # this should cover either single-points or optimizations
+    molecule = (
+        getattr(entry, "molecule", None)
+        or getattr(entry, "initial_molecule", None)
+    )
+    # this is how qcsubmit gets a molecule for torsion drives
+    if molecule is None:
+        return entry.attributes.get(
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
+        )
+    # and this covers all the possibilities for finding a smiles in
+    # single-points or optimizations
+    return (
+        molecule.identifiers.canonical_isomeric_explicit_hydrogen_mapped_smiles
+        or molecule.extras.get(
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
+        )
+        or entry.attributes.get(
+            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
+        )
+    )
+
+
+def partition_records(ds, bins, include_complete=False) -> dict[int, list[int]]:
+    """Split up the records in ``ds`` based on the molecular weights (in Da) in
+    ``bins``.
+
+    ``include_complete`` is intended mostly (only?) for testing; usually you
+    wouldn't want to retag complete records (and it might be an error in
+    qcportal since complete records don't have tags), but for tests it's nice
+    to be able to call this on a finished dataset
+    """
+    from openff.toolkit import Molecule
+    from openff.units import unit
+
+    # mapping of bin index to a sequence of record_ids
+    ret: dict[int, list[int]] = defaultdict(list)
+
+    ds.fetch_entries()
+
+    for entry_name, _, rec in ds.iterate_records():
+        if rec.status == "complete" and not include_complete:
+            continue
+        entry = ds.get_entry(entry_name)
+        if (cmiles := try_get_smiles(entry)) is None:
+            print(f"failed to get cmiles from {entry_name}")
+            continue
+        mol = Molecule.from_mapped_smiles(cmiles, allow_undefined_stereo=True)
+        mass = sum(atom.mass for atom in mol.atoms)
+
+        # iterate through the sequence of bins, putting the record id in the
+        # bin if its mass is less than the bin threshold. use i+1 after the
+        # loop for the largest records (above any threshold)
+        found = False
+        for i, threshold in enumerate(bins):
+            if mass < threshold * unit.dalton:
+                ret[i].append(rec.id)
+                found = True
+                break
+
+        if not found:
+            ret[i+1].append(rec.id)
+
+    return ret
+
+
+def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
+    bins, base_tag = parse_tags(compute_tag)
+    if len(bins) == 0:
+        print(f"Failed to parse molecular weight compute tags from {compute_tag}")
+        # TODO should this fall back on the normal setter then? we'd need to
+        # pass more arguments to make that possible
+        return
+
+    records = partition_records(ds, bins, include_complete=include_complete)
+    for bin_, record_ids in records.items():
+        # the largest index may be 1 past len(bins) so just call this large
+        suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
+        new_tag = f"{base_tag}-{suffix}"
+        client.modify_records(record_ids, new_tag=new_tag)
 
 
 class Submission:
@@ -606,8 +713,12 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                if SPLIT_TAG.search(self.computetag) is None:
+                    ds.modify_records(specification_names=list(dataset_specs),
+                                    new_tag=self.computetag)
+                else:
+                    set_mw_compute_tags(client, ds, self.computetag)
+
             complete = False
 
         return complete
@@ -741,8 +852,11 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                if SPLIT_TAG.search(self.computetag) is None:
+                    ds.modify_records(specification_names=list(dataset_specs),
+                                    new_tag=self.computetag)
+                else:
+                    set_mw_compute_tags(client, ds, self.computetag)
             complete = False
 
         return complete
