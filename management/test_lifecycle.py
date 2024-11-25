@@ -32,13 +32,13 @@ def test_parse_tags(input_tag, want):
             "OpenFF Sulfur Hessian Training Coverage Supplement v1.0",
             "singlepoint",
             [100.0, 200.0, 300.0],
-            [6, 220, 240, 433],
+            [6, 220, 234, 439],
         ),
         (
             "OpenFF Sulfur Optimization Training Coverage Supplement v1.0",
             "Optimization",
             [100.0, 200.0, 300.0],
-            [6, 220, 240, 433],
+            [6, 220, 234, 439],
         ),
         (
             "OpenFF Alkane Torsion Drives v1.0",
@@ -75,8 +75,8 @@ def test_partition_records(dsname, dstype, bins, want):
             [
                 (6, "compute-openff-100"),
                 (220, "compute-openff-large"),
-                (240, "compute-openff-300"),
-                (433, "compute-openff-200"),
+                (234, "compute-openff-300"),
+                (439, "compute-openff-200"),
             ],
         ),
     ],
