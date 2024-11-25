@@ -16,12 +16,18 @@ sys.modules["github"] = mock.MagicMock()
             ([300.0, 600.0, 900.0], "compute-arbitrary-compute-tag"),
         ),
         (
-            "compute-arbitrary-compute-tag",
-            ([], "compute-arbitrary-compute-tag"),
+            "compute-arbitrary-compute-tag-without-mw-suffix",
+            ([], "compute-arbitrary-compute-tag-without-mw-suffix"),
         ),
     ],
 )
 def test_parse_tags(input_tag, want):
+    """Test that ``parse_tags`` parses arbitrary compute tags ending with
+    ``_mw[-###]+`` (matching the ``lifecycle.SPLIT_TAG`` regex). This function
+    is not intended to be called with non-matching tags (as in the third test
+    entry), but it should also handle this gracefully, returning an empty
+    sequence of bins and the original tag.
+    """
     from lifecycle import parse_tags
 
     got = parse_tags(input_tag)
