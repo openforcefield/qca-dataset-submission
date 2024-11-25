@@ -13,6 +13,7 @@ from collections import defaultdict, Counter
 from datetime import datetime
 
 from github import Github
+from qcelemental.models import Molecule
 
 QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
@@ -48,34 +49,28 @@ def parse_tags(compute_tag) -> tuple[list[float], str]:
     return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
 
 
-def try_get_smiles(entry) -> str | None:
-    """Try to extract a SMILES from multiple fields in ``entry``. Based on code
-    from qcsubmit, see ``BasicResultCollection.from_datasets``, for example.
-    """
-    # this should cover either single-points or optimizations
+def try_get_molecule(entry) -> Molecule | None:
+    """Try to extract a qcelemental Molecule from multiple fields in ``entry``."""
     molecule = (
+        # this should work for singlepoints
         getattr(entry, "molecule", None)
+        # this for optimizations
         or getattr(entry, "initial_molecule", None)
     )
-    # this is how qcsubmit gets a molecule for torsion drives
-    if molecule is None:
-        return entry.attributes.get(
-            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
-        )
-    # and this covers all the possibilities for finding a smiles in
-    # single-points or optimizations
-    return (
-        molecule.identifiers.canonical_isomeric_explicit_hydrogen_mapped_smiles
-        or molecule.extras.get(
-            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
-        )
-        or entry.attributes.get(
-            "canonical_isomeric_explicit_hydrogen_mapped_smiles"
-        )
-    )
+
+    if molecule:
+        return molecule
+
+    # and this for torsiondrives
+    if (mols := getattr(entry, "initial_molecules")) is None or len(mols) < 1:
+        return None
+
+    return mols[0]
 
 
-def partition_records(ds, bins, include_complete=False) -> dict[int, list[int]]:
+def partition_records(
+    ds, bins, include_complete=False
+) -> dict[int, list[int]]:
     """Split up the records in ``ds`` based on the molecular weights (in Da) in
     ``bins``.
 
@@ -84,9 +79,6 @@ def partition_records(ds, bins, include_complete=False) -> dict[int, list[int]]:
     qcportal since complete records don't have tags), but for tests it's nice
     to be able to call this on a finished dataset
     """
-    from openff.toolkit import Molecule
-    from openff.units import unit
-
     # mapping of bin index to a sequence of record_ids
     ret: dict[int, list[int]] = defaultdict(list)
 
@@ -96,24 +88,24 @@ def partition_records(ds, bins, include_complete=False) -> dict[int, list[int]]:
         if rec.status == "complete" and not include_complete:
             continue
         entry = ds.get_entry(entry_name)
-        if (cmiles := try_get_smiles(entry)) is None:
-            print(f"failed to get cmiles from {entry_name}")
+        if (mol := try_get_molecule(entry)) is None:
+            print(f"failed to get molecule from {entry_name}")
             continue
-        mol = Molecule.from_mapped_smiles(cmiles, allow_undefined_stereo=True)
-        mass = sum(atom.mass for atom in mol.atoms)
+
+        mass = sum(mol.masses)
 
         # iterate through the sequence of bins, putting the record id in the
         # bin if its mass is less than the bin threshold. use i+1 after the
         # loop for the largest records (above any threshold)
         found = False
         for i, threshold in enumerate(bins):
-            if mass < threshold * unit.dalton:
+            if mass < threshold:
                 ret[i].append(rec.id)
                 found = True
                 break
 
         if not found:
-            ret[i+1].append(rec.id)
+            ret[i + 1].append(rec.id)
 
     return ret
 
