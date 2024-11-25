@@ -79,11 +79,10 @@ def partition_records(
     qcportal since complete records don't have tags), but for tests it's nice
     to be able to call this on a finished dataset
     """
-    # mapping of bin index to a sequence of record_ids
-    ret: dict[int, list[int]] = defaultdict(list)
+    import numpy as np
 
     ds.fetch_entries()
-
+    masses, qca_ids = list(), list()
     for entry_name, _, rec in ds.iterate_records():
         if rec.status == "complete" and not include_complete:
             continue
@@ -92,22 +91,15 @@ def partition_records(
             print(f"failed to get molecule from {entry_name}")
             continue
 
-        mass = sum(mol.masses)
+        masses.append(sum(mol.masses))
+        qca_ids.append(rec.id)
 
-        # iterate through the sequence of bins, putting the record id in the
-        # bin if its mass is less than the bin threshold. use i+1 after the
-        # loop for the largest records (above any threshold)
-        found = False
-        for i, threshold in enumerate(bins):
-            if mass < threshold:
-                ret[i].append(rec.id)
-                found = True
-                break
-
-        if not found:
-            ret[i + 1].append(rec.id)
-
-    return ret
+    qca_ids = np.array(qca_ids)
+    bin_indices = np.digitize(masses, bins)
+    return {
+            i: qca_ids[np.where(bin_indices == i)]
+            for i in range(len(bins) + 1)
+    }
 
 
 def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
