@@ -127,6 +127,24 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
 
 
 def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
+    """Update the compute tags in ``dataset`` to ``new_tag``, unless the new
+    tag matches the ``SPLIT_TAG`` pattern, in which case the dataset will be
+    split up and tagged separately based on molecular weight. For example,
+    ``compute-openff_mw-100-200-300`` will cause the creation of four tags:
+    ``compute-openff-100`` for MW < 100, ``compute-openff-200`` for 100 <= MW <
+    200, ``compute-openff-300`` for 200 <= MW < 300, and
+    ``compute-openff-large`` for anything larger than 300 Da.
+
+    Note that ``set_mw_compute_tags`` does not need access to the specification
+    names because it calls ``PortalClient.modify_records``, which, despite the
+    identical name, is a separate method from ``BaseDataset.modify_records``.
+    The client version used by ``set_mw_compute_tags`` relies on the record IDs
+    to specify records instead of the specification name.
+
+    Note also that ``set_mw_compute_tags`` should only be called when
+    ``SPLIT_TAG`` matches the tag. It will print a warning and return early,
+    updating no tags, if this is not the case.
+    """
     if SPLIT_TAG.search(new_tag) is None:
         dataset.modify_records(
             specification_names=specification_names,
