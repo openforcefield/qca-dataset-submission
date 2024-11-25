@@ -35,19 +35,19 @@ def test_parse_tags(input_tag, want):
             "OpenFF Sulfur Hessian Training Coverage Supplement v1.0",
             "singlepoint",
             [100.0, 200.0, 300.0],
-            [6, 220, 234, 439],
+            {0: 6, 1: 439, 2: 234, 3: 220},
         ),
         (
             "OpenFF Sulfur Optimization Training Coverage Supplement v1.0",
             "Optimization",
             [100.0, 200.0, 300.0],
-            [6, 220, 234, 439],
+            {0: 6, 1: 439, 2: 234, 3: 220},
         ),
         (
             "OpenFF Alkane Torsion Drives v1.0",
             "torsiondrive",
             [50.0, 75.0, 100.0],
-            [2, 30, 68, 92],
+            {0: 2, 1: 30, 2: 92, 3: 68},
         ),
     ],
 )
@@ -65,7 +65,8 @@ def test_partition_records(dsname, dstype, bins, want):
     lens = [len(v) for v in records.values()]
     assert sum(lens) == len(list(ds.iterate_entries()))
 
-    assert list(sorted(lens)) == want
+    got = {bin_id: len(recs) for bin_id, recs in records.items()}
+    assert got == want
 
 
 @pytest.mark.parametrize(
