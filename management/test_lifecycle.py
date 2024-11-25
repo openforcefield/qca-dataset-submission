@@ -12,10 +12,13 @@ sys.modules["github"] = mock.MagicMock()
     [
         ("compute-openff_mw-300-600", ([300.0, 600.0], "compute-openff")),
         (
-            "compute-pr393_mw-300-600-900",
-            ([300.0, 600.0, 900.0], "compute-pr393"),
+            "compute-arbitrary-compute-tag_mw-300-600-900",
+            ([300.0, 600.0, 900.0], "compute-arbitrary-compute-tag"),
         ),
-        ("compute-pr393", ([], "compute-pr393")),
+        (
+            "compute-arbitrary-compute-tag",
+            ([], "compute-arbitrary-compute-tag"),
+        ),
     ],
 )
 def test_parse_tags(input_tag, want):
