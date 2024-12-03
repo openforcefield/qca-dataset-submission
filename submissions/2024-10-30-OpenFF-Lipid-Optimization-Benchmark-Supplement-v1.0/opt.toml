@@ -7,7 +7,7 @@ MAPS](https://www.lipidmaps.org/) database via
 [cura](https://github.com/ntBre/curato/tree/6039bea5c64f8cd6b374fd12b5fa3b355898d98b)
 after being clustered on the 2048-bit, radius-3 Morgan fingerprint from RDKit by
 the `LeaderPicker.LazyBitVectorPick` algorithm, also from RDKit, with a distance
-threshold of 0.705. The candidate molecules were further restricted to those
+threshold of 0.708. The candidate molecules were further restricted to those
 with between 3 and 100 heavy atoms and containing only the elements Cl, P, Br,
 I, H, C, O, N, F, and S. Candidates with InChIKeys matching existing Sage
 training or benchmarking data were also filtered out.
