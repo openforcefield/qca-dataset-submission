@@ -52,7 +52,7 @@ def parse_tags(compute_tag) -> tuple[list[float], str]:
     return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
 
 
-def try_get_molecule(entry) -> "qcelemental.models.Molecule" | None:
+def try_get_molecule(entry) -> typing.Optional["qcelemental.models.Molecule"]:
     """Try to extract a qcelemental Molecule from multiple fields in ``entry``."""
     molecule = (
         # this should work for singlepoints
