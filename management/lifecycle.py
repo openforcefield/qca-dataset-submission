@@ -6,6 +6,7 @@ import glob
 import json
 import re
 import time
+import typing
 from pprint import pformat
 import traceback
 from itertools import chain
@@ -13,7 +14,9 @@ from collections import defaultdict, Counter
 from datetime import datetime
 
 from github import Github
-from qcelemental.models import Molecule
+
+if typing.TYPE_CHECKING:
+    import qcelemental
 
 QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
@@ -49,7 +52,7 @@ def parse_tags(compute_tag) -> tuple[list[float], str]:
     return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
 
 
-def try_get_molecule(entry) -> Molecule | None:
+def try_get_molecule(entry) -> "qcelemental.models.Molecule" | None:
     """Try to extract a qcelemental Molecule from multiple fields in ``entry``."""
     molecule = (
         # this should work for singlepoints
