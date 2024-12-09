@@ -20,11 +20,11 @@ using the OpenEye backend of the OpenFF toolkit
 * Date: 2024-11-19
 * Class: OpenFF Optimization Dataset
 * Purpose: Conformer optimization
-* Name: OpenFF NAGL2 Training Optimization Dataset Part 1 v4.0
+* Name: OpenFF NAGL2 Training Optimization Dataset v4.0
 * Number of unique molecules: 54422
 * Number of conformers: 128281
-* Number of conformers (min, mean, max): 1.00, 2.38, 5.00
-* Molecular weight (min, mean, max): 32.12, 163.93, 701.59 
+* Number of conformers (min, mean, max): 1.00, 2.36, 10.00
+* Molecular weight (min, mean, max): 32.12, 163.93, 701.59
 * Charges: -4.0 -3.0 -2.0 -1.0 0.0 1.0 2.0 3.0
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
