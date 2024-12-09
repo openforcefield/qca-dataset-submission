@@ -33,6 +33,7 @@ using the OpenEye backend of the OpenFF toolkit
 * `filter-and-combine-ds.py` was used to combine part 1 and part 2, and filter out problematic records
 * `filter-and-combine-ds.sh` was used to run `filter-and-combine-ds.py` on HPC3
 * `generate-combined-dataset.py` was used to create the combined and filtered dataset for submission to QCArchive.
+* `fix-date.py` was used to update the date in the github URL for the final dataset
 
 ## QCSubmit Manifest
 * `dataset.json.bz2`: compressed dataset ready for submission
@@ -43,6 +44,7 @@ using the OpenEye backend of the OpenFF toolkit
 * `filtered_and_combined_nagl2_opt.json`: Output of `filter-and-combine-ds.py` and input to `generate-combined-dataset.py`
 * `generate-combined-dataset.py`: Script describing dataset generation and submission
 * `generate-combined-datsaset.out`: Log file of `generate-combined-dataset.py`.
+* `fix-date.py`: Script used to update date in dataset metadata
 * `input-environment.yaml`: Environment file used to create Python environment for the notebook
 * `input-environment-full.yaml`: Fully-resolved environment used to execute the notebook.
 
