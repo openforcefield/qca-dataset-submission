@@ -297,6 +297,8 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Lipid Optimization Training Supplement v1.0` | [2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0) | Additional optimization training data for Sage from representative LIPID MAPS fragments | I, Br, O, H, P, C, N, Cl, F, S | |
 | `OpenFF NAGL2 Training Optimization Dataset Part 1 v4.0` | [2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-1-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-1-v4.0) | Optimization dataset for NAGL2 training, part 1 | Cl, O, C, P, I, Br, B, S, N, F, H, Si | |
 | `OpenFF NAGL2 Training Optimization Dataset Part 2 v4.0` | [2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-2-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-2-v4.0) | Optimization dataset for NAGL2 training, part 2 | Si, B, O, I, S, Cl, N, H, C, P, F, Br | |
+| `OpenFF NAGL2 Training Optimization Dataset v4.0` | [2024-12-09-OpenFF-NAGL2-Training-Optimization-Dataset-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-09-OpenFF-NAGL2-Training-Optimization-Dataset-v4.0) | Optimization dataset for NAGL2 training, combined and filtered | Si, B, O, I, S, Cl, N, H, C, P, F, Br | |
+
 
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
