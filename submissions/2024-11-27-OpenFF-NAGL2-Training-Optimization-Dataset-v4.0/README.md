@@ -17,7 +17,7 @@ using the OpenEye backend of the OpenFF toolkit
 
 
 ## General information
-* Date: 2024-11-19
+* Date: 2024-12-09
 * Class: OpenFF Optimization Dataset
 * Purpose: Conformer optimization
 * Name: OpenFF NAGL2 Training Optimization Dataset v4.0
