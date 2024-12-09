@@ -21,10 +21,10 @@ using the OpenEye backend of the OpenFF toolkit
 * Class: OpenFF Optimization Dataset
 * Purpose: Conformer optimization
 * Name: OpenFF NAGL2 Training Optimization Dataset Part 1 v4.0
-* Number of unique molecules: 55134
-* Number of conformers: 131198
+* Number of unique molecules: 54422
+* Number of conformers: 128281
 * Number of conformers (min, mean, max): 1.00, 2.38, 5.00
-* Molecular weight (min, mean, max): 32.12, 158.53, 299.97
+* Molecular weight (min, mean, max): 32.12, 163.93, 701.59 
 * Charges: -4.0 -3.0 -2.0 -1.0 0.0 1.0 2.0 3.0
 * Dataset submitter: Alexandra McIsaac
 * Dataset generator: Alexandra McIsaac
@@ -42,11 +42,12 @@ using the OpenEye backend of the OpenFF toolkit
 * `filter-and-combine-ds.sh`: Script used to run `filter-and-combine-ds.py` on HPC3
 * `filtered_and_combined_nagl2_opt.json`: Output of `filter-and-combine-ds.py` and input to `generate-combined-dataset.py`
 * `generate-combined-dataset.py`: Script describing dataset generation and submission
+* `generate-combined-datsaset.out`: Log file of `generate-combined-dataset.py`.
 * `input-environment.yaml`: Environment file used to create Python environment for the notebook
 * `input-environment-full.yaml`: Fully-resolved environment used to execute the notebook.
 
 ## Metadata
-* Elements: {Cl, O, C, P, I, Br, B, S, N, F, H, Si}
+* Elements: {I, N, B, Si, H, Br, C, O, Cl, F, S, P}
 * Spec: default
   * basis: DZVP
   * implicit_solvent: None
