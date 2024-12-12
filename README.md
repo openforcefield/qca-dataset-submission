@@ -2,7 +2,7 @@
 
 ## Dataset Lifecycle
 
-All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](./LIFECYCLE.md).
+All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](#the-lifecycle-of-a-dataset-submission).
 
 See [STANDARDS.md](./STANDARDS.md) for submission standards.
 Datasets must be submitted as pull requests.
