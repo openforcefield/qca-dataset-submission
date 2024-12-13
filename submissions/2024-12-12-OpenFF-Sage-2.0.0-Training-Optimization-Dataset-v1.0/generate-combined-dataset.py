@@ -1,18 +1,19 @@
 
+import numpy as np
+import requests
+import logging
+logging.getLogger("openff").setLevel(logging.ERROR)
+
 from openff.qcsubmit.results import OptimizationResultCollection
 from openff.qcsubmit.datasets import OptimizationDataset
 from openff.qcsubmit.factories import OptimizationDatasetFactory
 from openff.qcsubmit.common_structures import MoleculeAttributes
-import numpy as np
+
 from openff.toolkit.utils import OpenEyeToolkitWrapper, ToolkitRegistry
 from openff.units import unit
-import logging
-logging.getLogger("openff").setLevel(logging.ERROR)
 
-filtered_and_combined = OptimizationResultCollection.parse_file(
-    "/Users/jennifer.clark/bin/openff-sage/data-set-curation/quantum-chemical/data-sets/1-2-0-opt-set-v3.json",
-#    "/Users/jennifer.clark/bin/openff-sage/data-set-curation/quantum-chemical/data-sets/1-2-0-td-set.json",
-)
+file = requests.get("https://raw.githubusercontent.com/openforcefield/openff-sage/refs/heads/main/data-set-curation/quantum-chemical/data-sets/1-2-0-opt-set-v3.json")
+filtered_and_combined = OptimizationResultCollection.parse_raw(file.content)
 rec_and_mol = filtered_and_combined.to_records()
 
 print('Number of results: ',filtered_and_combined.n_results,flush=True)
