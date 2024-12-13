@@ -9,7 +9,7 @@ from openff.qcsubmit.datasets import OptimizationDataset
 from openff.qcsubmit.factories import OptimizationDatasetFactory
 from openff.qcsubmit.common_structures import MoleculeAttributes
 
-from openff.toolkit.utils import OpenEyeToolkitWrapper, ToolkitRegistry
+from openff.toolkit.utils import RDKitToolkitWrapper, ToolkitRegistry
 from openff.units import unit
 
 file = requests.get("https://raw.githubusercontent.com/openforcefield/openff-sage/refs/heads/main/data-set-curation/quantum-chemical/data-sets/1-2-0-opt-set-v3.json")
@@ -23,7 +23,7 @@ print('Finished converting to records',flush = True)
 initial_mols = [rec[0].initial_molecule for rec in rec_and_mol]
 
 dataset_factory1 = OptimizationDatasetFactory()
-provenance1 = dataset_factory1.provenance(ToolkitRegistry([OpenEyeToolkitWrapper]))
+provenance1 = dataset_factory1.provenance(ToolkitRegistry([RDKitToolkitWrapper]))
 
 dataset1 = OptimizationDataset(
     dataset_name="OpenFF Sage 2.0.0 Training Optimization v1.0",
@@ -98,11 +98,12 @@ masses1 = np.array([
     for mol in dataset1.molecules
 ])
 
-elements1 = set(
+elements1 = list(set(
     atom.symbol
     for mol in dataset1.molecules
     for atom in mol.atoms
-)
+))
+elements1.sort()
 
 unique_charges1 = [str(charge) for charge in sorted(set([
     mol.total_charge.m_as(unit.elementary_charge)

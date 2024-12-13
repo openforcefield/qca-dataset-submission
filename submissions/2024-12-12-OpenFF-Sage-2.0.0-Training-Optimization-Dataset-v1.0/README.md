@@ -35,7 +35,7 @@ A quantum chemical (QC) dataset curated to train [OpenFF 2.0.0 Sage](https://git
  
 ### Metadata
 
-* Elements: {O, Br, H, F, P, C, Cl, N, I, S}
+* Elements: {F, I, N, C, P, Cl, S, Br, O, H}
 * QC Specifications: default
   * basis: DZVP
   * implicit_solvent: None
