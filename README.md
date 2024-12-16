@@ -35,6 +35,9 @@ Datasets must be submitted as pull requests.
     conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
     conda activate qcarchive-user-submit
     ```
+   You may also need to install OpenEye:\
+   `conda install -c openeye openeye-toolkits`
+
 
 
 4. Choose a starting notebook and README based on the type of dataset you wish to submit:
