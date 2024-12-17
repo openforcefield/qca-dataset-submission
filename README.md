@@ -2,7 +2,7 @@
 
 ## Dataset Lifecycle
 
-All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](./LIFECYCLE.md).
+All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](#the-lifecycle-of-a-dataset-submission).
 
 See [STANDARDS.md](./STANDARDS.md) for submission standards.
 Datasets must be submitted as pull requests.
@@ -94,7 +94,7 @@ The programatic description is provided below, with an example of the notebook a
 3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same name as the original and skip the molecule addition step.
 * See below for details about how changes to the dataset are propagated; note that the dataset name must be the same, and changes to any metadata except `compute-tag` and the `QCSpec` will be ignored when submitting the compute expansion.
 * Please note that the default `compute_tag` is `openff`; if you need to use a different one, please add it explicitly to the dataset at this step, as the `compute.json` file overrides the compute tag added manually to the PR. If you do need to change the compute tag after submission, you can change it by updating the label on the PR and the change will take effect when the error cycling action runs next.
-4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
+4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
 5. Add the additional compute spec to the submission's `README.md` file.
 6. Add the `generate-compute.ipynb` and `compute.json` files to the submission's `QCSubmit Manifest` entry in the `README.md` file.
 7. Proof the submission and open a PR. Dataset validation will run automatically.
