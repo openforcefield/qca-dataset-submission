@@ -4,7 +4,9 @@
 import os
 import glob
 import json
+import re
 import time
+import typing
 from pprint import pformat
 import traceback
 from itertools import chain
@@ -12,6 +14,9 @@ from collections import defaultdict, Counter
 from datetime import datetime
 
 from github import Github
+
+if typing.TYPE_CHECKING:
+    import qcelemental
 
 QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
@@ -25,6 +30,123 @@ DATASET_TYPES = {
         'dataset': 'singlepoint',
         'optimizationdataset': 'optimization',
         'torsiondrivedataset': 'torsiondrive'}
+
+# matches tags with a trailing _mw-###, allowing splitting of datasets by
+# molecular weight based on these tags
+SPLIT_TAG = re.compile(r"_mw(-\d+)+$")
+# matches just the end of a SPLIT_TAG, capturing the final number
+SPLIT_TAG_END = re.compile(r"-(\d+)$")
+
+
+def parse_tags(compute_tag) -> tuple[list[float], str]:
+    """Parses a compute tag matching ``SPLIT_TAG`` into a sequence of molecular
+    weights. Also returns the base component of the tag"""
+    tag = compute_tag
+    ret = list()
+    while (m := SPLIT_TAG_END.search(tag)) is not None:
+        ret.append(float(m[1]))
+        tag = tag[: m.start(1) - 1]
+
+    # don't change the tag if it just happens to end with _mw, SPLIT_TAG only
+    # matches if there are -### following it
+    return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
+
+
+def try_get_molecule(entry) -> typing.Optional["qcelemental.models.Molecule"]:
+    """Try to extract a qcelemental Molecule from multiple fields in ``entry``."""
+    molecule = (
+        # this should work for singlepoints
+        getattr(entry, "molecule", None)
+        # this for optimizations
+        or getattr(entry, "initial_molecule", None)
+    )
+
+    if molecule:
+        return molecule
+
+    # and this for torsiondrives
+    if (mols := getattr(entry, "initial_molecules")) is None or len(mols) < 1:
+        return None
+
+    return mols[0]
+
+
+def partition_records(
+    ds, bins, include_complete=False
+) -> dict[int, list[int]]:
+    """Split up the records in ``ds`` based on the molecular weights (in Da) in
+    ``bins``.
+
+    ``include_complete`` is intended mostly (only?) for testing; usually you
+    wouldn't want to retag complete records (and it might be an error in
+    qcportal since complete records don't have tags), but for tests it's nice
+    to be able to call this on a finished dataset
+    """
+    import numpy as np
+
+    ds.fetch_entries()
+    masses, qca_ids = list(), list()
+    for entry_name, _, rec in ds.iterate_records():
+        if rec.status == "complete" and not include_complete:
+            continue
+        entry = ds.get_entry(entry_name)
+        if (mol := try_get_molecule(entry)) is None:
+            print(f"failed to get molecule from {entry_name}")
+            continue
+
+        masses.append(sum(mol.masses))
+        qca_ids.append(rec.id)
+
+    qca_ids = np.array(qca_ids)
+    bin_indices = np.digitize(masses, bins)
+    return {
+            i: qca_ids[np.where(bin_indices == i)]
+            for i in range(len(bins) + 1)
+    }
+
+
+def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
+    bins, base_tag = parse_tags(compute_tag)
+    if len(bins) == 0:
+        print(f"Failed to parse molecular weight compute tags from {compute_tag}")
+        # TODO should this fall back on the normal setter then? we'd need to
+        # pass more arguments to make that possible
+        return
+
+    records = partition_records(ds, bins, include_complete=include_complete)
+    for bin_, record_ids in records.items():
+        # the largest index may be 1 past len(bins) so just call this large
+        suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
+        new_tag = f"{base_tag}-{suffix}"
+        client.modify_records(record_ids, new_tag=new_tag)
+
+
+def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
+    """Update the compute tags in ``dataset`` to ``new_tag``, unless the new
+    tag matches the ``SPLIT_TAG`` pattern, in which case the dataset will be
+    split up and tagged separately based on molecular weight. For example,
+    ``compute-openff_mw-100-200-300`` will cause the creation of four tags:
+    ``compute-openff-100`` for MW < 100, ``compute-openff-200`` for 100 <= MW <
+    200, ``compute-openff-300`` for 200 <= MW < 300, and
+    ``compute-openff-large`` for anything larger than 300 Da.
+
+    Note that ``set_mw_compute_tags`` does not need access to the specification
+    names because it calls ``PortalClient.modify_records``, which, despite the
+    identical name, is a separate method from ``BaseDataset.modify_records``.
+    The client version used by ``set_mw_compute_tags`` relies on the record IDs
+    to specify records instead of the specification name.
+
+    Note also that ``set_mw_compute_tags`` should only be called when
+    ``SPLIT_TAG`` matches the tag. It will print a warning and return early,
+    updating no tags, if this is not the case.
+    """
+    if SPLIT_TAG.search(new_tag) is None:
+        dataset.modify_records(
+            specification_names=specification_names,
+            new_tag=new_tag,
+        )
+    else:
+        set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
 
 
 class Submission:
@@ -606,8 +728,13 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=list(dataset_specs),
+                    new_tag=self.computetag,
+                )
+
             complete = False
 
         return complete
@@ -741,8 +868,12 @@ class SubmittableBase:
                 ds.modify_records(specification_names=list(dataset_specs),
                                   new_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=list(dataset_specs),
+                    new_tag=self.computetag,
+                )
             complete = False
 
         return complete

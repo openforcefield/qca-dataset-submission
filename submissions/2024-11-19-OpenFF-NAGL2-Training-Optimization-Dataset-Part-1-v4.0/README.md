@@ -24,7 +24,7 @@ using the OpenEye backend of the OpenFF toolkit
 * Name: OpenFF NAGL2 Training Optimization Dataset Part 1 v4.0
 * Number of unique molecules: 55134
 * Number of conformers: 131198
-* Number of conformers (min, mean, max): 1.00, 2.38, 5.00
+* Number of conformers (min, mean, max): 1.00, 2.38, 10.00
 * Molecular weight (min, mean, max): 32.12, 158.53, 299.97
 * Charges: -4.0 -3.0 -2.0 -1.0 0.0 1.0 2.0 3.0
 * Dataset submitter: Alexandra McIsaac
