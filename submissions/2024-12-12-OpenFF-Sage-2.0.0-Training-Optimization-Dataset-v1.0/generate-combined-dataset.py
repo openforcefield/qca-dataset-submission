@@ -9,7 +9,7 @@ from openff.qcsubmit.datasets import OptimizationDataset
 from openff.qcsubmit.factories import OptimizationDatasetFactory
 from openff.qcsubmit.common_structures import MoleculeAttributes
 
-from openff.toolkit.utils import RDKitToolkitWrapper, ToolkitRegistry
+from openff.toolkit.utils import OpenEyeToolkitWrapper, ToolkitRegistry
 from openff.units import unit
 
 def pull_record_id_cmiles(Opt):
@@ -36,7 +36,7 @@ print('Finished converting to records',flush = True)
 initial_mols = [rec[0].initial_molecule for rec in rec_and_mol]
 
 dataset_factory1 = OptimizationDatasetFactory()
-provenance1 = dataset_factory1.provenance(ToolkitRegistry([RDKitToolkitWrapper]))
+provenance1 = dataset_factory1.provenance(ToolkitRegistry([OpenEyeToolkitWrapper]))
 
 dataset1 = OptimizationDataset(
     dataset_name="OpenFF Sage 2.0.0 Training Optimization Dataset v1.0",
