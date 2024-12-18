@@ -35,6 +35,9 @@ Datasets must be submitted as pull requests.
     conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
     conda activate qcarchive-user-submit
     ```
+   You may also need to install OpenEye:\
+   `conda install -c openeye openeye-toolkits`
+
 
 
 4. Choose a starting notebook and README based on the type of dataset you wish to submit:
@@ -202,6 +205,10 @@ The status only refers to the `default` specification which is required for all 
 
 [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  the dataset is currently running and may have some incomplete jobs.
 
+# Forcefield Release Datasets
+| Forcefield  | Repo  | Optimization | Torsion Drive | Elements | Zenodo |
+|-------------|----------|-------------------|--------------------|----------|--------|
+| Release OpenFF 2.0.0 Sage | [openff-sage](https://github.com/openforcefield/openff-sage)  | [2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0) | [Coming Soon]() | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
 
 
 # Basic Datasets
