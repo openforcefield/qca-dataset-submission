@@ -15,7 +15,7 @@ from openff.toolkit.utils import OpenEyeToolkitWrapper, ToolkitRegistry
 from openff.units import unit
 
 
-def pull_record_id_cmiles(Opt: Type[OptimizationResultCollection]):
+def pull_record_id_cmiles(Opt):
     """Pull CMILES strings associated with each molecule record
 
     Parameters

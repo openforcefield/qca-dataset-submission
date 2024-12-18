@@ -205,6 +205,10 @@ The status only refers to the `default` specification which is required for all 
 
 [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  the dataset is currently running and may have some incomplete jobs.
 
+# Forcefield Release Datasets
+| Forcefield  | Repo  | Optimization | Torsion Drive | Elements | Zenodo |
+|-------------|----------|-------------------|--------------------|----------|--------|
+| Release OpenFF 2.0.0 Sage | [openff-sage](https://github.com/openforcefield/openff-sage)  | [2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0) | [Coming Soon]() | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
 
 
 # Basic Datasets
