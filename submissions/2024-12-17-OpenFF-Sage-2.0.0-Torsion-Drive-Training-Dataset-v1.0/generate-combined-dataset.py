@@ -65,7 +65,6 @@ print("Finished converting to records", flush=True)
 dataset_factory1 = TorsiondriveDatasetFactory()
 provenance1 = dataset_factory1.provenance(ToolkitRegistry([OpenEyeToolkitWrapper]))
 
-#with open('dataset_information.json') as f: dataset_information = json.load(f)
 dataset_information = {
     "dataset_name": "OpenFF Sage 2.0.0 Torsion Drive Training Dataset v1.0",
     "dataset_tagline": "B3LYP-D3BJ/DZVP conformers applicable to drug-like molecules for OpenFF 2.0.0 Sage",
@@ -83,23 +82,17 @@ dataset1 = TorsiondriveDataset(
 dataset1.metadata.submitter = dataset_information["metadata.submitter"]
 dataset1.metadata.long_description_url = dataset_information["metadata.long_description_url"]
 
-
-# Have to add records this way to avoid a round trip through the toolkit.
-# rec_and_mole is a linear representation of all the molecules
-# records_by_cmiles groups together conformers
-
-cmiles_count = {}
+cmiles_count = defaultdict(Counter)
 molecules = []
-for record, molecule  in rec_and_mol:
+for i, (record, molecule)  in enumerate(rec_and_mol):
     cmiles = rec_and_cmiles[record.id]
 
     if cmiles not in cmiles_count:
-        molecules.append(molecules)
-        cmiles_count[cmiles] = defaultdict(Counter)
-    cmiles_count[cmiles][1][record.initial_molecules[0].get_hash()] += 1
+        molecules.append(molecule)
+    cmiles_count[cmiles][record.initial_molecules[0].get_hash()] += 1
 
     dataset1.add_molecule(
-        index=rec_and_cmiles[record.id],
+        index=rec_and_cmiles[record.id] + str(i),
         molecule=None,
         extras=record.extras,
         keywords=record.specification.keywords,
@@ -107,11 +100,8 @@ for record, molecule  in rec_and_mol:
         initial_molecules=record.initial_molecules, 
         dihedrals=record.specification.keywords.dihedrals,
     )
-    
-# Note this: base_record.record_type
 
 # Check that the molecules are identical
-#opt_hashes = {rec.initial_molecules.get_hash() for rec, _mol in rec_and_mol}
 opt_hashes = {
     mol.get_hash() 
     for rec, _mol in rec_and_mol
@@ -126,28 +116,16 @@ new_hashes = {
 
 print("Dataset creation preserved Molecules? ", opt_hashes == new_hashes)
 
-
-# cmiles_count = Counter()
-
 # _________ Pull Statistics from Dataset ____________
 
 lx = len(cmiles_count)
 n_confs1, n_heavy_atoms1, masses1, unique_charges1 = np.zeros(lx), [], np.zeros(lx), np.zeros(lx)
-for i,cmiles, (mol, hashes) in enumerate(cmiles_count):
+for i, (cmiles, hashes) in enumerate(cmiles_count.items()):
     n_confs1[i] = len(hashes)
-    n_heavy_atoms1.append(mol.to_rdkit().GetNumHeavyAtoms())
-    masses1[i] = sum([atom.mass.m for atom in mol.atoms])
-    unique_charges1[i] = mol.total_charge.m_as(unit.elementary_charge)
+    n_heavy_atoms1.append(molecules[i].to_rdkit().GetNumHeavyAtoms())
+    masses1[i] = sum([atom.mass.m for atom in molecules[i].atoms])
+    unique_charges1[i] = molecules[i].total_charge.m_as(unit.elementary_charge)
 unique_charges1 = sorted(set(unique_charges1))
-
-#n_confs1 = [len(x) for (x, _) in cmiles_count] # the number of conformers and torsion drives for each
-#n_heavy_atoms1 = np.array(
-#    [mol.to_rdkit().GetNumHeavyAtoms() for mol in dataset1.molecules] # not weighted by conformer
-#)
-#masses1 = np.array(
-#    [sum([atom.mass.m for atom in mol.atoms]) for mol in dataset1.molecules]
-#)
-#unique_charges1 = sorted(set(m.total_charge.m_as(unit.elementary_charge) for m in dataset1.molecules))
 
 elements1 = sorted(dataset1.metadata.dict()['elements'])
 
@@ -165,14 +143,8 @@ print("* Purpose: {}".format(dataset1.dataset_tagline))
 print("* Name: {}".format(dataset1.dataset_name))
 print("* Number of unique molecules: {}".format(len(cmiles_count)))
 print("* Number of filtered molecules:", dataset1.n_filtered)
-# With multiple torsions per unique molecule, n_molecules * confs.mean() no
-# longer equals the number of conformers. instead, the number of dihedrals *
-# confs.mean() should equal the number of conformers. The dataset contains one
-# record per driven torsion (rather than combining multiple dihedrals into the
-# same record), so n_records is the same as manually adding up len(dihedrals)
-# for each record.
 print("* Number of driven torsions: {}".format(dataset1.n_records))
-print("* Number of conformers:", sum(n_confs1))
+print("* Number of conformers:", int(sum(n_confs1)))
 print(
     "* Number of conformers (min, mean, max): {:.2f}, {:.2f}, {:.2f}".format(
         min(n_confs1), np.mean(n_confs1), max(n_confs1)
@@ -183,7 +155,7 @@ print(
         min(masses1), np.mean(masses1), max(masses1)
     )
 )
-print("* Charges: {}".format(", ".join(unique_charges1)))
+print("* Charges: {}".format(", ".join([str(x) for x in unique_charges1])))
 print("* Submitter: {}".format(dataset1.metadata.submitter))
 
 print("\n## Metadata")

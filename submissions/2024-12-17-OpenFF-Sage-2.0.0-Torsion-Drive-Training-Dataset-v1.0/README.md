@@ -13,14 +13,14 @@ A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion p
 * Class: OpenFF TorsionDrive Dataset
 * Purpose: Complete set of training data for OpenFF 2.0.0 Sage
 * Name: OpenFF Sage 2.0.0 Torsion Drive Training Dataset v1.0
-* Number of unique molecules: 
-* Number of filtered molecules: 
-* Number of conformers: 
-* Number of conformers per molecule (min, mean, max): , , 
-* Mean molecular weight: 
-* Max molecular weight: 
-* Charges: 
-* Dataset submitter: Jennifer A Clark
+* Number of unique molecules: 562
+* Number of filtered molecules: 0
+* Number of driven torsions: 713
+* Number of conformers: 563
+* Number of conformers (min, mean, max): 1.00, 1.00, 2.00
+* Molecular weight (min, mean, max): 46.07, 224.91, 503.42
+* Charges: -1.0, 0.0, 1.0
+* Submitter: Jennifer A Clark
 * Dataset generator: Hyesu Jang
 
 ## QCSubmit Generation Pipeline
@@ -38,12 +38,16 @@ A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion p
 
 ## Metadata
 
-* Elements:
-* QC Specifications:
-  * basis:
-  * implicit_solvent:
-  * keywords:
-  * maxiter:
-  * method:
-  * program:
+* Elements: {Br, C, Cl, F, H, I, N, O, P, S}
+* QC Specifications: default
+  * basis: DZVP
+  * implicit_solvent: None
+  * keywords: {}
+  * maxiter: 200
+  * method: B3LYP-D3BJ
+  * program: psi4
   * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
