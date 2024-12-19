@@ -43,6 +43,7 @@ The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the fol
 * `dataset.json.bz2`: The basic dataset ready for submission.
 * `dataset.pdf`: A pdf file containing molecule 2D structures.
 * `dataset.smi`: SMILES for every molecule in the submission.
+* `conda_env.yaml`: A file to reproduce the conda env used to generate this dataset.
 
 
 ## Metadata
