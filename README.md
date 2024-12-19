@@ -2,7 +2,7 @@
 
 ## Dataset Lifecycle
 
-All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](./LIFECYCLE.md).
+All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](#the-lifecycle-of-a-dataset-submission).
 
 See [STANDARDS.md](./STANDARDS.md) for submission standards.
 Datasets must be submitted as pull requests.
@@ -35,6 +35,9 @@ Datasets must be submitted as pull requests.
     conda env create -f qca-dataset-submission/devtools/prod-envs/qcarchive-user-submit.yaml
     conda activate qcarchive-user-submit
     ```
+   You may also need to install OpenEye:\
+   `conda install -c openeye openeye-toolkits`
+
 
 
 4. Choose a starting notebook and README based on the type of dataset you wish to submit:
@@ -94,7 +97,7 @@ The programatic description is provided below, with an example of the notebook a
 3. In the notebook, either download the original dataset and remove the molecules and _original_ `QCSpec`, or re-create the dataset with the same name as the original and skip the molecule addition step.
 * See below for details about how changes to the dataset are propagated; note that the dataset name must be the same, and changes to any metadata except `compute-tag` and the `QCSpec` will be ignored when submitting the compute expansion.
 * Please note that the default `compute_tag` is `openff`; if you need to use a different one, please add it explicitly to the dataset at this step, as the `compute.json` file overrides the compute tag added manually to the PR. If you do need to change the compute tag after submission, you can change it by updating the label on the PR and the change will take effect when the error cycling action runs next.
-4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/add-ddx-to-nagl-benchmark/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
+4. Add the _new_ `QCSpec` to the dataset, and save the dataset to `compute.json`, example [here](https://github.com/openforcefield/qca-dataset-submission/blob/master/submissions/2024-09-18-OpenFF-NAGL2-ESP-Timing-Benchmark-v1.1/compute.json).
 5. Add the additional compute spec to the submission's `README.md` file.
 6. Add the `generate-compute.ipynb` and `compute.json` files to the submission's `QCSubmit Manifest` entry in the `README.md` file.
 7. Proof the submission and open a PR. Dataset validation will run automatically.
@@ -202,6 +205,10 @@ The status only refers to the `default` specification which is required for all 
 
 [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  the dataset is currently running and may have some incomplete jobs.
 
+# Forcefield Release Datasets
+| Forcefield  | Repo  | Optimization | Torsion Drive | Elements | Zenodo |
+|-------------|----------|-------------------|--------------------|----------|--------|
+| Release OpenFF 2.0.0 Sage | [openff-sage](https://github.com/openforcefield/openff-sage)  | [2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0) | [Coming Soon]() | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
 
 
 # Basic Datasets
@@ -297,6 +304,7 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Lipid Optimization Training Supplement v1.0` | [2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0) | Additional optimization training data for Sage from representative LIPID MAPS fragments | I, Br, O, H, P, C, N, Cl, F, S | |
 | `OpenFF NAGL2 Training Optimization Dataset Part 1 v4.0` | [2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-1-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-1-v4.0) | Optimization dataset for NAGL2 training, part 1 | Cl, O, C, P, I, Br, B, S, N, F, H, Si | |
 | `OpenFF NAGL2 Training Optimization Dataset Part 2 v4.0` | [2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-2-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-11-19-OpenFF-NAGL2-Training-Optimization-Dataset-Part-2-v4.0) | Optimization dataset for NAGL2 training, part 2 | Si, B, O, I, S, Cl, N, H, C, P, F, Br | |
+| `OpenFF Organometallics Exploratory Optimization Dataset` | [2024-12-03-OpenFF-Organometallics-Exploratory-Optimization-Dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-03-OpenFF-Organometallics-Exploratory-Optimization-Dataset) | Optimization training data for organometallic molecules | F, P, O, C, Zn, N, Ni, Pt, S, Pd, Mg, Br, Rh, Fe, H, Cl, B, Li | |
 | `OpenFF NAGL2 Training Optimization Dataset v4.0` | [2024-12-09-OpenFF-NAGL2-Training-Optimization-Dataset-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-09-OpenFF-NAGL2-Training-Optimization-Dataset-v4.0) | Optimization dataset for NAGL2 training, combined and filtered | Si, B, O, I, S, Cl, N, H, C, P, F, Br | |
 
 

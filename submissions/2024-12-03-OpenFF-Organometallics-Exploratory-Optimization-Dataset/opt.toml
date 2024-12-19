@@ -1,0 +1,62 @@
+name = "OpenFF Organometallics Exploratory Optimization Dataset"
+description = """
+
+An optimization dataset created to test the OpenFF and QCArchive infrastructure
+for calculations involving organometallic molecules. The molecules in this
+dataset were extracted from the `OpenEye SMILES` entries in the [Chemical
+Component Dictionary](https://www.wwpdb.org/data/ccd) mmCIF file. These were
+filtered to remove molecules with radical electrons and to include only
+molecules with the desired metal atoms: Pd, Fe, Zn, Mg, Cu, Li, Rh, Ir, Pt, Ni,
+Cr, and Ag. These were further filtered to retain only molecules with at least
+10 atoms, an absolute charge of less than 4, and those not present in any of our
+existing training data. From this candidate set, the molecules were sorted based
+on their number of atoms, and the smallest 100 were selected. Of these, 56 were
+further removed by errors in the dataset preparation process, leaving 44
+molecules.
+
+"""
+short_description = "Optimization training data for organometallic molecules"
+class = "optimization"
+purpose = "Provide training data for metal-containing molecules"
+submitter = "Brent Westbrook"
+
+[[pipeline]]
+filename = "main.py"
+description = """
+This script shows how the dataset was prepared from `components.cif`, retrieved
+from the CCD, and `inchis.dat`, which contains the InCHI keys of our existing
+training data.
+"""
+
+# input files
+[[manifest]]
+filename = "main.py"
+description = "Script describing dataset generation and submission"
+
+[[manifest]]
+filename = "input-environment.yaml"
+description = "Environment file used to create the Python environment for the script"
+
+[[manifest]]
+filename = "full-environment.yaml"
+description = "Fully-resolved environment used to execute the script"
+
+[[manifest]]
+filename = "opt.toml"
+description = """
+Experimental [qcaide](https://github.com/ntBre/qcaide) input file for defining
+variables used throughout the QCA submission process
+"""
+
+# output files
+[[manifest]]
+filename = "dataset.json.bz2"
+description = "Compressed dataset ready for submission"
+
+[[manifest]]
+filename = "dataset.pdf"
+description = "Visualization of dataset molecules"
+
+[[manifest]]
+filename = "output.smi"
+description = "SMILES strings for dataset molecules"
