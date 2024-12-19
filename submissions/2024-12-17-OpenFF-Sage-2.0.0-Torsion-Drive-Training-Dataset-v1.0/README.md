@@ -2,7 +2,15 @@
 
 ## Description
 
-A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion potentials. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to benchmark Sage geometries and energetics. These optimized conformer geometries where used to train one dimensional torsional profiles. This Generation 2 dataset increases chemical diversity when compared to Generation 1, which are of value to our industry partners. Large molecules (>20 heavy atoms) were also included, including more flexible molecules and a greater degree of conformational variation which provide intramolecular interactions. This is the complete TorsionDrive dataset used for training OpenFF 2.0.0 Sage, consisting of the following datasets: 
+A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion 
+potentials. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, 
+is used to benchmark Sage geometries and energetics. These optimized conformer 
+geometries where used to train one dimensional torsional profiles. This Generation 2 
+dataset increases chemical diversity when compared to Generation 1, which are of 
+value to our industry partners. Large molecules (>20 heavy atoms) were also included, 
+including more flexible molecules and a greater degree of conformational variation 
+which provide intramolecular interactions. This is the complete TorsionDrive dataset 
+used for training OpenFF 2.0.0 Sage, consisting of the following datasets: 
 
 - [OpenFF Gen 2 Torsion Set 1 Roche](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-12-OpenFF-Gen-2-Torsion-Set-1-Roche)
 - [OpenFF Gen 2 Torsion Set 2 Coverage](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-12-OpenFF-Gen-2-Torsion-Set-2-Coverage)
@@ -11,7 +19,10 @@ A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion p
 - [OpenFF Gen 2 Torsion Set 5 Bayer](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-12-OpenFF-Gen-2-Torsion-Set-5-Bayer)
 - [OpenFF Gen 2 Torsion Set 6 supplemental 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-6-supplemental-2)
 
-The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the following record IDs were dropped due to issues with ForceBalance: 6098580, 2703504, 2703505, 18045478. Further information can be found in the curation scripts for the linked repositories.
+The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the 
+following record IDs were dropped due to issues with ForceBalance: 6098580, 2703504, 
+2703505, 18045478. Further information can be found in the curation scripts for the 
+linked repositories.
 
 ## General Information
 
@@ -37,7 +48,7 @@ The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the fol
 
 ## QCSubmit Manifest
 
-* `generate-combined-dataset.py`: 
+* `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
 * `ds_info.json`: Metadata information for dataset record imported by `generate-combined-dataset.py`
 * `output.txt`: Captured output from `generate-combined-dataset.py`
 * `dataset.json.bz2`: The basic dataset ready for submission.
