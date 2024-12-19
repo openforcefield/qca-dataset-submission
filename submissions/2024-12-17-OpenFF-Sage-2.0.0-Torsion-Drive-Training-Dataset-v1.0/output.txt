@@ -1,7 +1,6 @@
 # Creating dataset
 Number of results:  713
 Finished converting to records
-WARNING:PortalClient:Connection failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')) - retrying in 0.51 seconds [1/5]
 Dataset creation preserved Molecules?  True
 
 # Heavy Atom Counts
@@ -38,7 +37,7 @@ Dataset creation preserved Molecules?  True
 
 # Output for README
 
-* Description: A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion potentials. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to benchmark Sage geometries and energetics. These optimized conformer geometries where used to train one dimensional torsional profiles. This Generation 2 dataset increases chemical diversity when compared to Generation 1, which are of value to our industry partners. Large molecules (>20 heavy atoms) were also included, including more flexible molecules and a greater degree of conformational variation which provide intramolecular interactions. This is the complete optimization dataset used for training OpenFF 2.0.0 Sage, consisting of the following datasets: 'OpenFF Gen 2 Torsion Set 1 Roche', 'OpenFF Gen 2 Torsion Set 2 Coverage', 'OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy', 'OpenFF Gen 2 Torsion Set 4 eMolecules  - Discrepancy', 'OpenFF Gen 2 Torsion Set 5 Bayer' and 'OpenFF Gen 2 Torsion Set 6 supplemental 2'. The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the following record IDs were dropped due to issues with ForceBalance: 6098580, 2703504, 2703505, 18045478. Further information can be found in the curation scripts for the linked repositories.
+* Description: A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion potentials. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to benchmark Sage geometries and energetics. These optimized conformer geometries where used to train one dimensional torsional profiles. This Generation 2 dataset increases chemical diversity when compared to Generation 1, which are of value to our industry partners. Large molecules (>20 heavy atoms) were also included, including more flexible molecules and a greater degree of conformational variation which provide intramolecular interactions. This is the complete TorsionDrive dataset used for training OpenFF 2.0.0 Sage, consisting of the following datasets: 'OpenFF Gen 2 Torsion Set 1 Roche', 'OpenFF Gen 2 Torsion Set 2 Coverage', 'OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy', 'OpenFF Gen 2 Torsion Set 4 eMolecules  - Discrepancy', 'OpenFF Gen 2 Torsion Set 5 Bayer' and 'OpenFF Gen 2 Torsion Set 6 supplemental 2'. The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the following record IDs were dropped due to issues with ForceBalance: 6098580, 2703504, 2703505, 18045478. Further information can be found in the curation scripts for the linked repositories.
 * Purpose: B3LYP-D3BJ/DZVP conformers applicable to drug-like molecules for OpenFF 2.0.0 Sage
 * Name: OpenFF Sage 2.0.0 Torsion Drive Training Dataset v1.0
 * Number of unique molecules: 562

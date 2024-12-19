@@ -19,7 +19,7 @@ from openff.toolkit.utils import OpenEyeToolkitWrapper, ToolkitRegistry
 from openff.units import unit
 
 
-def pull_record_id_cmiles(Opt: Type[TorsionDriveResultCollection]):
+def pull_record_id_cmiles(Opt: TorsionDriveResultCollection):
     """Pull CMILES strings associated with each molecule record
 
     Parameters
@@ -33,8 +33,12 @@ def pull_record_id_cmiles(Opt: Type[TorsionDriveResultCollection]):
     rec_ids_cmiles = {}
     for _, results in Opt.entries.items():
         tmp_rec_ids_cmiles = {result.record_id: result.cmiles for result in results}
+        lx, ly = len(tmp_rec_ids_cmiles), len(rec_ids_cmiles)
         # TODO: Check if updating dic would change the number of records
         rec_ids_cmiles.update(tmp_rec_ids_cmiles)
+
+        if len(rec_ids_cmiles) != lx + ly:
+            raise ValueError("Multiple servers share record ids")
 
     return rec_ids_cmiles
 
@@ -78,15 +82,21 @@ dataset1.metadata.long_description_url = dataset_information["metadata.long_desc
 
 cmiles_count = defaultdict(Counter)
 molecules = []
-for i, (record, molecule)  in enumerate(rec_and_mol):
+for record, molecule  in rec_and_mol:
     cmiles = rec_and_cmiles[record.id]
 
     if cmiles not in cmiles_count:
         molecules.append(molecule)
-    cmiles_count[cmiles][record.initial_molecules[0].get_hash()] += 1
+    hash = record.initial_molecules[0].get_hash()
+    cmiles_count[cmiles][hash] += 1
+
+    conformer_dihedral = "-{}-{}".format(
+        list(cmiles_count[cmiles].keys()).index(hash),
+        cmiles_count[cmiles][hash]
+    )
 
     dataset1.add_molecule(
-        index=rec_and_cmiles[record.id] + str(i),
+        index=rec_and_cmiles[record.id] + conformer_dihedral,
         molecule=None,
         extras=record.extras,
         keywords=record.specification.keywords,
