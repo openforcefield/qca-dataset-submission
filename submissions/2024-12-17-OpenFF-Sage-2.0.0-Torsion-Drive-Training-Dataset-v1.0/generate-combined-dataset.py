@@ -69,7 +69,8 @@ print("Finished converting to records", flush=True)
 dataset_factory1 = TorsiondriveDatasetFactory()
 provenance1 = dataset_factory1.provenance(ToolkitRegistry([OpenEyeToolkitWrapper]))
 
-with open("ds_info.json") as f: dataset_information = json.load(f)
+with open("ds_info.json") as f:
+    dataset_information = json.load(f)
 
 dataset1 = TorsiondriveDataset(
     dataset_name=dataset_information["dataset_name"],
