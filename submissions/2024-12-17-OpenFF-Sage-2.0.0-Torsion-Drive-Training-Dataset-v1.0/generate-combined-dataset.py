@@ -34,9 +34,7 @@ def pull_record_id_cmiles(Opt: TorsionDriveResultCollection):
     for _, results in Opt.entries.items():
         tmp_rec_ids_cmiles = {result.record_id: result.cmiles for result in results}
         lx, ly = len(tmp_rec_ids_cmiles), len(rec_ids_cmiles)
-        # TODO: Check if updating dic would change the number of records
         rec_ids_cmiles.update(tmp_rec_ids_cmiles)
-
         if len(rec_ids_cmiles) != lx + ly:
             raise ValueError("Multiple servers share record ids")
 
