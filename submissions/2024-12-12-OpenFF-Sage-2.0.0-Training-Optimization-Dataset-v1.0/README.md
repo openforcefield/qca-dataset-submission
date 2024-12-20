@@ -9,7 +9,7 @@ This is the complete optimization dataset used for training OpenFF 2.0.0 Sage, c
  - [OpenFF Gen 2 Opt Set 1 Roche](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-1-Roche)
  - [OpenFF Gen 2 Opt Set 2 Coverage](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-2-Coverage)
  - [OpenFF Gen 2 Opt Set 3 Pfizer Discrepancy](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-3-Pfizer-Discrepancy)
- - [OpenFF Gen 2 Opt Set 4 eMolecules  - Discrepancy](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-4-eMolecules-Discrepancy)
+ - [OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-4-eMolecules-Discrepancy)
  - [OpenFF Gen 2 Opt Set 5 Bayer](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-5-Bayer)
 
 The following filters were applied to those datasets:
@@ -38,7 +38,7 @@ The following filters were applied to those datasets:
 - Set of charges: -2.0, -1.0, 0.0, 1.0
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: Simon Boothroyd
-- Dataset Generator: Hyesu Jang
+- Dataset Generator: Jessica Maat and Hyesu Jang
 
 ### QCSubmit generation pipeline
 
