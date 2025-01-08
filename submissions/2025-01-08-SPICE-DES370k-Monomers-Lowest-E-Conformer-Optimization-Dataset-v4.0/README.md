@@ -30,7 +30,7 @@ A dataset containing the lowest energy conformer of all molecules from the [`SPI
 * `input_environment_full.yaml`: Fully-resolved environment used to execute the notebook.
 
 ## Metadata
-* Elements: {Br, S, O, N, H, Cl, I, P, C, F}
+* Elements: {S, O, F, P, Br, N, H, C, Cl, I}
 * Spec: default
   * basis: DZVP
   * implicit_solvent: None

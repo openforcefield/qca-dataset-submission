@@ -37,16 +37,16 @@
     "long_description_url": null,
     "long_description": "SPICE DES370k Monomers Molecules Placeholder",
     "elements": [
-      "Br",
-      "O",
       "S",
-      "I",
-      "N",
-      "H",
+      "O",
       "F",
       "P",
+      "Br",
+      "N",
+      "H",
+      "C",
       "Cl",
-      "C"
+      "I"
     ]
   },
   "provenance": {
