@@ -31,7 +31,7 @@ A dataset containing the lowest energy conformer of all molecules from the `Dipe
 
 ## Metadata
 * Elements: {H, S, C, O, N}
-* Spec: default
+* Spec: default-mbis
   * basis: DZVP
   * implicit_solvent: None
   * keywords: {}
@@ -41,5 +41,6 @@ A dataset containing the lowest energy conformer of all molecules from the `Dipe
   * SCF properties:
     * dipole
     * quadrupole
+    * mbis_charges
     * wiberg_lowdin_indices
     * mayer_indices
