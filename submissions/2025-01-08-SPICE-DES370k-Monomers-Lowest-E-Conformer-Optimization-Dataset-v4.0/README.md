@@ -31,7 +31,7 @@ A dataset containing the lowest energy conformer of all molecules from the [`SPI
 
 ## Metadata
 * Elements: {S, O, F, P, Br, N, H, C, Cl, I}
-* Spec: default
+* Spec: default-mbis
   * basis: DZVP
   * implicit_solvent: None
   * keywords: {}
@@ -41,5 +41,6 @@ A dataset containing the lowest energy conformer of all molecules from the [`SPI
   * SCF properties:
     * dipole
     * quadrupole
+    * mbis_charges
     * wiberg_lowdin_indices
     * mayer_indices
