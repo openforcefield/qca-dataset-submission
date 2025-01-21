@@ -120,6 +120,7 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         new_tag = f"{base_tag}-{suffix}"
         print(new_tag, set([str(type(x)) for x in record_ids]))
         print(record_ids)
+        record_ids = [int(x) for x in record_ids]
         client.modify_records(record_ids, new_tag=new_tag)
 
 
