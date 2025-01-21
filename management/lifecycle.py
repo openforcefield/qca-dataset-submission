@@ -97,10 +97,13 @@ def partition_records(
         masses.append(sum(mol.masses))
         qca_ids.append(rec.id)
 
+    # TODO: Change so that numpy ints aren't used in the first place
+    # For some reason QCPortal has an issue with numpy ints and we
+    # must use python ints
     qca_ids = np.array(qca_ids)
     bin_indices = np.digitize(masses, bins)
     return {
-            i: qca_ids[np.where(bin_indices == i)]
+            i: [int(x) for x in qca_ids[np.where(bin_indices == i)]]
             for i in range(len(bins) + 1)
     }
 
@@ -118,9 +121,6 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         # the largest index may be 1 past len(bins) so just call this large
         suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
         new_tag = f"{base_tag}-{suffix}"
-        print(new_tag, set([str(type(x)) for x in record_ids]))
-        print(record_ids)
-        record_ids = [int(x) for x in record_ids]
         client.modify_records(record_ids, new_tag=new_tag)
 
 
