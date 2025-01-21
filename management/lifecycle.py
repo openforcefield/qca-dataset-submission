@@ -118,6 +118,8 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         # the largest index may be 1 past len(bins) so just call this large
         suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
         new_tag = f"{base_tag}-{suffix}"
+        print(new_tag, set([str(type(x)) for x in record_ids]))
+        print(record_ids)
         client.modify_records(record_ids, new_tag=new_tag)
 
 
