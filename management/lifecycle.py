@@ -97,10 +97,13 @@ def partition_records(
         masses.append(sum(mol.masses))
         qca_ids.append(rec.id)
 
+    # TODO: Change so that numpy ints aren't used in the first place
+    # For some reason QCPortal has an issue with numpy ints and we
+    # must use python ints
     qca_ids = np.array(qca_ids)
     bin_indices = np.digitize(masses, bins)
     return {
-            i: qca_ids[np.where(bin_indices == i)]
+            i: [int(x) for x in qca_ids[np.where(bin_indices == i)]]
             for i in range(len(bins) + 1)
     }
 
