@@ -1,0 +1,12 @@
+name: partial_relax
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - openff-toolkit
+  - openff-qcsubmit>=0.55
+  - geometric>=1.1
+  - jupyter
+  - nglview
+  - h5py
+  - pandas
