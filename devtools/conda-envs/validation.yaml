@@ -6,7 +6,7 @@ channels:
 dependencies:
   - python
   - qcportal >=0.49
-  - openff-qcsubmit >=0.53.0
+  - openff-qcsubmit >=0.55.0
   - openff-toolkit-base >=0.12
   - openff-forcefields >=2.0.0
   - openff-units >= 0.2.0
