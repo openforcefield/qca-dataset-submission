@@ -1,4 +1,4 @@
-# SPICE Dipeptides Lowest E Conformer Optimization Dataset v4.0
+# SPICE Dipeptides Partial Relaxation Dataset v4.0 
 
 ## Description
 A dataset containing all entries of the `Dipeptides` subset of the SPICE dataset, 
