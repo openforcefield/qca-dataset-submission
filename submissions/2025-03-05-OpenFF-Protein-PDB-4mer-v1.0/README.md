@@ -2,17 +2,14 @@
 
 ### Description
 
-This dataset is composed of 1,000 4-mer structures which were extracted from PDB entries. The purpose of this dataset is to fill in gaps within the existing protein training data with secondary structures which occur in real proteins. For all scripts used to generated the input files please visit https://github.com/ajfriedman22/4mer_Generation.
+This dataset is composed of 1,000 4-mer peptide structures which were extracted from PDB entries in the Top8000 database. The purpose of this dataset is to fill in gaps within the existing protein training data with secondary structures which occur in real proteins. For all scripts used to generated the input files please visit https://github.com/ajfriedman22/4mer_Generation. The dataset was computed using the B3LYP-D3BJ metho and the DZVP basis set.
 
 ### General Information
-
-<!-- copy outputs from generation notebook into these fields -->
-
 - Date: 2025-03-05
 - Class: OpenFF Optimization Dataset
-- Purpose:Optimizations of 4-mers extracted from the PDB
+- Purpose: Optimizations of peptide 4-mers extracted from the PDB
 - Collection: OptimizationDataset
-- Name: 2025-03-05-OpenFF-Protein-PDB-4mer-v1.0
+- Name: OpenFF Protein PDB 4-mers V1.0
 - Number of unique molecules        200
 - Number of filtered molecules     0 
 - Number of conformers             1000 
@@ -30,20 +27,17 @@ This dataset is composed of 1,000 4-mer structures which were extracted from PDB
 
 ### QCSubmit Manifest
 
-### Input files
-* `inputs/*.sdf`: Input SMILES strings for dataset molecules
+#### Input files
+* `inputs.tar.bz2`: Input SDF files for dataset molecules
 * `generate-dataset.ipynb`: Notebook describing dataset generation and submission
 * `input-env.yaml`: Environment file used to create Python environment for the script
 
-### Output Files
+#### Output Files
 * `dataset.json.bz2`: Compressed dataset ready for submission
 * `dataset.pdf`: Visualization of dataset molecules
-* `output.smi`: SMILES strings for dataset molecules
+* `dataset.smi`: SMILES strings for dataset molecules
  
-### Metadata
-
-<!-- copy metadata outputs from generation notebook here -->
-
+#### Metadata
 ```
 {'collection_type': 'OptimizationDataset',
  'creation_date': datetime.date(2025, 3, 5),
@@ -64,7 +58,7 @@ This dataset is composed of 1,000 4-mer structures which were extracted from PDB
                      'conformers each extracted from the Top8000 PDB database.',
  'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-05-OpenFF-Protein-PDB-4mer-v1.0', ),
  'short_description': 'Optimizations of 4-mers extracted from the PDB.',
- 'submitter': 'anikafriedman'}
+ 'submitter': 'ajfriedman22'}
 ```
 
 ## QC specifications:
