@@ -2,7 +2,7 @@
 
 ### Description
 
-This dataset is composed of 1,000 4-mer peptide structures which were extracted from PDB entries in the Top8000 database. The purpose of this dataset is to fill in gaps within the existing protein training data with secondary structures which occur in real proteins. For all scripts used to generated the input files please visit https://github.com/ajfriedman22/4mer_Generation. The dataset was computed using the B3LYP-D3BJ metho and the DZVP basis set.
+This dataset is composed of 1,000 4-mer peptide structures which were extracted from PDB entries in the Top8000 database. The purpose of this dataset is to fill in gaps within the existing protein training data with secondary structures which occur in real proteins. For all scripts used to generated the input files please visit https://github.com/ajfriedman22/4mer_Generation. The dataset was computed using the B3LYP-D3BJ method and the DZVP basis set.
 
 ### General Information
 - Date: 2025-03-05
