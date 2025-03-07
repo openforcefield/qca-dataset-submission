@@ -1,4 +1,4 @@
-# OpenFF Protein PDB 4-mers V1.0
+# OpenFF Protein PDB 4-mers v4.0
 
 ### Description
 
@@ -9,7 +9,7 @@ This dataset is composed of 1,000 4-mer peptide structures which were extracted 
 - Class: OpenFF Optimization Dataset
 - Purpose: Optimizations of peptide 4-mers extracted from the PDB
 - Collection: OptimizationDataset
-- Name: OpenFF Protein PDB 4-mers v1.0
+- Name: OpenFF Protein PDB 4-mers v4.0
 - Number of unique molecules        200
 - Number of filtered molecules     0 
 - Number of conformers             1000 
