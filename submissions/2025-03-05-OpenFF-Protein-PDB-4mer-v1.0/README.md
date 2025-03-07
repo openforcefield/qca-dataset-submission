@@ -51,26 +51,3 @@ This dataset is composed of 1,000 4-mer peptide structures which were extracted 
     * quadrupole
     * wiberg_lowdin_indices
     * mayer_indices
-
-## QC specifications:
-
-```
-{'basis': 'DZVP',
- 'implicit_solvent': None,
- 'keywords': {},
- 'maxiter': 200,
- 'method': 'B3LYP-D3BJ',
- 'program': 'psi4',
- 'spec_description': 'Standard OpenFF optimization quantum chemistry '
-                     'specification.',
- 'spec_name': 'default',
- 'store_wavefunction': 'none'}
-```
-
-## SCF Properties
-```
-['dipole',
-                    'quadrupole',
-                    'wiberg_lowdin_indices',
-                    'mayer_indices']
-```
