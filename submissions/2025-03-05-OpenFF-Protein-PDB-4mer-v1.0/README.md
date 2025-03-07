@@ -38,28 +38,19 @@ This dataset is composed of 1,000 4-mer peptide structures which were extracted 
 * `dataset.smi`: SMILES strings for dataset molecules
  
 #### Metadata
-```
-{'collection_type': 'OptimizationDataset',
- 'creation_date': datetime.date(2025, 3, 5),
- 'dataset_name': 'OpenFF Protein PDB 4-mers v1.0',
- 'elements': {'O', 'C', 'N', 'H'},
- 'long_description': 'This dataset aims to eliminate some of the present '
-                     'issues in the OpenFF protein force field development '
-                     'process. It has proven difficult  to develop a '
-                     'self-consistant force field which performs well for '
-                     'small molecules and also maintains stable secondary '
-                     'structer in proteins. By adding extracted 4-mersfrom '
-                     'deposited PDB structures we aim to introduce more '
-                     'physically realistic secondarystructure to the QC '
-                     'training data to better locate minima within dihedral '
-                     'space forprotein residue.\n'
-                     '\n'
-                     'This dataset includes 200 distinct sequences with 5 '
-                     'conformers each extracted from the Top8000 PDB database.',
- 'long_description_url': HttpUrl('https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-05-OpenFF-Protein-PDB-4mer-v1.0', ),
- 'short_description': 'Optimizations of 4-mers extracted from the PDB.',
- 'submitter': 'ajfriedman22'}
-```
+* Elements: {'O', 'C', 'N', 'H'}
+* Spec: default
+  * basis: DZVP
+  * implicit_solvent: None
+  * keywords: {}
+  * maxiter: 200
+  * method: B3LYP-D3BJ
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
 
 ## QC specifications:
 
