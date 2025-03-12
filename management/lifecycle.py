@@ -151,6 +151,8 @@ def update_compute_tags(client, dataset, specification_names, new_tag, include_c
     else:
         set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
 
+def _get_labels(pr):
+    return [ label.name for label in pr.get_labels() ]
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -415,7 +417,7 @@ class Submission:
     def execute_requires_scientific_review(self, pr_card, pr_state):
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "scientific-review"
 
@@ -429,7 +431,7 @@ class Submission:
     def execute_end_of_life(self, pr_card, pr_state):
         # add `end-of-life` label
         # remove `scientific-review`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "end-of-life"
 
@@ -443,7 +445,7 @@ class Submission:
     def execute_archived_complete(self, pr_card, pr_state):
         # add `complete` label
         # remove `scientific-review`, `end-of-life` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "complete"
 
@@ -980,7 +982,7 @@ def _get_tracking_prs(repo):
     prs = [
         pr
         for pr in repo.get_pulls(state="all")
-        if "tracking" in list(map(lambda x: x.name, pr.labels))
+        if "tracking" in _get_labels(pr)
     ]
     return prs
 
@@ -1096,7 +1098,7 @@ def main():
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
         if args.set_priority:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  _get_labels(pr)
             priorities = set(PRIORITIES.keys()) & labels
 
             if not priorities:
@@ -1114,7 +1116,7 @@ def main():
             selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
 
         if args.set_computetag:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  _get_labels(pr)
             computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
 
             if not computetags:
