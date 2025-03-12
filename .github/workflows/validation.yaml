@@ -14,6 +14,7 @@ defaults:
 
 jobs:
   dataset_validation:
+    if: ${{ ! contains(github.event.issue.labels.*.name, 'validation-off') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
