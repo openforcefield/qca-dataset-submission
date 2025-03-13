@@ -3,6 +3,7 @@
 ## Description
 A dataset containing all entries of the `DES370k Monomers` subset of the SPICE dataset, 
 optimized for until the energy converges within 1e-4 Ha, at the OpenFF default level of theory (B3LYP-D3BJ/DZVP). 
+Intended to be used to expand SPICE to include geometries closer to the QM local minimum.
 Detailed description on how the original dataset is generated can be found at https://github.com/openmm/spice-dataset/tree/main/des370k.
 
 ## General information
