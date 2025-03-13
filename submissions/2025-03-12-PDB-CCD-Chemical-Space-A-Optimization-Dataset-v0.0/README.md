@@ -11,9 +11,9 @@ This dataset includes molecules from the PDB CCD that contain a single metals: {
 - Purpose: GFN2-xTB Conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and change of {-1,0,+1}
 - Dataset Type: optimization
 - Name: PDB CCD Chemical Space A: Optimization Dataset v0.0
-- Number of unique molecules:   137
+- Number of unique molecules:   136
 - Number of filtered molecules: 0
-- Number of Conformers: 136
+- Number of Conformers: 137
 - Number of conformers (min mean max): 1 1 2
 - Molecular Weight (min mean max): 71, 565, 1177
 - Set of charges: -1.0, 0.0, 1.0
