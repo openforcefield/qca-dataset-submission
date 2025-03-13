@@ -22,6 +22,7 @@ QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_GLOB = "dataset*.json*"
+SCAFFOLD_GLOB = "scaffold*.json*"
 COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
@@ -207,8 +208,9 @@ class Submission:
     def _gather_datasets(self):
         files = self.pr.get_files()
         datasets = list(filter(
-            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), DATASET_GLOB),
-            map(lambda x: x.filename, files)))
+            lambda x: any(glob.fnmatch.fnmatch(os.path.basename(x), match) for match in [DATASET_GLOB, SCAFFOLD_GLOB]),
+            map(lambda x: x.filename, files)
+        ))
 
         # we only want files that actually exist
         # it can rarely be the case that a PR features changes to a path that is a file deletion
@@ -360,9 +362,10 @@ class Submission:
         """
         results = []
         for dataset in self.datasets:
-            print(f"Processing dataset '{dataset}'")
-            ds = DataSet(dataset, self, self.ghapi)
-            results.append(ds.execute_queued_submit())
+            if "scaffold" not in dataset:
+                print(f"Processing dataset '{dataset}'")
+                ds = DataSet(dataset, self, self.ghapi)
+                results.append(ds.execute_queued_submit())
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
@@ -496,20 +499,23 @@ class SubmittableBase:
     def _parse_spec(self):
         spec = self._load_submittable()
 
-        dataset_name = spec["dataset_name"]
-
-        if "type" in spec:
-            dataset_type = DATASET_TYPES[spec["type"].lower()]
-        elif "dataset_type" in spec:
-            dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
-
-        dataset_specs = spec.get("qc_specifications", None)
+        if "dataset_name" in spec: # with dataset*.json from QCSubmit
+            dataset_name = spec["dataset_name"]
+            if "type" in spec:
+                dataset_type = DATASET_TYPES[spec["type"].lower()]
+            elif "dataset_type" in spec:
+                dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
+            dataset_specs = spec.get("qc_specifications", None)
+        else: # with scaffold.json
+            dataset_name = spec["metadata"]["name"]
+            dataset_type = spec["metadata"]["dataset_type"]
+            dataset_specs = None # Will be pulled from ds from qcportal call anyway
 
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
         from openff.qcsubmit.serializers import deserialize
-        spec = deserialize(self.submittable)
+        spec = deserialize(self.submittable) # Will function with scaffold too
 
         return spec
 
@@ -528,7 +534,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type, _ = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
