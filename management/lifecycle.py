@@ -22,6 +22,7 @@ QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_GLOB = "dataset*.json*"
+SCAFFOLD_GLOB = "scaffold*.json*"
 COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
@@ -151,6 +152,8 @@ def update_compute_tags(client, dataset, specification_names, new_tag, include_c
     else:
         set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
 
+def _get_labels(pr):
+    return list(set(label.name for label in pr.get_labels()))
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -205,8 +208,9 @@ class Submission:
     def _gather_datasets(self):
         files = self.pr.get_files()
         datasets = list(filter(
-            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), DATASET_GLOB),
-            map(lambda x: x.filename, files)))
+            lambda x: any(glob.fnmatch.fnmatch(os.path.basename(x), match) for match in [DATASET_GLOB, SCAFFOLD_GLOB]),
+            map(lambda x: x.filename, files)
+        ))
 
         # we only want files that actually exist
         # it can rarely be the case that a PR features changes to a path that is a file deletion
@@ -358,9 +362,10 @@ class Submission:
         """
         results = []
         for dataset in self.datasets:
-            print(f"Processing dataset '{dataset}'")
-            ds = DataSet(dataset, self, self.ghapi)
-            results.append(ds.execute_queued_submit())
+            if "scaffold" not in dataset:
+                print(f"Processing dataset '{dataset}'")
+                ds = DataSet(dataset, self, self.ghapi)
+                results.append(ds.execute_queued_submit())
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
@@ -415,7 +420,7 @@ class Submission:
     def execute_requires_scientific_review(self, pr_card, pr_state):
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "scientific-review"
 
@@ -429,7 +434,7 @@ class Submission:
     def execute_end_of_life(self, pr_card, pr_state):
         # add `end-of-life` label
         # remove `scientific-review`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "end-of-life"
 
@@ -443,7 +448,7 @@ class Submission:
     def execute_archived_complete(self, pr_card, pr_state):
         # add `complete` label
         # remove `scientific-review`, `end-of-life` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "complete"
 
@@ -494,20 +499,23 @@ class SubmittableBase:
     def _parse_spec(self):
         spec = self._load_submittable()
 
-        dataset_name = spec["dataset_name"]
-
-        if "type" in spec:
-            dataset_type = DATASET_TYPES[spec["type"].lower()]
-        elif "dataset_type" in spec:
-            dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
-
-        dataset_specs = spec.get("qc_specifications", None)
+        if "dataset_name" in spec: # with dataset*.json from QCSubmit
+            dataset_name = spec["dataset_name"]
+            if "type" in spec:
+                dataset_type = DATASET_TYPES[spec["type"].lower()]
+            elif "dataset_type" in spec:
+                dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
+            dataset_specs = spec.get("qc_specifications", None)
+        else: # with scaffold.json
+            dataset_name = spec["metadata"]["name"]
+            dataset_type = spec["metadata"]["dataset_type"]
+            dataset_specs = None # Will be pulled from ds from qcportal call anyway
 
         return dataset_name, dataset_type, dataset_specs
 
     def _load_submittable(self):
         from openff.qcsubmit.serializers import deserialize
-        spec = deserialize(self.submittable)
+        spec = deserialize(self.submittable) # Will function with scaffold too
 
         return spec
 
@@ -526,7 +534,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type, _ = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
@@ -980,7 +988,7 @@ def _get_tracking_prs(repo):
     prs = [
         pr
         for pr in repo.get_pulls(state="all")
-        if "tracking" in list(map(lambda x: x.name, pr.labels))
+        if "tracking" in _get_labels(pr)
     ]
     return prs
 
@@ -1096,7 +1104,7 @@ def main():
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
         if args.set_priority:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
 
             if not priorities:
@@ -1114,7 +1122,7 @@ def main():
             selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
 
         if args.set_computetag:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  _get_labels(pr)
             computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
 
             if not computetags:
