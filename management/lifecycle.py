@@ -1104,7 +1104,7 @@ def main():
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
         if args.set_priority:
-            labels =  _get_labels(pr)
+            labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
 
             if not priorities:
