@@ -153,7 +153,7 @@ def update_compute_tags(client, dataset, specification_names, new_tag, include_c
         set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
 
 def _get_labels(pr):
-    return [ label.name for label in pr.get_labels() ]
+    return list(set(label.name for label in pr.get_labels()))
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
