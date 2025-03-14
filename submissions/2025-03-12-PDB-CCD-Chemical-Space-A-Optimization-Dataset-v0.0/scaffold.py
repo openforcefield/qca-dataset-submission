@@ -50,38 +50,3 @@ def to_json(ds, filename="scaffold.json", indent=4, compress=False):
     else:
         with open(filename, "w") as f:
             json.dump(d_serializable, f, indent=indent)
-
-
-def from_json(filename, client):
-    """Create a QCFractal dataset from a json file.
-
-    Created from output of :func:`to_json`. This allows a user to save the "state"
-    of a dataset before submission.
-
-    Args:
-        filename (str): Filename/path to imported json file.
-        client (qcportal.client.PortalClient): Client to which the dataset will be added.
-
-    Returns:
-        qcportal.*Dataset: QCFractal dataset. This dataset is not submitted in this function.
-    """
-
-    extension = filename.split(".")[-2:]
-    if extension[-1] == "json":
-        with open(filename, "r") as f:
-            ds_dict = json.load(f)
-    elif extension[-1] == "bz2" and extension[-2] == "json":
-        with bz2.open(filename, "rt", encoding="utf-8") as f:
-            ds_dict = json.load(f)
-    else:
-        raise ValueError(f"File extension must be json or json.bz2, not {extension[-2]}.{extension[-1]}")
-
-    ds = client.add_dataset(**ds_dict["metadata"])
-
-    for _, entry in ds_dict["entries"].items():
-        ds.add_entry(**entry)
-
-    for _, spec in ds_dict["specifications"].items():
-        ds.add_specification(**spec)
-
-    return ds
