@@ -2,7 +2,7 @@
 
 ### Description
 
-This dataset includes molecules from the PDB CCD that contain a single metals: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. These complexes are minimized using gfn-xtb. The molecular weight min, mean, and max are 71, 565, and 1177, respectively.
+This dataset includes molecules from the PDB CCD that contain a single metals: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. These complexes are minimized using gfn-xtb. The molecular weight min, mean, and max are 71, 565, and 1177, respectively. There are 137 unique molecules, each one submitted at 3 different multiplicities to assess the spin state.
 
 ### General Information
 
@@ -15,6 +15,7 @@ This dataset includes molecules from the PDB CCD that contain a single metals: {
 - Number of filtered molecules: 0
 - Number of Conformers: 137
 - Number of conformers (min mean max): 1 1 1
+- Number of multiplicities per molecule (min mean max): 3 3 3
 - Molecular Weight (min mean max): 71, 565, 1177
 - Set of charges: -1.0, 0.0, 1.0
 - Dataset Submitter: Jennifer A. Clark
@@ -53,6 +54,9 @@ This dataset includes molecules from the PDB CCD that contain a single metals: {
     * quadrupole
     * wiberg_lowdin_indices
     * mayer_indices
+    * lowdin_charges
+    * dipole_polarizabilities
+    * mulliken_charges
 * GeometricProcedure
   * tmax: 0.3,
   * check: 0,
