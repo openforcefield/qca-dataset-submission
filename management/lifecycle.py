@@ -505,13 +505,11 @@ class SubmittableBase:
                 dataset_type = DATASET_TYPES[spec["type"].lower()]
             elif "dataset_type" in spec:
                 dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
-            dataset_specs = spec.get("qc_specifications", None)
         else: # with scaffold.json
             dataset_name = spec["metadata"]["name"]
             dataset_type = spec["metadata"]["dataset_type"]
-            dataset_specs = None # Will be pulled from ds from qcportal call anyway
 
-        return dataset_name, dataset_type, dataset_specs
+        return dataset_name, dataset_type
 
     def _load_submittable(self):
         from openff.qcsubmit.serializers import deserialize
@@ -534,7 +532,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type, _ = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
@@ -616,8 +614,9 @@ class SubmittableBase:
         """
         client = self._get_qca_client()
 
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
         ds = client.get_dataset(dataset_type, dataset_name)
+        dataset_specs = ds.specification_names
 
         if dataset_type == "torsiondrive":
             complete = self._errorcycle_torsiondrive(
@@ -736,13 +735,13 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(erred_rec_ids)
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
+                ds.modify_records(specification_names=dataset_specs,
                                   new_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
                     dataset=ds,
-                    specification_names=list(dataset_specs),
+                    specification_names=dataset_specs,
                     new_tag=self.computetag,
                 )
 
@@ -804,7 +803,7 @@ class SubmittableBase:
         status = ds.status()
         status_ = {key: {status.value.upper(): counts.get(status, 0)
                          for status in list(RecordStatusEnum)}
-                   for key, counts in status.items() if key in dataset_specs.keys()}
+                   for key, counts in status.items() if key in dataset_specs}
 
         df = pd.DataFrame(status_).transpose()
         df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
@@ -862,7 +861,7 @@ class SubmittableBase:
 
         if reset_errors:
             erred_recs = ds.iterate_records(
-                    specification_names=list(dataset_specs), 
+                    specification_names=dataset_specs, 
                     status='error')
 
             errors = {r.id: r.error for entry, spec, r in erred_recs}
@@ -876,13 +875,13 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(list(errors))
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
+                ds.modify_records(specification_names=dataset_specs,
                                   new_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
                     dataset=ds,
-                    specification_names=list(dataset_specs),
+                    specification_names=dataset_specs,
                     new_tag=self.computetag,
                 )
             complete = False
