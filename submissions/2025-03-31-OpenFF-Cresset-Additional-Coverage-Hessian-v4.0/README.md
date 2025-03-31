@@ -27,7 +27,7 @@ Hessian single points for the final molecules in the [OpenFF Cresset Additional 
 ## QCSubmit Manifest
 
 * `dataset.json.bz2`: Compressed dataset ready for submission
-* `dataset.pdf`: Visualization of dataaset molecules
+* `dataset.pdf`: Visualization of dataset molecules
 * `dataset.smi`: Smiles strings for dataset molecules
 * `generate-dataset.ipynb`: Notebook describing dataset generation and submission
 * `input-env.yaml`: Environment file used to create Python environment for the notebook
