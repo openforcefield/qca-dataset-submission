@@ -2,7 +2,7 @@
 
 ## Description
 
-Hessian single points for the final molecules in the [OpenFF Cresset Additional Coverage Optimizations v4.0 dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-06-OpenFF-Cresset-Additional-Coverage-Optimizations-v4.0) at the B3LYP-D3BJ/DZVP level of theory.
+Hessian single points for the final molecules in the [OpenFF Cresset Additional Coverage Optimizations v4.0 dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-06-OpenFF-Cresset-Additional-Coverage-Optimizations-v4.0) at the B3LYP-D3BJ/DZVP level of theory. These are used for calculating MSM starting points in force field fits. The molecules here include the F, N, H, O, Cl, S, Br, C elements and the charge states -1, 0, +1. They range from 58-281 Da (mean 145) and 4-19 heavy atoms.
 
 ## General information
 
