@@ -17,7 +17,7 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
 - Number of filtered molecules: 0
 - Number of Conformers: 81
 - Number of conformers (min mean max): 1 1 1
-- Number of multiplicities per molecule (min mean max): 3 3 3
+- Number of multiplicities per molecule (min mean max): 1 2 3
 - Molecular Weight (min mean max): 81 445 1026
 - Set of charges: -1, 0, 1
 - Dataset Submitter: Jennifer A. Clark
