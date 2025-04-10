@@ -1,0 +1,10 @@
+CC1=CNC(=O)CC1 t73
+C=C[N+]1=CCOC=C1 t73
+[O-]N=Cc1nnn[n-]1 t73
+[NH3+]C1=CCC=CN1 t73
+C#CCc1nnn[n-]1 t73
+CN1C=CC=CC=N1 t73
+[H]/N=c1\ccccn1N t73
+[NH-]N1[CH+]NCCC1 t73
+C1=NC1c1nc[n-]n1 t73
+N=CC1=COC=NN1 t73

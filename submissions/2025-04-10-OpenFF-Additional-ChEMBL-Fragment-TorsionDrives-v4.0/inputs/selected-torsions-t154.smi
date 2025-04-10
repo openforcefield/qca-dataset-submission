@@ -1,0 +1,10 @@
+[O-][S+]=CN=[SH2] t154
+[O-][SH2+]=NC1=NC1 t154
+C[SH]=N t154
+[H]/C=C/C#CCN=[SH2] t154
+O=[SH2]=NC1NO1 t154
+N=[SH](=O)C1=CC=C1 t154
+C#CN[SH+](=N)[O-] t154
+N#CN=[SH]N=[N+]=[N-] t154
+CC1=N[SH]=NC=N1 t154
+[C-]#[N+]C=CN=[SH2]=N t154
