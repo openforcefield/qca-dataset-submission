@@ -376,6 +376,7 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Phosphate Torsion Drives v1.0` | [2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0) | Lipid-like phosphate torsions | C, S, N, H, O, P | |
 | `OpenFF Alkane Torsion Drives v1.0` | [2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0) | Alka/ene torsion drives | C, H | |
 | `OpenFF Cresset Additional Coverage TorsionDrives v4.0` | [2025-02-12-OpenFF-Cresset-Additional-Coverage-TorsionDrives-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-02-12-OpenFF-Cresset-Additional-Coverage-TorsionDrives-v4.0) | Additional torsiondrives from Cresset | S, Br, C, N, Cl, O, F, H | |
+| `OpenFF Additional Generated Guanidine and Amidine Derivative TorsionDrives 4.0`| [2025-04-10-OpenFF-Additional-Generated-Guanidine-and-Amidine-Derivative-TorsionDrives-4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-Generated-Guanidine-and-Amidine-Derivative-TorsionDrives-4.0) | Additional manually-generated torsiondrives | C, N, O, H | |
 
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.

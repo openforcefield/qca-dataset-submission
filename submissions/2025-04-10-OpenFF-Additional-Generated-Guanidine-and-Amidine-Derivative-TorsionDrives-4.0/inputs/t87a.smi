@@ -1,0 +1,10 @@
+NC(N)=[NH2+]
+CNC(N)=[NH+]C
+OCNC(N)=[NH2+]
+NC(NC)=[N+](C)C
+NC(NC)=[N+](Cc1ccccc1)C
+CCCNC(N)=[NH+]C
+CN(C)C(N(CC)C)=[NH+]CC
+CN(C)C(N(C)C)=[N+](C)C
+C1CN1C(N)=[NH2+]
+C1=CC=CN1C(N)=[NH2+]
