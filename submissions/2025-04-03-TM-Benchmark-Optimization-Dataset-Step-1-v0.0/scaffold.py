@@ -34,6 +34,7 @@ def to_json(ds, filename="scaffold.json", indent=4, compress=False):
         "default_tag",
         "default_priority",
         "metadata",
+        "extras",
         "owner_group",
     ]  # Inputs for client.add_dataset(
     metadata = {key: value for key, value in ds.dict().items() if key in inputs}
