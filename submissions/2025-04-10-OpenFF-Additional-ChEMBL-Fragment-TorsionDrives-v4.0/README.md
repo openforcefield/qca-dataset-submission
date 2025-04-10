@@ -22,7 +22,7 @@ In short:
 * Date: 2025-04-10
 * Class: OpenFF TorsionDrive Dataset
 * Purpose: Improve torsiondrive coverage of low-coverage torsions with automatically selected molecules from ChEMBL fragments
-* OpenFF OpenFF Additional Generated ChEMBL TorsionDrives 4.0
+* Dataset name: OpenFF Additional Generated ChEMBL TorsionDrives 4.0
 * Number of unique molecules: 270
 * Number of driven torsions: 275
 * Number of filtered molecules: 17
