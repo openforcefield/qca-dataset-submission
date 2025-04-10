@@ -1,14 +1,8 @@
-# TM Benchmark Optimization Dataset v0.0
+# TM Benchmark Optimization Dataset Step 1 v0.0
 
 ### Description
 
-This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. Additionally, there are some organic molecules for benchmarking purposes. These complexes are optimized using 22 different model chemistries:
-
-- The ab initio methods HF and SCS-MP3 with the aug-cc-pVTZ-DK basis set.
-- The DFT methods, b3lyp-d3bj, b3p86, bp86-d3bj2b, pbe0-d3bj2b, and wb97x-d, each combined with the basis sets, dzvp, def2-tzvp, and def2-tzvp-ri.
-- The 3c methods: hf3c, pbeh3c, b973c, r2scan3c, and wb97x3c.
-
-The molecular weight min, mean, and max are 81, 445, and 1026, respectively. There are 81 unique molecules, each one submitted at 3 different multiplicities to assess the spin state.
+This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. Additionally, there are some organic molecules for benchmarking purposes. These complexes are optimized using SCS-MP3 / aug-cc-pVTZ-DK. The molecular weight min, mean, and max are 81, 445, and 1026, respectively. There are 81 unique molecules, each tmc is submitted with 3 different multiplicities to assess the spin state.
 
 Geometries were sources from the PDB CCD and multiple sources in the literature, the DOIs include: 10.1134/S0022476620090103, 10.1021/acs.inorgchem.7b03000, 10.1016/j.molstruc.2022.132506, 10.1107/S2053229619001396, 10.1021/om0492045, 10.1107/S0108270113021148, 10.1016/j.inoche.2013.06.007, and 10.1016/j.ijbiomac.2023.125847.
 
@@ -16,9 +10,9 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
 
 - Date: 2025-04-03
 - Class: OpenFF Optimization Dataset
-- Purpose: Diverse set of conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and charge of {-1,0,+1}, with some organic molecules for benchmarking purposes.
+- Purpose: Diverse set of conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and charge of {-1,0,+1}, with some organic molecules for benchmarking purposes at highest level of theory
 - Dataset Type: optimization
-- Name: TM Benchmark Optimization Dataset v0.0
+- Name: TM Benchmark Optimization Dataset Step 1 v0.0
 - Number of unique molecules:   81
 - Number of filtered molecules: 0
 - Number of Conformers: 81
@@ -51,8 +45,8 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
 * Elements: {'Br', 'C', 'Cl', 'Cu', 'F', 'Fe', 'H', 'Li', 'Mg', 'N', 'O', 'P', 'Pd', 'S', 'Zn'}
 * QC Specifications: default
   * program: psi4
-  * method: *See Description*
-  * basis: *See Description*
+  * method: scs-mp3
+  * basis: aug-cc-pvtz-dk
   * implicit_solvent: None
   * maxiter: 500
   * SCF Properties:
