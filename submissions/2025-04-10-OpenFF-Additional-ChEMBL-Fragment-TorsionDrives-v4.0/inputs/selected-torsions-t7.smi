@@ -1,10 +1,10 @@
-ClCCCl t7
-ClC1(C2(Cl)CC=CN=N2)CCC1 t7
-FC(Cl)C(F)(F)Cl t7
-ClC1CN(c2cnoc2)CC1Cl t7
-FC(Cl)C(Cl)Br t7
 O=C1NN=C[C@@]1(Cl)C(Cl)Cl t7
+ClC1(C2(Cl)CC=CN=N2)CCC1 t7
+ClCCCl t7
+FC(Cl)C(Cl)Br t7
 FC(F)(Cl)C(F)(Cl)Cl t7
+FC(Cl)C(F)(F)Cl t7
 ClC(Cl)(Cl)C1(Cl)CCC1 t7
 ClCC(Cl)(Cl)Cl t7
-[O-][Cl+2]([O-])C1OCCC1Cl t7
+N#CC(Cl)C1(Cl)CC2CCC1O2 t7
+N#CC(Cl)CCl t7

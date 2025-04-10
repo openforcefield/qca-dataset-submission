@@ -1,10 +1,10 @@
-O=C([O-])C12CCC1C2 t42a
+O=C([O-])[C@@]12CC[C@@H]3[C@@H]4C=CC[C@H]4CC=C[C@H]3[C@@H]1C2 t42a
 O=C([O-])C12CC1CNC2=O t42a
 O=C([O-])C12CC1CC1OC12 t42a
-[H]/C=C1\C(C(=O)[O-])C1(F)F t42a
-O=C([O-])C1CS1 t42a
+O=C([O-])[C@]12O[C@H]1OC=CC2=O t42a
+N#C[C@H]1C[C@@H]1C(=O)[O-] t42a
 O=C([O-])[C@@]12CO[C@H]3C=C4[C@@H](CC[C@H]5O[C@@H]45)C[C@]31O2 t42a
-O=C([O-])C1OC12C(=O)Nc1ccccc12 t42a
-O=C([O-])[C@]12CCN3CC[C@]1(C3)C2 t42a
-O=C([O-])[C@]12CC[C@H]3CCC[C@@H]3C/C=C/CC[C@@H]1O2 t42a
-O=C([O-])C12CC3=C(CNC3)C1C2 t42a
+O=C([O-])C1CC12CCc1cc(F)ccc12 t42a
+O=C([O-])[C@@]12CCC[C@H]3[C@@H]4CC=C[C@H]4CC[C@]31C2 t42a
+O=C([O-])C1C2CCc3nn[nH]c3CCC21 t42a
+O=C([O-])C1(F)C(F)(F)C1(F)Cl t42a

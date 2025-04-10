@@ -1,10 +1,10 @@
-BrCC1C=CC=NC1 t12
+BrCC1NCCO1 t12
 CC(Cl)(Cl)Br t12
-C#[N+]CC(F)(F)Br t12
+N#CCC(F)(F)Br t12
 CCBr t12
-[C-]#[N+]CC(Cl)Br t12
-CC1CC(Br)(C#N)C1 t12
-[H]/N=C1\C=NOC1CBr t12
-[C-]#[N+]C(F)C(F)Br t12
+FC(Br)C1C=CCC1 t12
+ClC(Cl)CBr t12
 CC1(Br)C=NNC1=O t12
-C=NC1COCC1Br t12
+[C-]#[N+]C(F)C(F)Br t12
+CC(F)Br t12
+[H]/C=C/C#CCCBr t12

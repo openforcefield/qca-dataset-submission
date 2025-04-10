@@ -1,10 +1,10 @@
-O=C1NC(=O)C2(C(=O)[O-])CC12 t31a
-O=C([O-])C1c2ccsc21 t31a
+O=C([O-])C1C=C1 t31a
+O=C([O-])C12CC1Nc1ccccc12 t31a
 O=C([O-])[C@]12O[C@@]13CCC[C@H]1CCC=C1[C@@H]3OC2=O t31a
-O=C([O-])C12C=NON1O2 t31a
-[H]/C=C1/CC1(F)C(=O)[O-] t31a
-O=C([O-])C12OC1Nc1ccccc12 t31a
-O=C([O-])C1CC1=C1NCCN1 t31a
-N#CC1(C(=O)[O-])C=C1 t31a
 CC#CC1=N[C@H]1C(=O)[O-] t31a
+O=C([O-])C12C=NON1O2 t31a
+O=C([O-])C1c2ccsc21 t31a
+[H]/C=C1/C(C(=O)[O-])C1(F)F t31a
 O=C([O-])C12C(=O)CC3CCC1C32 t31a
+N#CC1(C(=O)[O-])C=C1 t31a
+O=C([O-])[C@]12O[C@H]1OC=CC2=O t31a
