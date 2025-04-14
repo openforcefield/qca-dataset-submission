@@ -319,6 +319,8 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF Protein PDB 4-mers v4.0` | [2025-03-05-OpenFF-Protein-PDB-4mer-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-05-OpenFF-Protein-PDB-4mer-v4.0) | Optimization dataset for peptide 4-mers extracted from PDB structures | C, N, O, H | |
 | `SPICE DES370k Monomers Partial Relaxation Dataset v4.0` | [2025-03-12-SPICE-DES370k-Monomers-Partial-Relaxation-Dataset-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-12-SPICE-DES370k-Monomers-Partial-Relaxation-Dataset-v4.0) | Partial relaxation dataset for the DES370k monomers subset of SPICE | H, C, Cl, I, F, O, S, Br, N, P | |
 | `TM Benchmark Optimization Dataset Step 1 v0.0` | [2025-04-03-TM-Benchmark-Optimization-Dataset-Step-1-v0.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-03-TM-Benchmark-Optimization-Dataset-Step-1-v0.0) | Diverse set of conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and charge of {-1,0,+1}, with some organic molecules for benchmarking purposes at highest level of theory | Br, C, Cl, Cu, F, Fe, H, Li, Mg, N, O, P, Pd, S, Zn | |
+| `OpenFF Additional Generated ChEMBL Optimizations v4.0` | [2025-04-14-OpenFF-Additional-ChEMBL-Fragment-Optimizations-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-14-OpenFF-Additional-ChEMBL-Fragment-Optimizations-v4.0) | Diverse set of molecules to increase coverage of rare valence parameters in Sage 2.2.1 | F, Br, Cl, P, S, O, N, H, C, I | |
+
 
 
 # TorsionDrive Datasets
