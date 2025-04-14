@@ -2,7 +2,48 @@
 
 ## Description
 
-Hessian single points for the final molecules in the [OpenFF Cresset Additional Coverage Optimizations v4.0 dataset](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-06-OpenFF-Cresset-Additional-Coverage-Optimizations-v4.0) at the B3LYP-D3BJ/DZVP level of theory. These are used for calculating MSM starting points in force field fits. The molecules here include the F, N, H, O, Cl, S, Br, C elements and the charge states -1, 0, +1. They range from 58-281 Da (mean 145) and 4-19 heavy atoms.
+Hessian single points for the final molecules in the OpenFF datasets listed below at the B3LYP-D3BJ/DZVP level of theory. These are used for calculating MSM starting points in force field fits. The molecules here include the S, H, O, Br, F, N, P, Cl, I, C elements and the charge states {-4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0}. They range from 16-1425 Da (mean 224) and 4-99 heavy atoms. Records were filtered for successful completion, no connectivity changes, a non-2D structure (where all Z-coordinates are 0), and whether RDKit can parse the molecule with valid valence. The datasets included are:
+ - OpenFF Optimization Set 1
+ - SMIRNOFF Coverage Set 1
+ - OpenFF VEHICLe Set 1
+ - OpenFF Discrepancy Benchmark 1
+ - OpenFF Ehrman Informative Optimization v0.2
+ - Pfizer discrepancy optimization dataset 1
+ - FDA optimization dataset 1
+ - Kinase Inhibitors: WBO Distributions
+ - OpenFF Gen 2 Opt Set 1 Roche
+ - OpenFF Gen 2 Opt Set 2 Coverage
+ - OpenFF Gen 2 Opt Set 3 Pfizer Discrepancy
+ - OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy
+ - OpenFF Gen 2 Opt Set 5 Bayer
+ - OpenFF Sandbox CHO PhAlkEthOH v1.0
+ - OpenFF Industry Benchmark Season 1 v1.1
+ - OpenFF Gen2 Optimization Dataset Protomers v1.0
+ - OpenFF Protein Capped 1-mers 3-mers Optimization Dataset v1.0
+ - OpenFF Iodine Chemistry Optimization Dataset v1.0
+ - XtalPi Shared Fragments OptimizationDataset v1.0
+ - XtalPi 20-percent Fragments OptimizationDataset v1.0
+ - OpenFF Torsion Benchmark Supplement v1.0
+ - OpenFF Torsion Multiplicity Optimization Training Coverage Supplement v1.0
+ - OpenFF Torsion Multiplicity Optimization Benchmarking Coverage Supplement v1.0
+ - OpenFF Iodine Fragment Opt v1.0
+ - OpenFF Sulfur Optimization Training Coverage Supplement v1.0
+ - OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0
+ - OpenFF Lipid Optimization Training Supplement v1.0
+ - OpenFF Lipid Optimization Benchmark Supplement v1.0
+ - OpenFF Cresset Additional Coverage Optimizations v4.0
+ - OpenFF Protein PDB 4-mers v4.0
+
+Any molecules in the below datasets had all molecules containing iodine filtered out, as those records were problematic.
+ - OpenFF Discrepancy Benchmark 1
+ - OpenFF Gen 2 Opt Set 2 Coverage
+ - OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy
+ - SMIRNOFF Coverage Set 1
+ - OpenFF Ehrman Informative Optimization v0.2
+ - FDA optimization dataset 1
+ - Kinase Inhibitors: WBO Distributions
+ - OpenFF Gen 2 Torsion Set 2 Coverage 2
+ - OpenFF Gen 2 Torsion Set 4 eMolecules Discrepancy 2
 
 ## General information
 
