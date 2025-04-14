@@ -1,4 +1,4 @@
-# OpenFF Additional Generated ChEMBL Optimizations 4.0
+# OpenFF Additional Generated ChEMBL Optimizations v4.0
 
 ## Description
 
