@@ -208,7 +208,7 @@ The status only refers to the `default` specification which is required for all 
 # Forcefield Release Datasets
 | Forcefield  | Repo  | Optimization | Torsion Drive | Elements | Zenodo |
 |-------------|----------|-------------------|--------------------|----------|--------|
-| Release OpenFF 2.0.0 Sage | [openff-sage](https://github.com/openforcefield/openff-sage)  | [2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-12-12-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.0) | [2024-12-17-OpenFF-Sage-2.0.0-Training-Torsion-Drive-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
+| Release OpenFF 2.0.0 Sage | [openff-sage](https://github.com/openforcefield/openff-sage)  | [2025-05-01-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Training-Optimization-Dataset-v1.1) | [2025-05-01-OpenFF-Sage-2.0.0-Training-Torsion-Drive-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
 
 
 # Basic Datasets
