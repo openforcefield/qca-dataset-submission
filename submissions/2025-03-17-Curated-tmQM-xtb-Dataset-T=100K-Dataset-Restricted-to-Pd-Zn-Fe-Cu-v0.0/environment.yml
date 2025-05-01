@@ -1,0 +1,13 @@
+name: qca-clean
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - jupyter
+  - pandas
+  - h5py
+  - periodictable
+  - qcportal>=0.59
+  - qcfractal>=0.59
+  - qcfractalcompute>=0.59

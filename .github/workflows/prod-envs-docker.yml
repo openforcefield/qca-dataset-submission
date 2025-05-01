@@ -13,10 +13,11 @@ jobs:
       fail-fast: false
       matrix:
         env-name:
-          - qcarchive-worker-openff-ani
-          - qcarchive-worker-openff-openmm
-          - qcarchive-worker-openff-psi4
-          - qcarchive-worker-openff-psi4-ddx
+          # Uncomment these as needed when you want to trigger specific builds
+          #- qcarchive-worker-openff-ani
+          #- qcarchive-worker-openff-openmm
+          #- qcarchive-worker-openff-psi4
+          #- qcarchive-worker-openff-psi4-ddx
           - qcarchive-worker-openff-xtb
     steps:
       - name: Checkout code
