@@ -2,7 +2,8 @@ FROM condaforge/miniforge3
 
 SHELL ["/bin/bash", "-c"]
 
-RUN mamba env create -n qcfractal -f https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/master/devtools/prod-envs/${ENV_NAME}.yaml && \
+ADD https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/master/devtools/prod-envs/${ENV_NAME}.yaml /tmp/env.yaml
+RUN mamba env create -n qcfractal -f /tmp/env.yaml && \
     if echo "$ENV_NAME" | grep -q "qcarchive-worker-openff-psi4-basis-set-update"; then \
         mamba run -n qcfractal pip install basis_set_exchange && \
         mamba run -n qcfractal python -c "import basis_set_exchange as bse, os; \
