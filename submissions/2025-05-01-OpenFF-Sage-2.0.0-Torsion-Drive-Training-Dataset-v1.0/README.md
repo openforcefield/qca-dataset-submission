@@ -4,7 +4,7 @@
 
 A quantum chemical (QC) dataset curated to train the OpenFF 2.0.0 Sage torsion 
 potentials. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, 
-consists of one dimensional torsional profiles used to train torsion parameters. This Generation 2
+consists of torsional profiles used to train torsion parameters. This Generation 2
 dataset increases chemical diversity when compared to Generation 1, which are of 
 value to our industry partners. Large molecules (>20 heavy atoms) were also included, 
 including more flexible molecules and a greater degree of conformational variation 

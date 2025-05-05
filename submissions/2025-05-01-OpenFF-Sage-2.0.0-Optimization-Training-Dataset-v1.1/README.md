@@ -28,7 +28,7 @@ The following filters were applied to those datasets:
 - Class: OpenFF Optimization Dataset
 - Purpose: Complete set of training data for OpenFF 2.0.0 Sage
 - Dataset Type: optimization
-- Name: OpenFF Sage 2.0.0 Training Optimization Dataset v1.1
+- Name: OpenFF Sage 2.0.0 Optimization Training Dataset v1.1
 - Number of unique molecules:   1039
 - Number of filtered molecules: 0 
 - Number of conformers:         3663
