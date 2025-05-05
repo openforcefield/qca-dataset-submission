@@ -3,9 +3,10 @@ FROM condaforge/miniforge3
 SHELL ["/bin/bash", "-c"]
 
 ADD https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/update_docker/devtools/prod-envs/${ENV_NAME}.yaml /tmp/env.yaml
+RUN echo ${ENV_NAME}
 RUN mamba env create -n qcfractal -f /tmp/env.yaml && \
-    if echo "${ENV_NAME}" | grep -q "qcarchive-worker-openff-psi4-basis-set-update"; then \
-        mamba run -n qcfractal pip install basis_set_exchange && \
+    if [[ "${ENV_NAME}" =~ "basis-set-update" ]]; then \
+        echo "!!!!!!!!!!!!\n!!! Modifying Basis Set!!!\n!!!!!!!!!!!!!!!" && \
         mamba run -n qcfractal python -c "import basis_set_exchange as bse, os; \
             conda_prefix = os.environ.get('CONDA_PREFIX', '/opt/conda/envs/qcfractal'); \
             path = os.path.join(conda_prefix, 'share', 'psi4', 'basis', 'aug-cc-pvtz-dk.gbs'); \
