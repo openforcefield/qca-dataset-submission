@@ -20,5 +20,4 @@ dependencies:
   # procedures
   - geometric
 
-  - pip:
-    - basis_set_exchange
+  - basis_set_exchange
