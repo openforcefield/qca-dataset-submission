@@ -16,7 +16,7 @@ used for training OpenFF 2.0.0 Sage, consisting of data drawn from the following
 - [OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-3-Pfizer-Discrepancy-2)
 - [OpenFF Gen 2 Torsion Set 4 eMolecules Discrepancy 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-4-eMolecules-Discrepancy-2)
 - [OpenFF Gen 2 Torsion Set 5 Bayer 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-5-Bayer-2)
-- [OpenFF Gen 2 Torsion Set 6 supplemental 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-6-supplemental-2)
+- [OpenFF Gen 2 Torsion Set 6 Supplemental 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-6-supplemental-2)
 
 The `HydrogenBondFilter(method='baker-hubbard')` filter was applied, and the 
 following record IDs were dropped due to issues with ForceBalance: 6098580, 2703504, 
@@ -42,30 +42,29 @@ linked repositories.
 
 ## QCSubmit Generation Pipeline
 
-* `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
-
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
 
 ## QCSubmit Manifest
 
-* `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
-* `ds_info.json`: Metadata information for dataset record imported by `generate-combined-dataset.py`
-* `output.txt`: Captured output from `generate-combined-dataset.py`
-* `dataset.json.bz2`: The basic dataset ready for submission.
-* `dataset.pdf`: A pdf file containing molecule 2D structures.
-* `dataset.smi`: SMILES for every molecule in the submission.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
+* `ds_info.json`: Metadata information for dataset record imported by `main.ipynb`
+* `scaffold.json.bz2`: The basic dataset information read by qcportal.external.scaffold.
 * `conda_env.yaml`: A file to reproduce the conda env used to generate this dataset.
-
+* `conda_env_full.yaml`: A file to reproduce the conda env used to generate this dataset.
 
 ## Metadata
 
 * Elements: {Br, C, Cl, F, H, I, N, O, P, S}
+* Program: torsiondrive
+* Optimization Specification: geometric
 * QC Specifications: default
+  * program: psi4
+  * method: B3LYP-D3BJ
   * basis: DZVP
   * implicit_solvent: None
-  * keywords: {}
+  * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices']}
+  * protocols: {}
   * maxiter: 200
-  * method: B3LYP-D3BJ
-  * program: psi4
   * SCF Properties:
     * dipole
     * quadrupole

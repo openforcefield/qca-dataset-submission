@@ -42,15 +42,15 @@ The following filters were applied to those datasets:
 
 ### QCSubmit generation pipeline
 
-- `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
-- `output.txt`: A text file containing the printed output of `generate-combined-dataset.py`.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
 
-### QCSubmit Manifest
+## QCSubmit Manifest
 
-- `generate-combined-dataset.py`
-- `dataset.json.bz2`: The basic dataset ready for submission.
-- `dataset.pdf`: A pdf file containing molecule 2D structures.
-- `dataset.smi`: SMILES for every molecule in the submission.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
+* `ds_info.json`: Metadata information for dataset record imported by `main.ipynb`
+* `scaffold.json.bz2`: The basic dataset information read by qcportal.external.scaffold.
+* `conda_env.yaml`: A file to reproduce the conda env used to generate this dataset.
+* `conda_env_full.yaml`: A file to reproduce the conda env used to generate this dataset.
  
 ### Metadata
 
