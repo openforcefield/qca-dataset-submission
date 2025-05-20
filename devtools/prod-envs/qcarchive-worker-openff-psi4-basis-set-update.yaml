@@ -5,7 +5,7 @@ channels:
 dependencies:
   - python =3.10
   - pip
-  - qcfractalcompute>=0.60
+  - qcfractalcompute>=0.61
   - qcengine
   - qcelemental
 
