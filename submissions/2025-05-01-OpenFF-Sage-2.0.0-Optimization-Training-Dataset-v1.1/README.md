@@ -1,10 +1,10 @@
-# OpenFF Sage 2.0.0 Training Optimization v1.0
+# OpenFF Sage 2.0.0 Training Optimization v1.1
 
 ### Description
 
-A quantum chemical (QC) dataset curated to train [OpenFF 2.0.0 Sage](https://github.com/openforcefield/openff-sage) forcefield, with reparametrized Lennard-Jones (LJ) and valence parameters, the latter relevant to this dataset. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to benchmark Sage geometries and energetics. These optimized conformer geometries where used in conjunction with the QC dataset used to train one dimensional torsional profiles. This Generation 2 dataset increases chemical diversity when compared to Generation 1, which are of value to our industry partners. Large molecules (>20 heavy atoms) were also included, including more flexible molecules and a greater degree of conformational variation which provide intramolecular interactions.
+A quantum chemical (QC) dataset curated to train [OpenFF 2.0.0 Sage](https://github.com/openforcefield/openff-sage) forcefield, with reparametrized Lennard-Jones (LJ) and valence parameters, the latter relevant to this dataset. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to train Sage parameters. These optimized conformer geometries were used in conjunction with the QC dataset used to train one dimensional torsional profiles. This Generation 2 dataset increases chemical diversity when compared to Generation 1, which are of value to our industry partners. Large molecules (>20 heavy atoms) were also included, including more flexible molecules and a greater degree of conformational variation which provide intramolecular interactions.
 
-This is the complete optimization dataset used for training OpenFF 2.0.0 Sage, consisting of the following datasets:
+This is the complete optimization dataset used for training OpenFF 2.0.0 Sage, consisting of molecules from following datasets:
 
  - [OpenFF Gen 2 Opt Set 1 Roche](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-1-Roche)
  - [OpenFF Gen 2 Opt Set 2 Coverage](https://github.com/openforcefield/qca-dataset-submission/tree/0e6e6da930118e2a2d6402b93c3e3e93830600cc/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-2-Coverage)
@@ -24,16 +24,16 @@ The following filters were applied to those datasets:
 
 ### General Information
 
-- Date: 2024-12-12
+- Date: 2025-05-01
 - Class: OpenFF Optimization Dataset
 - Purpose: Complete set of training data for OpenFF 2.0.0 Sage
 - Dataset Type: optimization
-- Name: OpenFF Sage 2.0.0 Training Optimization Dataset v1.0
-- Number of unique molecules:   1025
+- Name: OpenFF Sage 2.0.0 Optimization Training Dataset v1.1
+- Number of unique molecules:   1039
 - Number of filtered molecules: 0 
 - Number of conformers:         3663
 - Number of conformers (min mean max): 1.00, 3.53, 10.00
-- Mean molecular weight: 261.38
+- Mean molecular weight: 261.37
 - Max molecular weight: 544.64
 - Set of charges: -2.0, -1.0, 0.0, 1.0
 - Dataset Submitter: Jennifer A. Clark
@@ -42,15 +42,15 @@ The following filters were applied to those datasets:
 
 ### QCSubmit generation pipeline
 
-- `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
-- `output.txt`: A text file containing the printed output of `generate-combined-dataset.py`.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
 
-### QCSubmit Manifest
+## QCSubmit Manifest
 
-- `generate-combined-dataset.py`
-- `dataset.json.bz2`: The basic dataset ready for submission.
-- `dataset.pdf`: A pdf file containing molecule 2D structures.
-- `dataset.smi`: SMILES for every molecule in the submission.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
+* `ds_info.json`: Metadata information for dataset record imported by `main.ipynb`
+* `scaffold.json.bz2`: The basic dataset information read by qcportal.external.scaffold.
+* `conda_env.yaml`: A file to reproduce the conda env used to generate this dataset.
+* `conda_env_full.yaml`: A file to reproduce the conda env used to generate this dataset.
  
 ### Metadata
 
