@@ -8,7 +8,9 @@ In short, for a particular molecular graph, a single conformer was generated. Th
 
 This process was repeated for every molecule in which a t17 or t18 torsion has been driven. Some additional small molecules were also included. Molecules for which the process only generated a single conformer were excluded from the dataset.
 
-This dataset is computed at the default OpenFF level of theory. The molecules here are all neutral and include the Br, C, Cl, F, H, I, N, O, S elements. They range from 30-307 Da (mean 162) and 2-21 heavy atoms. 
+This dataset is computed at the default OpenFF level of theory (B3LYP-D3BJ/DZVP). The molecules here are all neutral (charge of 0) and include the Br, C, Cl, F, H, I, N, O, S elements. They range from 30-307 Da (mean 162) and 2-21 heavy atoms. 
+
+
 
 ## General information
 
