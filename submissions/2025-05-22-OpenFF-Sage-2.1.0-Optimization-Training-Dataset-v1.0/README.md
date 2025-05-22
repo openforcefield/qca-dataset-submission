@@ -2,10 +2,11 @@
 
 ## Description
 
-A quantum chemical (QC) dataset of single point energies and properties was curated to train sage 
-[OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/). This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is 
-used to benchmark Sage geometries and energetics. This is the complete optimization dataset used 
-for training OpenFF 2.0.0 Sage, consisting of the following datasets:
+A quantum chemical (QC) dataset of single point energies and properties was curated to train the 
+[OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) forcefield, with reparametrized Lennard-Jones (LJ) 
+and valence parameters. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to train Sage parameters. 
+This is the complete optimization dataset includes calculations used for training OpenFF 2.0.0 Sage in addition to other, consisting 
+of the following datasets:
 
  - ['OpenFF Gen 2 Opt Set 1 Roche'](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-1-Roche)
  - ['OpenFF Gen 2 Opt Set 2 Coverage'](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-2-Coverage)
@@ -27,36 +28,36 @@ These combined datasets were filtered with:
 - `ConformerRMSDFilter(max_conformers=12)`
 - `ChargeCheckFilter()`
 
+ Further information can be found in the curation scripts for the linked repositories.
+
 ## General Information
 
-* Date: 2024-12-19
+* Date: 2025-05-22
 * Class: OpenFF Optimization Dataset
-* Purpose: Complete set of training optimization data for OpenFF 2.1.0 Sage
+* Purpose: Complete set of optimization training data for OpenFF 2.1.0 Sage
+* Dataset Type: optimization
 * Name: OpenFF Sage 2.1.0 Optimization Training Dataset v1.0
-* Number of unique molecules: 1613
+* Number of unique molecules: 1701
 * Number of filtered molecules: 0
 * Number of conformers: 5580
-* Number of conformers (min, mean, max): 1.00, 3.28, 24.00
-* Molecular weight (min, mean, max): 16.04, 235.41, 544.64
+* Number of conformers (min, mean, max): 1.00, 3.17, 17.00
+* Molecular weight (min, mean, max): 16.04, 235.40, 544.64
 * Charges: -3.0, -2.0, -1.0, 0.0, 1.0, 2.0
 * Submitter: Jennifer A Clark
 * Dataset curator: Pavan Behara
 * Dataset generator: Chaya Stern, Hyesu Jang, Jessica Maat, and Pavan Behara
 
-## QCSubmit Generation Pipeline
+## Generation Pipeline
 
-* `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
 
+## Manifest
 
-## QCSubmit Manifest
-
-* `generate-combined-dataset.py`: A python script which shows how the dataset was prepared from the input files.
-* `ds_info.json`: Metadata information for dataset record imported by `generate-combined-dataset.py`
-* `output.txt`: Captured output from `generate-combined-dataset.py`
-* `dataset.json.bz2`: The basic dataset ready for submission.
-* `dataset.pdf`: A pdf file containing molecule 2D structures.
-* `dataset.smi`: SMILES for every molecule in the submission.
+* `main.ipynb`: A jupyter notebook which shows how the dataset was prepared from the input files.
+* `ds_info.json`: Metadata information for dataset record imported by `main.ipynb`
+* `scaffold.json.bz2`: The basic dataset information read by qcportal.external.scaffold.
 * `conda_env.yaml`: A file to reproduce the conda env used to generate this dataset.
+* `conda_env_full.yaml`: A file to reproduce the conda env used to generate this dataset.
 
 
 ## Metadata
