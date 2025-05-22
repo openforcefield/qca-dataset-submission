@@ -122,7 +122,7 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         # the largest index may be 1 past len(bins) so just call this large
         suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
         new_tag = f"{base_tag}-{suffix}"
-        client.modify_records(record_ids, new_tag=new_tag)
+        client.modify_records(record_ids, new_compute_tag=new_tag)
 
 
 def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
@@ -147,7 +147,7 @@ def update_compute_tags(client, dataset, specification_names, new_tag, include_c
     if SPLIT_TAG.search(new_tag) is None:
         dataset.modify_records(
             specification_names=specification_names,
-            new_tag=new_tag,
+            new_compute_tag=new_tag,
         )
     else:
         set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
@@ -736,7 +736,7 @@ class SubmittableBase:
                 client.reset_records(erred_rec_ids)
             if set_priority:
                 ds.modify_records(specification_names=dataset_specs,
-                                  new_priority=self.priority)
+                                  new_compute_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
@@ -876,7 +876,7 @@ class SubmittableBase:
                 client.reset_records(list(errors))
             if set_priority:
                 ds.modify_records(specification_names=dataset_specs,
-                                  new_priority=self.priority)
+                                  new_compute_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
