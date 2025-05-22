@@ -100,7 +100,7 @@ def test_update_compute_tags(dsname, dstype, tag, want):
         def __init__(self):
             self.calls = list()
 
-        def modify_records(self, record_ids, new_tag):
+        def (self, record_ids, new_tag):
             self.calls.append((len(record_ids), new_tag))
 
     client = PortalClient("https://api.qcarchive.molssi.org:443/")

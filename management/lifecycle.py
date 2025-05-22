@@ -22,6 +22,7 @@ QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
 DATASET_GLOB = "dataset*.json*"
+SCAFFOLD_GLOB = "scaffold*.json*"
 COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
@@ -97,10 +98,13 @@ def partition_records(
         masses.append(sum(mol.masses))
         qca_ids.append(rec.id)
 
+    # TODO: Change so that numpy ints aren't used in the first place
+    # For some reason QCPortal has an issue with numpy ints and we
+    # must use python ints
     qca_ids = np.array(qca_ids)
     bin_indices = np.digitize(masses, bins)
     return {
-            i: qca_ids[np.where(bin_indices == i)]
+            i: [int(x) for x in qca_ids[np.where(bin_indices == i)]]
             for i in range(len(bins) + 1)
     }
 
@@ -118,7 +122,7 @@ def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
         # the largest index may be 1 past len(bins) so just call this large
         suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
         new_tag = f"{base_tag}-{suffix}"
-        client.modify_records(record_ids, new_tag=new_tag)
+        client.modify_records(record_ids, new_compute_tag=new_tag)
 
 
 def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
@@ -143,11 +147,13 @@ def update_compute_tags(client, dataset, specification_names, new_tag, include_c
     if SPLIT_TAG.search(new_tag) is None:
         dataset.modify_records(
             specification_names=specification_names,
-            new_tag=new_tag,
+            new_compute_tag=new_tag,
         )
     else:
         set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
 
+def _get_labels(pr):
+    return list(set(label.name for label in pr.get_labels()))
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -202,8 +208,9 @@ class Submission:
     def _gather_datasets(self):
         files = self.pr.get_files()
         datasets = list(filter(
-            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), DATASET_GLOB),
-            map(lambda x: x.filename, files)))
+            lambda x: any(glob.fnmatch.fnmatch(os.path.basename(x), match) for match in [DATASET_GLOB, SCAFFOLD_GLOB]),
+            map(lambda x: x.filename, files)
+        ))
 
         # we only want files that actually exist
         # it can rarely be the case that a PR features changes to a path that is a file deletion
@@ -355,9 +362,10 @@ class Submission:
         """
         results = []
         for dataset in self.datasets:
-            print(f"Processing dataset '{dataset}'")
-            ds = DataSet(dataset, self, self.ghapi)
-            results.append(ds.execute_queued_submit())
+            if "scaffold" not in dataset:
+                print(f"Processing dataset '{dataset}'")
+                ds = DataSet(dataset, self, self.ghapi)
+                results.append(ds.execute_queued_submit())
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
@@ -412,7 +420,7 @@ class Submission:
     def execute_requires_scientific_review(self, pr_card, pr_state):
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "scientific-review"
 
@@ -426,7 +434,7 @@ class Submission:
     def execute_end_of_life(self, pr_card, pr_state):
         # add `end-of-life` label
         # remove `scientific-review`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "end-of-life"
 
@@ -440,7 +448,7 @@ class Submission:
     def execute_archived_complete(self, pr_card, pr_state):
         # add `complete` label
         # remove `scientific-review`, `end-of-life` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "complete"
 
@@ -491,20 +499,21 @@ class SubmittableBase:
     def _parse_spec(self):
         spec = self._load_submittable()
 
-        dataset_name = spec["dataset_name"]
+        if "dataset_name" in spec: # with dataset*.json from QCSubmit
+            dataset_name = spec["dataset_name"]
+            if "type" in spec:
+                dataset_type = DATASET_TYPES[spec["type"].lower()]
+            elif "dataset_type" in spec:
+                dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
+        else: # with scaffold.json
+            dataset_name = spec["metadata"]["name"]
+            dataset_type = spec["metadata"]["dataset_type"]
 
-        if "type" in spec:
-            dataset_type = DATASET_TYPES[spec["type"].lower()]
-        elif "dataset_type" in spec:
-            dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
-
-        dataset_specs = spec.get("qc_specifications", None)
-
-        return dataset_name, dataset_type, dataset_specs
+        return dataset_name, dataset_type
 
     def _load_submittable(self):
         from openff.qcsubmit.serializers import deserialize
-        spec = deserialize(self.submittable)
+        spec = deserialize(self.submittable) # Will function with scaffold too
 
         return spec
 
@@ -523,7 +532,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
@@ -605,8 +614,9 @@ class SubmittableBase:
         """
         client = self._get_qca_client()
 
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
         ds = client.get_dataset(dataset_type, dataset_name)
+        dataset_specs = ds.specification_names
 
         if dataset_type == "torsiondrive":
             complete = self._errorcycle_torsiondrive(
@@ -725,13 +735,13 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(erred_rec_ids)
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_priority=self.priority)
+                ds.modify_records(specification_names=dataset_specs,
+                                  new_compute_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
                     dataset=ds,
-                    specification_names=list(dataset_specs),
+                    specification_names=dataset_specs,
                     new_tag=self.computetag,
                 )
 
@@ -793,7 +803,7 @@ class SubmittableBase:
         status = ds.status()
         status_ = {key: {status.value.upper(): counts.get(status, 0)
                          for status in list(RecordStatusEnum)}
-                   for key, counts in status.items() if key in dataset_specs.keys()}
+                   for key, counts in status.items() if key in dataset_specs}
 
         df = pd.DataFrame(status_).transpose()
         df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
@@ -851,7 +861,7 @@ class SubmittableBase:
 
         if reset_errors:
             erred_recs = ds.iterate_records(
-                    specification_names=list(dataset_specs), 
+                    specification_names=dataset_specs, 
                     status='error')
 
             errors = {r.id: r.error for entry, spec, r in erred_recs}
@@ -865,13 +875,13 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(list(errors))
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_priority=self.priority)
+                ds.modify_records(specification_names=dataset_specs,
+                                  new_compute_priority=self.priority)
             if set_computetag:
                 update_compute_tags(
                     client=client,
                     dataset=ds,
-                    specification_names=list(dataset_specs),
+                    specification_names=dataset_specs,
                     new_tag=self.computetag,
                 )
             complete = False
@@ -977,7 +987,7 @@ def _get_tracking_prs(repo):
     prs = [
         pr
         for pr in repo.get_pulls(state="all")
-        if "tracking" in list(map(lambda x: x.name, pr.labels))
+        if "tracking" in _get_labels(pr)
     ]
     return prs
 
@@ -1093,7 +1103,7 @@ def main():
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
         if args.set_priority:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
 
             if not priorities:
@@ -1111,7 +1121,7 @@ def main():
             selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
 
         if args.set_computetag:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  _get_labels(pr)
             computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
 
             if not computetags:
