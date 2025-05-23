@@ -2,11 +2,8 @@
 
 ## Description
 
-A quantum chemical (QC) dataset of single point energies and properties was curated to train the 
-[OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) forcefield, with reparametrized Lennard-Jones (LJ) 
-and valence parameters. This QC dataset with the OpenFF default level of theory, B3LYP-D3BJ/DZVP, is used to train Sage parameters. 
-This is the complete optimization dataset includes calculations used for training OpenFF 2.0.0 Sage in addition to other, consisting 
-of the following datasets:
+A quantum chemical (QC) dataset of optimization targets was generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train the 
+valence parameters of the [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) forcefield. Targets were curated from the following datasets:
 
  - ['OpenFF Gen 2 Opt Set 1 Roche'](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-1-Roche)
  - ['OpenFF Gen 2 Opt Set 2 Coverage'](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-2-Coverage)
