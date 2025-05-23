@@ -3,7 +3,8 @@
 ## Description
 
 A quantum chemical (QC) dataset of torsiondrive profiles was generated at the OpenFF
- default level of theory, B3LYP-D3BJ/DZVP, and curated to train valence parameters in [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/). Torsion profiles were curated from the following datasets:
+ default level of theory, B3LYP-D3BJ/DZVP, and curated to train valence parameters in [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/). 
+ Torsion profiles were curated from the following datasets:
 
  - [OpenFF Gen 2 Torsion Set 1 Roche 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-1-Roche-2)
  - [OpenFF Gen 2 Torsion Set 2 Coverage 2](https://github.com/openforcefield/qca-dataset-submission/tree/7f8ed2ab6c8acc4521c8ca45ff4f587b20f0bcda/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-2-Coverage-2)
