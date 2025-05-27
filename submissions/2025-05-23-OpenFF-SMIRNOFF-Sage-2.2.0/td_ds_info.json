@@ -1,7 +1,7 @@
 {
-    "dataset_name": "OpenFF Sage 2.2.0 Torsion Drive Training Dataset v1.0",
+    "dataset_name": "OpenFF SMIRNOFF Sage 2.2.0",
     "dataset_tagline": "B3LYP-D3BJ/DZVP conformers for training torsion drives for OpenFF 2.2.0 Sage with improved small ring internal angles and sulfamide geometries.",
     "description": "A quantum chemical (QC) dataset of torsiondrive profiles was generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train valence parameters in [OpenFF 2.2.0 Sage](https://github.com/openforcefield/sage-2.2.0/) with improved small ring internal angles and sulfamide geometries. Torsion profiles were curated from the following datasets: 'OpenFF Gen 2 Torsion Set 1 Roche 2', 'OpenFF Gen 2 Torsion Set 2 Coverage 2', 'OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy 2', 'OpenFF Gen 2 Torsion Set 4 eMolecules Discrepancy 2', 'OpenFF Gen 2 Torsion Set 5 Bayer 2', 'OpenFF Gen 2 Torsion Set 6 Supplemental 2', 'SMIRNOFF Coverage Torsion Set 1', 'OpenFF Group1 Torsions', 'OpenFF Group1 Torsions 2', 'OpenFF Group1 Torsions 3', 'Pfizer Discrepancy Torsion Dataset 1', 'OpenFF Gen3 Torsion Set v1.0', 'OpenFF Amide Torsion Set v1.0', 'OpenFF WBO Conjugated Series v1.0', and 'OpenFF DANCE 1 eMolecules t142 v1.0'. These combined datasets were filtered with `ElementFilter(allowed_elements=['H', 'C', 'N', 'O', 'S', 'P', 'F', 'Cl', 'Br'])`, `RecordStatusFilter(status=RecordStatusEnum.complete)`, `HydrogenBondFilter(method='baker-hubbard')`, `ConnectivityFilter(tolerance=1.2)`, `ChargeCheckFilter()`, and `UnperceivableStereoFilter()`.",
     "metadata.submitter": "jaclark5",
-    "metadata.long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-23-OpenFF-Sage-2.2.0-Torsion-Drive-Training-Dataset-v1.0"
+    "metadata.long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-23-OpenFF-SMIRNOFF-Sage-2.2.0"
 }
