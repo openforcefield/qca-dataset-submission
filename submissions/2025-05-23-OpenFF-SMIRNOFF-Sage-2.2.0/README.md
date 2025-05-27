@@ -1,4 +1,4 @@
-# OpenFF SMIRNOFF Sage 2.2.0 v1.0
+# OpenFF SMIRNOFF Sage 2.2.0
 
 ## Description
 
@@ -66,7 +66,7 @@ Targets were curated from the following datasets:
 * Name: OpenFF SMIRNOFF Sage 2.2.0
 * Dataset submitter: Jennifer A Clark
 * Dataset curator: Pavan Behara
-
+---
 * Class: OpenFF Optimization Dataset
 * Dataset Type: optimization
 * Number of unique molecules: 1691
@@ -76,7 +76,7 @@ Targets were curated from the following datasets:
 * Molecular weight (min, mean, max): 16.04, 236.01, 544.64
 * Charges: -3.0, -2.0, -1.0, 0.0, 1.0, 2.0
 * Dataset generator: Chaya Stern, Hyesu Jang, Jessica Maat, and Pavan Behara
-
+---
 * Class: OpenFF TorsionDrive Dataset
 * Dataset Type: torsiondrive
 * Number of unique molecules: 956
