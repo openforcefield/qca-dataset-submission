@@ -206,11 +206,10 @@ The status only refers to the `default` specification which is required for all 
 [![Running](https://img.shields.io/badge/Status-Running-orange)](https://img.shields.io/badge/Status-Running-orange)  the dataset is currently running and may have some incomplete jobs.
 
 # Forcefield Release Datasets
-| Forcefield  | Repo  | Optimization | Torsion Drive | Elements | Zenodo |
-|-------------|----------|-------------------|--------------------|----------|--------|
-| Release OpenFF 2.0.0 Sage | [OpenFF Sage 2.0.0](https://github.com/openforcefield/openff-sage)  | [2025-05-01-OpenFF-Sage-2.0.0-Optimization-Training-Dataset-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Optimization-Training-Dataset-v1.1) | [2025-05-01-OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
-| Release OpenFF 2.1.0 Sage | [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) | [2025-05-22-OpenFF-Sage-2.1.0-Optimization-Training-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-22-OpenFF-Sage-2.1.0-Optimization-Training-Dataset-v1.0) | [2025-05-22-OpenFF-Sage-2.1.0-Torsion-Drive-Training-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-22-OpenFF-Sage-2.1.0-Torsion-Drive-Training-Dataset-v1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
-
+| Forcefield  | Repository | Datasets | Elements | Zenodo |
+|-------------|------------|----------|----------|--------|
+| Release OpenFF 2.0.0 Sage | [OpenFF Sage 2.0.0](https://github.com/openforcefield/openff-sage)  | [2025-05-01-OpenFF-Sage-2.0.0-Optimization-Training-Dataset-v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Optimization-Training-Dataset-v1.1); [2025-05-01-OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-01-OpenFF-Sage-2.0.0-Torsion-Drive-Training-Dataset-v1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
+| Release OpenFF 2.1.0 Sage | [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) | [2025-05-22-OpenFF-SMIRNOFF-Sage-2.1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-22-OpenFF-SMIRNOFF-Sage-2.1.0) | H, C, N, O, S, P, F, Cl, Br, I  | [Coming Soon]() |
 
 # Basic Datasets
 These are currently used to compute properties of a minimum energy conformation (Hessians, wavefunctions, etc.), usually derived from completed optimization datasets.
