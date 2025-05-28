@@ -74,3 +74,11 @@ Commands to compile docker image
 
 See our [Confluence page](https://openforcefield.atlassian.net/wiki/spaces/OFFO/pages/83951665/Zenodo) on the subject for more information.
 
+- Title: Same as force field
+- Authors: All submitters, curators, and generators
+- Description: Copy from release notes
+- License: Creative Commons by 4.0
+- Funding: Same as publication
+- Keywords: The same as the publication
+- Related Identifiers: GitHub repository link
+- Journal: Publication Information
