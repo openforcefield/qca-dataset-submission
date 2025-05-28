@@ -2,8 +2,8 @@ name: qcarchive-worker-openff-xtb
 channels:
   - conda-forge
 dependencies:
-  - python =3.10
-  - qcfractalcompute
+  - python =3.11
+  - qcfractalcompute>=0.61
   - qcengine
   - qcelemental
 
