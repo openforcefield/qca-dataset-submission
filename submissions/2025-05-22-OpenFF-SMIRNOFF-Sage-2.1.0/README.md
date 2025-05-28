@@ -103,35 +103,113 @@ These combined datasets were filtered with:
 
 ## Optimization Metadata
 
-* Elements: {Br, C, Cl, F, H, I, N, O, P, S}
-* QC Specifications: default
-  * basis: DZVP
-  * implicit_solvent: None
-  * keywords: {}
-  * maxiter: 200
-  * method: B3LYP-D3BJ
+Note that the specifications used to produce the records in this dataset had slight variations, so although each entry corresponds to one specification and therefore one record, there are multiple specifications. Because the original datasets all named their respective specifications "default", here we append that name with the dataset ids of the datasets that share that specification.
+
+* Elements: {Cl, S, H, O, P, Br, I, C, F, N}
+---
+* Program: geometric
+* QC Specifications: default-251-253-255-254-270
   * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
+  * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices']}
+  * protocols: {}
   * SCF Properties:
     * dipole
     * quadrupole
     * wiberg_lowdin_indices
     * mayer_indices
+---
+* Program: geometric
+* QC Specifications: default-345
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
+  * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'mbis_charges']}
+  * protocols: {}
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * mbis_charges
+---
+* Program: geometric
+* QC Specifications: default-372-315
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
+  * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices']}
+  * protocols: {}
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+---
+* Program: geometric
+* QC Specifications: default-41
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3(bj)
+  * basis: dzvp
+  * keywords: {}
+  * protocols: {}
+---
+* Program: geometric
+* QC Specifications: default-43
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
+  * keywords: {}
+  * protocols: {}
 
 ## Torsiondrive Metadata
 
+Note that the specifications used to produce the records in this dataset had slight variations, so although each entry corresponds to one specification and therefore one record, there are multiple specifications. Because the original datasets all named their respective specifications "default", here we append that name with the dataset ids of the datasets that share that specification.
+
 * Elements: {Br, C, Cl, F, H, N, O, P, S}
+---
 * Program: torsiondrive
 * Optimization Specification: geometric
-* QC Specifications: default
+* QC Specifications: default-256-257-258-259-265-266-48-242-243-70-282
   * program: psi4
-  * method: B3LYP-D3BJ
-  * basis: DZVP
-  * implicit_solvent: None
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
   * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices']}
   * protocols: {}
-  * maxiter: 200
   * SCF Properties:
     * dipole
     * quadrupole
     * wiberg_lowdin_indices
     * mayer_indices
+---
+* Program: torsiondrive
+* Optimization Specification: geometric
+* QC Specifications: default-317-314-308
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3bj
+  * basis: dzvp
+  * keywords: {'maxiter': 200, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices']}
+  * protocols: {}
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+---
+* Program: torsiondrive
+* Optimization Specification: geometric
+* QC Specifications: default-36
+  * program: psi4
+  * driver: SinglepointDriver.deferred
+  * method: b3lyp-d3(bj)
+  * basis: dzvp
+  * keywords: {}
+  * protocols: {}
