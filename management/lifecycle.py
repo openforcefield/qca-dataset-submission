@@ -21,6 +21,8 @@ if typing.TYPE_CHECKING:
 QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
+
+# The following should not be changed to avoid picking up of json files throughout the repo
 DATASET_GLOB = "dataset*.json*"
 SCAFFOLD_GLOB = "scaffold*.json*"
 COMPUTE_GLOB = "compute*.json*"
