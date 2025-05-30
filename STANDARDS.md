@@ -133,6 +133,8 @@ Besides the regular information from the other datasets, these fitting datasets 
 
 - `DOI`
 
+After a dataset is released it should be archived with Zenodo. Further instructions and materials can be found in the [archival_docker](https://github.com/openforcefield/archival_docker) repository.
+
 ### Force field benchmarking
 
 All force field benchmarking will be done using the [YAMMBS](https://github.com/openforcefield/yammbs/tree/main/yammbs) package. Standards will be introduced as our process for these benchmarks is finalized.
