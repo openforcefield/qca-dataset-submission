@@ -1,0 +1,19 @@
+name: qca
+channels:
+  - conda-forge/label/libint_dev
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - qcfractalcompute>=0.61
+  - qcengine
+  - qcelemental
+  - jupyter
+  - rdkit
+  - openff-units
+  - openff-toolkit
+  - forcebalance>=1.9.6
+  - ambertools
+  - apsw
+  - jupyterlab
