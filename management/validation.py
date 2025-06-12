@@ -71,7 +71,7 @@ def create_dataset(dataset_data):
 
 def create_spec_report(spec, validated, extras):
 
-    solvent = spec["implicit_solvent"]
+    solvent = spec.get("implicit_solvent", None)
 
     data = {
         "**Specification Name**": spec["spec_name"],
@@ -244,8 +244,13 @@ def check_compute_request(dataset_data):
     Check the compute request. 
     This will access the archive and check the element coverage and any specs already ran.
     """
-    qc_specs = dataset_data.pop("qc_specifications")
-    dataset = create_dataset(dataset_data)
+    if "qc_specifications" in dataset_data: # QCSubmit dataset
+        qc_specs = dataset_data.pop("qc_specifications")
+        dataset = create_dataset(dataset_data)
+        scaffold = False
+    else: # scaffold dataset
+        qc_specs = dataset_data.pop("specifications")
+        scaffold = True
     client = ptl.PortalClient(QCFRACTAL_URL)
 
     # now update the dataset with client elements and specs
