@@ -129,11 +129,7 @@ The format of these dataset names must use the following format:
 
 for example, all datasets (optimizations, torsion drives, and Hessians) with the name `"OpenFF SMIRNOFF Sage 2.0.0"` would refer to all data used to train `openff-2.0.0.offxml` in the `openforcefields` package.
 
-Besides the regular information from the other datasets, these fitting datasets must have:
-
-- `DOI`
-
-After a dataset is released it should be archived with Zenodo. Further instructions and materials can be found in the [archival_docker](https://github.com/openforcefield/archival_docker) repository.
+Besides the regular information from the other datasets, these fitting datasets must have a `DOI`, to that end they will be archived with Zenodo. After a dataset is released on QCArchive, create a Zenodo entry by following [archival instructions](./archival/README.md). This process involves creating a docker image with a version of QCArchive that can read the dataset views, with a jupyter notebook entrypoint to facilitate processing the dataset and returning user defined information. The provided jupyter notebook contains examples of how a user can access data commonly used for force field fitting.
 
 ### Force field benchmarking
 
