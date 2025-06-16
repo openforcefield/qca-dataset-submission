@@ -42,16 +42,31 @@ SPLIT_TAG_END = re.compile(r"-(\d+)$")
 
 
 def parse_tags(compute_tag) -> tuple[list[float], str]:
-    """Parses a compute tag matching ``SPLIT_TAG`` into a sequence of molecular
-    weights. Also returns the base component of the tag"""
+    """Parses a GitHub label for to apply to record compute tags.
+    
+    If the GitHub label matches ``SPLIT_TAG``, the label is split into a sequence
+    of molecular weights based compute tags. Note that the tag doesn't change if 
+    it just happens to end with ``_mw``, ``SPLIT_TAG`` only matches if there are ``-###``
+    following it, e.g., ``pr000_mw-200`` or ``pr000_mw-200-400-600-800-1000``.
+    
+    Parameters
+    ----------
+    compute_tag : str
+        GitHub label used to assign record compute tags.
+        
+    Returns
+    -------
+    molecular_weights : list[float]
+        List of molecular weights
+    base_tag : str
+        The base component of the tag
+    """
     tag = compute_tag
     ret = list()
     while (m := SPLIT_TAG_END.search(tag)) is not None:
         ret.append(float(m[1]))
         tag = tag[: m.start(1) - 1]
 
-    # don't change the tag if it just happens to end with _mw, SPLIT_TAG only
-    # matches if there are -### following it
     return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
 
 
