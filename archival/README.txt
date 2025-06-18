@@ -1,5 +1,7 @@
 Steps to View Datasets
 
+Follow the steps below to view these datasets. Ensure Docker is installed and running before starting.
+
 1. Load the docker image with:
    `docker load -i handle_dataset_views.tar.gz`
 2. Put the dataset view files (*.sqlite) files in a directory, "views"
