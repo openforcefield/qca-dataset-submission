@@ -50,19 +50,19 @@ ds_td.download_view(
 )
 ```
 
-These views will be included in the Zenodo entry. In order to access these files in the docker image, put them in a directory called "views", the name of this directory can be adjusted in the `docker run` command.
+These views will be included in the Zenodo entry. In order to access these files in the Docker image, put them in a directory called "views", the name of this directory can be adjusted in the `docker run` command.
 
 ## Docker Image
 
 ### Create the Docker Image
 
-To create the docker image the following files are needed:
+To create the Docker image the following files are needed:
 
 - Dockerfile
 - dataset_handling.ipynb
 - environment.yaml
 
-Compile the docker image with:
+Compile the Docker image with:
 
 `docker buildx build -t handle_dataset_views .`
 
@@ -70,7 +70,7 @@ If using a M* MAC, consider using the flag `--platform=linux/amd64`. In this cas
 
 ### Save the Docker Image to a File
 
-Saving the docker image to a file will allow it to be included in a Zenodo submission.
+Saving the Docker image to a file will allow it to be included in a Zenodo submission.
 
 `docker save -o handle_dataset_views.tar handle_dataset_views:latest`
 
@@ -80,13 +80,13 @@ Optionally compress the file further:
 
 ### Loading a Compressed Docker Image File
 
-Load the docker image with:
+Load the Docker image with:
 
 `docker load -i handle_dataset_views.tar.gz`
 
 ### Running the Docker Image
 
-A user can run the docker image to spawn the jupyter notebook.
+A user can run the Docker image to spawn the Jupyter notebook.
 
 ```bash
 mkdir views; mv *sqlite views/
@@ -94,12 +94,12 @@ mkdir outputs
 docker run -p 8888:8888 -v ./views:/workspace/views -v ./outputs:/workspace/outputs handle_dataset_views
 ```
 
-The `-p` flag exposed the port `8888` inside the docker image to the port by the same name externally. 
-The `-v` flag exposes a directory (in this case `./views`, so put your dataset views there) to a directory inside the docker image so that the jupyter notebook and access them.
+The `-p` flag exposed the port `8888` inside the Docker image to the port by the same name externally. 
+The `-v` flag exposes a directory (in this case `./views`, so put your dataset views there) to a directory inside the Docker image so that the Jupyter notebook and access them.
 The ./outputs directory provides another shared directory that can be useful to pass output files.
 If using a M* MAC, the flag `--platform=linux/amd64` could be required.
 
-Entering the URL that starts with `http://127.0.0.1:8888...` in a internet browser should lead to a jupyterlab instance.
+Entering the URL that starts with `http://127.0.0.1:8888...` in a internet browser should lead to a JupyterLab instance.
 
 ## Create a Zenodo Record
 
@@ -109,7 +109,7 @@ See our [Confluence page](https://openforcefield.atlassian.net/wiki/spaces/OFFO/
 - Authors: All dataset curators, generators, and associated PIs.
 - Description: 
     - Copy from dataset description (details in the QCArchive datasets that comprise this overall dataset are removed and a referral is given to the repository)
-    - Include instructions for running the docker
+    - Include instructions for running the Docker
     - Include descriptive statistics
 - License: Creative Commons by 4.0
 - Funding: Author dependent
@@ -119,5 +119,5 @@ Manifest:
 
 - Optimization dataset view
 - Torsiondrive dataset view
-- Compressed docker image file
+- Compressed Docker image file
 - README.txt
