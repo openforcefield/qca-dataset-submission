@@ -13,6 +13,6 @@ Follow the steps below to view these datasets. Ensure Docker is installed and ru
     The `-p` flag exposes the port `8888` inside the docker image to the port by the same name externally. Change this number if you wish to use a different port.
     The `-v` flag exposes a directory (in this case `./views`, so put your dataset views there) to a directory inside the docker image so that the jupyter notebook and access them.
     The ./outputs directory provides another shared directory that can be useful for saving output files.
-    If using a M* MAC, the flag `--platform=linux/amd64` could be required.
+    If using a M* Mac, the flag `--platform=linux/amd64` could be required.
 5. Entering the URL that starts with `http://127.0.0.1:8888...` in a internet browser should lead to a jupyterlab instance.
 6. Use the jupyter notebook to access the data. Because the notebook is running in the docker image, you'll need to put files that you want externally in the "output" directory created in step 3.
