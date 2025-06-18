@@ -6,7 +6,7 @@ Follow the steps below to view these datasets. Ensure Docker is installed and ru
    `docker load -i handle_dataset_views.tar.gz`
 2. Put the dataset view files (*.sqlite) files in a directory, "views"
 3. Make a directory "outputs"
-4. Run the docker image to spawn the jupyter notebook.
+4. Run the docker image to spawn the Jupyter notebook.
     $ mkdir views; mv *sqlite views/
     $ mkdir outputs
     $ docker run -p 8888:8888 -v ./views:/workspace/views -v ./outputs:/workspace/outputs handle_dataset_views
