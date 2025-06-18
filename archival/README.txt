@@ -10,7 +10,7 @@ Follow the steps below to view these datasets. Ensure Docker is installed and ru
     $ mkdir views; mv *sqlite views/
     $ mkdir outputs
     $ docker run -p 8888:8888 -v ./views:/workspace/views -v ./outputs:/workspace/outputs handle_dataset_views
-    The `-p` flag exposed the port `8888` inside the docker image to the port by the same name externally. 
+    The `-p` flag exposes the port `8888` inside the docker image to the port by the same name externally. Change this number if you wish to use a different port.
     The `-v` flag exposes a directory (in this case `./views`, so put your dataset views there) to a directory inside the docker image so that the jupyter notebook and access them.
     The ./outputs directory provides another shared directory that can be useful to pass output files.
     If using a M* MAC, the flag `--platform=linux/amd64` could be required.
