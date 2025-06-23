@@ -64,25 +64,25 @@ To create the Docker image the following files are needed:
 
 Compile the Docker image with:
 
-`docker buildx build -t handle_dataset_views .`
+`docker buildx build -t docker_handle_dataset_views .`
 
-If using a M* MAC, consider using the flag `--platform=linux/amd64`. In this case, we create an image named, "handle_dataset_views".
+If using a M* MAC, consider using the flag `--platform=linux/amd64`. In this case, we create an image named, "docker_handle_dataset_views".
 
 ### Save the Docker Image to a File
 
 Saving the Docker image to a file will allow it to be included in a Zenodo submission.
 
-`docker save -o handle_dataset_views.tar handle_dataset_views:latest`
+`docker save -o docker_handle_dataset_views.tar docker_handle_dataset_views:latest`
 
 Optionally compress the file further:
 
-`gzip handle_dataset_views.tar`
+`gzip docker_handle_dataset_views.tar`
 
 ### Loading a Compressed Docker Image File
 
 Load the Docker image with:
 
-`docker load -i handle_dataset_views.tar.gz`
+`docker load -i docker_handle_dataset_views.tar.gz`
 
 ### Running the Docker Image
 
@@ -91,7 +91,7 @@ A user can run the Docker image to spawn the Jupyter notebook.
 ```bash
 mkdir views; mv *sqlite views/
 mkdir outputs
-docker run -p 8888:8888 -v ./views:/workspace/views -v ./outputs:/workspace/outputs handle_dataset_views
+docker run -p 8888:8888 -v ./views:/workspace/views -v ./outputs:/workspace/outputs docker_handle_dataset_views
 ```
 
 The `-p` flag exposed the port `8888` inside the Docker image to the port by the same name externally. 
