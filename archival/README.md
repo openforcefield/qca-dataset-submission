@@ -2,7 +2,7 @@
 
 The quantum chemical (QC) records used to train each respective OpenFF force field from Sage 2.0.0 and later have been grouped into a single dataset on the QCArchive servers (https://api.qcarchive.molssi.org:443/) run by the Molecular Sciences Software Institute (MolSSI). This document provides a protocol to create archival storage of a force field dataset on Zenodo.
 
-QCArchive stores quantum chemical (QC) in a relational database in the SQLite format. Although a user would access it through the QCPortal python API, there is an option to create a SQLite "dataset view" which can be downloaded locally to explore, but cannot be further altered. We leverage this feature to store our complete training datasets in the common SQLite format on Zenodo for redundant archival.
+QCArchive stores quantum chemical (QC) data in a relational database in the SQLite format. Although a user would access it through the QCPortal python API, there is an option to create a SQLite "dataset view" which can be downloaded locally to explore, but cannot be further altered. We leverage this feature to store our complete training datasets in the common SQLite format on Zenodo for redundant archival.
 
 To archive a dataset follow this protocol:
 
@@ -84,7 +84,7 @@ Load the Docker image with:
 
 `docker load -i docker_handle_dataset_views.tar.gz`
 
-### Running the Docker Image
+### Ensure the Docker Image Can Run and Load the Dataset
 
 A user can run the Docker image to spawn the Jupyter notebook.
 
@@ -101,6 +101,11 @@ If using a M* MAC, the flag `--platform=linux/amd64` could be required.
 
 Entering the URL that starts with `http://127.0.0.1:8888...` in a internet browser should lead to a JupyterLab instance.
 
+Run the Jupyter notebook to ensure that:
+ - The notebook runs completely without errors
+ - The expected output files are produced by the notebook in the Docker container
+ - The expected output can be accessed from the local `outputs` directory outside of the container
+
 ## Create a Zenodo Record
 
 See our [Confluence page](https://openforcefield.atlassian.net/wiki/spaces/OFFO/pages/83951665/Zenodo) on the subject for more information.
@@ -113,7 +118,7 @@ See our [Confluence page](https://openforcefield.atlassian.net/wiki/spaces/OFFO/
     - Include descriptive statistics
 - License: Creative Commons by 4.0
 - Funding: Author dependent
-- Journal: Publication Information (if relevant)
+- Journal: Publication Information (if the paper isn't out yet, skip this section)
 
 Manifest:
 
