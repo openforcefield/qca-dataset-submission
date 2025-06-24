@@ -11,6 +11,7 @@ import numpy as np
 import networkx as nx
 import basis_set_exchange as bse
 import psi4
+from psi4.driver.qcdb import BasisSetNotFound
 
 from openff.qcsubmit.constraints import Constraints
 from openff.qcsubmit.exceptions import ConstraintError
@@ -59,7 +60,7 @@ def check_basis_coverage(specifications, elements):
                 for elem in elements:
                     try:
                         psi4.core.BasisSet.build(psi4.geometry(f"{elem}"), "BASIS", basis);
-                    except Exception:
+                    except BasisSetNotFound:
                         difference.add(elem)
             else:
                 basis_data = bse.get_basis(basis[4:], elements=elements, fmt='json')
@@ -163,6 +164,10 @@ def create_spec_report(spec, validated, extras):
         spec = spec["specification"]
 
     if ("ddx" in spec["keywords"] or "pcm" in spec["keywords"]):
+        # QCArchive passes implicit solvent keywords to Psi4 with keywords that start with the implicit 
+        # solvent type, e.g., "specification": {"keyords": {"ddx_model": "pcm",...}...}. These keywords 
+        # tend to start with the three letter names, 'pcm' or 'ddx', so we check for these prefixes.
+        # https://psicode.org/psi4manual/master/autodoc_glossary_options_c.html#term-DDX_SOLVENT-DDX
         solvent = {key: val for key, val in spec["keywords"].items() if key[:3].lower() in ["pcm", "ddx"]}
     else:
         solvent = None

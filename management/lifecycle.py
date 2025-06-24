@@ -42,7 +42,7 @@ SPLIT_TAG_END = re.compile(r"-(\d+)$")
 
 
 def parse_tags(compute_tag) -> tuple[list[float], str]:
-    """Parses a GitHub label for to apply to record compute tags.
+    """Parses a GitHub label to apply to record compute tags.
     
     If the GitHub label matches ``SPLIT_TAG``, the label is split into a sequence
     of molecular weights based compute tags. Note that the tag doesn't change if 
