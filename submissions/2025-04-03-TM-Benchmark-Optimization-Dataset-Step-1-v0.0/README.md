@@ -43,12 +43,30 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
 ### Metadata
 
 * Elements: {'Br', 'C', 'Cl', 'Cu', 'F', 'Fe', 'H', 'Li', 'Mg', 'N', 'O', 'P', 'Pd', 'S', 'Zn'}
-* QC Specifications: default
+* QC Specification: sos-mp2/def2-svp
   * program: psi4
-  * method: scs-mp2
-  * basis: aug-cc-pvtz-dk
+  * method: sos-mp2
+  * basis: def2-svp
   * implicit_solvent: None
   * maxiter: 500
+  * reference: rohf
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: hf/sto-3g
+  * program: psi4
+  * method: hf
+  * basis: sto-3g
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: rohf
   * SCF Properties:
     * dipole
     * quadrupole
