@@ -25,8 +25,8 @@ This v1.2 dataset has removed a subset of structures from v1.1 that exhibited un
 - Dataset Type: optimization
 - Number of unique molecules:   2973
 - Number of filtered molecules: 0
-- Number of conformers:         539356
-- Number of conformers (min mean max): 7, 181, 469
+- Number of conformers:         77026
+- Number of conformers (min mean max): 1, 25, 67
 - Molecular weight (min, mean, max): 16.03, 362.35, 1104.40
 - Set of charges: -2.0, -1.0, 0.0, 1.0, 2.0
 
