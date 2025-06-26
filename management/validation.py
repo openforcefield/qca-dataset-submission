@@ -598,6 +598,8 @@ def main():
                 dataset_paths.append(file)
             elif glob.fnmatch.fnmatch(os.path.basename(file), COMPUTE_GLOB):
                 dataset_paths.append(file)
+            elif glob.fnmatch.fnmatch(os.path.basename(file), SCAFFOLD_GLOB):
+                dataset_paths.append(file)
         else:
             continue
 
