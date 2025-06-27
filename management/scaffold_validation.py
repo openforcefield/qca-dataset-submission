@@ -111,7 +111,7 @@ def check_scf_keywords(keywords):
     valid_props = {
         "DIPOLE",
         "QUADRUPOLE",
-        "ESP_AT_NUCLEI"
+        "ESP_AT_NUCLEI",
         "MULLIKEN_CHARGES",
         "LOWDIN_CHARGES",
         "LOWDIN_SPINS",
