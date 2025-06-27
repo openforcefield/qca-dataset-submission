@@ -1,0 +1,11 @@
+name: qca-clean-openff
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - jupyter
+  - periodictable
+  - qcportal>=0.61
+  - qcfractal>=0.61
+  - qcfractalcompute>=0.61
