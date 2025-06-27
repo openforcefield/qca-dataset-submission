@@ -111,7 +111,7 @@ def check_scf_keywords(keywords):
     valid_props = {
         "DIPOLE",
         "QUADRUPOLE",
-        "ESP_AT_NUCLEI"
+        "ESP_AT_NUCLEI",
         "MULLIKEN_CHARGES",
         "LOWDIN_CHARGES",
         "LOWDIN_SPINS",
@@ -124,8 +124,6 @@ def check_scf_keywords(keywords):
         # Add more as needed from psi4 documentation
     }
     scf_properties = keywords.pop("scf_properties")
-    print(scf_properties)
-    print([x.upper() in valid_props for x in scf_properties])
     for prop in scf_properties:
         try:
             if prop.upper() not in valid_props and not prop.startswith("MULTIPOLE("):
