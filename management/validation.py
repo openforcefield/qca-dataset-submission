@@ -508,7 +508,7 @@ def main_validation(dataset_names):
         data = get_data(dataset_name)
         # check if there is a dataset else this might be a compute request
         if ( # will not enter if scaffold
-            "dataset" in data or not flag_scaffold or 
+            ("dataset" in data and not flag_scaffold) or 
             glob.fnmatch.fnmatch(os.path.basename(dataset_name), COMPUTE_GLOB)
         ):
             data, qc_coverage = check_compute_request(data)
