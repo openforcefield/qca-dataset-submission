@@ -23,11 +23,11 @@ This v1.2 dataset has removed a subset of structures from v1.1 that exhibited un
 
 - Class: OpenFF Optimization Dataset
 - Dataset Type: optimization
-- Number of unique molecules:   2973
+- Number of unique molecules:   9784
 - Number of filtered molecules: 0
-- Number of conformers:         77026
-- Number of conformers (min mean max): 1, 25, 67
-- Molecular weight (min, mean, max): 16.03, 362.35, 1104.40
+- Number of conformers:         74362
+- Number of conformers (min mean max): 1, 7, 10
+- Molecular weight (min, mean, max): 16.04, 348.76, 1105.16
 - Set of charges: -2.0, -1.0, 0.0, 1.0, 2.0
 
 ### QCSubmit generation pipeline
@@ -46,12 +46,12 @@ This v1.2 dataset has removed a subset of structures from v1.1 that exhibited un
 
 * Elements: {Br, C, Cl, F, H, N, O, P, S}
 * QC Specifications: default
-  * basis: DZVP
-  * implicit_solvent: None
-  * keywords: {}
-  * maxiter: 200
   * method: B3LYP-D3BJ
-  * program: psi4
+  * basis: DZVP
+  * store_wavefunction: None
+  * implicit_solvent: None
+  * maxiter: 200
+  * keywords: {}
   * SCF Properties:
     * dipole
     * quadrupole

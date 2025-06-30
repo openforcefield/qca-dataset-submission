@@ -1,6 +1,7 @@
 name: qca-clean-openff
 channels:
   - conda-forge
+  - openeye
 dependencies:
   - python=3.11
   - numpy
@@ -9,3 +10,6 @@ dependencies:
   - qcportal>=0.61
   - qcfractal>=0.61
   - qcfractalcompute>=0.61
+  - openff-qcsubmit
+  - openff-toolkit
+  - openeye-toolkits
