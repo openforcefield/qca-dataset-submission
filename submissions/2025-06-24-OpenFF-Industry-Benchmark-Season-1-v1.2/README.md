@@ -10,13 +10,13 @@ The v1.1 dataset features corrected Merck (MRK) molecules with explicit hydrogen
 The original v1.0 dataset did not have explicit hydrogens on these molecules, resulting in poor starting conformers that have largely failed to geometry optimize under QM.
 The v1.1 dataset was prepared from the v1.0 dataset, excising the MRK molecules and replacing them with the explicit hydrogen variants prepared using the [Season 1 protocol](https://openforcefield.atlassian.net/wiki/spaces/PS/pages/971898891/Optimization+Benchmarking+Protocol+-+Season+1) via `openff-benchmark`.
 
-This v1.2 dataset has removed a subset of structures from v1.1 that exhibited unrealistic angles, which proved to hinder progress in converging force field parameters. The outlier records are recorded in the [sage-2.2.0 repository](https://github.com/openforcefield/sage-2.2.0/blob/main/05_benchmark_forcefield/process_bm/problem_ids/all_r7_outliers.txt).
+This v1.2 dataset has removed a subset of structures from v1.1 that exhibited unrealistic angles, which proved to hinder progress in converging force field parameters. The outlier records are recorded in the [sage-2.2.0 repository](https://github.com/openforcefield/sage-2.2.0/blob/main/05_benchmark_forcefield/process_bm/problem_ids/all_r7_outliers.txt). It also applies our standard post-submission filters.
 
 ### General Information
 
 - Date: 2025-06-24
 - Name: OpenFF Industry Benchmark Season 1 v1.2
-- Purpose: The combination of all publicly chosen compound sets by industry partners from the OpenFF season 1 industry benchmark with unrealistic conformers removed.
+- Purpose: The combination of all publicly chosen compound sets by industry partners from the OpenFF Industry Benchmark Season 1 with standard post-submission filters applied and unrealistic conformers removed.
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: David Dotson and Joshua Horton
 - Dataset Generator: David Dotson and Joshua Horton
