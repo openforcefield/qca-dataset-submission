@@ -23,11 +23,11 @@ This v1.2 dataset has removed a subset of structures from v1.1 that exhibited un
 
 - Class: OpenFF Optimization Dataset
 - Dataset Type: optimization
-- Number of unique molecules:   9933
+- Number of unique molecules:   9835
 - Number of filtered molecules: 0
 - Number of conformers:         74585
-- Number of conformers (min mean max): 1, 7, 10
-- Molecular weight (min, mean, max): 16.04, 361.90, 1105.16
+- Number of conformers (min mean max): 1.00, 7.58, 10.00
+- Molecular weight (min, mean, max): 16.04, 348.58, 1105.15
 - Set of charges: -2.0, -1.0, 0.0, 1.0, 2.0
 
 ### QCSubmit generation pipeline
@@ -40,9 +40,7 @@ This v1.2 dataset has removed a subset of structures from v1.1 that exhibited un
 * `ds_info.json`: Metadata information for optimization dataset record imported by `main.ipynb`
 * `environment.yaml`: A file to reproduce the conda env used to generate this dataset.
 * `environment_full.yaml`: A file to reproduce the conda env used to generate this dataset.
-* `dataset.json.bz2`: Compressed dataset ready for submission
-* `dataset.pdf.zip`: Visualization of dataset molecules compressed due to size
-* `dataset.smi`: Smiles strings for dataset molecules
+* `scaffold.json.bz2`: The basic dataset information read by qcportal.external.scaffold.
 
 ## Optimization Metadata
 
