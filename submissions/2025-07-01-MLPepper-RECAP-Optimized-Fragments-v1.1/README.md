@@ -18,16 +18,14 @@ An off equilibrium data set will also be generated to enable conformation depend
 * Class: OpenFF SinglePoint Dataset
 * Purpose: Single point property calculations for charge models, expanded to include iodine
 * Name: MLPepper RECAP Optimized Fragments v1.1
-* Number of unique molecules: 50618
-* Number of filtered molecules: 0
-* Number of conformers: 68966
-* Number of conformers per molecule (min, mean, max): 1, 1.36, 5
-* Mean molecular weight: 150.10
-* Max molecular weight: 466.59
-* Charges: [-4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+* Number of unique molecules: 56351
+* Number of conformers: 75097
+* Number of conformers (min, mean, max): 1.00, 1.33, 5.00
+* Molecular weight (min, mean, max): 32.12, 163.20, 701.59
+* Charges: -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0
 * Dataset submitter: Jennifer A Clark
-* Dataset curator: Josh Horton/ Charlie Adams
-* Dataset generator: Josh Horton/ Charlie Adams
+* Dataset curator: Josh Horton / Charles Adams
+* Dataset generator: Josh Horton / Charles Adams
 
 ## QCSubmit Generation Pipeline
 * `main.ipynb`: A jupyter notebook which shows how the optimization dataset was prepared from the input files.
@@ -43,7 +41,7 @@ An off equilibrium data set will also be generated to enable conformation depend
 * `dataset.smi`: Smiles strings for dataset molecules
 
 ## Metadata
-* Elements: {F, P, Br, O, I, N, Si, S, B, Cl, H, C}
+* Elements: B, Br, C, Cl, F, H, I, N, O, P, S, Si
 * Spec: wb97x-d/def2-tzvpp
 	* basis: def2-tzvpp
 	* implicit_solvent: None
