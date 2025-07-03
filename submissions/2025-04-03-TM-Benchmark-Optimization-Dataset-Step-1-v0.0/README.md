@@ -2,7 +2,7 @@
 
 ### Description
 
-This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. Additionally, there are some organic molecules for benchmarking purposes. These complexes are optimized using SCS-MP2 / aug-cc-pVTZ-DK. The molecular weight min, mean, and max are 81, 445, and 1026, respectively. There are 81 unique molecules, each tmc is submitted with 3 different multiplicities to assess the spin state.
+This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals: {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. Additionally, there are some organic molecules for benchmarking purposes. These complexes are optimized using ROHF SOS-MP2 / def2-mSVP and  ROHF / STO-3G in suit with the literature. There are two ROHF SOS-MP2 / def2-mSVP specifications with and without frozen core. The molecular weight min, mean, and max are 81, 445, and 1026, respectively. There are 81 unique molecules, each tmc is submitted with 3 different multiplicities to assess the spin state.
 
 Geometries were sources from the PDB CCD and multiple sources in the literature, the DOIs include: 10.1134/S0022476620090103, 10.1021/acs.inorgchem.7b03000, 10.1016/j.molstruc.2022.132506, 10.1107/S2053229619001396, 10.1021/om0492045, 10.1107/S0108270113021148, 10.1016/j.inoche.2013.06.007, and 10.1016/j.ijbiomac.2023.125847.
 
@@ -43,13 +43,39 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
 ### Metadata
 
 * Elements: {'Br', 'C', 'Cl', 'Cu', 'F', 'Fe', 'H', 'Li', 'Mg', 'N', 'O', 'P', 'Pd', 'S', 'Zn'}
-* QC Specification: sos-mp2/def2-svp
+* QC Specification: sos-mp2/def2-msvp
   * program: psi4
   * method: sos-mp2
   * basis: def2-svp
   * implicit_solvent: None
   * maxiter: 500
   * reference: rohf
+  * opt_coordinates: both
+  * scf_type: df
+  * mp2_type: df
+  * print: 3
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: sos-mp2/def2-msvp FC
+  * program: psi4
+  * method: sos-mp2
+  * basis: def2-svp
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: rohf
+  * opt_coordinates: both
+  * scf_type: df
+  * mp2_type: df
+  * print: 3
+  * freeze_core: True
   * SCF Properties:
     * dipole
     * quadrupole
@@ -67,6 +93,7 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
   * implicit_solvent: None
   * maxiter: 500
   * reference: rohf
+  * opt_coordinates: both
   * SCF Properties:
     * dipole
     * quadrupole
