@@ -13,10 +13,10 @@ Molecules with nitro groups are excluded from this filtering since pentavalent n
  - Name: OpenFF Gen2 Optimization Dataset Protomers v1.0
  - Number of unique molecules        110
  - Number of filtered molecules      0
- - Number of conformers              610
- - Number of conformers min mean max 1   5.55 10
- - Mean molecular weight: 280.17
- - Max molecular weight: 542.59
+ - Number of conformers              600   (note: this number reflects the data on QCArchive. 610 records were originally submitted, but only 600 were added to QCArchive at time of submission; hence there is a mismatch between the number of records in the `dataset.json.bz2` here, 610, and the actual dataset on QCArchive, 600). 
+ - Number of conformers min mean max 1   5.45 10
+ - Mean molecular weight: 338.5
+ - Max molecular weight: 542.16
  - Charges: [-3.0, -2.0, -1.0, 0.0, 1.0, 2.0]
  - Submitter: Pavan Behara
 
