@@ -529,6 +529,11 @@ class SubmittableBase:
         return dataset_name, dataset_type
 
     def _load_submittable(self):
+        """Load a json file into a dictionary
+
+        Returns:
+            dict: Dictionary of provided compressed json file.
+        """
         from openff.qcsubmit.serializers import deserialize
         spec = deserialize(self.submittable) # Will function with scaffold too
 
@@ -575,16 +580,22 @@ class SubmittableBase:
 
     def execute_queued_submit(self, max_retries=3):
         """Submit, perhaps with some retry logic.
+        
+        Parameters
+        ----------
+        max_retries : int, default=3
+            Not currently in use
 
         """
         client = self._get_qca_client()
-
-        # load dataset into QCSubmit class
-        ds = self._load_submittable()
-        dataset_qcs = create_dataset(ds)
+        dict_ds = self._load_submittable()
+        if "dataset_name" in dict_ds: # with dataset*.json from QCSubmit
+            dataset_qcs = create_dataset(dict_ds) # create QCSubmit dataset
+        else: # with qcportal.external.scaffold
+            dataset_qcs = None # use self.submittable directly
 
         try:
-            # submit to QCArchive
+            # Submit to QCArchive
             output = self.submit(dataset_qcs, client)
             self._queued_submit_report(output, success=True)
         except:
@@ -946,7 +957,29 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True)
+        """Submit a dataset to QCArchive
+
+        Args:
+            dataset_qcs (openff.qcsubmit.databases.*Database): QCSubmit database, or None for a ``qcportal.external.scaffold``,
+            in which case the path to the scaffold*.json file will be used directly.
+            client (qcportal.client.PortalClient): QCPortal client
+
+        Returns:
+            InsertCountsMetadata: Output from QCArchive of the data that was submitted.
+        """
+        
+        if dataset_qcs is not None:
+            output = dataset_qcs.submit(client=client, ignore_errors=True)
+        else:
+            from qcportal.external import scaffold
+            # Submit dataset directly from submission file
+            ds = scaffold.from_json(self.submittable, client, append=True) # append feature needs to be added to qcfractal
+            output = ds.submit(
+                compute_tag="openff", # should these be set default (same as QCSubmit) or overwritten by the json?
+                compute_priority="normal",
+            )
+
+        return output
 
 
 class DataSet(SubmittableBase):
@@ -967,6 +1000,18 @@ class Compute(SubmittableBase):
 
 
 def create_dataset(dataset_data):
+    """Create a QCSubmit dataset from an appropriate dictionary
+
+    Parameters
+    ----------
+    dataset_data : dict
+        Dictionary loaded from output of ``dataset.export_dataset("dataset.json.bz2")``
+
+    Returns
+    -------
+    openff.qcsubmit.datasets.*Dataset
+        QCSubmit dataset
+    """
     from openff.qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
