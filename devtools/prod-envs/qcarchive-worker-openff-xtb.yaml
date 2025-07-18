@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python =3.11
-  - qcfractalcompute>=0.61
+  - qcfractalcompute>=0.62
   - qcengine
   - qcelemental
 
