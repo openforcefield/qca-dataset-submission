@@ -17,9 +17,9 @@ jobs:
           #- qcarchive-worker-openff-ani
           #- qcarchive-worker-openff-openmm
           #- qcarchive-worker-openff-psi4
-          #- qcarchive-worker-openff-psi4-ddx
+          - qcarchive-worker-openff-psi4-ddx
           - qcarchive-worker-openff-xtb
-          #- qcarchive-worker-openff-psi4-basis-set-update
+          - qcarchive-worker-openff-psi4-basis-set-update
     steps:
       - name: Checkout code
         uses: nschloe/action-cached-lfs-checkout@v1
