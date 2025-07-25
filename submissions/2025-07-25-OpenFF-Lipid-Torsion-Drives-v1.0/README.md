@@ -6,8 +6,6 @@ A torsion drive data set created to improve the coverage of lipid-like headgroup
 
 ### General Information
 
-<!-- copy outputs from generation notebook into these fields -->
-
 - Date: 2025-07-25
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: Improve lipid headgroup and backbone coverage in Sage
