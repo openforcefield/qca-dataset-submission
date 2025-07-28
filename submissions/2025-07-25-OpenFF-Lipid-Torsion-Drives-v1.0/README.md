@@ -2,7 +2,14 @@
 
 ### Description
 
-A torsion drive data set created to improve the coverage of lipid-like headgroup and backbone parameters in Sage.
+A torsiondrive dataset was created to improve coverage of lipid-like headgroup, tail, and backbone parameters in the Sage force field. The model compounds were selected to enhance parameterization relevant to lipid force fields and include: methylacetate, dimethylphosphate, ethyltrimethylammonium, choline, 2-hexene, isopropylbutyrate, propylbutyrate, propylmethylphosphate, an esterified glycerol analogue ((M)EGLY), an esterified glycerol-phosphate analogue ((M)PGLY), cis-2-hexene, cis-5-decene, cis-7-pentadecene, and a lauroyl (LA) tail residue. These molecules were manually selected based on literature precedent and were chosen to mimic the training molecules used in the CHARMM36 and Amber lipid force fields.
+
+The intended use of this dataset is to improve Sage parameters relevant to lipid simulations. The dataset provides minimal coverage for glycerol backbone parameters, ester parameters, alkene parameters, and amine and phospahte headgroup parameters. This effort builds on previous datasets to curate lipid-relevant QM data, including: 
+- 2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0
+- 2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0
+- 2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0
+- 2024-10-30-OpenFF-Lipid-Optimization-Benchmark-Supplement-v1.0
+
 
 ### General Information
 
@@ -33,7 +40,6 @@ A torsion drive data set created to improve the coverage of lipid-like headgroup
 - `generate-dataset.py`: Script describing dataset generation and submission
 - `input-environment.yaml`: Environment file used to create Python environment for the script
 - `full-environment.yaml`: Fully-resolved environment used to execute the script
-- `td.toml`: Experimental input file for defining variables used throughout the QCA submission process
 
 - `dataset.json.bz2`: The compressed dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
