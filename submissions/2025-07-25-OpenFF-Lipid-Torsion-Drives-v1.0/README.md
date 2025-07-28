@@ -9,7 +9,7 @@ A torsion drive data set created to improve the coverage of lipid-like headgroup
 - Date: 2025-07-25
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: Improve lipid headgroup and backbone coverage in Sage
-- Name: 2025-07-25-OpenFF-Lipid-Torsion-Drives-v1.0
+- Name: OpenFF Lipid Torsion Drives v4.0
 - Number of unique molecules: 16
 - Number of driven torsions: 78
 - Number of filtered molecules: 0
