@@ -37,7 +37,7 @@ A torsion drive data set created to improve the coverage of lipid-like headgroup
 
 - `dataset.json.bz2`: The compressed dataset ready for submission.
 - `dataset.pdf`: A pdf file containing molecule 2D structures.
-- `dataset.smi`: SMILES for every molecule in the submission.
+- `output.smi`: SMILES for every molecule in the submission.
  
 ### Metadata
 * Elements: {C, P, N, H, O}
