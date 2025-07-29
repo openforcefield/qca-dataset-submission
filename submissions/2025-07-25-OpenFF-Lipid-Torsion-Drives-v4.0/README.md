@@ -1,4 +1,4 @@
-# OpenFF Lipid TorsionDrives v4.0
+# OpenFF Lipid Torsion Drives v4.0
 
 ### Description
 
@@ -10,6 +10,7 @@ The intended use of this dataset is to improve Sage parameters relevant to lipid
 - 2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0
 - 2024-10-30-OpenFF-Lipid-Optimization-Benchmark-Supplement-v1.0
 
+This dataset was generated at the B3LYP-D3BJ/DZVP level of theory using Psi4 with no implicit solvent and default specs. It includes molecules containing the elements C, H, O, N, and P, spanning formal charges of -1, 0, and +1. The molecular weights range up to 297.22 amu, with a mean of 194.30 amu.
 
 ### General Information
 
@@ -24,6 +25,9 @@ The intended use of this dataset is to improve Sage parameters relevant to lipid
 - Number of conformers min mean max: 1, 4.12, 5
 - Set of charges: [-1.0, 0.0, 1.0]
 - Mean molecular weight: 194.30
+- Set of charges: [-1.0, 0.0, 1.0]
+- Mean molecular weight: 194.30
+- Min molecular weight: 74.08
 - Max molecular weight: 297.22
 - Dataset Submitter: Julianne Hoeflich
 - Dataset Generator: Julianne Hoeflich 
