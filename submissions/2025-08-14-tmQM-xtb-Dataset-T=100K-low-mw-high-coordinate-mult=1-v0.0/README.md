@@ -1,13 +1,13 @@
-# tmQM xtb Dataset T=100K Pd Zn Fe Cu low mw v0.0
+# tmQM xtb Dataset T=100K low-mw high-coordinate mult=1 v0.0
 
 ### Description
 
 This dataset was generated starting from the tmQM dataset (release 13Aug2024, https://github.com/uiocompcat/tmQM). 
-This dataset contains 6,829 unique systems with 471,097 total configurations/spin states below 600 Da.  The molecules are 
-limited to containing transition metals d, Zn, Fe, or Cu, and also only contain elements C, H, P, S, O, N, F, Cl, 
-or Br with charges: {-1,0,+1}. The metal is restricted to greater than four coordination sites, except for Cu and Zn 
-must be greater than or equal to two. Each molecule was preprocessed using gfn2-xtb, and then a short MD simulation
-performed to provide ~30 additional configurations of per molecules at three different spin states, 1, 3, and 5. This
+This dataset contains 10,235 unique systems with 306,993 total configurations / spin states below 600 Da.  The molecules are 
+limited to containing transition metals Pd, Zn, Fe, or Cu, and also only contain elements Br, C, H, P, S, O, N, F, Cl, 
+or Br with charges: {-1,0,+1}. The metal is restricted to greater than three coordination sites for Pd, four for Fe, 
+and one for Cu and Zn. Each molecule was preprocessed using gfn2-xtb, and then a short MD simulation
+performed to provide ~30 additional configurations of per molecules at a multiplicity of 1. This
 singlepoint dataset was then run with the BP86/def2-TZVP for with those geometries from molecular dynamics using
  gfn-xtb. Each configuration is reported with the following properties: 'energy', 'gradient', 'dipole', 'quadrupole',
 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges' 'dipole_polarizabilities', 'mulliken_charges'. SMILES
@@ -17,14 +17,14 @@ imported into RDKit for initial visualization, but will not reflect the coordina
 ### General Information
 
 - Date: 2025-08-14
-- Purpose: BP86/def2-TZVP Conformers for single metal complexes with Pd, Fe, Zn, Cu, and change of {-1,0,+1}, MW <= 600 Da, generally high coordinate, and 30 geometry samples
+- Purpose: BP86/def2-TZVP Conformers for single metal complexes with Pd, Fe, Zn, Cu, and change of {-1,0,+1} and multiplicity of 1. MW <= 600 Da, generally high coordinate, and 30 geometry samples
 - Dataset Type: singlepoint
-- Name: tmQM xtb Dataset T=100K Pd Zn Fe Cu low mw v0.0
-- Number of unique molecules: 6,829
+- Name: tmQM xtb Dataset T=100K low-mw high-coordinate mult=1 v0.0
+- Number of unique molecules: 10,235
 - Number of filtered molecules: 0
-- Number of Conformers: 471,097
-- Number of conformers (min mean max): 30, 68, 88
-- Molecular Weight (min mean max): 95 455 600
+- Number of Conformers: 306,993
+- Number of conformers (min mean max): 3, 30, 31
+- Molecular Weight (min mean max): 95 462 600
 - Set of charges: -1.0, 0.0, 1.0
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: Christopher R. Iacovella
