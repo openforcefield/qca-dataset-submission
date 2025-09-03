@@ -1167,7 +1167,6 @@ def main():
         if args.set_priority:
             labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
-
             if not priorities:
                 set_priority = False
                 selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
@@ -1199,6 +1198,7 @@ def main():
             set_computetag = False
             selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
+        print(pr, states, selected_priority, selected_computetag)
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
         submission.execute_state(board=board,
                                  states=states,
