@@ -305,6 +305,7 @@ class Submission:
 
         # exit early if states specified, and this PR is not
         # in one of those
+        print(states, pr_state, pr_state not in states) # NotHere
         if states is not None:
             if pr_state not in states:
                 return
@@ -378,11 +379,11 @@ class Submission:
 
         """
         results = []
+        print(len(self.datasets)) # NoteHere
         for dataset in self.datasets:
-            if "scaffold" not in dataset:
-                print(f"Processing dataset '{dataset}'")
-                ds = DataSet(dataset, self, self.ghapi)
-                results.append(ds.execute_queued_submit())
+            print(f"Processing dataset '{dataset}'")
+            ds = DataSet(dataset, self, self.ghapi)
+            results.append(ds.execute_queued_submit())
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
@@ -1167,6 +1168,7 @@ def main():
         if args.set_priority:
             labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
+
             if not priorities:
                 set_priority = False
                 selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
@@ -1198,7 +1200,6 @@ def main():
             set_computetag = False
             selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
-        print(pr, states, selected_priority, selected_computetag)
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
         submission.execute_state(board=board,
                                  states=states,
