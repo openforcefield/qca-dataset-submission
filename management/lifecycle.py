@@ -13,7 +13,7 @@ from itertools import chain
 from collections import defaultdict, Counter
 from datetime import datetime
 
-from github import Github
+from github import Github, Auth
 
 if typing.TYPE_CHECKING:
     import qcelemental
@@ -109,7 +109,7 @@ def partition_records(
             continue
         entry = ds.get_entry(entry_name)
         if (mol := try_get_molecule(entry)) is None:
-            print(f"failed to get molecule from {entry_name}")
+            print(f"Failed to get molecule from {entry_name}")
             continue
 
         masses.append(sum(mol.masses))
@@ -305,7 +305,6 @@ class Submission:
 
         # exit early if states specified, and this PR is not
         # in one of those
-        print(states, pr_state, pr_state not in states) # NotHere
         if states is not None:
             if pr_state not in states:
                 return
@@ -379,7 +378,6 @@ class Submission:
 
         """
         results = []
-        print(len(self.datasets)) # NoteHere
         for dataset in self.datasets:
             print(f"Processing dataset '{dataset}'")
             ds = DataSet(dataset, self, self.ghapi)
@@ -1133,7 +1131,7 @@ def main():
     else:
         prnums = None
 
-    gh = Github(os.environ["GH_TOKEN"])
+    gh = Github(auth=Auth.Token(os.environ["GH_TOKEN"]))
     repo = gh.get_repo(REPO_NAME)
 
     # gather up all PRs with the `tracking` label
