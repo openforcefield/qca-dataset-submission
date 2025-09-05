@@ -1147,12 +1147,13 @@ def main():
         prs = tracking_prs
 
     print(f"Found {len(prs)} with the 'tracking' label")
-
+    print("Here we go") # NoteHere
     # grab the full project board state once so we don't have to hammer the API
     # over and over
     #board = _get_full_board(repo)
     import projectsv2
     board = projectsv2._get_full_board()
+    print("Got the board") # NoteHere
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
