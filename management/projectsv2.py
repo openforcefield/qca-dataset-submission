@@ -5,7 +5,8 @@ import requests
 class ProjectV2Project(dict):
     def __init__(self, project_node_id):
         self.project_node_id = project_node_id
-        data = self._get_project_data("PVT_kwDOARrkss4Am84U")
+        print("Just Checking")
+        data = self._get_project_data(project_node_id)
         print(data)
         self.columns = dict()
         for item in data['data']['node']['items']['nodes']:
