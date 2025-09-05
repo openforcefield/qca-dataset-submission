@@ -27,6 +27,7 @@ class ProjectV2Project(dict):
                     print(column_name, field['id'])
 
     def _get_project_data(self, project_node_id):
+        print("Before Query") # NoteHere
         query = """
         query {
           node(id: "%s") {
@@ -63,11 +64,15 @@ class ProjectV2Project(dict):
           }
         }
         """ % project_node_id
+        print("After Query") # NoteHere
 
         headers = {"Authorization": f"Bearer {os.environ['GH_TOKEN']}"}
         response = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
 
+        print("After Response") # NoteHere
         data = response.json()
+
+        print("Got Response") # NoteHere
         return data
 
 
