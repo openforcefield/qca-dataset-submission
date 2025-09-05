@@ -309,6 +309,7 @@ class Submission:
             if pr_state not in states:
                 return
             
+        print("Time to execute!")
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
         elif pr_state == "Queued for Submission":
@@ -1147,13 +1148,12 @@ def main():
         prs = tracking_prs
 
     print(f"Found {len(prs)} with the 'tracking' label")
-    print("Here we go") # NoteHere
+
     # grab the full project board state once so we don't have to hammer the API
     # over and over
     #board = _get_full_board(repo)
     import projectsv2
     board = projectsv2._get_full_board()
-    print("Got the board") # NoteHere
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
@@ -1199,7 +1199,9 @@ def main():
             set_computetag = False
             selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
+        print("Get state submission")
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
+        print("Execute state submission")
         submission.execute_state(board=board,
                                  states=states,
                                  reset_errors=args.reset_errors,

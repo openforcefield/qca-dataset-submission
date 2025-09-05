@@ -5,12 +5,9 @@ import requests
 class ProjectV2Project(dict):
     def __init__(self, project_node_id):
         self.project_node_id = project_node_id
-        print("Getting Data") # NoteHere
         data = self._get_project_data(project_node_id)
-        print("Got Data (outside)") # NoteHere
-#        print(data) # I think this causes execute_submission() to occur here for some reason
+#        print(data) # Somehow this causes execute_submission() to occur here
         self.columns = dict()
-        print("Made it")  # NoteHere
         for item in data['data']['node']['items']['nodes']:
             for field in item['fieldValues']['nodes']:
                 if 'name' in field:
@@ -68,9 +65,9 @@ class ProjectV2Project(dict):
 
         headers = {"Authorization": f"Bearer {os.environ['GH_TOKEN']}"}
         response = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
-        print("Got Response") # NoteHere
+
         data = response.json()
-        print("Got Data (inside)") # NoteHere
+
         return data
 
 
