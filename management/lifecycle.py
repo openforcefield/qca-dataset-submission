@@ -594,15 +594,19 @@ class SubmittableBase:
         else: # with qcportal.external.scaffold
             dataset_qcs = None # use self.submittable directly
 
-        try:
-            # Submit to QCArchive
-            output = self.submit(dataset_qcs, client)
-            self._queued_submit_report(output, success=True)
-        except:
-            self._queued_submit_report(traceback.format_exc(), success=False)
-            return {"new_state": "Queued for Submission"}
-        else:
-            return {"new_state": "Error Cycling"}
+        for attempt in range(max_retries + 1):
+            try:
+                # Submit to QCArchive
+                output = self.submit(dataset_qcs, client)
+                self._queued_submit_report(output, success=True)
+                return {"new_state": "Error Cycling"}
+            except Exception as e:
+                if attempt < max_retries:
+                    if attempt > 0:
+                        print(f"Submission attempt {attempt + 1} failed, retrying... ({max_retries - attempt} attempts remaining)")
+                else:
+                    self._queued_submit_report(traceback.format_exc(), success=False)
+                    return {"new_state": "Queued for Submission"}
 
     def _queued_submit_report(self, output, success):
         success_text = "**SUCCESS**" if success else "**FAILED**"
@@ -973,7 +977,7 @@ class SubmittableBase:
         else:
             from qcportal.external import scaffold
             # Submit dataset directly from submission file
-            ds = scaffold.from_json(self.submittable, client, append=True) # append feature needs to be added to qcfractal
+            ds = scaffold.from_json(self.submittable, client, append=True)
             output = ds.submit(
                 compute_tag="openff", # should these be set default (same as QCSubmit) or overwritten by the json?
                 compute_priority="normal",
@@ -1154,6 +1158,7 @@ def main():
     #board = _get_full_board(repo)
     import projectsv2
     board = projectsv2._get_full_board()
+    print("Got the board")
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files

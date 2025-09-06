@@ -6,6 +6,7 @@ class ProjectV2Project(dict):
     def __init__(self, project_node_id):
         self.project_node_id = project_node_id
         data = self._get_project_data(project_node_id)
+        print("Got project data")
 #        print(data) # Somehow this causes execute_submission() to occur here
         self.columns = dict()
         for item in data['data']['node']['items']['nodes']:
@@ -65,7 +66,7 @@ class ProjectV2Project(dict):
 
         headers = {"Authorization": f"Bearer {os.environ['GH_TOKEN']}"}
         response = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
-
+        print("Got response")
         data = response.json()
 
         return data
