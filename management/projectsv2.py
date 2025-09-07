@@ -7,7 +7,6 @@ class ProjectV2Project(dict):
         self.project_node_id = project_node_id
         data = self._get_project_data(project_node_id)
         print("Got project data")
-#        print(data) # Somehow this causes execute_submission() to occur here
         self.columns = dict()
         for item in data['data']['node']['items']['nodes']:
             for field in item['fieldValues']['nodes']:

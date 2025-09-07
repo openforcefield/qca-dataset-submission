@@ -1139,7 +1139,7 @@ def main():
     gh = Github(auth=Auth.Token(os.environ["GH_TOKEN"]))
     repo = gh.get_repo(REPO_NAME)
 
-    # gather up all PRs with the `tracking` label
+    print("Getting PRs with `tracking` label")
     tracking_prs = _get_tracking_prs(repo)
 
     # filter on PR numbers, if provided
