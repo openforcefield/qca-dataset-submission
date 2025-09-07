@@ -57,4 +57,4 @@ jobs:
           QCA_USER: ${{ secrets.QCA_USER }}
           QCA_KEY: ${{ secrets.QCA_KEY }}
         run: |
-            python ./management/lifecycle.py --states "Backlog" "Requires Scientific Review" "End of Life" "Archived/Complete"
+            python -u ./management/lifecycle.py --states "Backlog" "Requires Scientific Review" "End of Life" "Archived/Complete"

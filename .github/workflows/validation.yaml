@@ -47,4 +47,4 @@ jobs:
         env: # Or as an environment variable
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
         run: |
-          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
+          python -u ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
