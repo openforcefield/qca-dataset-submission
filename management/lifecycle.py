@@ -13,7 +13,7 @@ from itertools import chain
 from collections import defaultdict, Counter
 from datetime import datetime
 
-from github import Github
+from github import Github, Auth
 
 if typing.TYPE_CHECKING:
     import qcelemental
@@ -109,7 +109,7 @@ def partition_records(
             continue
         entry = ds.get_entry(entry_name)
         if (mol := try_get_molecule(entry)) is None:
-            print(f"failed to get molecule from {entry_name}")
+            print(f"Failed to get molecule from {entry_name}")
             continue
 
         masses.append(sum(mol.masses))
@@ -309,6 +309,7 @@ class Submission:
             if pr_state not in states:
                 return
             
+        print("Time to execute!")
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
         elif pr_state == "Queued for Submission":
@@ -379,10 +380,9 @@ class Submission:
         """
         results = []
         for dataset in self.datasets:
-            if "scaffold" not in dataset:
-                print(f"Processing dataset '{dataset}'")
-                ds = DataSet(dataset, self, self.ghapi)
-                results.append(ds.execute_queued_submit())
+            print(f"Processing dataset '{dataset}'")
+            ds = DataSet(dataset, self, self.ghapi)
+            results.append(ds.execute_queued_submit())
 
         for compute in self.computes:
             print(f"Processing compute '{compute}'")
@@ -594,15 +594,21 @@ class SubmittableBase:
         else: # with qcportal.external.scaffold
             dataset_qcs = None # use self.submittable directly
 
-        try:
-            # Submit to QCArchive
-            output = self.submit(dataset_qcs, client)
-            self._queued_submit_report(output, success=True)
-        except:
-            self._queued_submit_report(traceback.format_exc(), success=False)
-            return {"new_state": "Queued for Submission"}
-        else:
-            return {"new_state": "Error Cycling"}
+        for attempt in range(max_retries + 1):
+            try:
+                # Submit to QCArchive
+                output = self.submit(dataset_qcs, client)
+                self._queued_submit_report(output, success=True)
+            except Exception as e:
+                if attempt < max_retries:
+                    if attempt > 0:
+                        print(str(e))
+                        print(f"Submission attempt {attempt + 1} failed, retrying... ({max_retries - attempt} attempts remaining)")
+                else:
+                    self._queued_submit_report(traceback.format_exc(), success=False)
+                    return {"new_state": "Queued for Submission"}
+            else:
+                return {"new_state": "Error Cycling"}
 
     def _queued_submit_report(self, output, success):
         success_text = "**SUCCESS**" if success else "**FAILED**"
@@ -973,7 +979,7 @@ class SubmittableBase:
         else:
             from qcportal.external import scaffold
             # Submit dataset directly from submission file
-            ds = scaffold.from_json(self.submittable, client, append=True) # append feature needs to be added to qcfractal
+            ds = scaffold.from_json(self.submittable, client, append=True)
             output = ds.submit(
                 compute_tag="openff", # should these be set default (same as QCSubmit) or overwritten by the json?
                 compute_priority="normal",
@@ -1132,10 +1138,10 @@ def main():
     else:
         prnums = None
 
-    gh = Github(os.environ["GH_TOKEN"])
+    gh = Github(auth=Auth.Token(os.environ["GH_TOKEN"]))
     repo = gh.get_repo(REPO_NAME)
 
-    # gather up all PRs with the `tracking` label
+    print("Getting PRs with `tracking` label")
     tracking_prs = _get_tracking_prs(repo)
 
     # filter on PR numbers, if provided
@@ -1154,6 +1160,7 @@ def main():
     #board = _get_full_board(repo)
     import projectsv2
     board = projectsv2._get_full_board()
+    print("Got the board")
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
@@ -1199,7 +1206,9 @@ def main():
             set_computetag = False
             selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
+        print("Get state submission")
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
+        print("Execute state submission")
         submission.execute_state(board=board,
                                  states=states,
                                  reset_errors=args.reset_errors,
