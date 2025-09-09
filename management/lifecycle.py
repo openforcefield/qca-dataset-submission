@@ -599,14 +599,16 @@ class SubmittableBase:
                 # Submit to QCArchive
                 output = self.submit(dataset_qcs, client)
                 self._queued_submit_report(output, success=True)
-                return {"new_state": "Error Cycling"}
             except Exception as e:
                 if attempt < max_retries:
                     if attempt > 0:
+                        print(str(e))
                         print(f"Submission attempt {attempt + 1} failed, retrying... ({max_retries - attempt} attempts remaining)")
                 else:
                     self._queued_submit_report(traceback.format_exc(), success=False)
                     return {"new_state": "Queued for Submission"}
+            else:
+                return {"new_state": "Error Cycling"}
 
     def _queued_submit_report(self, output, success):
         success_text = "**SUCCESS**" if success else "**FAILED**"
