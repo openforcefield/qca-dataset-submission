@@ -39,7 +39,7 @@ As a rule, we never modify existing datasets, so any changes must be made using 
     - Origin of SMILES strings
     - Enumerated stereo flag (True/False)
     - Enumerated tautomers flag (True/False)
-    - Enumeration keywords/settings
+    - Enumeration keywords/settings (see [FAQ](../FAQ.md) for recommendations)
     - Code used to set up the dataset
 
  - A descriptive README file, as described below
