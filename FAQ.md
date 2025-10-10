@@ -15,7 +15,7 @@
 #### Multipole Moments
 - **QCPortal Input** `QCSpecification(keywords={"scf_properties": ['dipole', 'quadrupole']})`
 - **QCSubmit Input** `QCSpec(scf_properties=['dipole', 'quadrupole'])`
-- **Purpose**: Compute the SCF dipole, quadrupole, and possibly higher-order moments using the reference point defined by `"properties_origin"`, otherwise the coordinate origin is used.
+- **Purpose**: Compute the SCF dipole and quadrupole moments using the reference point defined by `"properties_origin"`, otherwise the coordinate origin is used.
 
 #### Partial Charges
 - **QCPortal Input** `QCSpecification(keywords={"scf_properties": ['lowdin_charges', 'mulliken_charges', 'mbis_charges']})`
@@ -91,10 +91,10 @@ from openff.qcsubmit.workflow_components import TorsionIndexer
 torsion_indexer = TorsionIndexer()
 symmetry_classes = get_symmetry_classes(offmol)
 
-atom_indices = (i, j, k, l)
+atom_indices = (3, 0, 1, 2)
 central_bond = tuple(sorted(atom_indices[1:-1]))
 symmetry_group = get_symmetry_group(central_bond, symmetry_classes)
-torsion_indexer.add_torsion((i, j, k, l), symmetry_group, (-165, 180))
+torsion_indexer.add_torsion(atom_indices, symmetry_group, (-165, 180))
 
 offmol.properties["dihedrals"] = torsion_indexer
 ```
@@ -106,10 +106,10 @@ offmol.properties["dihedrals"] = torsion_indexer
 <details>
 <summary>How to implement constraints (in geomeTRIC)?</summary>
 
-### Implementing Constraints with Program = geomeTRIC
+### Implementing Constraints with `program='geometric'`
 
 
-Most if not all datasets in this repository that involved geometry optimization did so with geomeTRIC with psi4 as an objective function. If one were to freeze a bond, angle, or dihedral during a geometry optimization, they would have to do so here.
+Most geometry optimizations here are done with geomeTRIC. If one were to constrain a bond, angle, or dihedral during a geometry optimization, there is an additional option that must be set.
 
 #### Example Dataset Reference
 For a practical example of implementing constraints in geomeTRIC, refer to the dataset submission `2025-03-05-OpenFF-Protein-PDB-4mer-v4.0`
@@ -127,10 +127,12 @@ OptimizationEntry(
 offmol.add_constraint(
     constraint = 'freeze', 
     constraint_type = 'dihedral', 
-    indices = constraint_index,
+    indices = [ 1, 3, 4, 5],
     bonded=True
 )
 ```
+
+In either case, these constraints are passed to geomeTRIC, which has its own separate syntax for defining constraints that does not directly translate to the syntax of neither QCPortal nor QCSubmit.
 
 - **Reference**: [geomeTRIC Documentation](https://geometric.readthedocs.io/en/latest/constraints.html)
 
@@ -149,16 +151,16 @@ There are some molecular systems, e.g., transition metal complexes, that are not
 Records can be assigned a specific compute tag with our GitHub Action CI. In the PR used to create the dataset, add a label `compute-<my tag>`.  
 The `<my tag>` portion will be the updated compute tag to be used to find the records on QCArchive, such as in NRP. Commonly the PR number is chosen.
 
-To more efficiently use compute, you can have the CI separate the molecules into molecular weight (MW) bins and tag accordingly.  
+Once the GitHub tag is in place, you must run the GitHub Action "Dataset Lifecycle - Reprioritize/Retag" to propagate the GitHub labels to QCArchive.
 
-A tag like, `compute-<my tag>_200-400-600` will group the molecules into groups where:  
-- `<my tag>-200` has a MW of 200 Da or less,  
-- `<my tag>-400` is between 200 Da and 400 Da,  
-- `<my tag>-600` is similarly between 400 Da and 600 Da, and  
-- `<my tag>-large` is > 600 Da.  
+To more efficiently use compute, the CI can also automatically separate the molecules into molecular weight (MW) bins and tag accordingly.  
+
+A tag like, `compute-pr123_200-400-600` will group the molecules into groups where:  
+- `pr123-200` has a MW of 200 Da or less,  
+- `pr123-400` is between 200 Da and 400 Da,  
+- `pr123-600` is similarly between 400 Da and 600 Da, and  
+- `pr123-large` is > 600 Da.  
 
 Any number of sequential bin boundaries can be strung together with hyphens.  
-
-Once the GitHub tag is in place, you must run the GitHub Action "Dataset Lifecycle - Reprioritize/Retag" to propagate the GitHub labels to QCArchive.
 
 </details>
