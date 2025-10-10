@@ -64,6 +64,7 @@ spec = QCSpecification(
 <summary>How to define a torsion drive?</summary>
 
 ### Defining Torsion Drive Constraints
+
 Torsion drive constraints are used to specify the dihedral angles that should be scanned during a torsion drive. These constraints are defined in the dataset submission file.
 
 **WARNING:** `Molecule.connectivity` must be defined so that dihedrals can be verified.
@@ -107,6 +108,9 @@ offmol.properties["dihedrals"] = torsion_indexer
 
 ### Implementing Constraints with Program = geomeTRIC
 
+
+Most if not all datasets in this repository that involved geometry optimization did so with geomeTRIC with psi4 as an objective function. If one were to freeze a bond, angle, or dihedral during a geometry optimization, they would have to do so here.
+
 #### Example Dataset Reference
 For a practical example of implementing constraints in geomeTRIC, refer to the dataset submission `2025-03-05-OpenFF-Protein-PDB-4mer-v4.0`
 
@@ -118,7 +122,7 @@ OptimizationEntry(
 )
 ```
 
-### In QCSubmit:
+#### In QCSubmit:
 ```python
 offmol.add_constraint(
     constraint = 'freeze', 
@@ -142,10 +146,19 @@ There are some molecular systems, e.g., transition metal complexes, that are not
 <details>
 <summary>Tagging records for compute, and tagging by molecular weight</summary>
 
-Records can be assigned a specific compute tag with our GitHub Action CI. In the PR used to create the dataset, add a label `compute-<my tag>`. The `<my tag>` portion will be the updated compute tag to be used to find the records on QCArchive, such as in NRP. Commonly the PR number is chosen.
+Records can be assigned a specific compute tag with our GitHub Action CI. In the PR used to create the dataset, add a label `compute-<my tag>`.  
+The `<my tag>` portion will be the updated compute tag to be used to find the records on QCArchive, such as in NRP. Commonly the PR number is chosen.
 
-To more efficiently use compute, you can have the CI separate the molecules into molecular weight (MW) bins and tag accordingly. A tag like, `compute-<my tag>_200-400-600` will group the molecules into groups where the tag `<my tag>-200` has a MW of 200 Da or less, `<my tag>-400` is between 200 Da and 400 Da, `<my tag>-600` is similarly between 400 Da and 600 Da, and `<my tag>-large` is > 600 Da. Any number of sequential bin boundary can be strung together with hyphens.
+To more efficiently use compute, you can have the CI separate the molecules into molecular weight (MW) bins and tag accordingly.  
 
-Once the GitHub tag is in plan, you must run the GitHub Action "Dataset Lifecycle - Reprioritize/Retag" to propagate the GitHub labels QCArchive.
+A tag like, `compute-<my tag>_200-400-600` will group the molecules into groups where:  
+- `<my tag>-200` has a MW of 200 Da or less,  
+- `<my tag>-400` is between 200 Da and 400 Da,  
+- `<my tag>-600` is similarly between 400 Da and 600 Da, and  
+- `<my tag>-large` is > 600 Da.  
+
+Any number of sequential bin boundaries can be strung together with hyphens.  
+
+Once the GitHub tag is in place, you must run the GitHub Action "Dataset Lifecycle - Reprioritize/Retag" to propagate the GitHub labels to QCArchive.
 
 </details>
