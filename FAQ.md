@@ -63,9 +63,9 @@ spec = QCSpecification(
 <details>
 <summary>How to define a torsion drive?</summary>
 
-### Defining Torsion Drive Constraints
+### Defining Torsion Drives
 
-Torsion drive constraints are used to specify the dihedral angles that should be scanned during a torsion drive. These constraints are defined in the dataset submission file.
+A torsion drive is defined by a single torsion in a molecule which is scanned. This torsion is defined in the dataset submission file via specifying the indices of the four atoms making up the torsion.
 
 **WARNING:** `Molecule.connectivity` must be defined so that dihedrals can be verified.
 
