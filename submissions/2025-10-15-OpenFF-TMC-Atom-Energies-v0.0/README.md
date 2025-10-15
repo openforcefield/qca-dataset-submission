@@ -15,7 +15,7 @@ This dataset generates the per atom energies for use in calculating formation en
 - Number of Conformers: 25
 - Number of conformers (min mean max): 1, 1, 1
 - Molecular Weight (min max): 1.008, 195.085
-- Set of charges: -2.0, 0.0, 2.0
+- Set of charges: -2, -1, 0, 1, 2
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: Jennifer A. Clark
 
