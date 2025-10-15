@@ -123,7 +123,7 @@ def check_scf_keywords(keywords):
         "MO_EXTENTS",
         # Add more as needed from psi4 documentation
     }
-    scf_properties = keywords.pop("scf_properties")
+    scf_properties = keywords.pop("scf_properties", {})
     for prop in scf_properties:
         try:
             if prop.upper() not in valid_props and not prop.startswith("MULTIPOLE("):
