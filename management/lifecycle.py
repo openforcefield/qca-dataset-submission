@@ -840,6 +840,7 @@ class SubmittableBase:
                    for key, counts in status.items() if key in dataset_specs}
 
         df = pd.DataFrame(status_).transpose()
+        print(df.columns)
         df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
         df.index.name = 'specification'
 
