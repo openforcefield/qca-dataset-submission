@@ -839,8 +839,10 @@ class SubmittableBase:
                          for status in list(RecordStatusEnum)}
                    for key, counts in status.items() if key in dataset_specs}
 
+        if not all(not inner for inner in status_.values()):
+            raise ValueError(f"Datasets are empty: {status_.keys()}")
+
         df = pd.DataFrame(status_).transpose()
-        print(df.columns)
         df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
         df.index.name = 'specification'
 
