@@ -4,10 +4,10 @@
 
 This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu', 'Li'}, and the non-metals:
  {'C', 'H', 'P', 'S', 'O', 'N', 'F', 'Cl', 'Br'}, with a complex charge of {-1,0,+1}. Additionally, there are some organic
- molecules for benchmarking purposes. These complexes are optimized using UKS wB97M-D3BJ/def2-TZVPPD with frozen core as a first
- optimization step before they are optimized at a higher level of theory. The molecular weight min, mean, and max are 81, 445,
- and 1026, respectively. There are 81 unique molecules, each tmc is submitted with 3 different
- multiplicities to assess the spin state.
+ molecules for benchmarking purposes. These complexes are optimized using UKS BP86/def2-TZVP and also wB97M-D3BJ/def2-TZVPPD with 
+ frozen core when computationally feasible as a first optimization step before they are optimized at a higher level of theory. The
+ molecular weight min, mean, and max are 81, 445, and 1026, respectively. There are 81 unique molecules, each tmc is submitted with
+ 3 different multiplicities to assess the spin state.
 
 Geometries were sources from the PDB CCD and multiple sources in the literature, the DOIs include: 10.1134/S0022476620090103, 
  10.1021/acs.inorgchem.7b03000,  10.1016/j.molstruc.2022.132506, 10.1107/S2053229619001396, 10.1021/om0492045, 10.1107/S0108270113021148,
@@ -62,6 +62,24 @@ Geometries were sources from the PDB CCD and multiple sources in the literature,
   * mp2_type: df
   * print: 3
   * freeze_core: True
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: BP86/def2-TZVP
+  * program: psi4
+  * method: BP86
+  * basis: def2-TZVP
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: uks
+  * print: 3
   * SCF Properties:
     * dipole
     * quadrupole
