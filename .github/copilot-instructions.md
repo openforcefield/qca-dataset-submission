@@ -13,9 +13,9 @@ Ensure existing dataset*.json files or scaffold*.json files are not being direct
 
 Check for existence of required sub-directories and files (dataset generation scripts, README.md, conda environment yaml).
 
-### 2. Molecule and Metadata Standards in dataset*.json or scaffold*.json File
+### 2. Molecule and Metadata Standards in *.py and *.ipynb* File
 
-Metadata is defined in the *.ipynb or *.py file used to create the dataset and also stored in the dataset*.json.bz2 or scaffold*.json.bz2 LFS files.
+Metadata is defined in the *.ipynb or *.py file used to create the dataset. Do not review dataset*.json.bz2 or scaffold*.json.bz2 LFS files.
 
 For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES string, coordinate data, and total charge.  
 
@@ -36,13 +36,13 @@ Check that README.md in the PR dataset directory contains: dataset name, tagline
 
 The title at the top of the README.md should be identical to the dataset name.
 
-For revisions: ensure changelog is updated with new entry describing the changes (including record IDs removed/modified and explanations).
+If the submission directory already exists, the PR is a revision. For revisions: ensure changelog is updated with new entry describing the changes (including record IDs removed/modified and explanations).
 
 Ensure all files in the directory are listed and defined in the README.md.
 
 ### 4. Versioning & Naming Convention
 
-Confirm versioning is consistent: major version X corresponds to STANDARDS version (e.g., v4.x for STANDARDS version 4).  
+Confirm versioning is consistent: major version X corresponds to the STANDARDS version (e.g., v4.x for STANDARDS version 4) defined in STANDARDS.md in the top level of this repo.  
 
 Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) and use spaces.  
 
@@ -50,17 +50,12 @@ For datasets not conforming, version should start with v0.x.
 
 Minor version bumps (v4.1, v4.2, etc) should reflect minor additions/fixes rather than major redesigns.
 
-### 5. Fitting and Benchmarking Standards
-
-Check that torsion drive filtering rules are followed: no torsion drives on 3-6 atom rings, warnings for torsions on rings, valence completeness checks.  
-
-Ensure post-submission filters were applied: stereochemistry preserved, connectivity preserved, status “ran successfully”, hydrogen bonding checks for torsion drives, any other known issues removed.  
 
 ## Tone and Format of Comments
 
 Begin the review with a warning that your review is experimental and should be superseded by the contents of the STANDARDS.md doc.
 
-Provide a short summary at the top of the review comment (e.g., “The new dataset directory …/v4.1/ mostly follows the standards, but missing DOI and metadata fields.”)  
+Provide a short summary at the top of the review comment (e.g., “The new dataset directory <insert dataset name> mostly follows the standards, but missing DOI and metadata fields.”)  
 
 Then list specific issues or improvements as bullet points, referencing file paths and dataset names when possible.  
 
@@ -78,7 +73,7 @@ Do not (in this automated review) attempt deep scientific correctness (e.g., ver
 
 Ensure that submission workflows are reproducible and consistent (scripts (e.g. *.ipynb or *.py), environment yaml, README.md present).  
 
-Flag missing or mis-named files, inconsistent versioning, absent required metadata, naming issues, missing changelog entries, or missing DOI (for public releases).
+Flag missing or mis-named files, inconsistent versioning, absent required metadata, naming issues, missing changelog entries.
 
 ## Feedback & Follow-Up
 
@@ -86,4 +81,4 @@ For each flagged issue, include a note on how to fix it (e.g., “Add the DOI in
 
 If the pull request includes a version bump, verify the change directory exists, version increments correctly, metadata version updated, README updated, and index of datasets in repository updated.  
 
-If everything passes, indicate positive verification.
+If no issues in adherence to the standards can be found, indicate positive verification.
