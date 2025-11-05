@@ -46,7 +46,7 @@ Confirm versioning is consistent: major version X corresponds to STANDARDS versi
 
 Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) and use spaces.  
 
-For datasets not conforming, version should start with v0.x.  
+For datasets not conforming to any version of STANDARDS, version should start with v0.x.  This is common in cases where the molecules do not have valid CMILES (add in other common reasons for 0.X versions)
 
 Minor version bumps (v4.1, v4.2, etc) should reflect minor additions/fixes rather than major redesigns.
 
