@@ -17,7 +17,7 @@ Check for existence of required sub-directories and files (dataset generation sc
 
 Metadata is defined in the *.ipynb or *.py file used to create the dataset and also stored in the dataset*.json.bz2 or scaffold*.json.bz2 LFS files.
 
-For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES string, coordinate data, and total charge.  
+For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES ("CMILES") string, coordinate data, and total charge.  
 
 For each dataset metadata entry: verify that it includes name, version, short description, long description with usage, method, basis, elements & charges covered, min/mean/max molecular weight, DOI (if applicable), provenance link, GitHub submitter username.  
 
