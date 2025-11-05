@@ -1,6 +1,6 @@
 # GitHub Copilot Code Review Instructions
 
-When performing an automated review of pull requests in this repository, the review tool (such as GitHub Copilot Code Review) should prioritize compliance with the dataset standards as defined in our STANDARDS.md and associated policies.  
+When performing an automated review of pull requests in this repository, the review tool (such as GitHub Copilot Code Review) should prioritize compliance with the dataset standards as defined in our STANDARDS.md (a file found in the top level of this repository, which a reviewer should read before performing a review) and associated policies.  
 The goal is to provide feedback that helps maintain a consistent, reproducible, and high-quality dataset submission workflow.
 
 ## Key Areas to Check
@@ -17,7 +17,7 @@ Check for existence of required sub-directories and files (dataset generation sc
 
 Metadata is defined in the *.ipynb or *.py file used to create the dataset. Do not review dataset*.json.bz2 or scaffold*.json.bz2 LFS files.
 
-For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES string, coordinate data, and total charge.  
+For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES ("CMILES") string, coordinate data, and total charge.  
 
 For each dataset metadata entry: verify that it includes name, version, short description, long description with usage, method, basis, elements & charges covered, min/mean/max molecular weight, DOI (if applicable), provenance link, GitHub submitter username.  
 
@@ -46,7 +46,7 @@ Confirm versioning is consistent: major version X corresponds to the STANDARDS v
 
 Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) and use spaces.  
 
-For datasets not conforming, version should start with v0.x.  
+For datasets not conforming to any version of STANDARDS, version should start with v0.x.  This is common in cases where the molecules do not have valid CMILES (add in other common reasons for 0.X versions)
 
 Minor version bumps (v4.1, v4.2, etc) should reflect minor additions/fixes rather than major redesigns.
 
