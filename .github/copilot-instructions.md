@@ -1,6 +1,6 @@
 # GitHub Copilot Code Review Instructions
 
-When performing an automated review of pull requests in this repository, the review tool (such as GitHub Copilot Code Review) should prioritize compliance with the dataset standards as defined in our STANDARDS.md and associated policies.  
+When performing an automated review of pull requests in this repository, the review tool (such as GitHub Copilot Code Review) should prioritize compliance with the dataset standards as defined in our STANDARDS.md (a file found in the top level of this repository, which a reviewer should read before performing a review) and associated policies.  
 The goal is to provide feedback that helps maintain a consistent, reproducible, and high-quality dataset submission workflow.
 
 ## Key Areas to Check
