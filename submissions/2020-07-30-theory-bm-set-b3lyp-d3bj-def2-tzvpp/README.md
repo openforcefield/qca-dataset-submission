@@ -32,7 +32,7 @@ This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchm
 - `theory-bm-set_setttings.yaml`: The QCSubmit settings used to generate the torsiondrive dataset.
 - `theory-bm-set-curated.smi`:  The smiles file of the dataset.
 - `theory-bm-set-curated.pdf`: A pdf file containing molecule 2D structures with targeted torsions for driving highlighted.
-- `update_spec_name.ipynb`: Update spec name from `default` (should be reserved for `b3lyp-d3bj/dzvp`) to `b3lyp-d3bj/def2-tzvpp` (11/20/2025)
+- `update_spec_name.ipynb`: Update spec name from `default` (should be reserved for `b3lyp-d3bj/dzvp`) to `b3lyp-d3bj/def2-tzvpp` (2025-11-20)
 
 
 ### Metadata
@@ -46,6 +46,6 @@ This is a TorsionDrive dataset consisting of 36 1-D torsions selected for benchm
     - wiberg_lowdin_indices
     - mayer_indices
 - qc spec
-    - name: ~~default~~ b3lyp-d3bj/def2-tzvpp (updated in `update_spec_name.ipynb` 11/20/2025)
+    - name: ~~default~~ b3lyp-d3bj/def2-tzvpp (updated in `update_spec_name.ipynb` 2025-11-20)
     - method: B3LYP-D3BJ
     - basis: def2-TZVPP
