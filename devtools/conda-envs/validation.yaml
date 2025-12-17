@@ -19,4 +19,4 @@ dependencies:
   - pandas
   - tabulate
   - openmm
-  - psi4
+  - psi4>=1.10
