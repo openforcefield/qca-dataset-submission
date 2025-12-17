@@ -6,7 +6,7 @@ channels:
 dependencies:
   - python
   - qcportal
-  - qcelemental
+  - qcelemental==0.29
   - openff-qcsubmit
   - openff-toolkit-base
   - basis_set_exchange
