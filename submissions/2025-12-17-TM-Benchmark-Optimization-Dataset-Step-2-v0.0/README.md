@@ -7,8 +7,8 @@
   some organic molecules for benchmarking purposes. All molecules are taken from those completed optimizations 
   in the optimization dataset "TM Benchmark Optimization Dataset Step 1 v0.0". These complexes are optimized 
   at a higher level of theory with SCS-MP2 and SCS-MP3 with and without frozen core. The molecular weight min,
-  mean, and max are 81, 420, and 1026, respectively. There are 75 unique molecules, each tmc is submitted with
-  multiplicities that completed on the previous step to assess the spin state.
+  mean, and max are 81, 420, and 1026, respectively. There are 75 unique molecules, each transition metal 
+  complex is submitted with multiplicities that completed on the previous step to assess the spin state.
 
 
 ### General Information
