@@ -57,7 +57,6 @@
     * wiberg_lowdin_indices
     * mayer_indices
     * lowdin_charges
-    * lowdin_spins
     * mulliken_charges
   * Function Kwargs
     * Properties
@@ -78,7 +77,6 @@
     * wiberg_lowdin_indices
     * mayer_indices
     * lowdin_charges
-    * lowdin_spins
     * mulliken_charges
   * Function Kwargs
     * Properties
@@ -99,7 +97,6 @@
     * wiberg_lowdin_indices
     * mayer_indices
     * lowdin_charges
-    * lowdin_spins
     * mulliken_charges
   * Function Kwargs
     * Properties
@@ -120,7 +117,6 @@
     * wiberg_lowdin_indices
     * mayer_indices
     * lowdin_charges
-    * lowdin_spins
     * mulliken_charges
   * Function Kwargs
     * Properties
