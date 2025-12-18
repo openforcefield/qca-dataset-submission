@@ -5,18 +5,13 @@ channels:
 
 dependencies:
   - python
-  - qcportal >=0.62
-  - openff-qcsubmit >=0.55.0
-  - openff-toolkit-base >=0.12
-  - openff-forcefields >=2.0.0
-  - openff-units >= 0.2.0
+  - qcportal
+  - qcelemental
+  - openff-qcsubmit>=0.55.0
+  - openff-toolkit-base
   - basis_set_exchange
-  - pydantic
-  - typing-extensions
-  - cachetools
-  - rdkit
   - PyGithub
   - pandas
   - tabulate
-  - openmm
-  - psi4
+  - rdkit
+  - psi4>=1.9
