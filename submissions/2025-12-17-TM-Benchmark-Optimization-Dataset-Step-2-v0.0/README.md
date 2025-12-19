@@ -18,12 +18,12 @@
 - Purpose: Diverse set of conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and charge of {-1,0,+1}, with some organic molecules, all undergoing step 2, high level of theory final optimization.
 - Dataset Type: optimization
 - Name: TM Benchmark Optimization Dataset Step 2 v0.0
-- Number of unique molecules:   75
+- Number of unique molecules:   163
 - Number of filtered molecules: 0
-- Number of Conformers: 75
+- Number of Conformers: 163
 - Number of conformers (min mean max): 1 1 1
 - Number of multiplicities per molecule (min mean max): 1 2 3
-- Molecular Weight (min mean max): 81 420 1026
+- Molecular Weight (min mean max): 81 421 1026
 - Set of charges: -1, 0, 1
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: Jennifer A. Clark
@@ -40,19 +40,76 @@
 - `scaffold.json.bz2`: A compressed json file of the target dataset
  
 ### Metadata
-
 * Elements: {'Br', 'C', 'Cl', 'Cu', 'F', 'Fe', 'H', 'Li', 'Mg', 'N', 'O', 'P', 'Pd', 'S', 'Zn'}
-* QC Specification: wb97m-d3bj/def2-tzvppd FC
+* QC Specification: scs-mp2/aug-cc-pvtz-dk
   * program: psi4
-  * method: wb97m-d3bj
-  * basis: def2-tzvppd
+  * method: scs-mp2
+  * basis: aug-cc-pvtz-dk
   * implicit_solvent: None
   * maxiter: 500
-  * reference: uks
-  * opt_coordinates: both
-  * scf_type: df
-  * mp2_type: df
+  * reference: uhf
   * print: 3
+  * properties_origin: ['COM']
+  * freeze_core: False
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: scs-mp2/aug-cc-pvtz-dk-fc
+  * program: psi4
+  * method: scs-mp2
+  * basis: aug-cc-pvtz-dk
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: uhf
+  * print: 3
+  * properties_origin: ['COM']
+  * freeze_core: True
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: scs-mp3/aug-cc-pvtz-dk
+  * program: psi4
+  * method: scs-mp3
+  * basis: aug-cc-pvtz-dk
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: uhf
+  * print: 3
+  * properties_origin: ['COM']
+  * freeze_core: False
+  * SCF Properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+    * lowdin_charges
+    * mulliken_charges
+  * Function Kwargs
+    * Properties
+      * dipole_polarizabilities
+* QC Specification: scs-mp3/aug-cc-pvtz-dk-fc
+  * program: psi4
+  * method: scs-mp3
+  * basis: aug-cc-pvtz-dk
+  * implicit_solvent: None
+  * maxiter: 500
+  * reference: uhf
+  * print: 3
+  * properties_origin: ['COM']
   * freeze_core: True
   * SCF Properties:
     * dipole
