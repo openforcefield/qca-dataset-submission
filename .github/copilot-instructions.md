@@ -44,7 +44,7 @@ Ensure all files in the directory are listed and defined in the README.md.
 
 Confirm versioning is consistent: major version X corresponds to the STANDARDS version (e.g., v4.x for STANDARDS version 4) defined in STANDARDS.md in the top level of this repo.  
 
-Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) and use spaces.  
+Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) if the version is >=v4.0, the dataset not should also use spaces.
 
 For datasets not conforming to any version of STANDARDS, version should start with v0.x.  This is common in cases where the molecules do not have valid CMILES (add in other common reasons for 0.X versions)
 
@@ -55,7 +55,7 @@ Minor version bumps (v4.1, v4.2, etc) should reflect minor additions/fixes rathe
 
 Begin the review with a warning that your review is experimental and should be superseded by the contents of the STANDARDS.md doc.
 
-Provide a short summary at the top of the review comment (e.g., “The new dataset directory <insert dataset name> mostly follows the standards, but missing DOI and metadata fields.”)  
+Provide a short summary at the top of the review comment (e.g., “The new dataset directory <insert dataset name> mostly follows the standards, but ...”)  
 
 Then list specific issues or improvements as bullet points, referencing file paths and dataset names when possible.  
 
@@ -67,13 +67,13 @@ Provide all needed information but avoid being verbose.
 
 ## Scope / Focus
 
-Focus primarily on structural and metadata compliance with the STANDARDS.md document.  
+Focus primarily on structural and metadata compliance with the STANDARDS.md document. The information may be formatted as a nested list or structured text; exact formatting is not prescribed.
 
 Do not (in this automated review) attempt deep scientific correctness (e.g., verifying actual theory computation results) — leave that to domain experts.  
 
 Ensure that submission workflows are reproducible and consistent (scripts (e.g. *.ipynb or *.py), environment yaml, README.md present).  
 
-Flag missing or mis-named files, inconsistent versioning, absent required metadata, naming issues, missing changelog entries.
+Flag missing or mis-named files, inconsistent versioning, absent required metadata, naming issues, missing changelog entries for versions beyond the initial submission.
 
 ## Feedback & Follow-Up
 
@@ -82,3 +82,14 @@ For each flagged issue, include a note on how to fix it (e.g., “Add the DOI in
 If the pull request includes a version bump, verify the change directory exists, version increments correctly, metadata version updated, README updated, and index of datasets in repository updated.  
 
 If no issues in adherence to the standards can be found, indicate positive verification.
+
+## Comment Resolution and Verification
+
+When reviewing a PR or subsequent comments:
+- If a maintainer has responded to your comment with clarification or justification, mark the comment as resolved if their response adequately addresses the concern
+- If a file has been updated to address your comment, verify the change and mark as resolved
+- Do NOT leave comments unresolved when:
+  - The maintainer explains why the current approach is compliant with STANDARDS.md
+  - The STANDARDS.md explicitly allows for the approach taken
+  - Your initial comment was based on a misinterpretation of the standards
+- Focus on objective compliance with STANDARDS.md, not on style preferences or suggestions beyond the requirements
