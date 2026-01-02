@@ -8,7 +8,7 @@ configurations. More details of how these conformers were generated can be found
 (https://doi.org/10.5281/zenodo.17042449). This dataset contains 10,234 unique systems with 102,338 
 total configurations / spin states, with molecular weights between 95 Da and 600 Da, with a mean of 
 462 Da.  The molecules are limited to containing transition metals Pd, Zn, Fe, or Cu, and also only
-contain elements Br, C, H, P, S, O, N, F, Cl, or Br with charges: {-1,0,+1}. The metal is 
+contain elements Br, C, H, P, S, O, N, F, or Cl with charges: {-1,0,+1}. The metal is 
 restricted to greater than three coordination sites for Pd, four for Fe, and one for Cu and Zn. 
 This singlepoint dataset was run with the BP86/def2-TZVP for those geometries from molecular dynamics 
 using gfn-xtb. Each configuration is reported with the following properties: 'energy', 'gradient', 'dipole', 
