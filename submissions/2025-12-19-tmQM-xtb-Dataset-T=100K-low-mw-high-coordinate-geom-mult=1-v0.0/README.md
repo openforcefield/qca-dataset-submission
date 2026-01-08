@@ -5,8 +5,9 @@
 This dataset was generated starting from an adaptation of the tmQM dataset where each molecule was 
 preprocessed using gfn2-xtb, and then a short MD simulation performed to provide 10 off-optimum 
 configurations. More details of how these conformers were generated can be found on Zenodo 
-(https://doi.org/10.5281/zenodo.17042449). This dataset contains 10,234 unique systems with 102,338 
-total configurations / spin states, with molecular weights between 95 Da and 600 Da, with a mean of 
+(https://doi.org/10.5281/zenodo.17042449; Version v1.2_PdZnFeCu_sm1_3_5_T100K). 
+This dataset contains 10,234 unique systems with 102,338 
+total configurations / spin state combinations, with molecular weights between 95 Da and 600 Da, with a mean of 
 462 Da.  The molecules are limited to containing transition metals Pd, Zn, Fe, or Cu, and also only
 contain elements Br, C, H, P, S, O, N, F, or Cl with charges: {-1,0,+1}. The metal is 
 restricted to greater than three coordination sites for Pd, four for Fe, and one for Cu and Zn. 
