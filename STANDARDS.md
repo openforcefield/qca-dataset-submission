@@ -26,7 +26,7 @@ As a rule, we never modify existing datasets, so any changes must be made using 
     - Elements covered
     - Charges covered
     - Min, mean, and max molecular weight of the molecules in the dataset
-    - Zenodo DOI (for public release datasets only, see below on FF releases)
+    - Zenodo DOI (**ONLY for force field release datasets** as described in the "Force field releases" section below; NOT required for regular dataset submissions)
     - Description should be kept up-to-date if e.g. new compute specs are added, using the [`set_description`](https://molssi.github.io/QCFractal/user_guide/records/base.html#qcportal.dataset_models.BaseDataset.set_description) function in QCPortal.
 - A link/URL/reference pointing to the provenance to reproduce dataset (e.g. the GH submission folder)
 - A github submitter username
@@ -47,12 +47,13 @@ As a rule, we never modify existing datasets, so any changes must be made using 
 ## Each dataset README must contain the following information:
 
 - All information specified in the dataset description/metadata
-- A changelog (if there are changes, see the revision section below)
-- The name of the person who selected/sourced the molecules 
+- A changelog (for revisions only, i.e., when the version is incremented beyond the initial submission; initial submissions such as v4.0 or v0.0 do not require a changelog)
+- The name of the person who selected/sourced the molecules, i.e., Curator
 - A description of the meaning of the entry/molecule keys/names, if not generated automatically by QCSubmit
 - A set of elements that the dataset contains
 - A set of charges that the dataset contains
-- The min, mean and max molecular weight of molecules the dataset contains 
+- The min, mean and max molecular weight of molecules the dataset contains
+- The QC specification details including: program, method, basis, driver, implicit_solvent (if used), and any additional keywords/settings used for the computation
 
 ## Each revision must use the following procedure:
 
@@ -73,13 +74,14 @@ A revision means creating a new dataset based on an existing one, with the inten
 ## Dataset naming and versioning
 
 Each dataset shall be versioned according to `vX.Y.Z`. X refers to the major version, Y to the minor version, and Z to a micro version.
-- The naming of a dataset should have the following structure:
+
+- The first submission of a dataset will have a version `"v4.0"`
+
+- The naming of a dataset that is `>=v4.0` should have the following structure:
 
     `"OpenFF <descriptive and uniquely-identifying name> v<version number>"`
 
   Where the words in the dataset should be separated by spaces.
-
-- The first submission of a dataset will have a version `"v4.0"`
 
 * The major version shall indicate the STANDARDS that the dataset conforms to. Datasets which are not intended to conform to any STANDARDS should start with 0, e.g. `"v0.1"`. 
 
