@@ -19,7 +19,7 @@ imported into RDKit for initial visualization, but will not reflect the coordina
 ### General Information
 
 - Date: 2025-08-14
-- Purpose: BP86/def2-TZVP Conformers for single metal complexes with Pd, Fe, Zn, Cu, and change of {-1,0,+1} run in xtb with a multiplicity of 1 and in DFT run with a multiplicity of 1, 3, or 5. MW <= 600 Da, generally high coordinate, and a max of 31 geometry samples
+- Purpose: BP86/def2-TZVP Conformers for single metal complexes with Pd, Fe, Zn, Cu, and charge of {-1,0,+1} run in xtb with a multiplicity of 1 and in DFT run with a multiplicity of 1, 3, or 5. MW <= 600 Da, generally high coordinate, and a max of 30 geometry samples
 - Dataset Type: singlepoint
 - Name: tmQM xtb Dataset T=100K low-mw high-coordinate xtb mult=1 v0.0
 - Number of unique molecules: 10,235
@@ -34,7 +34,7 @@ imported into RDKit for initial visualization, but will not reflect the coordina
 ### Changelog
 
 - 2025-08-14: Dataset created
-- 2026-01-13: Dataset metadata, description, name, tagline were updates to more accurately reflect the dataset contents
+- 2026-01-13: Dataset metadata, description, name, tagline were updated to more accurately reflect the dataset contents
 
 ### QCSubmit generation pipeline
 
