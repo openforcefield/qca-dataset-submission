@@ -2,7 +2,9 @@
 
 ## Description
 
-A quantum chemical (QC) optimization and torsiondrive datasets generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train parameters in [OpenFF 2.3.0 Sage](https://github.com/openforcefield/ash-sage-rc2) with NAGL partial charge model AshGC. 
+A quantum chemical (QC) optimization and torsiondrive datasets generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train parameters in [OpenFF 2.3.0 Sage](https://github.com/openforcefield/ash-sage-rc2) with NAGL partial charge model AshGC.
+
+Datasets available on [Zenodo]()
 
 ### Optimization Datasets
 
@@ -90,13 +92,12 @@ The optimization records were selected to maximize chemical diversity using a se
 ---
 * Class: OpenFF Optimization Dataset
 * Dataset Type: optimization
-* Purpose: B3LYP-D3BJ/DZVP conformers for training OpenFF 2.2.0 Sage with AshGC NAGL partial charge model.
+* Purpose: B3LYP-D3BJ/DZVP conformers for training OpenFF 2.3.0 Sage with AshGC NAGL partial charge model.
 * Number of unique molecules: 4696
 * Number of conformers: 4696
 * Number of conformers (min, mean, max): 1.00, 1.00, 1.00
 * Molecular weight (min, mean, max): 32.05, 207.67, 878.25
 * Charges: -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0
-* Dataset generator: Lily Wang
 ---
 * Class: OpenFF TorsionDrive Dataset
 * Dataset Type: torsiondrive
@@ -107,7 +108,6 @@ The optimization records were selected to maximize chemical diversity using a se
 * Number of conformers (min, mean, max): 1, 1, 1
 * Molecular weight (min, mean, max): 32.05, 165.33, 511.27
 * Charges: -3.0, -2.0, -1.0, 0.0, 1.0, 2.0
-* Dataset generator: Lily Wang
 
 ## Generation Pipeline
 
