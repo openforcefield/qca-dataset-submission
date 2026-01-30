@@ -132,6 +132,7 @@ Note that the specifications used to produce the records in this dataset had sli
 * Elements: {N, P, Cl, O, Br, S, I, H, F, C}
 ---
 * Program: geometric
+* Program Keywords: {'qccnv': True, 'reset': True, 'enforce': 0.1, 'epsilon': 0, 'coordsys': 'tric'}
 * QC Specifications: default-232
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -146,6 +147,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: geometric
+* Program Keywords: {}
 * QC Specifications: default-281
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -159,6 +161,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * wiberg_lowdin_indices
 ---
 * Program: geometric
+* Program Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': False, 'reset': False, 'trust': 0.1, 'molcnv': False, 'enforce': 0, 'epsilon': 1e-05, 'maxiter': 300, 'coordsys': 'tric', 'convergence_set': 'gau'}
 * QC Specifications: default-296
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -173,6 +176,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: geometric
+* Program Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': False, 'reset': True, 'trust': 0.1, 'molcnv': False, 'enforce': 0, 'epsilon': 1e-05, 'maxiter': 300, 'coordsys': 'dlc', 'convergence_set': 'gau'}
 * QC Specifications: default-315-453-372
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -187,6 +191,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: geometric
+* Program Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': False, 'reset': True, 'trust': 0.1, 'molcnv': False, 'enforce': 0, 'epsilon': 1e-05, 'maxiter': 300, 'coordsys': 'dlc', 'convergence_set': 'gau'}
 * QC Specifications: default-345-365
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -202,6 +207,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * mbis_charges
 ---
 * Program: geometric
+* Program Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': False, 'reset': True, 'trust': 0.1, 'molcnv': False, 'enforce': 0.0, 'epsilon': 1e-05, 'maxiter': 300, 'coordsys': 'dlc', 'convergence_set': 'GAU'}
 * QC Specifications: default-379-383-385-387-388-392-393-396-399-412-415-416-426
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -216,6 +222,7 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: geometric
+* Program Keywords: {}
 * QC Specifications: default-41
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -225,6 +232,7 @@ Note that the specifications used to produce the records in this dataset had sli
   * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
 ---
 * Program: geometric
+* Program Keywords: {}
 * QC Specifications: default-43-45-50
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -234,6 +242,7 @@ Note that the specifications used to produce the records in this dataset had sli
   * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
 ---
 * Program: geometric
+* Program Keywords: {}
 * QC Specifications: default-68-69-251-253-255-254-270
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -254,7 +263,8 @@ Note that the specifications used to produce the records in this dataset had sli
 * Elements: {Br, C, Cl, F, H, I, N, O, P, S}
 ---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {'qccnv': True, 'reset': True, 'enforce': 0.1, 'epsilon': 0, 'coordsys': 'tric'}
 * QC Specifications: default-57
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -269,7 +279,8 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {'qccnv': True, 'reset': True, 'enforce': 0.1, 'epsilon': 0, 'coordsys': 'tric'}
 * QC Specifications: default-242-243-48-70-235-256-257-258-259-265-266-278-282
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -284,7 +295,8 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': True, 'reset': True, 'trust': 0.1, 'molcnv': False, 'enforce': 0.1, 'epsilon': 0, 'maxiter': 300, 'coordsys': 'tric', 'convergence_set': 'gau'}
 * QC Specifications: default-283-289-291
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -297,9 +309,10 @@ Note that the specifications used to produce the records in this dataset had sli
     * quadrupole
     * wiberg_lowdin_indices
     * mayer_indices
-
+---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {'tmax': 0.3, 'check': 0, 'qccnv': True, 'reset': True, 'trust': 0.1, 'molcnv': False, 'enforce': 0.1, 'epsilon': 0, 'maxiter': 300, 'coordsys': 'dlc', 'convergence_set': 'gau'}
 * QC Specifications: default-308-314-324-370-374-317
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -314,7 +327,8 @@ Note that the specifications used to produce the records in this dataset had sli
     * mayer_indices
 ---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {'qccnv': True, 'reset': True, 'enforce': 0.1, 'epsilon': 0, 'coordsys': 'tric'}
 * QC Specifications: default-36
   * program: psi4
   * driver: SinglepointDriver.deferred
@@ -324,7 +338,8 @@ Note that the specifications used to produce the records in this dataset had sli
   * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
 ---
 * Program: torsiondrive
-* Optimization Specification: geometric
+* Optimization Program: geometric
+* Optimization Keywords: {}
 * QC Specifications: default-378-380-381-382-384-386-389-390-413-424-423
   * program: psi4
   * driver: SinglepointDriver.deferred
