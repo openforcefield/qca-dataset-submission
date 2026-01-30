@@ -2,7 +2,7 @@
 
 ## Description
 
-A quantum chemical (QC) optimization and torsiondrive datasets generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train parameters in [OpenFF 2.3.0 Sage](https://github.com/openforcefield/ash-sage-rc2) with NAGL partial charge model AshGC.
+A quantum chemical (QC) optimization and torsiondrive datasets generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train parameters in [OpenFF 2.3.0 Sage](https://github.com/openforcefield/ash-sage-rc2) with NAGL partial charge model AshGC v1.0.
 
 Datasets available on [Zenodo]()
 
@@ -92,7 +92,7 @@ The optimization records were selected to maximize chemical diversity using a se
 ---
 * Class: OpenFF Optimization Dataset
 * Dataset Type: optimization
-* Purpose: B3LYP-D3BJ/DZVP conformers for training OpenFF 2.3.0 Sage with AshGC NAGL partial charge model.
+* Purpose: B3LYP-D3BJ/DZVP conformers for training OpenFF 2.3.0 Sage with AshGC v1.0 NAGL partial charge model.
 * Number of unique molecules: 4696
 * Number of conformers: 4696
 * Number of conformers (min, mean, max): 1.00, 1.00, 1.00
@@ -101,7 +101,7 @@ The optimization records were selected to maximize chemical diversity using a se
 ---
 * Class: OpenFF TorsionDrive Dataset
 * Dataset Type: torsiondrive
-* Purpose: B3LYP-D3BJ/DZVP conformers for training torsion drives for OpenFF 2.3.0 Sage with AshGC NAGL partial charge model.
+* Purpose: B3LYP-D3BJ/DZVP conformers for training torsion drives for OpenFF 2.3.0 Sage with AshGC v1.0 NAGL partial charge model.
 * Number of unique molecules: 1265
 * Number of driven torsions: 1371
 * Number of conformers: 1265
