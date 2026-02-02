@@ -10,78 +10,78 @@ Datasets available on [Zenodo]()
 
 The optimization records were selected to maximize chemical diversity using a selection of record IDs listed in the [Sage 2.3.0 repository](https://raw.githubusercontent.com/openforcefield/ash-sage-rc2/32345dddeb6cb249367059fd99607ac2950a5c86/03_fit-valence/02_curate-data/output/optimizations-single-v3.json). These records came from the following datasets:
 
-- "OpenFF Optimization Set 1",
-- "SMIRNOFF Coverage Set 1",
-- "OpenFF VEHICLe Set 1",
-- "OpenFF Discrepancy Benchmark 1",
-- "OpenFF Ehrman Informative Optimization v0.2",
-- "Pfizer discrepancy optimization dataset 1",
-- "FDA optimization dataset 1",
-- "Kinase Inhibitors: WBO Distributions",
-- "OpenFF Gen 2 Opt Set 1 Roche",
-- "OpenFF Gen 2 Opt Set 2 Coverage",
-- "OpenFF Gen 2 Opt Set 3 Pfizer Discrepancy",
-- "OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy",
-- "OpenFF Gen 2 Opt Set 5 Bayer",
-- "OpenFF Sandbox CHO PhAlkEthOH v1.0",
-- "OpenFF Aniline Para Opt v1.0",
-- "OpenFF Industry Benchmark Season 1 v1.2",
-- "OpenFF Gen2 Optimization Dataset Protomers v1.0",
-- "OpenFF Protein Capped 1-mers 3-mers Optimization Dataset v1.0",
-- "OpenFF Iodine Chemistry Optimization Dataset v1.0",
-- "XtalPi Shared Fragments OptimizationDataset v1.0",
-- "XtalPi 20-percent Fragments OptimizationDataset v1.0",
-- "OpenFF Torsion Benchmark Supplement v1.0",
-- "OpenFF Torsion Multiplicity Optimization Training Coverage Supplement v1.0",
-- "OpenFF Torsion Multiplicity Optimization Benchmarking Coverage Supplement v1.0",
-- "OpenFF Iodine Fragment Opt v1.0",
-- "OpenFF Sulfur Optimization Training Coverage Supplement v1.0",
-- "OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0",
-- "OpenFF Lipid Optimization Training Supplement v1.0",
-- "OpenFF Lipid Optimization Benchmark Supplement v1.0",
-- "OpenFF Cresset Additional Coverage Optimizations v4.0",
-- "OpenFF Protein PDB 4-mers v4.0",
-- "OpenFF Additional Generated ChEMBL Optimizations v4.0"
+- [OpenFF Optimization Set 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-05-16-Roche-Optimization_Set)
+- [SMIRNOFF Coverage Set 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-06-25-smirnoff99Frost-coverage)
+- [OpenFF VEHICLe Set 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-07-02%20VEHICLe%20optimization%20dataset)
+- [OpenFF Discrepancy Benchmark 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-07-05%20eMolecules%20force%20field%20discrepancies%201)
+- [OpenFF Ehrman Informative Optimization v0.2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-09-06-OpenFF-Informative-Set)
+- [Pfizer discrepancy optimization dataset 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-09-07-Pfizer-discrepancy-optimization-dataset-1)
+- [FDA optimization dataset 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-09-08-fda-optimization-dataset-1)
+- [Kinase Inhibitors: WBO Distributions](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-11-27-kinase-inhibitor-optimization)
+- [OpenFF Gen 2 Opt Set 1 Roche](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-1-Roche)
+- [OpenFF Gen 2 Opt Set 2 Coverage](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-2-Coverage)
+- [OpenFF Gen 2 Opt Set 3 Pfizer Discrepancy](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-3-Pfizer-Discrepancy)
+- [OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-4-eMolecules-Discrepancy)
+- [OpenFF Gen 2 Opt Set 5 Bayer](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-20-OpenFF-Gen-2-Optimization-Set-5-Bayer)
+- [OpenFF Sandbox CHO PhAlkEthOH v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-18-OpenFF-Sandbox-CHO-PhAlkEthOH)
+- [OpenFF Aniline Para Opt v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-02-OpenFF-Aniline-Para-Opt-v1.0)
+- [OpenFF Industry Benchmark Season 1 v1.2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-06-24-OpenFF-Industry-Benchmark-Season-1-v1.2)
+- [OpenFF Gen2 Optimization Dataset Protomers v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-12-21-OpenFF-Gen2-Optimization-Set-Protomers)
+- [OpenFF Protein Capped 1-mers 3-mers Optimization Dataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-05-30-OpenFF-Protein-Capped-1-mers-3-mers-Optimization)
+- [OpenFF Iodine Chemistry Optimization Dataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-07-27-OpenFF-iodine-optimization-set)
+- [XtalPi Shared Fragments OptimizationDataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-01-30-xtalpi-shared-fragments-optimization-v1.0)
+- [XtalPi 20-percent Fragments OptimizationDataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-04-02-xtalpi-20-percent-fragments-optimization-v1.0)
+- OpenFF Torsion Benchmark Supplement v1.0
+- [OpenFF Torsion Multiplicity Optimization Training Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-20-OpenFF-Torsion-Multiplicity-Optimization-Training-Coverage-Supplement-v1.0)
+- [OpenFF Torsion Multiplicity Optimization Benchmarking Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-24-OpenFF-Torsion-Multiplicity-Optimization-Benchmarking-Coverage-Supplement-v1.0)
+- [OpenFF Iodine Fragment Opt v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-10-OpenFF-Iodine-Fragment-Opt-v1.0)
+- [OpenFF Sulfur Optimization Training Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-11-OpenFF-Sulfur-Optimization-Training-Coverage-Supplement-v1.0)
+- [OpenFF Sulfur Optimization Benchmarking Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-09-18-OpenFF-Sulfur-Hessian-Training-Coverage-Supplement-v1.0)
+- [OpenFF Lipid Optimization Training Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-08-OpenFF-Lipid-Optimization-Training-Supplement-v1.0)
+- [OpenFF Lipid Optimization Benchmark Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-10-30-OpenFF-Lipid-Optimization-Benchmark-Supplement-v1.0)
+- [OpenFF Cresset Additional Coverage Optimizations v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-06-OpenFF-Cresset-Additional-Coverage-Optimizations-v4.0)
+- [OpenFF Protein PDB 4-mers v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-03-05-OpenFF-Protein-PDB-4mer-v4.0)
+- [OpenFF Additional Generated ChEMBL Optimizations v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-14-OpenFF-Additional-ChEMBL-Fragment-Optimizations-v4.0)
   
 ### Torsiondrive Datasets
 
 The optimization records were selected to maximize chemical diversity using a selection of record IDs listed in the [Sage 2.3.0 repository](https://raw.githubusercontent.com/openforcefield/ash-sage-rc2/32345dddeb6cb249367059fd99607ac2950a5c86/03_fit-valence/02_curate-data/output/torsiondrives-v3.json). These records came from the following datasets:
 
-- "OpenFF Group1 Torsions",
-- "OpenFF Group1 Torsions 2",
-- "OpenFF Group1 Torsions 3",
-- "SMIRNOFF Coverage Torsion Set 1",
-- "OpenFF Substituted Phenyl Set 1",
-- "Pfizer discrepancy torsion dataset 1",
-- "OpenFF Primary Benchmark 1 Torsion Set",
-- "OpenFF Gen 2 Torsion Set 1 Roche 2",
-- "OpenFF Gen 2 Torsion Set 2 Coverage 2",
-- "OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy 2",
-- "OpenFF Gen 2 Torsion Set 4 eMolecules Discrepancy 2",
-- "OpenFF Gen 2 Torsion Set 5 Bayer 2",
-- "OpenFF Gen 2 Torsion Set 6 supplemental 2",
-- "OpenFF Fragmenter Validation 1.0",
-- "OpenFF DANCE 1 eMolecules t142 v1.0",
-- "OpenFF Rowley Biaryl v1.0",
-- "OpenFF-benchmark-ligand-fragments-v1.0",
-- "OpenFF Protein Fragments TorsionDrives v1.0",
-- "OpenFF WBO Conjugated Series v1.0",
-- "OpenFF Amide Torsion Set v1.0",
-- "OpenFF-benchmark-ligand-fragments-v2.0",
-- "OpenFF multiplicity correction torsion drive data v1.1",
-- "OpenFF Protein Capped 3-mer Omega v1.0",
-- "XtalPi Shared Fragments TorsiondriveDataset v1.0",
-- "OpenFF Torsion Coverage Supplement v1.0",
-- "OpenFF RNA Dinucleoside Monophosphate TorsionDrives v1.0",
-- "XtalPi 20-percent Fragments TorsiondriveDataset v1.0",
-- "OpenFF Torsion Drive Supplement v1.0",
-- "OpenFF Torsion Multiplicity Torsion Drive Coverage Supplement v1.0",
-- "OpenFF Phosphate Torsion Drives v1.0",
-- "OpenFF Alkane Torsion Drives v1.0",
-- "OpenFF Cresset Additional Coverage TorsionDrives v4.0",
-- "OpenFF Additional Generated ChEMBL TorsionDrives 4.0",
-- "OpenFF Additional Generated Guanidine Amidine Derivative and O-Linker TorsionDrives 4.0",
-- "OpenFF Gen3 Torsion Set v1.0"
+- [OpenFF Group1 Torsions](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-05-01-OpenFF-Group1-Torsions)
+- [OpenFF Group1 Torsions 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-01-31-OpenFF-Group1-Torsions-2)
+- [OpenFF Group1 Torsions 3](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-02-10-OpenFF-Group1-Torsions-3)
+- [SMIRNOFF Coverage Torsion Set 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-07-01-smirnoff99Frost-coverage-torsion)
+- [OpenFF Substituted Phenyl Set 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-07-25-phenyl-set)
+- [Pfizer discrepancy torsion dataset 1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-09-07-Pfizer-discrepancy-torsion-dataset-1)
+- [OpenFF Primary Benchmark 1 Torsion Set](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2019-12-05-OpenFF-Benchmark-Primary-1-torsion)
+- [OpenFF Gen 2 Torsion Set 1 Roche 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-1-Roche-2)
+- [OpenFF Gen 2 Torsion Set 2 Coverage 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-2-Coverage-2)
+- [OpenFF Gen 2 Torsion Set 3 Pfizer Discrepancy 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-3-Pfizer-Discrepancy-2)
+- [OpenFF Gen 2 Torsion Set 4 eMolecules Discrepancy 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-23-OpenFF-Gen-2-Torsion-Set-4-eMolecules-Discrepancy-2)
+- [OpenFF Gen 2 Torsion Set 5 Bayer 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-5-Bayer-2)
+- [OpenFF Gen 2 Torsion Set 6 supplemental 2](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-03-26-OpenFF-Gen-2-Torsion-Set-6-supplemental-2)
+- [OpenFF Fragmenter Validation 1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-04-28-Fragmenter-test)
+- [OpenFF DANCE 1 eMolecules t142 v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-06-01-DANCE-1-eMolecules-t142-selected)
+- [OpenFF Rowley Biaryl v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-06-17-OpenFF-Biaryl-set)
+- [OpenFF-benchmark-ligand-fragments-v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-07-27-OpenFF-Benchmark-Ligands)
+- [OpenFF Protein Fragments TorsionDrives v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2020-09-16-OpenFF-Protein-Fragments-TorsionDrives)
+- [OpenFF WBO Conjugated Series v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-01-25-OpenFF-Conjugated-Series)
+- [OpenFF Amide Torsion Set v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-03-23-OpenFF-Amide-Torsion-Set-v1.0)
+- [OpenFF-benchmark-ligand-fragments-v2.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-08-10-OpenFF-JACS-Fragments-v2.0)
+- [OpenFF multiplicity correction torsion drive data v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2022-04-29-OpenFF-multiplicity-correction-torsion-drive-data)
+- [OpenFF Protein Capped 3-mer Omega v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2023-02-06-OpenFF-Protein-Capped-3-mer-Omega)
+- [XtalPi Shared Fragments TorsiondriveDataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-01-30-xtalpi-shared-fragments-torsiondrive-v1.0)
+- [OpenFF Torsion Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-02-29-OpenFF-Torsion-Coverage-Supplement-v1.0)
+- [OpenFF RNA Dinucleoside Monophosphate TorsionDrives v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-03-26-OpenFF-RNA-Dinucleoside-Monophosphate-TorsionDrives-v1.0)
+- [XtalPi 20-percent Fragments TorsiondriveDataset v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-04-02-xtalpi-20-percent-fragments-torsiondrive-v1.0)
+- [OpenFF Torsion Drive Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-04-17-OpenFF-Torsion-Drive-Supplement-v1.0)
+- [OpenFF Torsion Multiplicity Torsion Drive Coverage Supplement v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-06-14-OpenFF-Torsion-Multiplicity-Torsion-Drive-Coverage-Supplement-v1.0)
+- [OpenFF Phosphate Torsion Drives v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-07-17-OpenFF-Phosphate-Torsion-Drives-v1.0)
+- [OpenFF Alkane Torsion Drives v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2024-08-09-OpenFF-Alkane-Torsion-Drives-v1.0)
+- [OpenFF Cresset Additional Coverage TorsionDrives v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-02-12-OpenFF-Cresset-Additional-Coverage-TorsionDrives-v4.0)
+- [OpenFF Additional Generated ChEMBL TorsionDrives 4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-ChEMBL-Fragment-TorsionDrives-v4.0)
+- [OpenFF Additional Generated Guanidine Amidine Derivative and O-Linker TorsionDrives 4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-Generated-Guanidine-Amidine-Derivative-O-linkers-TorsionDrives-4.0)
+- [OpenFF Gen3 Torsion Set v1.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-04-09-OpenFF-Gen3-Torsion-Set-v1.0)
 
 ## General Information
 
