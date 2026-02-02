@@ -363,6 +363,7 @@ def check_entry(entry, dataset_type):
 
     ## Constraint formatting
     if "constraints" in entry["additional_keywords"]:
+        print(entry["additional_keywords"]["constraints"])
         errors.update(get_constraint_checks(entry["additional_keywords"]["constraints"], bonds=bonds))
 
     if "constraint" in entry["additional_keywords"]:
