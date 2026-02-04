@@ -4,7 +4,7 @@
 
 A quantum chemical (QC) optimization and torsiondrive datasets generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train parameters in [OpenFF 2.3.0 Sage](https://github.com/openforcefield/ash-sage-rc2) with NAGL partial charge model AshGC v1.0.
 
-Datasets available on [Zenodo]()
+Datasets available on [Zenodo](doi.org/10.5281/zenodo.18436107), DOI: 10.5281/zenodo.18436107.
 
 ### Optimization Datasets
 
