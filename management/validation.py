@@ -172,6 +172,7 @@ def validate_dataset(dataset_data, flag_scaffold=False):
         "linear": [],
         "complex": [],
         "bonds": [],
+        "constraint": [],
         "constraints": [],
         "coordinates": [],
         "total_charge": [],
