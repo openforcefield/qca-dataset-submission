@@ -14,6 +14,8 @@ WORKDIR /workspace
 ENV CONDA_DEFAULT_ENV=qca
 ENV CONDA_PREFIX=/opt/conda/envs/qca
 ENV PATH=/opt/conda/envs/qca/bin:$PATH
+ENV KMP_AFFINITY=disabled
+ENV OMP_NUM_THREADS=1
 
 # Expose Jupyter port
 EXPOSE 8888

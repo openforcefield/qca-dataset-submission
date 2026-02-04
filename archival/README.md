@@ -34,7 +34,7 @@ internal_job_opt = ds_opt.create_view(
     include_children=True
 )
 ds_opt.download_view(
-    destination_path=f"views/ds_{ds.id}_{ds.name.replace(' ','-')}_optimization_view.sqlite"
+    destination_path=f"views/ds_{ds_opt.id}_{ds_opt.name.replace(' ','-')}_optimization_view.sqlite"
 )
 
 ds_td = client.get_dataset('torsiondrive', 'OpenFF SMIRNOFF Sage 2.1.0')
@@ -42,11 +42,11 @@ internal_job_td = ds_td.create_view(
     description="Full Sage 2.1.0 Torsiondrive dataset", 
     provenance={}, 
     include=['**'], 
-    exclude=["wavefunction"], 
+    exclude=["trajectory", "compute_history", "outputs", "native_files", "wavefunction"],
     include_children=True
 )
 ds_td.download_view(
-    destination_path=f"views/ds_{ds.id}_{ds.name.replace(' ','-')}_torsiondrive_view.sqlite"
+    destination_path=f"views/ds_{ds_td.id}_{ds_td.name.replace(' ','-')}_torsiondrive_view.sqlite"
 )
 ```
 
