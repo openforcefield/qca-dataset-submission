@@ -362,7 +362,10 @@ def check_entry(entry, dataset_type):
         errors["cmiles"] = True
 
     ## Constraint formatting
-    if "constraints" in entry["additional_keywords"]:
+    if "constraints" in entry["additional_keywords"] and entry["additional_keywords"]["constraints"]:
         errors.update(get_constraint_checks(entry["additional_keywords"]["constraints"], bonds=bonds))
+
+    if "constraint" in entry["additional_keywords"] and entry["additional_keywords"]["constraint"]:
+        errors.update(get_constraint_checks(entry["additional_keywords"]["constraint"], bonds=bonds))
         
     return errors
