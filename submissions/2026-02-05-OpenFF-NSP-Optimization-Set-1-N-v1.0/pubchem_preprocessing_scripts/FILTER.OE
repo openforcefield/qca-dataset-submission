@@ -1,0 +1,7 @@
+ALLOWED_ELEMENTS H,C,N,O,F,P,S,Cl,Br,I
+MIN_HETEROATOMS 1 "Minimum number of heteroatoms"
+MAX_HETEROATOMS 14 "Maximum number of heteroatoms"
+MAX_MOLWT 600 "Maximum molecular weight"
+MIN_NUM_HVY 5 "Minimum number of heavy atoms"
+MAX_NUM_HVY 40 "Maximum number of heavy atoms"
+MAX_RING_SIZE 20 "Maximum atoms in any ring system"
