@@ -8,7 +8,7 @@ Molecules were curated from PubChem datasets, keeping molecules with HAC < 40 an
 
 ### General Information
 
-- Date: 2025-02-05
+- Date: 2026-02-05
 - Class: OpenFF Optimization Dataset
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
