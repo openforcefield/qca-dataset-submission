@@ -65,4 +65,4 @@ Optimization dataset to probe coverage of NSP functional groups in general, and 
 - `dataset.pdf` : Visualization of the molecules in the dataset 
 - `set1-N-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
 - `pubchem_preprocessing_scripts`: Some utility scripts for processing PubChem data
-- `nitrogen_smarts_updated.md`: Set of SMARTS patterns used to query PubChem. 
+- `nitrogen_summary_updated.md`: Set of SMARTS patterns used to query PubChem. 
