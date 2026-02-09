@@ -66,4 +66,4 @@ Molecules were curated from PubChem datasets, keeping molecules with HAC < 40 an
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
 - `set1-S-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
-- `sulfur_smarts_updated.md`: Set of SMARTS patterns used to query PubChem. 
+- `sulfur_summary_updated.md`: Set of SMARTS patterns used to query PubChem. 
