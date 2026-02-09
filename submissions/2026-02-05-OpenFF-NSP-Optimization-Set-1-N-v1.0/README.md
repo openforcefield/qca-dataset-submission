@@ -59,8 +59,8 @@ Optimization dataset to probe coverage of NSP functional groups in general, and 
 ### QCSubmit Manifest
 
 - `generate-dataset.ipynb`
-- `environment.yml`: Conda environment file to perform this workflow
-- `environment_full.yml`: All installed packages with versions for successful completion of this workflow
+- `environment.yaml`: Conda environment file to perform this workflow
+- `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
 - `set1-N-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
