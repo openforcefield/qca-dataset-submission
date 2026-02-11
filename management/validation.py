@@ -172,9 +172,11 @@ def validate_dataset(dataset_data, flag_scaffold=False):
         "linear": [],
         "complex": [],
         "bonds": [],
+        "constraint": [],
         "constraints": [],
         "coordinates": [],
         "total_charge": [],
+        "constraint": [],
     }
     data_copy = copy.deepcopy(dataset_data)
     # remove the entries so they can be checked one by one
@@ -212,6 +214,8 @@ def validate_dataset(dataset_data, flag_scaffold=False):
                 errors["complex"].append(entry["index"])
             except ConstraintError:
                 errors["constraints"].append(entry["index"])
+            except ConstraintError:
+                errors["constraint"].append(entry["index"])
         
         errors["coordinates"] = []
         errors["total_charge"] = []
