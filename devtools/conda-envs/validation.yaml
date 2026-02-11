@@ -15,3 +15,4 @@ dependencies:
   - tabulate
   - rdkit
   - psi4>=1.9
+  - libint=2.9
