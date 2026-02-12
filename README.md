@@ -391,6 +391,7 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Additional Generated ChEMBL TorsionDrives 4.0` | [2025-04-10-OpenFF-Additional-ChEMBL-Fragment-TorsionDrives-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-ChEMBL-Fragment-TorsionDrives-v4.0) | Additional torsiondrives from ChEMBL fragments | O, Cl, Br, C, I, P, F, H, N, S | |
 | `OpenFF Additional Generated Guanidine Amidine Derivative and O-Linker TorsionDrives 4.0`| [2025-04-10-OpenFF-Additional-Generated-Guanidine-Amidine-Derivative-O-linkers-TorsionDrives-4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-Generated-Guanidine-Amidine-Derivative-O-linkers-TorsionDrives-4.0) | Additional manually-generated torsiondrives | S, C, N, O, H | |
 | `TorsionNet500 re-optimization v1.0` | [2026-02-01-TorsionNet500-Re-optimization-TorsionDrives-v1.0](submissions/2026-02-01-TorsionNet500-Re-optimization-TorsionDrives-v1.0/) | TorsionNet500 re-optimized with OpenFF default spec | N, Cl, O, S, H, C, F | |
+
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.
 
