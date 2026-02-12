@@ -1,8 +1,8 @@
-# 2026-02-01-TorsionNet500-reopt
+# TorsionNet500-Re-optimization-TorsionDrives-v1.0
 
 ### Description
 
-This is `2021-11-09-TorsionNet500-single-points`
+TorsionNet500 re-optimized with OpenFF default spec
 
 ## General Information
 
@@ -36,15 +36,26 @@ Here any information regarding dataset changes are recorded.
  
 ## Metadata
 
-- elements {'H', 'O', 'F', 'S', 'N', 'Cl', 'C'} 
-- unique molecules 500
-- scf properties:
-    - dipole
-    - quadrupole
-    - wiberg_lowdin_indices
-    - mayer_indices
-    - mbis_charges
-- qc spec
-    - name: B3LYP-D3BJ/DZVP
-    - method: B3LYP-D3BJ
-    - basis: DZVP
+* Number of unique molecules: 500
+* Number of driven torsions: 500
+* Number of filtered molecules: 0
+* Number of conformers: 500
+* Number of conformers per molecule (min, mean, max): 1, 1.00, 1
+* Mean molecular weight: 183.52
+* Min molecular weight: 70.13
+* Max molecular weight: 268.74
+* Charges: [0.0]
+## Metadata
+* Elements: {N, Cl, O, S, H, C, F}
+* Spec: default
+	 * basis: DZVP
+	 * implicit_solvent: None
+	 * keywords: {}
+	 * maxiter: 200
+	 * method: B3LYP-D3BJ
+	 * program: psi4
+	* SCF properties:
+		* dipole
+		* quadrupole
+		* wiberg_lowdin_indices
+		* mayer_indices
