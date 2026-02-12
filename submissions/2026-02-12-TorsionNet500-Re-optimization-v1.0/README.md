@@ -2,7 +2,7 @@
 
 ### Description
 
-TorsionNet500 re-optimized with OpenFF default spec
+TorsionNet500 TorsionDrive re-optimized with OpenFF's default spec
 
 ## General Information
 
