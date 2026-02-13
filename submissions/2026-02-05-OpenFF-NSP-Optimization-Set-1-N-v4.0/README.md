@@ -1,0 +1,61 @@
+# OpenFF NSP Optimization Set 1 N v4.0
+
+
+### Description
+
+Optimization dataset to probe coverage of NSP functional groups in general, and in particular nitrogen, in this dataset. Molecules were curated from PubChem datasets, keeping molecules with HAC < 40 and other filters, the preprocessing steps were detailed at https://github.com/pavankum/NSP_sets.specified in the FILTER.OE file. This includes a broader set of molecules, many of which may not be drug-like, but would be informative for differentiating force field parameter ranges. On top of the default OpenFF spec of B3LYP-D3BJ/DZVP, another QC specification at SPICE level of theory is added, wb97M-D3BJ/def2-TZVPPD, since many of the molecules have charged states.
+
+### General Information
+
+- Date: 2026-02-05
+- Class: OpenFF Optimization Dataset
+- Purpose: Assess coverage of various NSP chemistries
+- Dataset Type: optimization
+- Name: OpenFF NSP Optimization Set 1 N v4.0
+- Number of unique molecules: 613
+- Number of filtered molecules: 0
+- Number of conformers: 4943
+- Number of conformers per molecule (min, mean, max): 1, 8.06, 10
+- Mean molecular weight: 316.29
+- Min molecular weight: 84.10
+- Max molecular weight: 596.30
+- Charges: [-2.0, -1.0, 0.0, 1.0]
+- Elements: {C, F, N, Br, I, S, O, Cl, H, P}
+- Dataset Submitter: Pavan Behara
+- Dataset Curator: Pavan Behara
+
+### QC Specifications
+- Spec: default
+	 - basis: DZVP
+	 - implicit_solvent: None
+	 - keywords: {}
+	 - maxiter: 200
+	 - method: B3LYP-D3BJ
+	 - program: psi4
+	- SCF properties:
+		- dipole
+		- quadrupole
+		- wiberg_lowdin_indices
+		- mayer_indices
+- Spec: WB97M-D3BJ/def2-TZVPPD
+	 - basis: def2-TZVPPD
+	 - implicit_solvent: None
+	 - keywords: {}
+	 - maxiter: 200
+	 - method: WB97M-D3BJ
+	 - program: psi4
+	- SCF properties:
+		- dipole
+		- quadrupole
+		- wiberg_lowdin_indices
+		- mayer_indices
+		- lowdin_charges
+		- mulliken_charges
+
+### QCSubmit Manifest
+- `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
+- `environment.yaml`: Conda environment file to perform this workflow
+- `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
+- `dataset.json.bz2`: A compressed json file of the target dataset
+- `dataset.pdf` : Visualization of the molecules in the dataset 
+- `set1-N-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
