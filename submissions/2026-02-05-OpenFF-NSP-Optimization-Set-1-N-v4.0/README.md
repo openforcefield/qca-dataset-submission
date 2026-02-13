@@ -3,7 +3,7 @@
 
 ### Description
 
-Optimization dataset to probe coverage of Nitrogen, Sulfur, and Phosphorus (i.e., NSP) functional groups in general, and in particular nitrogen, in this dataset. Molecules were curated from PubChem datasets, keeping molecules with HAC < 40 and other filters, the preprocessing steps were detailed at https://github.com/pavankum/NSP_sets.specified in the FILTER.OE file. This includes a broader set of molecules, many of which may not be drug-like, but would be informative for differentiating force field parameter ranges. On top of the default OpenFF spec of B3LYP-D3BJ/DZVP, another QC specification at SPICE level of theory is added, wb97M-D3BJ/def2-TZVPPD, since many of the molecules have charged states.
+Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e., NSP) functional groups in general, and nitrogen in particular. Molecules were curated from PubChem datasets, retaining those with HAC < 40 and applying additional filters; the preprocessing steps are detailed at https://github.com/pavankum/NSP_sets. This dataset includes a broader set of molecules, many of which may not be drug-like, but are informative for differentiating force field parameter ranges. In addition to the default OpenFF QC specification (B3LYP-D3BJ/DZVP), an SPICE-level QC specification (ωB97M-D3BJ/def2-TZVPPD) is included, since many molecules have charged states.
 
 ### General Information
 
