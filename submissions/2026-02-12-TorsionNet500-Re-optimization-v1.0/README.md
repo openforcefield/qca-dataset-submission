@@ -32,6 +32,8 @@ Here any information regarding dataset changes are recorded.
 
 ## QCSubmit Manifest
 
+- `input-environment.yaml`: Environment file used to create conda environment for the notebook
+- `full-environment.yaml`: Fully-resolved environment used to execute the notebook
 - `Dataset_Generation.ipynb`: Dataset creation notebook with instructions for submission.
 - `dataset-TorsionNet500-Re-optimization-TorsionDrives-v4.0.json.bz2`: The compressed constrained optimization dataset ready for submission.
 - `TorsionNet500-Re-optimization-TorsionDrives-v4.0.smi`: The smiles file of the peptide molecules.
