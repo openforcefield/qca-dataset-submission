@@ -2,7 +2,17 @@
 
 ### Description
 
-TorsionNet500 TorsionDrive re-optimized with OpenFF's default spec
+The TorsionNet500 (TN500) dataset is the input.
+TN500 was originally optimized to a different level of theory than OpenFF's default.
+
+It is available at https://github.com/pfizer-opensource/TorsionNet/blob/main/data/TorsionNet500_qm_opt_geometries.sdf/.
+
+For each scan (of 24 conformers), the lowest-energy conformer (as reported in the SDF) was used as a starting point for a TorsionDrive workflow.
+The same scan range/increment as the original TorsionNet500 dataset was used, -165 to 180 degrees in increments of 15 degrees.
+
+This dataset uses the OpenFF default level of theory (B3LYP-D3BJ/DZVP).
+It covers the N, Cl, O, S, H, C, F elements and 0.0 charges.
+Molecular MW ranges from 70.13 - 268.74 Da with mean MW of 183.52 Da.
 
 ## General Information
 
