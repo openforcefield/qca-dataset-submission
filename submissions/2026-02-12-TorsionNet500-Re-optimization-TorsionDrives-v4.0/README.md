@@ -1,4 +1,4 @@
-# TorsionNet500-Re-optimization-TorsionDrives-v4.0
+# TorsionNet500 Re-optimization TorsionDrives v4.0
 
 ### Description
 
