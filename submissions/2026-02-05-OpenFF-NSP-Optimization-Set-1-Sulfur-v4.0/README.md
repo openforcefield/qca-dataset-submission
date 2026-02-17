@@ -11,19 +11,22 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - Class: OpenFF Optimization Dataset
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
-- Name: OpenFF NSP Optimization Set 1 S v1.0
+- Name: OpenFF NSP Optimization Set 1 Sulfur v1.0
 - Number of unique molecules: 635
 - Number of filtered molecules: 0
-- Number of conformers: 4922
-- Number of conformers per molecule (min, mean, max): 1, 7.75, 10
-- Mean molecular weight: 306.73
-- Min molecular weight: 96.15
-- Max molecular weight: 596.80
-- Charges: [-2.0, -1.0, 0.0, 1.0, 2.0]
+- Number of conformers: 3970
+- Number of conformers per molecule (min, mean, max): 1, 6.25, 10
+- Mean molecular weight: 259.86
+- Min molecular weight: 87.14
+- Max molecular weight: 593.89
+- Charges: [0.0]
 - Dataset Submitter: Pavan Behara
 - Dataset Curator: Pavan Behara
 
 ### QC Specifications
+
+## Metadata
+- Elements: {I, F, O, S, Br, C, P, N, H, Cl}
 - Spec: default
 	 - basis: DZVP
 	 - implicit_solvent: None
@@ -36,6 +39,8 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 		- quadrupole
 		- wiberg_lowdin_indices
 		- mayer_indices
+		- lowdin_charges
+		- mulliken_charges
 - Spec: WB97M-D3BJ/def2-TZVPPD
 	 - basis: def2-TZVPPD
 	 - implicit_solvent: None
