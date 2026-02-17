@@ -1,4 +1,4 @@
-# TorsionNet500-Re-optimization-TorsionDrives-v4.0
+# TorsionNet500 Re-optimization TorsionDrives v4.0
 
 ### Description
 
@@ -19,7 +19,7 @@ Molecular MW ranges from 70.13 - 268.74 Da with mean MW of 183.52 Da.
 - Date: 2026-02-12
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: Generate a dataset for benchmarking torsion profiles
-- Name: TorsionNet500-Re-optimization-TorsionDrives-v4.0
+- Name: TorsionNet500 Re-optimization TorsionDrives v4.0
 - Number of unique molecules: 500
 - Number of driven torsions: 500
 - Number of filtered molecules: 0
