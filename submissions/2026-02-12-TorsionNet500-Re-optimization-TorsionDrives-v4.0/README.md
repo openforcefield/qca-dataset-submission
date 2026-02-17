@@ -63,5 +63,7 @@ Here any information regarding dataset changes are recorded.
 	* SCF properties:
 		* dipole
 		* quadrupole
+		* mbis_charges
+		* lowdin_charges
 		* wiberg_lowdin_indices
 		* mayer_indices
