@@ -1,9 +1,9 @@
-# OpenFF NSP Optimization Set 1 N v4.0
+# OpenFF NSP Optimization Set 1 Nitrogen v4.0
 
 
 ### Description
 
-Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e., NSP) functional groups in general, and nitrogen in particular. Molecules were curated from PubChem datasets, retaining those with HAC < 40 and applying additional filters; the preprocessing steps are detailed at https://github.com/pavankum/NSP_sets. This dataset includes a broader set of molecules, many of which may not be drug-like, but are informative for differentiating force field parameter ranges. In addition to the default OpenFF QC specification (B3LYP-D3BJ/DZVP), an SPICE-level QC specification (ωB97M-D3BJ/def2-TZVPPD) is included, since many molecules have charged states.
+Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e., NSP) functional groups in general, and nitrogen in particular. Molecules were curated from PubChem datasets, retaining those with HAC < 40 and applying additional filters; the preprocessing steps are detailed at https://github.com/pavankum/NSP_sets. This dataset includes a broader set of molecules, many of which may not be drug-like, but are informative for differentiating force field parameter ranges. In addition to the default OpenFF QC specification (B3LYP-D3BJ/DZVP), an SPICE-level QC specification (ωB97M-D3BJ/def2-TZVPPD) is included, since many molecules have charged states. Set1 prioritizes neutral molecules first, followed by charged molecules.
 
 ### General Information
 
@@ -11,16 +11,16 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - Class: OpenFF Optimization Dataset
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
-- Name: OpenFF NSP Optimization Set 1 N v4.0
-- Number of unique molecules: 613
+- Name: OpenFF NSP Optimization Set 1 Nitrogen v4.0
+- Number of unique molecules: 604
 - Number of filtered molecules: 0
-- Number of conformers: 4943
-- Number of conformers per molecule (min, mean, max): 1, 8.06, 10
-- Mean molecular weight: 316.29
-- Min molecular weight: 84.10
-- Max molecular weight: 596.30
-- Charges: [-2.0, -1.0, 0.0, 1.0]
-- Elements: {C, F, N, Br, I, S, O, Cl, H, P}
+- Number of conformers: 3390
+- Number of conformers per molecule (min, mean, max): 1, 5.61, 10
+- Mean molecular weight: 248.42
+- Min molecular weight: 67.05
+- Max molecular weight: 593.89
+- Charges: [-1.0, 0.0, 1.0]
+- Elements: {P, O, C, F, N, H, Br, Cl, I, S}
 - Dataset Submitter: Pavan Behara
 - Dataset Curator: Pavan Behara
 
@@ -37,6 +37,8 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 		- quadrupole
 		- wiberg_lowdin_indices
 		- mayer_indices
+		- lowdin_charges
+		- mulliken_charges
 - Spec: WB97M-D3BJ/def2-TZVPPD
 	 - basis: def2-TZVPPD
 	 - implicit_solvent: None
