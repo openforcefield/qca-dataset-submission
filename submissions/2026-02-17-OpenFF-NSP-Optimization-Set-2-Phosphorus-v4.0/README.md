@@ -3,7 +3,7 @@
 
 ### Description
 
-Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e., NSP) functional groups in general, and phosphorus in particular. Molecules were curated from PubChem datasets, retaining those with HAC < 40 and applying additional filters; the preprocessing steps are detailed at https://github.com/pavankum/NSP_sets. This dataset includes a broader set of molecules, many of which may not be drug-like, but are informative for differentiating force field parameter ranges. In addition to the default OpenFF QC specification (B3LYP-D3BJ/DZVP), an SPICE-level QC specification (ωB97M-D3BJ/def2-TZVPPD) is included, since many molecules have charged states. Set2 prioritizes as many varied charged states as possible with valid valences for the atoms.
+Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e., NSP) functional groups in general, and phosphorus in particular. Molecules were curated from PubChem datasets, retaining those with HAC < 40 and applying additional filters; the preprocessing steps are detailed at https://github.com/pavankum/NSP_sets. This dataset includes a broader set of molecules, many of which may not be drug-like, but are informative for differentiating force field parameter ranges. In addition to the default OpenFF QC specification (B3LYP-D3BJ/DZVP), an SPICE-level QC specification (ωB97M-D3BJ/def2-TZVPPD) is included, since many molecules have charged states. Set2 prioritizes as many varied charged states as possible with valid valences for the atoms. The set of smiles were pka-normalized using Openeye filter.
 
 ### General Information
 
@@ -12,15 +12,15 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
 - Name: OpenFF NSP Optimization Set 2 Phosphorus v4.0
-- Number of unique molecules: 846
+- Number of unique molecules: 833
 - Number of filtered molecules: 1
-- Number of conformers: 6115
-- Number of conformers per molecule (min, mean, max): 1, 7.23, 10
-- Mean molecular weight: 304.30
+- Number of conformers: 5937
+- Number of conformers per molecule (min, mean, max): 1, 7.13, 10
+- Mean molecular weight: 305.11
 - Min molecular weight: 90.10
 - Max molecular weight: 598.71
-- Charges: [-6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 6.0]
-- Elements: {C, I, H, N, Cl, P, S, F, O, Br}
+- Charges: [-6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+- Elements: {S, N, H, Cl, P, I, C, O, F, Br}
 - Dataset Submitter: Pavan Behara
 - Dataset Curator: Pavan Behara
 
@@ -62,4 +62,5 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
-- `set2-P-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
+- `set2-P-smiles.smi`: Smiles before pKa normalization, which includes charges [-6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 6.0]
+- `set2-P-smiles-pka-normalized.smi` : Input smiles used for the dataset generation, along with their PubChem compound IDs. This set was generated after pKa normalization of set2-P-smiles.smi with Openeye filter tool.
