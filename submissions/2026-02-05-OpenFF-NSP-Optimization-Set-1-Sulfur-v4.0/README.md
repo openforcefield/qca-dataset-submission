@@ -1,4 +1,4 @@
-# OpenFF NSP Optimization Set 1 S v4.0
+# OpenFF NSP Optimization Set 1 Sulfur v4.0
 
 
 ### Description
