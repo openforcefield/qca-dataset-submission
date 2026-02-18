@@ -14,4 +14,4 @@ dependencies:
   - pandas
   - tabulate
   - rdkit
-  - psi4>=1.9
+  - psi4>=1.10
