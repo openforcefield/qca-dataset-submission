@@ -1,4 +1,4 @@
-# OpenFF NSP Optimization Set 1 P v4.0
+# OpenFF NSP Optimization Set 1 Phosphorus v4.0
 
 
 ### Description
@@ -11,20 +11,21 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - Class: OpenFF Optimization Dataset
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
-- Name: OpenFF NSP Optimization Set 1 P v4.0
-- Number of unique molecules: 429
+- Name: OpenFF NSP Optimization Set 1 Phosphorus v4.0
+- Number of unique molecules: 430
 - Number of filtered molecules: 0
-- Number of conformers: 3381
-- Number of conformers per molecule (min, mean, max): 1, 7.88, 10
-- Mean molecular weight: 326.67
-- Min molecular weight: 96.02
-- Max molecular weight: 597.85
-- Charges: [-5.0, -3.0, -1.0, 0.0, 1.0]
-- Elements: {C, P, Cl, S, O, Br, H, N, F}
+- Number of conformers: 2910
+- Number of conformers per molecule (min, mean, max): 1, 6.77, 10
+- Mean molecular weight: 278.25
+- Min molecular weight: 90.10
+- Max molecular weight: 586.68
+- Charges: [0.0]
+- Elements: {H, Br, N, S, C, F, I, Cl, P, O}
 - Dataset Submitter: Pavan Behara
 - Dataset Curator: Pavan Behara
 
 ### QC Specifications
+
 - Spec: default
 	 - basis: DZVP
 	 - implicit_solvent: None
@@ -37,6 +38,8 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 		- quadrupole
 		- wiberg_lowdin_indices
 		- mayer_indices
+		- lowdin_charges
+		- mulliken_charges
 - Spec: WB97M-D3BJ/def2-TZVPPD
 	 - basis: def2-TZVPPD
 	 - implicit_solvent: None
@@ -51,6 +54,7 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 		- mayer_indices
 		- lowdin_charges
 		- mulliken_charges
+
 
 ### QCSubmit Manifest
 - `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
