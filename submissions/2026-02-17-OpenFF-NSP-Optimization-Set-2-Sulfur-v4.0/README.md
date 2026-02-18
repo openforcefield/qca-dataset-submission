@@ -12,15 +12,15 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - Purpose: Assess coverage of various NSP chemistries
 - Dataset Type: optimization
 - Name: OpenFF NSP Optimization Set 2 Sulfur v4.0
-- Number of unique molecules: 1226
+- Number of unique molecules: 1213
 - Number of filtered molecules: 0
-- Number of conformers: 8324
-- Number of conformers per molecule (min, mean, max): 1, 6.79, 10
-- Mean molecular weight: 293.45
+- Number of conformers: 8018
+- Number of conformers per molecule (min, mean, max): 1, 6.61, 10
+- Mean molecular weight: 293.47
 - Min molecular weight: 86.16
-- Max molecular weight: 599.46
-- Charges: [-8.0, -7.0, -6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
-- Elements: {O, F, C, I, S, H, P, N, Cl, Br}
+- Max molecular weight: 597.88
+- Charges: [-6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+- Elements: {O, P, I, C, F, N, Br, S, H, Cl}
 - Dataset Submitter: Pavan Behara
 - Dataset Curator: Pavan Behara
 
@@ -61,3 +61,5 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
 - `set2-S-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
+- `set2-S-smiles.smi`: Smiles before pKa normalization, which includes charges [-8.0, -7.0, -6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+- `set2-S-smiles-pka-normalized.smi` : Input smiles used for the dataset generation, along with their PubChem compound IDs. This set was generated after pKa normalization of set2-S-smiles.smi with Openeye filter tool.
