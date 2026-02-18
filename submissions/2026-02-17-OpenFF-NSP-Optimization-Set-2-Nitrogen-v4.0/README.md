@@ -54,6 +54,8 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 		- lowdin_charges
 		- mulliken_charges
 
+### QCSubmit generation pipeline
+- `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
 
 ### QCSubmit Manifest
 - `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
@@ -61,4 +63,4 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
-- `set2-P-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
+- `set2-N-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
