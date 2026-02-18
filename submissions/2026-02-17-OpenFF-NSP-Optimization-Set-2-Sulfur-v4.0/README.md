@@ -1,4 +1,4 @@
-# OpenFF NSP Optimization Set 2 S v4.0
+# OpenFF NSP Optimization Set 2 Sulfur v4.0
 
 
 ### Description
@@ -60,4 +60,4 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
-- `set1-S-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
+- `set2-S-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
