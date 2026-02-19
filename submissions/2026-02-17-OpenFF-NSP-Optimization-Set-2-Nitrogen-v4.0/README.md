@@ -63,5 +63,6 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
+- `dataset.smi` : Smiles strings for dataset molecules
 - `set2-N-smiles.smi`: Smiles before pKa normalization, which includes charges [-10.0, -8.0, -7.0, -6.0, -5.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 10.0, 11.0]
 - `set2-N-smiles-pka-normalized.smi` : Input smiles used for the dataset generation, along with their PubChem compound IDs. This set was generated after pKa normalization of set2-N-smiles.smi with Openeye filter tool.
