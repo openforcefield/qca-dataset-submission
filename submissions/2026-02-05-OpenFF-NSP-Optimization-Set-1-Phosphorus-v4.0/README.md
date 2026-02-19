@@ -65,4 +65,5 @@ Optimization dataset to probe coverage of nitrogen, sulfur, and phosphorus (i.e.
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `dataset.json.bz2`: A compressed json file of the target dataset
 - `dataset.pdf` : Visualization of the molecules in the dataset 
+- `dataset.smi`: SMILES for every molecule in the submission.
 - `set1-P-smiles.smi`: Input smiles for the dataset generation, along with their PubChem compound IDs
