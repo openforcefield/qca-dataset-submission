@@ -333,6 +333,8 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF NSP Optimization Set 1 Sulfur v4.0` | [2026-02-05-OpenFF-NSP-Optimization-Set-1-Sulfur-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-05-OpenFF-NSP-Optimization-Set-1-Sulfur-v4.0) | Assess coverage of various NSP chemistries | C, S, F, O, H, Cl, Br, P, N, I | |
 | `OpenFF NSP Optimization Set 1 Phosphorus v4.0` | [2026-02-05-OpenFF-NSP-Optimization-Set-1-Phosphorus-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-05-OpenFF-NSP-Optimization-Set-1-Phosphorus-v4.0) | Assess coverage of various NSP chemistries | H, Br, N, S, C, F, I, Cl, P, O | |
 | `OpenFF NSP Optimization Set 1 Nitrogen v4.0` | [2026-02-05-OpenFF-NSP-Optimization-Set-1-Nitrogen-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-05-OpenFF-NSP-Optimization-Set-1-Nitrogen-v4.0) | Assess coverage of various NSP chemistries | C, S, F, O, H, Cl, Br, P, N, I | |
+| `OpenFF NSP Optimization Set 2 Nitrogen v4.0` | [2026-02-17-OpenFF-NSP-Optimization-Set-2-Nitrogen-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-17-OpenFF-NSP-Optimization-Set-2-Nitrogen-v4.0) | Assess coverage of various NSP chemistries | C, S, F, O, H, Cl, Br, P, N, I | |
+
 
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
