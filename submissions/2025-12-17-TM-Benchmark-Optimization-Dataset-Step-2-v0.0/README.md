@@ -10,6 +10,9 @@
   mean, and max are 81, 420, and 1026, respectively. There are 75 unique molecules, each transition metal 
   complex is submitted with multiplicities that completed on the previous step to assess the spin state.
 
+### Change Log
+
+**2026-13-03**: Added `generate-dataset_2_update_spec.ipynb` to update specifications and basis sets to leverage analytical gradients in psi4.
 
 ### General Information
 
@@ -31,20 +34,23 @@
 ### QCSubmit generation pipeline
 
 - `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
+- `generate-dataset_2_update_spec.ipynb`: A python notebook that removes the records in the previous notebook, and creates new ones with revised specs
 
 ### QCSubmit Manifest
 
 - `generate-dataset.ipynb`
+- `generate-dataset_2_update_spec.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yml`: All installed packages with versions for successful completion of this workflow
 - `scaffold.json.bz2`: A compressed json file of the target dataset
- 
+- `scaffold_mp2_mp3.json.bz2`: A compressed json file of the target dataset after running `generate-dataset_2_update_spec.ipynb`
+
 ### Metadata
 * Elements: {'Br', 'C', 'Cl', 'Cu', 'F', 'Fe', 'H', 'Li', 'Mg', 'N', 'O', 'P', 'Pd', 'S', 'Zn'}
-* QC Specification: scs-mp2/aug-cc-pvtz-dk
+* QC Specification: mp2/def2-qzvppd
   * program: psi4
-  * method: scs-mp2
-  * basis: aug-cc-pvtz-dk
+  * method: mp2
+  * basis: def2-qzvppd
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
@@ -61,10 +67,10 @@
   * Function Kwargs
     * Properties
       * dipole_polarizabilities
-* QC Specification: scs-mp2/aug-cc-pvtz-dk-fc
+* QC Specification: mp2/def2-qzvppd-fc
   * program: psi4
-  * method: scs-mp2
-  * basis: aug-cc-pvtz-dk
+  * method: mp2
+  * basis: def2-qzvppd
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
@@ -81,10 +87,10 @@
   * Function Kwargs
     * Properties
       * dipole_polarizabilities
-* QC Specification: scs-mp3/aug-cc-pvtz-dk
+* QC Specification: mp3/def2-tzvppd
   * program: psi4
-  * method: scs-mp3
-  * basis: aug-cc-pvtz-dk
+  * method: mp3
+  * basis: def2-tzvppd
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
@@ -101,10 +107,10 @@
   * Function Kwargs
     * Properties
       * dipole_polarizabilities
-* QC Specification: scs-mp3/aug-cc-pvtz-dk-fc
+* QC Specification: mp3/def2-tzvppd-fc
   * program: psi4
-  * method: scs-mp3
-  * basis: aug-cc-pvtz-dk
+  * method: mp3
+  * basis: def2-tzvppd
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
