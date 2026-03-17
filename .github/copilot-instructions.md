@@ -57,7 +57,7 @@ Do not review:
 - README file manifest should list/define files in the submission directory.
 
 ### 4) Versioning and Naming
-- Version format must be `vX.Y.Z`.
+- Version format must be `vX.Y`.
 - Major version maps to standards conformance (`v4.x` for STANDARDS v4, `v0.x` for non-conforming/legacy cases).
 - For `>=v4.0`, expected naming is `OpenFF {descriptive name} v{version}` with spaces.
 - For force-field release datasets, expected naming uses `OpenFF SMIRNOFF {friendly name} {ff version}`.
@@ -89,7 +89,7 @@ Use concise review output:
    - requirement being checked,
    - exact fix guidance.
 
-If fully compliant, reply exactly:
+If fully compliant, reply:
 **“Looks good — all mandatory fields present and versioning correct. 🔥”**
 
 ## Comment Resolution Behavior
