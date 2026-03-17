@@ -7,7 +7,7 @@ This dataset includes single metal complexes with: {'Pd', 'Fe', 'Zn', 'Mg', 'Cu'
 some organic molecules for benchmarking purposes. All molecules are taken from those completed optimizations 
 in the optimization dataset "TM Benchmark Optimization Dataset Step 1 v0.0". These complexes are optimized 
 at a higher level of theory with mp3/def2-tzvppd or mp2/def2-qzvppd with and without frozen core. The 
-molecular weight min, mean, and max are 81, 421, and 1026, respectively. There are 163 unique molecules, 
+molecular weight min, mean, and max are 81, 421, and 1026, respectively. There are 164 unique molecules, 
 each transition metal complex is submitted with multiplicities that completed on the previous step to 
 assess the spin state.
 
@@ -22,9 +22,9 @@ assess the spin state.
 - Purpose: Diverse set of conformers for single metal complexes with Pd, Fe, Zn, Cu, Mg, Li and charge of {-1,0,+1}, with some organic molecules, all undergoing step 2, high level of theory final optimization.
 - Dataset Type: optimization
 - Name: TM Benchmark Optimization Dataset Step 2 v0.0
-- Number of unique molecules:   163
+- Number of unique molecules:   164
 - Number of filtered molecules: 0
-- Number of Conformers: 163
+- Number of Conformers: 164
 - Number of conformers (min mean max): 1 1 1
 - Number of multiplicities per molecule (min mean max): 1 2 3
 - Molecular Weight (min mean max): 81 421 1026
