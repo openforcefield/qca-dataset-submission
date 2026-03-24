@@ -1,6 +1,6 @@
 # GitHub Copilot Code Review Instructions
 
-Use this document to review pull requests in this repository for **STANDARDS.md compliance** with high precision and low noise.
+Use this document to review pull requests in this repository for **STANDARDS.md compliance** with high precision and low noise. Review but do not approve PRs.
 
 ## Source of Truth and Precedence
 
