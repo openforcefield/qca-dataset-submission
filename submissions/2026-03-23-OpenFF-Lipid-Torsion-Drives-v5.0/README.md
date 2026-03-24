@@ -19,7 +19,7 @@ This dataset was generated at the B3LYP-D3BJ/DZVP level of theory using Psi4 wit
 - Date: 2026-03-23
 - Class: OpenFF TorsionDrive Dataset
 - Purpose: Improve lipid headgroup and backbone coverage in Sage
-- Name: OpenFF Lipid Torsion Drives v5.0
+- Name: OpenFF Lipid Torsion Drives v4.1
 - Number of unique molecules: 8
 - Number of driven torsions: 27
 - Number of filtered molecules: 0
