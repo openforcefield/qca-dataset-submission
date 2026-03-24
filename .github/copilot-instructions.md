@@ -1,95 +1,100 @@
 # GitHub Copilot Code Review Instructions
 
-When performing an automated review of pull requests in this repository, the review tool (such as GitHub Copilot Code Review) should prioritize compliance with the dataset standards as defined in our STANDARDS.md (a file found in the top level of this repository, which a reviewer should read before performing a review) and associated policies.  
-The goal is to provide feedback that helps maintain a consistent, reproducible, and high-quality dataset submission workflow.
+Use this document to review pull requests in this repository for **STANDARDS.md compliance** with high precision and low noise. Review but do not approve PRs.
 
-## Key Areas to Check
+## Source of Truth and Precedence
 
-### 1. Dataset Submission Structure
+1. `STANDARDS.md` is the primary authority.
+2. This file explains how to apply `STANDARDS.md` in automated reviews.
+3. If maintainers explicitly document an allowed exception in the PR discussion, do not keep reporting it as unresolved.
 
-Confirm that any new dataset (or version bump) is placed in its own directory under qca-dataset-submission/submissions/YYY-MM-DD-<dataset name with spaces replaced with hyphens>.  
+Start every review with: **“Experimental automated review; final authority is STANDARDS.md.”**
 
-Ensure existing dataset*.json files or scaffold*.json files are not being directly modified; instead changes should go via a version bump in the same directory.  
+## Scope: What to Review
 
-Check for existence of required sub-directories and files (dataset generation scripts, README.md, conda environment yaml).
+Review only structural/reproducibility/metadata compliance for dataset submissions.
 
-### 2. Molecule and Metadata Standards in *.py and *.ipynb* File
+Do review:
+- Submission directory structure and naming under `submissions/`.
+- Presence of required reproducibility files (generation script/notebook, environment file, README).
+- Metadata completeness and consistency (name/version/descriptions/provenance/submitter/elements/charges/molecular weight stats).
+- README completeness and consistency with dataset metadata.
+- Versioning and revision/changelog rules.
+- Root `README.md` table/index update in the correct dataset-type section.
 
-Metadata is defined in the *.ipynb or *.py file used to create the dataset. Do not review dataset*.json.bz2 or scaffold*.json.bz2 LFS files.
+Do not review:
+- Scientific correctness of computed results.
+- Notebook print verbosity, formatting style, or other non-standards nits.
+- General code-quality opinions unless they directly block reproducibility or standards compliance.
+- `dataset*.json.bz2` and `scaffold*.json.bz2` content-level review.
 
-For each molecule entry: verify that it has a canonical isomeric explicit hydrogen-mapped SMILES ("CMILES") string, coordinate data, and total charge.  
+## Decision Rules (Critical to Avoid False Positives)
 
-For each dataset metadata entry: verify that it includes name, version, short description, long description with usage, method, basis, elements & charges covered, min/mean/max molecular weight, DOI (if applicable), provenance link, GitHub submitter username.  
+- Only mark **blocking** when a requirement is explicit in `STANDARDS.md` and currently unmet.
+- If a requirement is expected “before merge” (for example DOI for force-field release datasets), phrase as: **“Must be present before merge; re-check at final review.”**
+- Do not convert style suggestions into blockers.
+- Do not repeat the same issue multiple times across files unless each location needs a distinct fix.
+- If uncertain whether something is required, ask a single clarification question or mark as **manual verification needed**, not blocking.
 
-Ensure metadata names use spaces for dataset names, and versioning uses the vX.Y.Z scheme as specified.
+## Required Checks
 
-The dataset url should be “https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/<YYYY-MM-DD>-<dataset name with spaces replaced with hyphens>“
+### 1) Submission Structure
+- New dataset/revision in its own directory: `submissions/YYYY-MM-DD-{dataset-name-with-hyphens}`.
+- Existing datasets are revised via version bump, not by mutating old released artifacts.
+- Required files are present and described in local README.
 
-The dataset url should be included in the metadata as 'long_description_url'
+### 2) Dataset Metadata (from `.py` / `.ipynb` setup code)
+- Check metadata in generation script/notebook, not compressed data artifacts.
+- Confirm required fields from `STANDARDS.md` are present.
+- `long_description_url` should point to submission folder URL:
+  `https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/{dir-name}`.
+- Ensure dataset name uses spaces (not hyphens/underscores) in metadata.
 
-The repository README.md should be updated to have a new row at the bottom of one of the tables. If a singlepoint dataset type, update the table in Basic Datasets section; if an optimization dataset type, update the table in the Optimization Datasets section; if a torsiondrive dataset type, update the table in the TorsionDrive Datasets section. A new row should include:
-| <dataset name> | [<YYYY-MM-DD>-<dataset name with spaces replaced with hyphens>](<dataset url>)                                 | <dataset short description (e.g. tagline)> | <elements in the dataset taken from the metadata> | |
+### 3) README + Revision Policy
+- Local submission README contains required metadata mirror and QC specification details.
+- Changelog is required for revisions beyond initial submission; not required for initial submissions (e.g. `v4.0` or `v0.0`).
+- README title should match dataset name.
+- README file manifest should list/define files in the submission directory.
 
-### 3. README and Changelog
+### 4) Versioning and Naming
+- Version format must be `vX.Y`.
+- Major version maps to standards conformance (`v4.x` for STANDARDS v4, `v0.x` for non-conforming/legacy cases).
+- For `>=v4.0`, expected naming is `OpenFF {descriptive name} v{version}` with spaces.
+- For force-field release datasets, expected naming uses `OpenFF SMIRNOFF {friendly name} {ff version}`.
 
-Check that README.md in the PR dataset directory contains: dataset name, tagline (e.g. short description), long description (all matching metadata), changelog (if version > initial), name of person who sourced molecules, description of molecule keys/names, list of elements, list of charges, min/mean/max molecular weight. The QCEngine process and subprocess with the keywords used in the *.ipynb or *.py file used to generate the dataset.
+## Special Cases and Exceptions
 
-The title at the top of the README.md should be identical to the dataset name.
+Use these to avoid repeated misunderstandings:
 
-If the submission directory already exists, the PR is a revision. For revisions: ensure changelog is updated with new entry describing the changes (including record IDs removed/modified and explanations).
+- **Force-field release DOI**:
+  - Required by standards.
+  - If PR notes DOI will be added before merge, keep as a single “must verify before merge” item.
+  - Resolve once DOI is present.
 
-Ensure all files in the directory are listed and defined in the README.md.
+- **Initial submission changelog**:
+  - Optional for initial versions (`v4.0`, `v0.0`).
+  - Do not flag presence of an optional changelog section as an issue.
 
-### 4. Versioning & Naming Convention
+- **Maintainer-accepted exceptions**:
+  - If maintainers explicitly justify a non-default naming/wording choice as standards-compliant for that PR context, do not keep reopening it.
 
-Confirm versioning is consistent: major version X corresponds to the STANDARDS version (e.g., v4.x for STANDARDS version 4) defined in STANDARDS.md in the top level of this repo.  
+## Comment Style and Format
 
-Check dataset naming structure: dataset names should start with “OpenFF” (or “OpenFF SMIRNOFF” for force-field releases) if the version is >=v4.0, the dataset not should also use spaces.
+Use concise review output:
+1. One-line experimental warning.
+2. One short summary of compliance status.
+3. Bullet list of findings with severity tags: `[blocking]`, `[non-blocking]`, `[manual-check]`.
+4. Each finding must include:
+   - path(s),
+   - requirement being checked,
+   - exact fix guidance.
 
-For datasets not conforming to any version of STANDARDS, version should start with v0.x.  This is common in cases where the molecules do not have valid CMILES (add in other common reasons for 0.X versions)
+If fully compliant, reply:
+**“Looks good — all mandatory fields present and versioning correct. 🔥”**
 
-Minor version bumps (v4.1, v4.2, etc) should reflect minor additions/fixes rather than major redesigns.
+## Comment Resolution Behavior
 
-
-## Tone and Format of Comments
-
-Begin the review with a warning that your review is experimental and should be superseded by the contents of the STANDARDS.md doc.
-
-Provide a short summary at the top of the review comment (e.g., “The new dataset directory <insert dataset name> mostly follows the standards, but ...”)  
-
-Then list specific issues or improvements as bullet points, referencing file paths and dataset names when possible.  
-
-If the change is small and fully compliant, you may respond: “Looks good — all mandatory fields present and versioning correct. 🔥”
-
-If certain checks cannot be automatically verified (e.g., “Were conformers generated as per enumeration keywords?”) note them as manual verification needed.
-
-Provide all needed information but avoid being verbose.
-
-## Scope / Focus
-
-Focus primarily on structural and metadata compliance with the STANDARDS.md document. The information may be formatted as a nested list or structured text; exact formatting is not prescribed.
-
-Do not (in this automated review) attempt deep scientific correctness (e.g., verifying actual theory computation results) — leave that to domain experts.  
-
-Ensure that submission workflows are reproducible and consistent (scripts (e.g. *.ipynb or *.py), environment yaml, README.md present).  
-
-Flag missing or mis-named files, inconsistent versioning, absent required metadata, naming issues, missing changelog entries for versions beyond the initial submission.
-
-## Feedback & Follow-Up
-
-For each flagged issue, include a note on how to fix it (e.g., “Add the DOI in the long description field of the metadata and update README accordingly”).  
-
-If the pull request includes a version bump, verify the change directory exists, version increments correctly, metadata version updated, README updated, and index of datasets in repository updated.  
-
-If no issues in adherence to the standards can be found, indicate positive verification.
-
-## Comment Resolution and Verification
-
-When reviewing a PR or subsequent comments:
-- If a maintainer has responded to your comment with clarification or justification, mark the comment as resolved if their response adequately addresses the concern
-- If a file has been updated to address your comment, verify the change and mark as resolved
-- Do NOT leave comments unresolved when:
-  - The maintainer explains why the current approach is compliant with STANDARDS.md
-  - The STANDARDS.md explicitly allows for the approach taken
-  - Your initial comment was based on a misinterpretation of the standards
-- Focus on objective compliance with STANDARDS.md, not on style preferences or suggestions beyond the requirements
+- Mark resolved when the file changed to address the issue.
+- Mark resolved when a maintainer explanation demonstrates standards compliance.
+- Do not keep unresolved comments that are based on misread requirements.
+- Prefer one consolidated comment per issue category over many near-duplicates.
