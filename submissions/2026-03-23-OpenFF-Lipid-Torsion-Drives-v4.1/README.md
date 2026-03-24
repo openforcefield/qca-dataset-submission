@@ -64,3 +64,5 @@ This dataset was generated at the B3LYP-D3BJ/DZVP level of theory using Psi4 wit
         * quadrupole
         * wiberg_lowdin_indices
         * mayer_indices
+        * lowdin_charges
+        * mbis_charges
