@@ -30,6 +30,7 @@ This dataset was generated at the B3LYP-D3BJ/DZVP level of theory using Psi4 wit
 - Min molecular weight: 84.16
 - Max molecular weight: 297.22
 - Dataset Submitter: Julianne Hoeflich
+- Dataset Curator: Julianne Hoeflich
 - Dataset Generator: Julianne Hoeflich 
 
 
