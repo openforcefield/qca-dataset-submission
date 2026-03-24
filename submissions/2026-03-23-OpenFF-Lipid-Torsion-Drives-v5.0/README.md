@@ -36,7 +36,7 @@ This dataset was generated at the B3LYP-D3BJ/DZVP level of theory using Psi4 wit
 
 ### QCSubmit generation pipeline
 
-- `generate-dataset.py`: This script shows how the dataset wsa prepared from the input gile `input.smi`.
+- `generate-dataset.ipynb`: This script shows how the dataset was prepared from the input file `input.smi`.
 - The list of SMILES in `input.smi` was curated by hand to correspond to relevant lipid model compounds. 
 
 ### QCSubmit Manifest
