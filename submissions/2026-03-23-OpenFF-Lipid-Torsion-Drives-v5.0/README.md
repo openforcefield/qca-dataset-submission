@@ -1,4 +1,4 @@
-# OpenFF Lipid Torsion Drives v5.0
+# OpenFF Lipid Torsion Drives v4.1
 
 ### Description
 
