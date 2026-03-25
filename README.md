@@ -337,7 +337,6 @@ These are currently used to find a minimum energy conformation of a molecule.
 | `OpenFF NSP Optimization Set 2 Sulfur v4.0` | [2026-02-17-OpenFF-NSP-Optimization-Set-2-Sulfur-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-17-OpenFF-NSP-Optimization-Set-2-Sulfur-v4.0) | Assess coverage of various NSP chemistries | C, S, F, O, H, Cl, Br, P, N, I | |
 | `OpenFF NSP Optimization Set 2 Nitrogen v4.0` | [2026-02-17-OpenFF-NSP-Optimization-Set-2-Nitrogen-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-17-OpenFF-NSP-Optimization-Set-2-Nitrogen-v4.0) | Assess coverage of various NSP chemistries | C, S, F, O, H, Cl, Br, P, N, I | |
 
-
 # TorsionDrive Datasets
 These are currently used perform a complete rotation of one or more selected bonds, where optimizations are performed over a discrete set of angles.
 
@@ -398,6 +397,7 @@ These are currently used perform a complete rotation of one or more selected bon
 | `OpenFF Additional Generated ChEMBL TorsionDrives 4.0` | [2025-04-10-OpenFF-Additional-ChEMBL-Fragment-TorsionDrives-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-ChEMBL-Fragment-TorsionDrives-v4.0) | Additional torsiondrives from ChEMBL fragments | O, Cl, Br, C, I, P, F, H, N, S | |
 | `OpenFF Additional Generated Guanidine Amidine Derivative and O-Linker TorsionDrives 4.0`| [2025-04-10-OpenFF-Additional-Generated-Guanidine-Amidine-Derivative-O-linkers-TorsionDrives-4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-04-10-OpenFF-Additional-Generated-Guanidine-Amidine-Derivative-O-linkers-TorsionDrives-4.0) | Additional manually-generated torsiondrives | S, C, N, O, H | |
 | `TorsionNet500 Re-optimization TorsionDrives v4.0` | [2026-02-12-TorsionNet500-Re-optimization-TorsionDrives-v4.0](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-02-12-TorsionNet500-Re-optimization-TorsionDrives-v4.0/) | TorsionNet500 re-optimized with OpenFF default spec | N, Cl, O, S, H, C, F | |
+| `OpenFF Lipid Torsion Drives v4.1` | [2026-03-23-OpenFF-Lipid-Torsion-Drives-v4.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2026-03-23-OpenFF-Lipid-Torsion-Drives-v4.1) |  Additional torsiondrive training data for lipid parameters | C, O, P, H | |
 
 # GridOptimization Datasets
 These are currently used perform a scan of one or more internal coordinates (bond, angle, torsion), where optimizations are performed over a discrete set of values.
