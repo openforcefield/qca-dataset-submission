@@ -1,0 +1,15 @@
+name: qca
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - jupyter
+  - py3Dmol
+  - networkx
+  - rdkit
+  - qcportal==0.59
+  - qcfractal==0.59
+  - matplotlib
+  - pip:
+    - pdbeccdutils==0.8.6

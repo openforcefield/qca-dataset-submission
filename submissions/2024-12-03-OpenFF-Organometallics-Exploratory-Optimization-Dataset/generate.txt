@@ -1,0 +1,1682 @@
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C4C(=O)C(C5=C6C(=C(C7=CC8=[N]9C(=CC(=C1C)N2[Mg]9(N76)[N]3=C54)C(=C8C)C(=O)C)C)CCC(=O)OCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)C)C(=O)OC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c2c(cc3c1C4=[N]([Ru]356([S]7CC[S]5CC[S]6CC7)N=C=S)C=CC=C4)C(=O)NC2=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[NH2][Pt+]2([NH2]1)I[Pt+]3(I2)[NH2]CC[NH2]3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C(=O)c3ccc4c(c3C2=O)nc5c6c7c8c(c5n4)C=CC=[N]8[Ru+2]91([N]7=CC=C6)([N]2=CC=Cc3c2c2c(cc3)C=CC=[N]92)[N]2=CC=Cc3c2c2c(cc3)C=CC=[N]12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1[S]5[Fe]2[S]3[Ag]45.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CN(C(=O)NC1=O)C2CC(C(O2)CN=[N]=N)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)nc3c4c5c6c(c3n2)C=CC=[N]6[Ru]78([N]5=CC=C4)([N]9=CC=Cc1c9c2c(cc1)C=CC=[N]72)[N]1=CC=Cc2c1c1c(cc2)C=CC=[N]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=N[N]2=C(C1c3c(cc(cc3OC)Br)OC)N=C(N=C2N(CCCC(F)(F)F)CCCC(F)(F)F)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[N]12C3CSC1C4CSC5=[N]4[Fe]2(Oc6c5cccc6)OC3=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe][S]3[Fe]1[S]([Fe]2)[Fe]3S45[Fe]6[S]7[Fe]4[S]8[Fe]7[S]6[Fe]58.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1C(C2=CC3=C(C(=C4N3[Fe+2]56[N]2=C1C(=C7N5C(=CC8=[N]6C(=C4)C(=C8C)CCC(=O)O)C(=C7C=C)C)c9ccccc9)CCC(=O)O)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N](C(=C1)N)CCO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)C12=CC=C([Os]1([N]3=C(C=CC=C3)C(=S)Nc4ccc(cc4)F)Cl)(C=C2)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1CCC2C(C1)[NH2][Pt+2][NH2]2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCN1c2c(cccn2)N(C(=O)c3c1ncc(c3)CCOC4=CC=[N](c5c4cccc5)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[As](C)(C)CCO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 2 radical electrons on molecule CC([C]O)C(C(=O)(=O)O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=CC=CC=[N]3[Ru+2]245([N]6=c7c(=CC=C6)c8c(c9c7[N]4=CC=C9)nc1c2c3c4c(c1n8)C=CC=[N]4[Ru+2]14([N]3=CC=C2)([N]2=C(C=CC=C2)C2=[N]1C=CC=C2)[N]1=C(C=CC=C1)C1=[N]4C=CC=C1)[N]1=C(C=CC=C1)C1=[N]5C=CC=C1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Zn]56[N]2=C1C=C7N5C8=C(C(=C(C8=C7C)O)C(=O)OC)C9=[N]6C(=C4)C(=C9CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C)C)C(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cccc2c1nc3c4c5c6=[N](C=CC=c6c3n2)[Ru+2]78([N]5=CC=C4)([N]9=CC=Nc1c9c2c(cc1)N=CC=[N]72)[N]1=CC=Nc2c1c1c(cc2)N=CC=[N]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule N(=O)[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CNC(=[S][Pt+2]1[NH2]CC[NH2]1)N(C)CCNc2c3ccccc3[nH+]c4c2cccc4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S][Fe]1[S]2[Fe][S]3[Fe]2[S]1[Fe]3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)CCCC(=O)NC2=C(C=C[N](=C2)O)C(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1O)-c3c4c(c5=CC(=C[N]6=c5c3N2[Ru]678([S]9CC[S]7CC[S]8CC9)[N]CS)F)C(=O)NC4=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc(c2c(c1)nc3c4c5c6c(c3n2)C=CC=[N]6[Ru]78([N]5=CC=C4)([N]9=CC=Nc1c9c2c(cc1)N=CC=[N]72)[N]1=CC=Nc2c1c1c(cc2)N=CC=[N]81)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[In]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8C)CCC(=O)O)C=C)C)CCC(=O)O)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1NC[S]2[Fe]3([S]1[Fe]2(C3=O)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36(N7C(=CC8=[N]6C(=C5)C(=C8C=C)C)C(=C(C7=C2)CCC(=O)O)C)c9ccc(cc9)Cl)C=C)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[CH]12[CH]3([Ir+2]1456([CH]2(C4(=C53C)C)C)([NH2]CC[NH]6S(=O)(=O)c7ccc(cc7)NC(=O)CCCCC8C9C(CS8)NC(=O)N9)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCSC1=[S][Pt](OC(=C1)c2cccc(c2)O)(S(C)(C)O)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1OC[S]2[Fe]3([S]1[Fe]2(C3=O)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[S]2[Fe]3(C(=O)[Fe]2([S]3C1)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1SC[S]2[Fe]3([S]1[Fe]2(C3=O)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C)C(C)OO)C(=C(C7=C2)CCC(=O)O)C)C)C=C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(ccc1NC(=O)CCCCC2C3C(CS2)NC(=O)N3)S(=O)(=O)[N-]4CC[NH2][Ir+3]4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[N]1=C(N(C=C1)c2ccccn2)[Pt]3(c4cc(cc(c4C5=[N]3C=CC=C5)F)F)C6=[N](C=CN6C)c7ccccn7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1nc(c2c(n1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OCC4C(C(C(O4)[N]5=CC=CC(=C5)C(=O)N)F)O)O)O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C4C5=[N]3[Mg]67N2C(=C1C)C=C8[N]6=C(C=C9N7C(=C5C(C4=O)(C(=O)OC)O)C(=C9C)CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C(=C8CC)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36(N7C(=CC8=[N]6C(=C5)C(=C8C=C)C)C(=C(C7=C2)CCC(=O)O)C)c9ccccc9)C=C)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cccc(c1)[Fe]234N5C6=CC7=[N]2C(=CC8=C(C(=C(N38)C=C9[N]4=C(C=C5C(=C6C)CCC(=O)O)C(=C9C)CCC(=O)O)C=C)C)C(=C7C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Co]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8CC)CC)CC)CC)CC)CC)CC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe](O[Fe]2S[Fe]3[S]2[Fe]1S3)[S].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CNC1C[S]2CC[S]3[Ru]24([N]5=CC(=Cc6c5c7c(c8c6C(=O)NC8=O)-c9cc(ccc9N47)OC)F)([S](C1)CC3)[N]CS.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [CH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Mn]36N7C(=CC8=[N]6C(=C5)C(=C8C)CCC(=O)O)C(=C(C7=C2)CCC(=O)O)C)C)CCC(=O)O)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC2=C(C3=[N]4C(=C(C5=CC=C6N5[Zn]47N2C1=C(C8=[N]7C(=C6C(F)(F)F)C=C8)C(F)(F)F)C(F)(F)F)C=C3)C(F)(F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cnccc1C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Fe]6(N34)[N]9=C2C=CC9=C8c1ccncc1)c1ccncc1)C=C5)c1ccncc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN(C)C1=N[N]2=CC3=CC=c4ccccc4=[N]3[In]2(S1)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=NC5=[N]6C(=C(C7=CC=C8N7[Fe]6(N34)[N]9=C2C=CC9=N8)c1ccccc1)C=C5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C(C4=[N]3[Fe]56N2C(=C1C)C=C7[N]5=C(C=C8N6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)CC)C(F)(F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(NC(SC1)C(C(=O)O)NC(=O)CCC(=O)C23[C]4[Ru]2567891([C]4[C]5[C]63)[C]2[C]7[C]8[C]9[C]12)C(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe]S[Fe]2S[Fe]3[S]2[Fe]1S3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCC12C3([Ir]1456(C3(C4(C52C)C)C)(N(CC7=[N]6C=CC(=C7)c8ccc(cc8)S(=O)(=O)N)S(=O)(=O)c9ccccc9)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=CC2=[N]1[Cu]3[N](=C2)NC(=[S]3)N(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C2C(C(S1)CCCCC(=O)NCCCOC34C5=[N]6C(=CC=C5)C7=[N]([Co]68([N]9=CC=CC=C9C1=CC=CC3=[N]81)([N]1=CC=CC=C41)[O])C=CC=C7)NC(=O)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=CC5=[N]6C(=C(C7=CC=C8N7[Zn]6(N43)[N]9=C2C=CC9=C8)c1ccc(cc1)C(=O)O)C=C5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe][S]2[Fe]13S[Fe][S]3[Fe]2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1NC[Se]2[Fe]3([Se]1[Fe]2(C3=O)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[C-]12C3(=C4([Ir+3]1356(C2(=C54C)C)([N-](CC7=[N]6C=CC(=C7)c8ccc(cc8)S(=O)(=O)N)S(=O)(=O)c9ccccc9)[Cl-])C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [B]1B234B5B6[Co]17891%10%11(B2C72C866B55B33B65B432)B2B345B9C11(B33B446B522B%105B242C%1151B623)CNS(=O)(=O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc(nc(n1)N)Nc2cc(cc(c2)NC(=O)c3cccc(c3)Nc4ccnc5c4cccc5)C[N+](C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule B1(N2C(=CC(=C2C(=C3[N]1=C(C=C3C)C)CCCCCCCCCCC(=O)OCC(CO)O)C)C)(F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN(C)c1ccc2c(c1)OC3=CC(=[N](C)C)C=CC3=C2c4cc(ccc4C(=O)NS(=O)(=O)N(C)C)C(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1CCCN(C1)CC2=C[N]3=C(C(=C2)C(F)(F)F)NN(C3=O)c4cccc(c4)C5(CCNC(=O)C5)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC=C1C(C2=CC3=C(C(=C4N3[Mg]56[N]2=C1C=C7N5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OCC=C(C)CCCC(C)CCC=C(C)CCCC(C)C)C)C)C(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1C(C2=[N]3C1=CC4=C(C(=C5N4[Mg]36[N]7=C(C=C8N6C9=C2C(C(=O)C9=C8C)C(=O)OC)C(C(C7=C5)C)C=C)C(=O)C)C)CCC(=O)OCC=C(C)CCCC(C)CCC=C(C)CCCC(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(CCC[NH2][Pt]([NH3])([NH3])[NH3])CCN.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCC[NH2][Pt]([NH3])([NH3])[NH2]CCCCCC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 3 radical electrons on molecule [As].
+atomic number must be positive, given 0.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1ncc(c(n1)N)C[N]2=C(SC(=C2C)CCOP(=O)(O)OP(=O)(O)O)C(C)(O)OO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N(C=N2)C3C(C(C(O3)CO)OP(=O)(O)OC(C)CNC(=O)CCC4(C(C5C6(C(C(C7=[N]6[Co+2]89[N]5=C4C(=C1[NH]8C(=CC2=[N]9C(=C7C)C(C2CCC(=O)N)(C)CC(=O)N)C(C1CCC(=O)N)(C)C)C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N3C=[N]2[Co]456([N]7=C8C(=C9[N]4=C(C=C1[N]5=C(C(=C2N6C(C7C(C8(CCC(=O)NCC(OP(=O)(OC4C(OC3C4O)CO)O)C)C)CC(=O)N)(C(C2CCC(=O)N)(C)CC(=O)N)C)C)C(C1CCC(=O)N)(C)CC(=O)N)C(C9CCC(=O)N)(C)C)C)CC1C(C(C(O1)N1C=Nc2c1ncnc2N)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1[S]5[Fe]2[S]3[Ni]45.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1C(=N)N)NC3=[N]2[Zn+2][N]4=C(C3)Nc5c4ccc(c5)C(=N)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1C(C2=CC3=C(C(=C4[N-]3[Mg+2]56[N]2=C1C=C7[N-]5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C)C)C(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe][S]2[Fe]3[S]4[Fe]2[S]5[Fe]4[S]3[Ni]51.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(CO)C(C[O])O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S([Fe]12[S]3[Fe]4[S]1[Fe]5[S]4[Fe]3[S]25)[Fe]67[S]8[Fe]9[S]6[Fe]1[S]9[Fe]8[S]71.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1C(N)N)NC3=[N]2[Zn+2][N]4=C(C3=O)Nc5c4ccc(c5)C(N)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(CC[NH2][Pt]([NH3])([NH3])Cl)C[NH2][Pt]([NH3])([NH3])Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=[N]2C(=C1)C3=CC(=CC=[N]3[Fe]2(C#N)(C#N)(C#N)C#N)CNC(=O)CCCCC4C5C(CS4)NC(=O)N5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Cr]36N7C(=CC8=[N]6C(=C5)C(=C8C=C)C)C(=C(C7=C2)CCC(=O)O)C)C=C)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C5C=CC6=[N]5[Co]7(N43)[N]8=C(C=CC8=C2c9ccccc9)C1=CC=C(N71)C(=C6c1ccccc1)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cl([Cu])[Cu].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N](C=C1)[Pt+2]([NH3])([NH3])Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C2C(C(C3[N-]2[Co+2]45[N]6=C1C(C(C6=CC7=[N]4C(=C(C8=[N]5C3(C(C8CCC(=O)N)(C)CC(=O)N)C)C)C(C7CCC(=O)N)(C)CC(=O)N)(C)C)CCC(=O)N)CC(=O)N)(C)CCC(=O)NCC(C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C)C=O)C(=C(C7=C2)CCC(=O)O)C)C)C=C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]2[S]3[Fe]4S[Fe]5[S]6[Fe]1[S]7[Mo]6[S]5[Fe]7S[Fe]8[S]2[Fe]3[S]48.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule N12345[Fe]67S[Fe]18[S]9[Fe]21S[Fe]32[S]6[Fe]3[S]7[Fe]4([S]23)S[Fe]52[S]8[Mo]9[S]12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 2 radical electrons on molecule [CH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Mg]56[N]2=C1C=C7N5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C)C)C=C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1S567([Fe]2[S]3[Fe]45)[Fe]8[S]9[Fe]6[S]1[Fe]9[S]8[Fe]71.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Fe]47N2C1=CC8=[N]7C(=C6)C(=C8C)CCC(=O)O)CCC(=O)O)C)C9C3(SC=C9)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1S5([Fe]2[S]3[Fe]45)S67[Fe]8[S]9[Fe]6[S]1[Fe]9[S]8[Fe]71.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N(C=N2)C3C(C(C(O3)CO)OP(=O)(O)OC(C)CNC(=O)CCC4(C(C5C6(C(C(C7=[N]6[Co+2]89(N5C4=C(C1=[N]8C(=CC2=[N]9C(=C7C)C(C2CCC(=O)N)(C)CC(=O)N)C(C1CCC(=O)N)(C)C)C)C#N)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N(C=N2)C3C(C(C(O3)CO)OP(=O)(O)OC(C)CNC(=O)CCC4(C(C5=[N-]6C4=C(C7=[N]8[Co+2]69([N]1=C(C=C8C(C7CCC(=O)N)(C)C)C(C(C1=C(C1=[N]9C5(C(C1CCC(=O)N)(C)CC(=O)N)C)C)(C)CC(=O)N)CCC(=O)N)C)C)CC(=O)N)C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Co]47N2C1=CC8=[N]7C(=C6)C(=C8C)CCC(=O)O)CCC(=O)O)C)C(=C3C)C=C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Co+3]([NH3])([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Pt]([NH3])(Cl)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 2 radical electrons on molecule C(C(C(=O)O)N)S[Pb+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)([O])[O])CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1OCCN3CCCCC3)O[Cu]45[N](=C2)c6cc(c(cc6[N]4=Cc7ccc(cc7O5)OCCN8CCCCC8)F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)CC2C(=O)O[Cu]3[N]2=Cc4ccccc4O3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)CC1C(=O)O[Cu]2[N]1=Cc3ccccc3O2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe][S]2[Fe]1S[Fe]2S[Fe][Ni].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Rh]56[N]2=C1C=C7N5C(=CC8=[N]6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C)CC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Co]56O[W]78(O1)(O2P91O2[W]%10%11(O5)(O[W]5%12(O6)(O9[W]6(O7)(O5)(O[W]57(O8)(O1[W]1(O3)(O5)(O[W]2(O4)(O%10)(O[W]234(O[W]58(O%11)(O2P29O%10[W]%11(O%12)(O5)(O[W]%105(O6)(O[W]6%10(O7)(O2[W](O1)(O3)(O6)(O[W]12(O4)(O93[W](O8)(O%11)(O1)(O[W]3(O5)(O%10)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+period in smiles: `O.O`
+period in smiles: `O.O.O`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(C(C(=O)O)N)S[As]O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)C12=C3[Ru]1456(C2=C4C5(=C63)C)([P]78CN9CN(C7)CN(C9)C8)(Cl)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]6[S]7[Fe]18[N][Fe]29[S]1[Fe]3[S]2[Fe]1[S]9[Fe]42S[Fe]51[S]6[V]7[S]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C)C(=C)O)C(=C(C7=C2)CCC(=O)O)C)C)C(=O)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=C(C(=C4N3[Fe]56N2C1=CC7=[N]5C(=CC8=[N]6C(=C4)C(C8=O)(C)CC(=O)O)C(C7=O)(C)CC(=O)O)C)CCC(=O)O)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1ccc(cc1NS(=O)(=O)C)C2=NN3C(=NN=C3C(=C2)NC(=O)CCNC(=O)C(CN)NC(=O)CCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCCOCC(=O)NC(CN)C(=O)NCC(=O)[N]C4=[C]C(=NN5C4=NN=C5[C])c6[c][c]c(c([c]6)[N]S(=O)(=O)[C])[C]([C])[C])C.
+period in smiles: `[CH3].[CH3]`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=[N]([Os+2]24([N]5=CC=CC=C5C6=CC=CC=[N]46)N7C=CN=C7)C=CC=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=[N]([Ru+2]24([N]5=CC=CC=C5C6=CC=CC=[N]46)N7C=CN=C7)C=CC=C3.
+atomic number must be positive, given 0.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=c2ccc3=CC=C([N]4=c3c2=[N]1[Pt]45(CC5)[N]6=CN(C(=C6)C7=CN(N=N7)C8C(C(C(C(O8)O)O)O)O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2=[N]3c4c(=c2cc1O)c5c(c6=CC=CN(c64)[Ru]3(C#O)C7C=CC=C7)C(=O)NC5=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1O)-c3c4c(c5c6c3N2[Ru]7891([N]6=CC=C5)([CH]2=[CH]7C8[CH]9=[CH]12)C#O)C(=O)NC4=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=c2ccc3=CC=C([N]4=c3c2=[N]1[Pt]45([C][C]5)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(CO)(CO)NC(=O)C12[CH]3=[CH]4[Ru]3156([CH]4=[CH]52)([N]7=CC(=Cc8c7c9c(c1c8C(=O)N(C1=O)C)-c1cc(ccc1N69)O)F)C#O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)c1ccc(cn1)C(=O)NC2=C[N]3=C(N2)C=CC(=C3)C4=CNN=C4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN1C=CN2[C]1[Pt]3(c4cc(cc(c4C5=[N]3C=CC=C5)F)F)[N]6=C2C=CC=C6.
+period in smiles: `Cc1ccc(cc1)C(C)C.c1ccc(cc1)NC2=[S][Os]([N]3=C2C=CC=C3)Cl`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2=NC=C[N]3=c2c4=[N]([Ru]356([N]7=c8c(=NC=C7)ccc9=NC=C[N]5=c98)[N]2=CC=Cc3c2c2c(c5c3nc3cc(c(cc3n5)C#N)C#N)C=CC=[N]62)C=CN=c41.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]2[S]3[Fe][S]4[Fe]1[S]2[Fe]34.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[CH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(c2cc3c(cc2C(N1[O])(C)C)OC4=CN(C(=O)N=C4N3)C5CC(C(O5)COP(=O)(O)O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Ni+2]47N2C1=CC8=[N]7C(=C6)C(C8CCC(=O)O)(C)CC(=O)O)CC(=O)O)CCC(=O)O)C(=C3CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Co+2]47N2C1=CC8=[N]7C(=C6)C(C8CCC(=O)O)(C)CC(=O)O)CC(=O)O)CCC(=O)O)C(=C3CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]2S[Fe]3[S]2[Fe]1S3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12CC(=O)NC13CC4C(C(C5=[N]4[Ni+]67[N]3=C(C2CCC(=O)O)C=C8N6C(=C9C(=O)CCC1C9=[N]7C(C5)C1CC(=O)O)C(C8CC(=O)O)CCC(=O)O)(C)CC(=O)N)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe][S]3[Fe]1[S]([Fe]2)[Fe]3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C4C(=O)C(C5=C6C(=C(C7=CC8=[N]9C(=CC(=C1C)N2[Mg]9(N76)[N]3=C54)C(=C8C=O)C=C)C)CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C(=O)OC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C([OH][Fe]234[OH]C(CC56[OH]2[Fe]7([OH]3C1(CC([OH]7)[O])C([OH]4)[O])([OH]C(C5)[O])[OH]C6[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC2=CC3=C(C=C4N3[Fe]56[N]2=C1C=C7N5C(=CC8=[N]6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)N2CC3=[N]([Ru]24(N5C=C(C=c6c5c7c(=c8cc(ccc8=[N]47)O)c9c6C(=O)NC9=O)F)(C#O)Cl)C=CC=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe]O2[Fe]134O[Fe]356[S]4[Fe]52S6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]234[Fe]156[S]2[Fe]35(S4)S6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3456[Fe]1789[Fe]2312[Fe]47([S]58)([S]61)[S]92.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S(SS[Fe]12[S]3[Fe]4[S]1[Fe]5[S]4[Fe]3[S]25)SS[Fe]67[S]8[Fe]9[S]6[Fe]1[S]9[Fe]8[S]71.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe][Fe][S]2[Fe]13[Fe]2S3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Fe]1O[Fe]23S[Fe]245[S]3[Fe]4(O1)S5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[S]2[Fe]3([S]1[Fe]2(C3=O)(C#N)C#[O+])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Mo]12(O[Mo]3(O[Mo]456(O3[Mo]7(O1)(O2[Mo]8(O7[Mo]91(O4)(O8[Mo]2(O9[Mo](O15)(O2)(O6)([O])[O])([O])([O])[O])[O])([O])([O])[O])([O])[O])[O])([O])([O])[O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=[N]3C1=CC4=C(C5=C6N4[Mg]37N8C(=CC9=[N]7C(=C6C(C5=O)C(=O)OC)C(C9C)CCC(=O)OCC=C(C)CC=CC(C)CCCC(C)CCCC(C)C)C(=C(C8=C2)C=C)C)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Mg]56[N]2=C1C=C7N5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C)C)C=O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Ga]S[Ga]1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C4C(=O)C(C5=C6C(=C(C7=CC8=[N]9C(=CC(=C1C)N2[Mg]9(N76)[N]3=C54)C(=C8C)CC)C)CCC(=O)OCC=C(C)CCC=C(C)CCC=C(C)C)C(=O)OC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C4C(=O)C(C5=C6C(=C(C7=CC8=[N]9C(=CC(=C1C)N2[Mg]9(N76)[N]3=C54)C(=C8C)CC)C)CCC(=O)OCC=C(C)CCC=C(C)CCC=C(C)C)C(=O)OC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=C(NC=N1)CC(CO[As](O)(O)O)N.
+atomic number must be positive, given 0.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1C(C2=CC3=C(C(=C4N3[Mg]56[N]2=C1C=C7N5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C)C)C(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [OH].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Cu]56O[W]78(O1)(O2P91O2[W]%10%11(O5)(O[W]5%12(O6)(O9[W]6(O7)(O5)(O[W]57(O8)(O1[W]1(O3)(O5)(O[W]2(O4)(O%10)(O[W]234(O[W]58(O%11)(O2P29O%10[W]%11(O%12)(O5)(O[W]%105(O6)(O[W]6%10(O7)(O2[W](O1)(O3)(O6)(O[W]12(O4)(O93[W](O8)(O%11)(O1)(O[W]3(O5)(O%10)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Ni]56O[W]78(O1)(O2P91O2[W]%10%11(O5)(O[W]5%12(O6)(O9[W]6(O7)(O5)(O[W]57(O8)(O1[W]1(O3)(O5)(O[W]2(O4)(O%10)(O[W]234(O[W]58(O%11)(O2P29O%10[W]%11(O%12)(O5)(O[W]%105(O6)(O[W]6%10(O7)(O2[W](O1)(O3)(O6)(O[W]12(O4)(O93[W](O8)(O%11)(O1)(O[W]3(O5)(O%10)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O=[V](O[V]([O])([O])O[V]([O])([O])O[V]([O])O[V]([O])([O])[O])O([V]([O])[O])[V]([O])([O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1C(C(C(N1)C2=CN(N=N2)CC=CC34[C]5[Fe]3678912([C]5[C]6[C]74)[C]3[C]8[C]9[C]1[C]23)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c3c4c1C=CC=[N]4[Pt]5([N]3=CC=C2)[N]6=c7c(=CC=C6)ccc8c7[N]5=CC=C8.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=[N]6[Fe]47N2C1=CC8=C(C(=C(N78)C=C6C(=C5C)C(CCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)C)O)C)C=C)C(=C3CCC(=O)O)C=O)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)-c3c4c(c5c6c3[NH]2[Ru]7891([N]6=CC=C5)([CH]2=[CH]7[CH]8=C9=[CH]12)C#O)C(=O)NC4=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8C(=O)O)C)C(=O)O)C)C)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8C)C(CCC=C(C)CCC=C(C)CCC=C(C)C)O)C=O)CCC(=O)O)C)C=C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8CCC(=O)O)C)CCC(=O)O)C)C=C)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8C)CCC(=O)O)C=C)C)CCC(=O)O)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C=C)C=C)C(=C(C7=C2)CCC(=O)O)C)C=C)C=C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(C(=O)C4=[N]3[Fe]56N2C(=C1C)C=C7[N]5=C(C=C8N6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)(C)CC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Ir]36(N7C(=C2)C(=C(C7=CC8=[N]6C(=C5)C(=C8C)CCC(=O)O)C=C)C)C=O)CCC(=O)O)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Fe]56[N]2=C1C=C7N5C8=C(CC(=O)C8=C7C)C9=[N]6C(=C4)C(C9CCC(=O)OC)C)C)C=C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Ni]47N2C1=CC8=[N]7C(=C6)C(=C8C)CCC(=O)O)CCC(=O)O)C)C(=C3C)C=C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C=C)C)C(=C(C7=C2)CCC(=O)O)C)C(=C)OO)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N3C=[N]2[Co]456(N7C8C(C(C7=C(C9=[N]4C(=CC1=[N]5C(=C(C2=[N]6C8(C(C2CCC(=O)N)(C)CC(=O)N)C)C)C(C1C=CC(=O)N)(C)CC(=O)N)C(C9CCC(=O)N)(C)C)C)(CCC(=O)NCC(OP(=O)(OC1C(OC3C1O)CO)O)C)C)CC(=O)N)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(C(C(C(=O)O)O[Ca])C(=O)O)C(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]6[S]7[Fe]18S[Fe]29[S]1[Fe]3[S]2[Fe]4([S]9[Mo]12)S[Fe]51[S]6[Fe]7[S]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]67S[Fe]18[S]9[Fe]21S[Fe]32[S]6[Fe]3[S]7[Fe]4([S]23)[Se][Fe]52[S]8[Mo]9[S]12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]67[S]8[Fe]19[S]1[Fe]8[S]6[Fe]21[Se][Fe]31[S]2[Fe]4([Se]7)[S]3[Fe]5([S]1[Mo]32)[Se]9.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]67S[Fe]18[S]9[Fe]21S[Fe]32[S]6[Fe]3[S]7[Fe]4([S]23)S[Fe]52[S]8[Mo]9[S]12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C12345[Fe]6[S]7[Fe]1[S]8[Fe]7[S]6[Fe]28S[Fe]39[S]1[Fe]4[S]2[Fe]5[S]9[Mo]21.
+period in smiles: `[H].C(CCCCN=[N+]=[N-])CCCNC1C(C(C(C(C1O)O)O)O)C(=O)O`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]123(O[W]456(O[W]789(O[W]%10%11(O7)(O[W]7%12%13(O[W]%14%15(O7)(O[W](O4)(O5)(O[W]45(O%14)(O[W]7(O6)(O8)(O4[W](O%10)(O%12)(O7)(O5)[O])[O])[O])(O[W]4(O1)(O2)(O[W]12(O%15)(O4[W]45(O[W]6(O3)(O9)(O[W](O%11)(O6)(O4)(O[W](O%13)(O5)(O1)(O2)[O])[O])[O])([O])([O])[O])([O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN1C(=C(CN1)C(=O)NC2=CC=[N]3CC(NC3=N2)c4ccccc4)C(=O)N5CCC5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=C[N](=CN1)[Cu+]([N]2=CNC=C2)([N]3=CNC=C3)([N]4=CNC=C4)([OH2])[OH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Ir+3]([NH3])([NH3])([NH3])([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c(cc2c(c1F)C3=[N]([Ir+3]245(c6cc(cc(c6C7=CC=CC=[N]47)F)F)[N]8=C(C=CC=C8)C9=[N]5C=C(C=C9)CN1C(=O)CCC1=O)C=CC=C3)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C2CC3C(=C(C4=[N]3[Fe]56N2C(=C1C=C)C=C7[N]5=C(C=C8N6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(C(C(C(=O)O)O[Mg])C(=O)O)C(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]123(O[W]45(O16[W]7(O2)(O[W]891(O7[W]626(O3)O4[W]34(O282[W](O3)(O9)(O[W]2(O4)(O1)(O6)[O])([O])[O])(O5)[O])[O])([O])[O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1(O[W]2(O1[W]345(O2[W]678(O391[W]2(O4)(O6[W]34(O2[W]9269O73[W]3(O4)(O2[W]2(O3)(O63[W]1(O5)(O8)(O[W]3(O2)(O9)([O])[O])[O])([O])[O])([O])[O])([O])[O])([O])[O])[O])[O])([O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]12(O[W]34(O15[W]67(O3[W](O4)(O6[W]89(O713[W]54(O8)(O2[W]1(O[W]3(O9)(O4)([O])[O])([O])[O])[O])([O])[O])([O])([O])[O])[O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]12(O3[W]45(O[W]36(O[W]78(O1[W]9(O7)(O[W]13(O2[W](O1)(O4)(O[W]12(O5)(O[W]4(O6)(O8)(O1[W](O3)(O9)(O2)(O4)[O])[O])[O])([O])[O])([O])[O])([O])[O])([O])[O])([O])[O])([O])[O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]12(O[W]3(O1[W](O2)(O3)([O])[O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Ir]1456(C2(C4(C53C)C)C)([N]7=C(C=C(C=C7)O)C(=O)N6CCc8ccc(cc8)S(=O)(=O)N)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Ir]1456(C2(C4(C53C)C)C)([N]7=C(C=CC=C7)C(=O)N6CCc8ccc(cc8)S(=O)(=O)N)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C[N](C)(C)C)OC(=O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2(C3(C(=C(C4=[N]3[Co+]56[N]2=C1C=C7N5C(=CC8=[N]6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C)C)C)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2(C3(C(=C(C4=[N]3[Co+]56[N]2=C1C=C7N5C(=CC8=[N]6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C)C)C)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c3c(ccc4c3c1C(=O)NC4=O)C(=O)N(C2=O)CC5=CC=[N](C=C5)[Pt]67[NH2]CC[NH]6CC[NH2]7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O[Mo]O[Mo]1(O[Mo](O[Mo](O[Mo](O1)([O])([O])([O])O[Mo]([O])([O])([O])[O])([O])([O])([O])[O])([O])([O])([O])O[Mo]([O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Mo]([O])([O])O[Mo]12(O[Mo]34(O1[Mo]567(O2[Mo]89(O5[Mo]1(O8)(O[Mo]2(O1[Mo]1(O63[Mo](O12)(O4)(O7)([O])[O])(O9)[O])([O])([O])[O])([O])[O])([O])[O])[O])([O])[O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Cr]6(N34)[N]9=C2C=CC9=C8c1ccccc1)c1ccccc1)C=C5)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Mn]6(N34)[N]9=C2C=CC9=C8c1ccccc1)c1ccccc1)C=C5)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Co]6(N34)[N]9=C2C=CC9=C8c1ccccc1)c1ccccc1)C=C5)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O[Mo]O([Mo]O)[Mo](=O)([O])O([Mo]O)[Mo]([O])([O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Mo]12(O[Mo]34(O1[Mo]56(O2[Mo]78(O59[Mo]1(O7)(O[Mo]2(O1[Mo]91(O8)(O2[Mo](O13)(O6)(O4)([O])[O])[O])([O])[O])([O])[O])([O])[O])[O])([O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O[Mo]O[Mo]1(O[Mo](O1[Mo]O)([O])([O])[O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1ccc2ccc3c4c2[n+]1[Pt]5(N4C(=CC3)C)([C]=[C]5)(C)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C(=CC3=[N]2[Ru]4567([C]8[C]4[C]5[C]6[C]78)(OC3=O)[O])N9CCN(CC9)C(=O)CCCCC1C2C(CS1)NC(=O)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Ce]56789(O[W]%10%11(O1)(O2P12O%12%13[W]%14%15(O5)(O[W]5%16(O6)(O11[W]6(O%10)(O5)(O[W]5%10(O%11)(O22[W]%11(O3)(O5)(O[W]%12(O4)(O%14)(O[W]%133(O%15)(O[W]1(O%16)(O6)(O[W]2(O%11)(O%10)(O3)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])O[W]123(O[W]45(O7)(O1P16O7%10[W]%11%12(O8)(O[W]8%13(O9)(O11[W]9(O4)(O8)(O[W]48(O5)(O65[W]6(O2)(O4)(O[W]7(O3)(O%11)(O[W]%102(O%12)(O[W]1(O%13)(O9)(O[W]5(O6)(O8)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C1C(=O)O[Cu]2[N]1=Cc3ccccc3O2)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN1C(=C(CN1)C(=O)NCC2=NCCO2)C(=O)NC3=NC4=[N](CC(=N4)c5ccccc5)C=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)-c3c4c(c5=CC(=C[N]6=c5c3N2[Ru]67891(C2C7C8C9C12)C#[O+])F)C(=O)NC4=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][V]1(O2[V]34(O[V]56(O[V]78(O1[V]91(O7[V]7%10(O8[V]8%11(O7[V]7%12(O8[V]8(O%115)(O6[V]5(O3)(O8[V]3(O7)(O5[V]56(O3[V](O3[V](O%12)(O%10)(O7[V]3(O5)(O3[V]7(O9)(O5[V]2(O1)(O4[V]53(O6)[O])[O])[O])[O])[O])([O])O[V]([O])([O])([O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])O[V]([O])([O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2=[N](C3=C4(C(=C(C5[N]4=c2c(c1C)C(C5)(C)C)C(=O)O)c6ccccc6)C(=O)NC(=O)N3)CC(C(C(COP(=O)(O)O)O)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Ir]1456(C2(C4(C53C)C)C)([N]7=CC=C(C=C7C(=O)N6CC(=O)Nc8ccc(cc8)S(=O)(=O)N)O)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Ir]1456(C2(C4(C53C)C)C)[N]7=CC=C(C=C7C(=O)[N]6(CCCc8ccc(cc8)S(=O)(=O)N)Cl)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(NC(S1)C(C(=O)O)NC(=O)CCC(=O)C23[C]4[Ru]2567891([C]4[C]5[C]63)[C]2[C]7[C]8[C]9[C]12)C(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(NC(S1)CNC(=O)CCC(=O)C23[C]4[Ru]2567891([C]4[C]5[C]63)[C]2[C]7[C]8[C]9[C]12)C(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(NC(S1)C(C(=O)O)NC(=O)CCC(=O)C23[C]4[Ru]2567891([C]4[C]5[C]63)[C]2[C]7[C]8[C]9[C]12)C(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12=C3([Rh+3]145([C-]2(C4(=C53C)C)CCNC(=O)CCCCC6C7C(CS6)NC(=O)N7)([Cl-])([Cl-])[Cl-])C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC[P](C)(CC)[Rh]([P](C)(CC)CC)([P](CC)(CC)CNCC(=O)NCCN1C(=O)CCC1=O)[P](CC)(CC)CNCC(=O)NCCN2C(=O)CCC2=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCCCCCC(=O)OCC(COP(=O)(O)OCC[N](C)(C)C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]23CC[N]4([Lu]256([N]7=C(C3)C=CC=C7C(=O5)O)[N]8=C(C=CC=C8C4)C(=O)O6)CCN1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCCCCCC(=O)OCC(COP(=O)(O)OCC[N](C)(C)C)OC(=O)CCCCCCCC=CCCCCCCCC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [C](=O)[Re]12(O3[Re]4(O1[Re]5(O2[Re]3(O45)([C]=O)([C]=O)[C]=O)([C]=O)([C]=O)[C]=O)([C]=O)([C]=O)[C]=O)([C]=O)[C]=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O=[W]1234O[W]567(=O)O18[P]91O%10%11[W]%12%13(=O)(O2)O[W]%102(=O)(O5)O[W]%115(=O)(O%12)O[W]%10%11%12(=O)O99[W](=O)(O%10)(O3)(O%13)O[W]93(=O)(O%11)O[W]8(=O)(O4)(O6)O[W]46(=O)(O3)O11[W](=O)(O4)(O7)(O2)O[W]1(=O)(O6)(O5)O%12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1N(=O)=O)nc3c4=CC=C[N]5=c4c6=[N]([Ru]578([N]9=CC=Cc1c9c4c(cc1)C=CC=[N]74)[N]1=CC=Cc4c1c1c(cc4)C=CC=[N]81)C=CC=c6c3n2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(c(c1)[N+](=O)[OH-])nc3c4c5c6c(c3n2)C=CC=[N]6[Ru]78([N]5=CC=C4)([N]9=c1c(=CC=C9)ccc2=CC=C[N]7=c21)[N]1=c2c(=CC=C1)ccc1=CC=C[N]8=c12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c(cc2c(c1F)C3=CC=CC=[N]3[Ir+3]245(c6cc(cc(c6C7=CC=CC=[N]47)F)F)[N]8=C(C=CC=C8)C9=[N]5C=C(C=C9)CN1C(=O)CCC1=O)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Mg](F)(F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=[CH]2C=C3([Ru+]24([CH]1=C3)([NH2]C5CN(CC5[NH2]4)C(=O)CCCCC6C7C(CS6)NC(=O)N7)Cl)C(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(ccc1C(=O)NC2=CNN=C2C3=Nc4ccc(cc4N3)C[NH]5CCOCC5)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)NC(=O)NC2=CNN=C2C3=Nc4cc(ccc4N3)C[NH]5CCOCC5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1CCC2C(C1)[N]34CC5=[N]([Fe]367([N]2(CC8=CC=CC=[N]68)CC(=O)O7)OC(=O)C4)C=CC=C5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[N]12CC3=CC=CC=[N]3[Fe+2]145[N]6=CC=CC=C6C[N]4(CC(=O)O5)C7C2CCCC7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[N]12CC[N]34[Fe+2]1([N]5=C(C2)C=CC=C5)([N]6=CC=CC=C6C3)OC(=O)C4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(SC2=C1C(=NC(C3=NN=C(N32)C)CC(=O)NC45C6=C7[Fe]6489123(C7=C85)C4=C9[C]1C2=C34)c1ccc(cc1)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1NC[S]2[Fe]3([S-]1[Fe]2(C3=O)(C#N)(C#[O+])[S])(C#N)C#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=[N]([Os+2]24([N]5=C(C=CC=C5)C6=CC=CC=[N]46)N7C=CN=C7)C=CC=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe][S]2[Fe]1S[Fe]2[S]3[Fe]4S[Fe]5[S]4[Fe]3S5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1CCC(CC1)[NH2][Pt+2][NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=CC=CC=[N]3[Ru+2]24([N]5=C(C=CC=C5)C6=[N]4C=CC=C6)N7C=CN=C7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12CC(=O)NC13CC4C(C(C5=[N]4[Ni+]67[N]3=C(C2CCC(=O)O)C=C8N6C(=C9C1=[N]7C(C5)C(C1CC(C9=O)SC)CC(=O)O)C(C8CC(=O)O)CCC(=O)O)(C)CC(=O)N)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCC(=O)NC12CO34[Al]5678O9[Mo]33(O[Mo]44(O5[Mo]5(O4)(O6(C1)[Mo]1(O5)(O7[Mo]4(O1)(O8(C2)[Mo]9(O4)(O3)([O])[O])([O])[O])([O])[O])([O])[O])([O])[O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1nc(c2c(n1)N(C=N2)C3C(C(C(O3)COP(=O)(O[Mg])OP(=O)(NP(=O)(O)O)O)O)O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC2=CC3=[N]4C(=CC5=C(C(=C6N5[Mg]47N2C1=CC8=[N]7C(=C6)C(=C8C)CCC(=O)O)CCC(=O)O)C)C=C3C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCOC(=O)C12C3[Ru]1456(C3C4C52)([N]7=CC=Cc8c7c9c(c1c8C(=O)NC1=O)-c1cc(ccc1N69)O)[CH]#O.
+period in smiles: `O.O`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=[N]4C(=CC5=[N]6[Fe]47[N]2=C1C=C8[N]7=C(C=C6C(=C5CCC(=O)O)C)C(=C8C)CC)C(=C3C)CCC(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1NC[S]2[Fe+]3([S]1[Fe+]2(C3=O)([C-]#N)([C-]#[O+])[C-]#[O+])([C-]#N)[C-]#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C(C4=[N]3[Mo]56(=O)N2C(=C1C)C=C7[N]5=C(C=C8N6C(=C4)C(=C8C)CCC(=O)O)C(=C7CC)C)CCC(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[NH]2CC[NH]3[Cu]24[NH](C1)CC[NH]4CCC3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(ccc1C[N]23CCC[NH]4[Cu]25[NH](CCC[NH]5CC3)CC4)C[N]67CCC[NH]8[Cu]69[NH](CCC[NH]9CC7)CC8.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(ccc1C[N]23CCCN4[Ni]25N(CCCN5CC3)CC4)C[N]67CCCN8[Ni]69N(CCCN9CC7)CC8.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4[N]3([Cu]56[N]2=C1C=C7N5C(=CC8=[N]6C(=C4)C(=C8CCC(=O)O)C)C(=C7C)CCC(=O)O)C)C)CC)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Fe]6(N34)[N]9=C2C=CC9=C8c1ccccc1)c1ccccc1)C=C5)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C=C(C(N1[O])(C)C)CSS(=O)(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1cc(cc(c1O)OC)C2c3cc4c(cc3C(C5C2C(=O)OC5)NC(=O)CCC6C[NH2][Pt]([NH2]6)(Cl)Cl)OCO4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1cc(cc(c1O)OC)C2c3cc4c(cc3C(C5C2C(=O)OC5)NC(=O)CCC6C[NH2][Pt]([NH2]6)(Cl)Cl)OCO4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1cc(cc(c1O)OC)C2c3cc4c(cc3C(C5C2C(=O)OC5)NC(=O)CCC6C[NH2][Pt]([NH2]6)Cl)OCO4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1cc(cc(c1O)OC)C2c3cc4c(cc3C(C5C2C(=O)OC5)NC(=O)CCC6C[NH2][Pt]([NH2]6)Cl)OCO4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Co+3]([NH3])([NH3])([NH3])([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe][S]2[Fe]3[S]4[Fe]2[S]5[Fe]4[S]3[Ni]51.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 2 radical electrons on molecule [NH].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [N]=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [N]=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Ru+3]([NH3])([NH3])([NH3])([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [C-](#N)[Fe+2]([C-]#N)([C-]#N)([C-]#N)([C-]#N)[N]#[OH+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Fe]47N2C1=CC8=[N]7C(=C6)C(=C8C=C[N+](=O)[O-])C)C)CCC(=O)O)C(=C3C)CCC(=O)O)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1OCCN3CCCCC3)O[Ni]45[N](=C2)c6cc(c(cc6[N]4=Cc7ccc(cc7O5)OCCN8CCCCC8)F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCOP(=O)(CCCc1cc2c3c(c1)C[N]([Pt]3([N](C2)(C)C)Cl)(C)C)Oc4ccc(cc4)[N+](=O)[O-].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)C12[C]3[Os]1456([C]3C4([C]5[C]62)C)(C7=[N](c8ccccc8N7C)C)(Cl)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C=CC3=[N]2[Ir]45(c6c3cccc6)(c7ccccc7C8=[N]4c9ccccc9C=C8)[N]1=C(C=CC=C1)C1=[N]5C=C(C=C1)CNC(=O)CCSCc1cccnc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C3=[N]([Ir]245(c6ccccc6C7=[N]4C=CC=C7)[N]8=CC=CC=C8C9=CC=C(C=[N]59)CNC(=O)CCSCc1cccnc1)C=CC=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C(C2=CC3=C(C(=C4N3[Zn]56[N]2=C1C=C7N5C8=C(C(C(=O)C8=C7C)C(=O)OC)C9=[N]6C(=C4)C(C9CCC(=O)OC)C)C)C=C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[CH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1O[Co]23(O4[Co]5(O1)(O2[Co]67(O3[Co]4(O56)(OC(O7)CCNC(=O)CCCCC8C9C(CS8)NC(=O)N9)([N]1=CC=CC=C1)[O])([N]1=CC=CC=C1)[O])([N]1=CC=CC=C1)[O])[N]1=CC=CC=C1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C2C(C(S1)CCCCC(=O)NCCC3O[Co]45(O6[Co]7(O4[Co]8(O3)(O7[Co]6(O58)([N]9=CC=CC=C9)[O])([N]1=CC=CC=C1)[O])([N]1=CC=CC=C1)[O])[O])NC(=O)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1O[Co]23(O4[Co]5(O1)(O2[Co]67(O3[Co]4(O56)(OC(O7)CCNC(=O)CCCCC8C9C(CS8)NC(=O)N9)([N]1=CC=CC=C1)[O])([N]1=CC=CC=C1)[O])[O])[N]1=CC=CC=C1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C2C(C(S1)CCCCC(=O)NCCC3O[Co]45(O6[Co]7(O4[Co]8(O3)(O7[Co]6(O58)([N]9=CC=CC=C9)([O])[O])([N]1=CC=CC=C1)[O])[N]1=CC=CC=C1)([N]1=CC=CC=C1)[O])NC(=O)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [CH2][O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(c(c(c1)Cl)CS(=O)(=O)c2ccc3c(c2)NC(=O)C(=Cc4ccc(c(c4)[N](=O)O)O)S3)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)-c3c4c(c5c6c3N2[Ru]7([N]6=CC(=C5)N)(NCC8=[N]7C=CC=C8)(C#O)Cl)C(=O)NC4=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Ir]145(C2(C4(C53C)C)C)(C6=[N](c7ccccc7N6C)C)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [B]1B2B13B4B56B2B578B649[Co]7124567(B9[C+]31(C82)CCS(=O)(=O)N)B1B2B38B229B1B212B93B41(B52)[C+]68(C7)CCS(=O)(=O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCC(=O)NCCOCCOCCOCCNC(=O)C[N]1=C(Sc2c1cccc2)CC3=CC=[N](c4c3cccc4)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C(=NN1C2CCN(CC2)CC(=O)N(C)C)C)NC3=NC=C(C(=C4C=N[N]5=C4C=CC=C5)N3)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CN(C=N1)C2C(C(C(O2)CO[V]([O])([O])O[V]([O])([O])[O])O[V]([O])([O])O[V]([O])([O])O[V]([O])([O])[O])O[V]([O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2=[N](C3=C(C(=O)NC(=O)N3)[N](=c2cc1C)C=CC=NCC(=O)O)CC(C(C(COP(=O)(O)OP(=O)(O)OCC4C(C(C(O4)N5C=Nc6c5ncnc6N)O)O)O)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2=c3ccccc3=[N](C=c2c1)[Pt](N)(N)[N]4=CN(C5=C4C(=O)NC(=N5)N)C6CC(C(O6)COP(=O)(O)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)-c3ccccc3I2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C(C(C(C(C1O)O)O)CN[N]#N)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC2=CC3=[N]4C(=CC5=CC=C6N5[Fe]47N2C1=CC8=[N]7C(=C6)C=C8)C=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCCCCOP(=O)(O)OCC[N](C)(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)[P](c2ccccc2)(c3ccccc3)[Pt+2]4(c5ccccc5C6=CC=CC=[N]64)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC2=[N](C=C1)[Pt]34[N]5=C(C=CC=C5)NC6=CC=CC(=[N]63)C7=[N]4C(=CC=C7)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Pt+2]([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c3c(ccc4c3c1C(=O)NC4=O)C(=O)N(C2=O)CC5=CC=[N](C=C5)[Pt]([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=NC2=C(N1C3C4C(C(O3)COP(=O)(O)O)O[V](=O)(O4)[O])N=C(NC2=O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C(N(C1(C)C)[O])(C)C)CSS(=O)(=O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(=C(C(N1[O])(C)C)c2ccccc2)CSS(=O)(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC12C3([Rh]145(C2(C4(C53C)C)C)(C6=[N](c7ccccc7N6C)C)Cl)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)nc3c4=CC=C[N]5=c4c6=[N]([Ru]578([N]9=C(C=CC=C9)C1=[N]7C=CC=C1)[N]1=CC=CC=C1C1=CC=CC=[N]81)C=CC=c6c3n2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Ni]56O[W]78(O1)(O2[Si]91O2%10[W]%11%12(O5)(O[W]5%13(O6)(O96[W]9(O7)(O5)(O[W]57(O8)(O11[W]8(O3)(O5)(O[W]2(O4)(O%11)(O[W]%102(O%12)(O[W]6(O%13)(O9)(O[W]1(O8)(O7)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[Co]56O[W]78(O1)(O2[Si]91O2%10[W]%11%12(O5)(O[W]5%13(O6)(O96[W]9(O7)(O5)(O[W]57(O8)(O11[W]8(O3)(O5)(O[W]2(O4)(O%11)(O[W]%102(O%12)(O[W]6(O%13)(O9)(O[W]1(O8)(O7)(O2)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(=C(C(N1[O])(C)C)Br)CSS(=O)(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C2C(C(S1)CCCCC(=O)NC34C[O+2]56[Mn]7891[O+2]%10(C3)[Mo]3%11([O+2]77[Mo]5(O3)(O[Mo]63([O+2]85CC(C7)(C[O+2]96[Mo]%10(O%11)(O[Mo]66([O+2]1(C4)[Mo]5(O3)(O6)([O])[O])([O])[O])([O])[O])NC(=O)CCC=CC1C3C(CS1)NC(=O)N3)([O])[O])([O])[O])([O])[O])NC(=O)N2.
+period in smiles: `Cc1ccccc1.C1N2CN3CN1C[P](C2)(C3)[Ru](Cl)Cl`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccnc(c1)C2=[N](C=CC=C2)[Ru]([N]3=CNC=C3)[N]4=C(C=CC=C4)c5ccccn5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(CC(C(N1[O])(C)C)N2C(=O)CCC2=O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1Cl)nc3c4=CC=C[N]5=c4c6c(c3n2)C=CC=[N]6[Ru+2]578([N]9=CC=Nc1c9c2c(cc1)N=CC=[N]72)[N]1=CC=Nc2c1c1c(cc2)N=CC=[N]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=C[N](=CN1)[Re+](C#O)(C#O)(C#O)[OH2].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C(C1C(=O)O[Re+]([NH2]1)(C#O)(C#O)C#O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2=CC=C[N]3=c2c4=[N]([Re]3(C#O)(C#O)C#O)C=CC=c41.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=c2ccc3c4c2=[N](C=C1)[Re]([N]4=CC=C3C)(C#O)(C#O)C#O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(cc(c1)NC(=N)C2=CC=CS2)C(COc3cccc(c3)[N]C(=N)C4=CC=CS4)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [NH3][Rh+3]([NH3])([NH3])([NH3])([NH3])[NH3].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCC(=O)N1C2=[N](C=CC=C2)[Rh][N]3=CC=CC=C31.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2COC3=[N]2[Rh]4c5c3cccc5C6=[N]4C(CO6)c7ccccc7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c3c4c1N=CC=[N]4[Ru+2]56([N]3=CC=N2)([N]7=c8c(=CC=C7)c9c(c1=CC=C[N]5=c18)nc1cc(c(cc1n9)F)F)[N]1=CC=Nc2c1c1c(cc2)N=CC=[N]61.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)nc3c4=CC=C[N]5=c4c6=[N]([Ru+2]578([N]9=c1c(=NC=C9)ccc4=NC=C[N]7=c41)[N]1=c4c(=NC=C1)ccc1=NC=C[N]8=c14)C=CC=c6c3n2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1ccc2c(c1)nc3c4c5c6c(c3n2)C=CC=[N]6[Ru]78([N]5=CC=C4)([N]9=CC=Nc1c9c2c(cc1)N=CC=[N]72)[N]1=CC=Nc2c1c1c(cc2)N=CC=[N]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)nc3c4c5c6c(c3n2)C=CC=[N]6[Ru]78([N]5=CC=C4)([N]9=CC=Cc1c9c2c(cc1)C=CC=[N]72)[N]1=CC=Cc2c1c1c(cc2)C=CC=[N]81.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)nc3c4=CC=C[N]5=c4c6=[N]([Ru]578([N]9=C(C=CC=C9)C1=CC=CC=[N]71)[N]1=CC=CC=C1C1=CC=CC=[N]81)C=CC=c6c3n2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c2c(cc3c1C4=[N]([Ru]356([S]7CC[S]5CC[S]6CC7)C#[O+])C=CC=C4)C(=O)NC2=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]1([Fe]2[S]3[Fe]1[S]4[Fe]3[S]2[Ni]4)[Fe].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c(cc1c3ccc4c(c3)nc5c6=CC=C[N]7=c6c8=[N]([Ru]791([N]3=CC=Cc6c3c3c(cc6)C=CC=[N]93)[N]3=CC=Cc6c3c3c(cc6)C=CC=[N]13)C=CC=c8c5n4)nc1c3=CC=C[N]4=c3c3=[N]([Ru]445([N]6=CC=Cc7c6c6c(cc7)C=CC=[N]46)[N]4=CC=Cc6c4c4c(cc6)C=CC=[N]54)C=CC=c3c1n2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [C](=O)[Re+]([C]=O)([C]=O)([O])([O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2=CC=C[N]3=c2c4=[N]([Ru+2]356[N]7=C(C=CC=C7)C8=CC=CC(=[N]58)C9=CC=CC=[N]69)C=CC=c41.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c2c3c4c(c1NC(=O)CI)C=CC=[N]4[Ru+2]56([N]3=CC=C2)([N]7=C(C=CC=C7)C8=[N]5C=CC=C8)[N]9=C(C=CC=C9)C1=CC=CC=[N]61.
+period in smiles: `Cc1ccc(cc1)CCC(=O)O.C1N2CN3CN1C[P](C2)(C3)[Ru](Cl)Cl`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N][Ru]23456([N]1)(C7=C2C38=C4(C5=C67)CC9=C(C8)CC=CC9)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc2c3c4c1C=CC=[N]4[Ru]5678(C3=CNC2=O)(C9=C5[C]6C7=C89)C#O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=CC=CC=[N]3[Ru+2]245([N]6=c7c(=CC=C6)c8c(c9=CC=C[N]4=c97)nc1c2c3c4c(c1n8)C=CC=[N]4[Ru+2]14([N]3=CC=C2)([N]2=C(C=CC=C2)C2=[N]1C=CC=C2)[N]1=C(C=CC=C1)C1=[N]4C=CC=C1)[N]1=CC=CC=C1C1=CC=CC=[N]51.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C=C3C(=C(C4=[N]3[Ru]56N2C(=C1C)C=C7[N]5=C(C=C8N6C(=C4)C(=C8C)CCC(=O)O)C(=C7CC)C)CCC(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1nc2cc3c(cc2c(n1)N)C4=CC=CC=[N]4[Ru]3([C-]#[O+])C5(C=CC=C5)C(=O)Oc6c(cccc6OC)OC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(=C(C(N1[O])(C)C)CS)CS)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)N=[N+]=[NH-])CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)(N=[N+]=[NH-])[O])CCCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)[O])CCCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][Fe]1[S]([Fe]2[S]1[Fe]S2)[Fe].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Cc1cc2c(cc1C)N(C=N2)C3C(C(C(O3)CO)OP(=O)(O)OC(C)CNC(=O)CCC4(C(C5C6(C(C(C7=[N]6[Rh]89[N]5=C4C(=C1N8C(=CC2=[N]9C(=C7C)C(C2CCC(=O)N)(C)CC(=O)N)C(C1CCC(=O)N)(C)C)C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe][S]2[Fe]1[S]([Fe]2)[Fe].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1[S]5[Fe]2[S]3[Fe]45.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O[SH](=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [Fe]12[Se]3[Fe]4[Se]1[Fe]5[Se]2[Fe]3[Se]45.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)([O])OO)CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2[N]4=C1C=CC=C4)CCCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)[O])CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2([N]4=C1C=CC=C4)OO)CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=CC=CC=[N]3[Cu]2[N]4=CC=CC=C41)CCCCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C2C(C(S1)CCCCC(=O)NC(CS(=O)(=O)O)C(=O)NCC3=C4C=CC5=CC6=CC=C7N6[Fe]8(=[N]9C3=CC=C9C=C1N8C(=C7CNC(=O)C(CS(=O)(=O)O)NC(=O)CCCCC3C6C(CS3)NC(=O)N6)C=C1)N54)NC(=O)N2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[W]567(O18[Si]91O%10%11[W]%12%13(O2)(O[W]%102(O5)(O[W]%115(O%12)(O[W]%10%11%12(O99[W](O%10)(O3)(O%13)(O[W]93(O%11)(O[W]8(O4)(O6)(O[W]46(O3)(O11[W](O4)(O7)(O2)(O[W]1(O6)(O5)(O%12)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1C[N]2=CC3=[N]([Ni]24[N]1=CC5=CC=CC=[N]45)C=CC=C3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[N]2(CCC3=[N]([Cu]2[N]4=C1C=CC=C4)C=CC=C3)CCNC(=O)CCCCC5C6C(CS5)NC(=O)N6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(C2=[N]3C1=CC4=[N]5[Fe]36N7C(=C2)C(=C(C7=CC8=C(C(=C(N68)C=C5C(C4CCC(=O)O)(C)CC(=O)O)CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O)CC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)[P](CCNC(=O)CCCCC1C2C(CS1)NC(=O)N2)(C(C)(C)C)[Pd]3(CC=C3c4ccccc4)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C(=O)CN2C=[N](C3=C2C(=O)NC(=N3)N)C4C(C(C(O4)COP(=O)(O)O)O)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)[Sn](c2ccccc2)c3ccccc3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule Br[Ta]123456Br[Ta]17891%10[Ta]22%11(Br7)[Ta]337%12%13([Ta]484([Ta]923(Br%11)(Br1)(Br4)(Br7)Br%12)(Br5)(Br%10)Br%13)Br6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCC[Sn](CCCC)CCCC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C=C1CSC(N=C1C(=O)O)C(C(=O)O)NC(=O)CCC(=O)C23[C]4[Ru]2567891([C]4[C]5[C]63)[C]2[C]7[C]8[C]9[C]12.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O-]=[W]123(O[W]45(=O)(O1[Te]6789O2[W]1(=O)(O3)(O6[W]2(=O)(O1)(O7[W]1(=O)(O2)(O8[W](=O)(O94)(O5)(O1)[O-])[O-])[O-])[O-])[O-])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C=[N]3c4ccc(cc4O[Cr+]3O2)CCC(=O)O.
+period in smiles: `[CH3].[CH3].[CH3]`
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)C3=CC=CC4=[N]3[Pt+]2([N]5=C4C=CC=C5)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1cc(cc(c1OC)OC)C(=O)OCCCN2CCCN(CC2)CCCOC(=O)c3cc(c(c(c3)OCc4ccc(cc4)[N](=O)O)OC)OC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN1C=CN([C]1[Ru](Cl)Cl)Cc2c3ccccc3cc4c2cccc4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN(C)C1=N[N]2=C(C3=CC=CC=[N]3[Pd]2S1)c4ccccc4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)OC(=O)NC(CC1=C[N](=C(N1C)[Rh])C)C(=O)OC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCCCCNC(=O)[N+]1CCC(CC1)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1C(C(=O)NC(C(=O)N2CCCC2C(=O)N(C(C(=O)N3CCC(CC3C(=O)NC(C(=O)O1)c4ccccc4)O)Cc5ccccc5)C)CCN=[N]=N)NC(=O)c6c(cccn6)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=C2C(=C(C3=[N]2[Fe]45N6C(=CC7=[N]4C(=CC8=C(C(=C1N58)CCC(=O)O)CC(=O)O)C(=C7CCC(=O)O)CC(=O)O)C(=C(C6=C3)CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]2S[Fe]3[S]2[Fe]1[S]345[Fe]6[S]7[Fe]4[S]8[Fe]7[S]6[Fe]58.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)c1cccc2=C[N]3=[Co]4([N](=Cc5cccc(c5O4)C(C)(C)C)c6c3cc(cc6)C(=O)NCCNC(=O)CCCCC7C8C(CS7)NC(=O)N8)O=c21.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O[Sb](O)(O)O.
+atomic number must be positive, given 0.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCSC1=NC(=[N](C(=N1)S)Cc2cccnc2)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1CC2(C(C3CC4=[N]5C(CC67C(CC(=O)N6)(C(C8=[N]7[Ni]59[N]3=C2C(=C2N9C(=C8)C(C2CCC(=O)O)CC(=O)O)C1=O)CCC(=O)O)C)C(C4(C)CC(=O)N)CCC(=O)O)CC(=O)O)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1(C(=NC(N1[O])(C)C)SS(=O)(=O)C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1CCC(CC1)CNCC2=CN3C=C(N=C3C=C2)CNC(=O)C4=CC(=O)[N]5=CC=CC=C5N4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC2=[N](C=C1)[Pt+2]3([N]4=C(C=CC=C4)C5=[N]3N=C6N5C=CC=C6)[N]7=C2N8C=CC=CC8=N7.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CN1C=[N](C2=C1C(=O)NC(=N2)N)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)OCC4C(C(C(O4)N5C=Nc6c5ncnc6N)OC)O)O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O-]=[V]([O])(O[V](=O)=O)O[V](=O)=O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=C2)C(=C(C7=CC8=[N]6C(=[O+]5)C(=C8C=C)C)C)CCC(=O)O)C=C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CN(C=N1)[Re+]([C-]#[O+])([C-]#[O+])([C-]#[O+])N2C=CN=C2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1NC[S]2[Fe+]3([S]1[Fe+]2(C3=O)([C-]#N)([C-]#N)[C-]#[O+])([C-]#N)[C-]#[O+].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule COc1ccc(cc1OC)C(CC2=C(C=[N](C=C2Cl)O)Cl)OC(=O)C3=CC=C(S3)CNC(c4ccccc4)C(=O)OC5CN6CCC5CC6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C(=O)C(N2C=[N](C=N2)F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Fe]47N2C1=CC8=[N]7C(=C6)C(=C8C=C)C)C)CCC(=O)O)C(=C3C)CCC(=O)O)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2=C3N=C4c5ccccc5C6=[N]4[Ga]78N3C(=c2c1)N=C9[N]7=C(c1c9cccc1)N=C1N8C(=N6)c2c1cccc2.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O1[Fe]O[Fe]2S[Fe]3[S]2[Fe]1O3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCC1=C2C(=[O-][V+5]3(=O)(O2)O[V+5]45(=O)([O-]C6=C([N+](C=CC6=O4[V+5]7(=O)(O3)(O5)[O-]=C8C=CN(C(=C8O7)CC)C)C)CC)[O])C=CN1C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]S34[Fe]1[S]([Fe]23)[Fe]4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1c(cc(cc1C(=O)NC(COCC2=CN(N=N2)C3C(C(C(C(O3)CO)O)O)O)(COCC4=CN(N=N4)C5C(C(C(C(O5)CO)O)O)O)COC6=[C]N(N=N6)[C]7[C]([C]([C]([C](O7)[C][O])[O])[O])[O])C(=O)NC(COCC8=CN(N=N8)C9C(C(C(C(O9)CO)O)O)O)(COCC1=CN(N=N1)[C]1[C]([C]([C]([C](O1)[C][O])[O])[O])[O])OCC1=CN(N=N1)C1C(C(C(C(O1)CO)O)O)O)CO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36N7C(=CC8=[N]6C(=C5)C(=C8C(F)(F)F)C)C(=C(C7=C2)CCC(=O)O)C)C)C(F)(F)F)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [S]12[Fe]3[S]4[Fe]1[S]5[Fe]2[S]3[Ni]45.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 3 radical electrons on molecule [C][C][C][C][C][C][C][C][CH][CH][CH][CH][CH][C][C][C][C]C(=O)OCC(CO[PH](=O)(O)OCC(C(=O)O)[NH3])O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC2=C(c3cc(ccc3O2)OC)C(=[N]1O)c4ccc(cc4)OC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule [O][W]1234O[W]567(O[W]89%10(O5[P]5%11O%12[W]%13%14(O6)(O[W]6%15(O1)(O[W]1%16%17(O6[P]6%18O2[W]2(O8)(O3)(O[W]38%19(O6[W](O3)(O1)(O[W]136(O5[W](O8)(O1)(O9)(O[W]15(O%10)(O%118[W](O7)(O%13)(O1)(O[W]8(O3)(O5)(O[W]%12(O%16)(O%14)(O6)[O])[O])[O])[O])[O])[O])(O[W]13(O%17)(O%185[W](O4)(O%15)(O1)(O[W]5(O2)(O%19)(O3)[O])[O])[O])[O])[O])[O])[O])[O])[O])[O])[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N+](C(=CC4=C(C(=C5N4[Fe]6N2C1=CC7=[N]6C(=C5)C(=C7C)C=C)C)C=C)C(=C3CCC(=O)O)C)CC(=O)Cc8ccccc8)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Fe]36(N7C(=CC8=[N]6C(=C5)C(=C8C=C)C)C(=C(C7=C2)CCC(=O)O)C)Cc9ccccc9)C=C)C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=CC5=[N]6C(=C(C7=CC=C8N7[Fe]6(N43)[N]9=C2C=CC9=C8)c1ccccc1)C=C5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C#CC1=C2C=CC3=C(C4=[N]5C(=C(C6=CC=C7N6[Fe]5(N23)[N]8=C1C=CC8=C7c9ccccc9)C#C)C=C4)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C2=C3C=CC4=C(C5=[N]6C(=C(C7=CC=C8N7[Fe]6(N34)[N]9=C2C=CC9=C8)c1ccccc1)C=C5)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C#CC1=C2C=CC3=C(C4=[N]5C(=CC6=CC=C7N6[Fe]5(N23)[N]8=C1C=CC8=C7c9ccccc9)C=C4)c1ccccc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)OC(=O)NC(Cc1ccncc1)C(=O)NCC2=C[N]3=C(C=C2)C4=CC=CC=[N]4[Ir+]356(c7ccccc7C8=[N]5c9ccccc9C=C8)c1ccccc1C1=CC=c2ccccc2=[N]61.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1nc(c2c(n1)N(C=N2)C3C(C(C(O3)COP(=O)([N]4=C(N(C=C4)P(=O)(O)OCC5C(C(C(O5)N6C=NC7=C6N=C(NC7=O)N)O)O)N)O)O)O)N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)OC(=O)NC(Cc1ccncc1)C(=O)NCC2=C[N]3=C(C=C2)C4=CC=CC=[N]4[Ir+]356(c7ccccc7C8=[N]5c9ccccc9C=C8)c1ccccc1C1=CC=c2ccccc2=[N]61.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C=CC3=[N]2[Ir+]45(c6c3cccc6)(c7ccccc7C8=CC=c9ccccc9=[N]48)[N]1=C(C=CC=C1)C1=[N]5C=C(C=C1)CNC(=O)CCc1ccncc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(C)(C)OC(=O)NC(Cc1ccncc1)C(=O)N=CC2=C[N]3=C(C=C2)C4=[N]([Ir+]356(c7cc(cc(c7C8=[N]5C=CC=C8)F)F)c9cc(cc(c9C1=CC=CC=[N]61)F)F)C=CC=C4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cnccc1CCC(=O)NCC2=CC=C3C4=CC=CC=[N]4[Ir+]56([N]3=C2)(c7cc(cc(c7C8=[N]5C=CC=C8)F)F)c9cc(cc(c9C1=CC=CC=[N]61)F)F.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)C(=O)NC(Cc2ccncc2)C(=O)NCC3=C[N]4=C(C=C3)C5=[N]([Ir+]467(c8ccccc8C9=[N]6c1ccccc1C=C9)c1ccccc1C1=CC=c2ccccc2=[N]71)C=CC=C5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C=CC3=[N]2[Ir+]45(C6=C3Sc7c6cccc7)(C8=C(C9=CC=c1ccccc1=[N]49)Sc1c8cccc1)[N]1=C(C=CC=C1)C1=[N]5C=C(C=C1)CNC(=O)CCc1ccncc1.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCCCCCC(=O)OC(COC(=O)CCCCCCC)COP(=O)(O)OCC[N](C)(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2=[N]3C(=CC=c2c1)C4=C([Ir+]356(C7=C(C8=CC=c9ccccc9=[N]58)Sc1c7cccc1)[N]1=CC=CC=C1C1=CC=C(C=[N]61)CNC(=O)CCc1cccnc1)c1ccccc1S4.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCN(CC)c1ccc(cc1[N](=O)O)C2=NNC(=O)CC2C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=CC2=[N]1[Ru]34([N]5=C(C=CC=C5)C6=[N]3C(=CC=C6)C7=CC=CC=[N]47)([N]8=C2C=CC=C8C)[N]9=CC=CC(=C9)CCCNC(=O)C(Cc1ccccc1)SCC(Cc1ccccc1)NC(=O)OC(C)(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC=CC2=[N]1[Ru]34([N]5=CC=CC=C5C6=[N]3C(=CC=C6)C7=CC=CC=[N]47)([N]8=C2C=CC=C8C)[N]9=CC(=CC=C9)CNC(=O)CCSCC(Cc1ccccc1)NC(=O)OC(C)(C)C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule S1[Fe]2[S]([Fe]3[S]2[Fe]1[S]3[Ni])[Fe].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O=[W]1234O[Co]567O18[Si]91O%10%11[W]%12%13(=O)(O5)O[W]5%14(=O)(O6)O96[W]9%15(=O)(O5)O[W]%105(=O)(O%12)O[W]%11(=O)(O2)(O%13)O[W]2%10(=O)(O5)O11[W]5(=O)(O3)(O2)O[W]1(=O)(O9)(O%10)O[W]6(=O)(O%14)(O%15)O[W]8(O7)(O4)(O5)[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC(=O)[C](C=C1[N+](=O)[O-])O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CSC2=[N]1C(=O)CC(=N2)CO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC(=NN2C1=NC(=C2)C)C3=CC(=O)[N]4=C(N3)C=CC(=C4)N5CCNC6(C5)CC6.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC(=CCOP(=O)(O)O)CCN=[N]=N.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1C[OH][Y]234[N]1(CC[OH]2)C(C[OH]3)(C[OH]4)CO.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(SC=N1)c2ccc(cc2)C(C)NC(=O)C3CC(CN3C(=O)C(C(C)(C)C)NC(=O)CCCCCCC(=O)N4CCN(CC4)CC5(CCC(=C(C5)CN6CCN(CC6)c7ccc(cc7)C(=O)NS(=O)(=O)c8ccc(c(c8)S(=O)(=O)C(F)(F)F)NC(CCN9CCOCC9)CSc1ccccc1)c1ccc(cc1)Cl)C)[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[N]1(CCN(CC1)C(=O)N(CC2=CC=C(O2)C(=O)NCCc3ccc(cc3)F)c4ccc(cc4)F)CCCc5ccccc5.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)CCC[N]2(CCN(CC2)C(=O)N(CC3=CC=C(O3)C(=O)NCCc4ccc(cc4)F)c5ccc(cc5)F)Cc6ccc(c(c6)Cl)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc(cc1)CCC[N]2(CCN(CC2)C(=O)NCC3=CC=C(O3)C(=O)NCCc4ccc(cc4)F)Cc5ccc(c(c5)Cl)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCCC[N](CCCCC)(CCCCC)CCCCC.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CCCC[N](CCCC)(CCCC)Cc1ccc(cc1)C(c2ccccc2)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1CC(=O)N(C1=O)CCCCCN2C3=[N](C=CC=C3)[Ru]([N]4=CC=CC=C42)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C1=CC=[N]2C(=C1)N(C3=[N]([Ru]2Cl)C=CC=C3)CCCCCN.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=CC3=[N]4C(=CC5=C(C(=C6N5[Zn]47N2C1=CC8=[N]7C(=C6O)C(=C8C=C)C)C)CCC(=O)O)C(=C3C)CCC(=O)O)C=C.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1ccc2c(c1)C(=[N]3[Pt]2[S]=C(N3)N)c4cc(ccc4N)Cl.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule C[S]1[Fe]2S[Fe]3[S]2[Fe]1S3.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=CC2=CC3=[N]4C(=CC5=C(C(=C6N5[Zn]47N2C1=CC8=[N]7C(=C6)C(=C8)C)C)CCC(=O)O)C(=C3C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule CC1=C(C2=[N]3C1=CC4=C(C(=C5N4[Zn]36N7C(=CC8=[N]6C(=C5)C(=C8C)C=C)C(=C(C7=C2)CCC(=O)O)C)C)C=C)CCC(=O)O.
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule O=[W]1234O[Zr]56O[W]78(=O)(O1)O[W]91%10(=O)O[W]%11%12(=O)(O2)O[W]2%13%14(=O)O%11P%11%15O9[W]9%16(=O)(O1)O[W]1%17(=O)(O7)O8P78O3[W]3(=O)(O4)(O2)O[W]24(=O)(O5)O7[W](O6)(O2)(O1)(O[W]12(=O)(O%17)O8[W](=O)(O4)(O3)(O1)O[W]13(=O)(O%13)O%11[W](=O)(O1)(O9)(O2)O[W]12(=O)(O%16)O%154[W](=O)(O%12)(O%10)(O1)O[W]4(=O)(O%14)(O3)O2)[O].
+The OpenFF Toolkit does not currently support parsing molecules with radicals. Found 1 radical electrons on molecule c1cc(ccc1NC(=O)C[N]2=C(SC=C2)N)F.
+found 44566/44606 smiles
+Converting 448/44566 molecules failed
+100
+Deduplication                 :   0%|                   | 0/100 [00:00<?, ?it/s]Deduplication                 :  67%|██████   | 67/100 [00:00<00:00, 618.31it/s]Deduplication                 : 100%|████████| 100/100 [00:00<00:00, 428.74it/s]
+StandardConformerGenerator    :   0%|                    | 0/99 [00:00<?, ?it/s]Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Ni on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Force field setup failed due to missing parameters
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Li on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Zn on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Li on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Zn on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] Explicit valence for atom # 9 O, 3, is greater than permitted
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 2
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (2)
+[11:27:54] UFFTYPER: Unrecognized atom type: Ni3+2 (7)
+[11:27:54] UFFTYPER: Unrecognized atom type: Ni5+2 (10)
+[11:27:54] UFFTYPER: Unrecognized atom type: Zn1+2 (9)
+StandardConformerGenerator    :   1%|            | 1/99 [00:00<00:21,  4.61it/s][11:27:54] UFFTYPER: Unrecognized atom type: Ni3+2 (7)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Zn on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Zn on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Ni on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Ni on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] UFFTYPER: Unrecognized atom type: Zn1+2 (9)
+[11:27:54] UFFTYPER: Unrecognized charge state for atom: 3
+[11:27:54] UFFTYPER: Unrecognized atom type: Ni6+2 (3)
+[11:27:54] UFFTYPER: Unrecognized charge state for atom: 3
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 2
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (2)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:54] UFFTYPER: Unrecognized atom type: Pt+2 (6)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Mg on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] UFFTYPER: Unrecognized charge state for atom: 3
+[11:27:54] UFFTYPER: Unrecognized atom type: Pt6+2 (12)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Pt on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 As on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Pt on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 As on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] UFFTYPER: Unrecognized atom type: Pt6+2 (6)
+[11:27:54] UFFTYPER: Unrecognized charge state for atom: 10
+[11:27:54] UFFTYPER: Unrecognized atom type: As5+3 (10)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:54] UFFTYPER: Unrecognized atom type: Rh6 (3)
+[11:27:54] UFFTYPER: Unrecognized atom type: Rh6 (4)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (1)
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (4)
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 5
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (5)
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (7)
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 10
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (10)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (11)
+[11:27:54] UFFTYPER: Unrecognized hybridization for atom: 14
+[11:27:54] UFFTYPER: Unrecognized atom type: Fe+2 (14)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (16)
+[11:27:54] UFFTYPER: Unrecognized atom type: S_5+4 (18)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 10
+[11:27:55] UFFTYPER: Unrecognized atom type: Pt+2 (10)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 0 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 C on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 C on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 20 B on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 C on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 C on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] Explicit valence for atom # 0 B, 4, is greater than permitted
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToInChIKey when writing ''
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 7
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (7)
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh6 (11)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 8
+[11:27:55] UFFTYPER: Unrecognized atom type: Pt+2 (8)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 10
+[11:27:55] UFFTYPER: Unrecognized atom type: Pt+2 (10)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh6 (3)
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh6 (7)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] Explicit valence for atom # 4 C, 5, is greater than permitted
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 7
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (7)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 11
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (11)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 2 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 16
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (16)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 24 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+[11:27:55] UFFTYPER: Unrecognized atom type: S_5+4 (7)
+[11:27:55] UFFTYPER: Unrecognized atom type: S_5+4 (11)
+StandardConformerGenerator    :   5%|▌           | 5/99 [00:01<00:22,  4.17it/s]Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToInChIKey when writing ''
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 6 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (6)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh6 (3)
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh6 (7)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Rh on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized atom type: S_5+4 (8)
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh5 (9)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (3)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 7
+[11:27:55] UFFTYPER: Unrecognized atom type: Rh (7)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 14
+[11:27:55] UFFTYPER: Unrecognized atom type: Cu+1 (14)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 15
+[11:27:55] UFFTYPER: Unrecognized atom type: Cu+1 (15)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 16
+[11:27:55] UFFTYPER: Unrecognized atom type: Pt+2 (16)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 15
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (15)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 16
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (16)
+[11:27:55] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:55] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:56] UFFTYPER: Unrecognized hybridization for atom: 16
+[11:27:56] UFFTYPER: Unrecognized atom type: Cu+1 (16)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Ni on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:56] UFFTYPER: Unrecognized hybridization for atom: 7
+[11:27:56] UFFTYPER: Unrecognized atom type: Ni+2 (7)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:56] UFFTYPER: Unrecognized hybridization for atom: 8
+[11:27:56] UFFTYPER: Unrecognized atom type: Cu+1 (8)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:56] UFFTYPER: Unrecognized hybridization for atom: 23
+[11:27:56] UFFTYPER: Unrecognized atom type: Pt+2 (23)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:57] UFFTYPER: Unrecognized hybridization for atom: 5
+[11:27:57] UFFTYPER: Unrecognized atom type: Fe+2 (5)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:57] Explicit valence for atom # 16 C, 5, is greater than permitted
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Cu on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 35 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 36 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 37 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 Cu on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 35 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 36 H on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 37 H on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:57] UFFTYPER: Unrecognized hybridization for atom: 7
+[11:27:57] UFFTYPER: Unrecognized atom type: Cu+1 (7)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:57] UFFTYPER: Unrecognized atom type: Cu6+1 (22)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Pd on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Pd on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 11
+[11:27:58] UFFTYPER: Unrecognized atom type: Pd+2 (11)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 11
+[11:27:58] UFFTYPER: Unrecognized atom type: Pt+2 (11)
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:58] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:58] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 3
+[11:27:58] UFFTYPER: Unrecognized atom type: Fe+2 (3)
+[11:27:58] UFFTYPER: Unrecognized hybridization for atom: 6
+[11:27:58] UFFTYPER: Unrecognized atom type: Fe+2 (6)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 S on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 S on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 17 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:58] UFFTYPER: Unrecognized atom type: Fe5+2 (17)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 26 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:58] UFFTYPER: Warning: hybridization set to SP3 for atom 26
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Cr on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 O on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 4 Cr on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 O on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 35 Fe on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 38 C on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:27:59] UFFTYPER: Unrecognized hybridization for atom: 35
+[11:27:59] UFFTYPER: Unrecognized atom type: Fe+2 (35)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+StandardConformerGenerator    :  23%|██▌        | 23/99 [00:09<00:33,  2.24it/s][11:28:04] UFFTYPER: Unrecognized atom type: Pt6+2 (30)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:04] UFFTYPER: Unrecognized hybridization for atom: 18
+[11:28:04] UFFTYPER: Unrecognized atom type: Rh (18)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:04] UFFTYPER: Unrecognized atom type: Pt6+2 (30)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:04] UFFTYPER: Unrecognized atom type: Fe5+2 (9)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 23 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] UFFTYPER: Unrecognized hybridization for atom: 23
+[11:28:05] UFFTYPER: Unrecognized atom type: Fe+2 (23)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Zn on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 24 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 40 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 45 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Zn on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 13 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 24 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 25 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 40 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 45 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] Explicit valence for atom # 10 O, 6, is greater than permitted
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] UFFTYPER: Unrecognized hybridization for atom: 15
+[11:28:05] UFFTYPER: Unrecognized atom type: Fe+2 (15)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Ni on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 28 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 37 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 40 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 41 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 47 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Ni on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 7 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 21 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 28 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 37 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 40 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 41 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 47 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] Explicit valence for atom # 7 O, 3, is greater than permitted
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Cu on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 24 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 27 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 28 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 38 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 42 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 47 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 1 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 3 Cu on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 5 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 8 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 11 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 18 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 24 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 27 O on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 28 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 38 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 42 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 47 W on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] Explicit valence for atom # 10 O, 5, is greater than permitted
+[11:28:05] UFFTYPER: Unrecognized atom type: S_5+4 (8)
+[11:28:05] UFFTYPER: Unrecognized atom type: Rh5 (9)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 43 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 43 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] UFFTYPER: Unrecognized atom type: Cu6+1 (43)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 36 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 36 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:05] UFFTYPER: Unrecognized atom type: Cu6+1 (36)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 9 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:06] UFFTYPER: Unrecognized atom type: Fe5+2 (9)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 16 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:06] UFFTYPER: Unrecognized atom type: Rh6 (16)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 20 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 20 Cu on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:06] UFFTYPER: Unrecognized atom type: Cu6+1 (20)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 29 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 29 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 49 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:06] UFFTYPER: Unrecognized hybridization for atom: 49
+[11:28:06] UFFTYPER: Unrecognized atom type: Fe+2 (49)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 15 Pt on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:07] UFFTYPER: Unrecognized hybridization for atom: 15
+[11:28:07] UFFTYPER: Unrecognized atom type: Pt+2 (15)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 S on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 33 Pd on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 S on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:07] UFFTYPER: Unrecognized charge state for atom: 32
+[11:28:07] UFFTYPER: Unrecognized hybridization for atom: 33
+[11:28:07] UFFTYPER: Unrecognized atom type: Pd+2 (33)
+[11:28:07] UFFTYPER: Unrecognized charge state for atom: 34
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 31 Rh on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:08] Explicit valence for atom # 29 C, 5, is greater than permitted
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:08] UFFTYPER: Unrecognized hybridization for atom: 22
+[11:28:08] UFFTYPER: Unrecognized atom type: Ir (22)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 22 Ir on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:09] UFFTYPER: Unrecognized hybridization for atom: 22
+[11:28:09] UFFTYPER: Unrecognized atom type: Ir (22)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:09] UFFTYPER: Unrecognized atom type: Fe5+2 (10)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 19 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:10] UFFTYPER: Unrecognized atom type: Fe5+2 (19)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 10 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:14] UFFTYPER: Unrecognized atom type: Fe5+2 (10)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:15] UFFTYPER: Warning: hybridization set to SP3 for atom 32
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 14 Zn on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:17] UFFTYPER: Unrecognized charge state for atom: 14
+[11:28:17] UFFTYPER: Unrecognized atom type: Zn2+2 (14)
+[11:28:17] 
+
+****
+Invariant Violation
+
+Violation occurred on line 757 in file /home/conda/feedstock_root/build_artifacts/rdkit-meta_1722844818947/work/Code/GraphMol/DistGeomHelpers/BoundsMatrixBuilder.cpp
+Failed Expression: ba23 > 0.0
+----------
+Stacktrace:
+ 0# Invar::Invariant::toString[abi:cxx11]() const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libRDKitRDGeneral.so.1
+ 1# Invar::operator<<(std::ostream&, Invar::Invariant const&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libRDKitRDGeneral.so.1
+ 2# RDKit::DGeomHelpers::_setTwoInSameRing14Bounds(RDKit::ROMol const&, RDKit::Bond const*, RDKit::Bond const*, RDKit::Bond const*, RDKit::DGeomHelpers::ComputedData&, boost::shared_ptr<DistGeom::BoundsMatrix>, double*) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 3# RDKit::DGeomHelpers::set14Bounds(RDKit::ROMol const&, boost::shared_ptr<DistGeom::BoundsMatrix>, RDKit::DGeomHelpers::ComputedData&, double*, bool, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 4# RDKit::DGeomHelpers::setTopolBounds(RDKit::ROMol const&, boost::shared_ptr<DistGeom::BoundsMatrix>, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >&, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&, bool, bool, bool, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 5# RDKit::DGeomHelpers::EmbeddingOps::setupInitialBoundsMatrix(RDKit::ROMol*, boost::shared_ptr<DistGeom::BoundsMatrix>, std::map<int, RDGeom::Point3D, std::less<int>, std::allocator<std::pair<int const, RDGeom::Point3D> > > const*, RDKit::DGeomHelpers::EmbedParameters const&, ForceFields::CrystalFF::CrystalFFDetails&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 6# RDKit::DGeomHelpers::EmbedMultipleConfs(RDKit::ROMol&, std::vector<int, std::allocator<int> >&, unsigned int, RDKit::DGeomHelpers::EmbedParameters&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 7# RDKit::EmbedMultipleConfs(RDKit::ROMol&, unsigned int, unsigned int, int, bool, bool, double, bool, unsigned int, double, boost::python::dict&, double, bool, bool, int, bool, bool, bool, bool, bool, unsigned int, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDistGeom.so
+ 8# 0x00007537748C1CC5 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDistGeom.so
+ 9# boost::python::objects::function::call(_object*, _object*) const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+10# 0x0000753762BE2449 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+11# boost::python::detail::exception_handler::operator()(boost::function0<void> const&) const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+12# 0x0000753774250E04 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdSLNParse.so
+13# 0x00007537744E0264 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDepictor.so
+14# 0x0000753774799154 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdChemReactions.so
+15# 0x00007537747991A4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdChemReactions.so
+16# 0x000075377491C414 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdMolChemicalFeatures.so
+17# 0x00007537429C7644 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdmolfiles.so
+18# 0x00007537429C7694 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdmolfiles.so
+19# 0x0000753765D95D44 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdCIPLabeler.so
+20# 0x00007537431758D4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+21# 0x000075374310A7FD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+22# 0x000075374310A37D in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+23# 0x0000753743109EFD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+24# 0x0000753743109A7D in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+25# 0x00007537431095FD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+26# 0x0000753744175F74 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+27# 0x0000753744175FC4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+28# 0x0000753744176014 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+29# 0x0000753744176064 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+30# boost::python::handle_exception_impl(boost::function0<void>) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+31# 0x0000753762BDF9B3 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+32# _PyObject_MakeTpCall in python
+33# _PyEval_EvalFrameDefault in python
+34# 0x0000655487CB96C2 in python
+35# 0x0000655487CB8F46 in python
+36# PyObject_Call in python
+37# _PyEval_EvalFrameDefault in python
+38# 0x0000655487CB8E48 in python
+39# _PyEval_EvalFrameDefault in python
+40# _PyFunction_Vectorcall in python
+41# _PyEval_EvalFrameDefault in python
+42# _PyFunction_Vectorcall in python
+43# 0x0000655487CA1B49 in python
+44# _PyObject_MakeTpCall in python
+45# _PyEval_EvalFrameDefault in python
+46# _PyFunction_Vectorcall in python
+47# 0x0000655487CA1BED in python
+48# _PyObject_MakeTpCall in python
+49# _PyEval_EvalFrameDefault in python
+50# 0x0000655487D2CC5D in python
+51# PyEval_EvalCode in python
+52# 0x0000655487D4A31A in python
+53# 0x0000655487D45F93 in python
+54# 0x0000655487D5B540 in python
+55# _PyRun_SimpleFileObject in python
+56# _PyRun_AnyFileObject in python
+57# Py_RunMain in python
+58# Py_BytesMain in python
+59# 0x00007537F7D9FE08 in /usr/lib/libc.so.6
+60# __libc_start_main in /usr/lib/libc.so.6
+61# 0x0000655487D1C4CA in python
+----------
+****
+
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:17] UFFTYPER: Unrecognized charge state for atom: 30
+[11:28:18] UFFTYPER: Unrecognized hybridization for atom: 15
+[11:28:18] UFFTYPER: Unrecognized atom type: Fe+2 (15)
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:19] UFFTYPER: Warning: hybridization set to SP3 for atom 34
+Warning: OEMMFFParams::PrepMol() : unable to type atom 35 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 35 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:21] UFFTYPER: Unrecognized hybridization for atom: 16
+[11:28:21] UFFTYPER: Unrecognized atom type: Fe+2 (16)
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: OEMMFFParams::PrepMol() : unable to type atom 34 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+StandardConformerGenerator    :  34%|███▊       | 34/99 [00:28<01:04,  1.01it/s]Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 30 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Fe on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 12 Zn on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:26] UFFTYPER: Unrecognized charge state for atom: 12
+[11:28:26] UFFTYPER: Unrecognized atom type: Zn2+2 (12)
+[11:28:26] 
+
+****
+Invariant Violation
+
+Violation occurred on line 757 in file /home/conda/feedstock_root/build_artifacts/rdkit-meta_1722844818947/work/Code/GraphMol/DistGeomHelpers/BoundsMatrixBuilder.cpp
+Failed Expression: ba23 > 0.0
+----------
+Stacktrace:
+ 0# Invar::Invariant::toString[abi:cxx11]() const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libRDKitRDGeneral.so.1
+ 1# Invar::operator<<(std::ostream&, Invar::Invariant const&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libRDKitRDGeneral.so.1
+ 2# RDKit::DGeomHelpers::_setTwoInSameRing14Bounds(RDKit::ROMol const&, RDKit::Bond const*, RDKit::Bond const*, RDKit::Bond const*, RDKit::DGeomHelpers::ComputedData&, boost::shared_ptr<DistGeom::BoundsMatrix>, double*) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 3# RDKit::DGeomHelpers::set14Bounds(RDKit::ROMol const&, boost::shared_ptr<DistGeom::BoundsMatrix>, RDKit::DGeomHelpers::ComputedData&, double*, bool, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 4# RDKit::DGeomHelpers::setTopolBounds(RDKit::ROMol const&, boost::shared_ptr<DistGeom::BoundsMatrix>, std::vector<std::pair<int, int>, std::allocator<std::pair<int, int> > >&, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > >&, bool, bool, bool, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 5# RDKit::DGeomHelpers::EmbeddingOps::setupInitialBoundsMatrix(RDKit::ROMol*, boost::shared_ptr<DistGeom::BoundsMatrix>, std::map<int, RDGeom::Point3D, std::less<int>, std::allocator<std::pair<int const, RDGeom::Point3D> > > const*, RDKit::DGeomHelpers::EmbedParameters const&, ForceFields::CrystalFF::CrystalFFDetails&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 6# RDKit::DGeomHelpers::EmbedMultipleConfs(RDKit::ROMol&, std::vector<int, std::allocator<int> >&, unsigned int, RDKit::DGeomHelpers::EmbedParameters&) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/../../../../libRDKitDistGeomHelpers.so.1
+ 7# RDKit::EmbedMultipleConfs(RDKit::ROMol&, unsigned int, unsigned int, int, bool, bool, double, bool, unsigned int, double, boost::python::dict&, double, bool, bool, int, bool, bool, bool, bool, bool, unsigned int, bool) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDistGeom.so
+ 8# 0x00007537748C1CC5 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDistGeom.so
+ 9# boost::python::objects::function::call(_object*, _object*) const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+10# 0x0000753762BE2449 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+11# boost::python::detail::exception_handler::operator()(boost::function0<void> const&) const in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+12# 0x0000753774250E04 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdSLNParse.so
+13# 0x00007537744E0264 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdDepictor.so
+14# 0x0000753774799154 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdChemReactions.so
+15# 0x00007537747991A4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdChemReactions.so
+16# 0x000075377491C414 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdMolChemicalFeatures.so
+17# 0x00007537429C7644 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdmolfiles.so
+18# 0x00007537429C7694 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdmolfiles.so
+19# 0x0000753765D95D44 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdCIPLabeler.so
+20# 0x00007537431758D4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+21# 0x000075374310A7FD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+22# 0x000075374310A37D in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+23# 0x0000753743109EFD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+24# 0x0000753743109A7D in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+25# 0x00007537431095FD in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/Chem/rdchem.so
+26# 0x0000753744175F74 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+27# 0x0000753744175FC4 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+28# 0x0000753744176014 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+29# 0x0000753744176064 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/rdBase.so
+30# boost::python::handle_exception_impl(boost::function0<void>) in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+31# 0x0000753762BDF9B3 in /home/brent/mambaforge/envs/qcarchive-user-submit/lib/python3.11/site-packages/rdkit/../../../libboost_python311.so.1.84.0
+32# _PyObject_MakeTpCall in python
+33# _PyEval_EvalFrameDefault in python
+34# 0x0000655487CB96C2 in python
+35# 0x0000655487CB8F46 in python
+36# PyObject_Call in python
+37# _PyEval_EvalFrameDefault in python
+38# 0x0000655487CB8E48 in python
+39# _PyEval_EvalFrameDefault in python
+40# _PyFunction_Vectorcall in python
+41# _PyEval_EvalFrameDefault in python
+42# _PyFunction_Vectorcall in python
+43# 0x0000655487CA1B49 in python
+44# _PyObject_MakeTpCall in python
+45# _PyEval_EvalFrameDefault in python
+46# _PyFunction_Vectorcall in python
+47# 0x0000655487CA1BED in python
+48# _PyObject_MakeTpCall in python
+49# _PyEval_EvalFrameDefault in python
+50# 0x0000655487D2CC5D in python
+51# PyEval_EvalCode in python
+52# 0x0000655487D4A31A in python
+53# 0x0000655487D45F93 in python
+54# 0x0000655487D5B540 in python
+55# _PyRun_SimpleFileObject in python
+56# _PyRun_AnyFileObject in python
+57# Py_RunMain in python
+58# Py_BytesMain in python
+59# 0x00007537F7D9FE08 in /usr/lib/libc.so.6
+60# __libc_start_main in /usr/lib/libc.so.6
+61# 0x0000655487D1C4CA in python
+----------
+****
+
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 32 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:26] UFFTYPER: Unrecognized charge state for atom: 32
+Warning: : Failed due to unspecified stereochemistry
+Warning: OEMMFFParams::PrepMol() : unable to type atom 29 W on residue UNL-1
+Warning: OEMMFFParams::PrepMol() : unable to type atom 41 Mg on residue UNL-1
+Warning: : Force field setup failed due to missing parameters
+[11:28:26] UFFTYPER: Unrecognized atom type: W_5 (29)
+[11:28:26] UFFTYPER: Warning: hybridization set to SP3 for atom 41
+[11:28:39] UFFTYPER: Unrecognized hybridization for atom: 35
+[11:28:39] UFFTYPER: Unrecognized atom type: Fe+2 (35)
+[11:28:55] UFFTYPER: Unrecognized hybridization for atom: 49
+[11:28:55] UFFTYPER: Unrecognized atom type: Fe+2 (49)
+StandardConformerGenerator    :  40%|████▍      | 40/99 [01:12<02:30,  2.56s/it]StandardConformerGenerator    :  60%|██████▌    | 59/99 [02:27<02:11,  3.28s/it]StandardConformerGenerator    :  77%|████████▍  | 76/99 [05:37<02:28,  6.47s/it]StandardConformerGenerator    :  93%|██████████▏| 92/99 [05:37<00:29,  4.20s/it]StandardConformerGenerator    : 100%|███████████| 99/99 [05:37<00:00,  3.41s/it]
+Preparation                   :   0%|                    | 0/75 [00:00<?, ?it/s]Preparation                   :  11%|█▎          | 8/75 [00:00<00:00, 74.13it/s]Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToInChIKey when writing ''
+Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToSTDInChI when writing ''
+Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToSTDInChIKey when writing ''
+Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToInChI when writing ''
+Warning: OE3DToAtomStereo is unable to perceive atom stereo from a flat geometry on atom 7 of molecule ''
+Warning: OE3DToAtomStereo had a problem during OEMolToInChIKey when writing ''
+Preparation                   :  21%|██▎        | 16/75 [00:00<00:01, 41.12it/s]Preparation                   :  28%|███        | 21/75 [00:00<00:01, 37.81it/s]Preparation                   :  35%|███▊       | 26/75 [00:00<00:01, 35.11it/s]Preparation                   :  40%|████▍      | 30/75 [00:00<00:01, 34.12it/s]Preparation                   :  47%|█████▏     | 35/75 [00:00<00:01, 32.83it/s]Preparation                   :  52%|█████▋     | 39/75 [00:01<00:01, 28.41it/s]Preparation                   :  56%|██████▏    | 42/75 [00:01<00:01, 23.12it/s]Preparation                   :  60%|██████▌    | 45/75 [00:01<00:01, 23.15it/s]Preparation                   :  64%|███████    | 48/75 [00:01<00:01, 20.21it/s]Preparation                   :  68%|███████▍   | 51/75 [00:01<00:01, 16.55it/s]Preparation                   :  71%|███████▊   | 53/75 [00:02<00:01, 15.19it/s]Preparation                   :  73%|████████   | 55/75 [00:02<00:02,  9.86it/s]Preparation                   :  76%|████████▎  | 57/75 [00:02<00:01, 10.91it/s]Preparation                   :  79%|████████▋  | 59/75 [00:02<00:01, 10.77it/s]Preparation                   :  81%|████████▉  | 61/75 [00:03<00:01, 11.07it/s]Preparation                   :  84%|█████████▏ | 63/75 [00:03<00:01, 10.19it/s]Preparation                   :  87%|█████████▌ | 65/75 [00:03<00:00, 11.52it/s]Preparation                   :  89%|█████████▊ | 67/75 [00:03<00:00, 10.39it/s]Preparation                   :  92%|██████████ | 69/75 [00:03<00:00,  9.72it/s]Preparation                   :  95%|██████████▍| 71/75 [00:04<00:00,  9.11it/s]Preparation                   :  96%|██████████▌| 72/75 [00:04<00:00,  9.26it/s]Preparation                   :  97%|██████████▋| 73/75 [00:04<00:00,  8.80it/s]Preparation                   :  99%|██████████▊| 74/75 [00:04<00:00,  9.02it/s]Preparation                   : 100%|███████████| 75/75 [00:04<00:00,  8.75it/s]Preparation                   : 100%|███████████| 75/75 [00:04<00:00, 16.23it/s]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [1.0, 0]
+fc: [1.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [1.0, 0]
+fc: [1.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [1.0, 0]
+fc: [1.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [1.0, 0]
+fc: [1.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [1.0, 0]
+fc: [1.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [3.0, 0]
+fc: [3.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [3.0, 0]
+fc: [3.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+
+
+c: [0.0, 0]
+fc: [0.0, 0.0]
+m: [1]
+fm: [1, 1, 2]
+44 239
+* Number of unique molecules: 44
+* Number of filtered molecules: 55
+* Number of conformers: 239
+* Number of conformers per molecule (min, mean, max): 1, 5.43, 10
+* Mean molecular weight: 424.38
+* Max molecular weight: 741.40
+* Charges: [0.0, 1.0, 2.0, 3.0]
+## Metadata
+* Elements: {F, P, O, C, Zn, N, Ni, Pt, S, Pd, Mg, Br, Rh, Fe, H, Cl, B, Li}
+* Spec: BP86/def2-TZVP
+	* basis: def2-TZVP
+	* implicit_solvent: None
+	* keywords: {}
+	* maxiter: 200
+	* method: BP86
+	* program: psi4
+	* SCF properties:
+		* dipole
+		* quadrupole
+		* wiberg_lowdin_indices
+		* mayer_indices

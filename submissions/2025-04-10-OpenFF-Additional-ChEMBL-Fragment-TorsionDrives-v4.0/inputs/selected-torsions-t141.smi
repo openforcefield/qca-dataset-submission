@@ -1,0 +1,10 @@
+N=[NH+]C1=NC=CC1 t141
+C[NH+]=N t141
+N#CC1CN1N=[NH2+] t141
+[H]/N=[N+](/[O-])CC#C t141
+[O-][NH+]=NC1NO1 t141
+[H]/C=C/C#CCN=[NH2+] t141
+[NH2+]=Nc1ccoc1 t141
+CC#CC(=O)N=[NH2+] t141
+N#[N+]C[NH+]=N[O-] t141
+[O-][N+]([O-])=NNF t141

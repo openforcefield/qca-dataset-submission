@@ -1,0 +1,15 @@
+O=CCC
+O=C(OC)CC
+O=C(N)CC
+O=C(N(C)C)CC
+FC(F)(F)CC(OC)=O
+O=C(NC)CC
+O=C(NC)CC=O
+O=C(NC)Cc1ccc[nH]1
+O=C(NC)Cc1ccno1
+O=C(NC)[C@@H]1CO1
+O=C(NC)[C@@H]1CCC[NH2+]1
+O=C(NC)[C@@H]1CCCO1
+O=C(NC)C(C)C
+O=S1(=O)CCCC[C@@H]1C(=O)NC
+BrCC(=O)NC

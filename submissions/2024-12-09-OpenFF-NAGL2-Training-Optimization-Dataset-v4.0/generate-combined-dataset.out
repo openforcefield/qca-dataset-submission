@@ -1,0 +1,52 @@
+Wed Nov 27 15:48:26 PST 2024
+hpc3-21-18
+Number of results:  128281
+Finished converting to records
+Molecules are the same?  True
+# heavy atoms
+  1: 1
+  2: 2
+  3: 67
+  4: 176
+  5: 497
+  6: 1235
+  7: 2815
+  8: 5526
+  9: 8384
+ 10: 10525
+ 11: 12301
+ 12: 12220
+ 13: 52
+ 14: 101
+ 15: 61
+ 16: 90
+ 17: 127
+ 18: 109
+ 19: 71
+ 20: 46
+ 21: 2
+ 22: 2
+ 23: 9
+ 24: 1
+ 29: 2
+* Name: OpenFF NAGL2 Training Optimization Dataset v4.0
+* Number of unique molecules: 54422
+* Number of conformers: 128281
+* Number of conformers (min, mean, max): 1.00, 2.36, 10.00
+* Molecular weight (min, mean, max): 32.12, 163.93, 701.59
+* Charges: -4.0 -3.0 -2.0 -1.0 0.0 1.0 2.0 3.0
+## Metadata
+* Elements: {I, N, B, Si, H, Br, C, O, Cl, F, S, P}
+* Spec: default
+  * basis: DZVP
+  * implicit_solvent: None
+  * keywords: {}
+  * maxiter: 200
+  * method: B3LYP-D3BJ
+  * program: psi4
+  * SCF properties:
+    * dipole
+    * quadrupole
+    * wiberg_lowdin_indices
+    * mayer_indices
+Wed Nov 27 17:49:40 PST 2024

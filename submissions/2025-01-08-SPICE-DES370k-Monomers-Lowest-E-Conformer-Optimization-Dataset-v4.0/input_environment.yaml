@@ -1,0 +1,12 @@
+name: openff_geometric_hdf5_env
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - openff-toolkit
+  - openff-qcsubmit
+  - geometric
+  - jupyter
+  - nglview
+  - h5py
+  - pandas

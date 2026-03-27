@@ -1,0 +1,39 @@
+name: i-frag-submit
+channels:
+  - conda-forge
+  - openeye
+dependencies:
+  - python
+  - pip
+  - click
+  - openff-toolkit
+  - openff-qcsubmit
+  - openmmforcefields
+  - openeye::openeye-toolkits
+  - openff-interchange-base
+  - qcportal
+  - jupyter
+  - seaborn
+  - pandas
+  - pydantic =2
+  - ipython
+  - ipdb
+  - pre-commit
+  - rich
+  - pytest
+  - pytest-cov
+  - pytest-xdist
+  - pytest-randomly
+  - pytest-timeout
+  - smirnoff-plugins
+  - tqdm
+  - openmm
+  - ambertools
+  - qubekit
+  - ndcctools
+  - cmiles
+  - black
+  - isort
+  - flake8 
+  - mamba
+  - nglview

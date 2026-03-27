@@ -7,6 +7,7 @@ on:
     paths:
       - 'submissions/**/dataset*.json*'
       - 'submissions/**/compute*.json*'
+      - 'submissions/**/scaffold*.json*'
 
 defaults:
   run:
@@ -14,6 +15,7 @@ defaults:
 
 jobs:
   dataset_validation:
+    if: ${{ ! contains(github.event.issue.labels.*.name, 'validation-off') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -45,4 +47,4 @@ jobs:
         env: # Or as an environment variable
           GH_TOKEN: ${{ secrets.GH_DANGERBOT_TOKEN_LIMITED}}
         run: |
-          python ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'
+          python -u ./management/validation.py '${{ steps.file_changes.outputs.files}}' '${{ github.event.number }}'

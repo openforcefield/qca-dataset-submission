@@ -4,19 +4,27 @@
 import os
 import glob
 import json
+import re
 import time
+import typing
 from pprint import pformat
 import traceback
 from itertools import chain
 from collections import defaultdict, Counter
 from datetime import datetime
 
-from github import Github
+from github import Github, Auth
+
+if typing.TYPE_CHECKING:
+    import qcelemental
 
 QCFRACTAL_URL = "https://api.qcarchive.molssi.org:443/"
 
 REPO_NAME = "openforcefield/qca-dataset-submission"
+
+# The following should not be changed to avoid picking up of json files throughout the repo
 DATASET_GLOB = "dataset*.json*"
+SCAFFOLD_GLOB = "scaffold*.json*"
 COMPUTE_GLOB = "compute*.json*"
 
 PRIORITIES = {'priority-low': 0, 'priority-normal': 1, 'priority-high': 2}
@@ -26,6 +34,143 @@ DATASET_TYPES = {
         'optimizationdataset': 'optimization',
         'torsiondrivedataset': 'torsiondrive'}
 
+# matches tags with a trailing _mw-###, allowing splitting of datasets by
+# molecular weight based on these tags
+SPLIT_TAG = re.compile(r"_mw(-\d+)+$")
+# matches just the end of a SPLIT_TAG, capturing the final number
+SPLIT_TAG_END = re.compile(r"-(\d+)$")
+
+
+def parse_tags(compute_tag) -> tuple[list[float], str]:
+    """Parses a GitHub label to apply to record compute tags.
+    
+    If the GitHub label matches ``SPLIT_TAG``, the label is split into a sequence
+    of molecular weights based compute tags. Note that the tag doesn't change if 
+    it just happens to end with ``_mw``, ``SPLIT_TAG`` only matches if there are ``-###``
+    following it, e.g., ``pr000_mw-200`` or ``pr000_mw-200-400-600-800-1000``.
+    
+    Parameters
+    ----------
+    compute_tag : str
+        GitHub label used to assign record compute tags.
+        
+    Returns
+    -------
+    molecular_weights : list[float]
+        List of molecular weights
+    base_tag : str
+        The base component of the tag
+    """
+    tag = compute_tag
+    ret = list()
+    while (m := SPLIT_TAG_END.search(tag)) is not None:
+        ret.append(float(m[1]))
+        tag = tag[: m.start(1) - 1]
+
+    return list(reversed(ret)), tag.removesuffix("_mw") if len(ret) > 0 else tag
+
+
+def try_get_molecule(entry) -> typing.Optional["qcelemental.models.Molecule"]:
+    """Try to extract a qcelemental Molecule from multiple fields in ``entry``."""
+    molecule = (
+        # this should work for singlepoints
+        getattr(entry, "molecule", None)
+        # this for optimizations
+        or getattr(entry, "initial_molecule", None)
+    )
+
+    if molecule:
+        return molecule
+
+    # and this for torsiondrives
+    if (mols := getattr(entry, "initial_molecules")) is None or len(mols) < 1:
+        return None
+
+    return mols[0]
+
+
+def partition_records(
+    ds, bins, include_complete=False
+) -> dict[int, list[int]]:
+    """Split up the records in ``ds`` based on the molecular weights (in Da) in
+    ``bins``.
+
+    ``include_complete`` is intended mostly (only?) for testing; usually you
+    wouldn't want to retag complete records (and it might be an error in
+    qcportal since complete records don't have tags), but for tests it's nice
+    to be able to call this on a finished dataset
+    """
+    import numpy as np
+
+    ds.fetch_entries()
+    masses, qca_ids = list(), list()
+    for entry_name, _, rec in ds.iterate_records():
+        if rec.status == "complete" and not include_complete:
+            continue
+        entry = ds.get_entry(entry_name)
+        if (mol := try_get_molecule(entry)) is None:
+            print(f"Failed to get molecule from {entry_name}")
+            continue
+
+        masses.append(sum(mol.masses))
+        qca_ids.append(rec.id)
+
+    # TODO: Change so that numpy ints aren't used in the first place
+    # For some reason QCPortal has an issue with numpy ints and we
+    # must use python ints
+    qca_ids = np.array(qca_ids)
+    bin_indices = np.digitize(masses, bins)
+    return {
+            i: [int(x) for x in qca_ids[np.where(bin_indices == i)]]
+            for i in range(len(bins) + 1)
+    }
+
+
+def set_mw_compute_tags(client, ds, compute_tag, include_complete=False):
+    bins, base_tag = parse_tags(compute_tag)
+    if len(bins) == 0:
+        print(f"Failed to parse molecular weight compute tags from {compute_tag}")
+        # TODO should this fall back on the normal setter then? we'd need to
+        # pass more arguments to make that possible
+        return
+
+    records = partition_records(ds, bins, include_complete=include_complete)
+    for bin_, record_ids in records.items():
+        # the largest index may be 1 past len(bins) so just call this large
+        suffix = int(bins[bin_]) if bin_ < len(bins) else "large"
+        new_tag = f"{base_tag}-{suffix}"
+        client.modify_records(record_ids, new_compute_tag=new_tag)
+
+
+def update_compute_tags(client, dataset, specification_names, new_tag, include_complete=False):
+    """Update the compute tags in ``dataset`` to ``new_tag``, unless the new
+    tag matches the ``SPLIT_TAG`` pattern, in which case the dataset will be
+    split up and tagged separately based on molecular weight. For example,
+    ``compute-openff_mw-100-200-300`` will cause the creation of four tags:
+    ``compute-openff-100`` for MW < 100, ``compute-openff-200`` for 100 <= MW <
+    200, ``compute-openff-300`` for 200 <= MW < 300, and
+    ``compute-openff-large`` for anything larger than 300 Da.
+
+    Note that ``set_mw_compute_tags`` does not need access to the specification
+    names because it calls ``PortalClient.modify_records``, which, despite the
+    identical name, is a separate method from ``BaseDataset.modify_records``.
+    The client version used by ``set_mw_compute_tags`` relies on the record IDs
+    to specify records instead of the specification name.
+
+    Note also that ``set_mw_compute_tags`` should only be called when
+    ``SPLIT_TAG`` matches the tag. It will print a warning and return early,
+    updating no tags, if this is not the case.
+    """
+    if SPLIT_TAG.search(new_tag) is None:
+        dataset.modify_records(
+            specification_names=specification_names,
+            new_compute_tag=new_tag,
+        )
+    else:
+        set_mw_compute_tags(client, dataset, new_tag, include_complete=include_complete)
+
+def _get_labels(pr):
+    return list(set(label.name for label in pr.get_labels()))
 
 class Submission:
     """A submission, corresponding to a single PR, possibly multiple datasets.
@@ -80,8 +225,9 @@ class Submission:
     def _gather_datasets(self):
         files = self.pr.get_files()
         datasets = list(filter(
-            lambda x: glob.fnmatch.fnmatch(os.path.basename(x), DATASET_GLOB),
-            map(lambda x: x.filename, files)))
+            lambda x: any(glob.fnmatch.fnmatch(os.path.basename(x), match) for match in [DATASET_GLOB, SCAFFOLD_GLOB]),
+            map(lambda x: x.filename, files)
+        ))
 
         # we only want files that actually exist
         # it can rarely be the case that a PR features changes to a path that is a file deletion
@@ -133,25 +279,37 @@ class Submission:
         """Based on current state of the PR, perform appropriate actions.
 
         """
+        import projectsv2
+
+        # we're going to give up on evolving boards entirely for now
         if board is None:
-            board = _get_full_board(self.repo)
+            board = projectsv2._get_full_board()
+        # look for the card
+        pr_state = None
+        pr_card = None
+        for col_name, cards in board.items():
+            for card in cards:
+                if int(card.pr_number) == int(self.pr.number):
+                    pr_card = card
+                    pr_state = col_name
 
-        pr_card, pr_state = self._get_board_card_state(board, self.pr)
-
+        # pr_card, pr_state = self._get_board_card_state(board, self.pr)
         # if card not on board, then it starts in the Backlog
-        if pr_state is None:
-            pr_state = self.set_backlog()
+        # skip this completely, we can't do it
+        # if pr_state is None:
+            # pr_state = self.set_backlog()
 
             # reload board, since we just added this card
-            board = _get_full_board(self.repo)
-            pr_card, pr_state = self._get_board_card_state(board, self.pr)
+            # board = _get_full_board(self.repo)
+            # pr_card, pr_state = self._get_board_card_state(board, self.pr)
 
         # exit early if states specified, and this PR is not
         # in one of those
         if states is not None:
             if pr_state not in states:
                 return
-
+            
+        print("Time to execute!")
         if pr_state == "Backlog":
             return self.execute_backlog(pr_card, pr_state)
         elif pr_state == "Queued for Submission":
@@ -199,7 +357,8 @@ class Submission:
             comment = f"""
             ## Lifecycle - Backlog
 
-            Merged dataset moved from "Backlog" to "Queued for Submission".
+            Project boards are not working as expected.
+            However, please consider this queued for submission.
 
             """
 
@@ -209,11 +368,11 @@ class Submission:
             # submit comment
             self.pr.create_issue_comment(comment)
 
-            self.evolve_state(pr_card, pr_state, "Queued for Submission")
+        #     self.evolve_state(pr_card, pr_state, "Queued for Submission")
 
-            return {"new_state": "Queued for Submission"}
-        else:
-            return {"new state": "Backlog"}
+        #     return {"new_state": "Queued for Submission"}
+        # else:
+        #     return {"new state": "Backlog"}
 
     def execute_queued_submit(self, pr_card, pr_state):
         """Submit datasets, perhaps with some retry logic.
@@ -231,8 +390,12 @@ class Submission:
             results.append(ct.execute_queued_submit())
 
         new_state = self.resolve_new_state(results)
-        if new_state is not None:
-            self.evolve_state(pr_card, pr_state, new_state)
+        # if new_state is not None:
+        #     self.evolve_state(pr_card, pr_state, new_state)
+
+        # comment status on PR
+        if new_state != pr_state:
+            self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
     def execute_errorcycle(self, pr_card, pr_state,
                            reset_errors=False,
@@ -259,8 +422,12 @@ class Submission:
                                                  set_computetag=set_computetag))
 
         new_state = self.resolve_new_state(results)
-        if new_state is not None:
-            self.evolve_state(pr_card, pr_state, new_state)
+        # if new_state is not None:
+        #     self.evolve_state(pr_card, pr_state, new_state)
+
+        # comment status on PR
+        if new_state != pr_state:
+            self.pr.create_issue_comment(f"## Current status - {new_state}\n\n Consider manually moving this.")
 
         if new_state == "Archived/Complete":
             for dataset in self.datasets:
@@ -270,7 +437,7 @@ class Submission:
     def execute_requires_scientific_review(self, pr_card, pr_state):
         # add `scientific-review` label
         # remove `end-of-life`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "scientific-review"
 
@@ -284,7 +451,7 @@ class Submission:
     def execute_end_of_life(self, pr_card, pr_state):
         # add `end-of-life` label
         # remove `scientific-review`, `complete` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "end-of-life"
 
@@ -298,7 +465,7 @@ class Submission:
     def execute_archived_complete(self, pr_card, pr_state):
         # add `complete` label
         # remove `scientific-review`, `end-of-life` label if present
-        labels =  set(map(lambda x: x.name, self.pr.labels))
+        labels =  _get_labels(self.pr)
 
         add_label = "complete"
 
@@ -349,20 +516,26 @@ class SubmittableBase:
     def _parse_spec(self):
         spec = self._load_submittable()
 
-        dataset_name = spec["dataset_name"]
+        if "dataset_name" in spec: # with dataset*.json from QCSubmit
+            dataset_name = spec["dataset_name"]
+            if "type" in spec:
+                dataset_type = DATASET_TYPES[spec["type"].lower()]
+            elif "dataset_type" in spec:
+                dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
+        else: # with scaffold.json
+            dataset_name = spec["metadata"]["name"]
+            dataset_type = spec["metadata"]["dataset_type"]
 
-        if "type" in spec:
-            dataset_type = DATASET_TYPES[spec["type"].lower()]
-        elif "dataset_type" in spec:
-            dataset_type = DATASET_TYPES[spec["dataset_type"].lower()]
-
-        dataset_specs = spec.get("qc_specifications", None)
-
-        return dataset_name, dataset_type, dataset_specs
+        return dataset_name, dataset_type
 
     def _load_submittable(self):
+        """Load a json file into a dictionary
+
+        Returns:
+            dict: Dictionary of provided compressed json file.
+        """
         from openff.qcsubmit.serializers import deserialize
-        spec = deserialize(self.submittable)
+        spec = deserialize(self.submittable) # Will function with scaffold too
 
         return spec
 
@@ -381,7 +554,7 @@ class SubmittableBase:
         import pandas as pd
 
         datehr = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
 
         meta = {
             "**Dataset Name**": dataset_name,
@@ -407,23 +580,35 @@ class SubmittableBase:
 
     def execute_queued_submit(self, max_retries=3):
         """Submit, perhaps with some retry logic.
+        
+        Parameters
+        ----------
+        max_retries : int, default=3
+            Not currently in use
 
         """
         client = self._get_qca_client()
+        dict_ds = self._load_submittable()
+        if "dataset_name" in dict_ds: # with dataset*.json from QCSubmit
+            dataset_qcs = create_dataset(dict_ds) # create QCSubmit dataset
+        else: # with qcportal.external.scaffold
+            dataset_qcs = None # use self.submittable directly
 
-        # load dataset into QCSubmit class
-        ds = self._load_submittable()
-        dataset_qcs = create_dataset(ds)
-
-        try:
-            # submit to QCArchive
-            output = self.submit(dataset_qcs, client)
-            self._queued_submit_report(output, success=True)
-        except:
-            self._queued_submit_report(traceback.format_exc(), success=False)
-            return {"new_state": "Queued for Submission"}
-        else:
-            return {"new_state": "Error Cycling"}
+        for attempt in range(max_retries + 1):
+            try:
+                # Submit to QCArchive
+                output = self.submit(dataset_qcs, client)
+                self._queued_submit_report(output, success=True)
+            except Exception as e:
+                if attempt < max_retries:
+                    if attempt > 0:
+                        print(str(e))
+                        print(f"Submission attempt {attempt + 1} failed, retrying... ({max_retries - attempt} attempts remaining)")
+                else:
+                    self._queued_submit_report(traceback.format_exc(), success=False)
+                    return {"new_state": "Queued for Submission"}
+            else:
+                return {"new_state": "Error Cycling"}
 
     def _queued_submit_report(self, output, success):
         success_text = "**SUCCESS**" if success else "**FAILED**"
@@ -463,8 +648,9 @@ class SubmittableBase:
         """
         client = self._get_qca_client()
 
-        dataset_name, dataset_type, dataset_specs = self._parse_spec()
+        dataset_name, dataset_type = self._parse_spec()
         ds = client.get_dataset(dataset_type, dataset_name)
+        dataset_specs = ds.specification_names
 
         if dataset_type == "torsiondrive":
             complete = self._errorcycle_torsiondrive(
@@ -583,11 +769,16 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(erred_rec_ids)
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_priority=self.priority)
+                ds.modify_records(specification_names=dataset_specs,
+                                  new_compute_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=dataset_specs,
+                    new_tag=self.computetag,
+                )
+
             complete = False
 
         return complete
@@ -646,7 +837,7 @@ class SubmittableBase:
         status = ds.status()
         status_ = {key: {status.value.upper(): counts.get(status, 0)
                          for status in list(RecordStatusEnum)}
-                   for key, counts in status.items() if key in dataset_specs.keys()}
+                   for key, counts in status.items() if key in dataset_specs}
 
         df = pd.DataFrame(status_).transpose()
         df = df[['COMPLETE', 'RUNNING', 'WAITING', 'ERROR', 'CANCELLED', 'INVALID', 'DELETED']]
@@ -704,7 +895,7 @@ class SubmittableBase:
 
         if reset_errors:
             erred_recs = ds.iterate_records(
-                    specification_names=list(dataset_specs), 
+                    specification_names=dataset_specs, 
                     status='error')
 
             errors = {r.id: r.error for entry, spec, r in erred_recs}
@@ -718,11 +909,15 @@ class SubmittableBase:
             if reset_errors:
                 client.reset_records(list(errors))
             if set_priority:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_priority=self.priority)
+                ds.modify_records(specification_names=dataset_specs,
+                                  new_compute_priority=self.priority)
             if set_computetag:
-                ds.modify_records(specification_names=list(dataset_specs),
-                                  new_tag=self.computetag)
+                update_compute_tags(
+                    client=client,
+                    dataset=ds,
+                    specification_names=dataset_specs,
+                    new_tag=self.computetag,
+                )
             complete = False
 
         return complete
@@ -768,7 +963,29 @@ class SubmittableBase:
         self.pr.create_issue_comment(comment)
 
     def submit(self, dataset_qcs, client):
-        return dataset_qcs.submit(client=client, ignore_errors=True)
+        """Submit a dataset to QCArchive
+
+        Args:
+            dataset_qcs (openff.qcsubmit.databases.*Database): QCSubmit database, or None for a ``qcportal.external.scaffold``,
+            in which case the path to the scaffold*.json file will be used directly.
+            client (qcportal.client.PortalClient): QCPortal client
+
+        Returns:
+            InsertCountsMetadata: Output from QCArchive of the data that was submitted.
+        """
+        
+        if dataset_qcs is not None:
+            output = dataset_qcs.submit(client=client, ignore_errors=True)
+        else:
+            from qcportal.external import scaffold
+            # Submit dataset directly from submission file
+            ds = scaffold.from_json(self.submittable, client, append=True)
+            output = ds.submit(
+                compute_tag="openff", # should these be set default (same as QCSubmit) or overwritten by the json?
+                compute_priority="normal",
+            )
+
+        return output
 
 
 class DataSet(SubmittableBase):
@@ -789,6 +1006,18 @@ class Compute(SubmittableBase):
 
 
 def create_dataset(dataset_data):
+    """Create a QCSubmit dataset from an appropriate dictionary
+
+    Parameters
+    ----------
+    dataset_data : dict
+        Dictionary loaded from output of ``dataset.export_dataset("dataset.json.bz2")``
+
+    Returns
+    -------
+    openff.qcsubmit.datasets.*Dataset
+        QCSubmit dataset
+    """
     from openff.qcsubmit.datasets import BasicDataset, OptimizationDataset, TorsiondriveDataset
 
     datasets = {
@@ -826,7 +1055,7 @@ def _get_tracking_prs(repo):
     prs = [
         pr
         for pr in repo.get_pulls(state="all")
-        if "tracking" in list(map(lambda x: x.name, pr.labels))
+        if "tracking" in _get_labels(pr)
     ]
     return prs
 
@@ -909,10 +1138,10 @@ def main():
     else:
         prnums = None
 
-    gh = Github(os.environ["GH_TOKEN"])
+    gh = Github(auth=Auth.Token(os.environ["GH_TOKEN"]))
     repo = gh.get_repo(REPO_NAME)
 
-    # gather up all PRs with the `tracking` label
+    print("Getting PRs with `tracking` label")
     tracking_prs = _get_tracking_prs(repo)
 
     # filter on PR numbers, if provided
@@ -931,6 +1160,7 @@ def main():
     #board = _get_full_board(repo)
     import projectsv2
     board = projectsv2._get_full_board()
+    print("Got the board")
 
     # for each PR, we examine the changes to find files used for the submission
     # this is where the mapping is made between the PR and the submission files
@@ -942,7 +1172,7 @@ def main():
         # take highest one and set priority downstream
         # if no priority label(s), DO NOT set priority at all for this PR
         if args.set_priority:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  set(_get_labels(pr))
             priorities = set(PRIORITIES.keys()) & labels
 
             if not priorities:
@@ -960,7 +1190,7 @@ def main():
             selected_priority = 1   # need something, but should have no effect due to `set_priority=False`
 
         if args.set_computetag:
-            labels =  set(map(lambda x: x.name, pr.labels))
+            labels =  _get_labels(pr)
             computetags = [l[len('compute-'):] for l in labels if l.startswith('compute-')]
 
             if not computetags:
@@ -976,7 +1206,9 @@ def main():
             set_computetag = False
             selected_computetag = 'openff'   # need something, but should have no effect due to `set_computetag=False`
 
+        print("Get state submission")
         submission = Submission(pr, gh, priority=selected_priority, computetag=selected_computetag)
+        print("Execute state submission")
         submission.execute_state(board=board,
                                  states=states,
                                  reset_errors=args.reset_errors,

@@ -1,0 +1,22 @@
+name: qca-clean
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - jupyter
+  - pandas
+  - h5py
+  - periodictable
+  - qcportal>=0.61
+  - qcfractal>=0.61
+  - qcfractalcompute>=0.59
+  - rdkit>=2025.3.3
+  - openbabel
+  - deepdiff
+  - py3Dmol
+  - scipy
+  - networkx
+  - pip:
+      - git+https://github.com/openforcefield/tmos.git
+      - git+https://github.com/MDAnalysis/mdanalysis.git@develop#subdirectory=package # delete after 2.10 is released

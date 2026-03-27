@@ -1,0 +1,7 @@
+{
+    "dataset_name": "OpenFF SMIRNOFF Sage 2.1.0",
+    "dataset_tagline": "B3LYP-D3BJ/DZVP conformers for training OpenFF 2.1.0 Sage with improved coverage of sulfonamides and phosphates and improved fitting procedures.",
+    "description": "A quantum chemical (QC) dataset of optimization targets was generated at the OpenFF default level of theory, B3LYP-D3BJ/DZVP, and curated to train the valence parameters of the [OpenFF 2.1.0 Sage](https://github.com/openforcefield/sage-2.1.0/) forcefield. Targets were curated from the following datasets: 'OpenFF Gen 2 Opt Set 1 Roche', 'OpenFF Gen 2 Opt Set 2 Coverage', 'OpenFF Gen 2 Opt Set 3 Pfizer Discrepancy', 'OpenFF Gen 2 Opt Set 4 eMolecules Discrepancy', 'OpenFF Gen 2 Opt Set 5 Bayer', 'OpenFF Gen2 Optimization Dataset Protomers v1.0', 'OpenFF Iodine Chemistry Optimization Dataset v1.0', 'OpenFF Optimization Set 1', 'SMIRNOFF Coverage Set 1', and 'OpenFF Aniline Para Opt v1.0'. These combined datasets were filtered with `ElementFilter(allowed_elements=['H', 'C', 'N', 'O', 'S', 'P', 'F', 'Cl', 'Br'])`, `RecordStatusFilter(status=RecordStatusEnum.complete)`, `ConnectivityFilter(tolerance=1.2)`, `UnperceivableStereoFilter()`, `ConformerRMSDFilter(max_conformers=12)`,and `ChargeCheckFilter()`.",
+    "metadata.submitter": "jaclark5",
+    "metadata.long_description_url": "https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2025-05-22-OpenFF-SMIRNOFF-Sage-2.1.0"
+}

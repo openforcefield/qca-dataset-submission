@@ -1,0 +1,12 @@
+name: qca
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - jupyter
+  - networkx
+  - qcportal>=0.59
+  - qcfractal>=0.59
+  - matplotlib
+  - psi4 >=1.10

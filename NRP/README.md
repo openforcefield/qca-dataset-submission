@@ -22,6 +22,9 @@ Deployments have tons of tolerations allowing them to run on pre-emptible resour
 
     kubectl logs openff-qca-qm-856ccd6795-pnkkc
 
+    # This one can be handy for debugging when "get pods" shows lots of restarts, since "kubectl logs" wont work if the pod is already dead (look for "Last State")
+    kubectl describe pods kubectl describe pods openff-qca-qm-856ccd6795-pnkkc
+
     kubectl --context=nautilus delete deployment openff-qca-qm-<YOUR INITIALS HERE>
 
     kubectl --context=nautilus delete secret manager-qm-config-yaml-<YOUR INITIALS HERE>
@@ -29,6 +32,7 @@ Deployments have tons of tolerations allowing them to run on pre-emptible resour
     kubectl --context=nautilus get deployment openff-qca-qm
 
     kubectl scale --replicas=25 -f deployment.yaml
+
 
 # Monitoring
 
