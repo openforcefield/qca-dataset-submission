@@ -17,6 +17,3 @@ dependencies:
   - py3Dmol
   - scipy
   - networkx
-  - pip:
-      - git+https://github.com/openforcefield/tmos.git
-      - git+https://github.com/MDAnalysis/mdanalysis.git@develop#subdirectory=package # delete after 2.10 is released

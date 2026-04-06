@@ -291,11 +291,9 @@ dependencies:
   - zstandard=0.25.0=py311h5bb9006_1
   - zstd=1.5.7=hbf9d68e_6
   - pip:
-    - MDAnalysis==2.11.0.dev0
     - qcarchivetesting==0.64.post11+g63a1c0666.d20260406
     - qcfractal==0.64.post11+g63a1c0666.d20260406
     - qcfractalcompute==0.64.post11+g63a1c0666.d20260406
     - qcportal==0.64.post11+g63a1c0666.d20260406
-    - tmos==1.0.0+66.gde732f2
 
 prefix: "/Users/jenniferclark/mamba/envs/qca-clean"
