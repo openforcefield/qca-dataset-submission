@@ -4,9 +4,10 @@
 ### Description
 
 This optimization dataset targets molecules with suspicious conformers identified in the SPICE2 set and is intended
-to improve geometry-level coverage for challenging charged chemistries. Molecules were ingested from 
-`spice2_smiles.csv`, converted to OpenFF molecules with undefined stereochemistry allowed when needed, and expanded
-with up to 10 conformers per molecule using the QCSubmit standard conformer generation workflow.
+to improve geometry-level coverage for challenging charged chemistries. Details of how the SMILES strings were 
+filtered can be found at <https://github.com/jaclark5/Test_SPICE/tree/main/Filter_SPICE_Suspicious>. Molecules were
+ingested from `spice2_smiles.csv`, converted to OpenFF molecules with undefined stereochemistry allowed when needed,
+and expanded with up to 10 conformers per molecule using the QCSubmit standard conformer generation workflow.
 
 Computations use the OpenFF default optimization level of theory, B3LYP-D3BJ/DZVP (Psi4), with the standard OpenFF
 optimization QC specification. The resulting set spans elements {P, S, C, Br, Cl, N, F, H, I, O}, includes formal
