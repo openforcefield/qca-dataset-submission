@@ -7,7 +7,6 @@ channels:
 dependencies:
   - python =3.13
   - pip
-  - qcfractalcompute =0.51
   - qcengine>0.49
   - qcelemental>0.49
   - qcarchivetesting
