@@ -2,9 +2,7 @@ FROM condaforge/miniforge3
 
 SHELL ["/bin/bash", "-c"]
 
-# ADD https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/update_docker/devtools/prod-envs/${ENV_NAME}.yaml /tmp/env.yaml
-# Flexible with branch
-ADD devtools/prod-envs/${ENV_NAME}.yaml /tmp/env.yaml
+ADD https://raw.githubusercontent.com/openforcefield/qca-dataset-submission/update_docker/devtools/prod-envs/${ENV_NAME}.yaml /tmp/env.yaml
 RUN echo ${ENV_NAME}
 RUN mamba env create -n qcfractal -f /tmp/env.yaml && \
     if [[ "${ENV_NAME}" =~ "basis-set-update" ]]; then \
