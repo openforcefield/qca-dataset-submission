@@ -3,15 +3,19 @@
 
 ### Description
 
-This optimization dataset targets molecules with suspicious conformers identified in the SPICE2 set and is intended
-to improve geometry-level coverage for challenging charged chemistries. Details of how the SMILES strings were 
-filtered can be found at <https://github.com/jaclark5/Test_SPICE/tree/main/Filter_SPICE_Suspicious>. Molecules were
+This optimization dataset targets molecules with suspicious conformers identified in the SPICE2
+set and is intended to improve geometry-level coverage for challenging charged chemistries. Molecules were filtered
+for having overlapping atoms, or suspicious bond lengths and angles. Details of how the
+SMILES strings were filtered can be found at <https://github.com/jaclark5/Test_SPICE>. Molecules were
 ingested from `spice2_smiles.csv`, converted to OpenFF molecules with undefined stereochemistry allowed when needed,
 and expanded with up to 10 conformers per molecule using the QCSubmit standard conformer generation workflow.
+Stereochemistry enumeration: False. Tautomer enumeration: False. The only related ingestion setting used was
+`allow_undefined_stereo=True`; no stereo- or tautomer-enumeration keywords/settings were used.
 
 Computations use the OpenFF default optimization level of theory, B3LYP-D3BJ/DZVP (Psi4), with the standard OpenFF
 optimization QC specification. The resulting set spans elements {P, S, C, Br, Cl, N, F, H, I, O}, includes formal
-charges from -8.0 to +2.0, and covers a broad molecular-weight range (min 34.08, mean 288.23, max 1091.26 Da). This
+charges from -8.0 to +2.0, and covers a broad molecular-weight range (min 34.08, mean 288.23, max 1091.26 Da). Keys
+are mapped CMILES of the input molecules. This
 submission is designed for force field training and validation workflows that require robust optimization data for
 highly charged and chemically diverse SPICE2-derived molecules.
 
@@ -32,7 +36,7 @@ highly charged and chemically diverse SPICE2-derived molecules.
 - Max molecular weight: 1091.26
 - Charges: [-8.0, -4.0, -3.0, -2.0, -1.0, 0.0, 1.0, 2.0]
 - Elements: {P, S, C, Br, Cl, N, F, H, I, O}
-- Dataset Submitter: Jennifer A Clark
+- Dataset Submitter: Jennifer A Clark (GitHub: `jaclark5`)
 - Dataset Curator: Jennifer A Clark
 
 ### QC Specifications
