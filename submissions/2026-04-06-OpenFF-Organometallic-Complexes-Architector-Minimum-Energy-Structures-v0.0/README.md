@@ -37,13 +37,15 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 ### QCSubmit generation pipeline
 
 - `generate_dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
+- `2_generate_dataset_add_spec.ipynb`: A python notebook which shows how another spec was added
 
 ### QCSubmit Manifest
 
 - `generate_dataset.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
-- `scaffold.json.bz2`: A compressed json file of the target dataset
+- `scaffold.json.bz2`: A compressed json file of the original target dataset
+- `scaffold_add_highE.json.bz2`: A compressed json file of a revised target dataset
  
 ### Metadata
 
