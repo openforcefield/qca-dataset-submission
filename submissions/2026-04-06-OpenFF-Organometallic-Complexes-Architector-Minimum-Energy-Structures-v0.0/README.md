@@ -12,6 +12,10 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 'dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'dipole_polarizabilities', 
 'mulliken_charges'.
 
+### Changelog
+
+2026-04-16: Added spec "BP86/def2-TZVP high energy threshold" to more quickly "converge" structures for MLP training
+
 ### General Information
 
 - Date: 2026-04-06
@@ -65,10 +69,39 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
        * method: bp86
        * basis: def2-tzvp
        * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
-* SCF properties:
-       * dipole
-       * quadrupole
-       * wiberg_lowdin_indices
-       * mayer_indices
-       * lowdin_charges
-       * mulliken_charges
+    * SCF properties:
+         * dipole
+         * quadrupole
+         * wiberg_lowdin_indices
+         * mayer_indices
+         * lowdin_charges
+         * mulliken_charges
+
+* Spec: BP86/def2-TZVP high energy threshold
+    * program: geometric
+    * keywords:
+       * tmax: 0.3
+       * check: 0
+       * qccnv: False
+       * reset: True
+       * trust: 0.1
+       * molcnv: False
+       * enforce: 0.0
+       * epsilon: 1e-05
+       * maxiter: 300
+       * converge: ['energy', '1e-4']
+       * coordsys: dlc
+    * qc_specification:
+       * program: psi4
+       * driver: SinglepointDriver.deferred
+       * method: bp86
+       * basis: def2-tzvp
+       * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
+       * protocols: {}
+    * SCF properties:
+         * dipole
+         * quadrupole
+         * wiberg_lowdin_indices
+         * mayer_indices
+         * lowdin_charges
+         * mulliken_charges
