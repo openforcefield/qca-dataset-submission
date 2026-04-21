@@ -12,6 +12,10 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 'dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'dipole_polarizabilities', 
 'mulliken_charges'.
 
+### Changelog
+
+2026-04-16: Added spec "BP86/def2-TZVP high energy threshold" to more quickly "converge" structures for MLP training
+
 ### General Information
 
 - Date: 2026-04-06
@@ -33,13 +37,15 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 ### QCSubmit generation pipeline
 
 - `generate_dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
+- `2_generate_dataset_add_spec.ipynb`: A python notebook which shows how another spec was added
 
 ### QCSubmit Manifest
 
 - `generate_dataset.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
-- `scaffold.json.bz2`: A compressed json file of the target dataset
+- `scaffold.json.bz2`: A compressed json file of the original target dataset
+- `scaffold_add_highE.json.bz2`: A compressed json file of a revised target dataset
  
 ### Metadata
 
@@ -65,10 +71,39 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
        * method: bp86
        * basis: def2-tzvp
        * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
-* SCF properties:
-       * dipole
-       * quadrupole
-       * wiberg_lowdin_indices
-       * mayer_indices
-       * lowdin_charges
-       * mulliken_charges
+    * SCF properties:
+         * dipole
+         * quadrupole
+         * wiberg_lowdin_indices
+         * mayer_indices
+         * lowdin_charges
+         * mulliken_charges
+
+* Spec: BP86/def2-TZVP high energy threshold
+    * program: geometric
+    * keywords:
+       * tmax: 0.3
+       * check: 0
+       * qccnv: False
+       * reset: True
+       * trust: 0.1
+       * molcnv: False
+       * enforce: 0.0
+       * epsilon: 1e-05
+       * maxiter: 300
+       * converge: ['energy', '1e-4']
+       * coordsys: dlc
+    * qc_specification:
+       * program: psi4
+       * driver: SinglepointDriver.deferred
+       * method: bp86
+       * basis: def2-tzvp
+       * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
+       * protocols: {}
+    * SCF properties:
+         * dipole
+         * quadrupole
+         * wiberg_lowdin_indices
+         * mayer_indices
+         * lowdin_charges
+         * mulliken_charges
