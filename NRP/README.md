@@ -1,6 +1,6 @@
 ## When running a job
 
-Do not waste resources. Our access to NRP is not guaranteed and is dependent on our good behavior. If we get in trouble they will apply penalties to the entire openforcefield namespace.
+Do not waste resources. Our access to NRP is not guaranteed and is dependent on our good behavior. If we get in trouble they will apply penalties to the entire `openforcefield` namespace.
 
 * Have a browser tab open to [monitor your % utilization](https://grafana.nrp-nautilus.io/d/zytktgwWz/utilization-by-namespace?orgId=1&from=now-3h&to=now). Keep this as high as possible. Generally, GPU+processor requests should be over 70% and memory over 35%
 * Have the [element/matrix chat](https://element.nrp-nautilus.io/#/room/#general:matrix.nrp-nautilus.io) open and check every few hours whether the admins are trying to get your attention.
@@ -8,11 +8,11 @@ Do not waste resources. Our access to NRP is not guaranteed and is dependent on 
 
 # Playbook
 
-Tolerations are special resources that are preemptible
+Tolerations are special resources that are pre-emptible
 
 If changing manager/deployment CPUs or RAM, coordinate changes in both manager.yaml and deployment.yaml, and then delete and remake appropriate manager.yaml secret
 
-Deployments have tons of tolerations allowing them to run on pre-emptible resources that normal jobs can’t use, also have nice priority. This means our jobs will die more often, but we should be comfortable requesting tons of resources. Just make sure we use what we request, or scale down if not!
+Deployments have tons of tolerations allowing them to run on pre-emptible resources that normal jobs can’t use; [do not set the priority class](https://nrp.ai/documentation/userdocs/running/priority-classes/#what-youre-allowed-to-set). This means our jobs will die more often, but we should be comfortable requesting tons of resources. Just make sure we use what we request, or scale down if not!
 
     kubectl --context=nautilus create secret generic manager-qm-config-yaml-<YOUR INITIALS HERE> --from-file=manager.yaml
 
@@ -47,11 +47,10 @@ In particular
 
 ### Making account on NRP
 
-* Make an NRP account using your @openforcefield.org email. https://docs.nationalresearchplatform.org/userdocs/start/get-access/
-* After making an NRP account, sign into matrix chat by making (yet another) new account. It's important to monitor the chat while running jobs.
+* Make an NRP account using your @openforcefield.org email. https://nrp.ai/documentation/userdocs/start/getting-started/
+* After making an NRP account, sign into matrix chat (https://nrp.ai/contact/) by making (yet another) new account. It's important to monitor the chat while running jobs.
 * Have the openforcefield admin add you to the namespace. If Jeff has been hit by a bus ask on the support chat to have someone new promoted to admin.
-* Click "Get Config" on the top right of the login page and follow the instructions.
-* Install kubectl on your computer (brew using mac, several options on linux) https://kubernetes.io/docs/tasks/tools/#kubectl
+* Follow the instructions at https://nrp.ai/documentation/userdocs/start/getting-started/#cluster-access-via-kubectl, completing Steps 1 through 3 then 8, testing with Steps 5 through 7. 
 * Verify that your config is happy by running something like `kubectl --context=nautilus get deployment` and ensure you see OpenFF's running jobs. 
 * If you start seeing errors rejecting your token, such as `oauth2: cannot fetch token: 401 Unauthorized`, you may need to update your config by re-downloading it.
 
