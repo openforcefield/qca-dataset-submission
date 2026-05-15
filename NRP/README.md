@@ -8,7 +8,7 @@ Do not waste resources. Our access to NRP is not guaranteed and is dependent on 
 
 # Playbook
 
-Tolerations are special resources that are pre-emptible
+Tolerations are scheduling rules that let pods run on nodes with matching taints, including pre-emptible nodes.
 
 If changing manager/deployment CPUs or RAM, coordinate changes in both manager.yaml and deployment.yaml, and then delete and remake appropriate manager.yaml secret
 
@@ -50,7 +50,7 @@ In particular
 * Make an NRP account using your @openforcefield.org email. https://nrp.ai/documentation/userdocs/start/getting-started/
 * After making an NRP account, sign into matrix chat (https://nrp.ai/contact/) by making (yet another) new account. It's important to monitor the chat while running jobs.
 * Have the openforcefield admin add you to the namespace. If Jeff has been hit by a bus ask on the support chat to have someone new promoted to admin.
-* Follow the instructions at https://nrp.ai/documentation/userdocs/start/getting-started/#cluster-access-via-kubectl, completing Steps 1 through 3 then 8, testing with Steps 5 through 7. 
+* Follow the instructions at https://nrp.ai/documentation/userdocs/start/getting-started/#cluster-access-via-kubectl, completing Steps 1 through 3 and 8; verify your setup with Steps 5 through 7.
 * Verify that your config is happy by running something like `kubectl --context=nautilus get deployment` and ensure you see OpenFF's running jobs. 
 * If you start seeing errors rejecting your token, such as `oauth2: cannot fetch token: 401 Unauthorized`, you may need to update your config by re-downloading it.
 
