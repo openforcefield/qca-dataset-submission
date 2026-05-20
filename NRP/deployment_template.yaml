@@ -14,7 +14,6 @@ spec:
       labels:
         k8s-app: openff-qca-qm
     spec:
-      priorityClassName: nice
       tolerations:
         - key: "nautilus.io/suncave"
           operator: "Exists"
