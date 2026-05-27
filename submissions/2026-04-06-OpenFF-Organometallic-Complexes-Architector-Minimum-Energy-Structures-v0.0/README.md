@@ -48,7 +48,6 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 - `3_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP etol=1e-2" spec was added
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
-- `architector_filtered.hdf5`: Input HDF5 file containing the architector-generated structures
 - `scaffold.json.bz2`: A compressed json file of the original target dataset
 - `scaffold_add_highE.json.bz2`: A compressed json file of the dataset with the high energy threshold spec added
 - `scaffold_add_highE_e-2.json.bz2`: A compressed json file of the dataset with the etol=1e-2 spec added
