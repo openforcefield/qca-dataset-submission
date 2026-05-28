@@ -14,6 +14,7 @@ assess the spin state.
 ### Change Log
 
 **2026-03-13**: Added `generate-dataset_2_update_spec.ipynb` to update specifications and basis sets to leverage analytical gradients in psi4.
+**2026-05-28**: 
 
 ### General Information
 
@@ -55,7 +56,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: False
   * SCF Properties:
@@ -75,7 +75,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: True
   * SCF Properties:
@@ -95,7 +94,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: False
   * SCF Properties:
@@ -115,7 +113,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: True
   * SCF Properties:
