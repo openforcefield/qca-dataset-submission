@@ -14,7 +14,7 @@ assess the spin state.
 ### Change Log
 
 **2026-03-13**: Added `generate-dataset_2_update_spec.ipynb` to update specifications and basis sets to leverage analytical gradients in psi4.
-**2026-05-28**: 
+**2026-05-28**: Update specs to remove psi4 print verbosity level to avoid excessively large QCA log files.
 
 ### General Information
 
