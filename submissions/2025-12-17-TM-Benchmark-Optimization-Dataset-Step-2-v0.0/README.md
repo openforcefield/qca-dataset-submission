@@ -37,11 +37,13 @@ assess the spin state.
 
 - `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
 - `generate-dataset_2_update_spec.ipynb`: A python notebook that removes the records in the previous notebook, and creates new ones with revised specs
+- `generate-dataset_3_update_spec.ipynb`: A python notebook that removes the records in the previous notebook, and creates new ones with lower print verbosity in psi4
 
 ### QCSubmit Manifest
 
 - `generate-dataset.ipynb`
 - `generate-dataset_2_update_spec.ipynb`
+- `generate-dataset_3_update_spec.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yml`: All installed packages with versions for successful completion of this workflow
 - `scaffold.json.bz2`: Compressed json file of the old dataset
