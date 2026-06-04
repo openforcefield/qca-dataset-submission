@@ -14,6 +14,7 @@ assess the spin state.
 ### Change Log
 
 **2026-03-13**: Added `generate-dataset_2_update_spec.ipynb` to update specifications and basis sets to leverage analytical gradients in psi4.
+**2026-05-28**: Update specs to remove psi4 print verbosity level to avoid excessively large QCA log files.
 
 ### General Information
 
@@ -36,11 +37,13 @@ assess the spin state.
 
 - `generate-dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
 - `generate-dataset_2_update_spec.ipynb`: A python notebook that removes the records in the previous notebook, and creates new ones with revised specs
+- `generate-dataset_3_update_spec.ipynb`: A python notebook that removes the records in the previous notebook, and creates new ones with lower print verbosity in psi4
 
 ### QCSubmit Manifest
 
 - `generate-dataset.ipynb`
 - `generate-dataset_2_update_spec.ipynb`
+- `generate-dataset_3_update_spec.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yml`: All installed packages with versions for successful completion of this workflow
 - `scaffold.json.bz2`: Compressed json file of the old dataset
@@ -55,7 +58,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: False
   * SCF Properties:
@@ -75,7 +77,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: True
   * SCF Properties:
@@ -95,7 +96,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: False
   * SCF Properties:
@@ -115,7 +115,6 @@ assess the spin state.
   * implicit_solvent: None
   * maxiter: 500
   * reference: uhf
-  * print: 3
   * properties_origin: ['COM']
   * freeze_core: True
   * SCF Properties:
