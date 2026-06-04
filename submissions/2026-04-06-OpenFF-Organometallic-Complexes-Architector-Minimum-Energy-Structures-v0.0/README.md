@@ -41,7 +41,7 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 - `generate_dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
 - `2_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP high energy threshold" spec was added
 - `3_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP etol=1e-2" spec was added
-- `4_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP lowerallspec" spec was added to lower all convergence criteria
+- `4_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP loweralltol" spec was added to lower all convergence criteria
 
 ### QCSubmit Manifest
 
@@ -54,7 +54,7 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 - `scaffold.json.bz2`: A compressed json file of the original target dataset
 - `scaffold_add_highE.json.bz2`: A compressed json file of the dataset with the high energy threshold spec added
 - `scaffold_add_highE_e-2.json.bz2`: A compressed json file of the dataset with the etol=1e-2 spec added
-- `scaffold_4_loweralltol.json`: A compressed json file of the dataset with all convergence criteria lowered
+- `scaffold_4_loweralltol.json.bz2`: A compressed json file of the dataset with all convergence criteria lowered
  
 ### Metadata
 
