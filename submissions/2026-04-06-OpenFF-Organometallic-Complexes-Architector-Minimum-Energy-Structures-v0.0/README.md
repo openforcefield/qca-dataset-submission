@@ -81,12 +81,12 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
        * basis: def2-tzvp
        * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
     * SCF properties:
-         * dipole
-         * quadrupole
-         * wiberg_lowdin_indices
-         * mayer_indices
-         * lowdin_charges
-         * mulliken_charges
+       * dipole
+       * quadrupole
+       * wiberg_lowdin_indices
+       * mayer_indices
+       * lowdin_charges
+       * mulliken_charges
 
 * Spec: BP86/def2-TZVP high energy threshold
     * program: geometric
