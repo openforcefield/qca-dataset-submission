@@ -10,10 +10,11 @@ N, F, Cl, or Br with overall charges: {-1,0,+1}. The metal coordination for each
 molecule was preprocessed using gfn2-xtb as implemented in the architector package. This optimization dataset was then
 run with the BP86/def2-TZVP. Each configuration is reported with the following properties: 'energy', 'gradient',
 'dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'dipole_polarizabilities', 
-'mulliken_charges'.
+'mulliken_charges'. Several specs exist with varying convergence criteria because a true optimum is not of importance in this use case.
 
 ### Changelog
 
+2026-06-04: Added spec "BP86/def2-TZVP loweralltol" to even more quickly "converge" structures for MLP training
 2026-05-27: Added spec "BP86/def2-TZVP etol=1e-2" to even more quickly "converge" structures for MLP training
 2026-04-16: Added spec "BP86/def2-TZVP high energy threshold" to more quickly "converge" structures for MLP training
 
@@ -40,17 +41,20 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
 - `generate_dataset.ipynb`: A python notebook which shows how the dataset was prepared from the input files.
 - `2_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP high energy threshold" spec was added
 - `3_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP etol=1e-2" spec was added
+- `4_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP loweralltol" spec was added to lower all convergence criteria
 
 ### QCSubmit Manifest
 
 - `generate_dataset.ipynb`
-- `2_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP high energy threshold" spec was added
-- `3_generate_dataset_add_spec.ipynb`: A python notebook which shows how the "BP86/def2-TZVP etol=1e-2" spec was added
+- `2_generate_dataset_add_spec.ipynb`
+- `3_generate_dataset_add_spec.ipynb`
+- `4_generate_dataset_add_spec.ipynb`
 - `environment.yml`: Conda environment file to perform this workflow
 - `environment_full.yaml`: All installed packages with versions for successful completion of this workflow
 - `scaffold.json.bz2`: A compressed json file of the original target dataset
 - `scaffold_add_highE.json.bz2`: A compressed json file of the dataset with the high energy threshold spec added
 - `scaffold_add_highE_e-2.json.bz2`: A compressed json file of the dataset with the etol=1e-2 spec added
+- `scaffold_4_loweralltol.json.bz2`: A compressed json file of the dataset with all convergence criteria lowered
  
 ### Metadata
 
@@ -77,12 +81,12 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
        * basis: def2-tzvp
        * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
     * SCF properties:
-         * dipole
-         * quadrupole
-         * wiberg_lowdin_indices
-         * mayer_indices
-         * lowdin_charges
-         * mulliken_charges
+       * dipole
+       * quadrupole
+       * wiberg_lowdin_indices
+       * mayer_indices
+       * lowdin_charges
+       * mulliken_charges
 
 * Spec: BP86/def2-TZVP high energy threshold
     * program: geometric
@@ -126,6 +130,34 @@ run with the BP86/def2-TZVP. Each configuration is reported with the following p
        * epsilon: 1e-05
        * maxiter: 300
        * converge: ['energy', '1e-2']
+       * coordsys: dlc
+    * qc_specification:
+       * program: psi4
+       * driver: SinglepointDriver.deferred
+       * method: bp86
+       * basis: def2-tzvp
+       * keywords: {'maxiter': 500, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}}
+       * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
+    * SCF properties:
+           * dipole
+           * quadrupole
+           * wiberg_lowdin_indices
+           * mayer_indices
+           * lowdin_charges
+           * mulliken_charges
+* Spec: BP86/def2-TZVP loweralltol
+    * program: geometric
+    * keywords:
+       * tmax: 0.3
+       * check: 0
+       * qccnv: False
+       * reset: True
+       * trust: 0.1
+       * molcnv: False
+       * enforce: 0.0
+       * epsilon: 1e-05
+       * maxiter: 300
+       * converge: ['energy', '1e-3', 'grms', '5e-2', 'gmax', '1e-2', 'drms', '1e-1', 'dmax', '4e-1']
        * coordsys: dlc
     * qc_specification:
        * program: psi4
