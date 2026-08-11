@@ -3,7 +3,7 @@
 ### Description
 
 This dataset was generated using [architector](https://github.com/lanl/Architector/tree/Secondary_Solvation_Shell), the
-details of the HDF5 file can be found in the Zenodo record (https://zenodo.org/records/19372923). This dataset contains
+details of the HDF5 file can be found in the Zenodo record (https://zenodo.org/records/21841427). This dataset contains
 389,480 unique systems/configurations below 980 Da using the same keys as in the HDF5 as entry labels. The molecules
 are limited to containing transition metals Pd, Zn, Fe, Cu, Li, or Mg with methyl-capped ligands (electronically neutral
 capping groups) and also only contain elements C, H, P, S, O, N, F, Cl, or Br with overall charges: {-1,0,+1}. The metal
