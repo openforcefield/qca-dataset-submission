@@ -4,7 +4,7 @@
 
 This dataset was generated starting from the tmQM dataset (release 13Aug2024, https://github.com/uiocompcat/tmQM) containing 108541 unique molecules;
 each molecule was evaluated using gfn2-xtb, and then a short MD simulation performed to provide additional configurations of the molecules. Further details
-can be found in the hosting repository: https://zenodo.org/records/15015000. This dataset contains 23134 unique transition metal complexes with one Pd, Zn, 
+can be found in the hosting repository: https://zenodo.org/records/15059433. This dataset contains 23134 unique transition metal complexes with one Pd, Zn, 
 Fe, or Cu, and also only contain elements C, H, P, S, O, N, F, Cl, or Br with charges: {-1,0,+1}. Run with the BP86/def2-TZVP for loose optimizations generating
 the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'lowdin_spins', 'dipole_polarizabilities',
 'mulliken_charges'.
@@ -12,7 +12,7 @@ the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_ind
 ### General Information
 
 - Date: 2026-09-01
-- Purpose: Optimization for tmQM single metal complexes with Pd, Fe, Zn, Cu, Mg, Li with variations in multiplicity and charges={-1,0,+1}.
+- Purpose: BP86/def2-TZVP optimizations for tmQM-derived Pd, Zn, Fe, and Cu complexes across enumerated charge and multiplicity variants with charges of {-1,0,+1}.
 - Dataset Type: optimization
 - Name: tmQM Charge Multiplicity Variant Optimization Dataset v0.0
 - Number of unique molecules: 23,134
