@@ -14,5 +14,4 @@ dependencies:
   - pandas
   - tabulate
   - rdkit
-  - psi4>=1.10
-  - libxc
+  - psi4>=1.11
