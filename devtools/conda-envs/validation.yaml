@@ -15,3 +15,4 @@ dependencies:
   - tabulate
   - rdkit
   - psi4>=1.10
+  - libxc
