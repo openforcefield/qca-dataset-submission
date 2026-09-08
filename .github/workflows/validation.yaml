@@ -32,7 +32,7 @@ jobs:
         with:
           environment-file: devtools/conda-envs/validation.yaml
           create-args: >-
-            python=3.11
+            python=3.13
           cache-environment: true
 
       - name: Environment Information
