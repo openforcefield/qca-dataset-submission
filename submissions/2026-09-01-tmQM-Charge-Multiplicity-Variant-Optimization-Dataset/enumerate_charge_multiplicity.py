@@ -134,18 +134,18 @@ _MAIN_GROUP_SPIN: Dict[Tuple[str, ...], List[Tuple[int, List[int]]]] = {
 # Draft accessible oxidation states per element, for this dataset's chemistry.
 # Elements absent here are left unrestricted.
 _ACCESSIBLE_OXIDATION_GROUPS: Dict[Tuple[str, ...], Set[int]] = {
-    ("Li",): {0, 1},
-    ("Mg",): {0, 2},
+    ("Li",): {1},
+    ("Mg",): {1, 2}, # Mg(I) isn't expected to be good 
     ("Sc", "Y"): {3},
     ("Ti", "Zr"): {2, 3, 4},
     ("V", "Nb"): {2, 3, 4, 5},
     ("Cr", "Mo"): {0, 1, 2, 3, 4, 5, 6},
     ("Mn", "Tc"): {2, 3, 4, 5, 6},
-    ("Fe", "Ru"): {2, 3, 4},
+    ("Fe", "Ru"): {0, 1, 2, 3, 4},
     ("Co", "Rh"): {0, 1, 2, 3},
-    ("Ni", "Pd"): {0, 1, 2, 3},
+    ("Ni", "Pd"): {0, 1, 2, 3, 4},
     ("Cu", "Ag"): {1, 2, 3},
-    ("Zn", "Cd"): {2},
+    ("Zn", "Cd"): {1, 2, 3, 4}, # Zn(II) through Zn(IV) isn't expected to be real but comparable to Cu
 }
 
 

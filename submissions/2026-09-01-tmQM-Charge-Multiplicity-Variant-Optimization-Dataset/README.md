@@ -19,12 +19,12 @@ the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_ind
 - Number of filtered molecules: 0
 - Number of Conformers: 23,134
 - Number of conformers (min mean max): 1, 1, 1
-- Number of Charge/Multiplicity variations per molecule: 103032
-- Number of Charge/Multiplicity variations per molecule (min mean max): 1 4 9
 - Molecular Weight (min mean max): 95 589 2541
 - Metals: {'Cu': 3118, 'Pd': 9362, 'Zn': 6395, 'Fe': 4259}
-- Charges: Counter({0.0: 40964, 1.0: 36530, -1.0: 25538})
-- Multiplicities: Counter({2.0: 30099, 1.0: 26513, 3.0: 17613, 4.0: 16030, 6.0: 7809, 5.0: 4968})
+- Number of Charge/Multiplicity variations per molecule: 142198
+- Number of Charge/Multiplicity variations per molecule (min mean max): 4 6 9
+- Charges: Counter({0.0: 56638, 1.0: 44265, -1.0: 41295})
+- Multiplicities: Counter({2.0: 42308, 1.0: 27094, 4.0: 25309, 3.0: 25265, 5.0: 14413, 6.0: 7809})
 - Entry name format: tmQM HDF5 label suffixed as `-charge=<total charge>-m<multiplicity>`
 - Dataset Submitter: Jennifer A. Clark
 - Dataset Curator: Jennifer A. Clark
@@ -50,7 +50,7 @@ the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_ind
  
 ### Metadata
 
-* Elements: Pd, Zn, S, P, Fe, O, Cl, N, Br, F, Cu, H, C
+* Elements: Br, C, Cl, Cu, F, Fe, H, N, O, P, Pd, S, Zn
 * Spec: BP86/def2-TZVP
     * program: geometric
     * keywords:
