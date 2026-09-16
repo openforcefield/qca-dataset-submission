@@ -1,6 +1,6 @@
 ---
 # deployment of GPU-enabled qcarchive prod environments for docker deployments
-# Uses explicit CUDA 13.6 for compatibility with NRP and other HPC systems
+# Uses explicit CUDA 13.3.1 for compatibility with NRP and other HPC systems
 
 name: Deployment - QCArchive Prod GPU Docker Environments
 
@@ -49,4 +49,4 @@ jobs:
           cache-to: type=registry,ref=ghcr.io/${{ github.repository }}:${{ matrix.env-name }}-gpu-buildcache,mode=max
           build-args: |
             ENV_NAME=${{ matrix.env-name }}
-            CUDA_VERSION=13.6
+            CUDA_VERSION=13.3.1

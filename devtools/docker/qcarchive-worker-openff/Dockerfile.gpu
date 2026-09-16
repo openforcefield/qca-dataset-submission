@@ -1,4 +1,4 @@
-ARG CUDA_VERSION=13.6
+ARG CUDA_VERSION=13.3.1
 FROM nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu24.04
 
 ARG ENV_NAME
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y wget bzip2 ca-certificates libglib2.0-0
 RUN wget -q https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh && \
     bash Miniforge3-Linux-x86_64.sh -b -p /opt/conda && \
     rm Miniforge3-Linux-x86_64.sh
-ENV PATH /opt/conda/bin:$PATH
+ENV PATH=/opt/conda/bin:$PATH
 
 SHELL ["/bin/bash", "-c"]
 
