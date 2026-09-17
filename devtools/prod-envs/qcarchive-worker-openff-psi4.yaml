@@ -6,7 +6,7 @@ dependencies:
   - python =3.13
   - pip
   - qcfractal
-  - qcfractalcompute>=0.7
+  - qcfractalcompute=0.70
   - qcengine>=0.51.0
 
   # QM calculations
