@@ -9,6 +9,10 @@ Fe, or Cu, and also only contain elements C, H, P, S, O, N, F, Cl, or Br with ch
 the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'lowdin_spins', 'dipole_polarizabilities',
 'mulliken_charges'.
 
+### Changelog
+
+- 2026/09/18 Add new spec that sets use_cuest=True
+
 ### General Information
 
 - Date: 2026-09-01
@@ -69,10 +73,39 @@ the properties: 'energy', 'gradient', 'dipole', 'quadrupole', 'wiberg_lowdin_ind
     * qc_specification:
        * program: psi4
        * driver: SinglepointDriver.deferred
-       * implicit_solvent: none
        * method: bp86
        * basis: def2-tzvp
        * keywords: {'maxiter': 500, 'reference': 'uks', 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'lowdin_spins', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}, 'properties_origin': ['COM']}
+       * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
+    * SCF properties:
+           * dipole
+           * quadrupole
+           * wiberg_lowdin_indices
+           * mayer_indices
+           * lowdin_charges
+           * lowdin_spins
+           * mulliken_charges
+* Spec: BP86/def2-TZVP cuEST
+    * program: geometric
+    * keywords:
+       * tmax: 0.3
+       * check: 0
+       * qccnv: False
+       * reset: True
+       * trust: 0.1
+       * molcnv: False
+       * enforce: 0.0
+       * epsilon: 1e-05
+       * maxiter: 300
+       * converge: ['energy', '1e-3', 'grms', '0.2', 'gmax', '1.0', 'drms', '15', 'dmax', '30']
+       * coordsys: dlc
+       * convergence_set: GAU
+    * qc_specification:
+       * program: psi4
+       * driver: SinglepointDriver.deferred
+       * method: bp86
+       * basis: def2-tzvp
+       * keywords: {'maxiter': 500, 'reference': 'uks', 'use_cuest': True, 'scf_properties': ['dipole', 'quadrupole', 'wiberg_lowdin_indices', 'mayer_indices', 'lowdin_charges', 'lowdin_spins', 'mulliken_charges'], 'function_kwargs': {'properties': ['dipole_polarizabilities']}, 'properties_origin': ['COM']}
        * protocols: {'wavefunction': <WavefunctionProtocolEnum.none: 'none'>, 'stdout': True, 'error_correction': {'default_policy': True, 'policies': None}, 'native_files': <NativeFilesProtocolEnum.none: 'none'>}
     * SCF properties:
            * dipole
