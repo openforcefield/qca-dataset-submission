@@ -1,0 +1,28 @@
+name: qcarchive-worker-openff-psi4
+channels:
+  - conda-forge/label/libint_dev
+  - conda-forge
+dependencies:
+  - python =3.13
+  - pip
+  - qcfractal
+  - cmake
+  - qcfractalcompute>=0.7
+  - qcengine>=0.51.0
+
+  # QM calculations
+  - "conda-forge/label/psi4_dev::psi4=1.12a5=cuda*"
+  - dftd3-python
+  - dftd4-python
+  - gcp-correction
+  - scipy
+  - msgpack-python
+  - pytest-xdist
+  - python-gil
+  - qcmanybody
+
+  # procedures
+  - geometric
+
+  - pip:
+    - basis_set_exchange
