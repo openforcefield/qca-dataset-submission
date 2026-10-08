@@ -110,3 +110,8 @@ venv.bak/
 .vscode/
 
 .DS_Store
+
+
+# Agent workflow (local only, not tracked)
+.agents/
+
