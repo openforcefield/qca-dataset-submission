@@ -1,4 +1,4 @@
-# MLPepper-RECAP-Optimized-Fragments-Add-Iodines-v1.0
+# MLPepper RECAP Optimized Fragments v1.0 Add Iodines
 
 ## Description
 
