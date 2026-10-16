@@ -1,4 +1,4 @@
-# smirnoff99Frost parameter coverage
+# SMIRNOFF Coverage Set 1
 
 ### General Information
  - Date: 6/25/2019

@@ -1,4 +1,5 @@
-# eMolecules force field discrepancy optimization dataset 1
+# OpenFF Discrepancy Benchmark 1
+eMolecules force field discrepancy optimization dataset
 
 Prepared by John Chodera `<john.chodera@choderalab.org>` and David Mobley `<dmobley@uci.edu>` based on work done by Jordan Ehrman `<ehrmanj@uci.edu>` supervised by Mobley, Caitlin Bannan and Victoria Lim (UCI).
 

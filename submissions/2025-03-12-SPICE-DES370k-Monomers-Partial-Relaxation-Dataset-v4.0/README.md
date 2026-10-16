@@ -8,6 +8,7 @@ Detailed description on how the original dataset is generated can be found at ht
 
 ## General information
 * Name: SPICE DES370k Monomers Partial Relaxation Dataset v4.0
+* Class: OpenFF Optimization Dataset
 * Number of unique molecules: 376
 * Number of conformers: 18700
 * Number of conformers (min, mean, max): 50.00, 50.00, 50.00

@@ -8,6 +8,7 @@ Detailed description on how the original dataset is generated can be found at ht
 
 ## General information
 * Name: SPICE Dipeptides Partial Relaxation Dataset v4.0
+* Class: OpenFF Optimization Dataset
 * Number of unique molecules: 677
 * Number of conformers: 33850
 * Number of conformers (min, mean, max): 50.00, 50.00, 50.00

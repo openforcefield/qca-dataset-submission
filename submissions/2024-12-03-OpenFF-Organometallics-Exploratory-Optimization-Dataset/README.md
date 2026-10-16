@@ -1,4 +1,4 @@
-# OpenFF Organometallics Exploratory Optimization Dataset
+# OpenFF Organometallics Exploratory Optimization Dataset v1.0
 
 ## Description
 
@@ -20,7 +20,7 @@ molecules.
 * Date: 2024-12-03
 * Class: OpenFF Optimization Dataset
 * Purpose: Provide training data for metal-containing molecules
-* Name: OpenFF Organometallics Exploratory Optimization Dataset
+* Name: OpenFF Organometallics Exploratory Optimization Dataset v1.0
 * Number of unique molecules: 44
 * Number of filtered molecules: 55
 * Number of conformers: 239

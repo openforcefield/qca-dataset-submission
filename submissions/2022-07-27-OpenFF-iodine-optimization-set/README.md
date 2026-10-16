@@ -1,4 +1,4 @@
-# QMDataset Dipeptides
+# OpenFF Iodine Chemistry Optimization Dataset v1.0
 
 ### Description
 

@@ -1,4 +1,4 @@
-# OpenFF NCI250K Boron 1 (OptimizationDataset)
+# OpenFF NCI250K Boron 1
 
 Prepared by John Chodera `<john.chodera@choderalab.org>` and David Mobley `<dmobley@uci.edu>`
 
