@@ -1,4 +1,4 @@
-# OpenFF Gen 2 Torsion Set 6 supplemental
+# OpenFF Gen 2 Torsion Set 6 Supplemental
 
 ### General Information
  - Date: 3/12/2020

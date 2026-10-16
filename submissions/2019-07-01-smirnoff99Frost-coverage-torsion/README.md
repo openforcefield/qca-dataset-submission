@@ -1,4 +1,4 @@
-# smirnoff99Frost parameter coverage
+# SMIRNOFF Coverage Torsion Set 1
 
 ### General Information
  - Date: 7/1/2019

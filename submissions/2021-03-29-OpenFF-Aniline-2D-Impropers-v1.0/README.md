@@ -1,4 +1,4 @@
-# OpenFF Aniline 2D Impropers v1.0:
+# OpenFF Aniline 2D Impropers v1.0
 
 ### Description
 

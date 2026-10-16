@@ -1,4 +1,4 @@
-# Fragmenter Testing
+# OpenFF Fragmenter Validation 1.0
 
 ### General Information
  - Date: 2020-04-28

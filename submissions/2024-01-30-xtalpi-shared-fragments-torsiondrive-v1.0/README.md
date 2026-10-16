@@ -18,8 +18,8 @@ This dataset is read in the Jupyter notebook to create the submission.
 ## General information
 
 * Date: 2024-01-30
-* Class: OpenFF Optimization Dataset
-* Purpose: Geometry optimization
+* Class: OpenFF TorsionDrive Dataset
+* Purpose: Torsion drive
 * Name: XtalPi Shared Fragments TorsiondriveDataset v1.0
 * Number of unique molecules: 169
 * Number of conformers (min, mean, max): 1 2.5 6
