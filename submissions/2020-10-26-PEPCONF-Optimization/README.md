@@ -1,4 +1,4 @@
-# PEPCONF OptimizationDataset
+# OpenFF PEPCONF OptimizationDataset v1.0
 
 ### Description
 

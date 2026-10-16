@@ -1,4 +1,4 @@
-# OpenFF Protein Peptide Fragments unconstrained
+# OpenFF Protein Peptide Fragments unconstrained v1.0
 
 ### Description
 
