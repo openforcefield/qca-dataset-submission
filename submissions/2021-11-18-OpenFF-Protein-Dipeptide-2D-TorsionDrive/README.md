@@ -1,4 +1,4 @@
-# OpenFF Protein Dipeptide 2-D TorsionDrive v2.0
+# OpenFF Protein Dipeptide 2-D TorsionDrive
 
 ## Description
 
