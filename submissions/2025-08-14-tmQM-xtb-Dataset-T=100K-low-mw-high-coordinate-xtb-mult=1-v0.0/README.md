@@ -1,4 +1,4 @@
-# tmQM xtb Dataset T=100K low-mw high-coordinate xtb mult=1 v0.0
+# tmQM xtb Dataset T=100K low-mw high-coordinate mult=1 v0.0
 
 ### Description
 

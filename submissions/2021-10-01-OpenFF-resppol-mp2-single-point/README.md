@@ -1,4 +1,4 @@
-# OpenFF BCC Refit Study COH v2.0
+# OpenFF RESP Polarizability Optimizations v1.0 and v1.1
 
 ### Description
 

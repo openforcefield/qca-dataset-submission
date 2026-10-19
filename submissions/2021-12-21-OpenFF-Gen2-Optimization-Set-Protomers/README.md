@@ -1,4 +1,4 @@
-# OpenFF Gen 2 Optimization Set Protomers
+# OpenFF Gen2 Optimization Dataset Protomers v1.0
 
 Optimization set created from the smiles of missing protomers in Gen 2 optimization sets.
 

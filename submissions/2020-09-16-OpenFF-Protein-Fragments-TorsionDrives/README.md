@@ -1,4 +1,4 @@
-# OpenFF Protein Fragments TorsionDrives
+# OpenFF Protein Fragments TorsionDrives v1.0
 
 ### Note: This dataset contains mis-labeled chiral centers (It should consist entirely of L- amino acids, but some graphs indicate D- chirality).
 

@@ -1,4 +1,4 @@
-# Pfizer discrepancy torsion dataset 1 (`TorsionDriveDataset`)
+# Pfizer Discrepancy Torsion Dataset 1
 
 Prepared by John Chodera `<john.chodera@choderalab.org>` with molecules from Xinjun Hou `<Xinjun.Hou@pfizer.com>` and Brajesh Rai `<Brajesh.Rai@pfizer.com>`
 
@@ -17,7 +17,7 @@ https://github.com/PfizerRD/torsional-strain
  - Class: Forcefield Parametrization
  - Purpose: Explore discrepancies between QM and OPLS3e
  - Collection: TorsionDriveDataset
- - Name: Pfizer discrepancy torsion dataset 1
+ - Name: Pfizer Discrepancy Torsion Dataset 1
  - Number of Entries: 100 unique molecules, 227 torsion drives
  - Submitter: John Chodera
 

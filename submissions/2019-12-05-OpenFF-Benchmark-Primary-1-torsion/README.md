@@ -1,4 +1,4 @@
-# OpenFF Benchmark Primary 1 torsion
+# OpenFF Primary Benchmark 1 Torsion Set
 
 ### General Information
  - Date: 12/5/2019

@@ -1,4 +1,4 @@
-# FDA optimization dataset 1 (`OptimizationDataset`)
+# FDA Optimization Dataset 1
 
 Prepared by John Chodera `<john.chodera@choderalab.org>`
 

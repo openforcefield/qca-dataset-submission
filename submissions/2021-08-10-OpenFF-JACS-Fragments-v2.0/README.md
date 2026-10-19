@@ -1,4 +1,4 @@
-# OpenFF benchmark ligand fragments v2.0
+# OpenFF-benchmark-ligand-fragments-v2.0
 
 ### Description
 

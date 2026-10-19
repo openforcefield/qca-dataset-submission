@@ -1,4 +1,4 @@
-# QMDataset Dipeptides
+# SPICE Dipeptides Optimization Dataset v1.0
 
 ### Description
 
@@ -10,7 +10,7 @@ Optimization set created from the smiles of SPICE Dipeptide dataset. Detailed de
 - Class: OpenFF OptimizationDataset
 - Purpose: QM dataset of dipeptides for ML
 - Collection: OptimizationDataset
-- Name: SPICE Dipeptides Single Points Dataset v1.0
+- Name: SPICE Dipeptides Optimization Dataset v1.0
 - Number of unique molecules        677
 - Number of filtered molecules      0
 - Number of conformers              33327

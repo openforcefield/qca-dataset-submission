@@ -1,4 +1,4 @@
-# OpenFF Torsion Benchmark Supplement Optimization Dataset v1.0
+# OpenFF Torsion Benchmark Supplement v1.0
 
 ## Description
 
@@ -13,7 +13,7 @@ described below.
 * Date: 2024-04-17
 * Class: OpenFF Optimization Dataset
 * Purpose: Improve proper torsion training data in Sage
-* Name: OpenFF Torsion Benchmark Supplement Optimization Dataset v1.0
+* Name: OpenFF Torsion Benchmark Supplement v1.0
 * Number of unique molecules: 51
 * Number of filtered molecules: 0
 * Number of conformers: 51

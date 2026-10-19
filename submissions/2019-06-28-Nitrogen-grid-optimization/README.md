@@ -1,4 +1,4 @@
-# Nitrogen Grid Optimizations
+# OpenFF Trivalent Nitrogen Set 1
 
 ### General Information
  - Date: 7/2/2019

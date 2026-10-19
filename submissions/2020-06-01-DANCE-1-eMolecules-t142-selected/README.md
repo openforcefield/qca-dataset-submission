@@ -1,4 +1,4 @@
-# DANCE 1: eMolecules t142 selected
+# OpenFF DANCE 1 eMolecules t142 v1.0
 
 ### General Information
 

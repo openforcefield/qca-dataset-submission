@@ -1,4 +1,4 @@
-# Pfizer discrepancy optimization dataset 1 (`OptimizationDataset`)
+# Pfizer Discrepancy Optimization Dataset 1
 
 Prepared by John Chodera `<john.chodera@choderalab.org>` with molecules from Xinjun Hou `<Xinjun.Hou@pfizer.com>` and Brajesh Rai `<Brajesh.Rai@pfizer.com>`
 

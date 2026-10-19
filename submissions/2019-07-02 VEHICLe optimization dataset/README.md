@@ -1,4 +1,5 @@
-# Heteroaromatic rings of the future (optimization dataset)
+# OpenFF VEHICLe Set 1
+Heteroaromatic rings of the future (optimization dataset)
 
 Prepared by John Chodera `<john.chodera@choderalab.org>`
 

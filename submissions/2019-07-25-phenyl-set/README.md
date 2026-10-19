@@ -1,4 +1,4 @@
-# Biphenyl set
+# OpenFF Substituted Phenyl Set 1
 
 ### General Information
  - Date: 7/25/2019

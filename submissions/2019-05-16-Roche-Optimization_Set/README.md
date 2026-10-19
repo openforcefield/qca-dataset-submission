@@ -1,4 +1,5 @@
-# Roche molecules geometry optimization
+# OpenFF Optimization Set 1
+Roche molecules geometry optimization
 
 ### General Information
  - Date: 9/4/2019
