@@ -4,7 +4,7 @@
 
 All datasets submitted to QCArchive via this repository conform to the [Dataset Lifecycle](#the-lifecycle-of-a-dataset-submission).
 
-See [STANDARDS.md](./STANDARDS.md) for submission standards.
+See [STANDARDS.md](./STANDARDS.md) for submission standards and [AI_POLICY.md](./AI_POLICY.md) for expectations when using AI.
 Datasets must be submitted as pull requests.
 
 ## User Quickstart
